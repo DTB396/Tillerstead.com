@@ -102,7 +102,6 @@ body {
   -webkit-text-size-adjust: 100%;
   /* Improve scrolling performance */
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body.site-body {
