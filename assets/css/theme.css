@@ -125,7 +125,6 @@ svg {
 img {
   /* Modern image rendering */
   image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
   /* Better loading UX */
   background-color: var(--ts-surface-elevated);
 }
