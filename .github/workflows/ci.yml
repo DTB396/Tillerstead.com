@@ -10,20 +10,37 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Node & npm
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Install npm deps
-        run: npm ci
+      - name: Generate package-lock if missing
+        run: |
+          if [ ! -f package-lock.json ]; then
+            npm install --package-lock-only
+            echo "Generated package-lock.json"
+          else
+            echo "package-lock.json already exists"
+          fi
 
-      # Lint
+      - name: Upload package-lock.json artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: package-lock
+          path: package-lock.json
+
+      - name: Install npm deps
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
       - name: Lint (ESLint + HTMLHint)
         run: npm run lint
 
-      # Ruby/Jekyll
       - name: Install Ruby & Bundler
         uses: ruby/setup-ruby@v1
         with:
