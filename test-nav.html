@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Navigation</title>
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body class="site-body">
+  <header class="site-header ts-header ts-theme" role="banner">
+    <div class="site-header-inner container">
+      <!-- Brand -->
+      <div class="ts-brand">
+        <a class="site-logo" href="/" aria-label="Tillerstead LLC - Return to homepage">
+          <img src="/assets/img/logo.png" alt="Tillerstead LLC" class="site-logo-img" width="160" height="auto" fetchpriority="high" />
+          <span class="site-logo-text sr-only">Tillerstead LLC</span>
+        </a>
+      </div>
+      
+      <!-- Primary navigation -->
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <ul class="site-menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header actions -->
+      <div class="site-header-actions">
+        <a class="call-btn btn" href="tel:+16096659350" aria-label="Call Tillerstead at (609) 665-9350">
+          <span aria-hidden="true">(609) 665-9350</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation menu">
+          <span class="nav-toggle-label" aria-hidden="true">Menu</span>
+          <span class="nav-toggle-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <section style="padding: 3rem 0;">
+      <div class="container">
+        <h1>Navigation Test Page</h1>
+        <p>This page tests the mobile navigation menu.</p>
+        <p>On mobile (screens smaller than 768px), the navigation should appear as a drawer when you click the "Menu" button.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
