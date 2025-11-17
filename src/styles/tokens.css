@@ -124,7 +124,7 @@
   --radius-pill: 999px;
 
   /* ===========================
-     Shadows
+     Shadows (Enhanced for Boss Theme)
      =========================== */
   
   --shadow-soft: 0 24px 40px rgba(2, 6, 23, 0.45);
@@ -132,6 +132,8 @@
   --shadow-sharp: 0 20px 38px rgba(15, 23, 42, 0.55);
   --shadow-button: 0 16px 36px rgba(26, 200, 122, 0.35);
   --shadow-button-hover: 0 24px 48px rgba(26, 200, 122, 0.4);
+  --shadow-glow: 0 0 20px rgba(26, 200, 122, 0.4), 0 0 40px rgba(26, 200, 122, 0.2);
+  --shadow-glow-accent: 0 0 20px rgba(216, 178, 90, 0.4), 0 0 40px rgba(216, 178, 90, 0.2);
 
   /* ===========================
      Transitions
@@ -260,3 +262,5 @@ html.light {
 .shadow-soft { box-shadow: var(--shadow-soft) !important; }
 .shadow-lift { box-shadow: var(--shadow-lift) !important; }
 .shadow-sharp { box-shadow: var(--shadow-sharp) !important; }
+.shadow-glow { box-shadow: var(--shadow-glow) !important; }
+.shadow-glow-accent { box-shadow: var(--shadow-glow-accent) !important; }

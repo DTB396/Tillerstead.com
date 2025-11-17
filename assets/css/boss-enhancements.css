@@ -1,0 +1,609 @@
+/* ============================================
+   Tillerstead "BOSS" Theme Enhancements
+   Premium visual upgrades and micro-interactions
+   ============================================ */
+
+/* ===========================
+   ENHANCED ANIMATIONS & TRANSITIONS
+   =========================== */
+
+/* Smooth scroll behavior for modern browsers */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Fade-in animation for sections */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(26, 200, 122, 0.3),
+                  0 0 40px rgba(26, 200, 122, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(26, 200, 122, 0.5),
+                  0 0 60px rgba(26, 200, 122, 0.2);
+    }
+  }
+
+  /* Apply fade-in to sections */
+  .ts-section,
+  .section {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  /* Stagger animation for cards */
+  .ts-card,
+  .card,
+  .gc-card {
+    animation: scaleIn 0.6s ease-out;
+    animation-fill-mode: both;
+  }
+
+  .ts-card:nth-child(1),
+  .card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .ts-card:nth-child(2),
+  .card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .ts-card:nth-child(3),
+  .card:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  .ts-card:nth-child(4),
+  .card:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+}
+
+/* ===========================
+   ENHANCED BUTTON STYLES
+   =========================== */
+
+.btn,
+button.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-med);
+  box-shadow: var(--shadow-button);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn:hover::before,
+  .btn:focus-visible::before {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Enhanced primary button with gradient animation */
+.btn-primary,
+.btn {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-strong) 50%,
+    var(--color-primary) 100%
+  );
+  background-size: 200% 100%;
+  transition: all var(--transition-med), background-position 0.8s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn-primary:hover,
+  .btn:hover {
+    background-position: 100% 0;
+  }
+}
+
+/* Accent button with shimmer effect */
+.btn-accent {
+  background: linear-gradient(
+    135deg,
+    var(--color-accent) 0%,
+    #f0d080 50%,
+    var(--color-accent) 100%
+  );
+  background-size: 200% 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn-accent::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: left 0.8s ease;
+  }
+
+  .btn-accent:hover::after {
+    left: 200%;
+  }
+}
+
+/* ===========================
+   ENHANCED CARD STYLES
+   =========================== */
+
+.ts-card,
+.card,
+.gc-card,
+.process-card,
+.expect-card,
+.docs-card {
+  transition: all var(--transition-med);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle gradient overlay on hover */
+.ts-card::before,
+.card::before,
+.gc-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(26, 200, 122, 0.08),
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-med);
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ts-card:hover::before,
+  .card:hover::before,
+  .gc-card:hover::before {
+    opacity: 1;
+  }
+
+  .ts-card:hover,
+  .card:hover,
+  .gc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lift);
+    border-color: rgba(26, 200, 122, 0.3);
+  }
+}
+
+/* ===========================
+   ENHANCED LINK STYLES
+   =========================== */
+
+a {
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+/* Fancy underline effect for content links */
+.page-content a:not(.btn):not(.card a):not(.no-underline) {
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-primary-strong)
+  );
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 2px;
+  transition: background-size var(--transition-med);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .page-content a:not(.btn):not(.card a):not(.no-underline):hover {
+    background-size: 100% 2px;
+  }
+}
+
+/* ===========================
+   ENHANCED HERO SECTION
+   =========================== */
+
+.hero-surface,
+.hero-panel {
+  position: relative;
+}
+
+/* Animated gradient overlay */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes gradientPulse {
+    0%, 100% {
+      opacity: 0.25;
+    }
+    50% {
+      opacity: 0.35;
+    }
+  }
+
+  .hero-surface::before,
+  .hero-panel::before {
+    animation: gradientPulse 8s ease-in-out infinite;
+  }
+}
+
+/* Enhanced hero headings with gradient text */
+.hero-title,
+.hero-panel h1 {
+  background: linear-gradient(
+    135deg,
+    var(--color-heading) 0%,
+    rgba(255, 255, 255, 0.9) 50%,
+    var(--color-heading) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-title,
+  .hero-panel h1 {
+    animation: shimmer 3s ease-in-out infinite;
+  }
+}
+
+/* ===========================
+   ENHANCED FOCUS STATES
+   =========================== */
+
+/* Premium focus rings */
+*:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  transition: box-shadow var(--transition-fast);
+}
+
+button:focus-visible,
+.btn:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* ===========================
+   ENHANCED IMAGE STYLES
+   =========================== */
+
+img {
+  transition: transform var(--transition-med), filter var(--transition-med);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gallery-grid img:hover,
+  .portfolio-grid img:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+  }
+}
+
+/* Image loading state */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* ===========================
+   ENHANCED FORM ELEMENTS
+   =========================== */
+
+input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+  transition: all var(--transition-fast);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-elevated);
+  color: var(--color-text);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+  outline: none;
+}
+
+input:hover:not(:focus),
+textarea:hover:not(:focus),
+select:hover:not(:focus) {
+  border-color: var(--color-border-strong);
+}
+
+/* ===========================
+   ENHANCED LOADING STATES
+   =========================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes skeleton-loading {
+    0% {
+      background-position: -200px 0;
+    }
+    100% {
+      background-position: calc(200px + 100%) 0;
+    }
+  }
+
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--color-surface-elevated) 0px,
+      rgba(148, 163, 184, 0.1) 40px,
+      var(--color-surface-elevated) 80px
+    );
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.2s ease-in-out infinite;
+  }
+}
+
+/* ===========================
+   ENHANCED SCROLLBAR
+   =========================== */
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--color-primary) 0%,
+    var(--color-primary-strong) 100%
+  );
+  border-radius: 6px;
+  border: 2px solid var(--color-surface);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-surface);
+}
+
+/* ===========================
+   ENHANCED SECTION DIVIDERS
+   =========================== */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-border) 20%,
+    var(--color-border) 80%,
+    transparent 100%
+  );
+  margin: var(--space-8) 0;
+}
+
+/* ===========================
+   ENHANCED BADGE/CHIP STYLES
+   =========================== */
+
+.chip,
+.ts-eyebrow {
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .chip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 200, 122, 0.2);
+  }
+}
+
+.chip.is-active {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ===========================
+   ENHANCED TOOLTIP STYLES
+   =========================== */
+
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  padding: 0.5rem 0.75rem;
+  background: var(--color-surface-highlight);
+  color: var(--color-text);
+  font-size: 0.875rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  box-shadow: var(--shadow-lift);
+  z-index: 1000;
+}
+
+[data-tooltip]:hover::after,
+[data-tooltip]:focus::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+/* ===========================
+   ENHANCED UTILITY CLASSES
+   =========================== */
+
+.text-gradient-primary {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-strong) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(
+    135deg,
+    var(--color-accent) 0%,
+    #f0d080 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glow-primary {
+  box-shadow: 0 0 20px rgba(26, 200, 122, 0.4),
+              0 0 40px rgba(26, 200, 122, 0.2);
+}
+
+.glow-accent {
+  box-shadow: 0 0 20px rgba(216, 178, 90, 0.4),
+              0 0 40px rgba(216, 178, 90, 0.2);
+}
+
+/* ===========================
+   RESPONSIVE ENHANCEMENTS
+   =========================== */
+
+@media (max-width: 768px) {
+  /* Reduce animations on mobile for performance */
+  @media (prefers-reduced-motion: no-preference) {
+    .ts-card,
+    .card {
+      animation-duration: 0.4s;
+    }
+  }
+}
+
+/* ===========================
+   HIGH CONTRAST MODE SUPPORT
+   =========================== */
+
+@media (prefers-contrast: high) {
+  .btn,
+  button.btn {
+    border: 2px solid currentColor;
+  }
+
+  .ts-card,
+  .card {
+    border-width: 2px;
+  }
+}
+
+/* ===========================
+   DARK MODE OPTIMIZATIONS
+   =========================== */
+
+@media (prefers-color-scheme: dark) {
+  /* Ensure proper contrast in dark mode */
+  :root {
+    color-scheme: dark;
+  }
+}

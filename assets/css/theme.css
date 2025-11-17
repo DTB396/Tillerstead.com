@@ -9,6 +9,9 @@
 /* Import hero pattern utilities */
 @import url('_hero-patterns.css');
 
+/* Import boss-level enhancements */
+@import url('boss-enhancements.css');
+
 /* ============================================
    Token Compatibility Mappings
    Maps new token names to existing --ts-* names

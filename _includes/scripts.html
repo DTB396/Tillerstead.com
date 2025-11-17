@@ -20,6 +20,13 @@
   crossorigin="anonymous">
 </script>
 
+<!-- Boss Theme Interactions -->
+<script
+  defer
+  src="{{ '/assets/js/boss-interactions.js' | relative_url }}?v={{ site.version | default: site.github.build_revision | default: '10' }}"
+  crossorigin="anonymous">
+</script>
+
 {% if page.scripts %}
   {% for src in page.scripts %}
     <script
