@@ -111,17 +111,12 @@
   });
 
   /* =========================
-     THEME: system + memory
+     THEME: manual toggle with memory
      - toggles html.classList 'light'
+     - defaults to dark theme (brand design)
   ========================= */
   const THEME_KEY = "ts:theme";
   const themeBtn = $(".theme-toggle");
-
-  const getSystemPref = () =>
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: light)").matches
-      ? "light"
-      : "dark";
 
   const applyTheme = (theme) => {
     const isLight = theme === "light";
@@ -136,18 +131,8 @@
     saved = null;
   }
 
-  applyTheme(saved || getSystemPref());
-
-  if (!saved && window.matchMedia) {
-    const mq = window.matchMedia("(prefers-color-scheme: light)");
-    mq.addEventListener?.("change", (e) => {
-      applyTheme(e.matches ? "light" : "dark");
-      // Reapply contrast system after system theme change
-      if (typeof window.applyContrast === "function") {
-        window.applyContrast();
-      }
-    });
-  }
+  // Default to dark theme (brand design) unless user explicitly saved a preference
+  applyTheme(saved || "dark");
 
   themeBtn?.addEventListener("click", () => {
     const isLight = document.documentElement.classList.toggle("light");
