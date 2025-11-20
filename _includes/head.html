@@ -99,14 +99,14 @@ otherwise fall back to global defaults from _config.yml
         rel="stylesheet">
 </noscript>
 
-<!-- Main compiled theme CSS from SCSS modules -->
-<link rel="stylesheet" href="{{ '/assets/css/theme-compiled.css' | relative_url }}">
+<!-- Modernized CSS Architecture - Consolidated and organized -->
+<link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/layout.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/components.css' | relative_url }}">
 
-<!-- Hero patterns and special components -->
+<!-- Special components (kept separate for specific use cases) -->
 <link rel="stylesheet" href="{{ '/assets/css/pattern-showcase.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/construction-banner.css' | relative_url }}">
-<!-- Loading screen CSS disabled - was causing blank page overlay without JS -->
-<!-- <link rel="stylesheet" href="{{ '/assets/css/loading-screen.css' | relative_url }}"> -->
 
 <!-- Page-specific styles -->
 {% if page.styles %}
