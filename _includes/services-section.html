@@ -17,29 +17,34 @@ Usage: {% include services-section.html %}
     </div>
     {% assign services = site.data.services.services | default: site.data.services %}
     {% if services and services.size > 0 %}
-      <ul class="cards cards--3col" itemscope itemtype="https://schema.org/OfferCatalog">
+      <div class="service-grid" itemscope itemtype="https://schema.org/OfferCatalog">
         {% for s in services %}
-          <li>
-            <article class="card card--service" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
-              {% if s.icon %}<div class="card-icon" aria-hidden="true">{{ s.icon }}</div>{% endif %}
-              <h3 class="card-title" itemprop="name">{{ s.name }}</h3>
-              {% if s.description %}
-                <p class="card-desc" itemprop="description">{{ s.description }}</p>
+          <article class="service-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+            <div class="service-card__header">
+              {% if s.icon %}
+                <div class="service-card__icon" aria-hidden="true">{{ s.icon }}</div>
               {% endif %}
-              {% if s.points %}
-                <ul class="card-points">
-                  {% for p in s.points %}
-                    <li>{{ p }}</li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-              {% if s.url %}
-                <a class="card-link" href="{{ s.url | relative_url }}">Learn more →</a>
-              {% endif %}
-            </article>
-          </li>
+              <div>
+                <p class="service-card__eyebrow">Specialized service</p>
+                <h3 class="service-card__title" itemprop="name">{{ s.name }}</h3>
+              </div>
+            </div>
+            {% if s.description %}
+              <p class="service-card__desc" itemprop="description">{{ s.description }}</p>
+            {% endif %}
+            {% if s.points %}
+              <ul class="service-card__list" aria-label="{{ s.name }} service highlights">
+                {% for p in s.points %}
+                  <li class="service-card__item">{{ p }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+            {% if s.url %}
+              <a class="service-card__link" href="{{ s.url | relative_url }}">Explore {{ s.name | downcase }} →</a>
+            {% endif %}
+          </article>
         {% endfor %}
-      </ul>
+      </div>
     {% endif %}
     <div class="hero__actions">
       <a class="btn" href="{{ '/services/' | relative_url }}">View full services</a>

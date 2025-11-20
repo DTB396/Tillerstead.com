@@ -11,34 +11,34 @@
      =========================== */
   
   /* Brand Colors - Vibrant Emerald on Parchment */
-  --color-primary: #00a86b;           /* Bright emerald - modern, energetic, high contrast on parchment */
-  --color-primary-strong: #007a52;    /* Deep emerald - depth, hover states */
-  --color-primary-soft: rgba(0, 168, 107, 0.12);
-  --color-accent: #8b6f47;            /* Warm brass/brown - for hierarchy on light backgrounds */
-  --color-accent-soft: rgba(139, 111, 71, 0.15);
-  --color-khaki: #e8dcc4;             /* Parchment - warm, inviting, paper-like */
+  --color-primary: #0bbf84;           /* Vibrant emerald - energetic with crisp contrast */
+  --color-primary-strong: #0a9d6c;    /* Deep emerald for hover/active depth */
+  --color-primary-soft: rgba(11, 191, 132, 0.14);
+  --color-accent: #f4a740;            /* Radiant brass-gold for premium cues */
+  --color-accent-soft: rgba(244, 167, 64, 0.18);
+  --color-khaki: #e7eefc;             /* Airy parchment with a cool tint */
   
   /* Primary Background - Parchment/Khaki Light Theme */
-  --color-bg: #f5f1eb;                /* Warm parchment - main background */
-  --color-surface: #fffaf5;           /* Near-white paper surface */
-  --color-surface-elevated: #ffffff;  /* Pure white for elevated cards */
-  --color-surface-muted: #f0ede5;     /* Slightly darker parchment for sections */
-  --color-surface-highlight: #e8dcc4; /* Khaki highlight for accents */
+  --color-bg: #f4f7ff;                /* Cool, bright canvas for max readability */
+  --color-surface: #ffffff;           /* Pure white for hero + cards */
+  --color-surface-elevated: #f0f4ff;  /* Feather-light elevation tone */
+  --color-surface-muted: #e5edff;     /* Soft periwinkle section wash */
+  --color-surface-highlight: #d8e6ff; /* Highlight tone for ribbons */
   
   /* Dark Accent Layer - Black/Navy for Structure and Depth */
   --color-dark-primary: #1a1a1a;      /* Near-black for strong text/borders */
   --color-dark-secondary: #2d2d2d;    /* Dark gray for secondary elements */
   
   /* Text Colors - Dark text on light background (superior contrast) */
-  --color-heading: #1a1a1a;           /* Dark for headings */
-   --color-text: #1f2323;              /* High-contrast body text */
-   --color-text-muted: #1f2323;        /* Match body for readability */
-   --color-text-subtle: #374139;       /* Slightly softened but still readable */
+  --color-heading: #0b1528;           /* Ink-dark for hero headlines */
+  --color-text: #10233d;              /* Deep navy for strong contrast */
+  --color-text-muted: #112c4d;        /* Keep muted text saturated */
+  --color-text-subtle: #1c3c63;       /* Subtle tone that still pops */
 
   /* Border Colors - Subtle on parchment */
-  --color-border: rgba(26, 26, 26, 0.08);
-  --color-border-strong: rgba(26, 26, 26, 0.15);
-  --color-divider: rgba(26, 26, 26, 0.06);
+  --color-border: rgba(16, 35, 61, 0.12);
+  --color-border-strong: rgba(16, 35, 61, 0.18);
+  --color-divider: rgba(16, 35, 61, 0.08);
 
   /* ===========================
      Gradient Definitions (Refactored)
@@ -46,7 +46,7 @@
   
   /* Primary brand gradient - Emerald on light backgrounds */
   --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-strong) 100%);
-  --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, #6b5038 100%);
+  --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, #f77f20 100%);
   
   /* Surface gradients - subtle */
   --gradient-surface: var(--color-bg);
@@ -54,8 +54,8 @@
   --gradient-section: linear-gradient(180deg, var(--color-bg) 0%, var(--color-surface-muted) 100%);
   
   /* Radial accents - minimal */
-  --gradient-radial-primary: radial-gradient(circle at top right, rgba(0, 168, 107, 0.06), transparent 50%);
-  --gradient-radial-accent: radial-gradient(circle at bottom left, rgba(139, 111, 71, 0.04), transparent 50%);
+  --gradient-radial-primary: radial-gradient(circle at top right, rgba(11, 191, 132, 0.12), transparent 52%);
+  --gradient-radial-accent: radial-gradient(circle at bottom left, rgba(244, 167, 64, 0.12), transparent 52%);
 
   /* ===========================
      Background Pattern Assets
@@ -130,9 +130,9 @@
      =========================== */
   
    /* Subtle shadows for light theme - depth without heaviness */
-   --shadow-soft: 0 4px 12px rgba(26, 26, 26, 0.08);
-   --shadow-lift: 0 8px 24px rgba(26, 26, 26, 0.12);
-   --shadow-sharp: 0 12px 32px rgba(26, 26, 26, 0.15);
+   --shadow-soft: 0 8px 24px rgba(16, 35, 61, 0.08);
+   --shadow-lift: 0 16px 40px rgba(16, 35, 61, 0.12);
+   --shadow-sharp: 0 20px 48px rgba(16, 35, 61, 0.16);
    --shadow-button: 0 4px 12px rgba(0, 168, 107, 0.15);
    --shadow-button-hover: 0 8px 20px rgba(0, 168, 107, 0.25);
    --shadow-glow: 0 0 12px rgba(0, 168, 107, 0.2);
@@ -171,22 +171,22 @@
 
 html.light {
   color-scheme: light;
-  --color-bg: #f8fafc;
+  --color-bg: #f4f7ff;
   --color-surface: #ffffff;
-  --color-surface-elevated: #f1f5f9;
-  --color-surface-muted: #f1f5f9;
-  --color-surface-highlight: #e2e8f0;
-  --color-heading: #0b1220;
-   --color-text: #0b1220;
-   --color-text-muted: #0b1220; /* unify for contrast */
-   --color-text-subtle: #334155; /* retain gentle hierarchy */
-  --color-border: rgba(15, 23, 42, 0.12);
-  --color-border-strong: rgba(15, 23, 42, 0.2);
-  --color-divider: rgba(15, 23, 42, 0.12);
-  --shadow-soft: 0 24px 40px rgba(15, 23, 42, 0.12);
-  --shadow-lift: 0 32px 64px rgba(15, 23, 42, 0.16);
-  --shadow-sharp: 0 16px 32px rgba(15, 23, 42, 0.18);
-  --focus-ring: 0 0 0 3px rgba(26, 200, 122, 0.35);
+  --color-surface-elevated: #f0f4ff;
+  --color-surface-muted: #e5edff;
+  --color-surface-highlight: #d8e6ff;
+  --color-heading: #0b1528;
+   --color-text: #10233d;
+   --color-text-muted: #112c4d; /* unify for contrast */
+   --color-text-subtle: #1c3c63; /* retain gentle hierarchy */
+  --color-border: rgba(16, 35, 61, 0.12);
+  --color-border-strong: rgba(16, 35, 61, 0.18);
+  --color-divider: rgba(16, 35, 61, 0.08);
+  --shadow-soft: 0 8px 24px rgba(16, 35, 61, 0.08);
+  --shadow-lift: 0 16px 40px rgba(16, 35, 61, 0.12);
+  --shadow-sharp: 0 20px 48px rgba(16, 35, 61, 0.16);
+  --focus-ring: 0 0 0 3px rgba(11, 191, 132, 0.32);
   
   /* Background pattern - light mode variant */
   --bg-pattern-opacity: 0.08;
