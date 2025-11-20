@@ -3,10 +3,10 @@
   <desc id="tillerstead-logo-desc">Emerald tile grid with roof mark and brass accent, reading Tillerstead LLC.</desc>
   <style>
     .field{fill:var(--color-primary,#00a86b)}
-    .accent{fill:var(--color-accent,#8b6f47)}
+    .accent{fill:var(--color-accent,#f4a740)}
     .surface{fill:var(--color-surface-elevated,#fff)}
     .word-main{fill:var(--color-primary,#00a86b);font:700 72px Georgia,'Times New Roman',serif}
-    .word-accent{fill:var(--color-accent,#8b6f47);font:700 72px Georgia,'Times New Roman',serif}
+    .word-accent{fill:var(--color-accent,#f4a740);font:700 72px Georgia,'Times New Roman',serif}
     .word-llc{fill:var(--color-primary,#00a86b);font:400 42px Georgia,'Times New Roman',serif}
   </style>
   <rect x="110" y="40" width="420" height="420" rx="4" class="field"/>

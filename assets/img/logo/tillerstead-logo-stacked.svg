@@ -2,9 +2,9 @@
   <title id="ts-logo-title">Tillerstead LLC</title>
   <desc id="ts-logo-desc">Stacked logo with tile mark and tagline.</desc>
   <style>
-    .t-mark{fill:var(--color-dark-primary,#1a1a1a);stroke:var(--color-accent,#8b6f47);stroke-width:6;stroke-linejoin:miter}
+    .t-mark{fill:var(--color-primary-strong,#0a9d6c);stroke:var(--color-accent,#f4a740);stroke-width:6;stroke-linejoin:miter}
     .word-main{fill:var(--color-primary,#00a86b);font:700 32px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:.5px;text-anchor:middle}
-    .word-sub{fill:var(--color-primary,#00a86b);font:500 14px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;opacity:.9;text-anchor:middle}
+    .word-sub{fill:var(--color-text,#10233d);font:500 14px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;opacity:.92;text-anchor:middle}
   </style>
   <path class="t-mark" transform="translate(65 20)" d="M0 0h36v36H0zM44 0h36v36H44zM88 0h36v36h-36zM44 44h36v36H44zM44 88h36v36H44z"/>
   <text x="130" y="190" class="word-main">TILLERSTEAD</text>

@@ -1,4 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Tillerstead favicon mark">
   <rect width="64" height="64" rx="10" fill="var(--color-primary,#00a86b)"/>
-  <path stroke="var(--color-accent,#8b6f47)" stroke-width="4" stroke-linejoin="miter" fill="var(--color-surface-elevated,#ffffff)" d="M10 10h14v14H10zM25 10h14v14H25zM40 10h14v14H40zM25 25h14v14H25zM25 40h14v14H25z"/>
+  <path stroke="var(--color-accent,#f4a740)" stroke-width="4" stroke-linejoin="miter" fill="var(--color-surface-elevated,#ffffff)" d="M10 10h14v14H10zM25 10h14v14H25zM40 10h14v14H40zM25 25h14v14H25zM25 40h14v14H25z"/>
 </svg>

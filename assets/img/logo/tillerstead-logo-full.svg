@@ -2,9 +2,9 @@
   <title id="ts-logo-title">Tillerstead LLC</title>
   <desc id="ts-logo-desc">Full logo with tile T mark, tagline and New Jersey HIC license number.</desc>
   <style>
-    .t-mark{fill:var(--color-dark-primary,#1a1a1a);stroke:var(--color-accent,#8b6f47);stroke-width:6;stroke-linejoin:miter}
+    .t-mark{fill:var(--color-primary-strong,#0a9d6c);stroke:var(--color-accent,#f4a740);stroke-width:6;stroke-linejoin:miter}
     .word-main{fill:var(--color-primary,#00a86b);font:700 46px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:.5px}
-    .word-sub{fill:var(--color-primary,#00a86b);font:500 18px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;opacity:.9}
+    .word-sub{fill:var(--color-text,#10233d);font:500 18px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;opacity:.92}
   </style>
   <path class="t-mark" transform="translate(20 26)" d="M0 0h40v40H0zM50 0h40v40H50zM100 0h40v40h-40zM50 50h40v40h-40zM50 100h40v40h-40z"/>
   <text x="210" y="82" class="word-main">TILLERSTEAD</text>

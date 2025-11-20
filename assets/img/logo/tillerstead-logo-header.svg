@@ -2,7 +2,7 @@
   <title id="ts-logo-title">Tillerstead LLC</title>
   <desc id="ts-logo-desc">Header logo for Tillerstead LLC, New Jersey tile & remodeling contractor.</desc>
   <style>
-    .t-mark{fill:var(--color-dark-primary,#1a1a1a);stroke:var(--color-accent,#8b6f47);stroke-width:6;stroke-linejoin:miter}
+    .t-mark{fill:var(--color-primary-strong,#0a9d6c);stroke:var(--color-accent,#f4a740);stroke-width:6;stroke-linejoin:miter}
     .word{fill:var(--color-primary,#00a86b);font:700 40px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:.5px}
   </style>
   <path class="t-mark" transform="translate(10 16)" d="M0 0h32v32H0zM40 0h32v32H40zM80 0h32v32H80zM40 40h32v32H40zM40 80h32v32H40z"/>
