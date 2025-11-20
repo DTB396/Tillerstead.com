@@ -7,46 +7,45 @@ Unified Hero Component – Modern HTML5 with responsive pattern overlay
 - Pattern overlay with fallback support
 {% endcomment %}
 
+{% comment %}
+Unified Hero Component – Minimal, Content-Focused Design
+- No background patterns (sacred-tile removed)
+- Clean parchment background with emerald accents
+- KPI cards optional for homepage only
+- Semantic markup for accessibility
+{% endcomment %}
+
 <header class="hero
-               {% if page.is_home %}hero--homepage{% endif %}
-               {% if page.hero_bg_pattern %}
-                 hero--with-pattern hero-bg-{{ page.hero_bg_pattern | slugify }}
-               {% endif %}"
+               {% if page.is_home %}hero--homepage{% endif %}"
         id="hero"
         role="banner"
         aria-labelledby="hero-heading"
         aria-describedby="hero-summary">
 
   <div class="hero-surface">
-    {%- comment -%}
-    Pattern overlay - uses CSS ::before pseudo-element for better performance
-    Pattern is set via hero_bg_pattern front-matter variable
-    {%- endcomment -%}
-    
-    <div class="hero-inner">
+    <div class="hero-inner container">
       <div class="hero-main">
 
         {% if page.hero_eyebrow %}
-          <p class="hero-eyebrow" aria-label="Section category">
-            <span class="hero-eyebrow-text">{{ page.hero_eyebrow }}</span>
-          </p>
+          <span class="hero-eyebrow">
+            {{ page.hero_eyebrow }}
+          </span>
         {% endif %}
 
         <h1 id="hero-heading" class="hero-title">
           {{ page.hero_title | default: page.title }}
         </h1>
 
-        {% if page.hero_summary or page.hero_cred_line_1 or page.hero_cred_line_2 %}
-          <div class="hero-info-bubble" aria-label="Service overview">
-            {% if page.hero_summary %}
-              <p id="hero-summary" class="hero-lead">{{ page.hero_summary }}</p>
-            {% endif %}
-            {% if page.hero_cred_line_1 or page.hero_cred_line_2 %}
-              <div class="hero-cred">
-                {% if page.hero_cred_line_1 %}<p class="hero-note">{{ page.hero_cred_line_1 }}</p>{% endif %}
-                {% if page.hero_cred_line_2 %}<p class="hero-note">{{ page.hero_cred_line_2 }} {{ site.company.hic }}</p>{% endif %}
-              </div>
-            {% endif %}
+        {% if page.hero_summary %}
+          <p id="hero-summary" class="hero-lead">
+            {{ page.hero_summary }}
+          </p>
+        {% endif %}
+
+        {% if page.hero_cred_line_1 or page.hero_cred_line_2 %}
+          <div class="hero-cred">
+            {% if page.hero_cred_line_1 %}<p class="hero-note">{{ page.hero_cred_line_1 }}</p>{% endif %}
+            {% if page.hero_cred_line_2 %}<p class="hero-note">{{ page.hero_cred_line_2 }} {{ site.company.hic }}</p>{% endif %}
           </div>
         {% endif %}
 
@@ -58,14 +57,14 @@ Unified Hero Component – Modern HTML5 with responsive pattern overlay
               </a>
             {% endif %}
             {% if page.hero_secondary_url and page.hero_secondary_label %}
-              <a href="{{ page.hero_secondary_url | relative_url }}" class="btn btn-ghost">
+              <a href="{{ page.hero_secondary_url | relative_url }}" class="btn btn-secondary">
                 {{ page.hero_secondary_label }}
               </a>
             {% endif %}
           </div>
         {% endif %}
 
-        {% if page.hero_kpis %}
+        {% if page.is_home and page.hero_kpis %}
           <ul class="hero-kpis" aria-label="Key information highlights">
             {% for kpi in page.hero_kpis %}
               <li class="hero-kpi">

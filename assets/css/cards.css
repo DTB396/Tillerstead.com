@@ -1,0 +1,329 @@
+/* ============================================
+   Tillerstead Card Component System
+   Minimal, structured, depth-driven animations
+   =========================== */
+
+/* ===========================
+   CARD BASE
+   =========================== */
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all var(--transition-med);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
+  border-color: var(--color-primary-light);
+}
+
+/* ===========================
+   CARD VARIANTS
+   =========================== */
+
+/* Service Card */
+.card--service {
+  text-align: center;
+}
+
+.card--service .card-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, rgba(0, 168, 107, 0.12) 0%, rgba(139, 111, 71, 0.08) 100%);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+}
+
+.card--service .card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin: 0 0 0.75rem;
+}
+
+.card--service .card-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0 0 1rem;
+  flex-grow: 1;
+}
+
+/* Optional bullet list inside service cards */
+.card--service .card-points {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--color-text-muted);
+}
+
+.card--service .card-points li + li {
+  margin-top: 0.25rem;
+}
+
+.card--service .card-link {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: gap var(--transition-short);
+}
+
+.card--service .card-link:hover,
+.card--service .card-link:focus-visible {
+  gap: 0.75rem;
+}
+
+/* Portfolio Card */
+.card--portfolio {
+  overflow: hidden;
+  padding: 0;
+}
+
+/* Media wrapper preserves aspect ratio to reduce CLS */
+.card--portfolio .card-media {
+  width: 100%;
+  aspect-ratio: var(--ar, 4 / 3);
+  overflow: hidden;
+}
+
+.card--portfolio .card-media > img,
+.card--feature .card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-med);
+}
+
+.card--portfolio:hover .card-media > img {
+  transform: scale(1.05);
+}
+
+.card--portfolio .card-content {
+  padding: 1.25rem;
+}
+
+.card--portfolio .card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin: 0 0 0.5rem;
+}
+
+.card--portfolio .card-category {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.card--portfolio .card-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Review Card */
+.card--review {
+  border-left: 4px solid var(--color-accent);
+  position: relative;
+}
+
+.card--review .card-rating {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.card--review .card-quote {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--color-heading);
+  margin: 0 0 1rem;
+  line-height: 1.7;
+}
+
+.card--review .card-author {
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.card--review .card-role {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: 0.25rem 0 0;
+}
+
+/* Feature Card */
+.card--feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 2rem;
+}
+
+.card--feature .card-image {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.card--feature .card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin: 0 0 1rem;
+}
+
+.card--feature .card-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin: 0 0 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .card--feature {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* ===========================
+   POST CARD (Blog)
+   =========================== */
+
+.card--post .card-title {
+  font-size: 1.05rem;
+  font-weight: 750;
+  margin: 0 0 0.5rem;
+}
+
+.card--post .card-title a {
+  color: var(--color-heading);
+  text-decoration: none;
+}
+
+.card--post .card-title a:hover,
+.card--post .card-title a:focus-visible {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.card--post .card-meta {
+  font-size: 0.85rem;
+  color: var(--color-text-subtle);
+  margin: 0 0 0.5rem;
+}
+
+.card--post .card-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0 0 0.75rem;
+}
+
+.card--post .card-link {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ===========================
+   CARD GRIDS
+   =========================== */
+
+.cards {
+  display: grid;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cards--2col {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.cards--3col {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.cards--4col {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* ===========================
+   CARD ANIMATIONS
+   =========================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  .card {
+    animation: slideUp 0.6s ease-out backwards;
+  }
+
+  .cards--2col > li:nth-child(1) { animation-delay: 0.1s; }
+  .cards--2col > li:nth-child(2) { animation-delay: 0.2s; }
+  .cards--2col > li:nth-child(3) { animation-delay: 0.3s; }
+  .cards--2col > li:nth-child(4) { animation-delay: 0.4s; }
+
+  .cards--3col > li:nth-child(1) { animation-delay: 0.1s; }
+  .cards--3col > li:nth-child(2) { animation-delay: 0.2s; }
+  .cards--3col > li:nth-child(3) { animation-delay: 0.3s; }
+  .cards--3col > li:nth-child(4) { animation-delay: 0.4s; }
+  .cards--3col > li:nth-child(5) { animation-delay: 0.5s; }
+  .cards--3col > li:nth-child(6) { animation-delay: 0.6s; }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ===========================
+   ACCESSIBILITY
+   =========================== */
+
+.card {
+  outline-offset: 2px;
+}
+
+*:focus-visible {
+  outline: 3px solid var(--color-primary);
+}
+
+@media (prefers-contrast: high) {
+  .card {
+    border-width: 2px;
+  }
+
+  .card--review {
+    border-left-width: 2px;
+  }
+}

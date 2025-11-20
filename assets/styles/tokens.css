@@ -5,60 +5,57 @@
 
 :root {
   /* ===========================
-     Color Tokens
+     Color Tokens (Refactored)
+     Light: Parchment/Khaki base
+     Dark Accents: Emerald bright + Brass/Black depth
      =========================== */
   
-  /* Brand Colors - Emerald & Gold/Brass */
-  --color-primary: #1ac87a;           /* Emerald green - vibrant, energetic */
-  --color-primary-strong: #0fa868;    /* Deep emerald - for depth */
-  --color-primary-soft: rgba(26, 200, 122, 0.16);
-  --color-accent: #d8b25a;            /* Gold/brass - warm, premium */
-  --color-accent-soft: rgba(216, 178, 90, 0.22);
-  --color-khaki: #a9967a;             /* Khaki - earthy neutral accent */
+  /* Brand Colors - Vibrant Emerald on Parchment */
+  --color-primary: #00a86b;           /* Bright emerald - modern, energetic, high contrast on parchment */
+  --color-primary-strong: #007a52;    /* Deep emerald - depth, hover states */
+  --color-primary-soft: rgba(0, 168, 107, 0.12);
+  --color-accent: #8b6f47;            /* Warm brass/brown - for hierarchy on light backgrounds */
+  --color-accent-soft: rgba(139, 111, 71, 0.15);
+  --color-khaki: #e8dcc4;             /* Parchment - warm, inviting, paper-like */
   
-  /* Navy Background Variant (DEFAULT) - Professional and Sophisticated */
-  --color-bg: #0a1628;                /* Deep navy - elegant, trustworthy */
-  --color-surface: #0a1628;
-  --color-surface-elevated: #0f2240;  /* Lighter navy for elevation */
-  --color-surface-muted: #0f2240;
-  --color-surface-highlight: #1a365d; /* Rich navy highlight */
+  /* Primary Background - Parchment/Khaki Light Theme */
+  --color-bg: #f5f1eb;                /* Warm parchment - main background */
+  --color-surface: #fffaf5;           /* Near-white paper surface */
+  --color-surface-elevated: #ffffff;  /* Pure white for elevated cards */
+  --color-surface-muted: #f0ede5;     /* Slightly darker parchment for sections */
+  --color-surface-highlight: #e8dcc4; /* Khaki highlight for accents */
   
-  /* Alternative: Near-Black Background - Bold and Modern */
-  /* To use near-black variant, uncomment these and comment navy above:
-  --color-bg: #0b0f14;
-  --color-surface: #0b0f14;
-  --color-surface-elevated: #151a21;
-  --color-surface-muted: #151a21;
-  --color-surface-highlight: #1f252e;
-  */
+  /* Dark Accent Layer - Black/Navy for Structure and Depth */
+  --color-dark-primary: #1a1a1a;      /* Near-black for strong text/borders */
+  --color-dark-secondary: #2d2d2d;    /* Dark gray for secondary elements */
+  
+  /* Text Colors - Dark text on light background (superior contrast) */
+  --color-heading: #1a1a1a;           /* Dark for headings */
+  --color-text: #2d2d2d;              /* Dark gray for body text */
+  --color-text-muted: #5a5a5a;        /* Medium gray for secondary text */
+  --color-text-subtle: #8a8a8a;       /* Light gray for hints */
 
-  /* Text Colors - Enhanced for WCAG AAA (7:1) contrast */
-  --color-heading: #ffffff;
-  --color-text: #ffffff;
-  --color-text-muted: #e2e8f0;
-  --color-text-subtle: #cbd5e1;
-
-  /* Border Colors */
-  --color-border: rgba(148, 163, 184, 0.22);
-  --color-border-strong: rgba(148, 163, 184, 0.36);
-  --color-divider: rgba(148, 163, 184, 0.16);
+  /* Border Colors - Subtle on parchment */
+  --color-border: rgba(26, 26, 26, 0.08);
+  --color-border-strong: rgba(26, 26, 26, 0.15);
+  --color-divider: rgba(26, 26, 26, 0.06);
 
   /* ===========================
-     Gradient Definitions
+     Gradient Definitions (Refactored)
      =========================== */
   
-  /* Back-splash gradient - main brand gradient */
+  /* Primary brand gradient - Emerald on light backgrounds */
   --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-strong) 100%);
-  --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, #f0d080 100%);
+  --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, #6b5038 100%);
   
-  /* Surface gradients - Unified background */
+  /* Surface gradients - subtle */
   --gradient-surface: var(--color-bg);
-  --gradient-surface-alt: var(--color-surface-elevated);
-  --gradient-section: var(--color-bg);
+  --gradient-surface-alt: var(--color-surface-muted);
+  --gradient-section: linear-gradient(180deg, var(--color-bg) 0%, var(--color-surface-muted) 100%);
   
-  /* Radial gradients for effects */
-  --gradient-radial-primary: radial-gradient(circle at top left, rgba(26, 200, 122, 0.06), transparent 45%);
-  --gradient-radial-hero: radial-gradient(circle at 85% 25%, rgba(26, 200, 122, 0.25), transparent 62%);
+  /* Radial accents - minimal */
+  --gradient-radial-primary: radial-gradient(circle at top right, rgba(0, 168, 107, 0.06), transparent 50%);
+  --gradient-radial-accent: radial-gradient(circle at bottom left, rgba(139, 111, 71, 0.04), transparent 50%);
 
   /* ===========================
      Background Pattern Assets
@@ -129,17 +126,17 @@
   --radius-pill: 999px;
 
   /* ===========================
-     Shadows (Enhanced for Boss Theme)
+     Shadows (Minimal + Depth)
      =========================== */
   
-   /* Performance-tuned shadows (reduced blur + spread for lower paint cost) */
-   --shadow-soft: 0 8px 20px rgba(2, 6, 23, 0.35);
-   --shadow-lift: 0 16px 32px rgba(2, 6, 23, 0.45);
-   --shadow-sharp: 0 12px 24px rgba(15, 23, 42, 0.5);
-   --shadow-button: 0 6px 16px rgba(26, 200, 122, 0.32);
-   --shadow-button-hover: 0 10px 24px rgba(26, 200, 122, 0.38);
-   --shadow-glow: 0 0 14px rgba(26, 200, 122, 0.35), 0 0 28px rgba(26, 200, 122, 0.18);
-   --shadow-glow-accent: 0 0 14px rgba(216, 178, 90, 0.35), 0 0 28px rgba(216, 178, 90, 0.18);
+   /* Subtle shadows for light theme - depth without heaviness */
+   --shadow-soft: 0 4px 12px rgba(26, 26, 26, 0.08);
+   --shadow-lift: 0 8px 24px rgba(26, 26, 26, 0.12);
+   --shadow-sharp: 0 12px 32px rgba(26, 26, 26, 0.15);
+   --shadow-button: 0 4px 12px rgba(0, 168, 107, 0.15);
+   --shadow-button-hover: 0 8px 20px rgba(0, 168, 107, 0.25);
+   --shadow-glow: 0 0 12px rgba(0, 168, 107, 0.2);
+   --shadow-glow-accent: 0 0 12px rgba(139, 111, 71, 0.15);
 
   /* ===========================
      Transitions
@@ -157,6 +154,15 @@
   --section-padding-y: clamp(3rem, 6vw, 5rem);
   --section-gap: clamp(1.5rem, 3vw, 2.5rem);
   --focus-ring: 0 0 0 3px rgba(34, 197, 94, 0.45);
+
+  /* ===========================
+     Component-Specific Aliases
+     =========================== */
+  /* Header/Nav backgrounds & borders for sitewide consistency */
+  --header-bg: rgba(255, 250, 245, 0.95); /* parchment with slight translucency */
+  --header-border: rgba(0, 0, 0, 0.08);
+  --nav-bg: var(--color-surface-elevated);
+  --nav-border: rgba(0, 0, 0, 0.08);
 }
 
 /* ===========================

@@ -15,36 +15,32 @@ Usage: {% include services-section.html %}
         and storefronts on schedule. Design consultations align look, budget, and timeline before work starts.
       </p>
     </div>
-    <div class="card-grid" itemscope itemtype="https://schema.org/Service">
-      <article class="card service" itemprop="hasOfferCatalog" itemscope itemtype="https://schema.org/OfferCatalog">
-        <h3 itemprop="name">Tile &amp; Stone</h3>
-        <p itemprop="description">Showers, backsplashes, heated floors, and large-format installs built on certified waterproof systems.</p>
-        <ul>
-          <li>Shower &amp; bath rebuilds</li>
-          <li>Waterproofing membranes</li>
-          <li>Stone &amp; slab work</li>
-          <li>Layout &amp; selection consultations</li>
-        </ul>
-      </article>
-      <article class="card service" itemscope itemtype="https://schema.org/Service">
-        <h3 itemprop="name">Remodeling</h3>
-        <p itemprop="description">Kitchen &amp; bath updates, drywall, trim, flooring, and finish carpentry coordinated start to finish.</p>
-        <ul>
-          <li>Design collaboration</li>
-          <li>Material sourcing</li>
-          <li>Detailed schedules</li>
-        </ul>
-      </article>
-      <article class="card service" itemscope itemtype="https://schema.org/Service">
-        <h3 itemprop="name">Maintenance</h3>
-        <p itemprop="description">Recurring visits with checklists, seasonal tune-ups, and documented repairs handled in one visit.</p>
-        <ul>
-          <li>Monthly walkthroughs</li>
-          <li>Punch list repairs</li>
-          <li>Emergency coordination</li>
-        </ul>
-      </article>
-    </div>
+    {% assign services = site.data.services.services | default: site.data.services %}
+    {% if services and services.size > 0 %}
+      <ul class="cards cards--3col" itemscope itemtype="https://schema.org/OfferCatalog">
+        {% for s in services %}
+          <li>
+            <article class="card card--service" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+              {% if s.icon %}<div class="card-icon" aria-hidden="true">{{ s.icon }}</div>{% endif %}
+              <h3 class="card-title" itemprop="name">{{ s.name }}</h3>
+              {% if s.description %}
+                <p class="card-desc" itemprop="description">{{ s.description }}</p>
+              {% endif %}
+              {% if s.points %}
+                <ul class="card-points">
+                  {% for p in s.points %}
+                    <li>{{ p }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+              {% if s.url %}
+                <a class="card-link" href="{{ s.url | relative_url }}">Learn more →</a>
+              {% endif %}
+            </article>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
     <div class="hero__actions">
       <a class="btn" href="{{ '/services/' | relative_url }}">View full services</a>
       <a class="btn btn-ghost" href="{{ '/portfolio/' | relative_url }}">See recent projects</a>

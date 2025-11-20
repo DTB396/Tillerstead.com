@@ -1,0 +1,31 @@
+services:
+  - id: tile
+    name: Tile & Stone
+    icon: "🛁"
+    description: Showers, backsplashes, heated floors, and large-format installs built on certified waterproof systems.
+    points:
+      - Shower & bath rebuilds
+      - Waterproofing membranes
+      - Stone & slab work
+      - Layout & selection consultations
+    url: "/services/#tile"
+
+  - id: remodeling
+    name: Organized Remodeling
+    icon: "🏗️"
+    description: Kitchen & bath updates, drywall, trim, flooring, and finish carpentry coordinated start to finish.
+    points:
+      - Design collaboration
+      - Material sourcing
+      - Detailed schedules
+    url: "/services/#remodeling"
+
+  - id: maintenance
+    name: Property Maintenance
+    icon: "🔍"
+    description: Recurring visits with checklists, seasonal tune-ups, and documented repairs handled in one visit.
+    points:
+      - Monthly walkthroughs
+      - Punch list repairs
+      - Emergency coordination
+    url: "/services/#maintenance"

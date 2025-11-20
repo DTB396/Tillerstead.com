@@ -1,0 +1,117 @@
+/* ============================================
+   Breadcrumbs Component
+   Minimal, modern navigation trail
+   Light parchment theme with emerald accents
+   ============================================ */
+
+.breadcrumbs {
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg);
+  font-size: 0.9rem;
+}
+
+.breadcrumbs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: '/';
+  margin-left: 0.5rem;
+  color: var(--color-text-muted);
+  font-weight: 300;
+}
+
+.breadcrumb-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: all var(--transition-short);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  margin-right: 0.25rem;
+}
+
+.breadcrumb-link:hover,
+.breadcrumb-link:focus-visible {
+  color: var(--color-primary-strong);
+  background: rgba(0, 168, 107, 0.08);
+  text-decoration: underline;
+}
+
+.breadcrumb-link[aria-current="page"] {
+  color: var(--color-text);
+  cursor: default;
+  font-weight: 600;
+  background: transparent;
+}
+
+.breadcrumb-link[aria-current="page"]:hover {
+  background: transparent;
+  text-decoration: none;
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+.breadcrumb-link:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-contrast: high) {
+  .breadcrumbs {
+    border-bottom-width: 2px;
+  }
+
+  .breadcrumb-link {
+    padding: 0.35rem 0.6rem;
+    border: 1px solid transparent;
+  }
+
+  .breadcrumb-link:hover,
+  .breadcrumb-link:focus-visible {
+    border: 1px solid var(--color-primary);
+  }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 480px) {
+  .breadcrumbs {
+    padding: var(--space-2) 0;
+    font-size: 0.85rem;
+  }
+
+  .breadcrumbs-list {
+    gap: 0.25rem;
+  }
+
+  .breadcrumb-link {
+    padding: 0.2rem 0.4rem;
+    margin-right: 0.1rem;
+  }
+
+  /* Hide intermediate breadcrumbs on mobile, show home and current only */
+  .breadcrumb-item:nth-child(n+2):not(:last-child) {
+    display: none;
+  }
+
+  .breadcrumb-item:nth-child(2)::after {
+    content: '';
+    margin: 0;
+  }
+}

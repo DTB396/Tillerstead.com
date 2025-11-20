@@ -19,8 +19,7 @@
 
 {%- assign meta_description = page.description | default: site.description | default: 'Tillerstead LLC provides monthly property maintenance, remodeling, and waterproof tile installations for South Jersey homeowners, landlords, and small commercial spaces.' -%}
 <meta name="description" content="{{ meta_description | escape }}">
-<!-- Viewport (single authoritative declaration) -->
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Viewport declared once above to avoid duplication -->
 
 {%- assign meta_keywords = page.keywords | default: site.keywords -%}
 {% if meta_keywords %}
@@ -47,12 +46,11 @@
 {% endif %}
 
 <!-- Theme / Icons -->
-<meta name="theme-color" content="#020617">
+<meta name="theme-color" content="#f5f1eb">
 <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/logo/tillerstead-favicon.svg' | relative_url }}" sizes="any">
-<link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
-<link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
-<link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
-<link rel="mask-icon" href="{{ '/safari-pinned-tab.svg' | relative_url }}" color="#020617">
+<link rel="apple-touch-icon" href="{{ '/assets/img/tillerstead-logo.png' | relative_url }}">
+<link rel="manifest" href="{{ '/manifest.webmanifest' | relative_url }}">
+<link rel="mask-icon" href="{{ '/assets/img/logo/tillerstead-logo-mark.svg' | relative_url }}" color="#00a86b">
 
 <!-- Open Graph / Social Meta -->
 {%- assign og_title = page.seo_title | default: page.title | default: site.title -%}
@@ -116,34 +114,40 @@
 
 <!-- Inline critical CSS: minimal above-the-fold (header, hero, buttons, layout) -->
 <style data-critical>
-  :root { color-scheme: dark light; }
-  body { margin:0; font-family: var(--font-sans, system-ui); background: var(--color-bg,#0a1628); color: var(--color-text,#fff); }
-  .site-header { position:sticky; top:0; z-index:1000; background:rgba(2,6,23,.88); backdrop-filter:blur(12px); border-bottom:1px solid rgba(148,163,184,.12); }
+  :root { color-scheme: light dark; }
+  body { margin:0; font-family: var(--font-sans, system-ui); background: var(--color-bg,#f5f1eb); color: var(--color-text,#1a1a1a); }
+  .site-header { position:sticky; top:0; z-index:1000; background:rgba(255,250,245,.95); backdrop-filter:blur(12px); border-bottom:1px solid rgba(0,0,0,.08); }
   .site-header-inner { display:flex; align-items:center; justify-content:space-between; gap:.75rem; min-height:4rem; padding:.75rem clamp(.75rem,3vw,1.5rem); }
   .site-logo-img { width:clamp(100px,14vw,148px); height:auto; display:block; }
-  .nav-toggle { display:inline-flex; align-items:center; gap:.5rem; border:1px solid rgba(148,163,184,.35); background:transparent; color:var(--color-text,#fff); font-size:.875rem; font-weight:600; min-width:44px; min-height:44px; padding:.5rem .9rem; border-radius:999px; cursor:pointer; }
-  .nav-toggle:hover { background:rgba(148,163,184,.12); }
-  .btn { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.65rem 1.25rem; font-size:.95rem; font-weight:650; line-height:1.2; border-radius:999px; text-decoration:none; background:linear-gradient(135deg,#1ac87a,#0fa868); color:#022c1a; border:1px solid transparent; box-shadow:0 6px 16px rgba(26,200,122,.32); transition:box-shadow .15s,transform .15s; min-height:44px; }
-  .btn:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(26,200,122,.38); }
-  .btn.btn-ghost { background:transparent; color:var(--color-text,#fff); box-shadow:none; border:1px solid rgba(148,163,184,.28); }
-  .btn.btn-ghost:hover { background:rgba(148,163,184,.12); }
-  .hero-title { font-weight:800; letter-spacing:-.02em; line-height:1.1; font-size:clamp(2.1rem,3.6vw,3rem); margin:0 0 1rem; }
-  .hero-lead { font-size:1.05rem; line-height:1.65; max-width:65ch; margin:0 0 1.25rem; color:var(--color-text-muted,#e2e8f0); }
+  .nav-toggle { display:inline-flex; align-items:center; gap:.5rem; border:1px solid rgba(0,0,0,.12); background:transparent; color:var(--color-text,#1a1a1a); font-size:.875rem; font-weight:600; min-width:44px; min-height:44px; padding:.5rem .9rem; border-radius:999px; cursor:pointer; }
+  .nav-toggle:hover { background:rgba(0,0,0,.05); }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.65rem 1.25rem; font-size:.95rem; font-weight:650; line-height:1.2; border-radius:999px; text-decoration:none; background:linear-gradient(135deg,#00a86b,#008856); color:white; border:1px solid transparent; box-shadow:0 6px 16px rgba(0,168,107,.24); transition:box-shadow .15s,transform .15s; min-height:44px; }
+  .btn:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,168,107,.32); }
+  .btn.btn-ghost { background:transparent; color:var(--color-text,#1a1a1a); box-shadow:none; border:1px solid rgba(0,0,0,.12); }
+  .btn.btn-ghost:hover { background:rgba(0,0,0,.05); }
+  .hero-title { font-weight:800; letter-spacing:-.02em; line-height:1.1; font-size:clamp(2.1rem,3.6vw,3rem); margin:0 0 1rem; color:#1a1a1a; }
+  .hero-lead { font-size:1.05rem; line-height:1.65; max-width:65ch; margin:0 0 1.25rem; color:var(--color-text-muted,#666); }
   .hero-actions { display:flex; flex-wrap:wrap; gap:.75rem; }
-  .eyebrow,.hero-eyebrow { display:inline-block; font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; font-weight:700; margin:0 0 .75rem; color:var(--color-accent,#d8b25a); }
+  .eyebrow,.hero-eyebrow { display:inline-block; font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; font-weight:700; margin:0 0 .75rem; color:#00a86b; padding:.4rem .9rem; background:rgba(0,168,107,.08); border-left:3px solid #00a86b; border-radius:.35rem; }
   .hero-kpis { display:grid; gap:.75rem; margin:1.25rem 0 0; padding:0; list-style:none; }
-  .hero-kpi { padding:.9rem 1rem; border:1px solid rgba(26,200,122,.2); border-radius:1rem; background:rgba(15,34,64,.6); }
-  .hero-kpi-label { display:block; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; font-weight:700; margin:0 0 .25rem; color:#1ac87a; }
+  .hero-kpi { padding:.9rem 1rem; border:1px solid rgba(0,0,0,.08); border-left:4px solid #00a86b; border-radius:1rem; background:#fffaf5; }
+  .hero-kpi-label { display:block; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; font-weight:700; margin:0 0 .25rem; color:#00a86b; }
   main.site-main { min-height:50vh; }
   .container { max-width:1140px; margin-inline:auto; padding-inline:clamp(1rem,4vw,2.5rem); }
   @media (min-width:920px){ .hero-kpis{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));} }
   @media (prefers-reduced-motion:reduce){ .btn,.nav-toggle{transition:none;} }
 </style>
-<!-- CSS Architecture - Organized by Layer (corrected tokens path) -->
+<!-- CSS Architecture - Organized by Layer (consolidated light-theme only) -->
 <link rel="stylesheet" href="{{ '/assets/styles/tokens.css' | relative_url }}" media="screen">
 <link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}" media="screen">
 <link rel="stylesheet" href="{{ '/assets/css/layout.css' | relative_url }}" media="screen">
 <link rel="stylesheet" href="{{ '/assets/css/components.css' | relative_url }}" media="screen">
+<link rel="stylesheet" href="{{ '/assets/css/breadcrumbs.css' | relative_url }}" media="screen">
+
+<!-- Component Libraries - Light Theme -->
+<link rel="stylesheet" href="{{ '/assets/css/cards.css' | relative_url }}" media="screen">
+<link rel="stylesheet" href="{{ '/assets/css/gallery.css' | relative_url }}" media="screen">
+<link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}" media="screen">
 
 <!-- Special Components -->
 <link rel="stylesheet" href="{{ '/assets/css/pattern-showcase.css' | relative_url }}" media="screen">

@@ -1,0 +1,41 @@
+{% comment %}
+Homepage Portfolio Highlights Include
+- Renders a simple three-card preview of portfolio items
+- Data source: _data/portfolio_highlights.yml (key: highlights)
+- Optional overrides: eyebrow, title, summary, cta_url, cta_label
+Usage: {% include portfolio-highlights.html %}
+{% endcomment %}
+<section class="section" aria-labelledby="gallery-title">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">{{ include.eyebrow | default: 'Recent work' }}</p>
+      <h2 id="gallery-title">{{ include.title | default: 'Portfolio highlights' }}</h2>
+      <p>{{ include.summary | default: 'From waterproof tile assemblies to full remodeling projects—each documented with photos and detailed scopes.' }}</p>
+    </div>
+
+    {% assign items = site.data.portfolio_highlights.highlights | default: site.data.portfolio_highlights %}
+    {% if items and items.size > 0 %}
+      <ul class="cards cards--3col">
+        {% for item in items %}
+          <li class="card card--portfolio">
+            <div class="card-media" style="--ar: {{ item.ar | default: '4/3' }}">
+              <img src="{{ item.file | relative_url }}"
+                   alt="{{ item.alt | escape }}"
+                   loading="lazy"
+                   decoding="async">
+            </div>
+            <div class="card-content">
+              {% if item.category %}<span class="card-category">{{ item.category }}</span>{% endif %}
+              {% if item.title %}<h3 class="card-title">{{ item.title }}</h3>{% endif %}
+              {% if item.desc %}<p class="card-desc">{{ item.desc }}</p>{% endif %}
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <div class="section-action">
+      <a href="{{ include.cta_url | default: '/portfolio/' | relative_url }}" class="btn btn--primary">{{ include.cta_label | default: 'View full portfolio' }}</a>
+    </div>
+  </div>
+</section>

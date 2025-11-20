@@ -4,8 +4,6 @@ title: Tile, Remodeling & Property Maintenance in South Jersey | Tillerstead LLC
 description: Tillerstead LLC provides reliable tile assemblies, organized remodeling projects, and consistent property maintenance for South Jersey homeowners, landlords, and small commercial spaces.
 body_class: page-home
 is_home: true
-styles:
-  - /assets/css/home.css
 
 # Unified hero configuration
 hero_eyebrow: "South Jersey"
@@ -16,7 +14,6 @@ hero_primary_url: "/contact/"
 hero_primary_label: "Book a consultation"
 hero_secondary_url: "/services/"
 hero_secondary_label: "Explore services"
-hero_bg_pattern: "sacred-tile"
 hero_kpis:
   - label: "Licensed"
     text: "NJ Home Improvement Contractor #13VH10808800"
@@ -28,6 +25,9 @@ hero_kpis:
     text: "Recurring inspections with proactive reporting"
 ---
 {% comment %} Hero rendered by unified-hero include via front-matter above {% endcomment %}
+
+<!-- Services overview (standardized include) -->
+{% include services-section.html %}
 
 {% include services-section.html %}
 
@@ -137,6 +137,12 @@ hero_kpis:
     </div>
   </div>
 </section>
+
+{% include portfolio-highlights.html %}
+
+{% include reviews-highlights.html limit=3 %}
+
+{% include blog-highlights.html limit=3 %}
 
 <section id="contact" class="section" aria-labelledby="contact-title" data-animate="reveal">
   <div class="container contact">

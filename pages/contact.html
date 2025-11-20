@@ -14,7 +14,6 @@ hero_primary_url: "mailto:info@tillerstead.com"
 hero_primary_label: "Email Project Details"
 hero_secondary_url: "tel:+16096659350"
 hero_secondary_label: "Call (609) 665-9350"
-hero_bg_pattern: "sacred-tile"
 hero_kpis:
   - label: "Licensed & Insured"
     text: "Fully licensed (NJ HIC #13VH10808800) and insured for professional, compliant home improvement work across New Jersey."
@@ -63,7 +62,14 @@ hero_kpis:
       action="{{ page.url | relative_url }}"
       aria-describedby="form-intro"
       aria-live="polite"
+      data-netlify="true"
+      netlify-honeypot="_trap"
     >
+      <input type="hidden" name="form-name" value="contact">
+      <p class="sr-only">
+        <label for="_trap">Do not fill this field</label>
+        <input id="_trap" name="_trap" type="text" tabindex="-1" autocomplete="off">
+      </p>
       <div class="form-grid">
         <div class="form-field">
           <label for="name">

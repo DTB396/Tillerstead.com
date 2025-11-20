@@ -1,29 +1,29 @@
 {%- comment -%}
-  Breadcrumb Navigation
-  - Omitted on homepage or when page.breadcrumb == false
-  - Uses schema.org BreadcrumbList for SEO
-  - Accessible with aria-label and proper landmark roles
+Breadcrumb Navigation Component
+- Modern minimal styling with emerald accent
+- Schema.org BreadcrumbList for SEO
+- Hidden on homepage or when disabled
+- Accessible with proper ARIA labels and semantic markup
 {%- endcomment -%}
 
 {%- if page.url == "/" or page.breadcrumb == false -%}
-  {%- comment -%}Hidden on home or when disabled{%- endcomment -%}
+  {%- comment -%}Breadcrumbs hidden on home or when disabled{%- endcomment -%}
 {%- else -%}
   {%- assign path = page.url | replace: 'index.html', '' -%}
   {%- assign segments = path | split: '/' -%}
 
-  <nav class="breadcrumbs" aria-label="Page breadcrumbs">
+  <nav class="breadcrumbs" aria-label="Page navigation">
     <ol class="breadcrumbs-list"
         itemscope
-        itemtype="https://schema.org/BreadcrumbList"
-        role="list">
-      
+        itemtype="https://schema.org/BreadcrumbList">
+
       {%- assign position = 1 -%}
 
-      <!-- Home Link -->
-      <li itemprop="itemListElement"
+      <!-- Home breadcrumb -->
+      <li class="breadcrumb-item"
+          itemprop="itemListElement"
           itemscope
-          itemtype="https://schema.org/ListItem"
-          role="listitem">
+          itemtype="https://schema.org/ListItem">
         <a itemprop="item"
            href="{{ '/' | relative_url }}"
            class="breadcrumb-link">
@@ -35,7 +35,7 @@
       {%- assign position = position | plus: 1 -%}
       {%- assign current_path = "" -%}
 
-      <!-- Path segments -->
+      <!-- Path segment breadcrumbs -->
       {%- for segment in segments -%}
         {%- if segment == "" -%}
           {%- continue -%}
@@ -50,10 +50,10 @@
           {%- assign label = segment | replace: '-', ' ' | capitalize -%}
         {%- endif -%}
 
-        <li itemprop="itemListElement"
+        <li class="breadcrumb-item"
+            itemprop="itemListElement"
             itemscope
-            itemtype="https://schema.org/ListItem"
-            role="listitem">
+            itemtype="https://schema.org/ListItem">
           <a itemprop="item"
              href="{{ current_path | append: '/' | relative_url }}"
              class="breadcrumb-link"

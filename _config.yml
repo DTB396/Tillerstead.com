@@ -53,7 +53,8 @@ company:
 
 # Optional: global defaults for OG/social
 logo: /assets/img/logo/tillerstead-logo-header.svg
-default_og_image: /assets/img/og.jpg
+# Use an existing raster image for social sharing previews
+default_og_image: /assets/img/marble-bath.jpg
 
 # Cache-busting helper
 assets_version: "2025-11-20.1"
