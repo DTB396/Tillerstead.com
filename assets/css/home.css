@@ -95,7 +95,7 @@
 .lead {
   font-size: 1.1rem;
   line-height: 1.75;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   margin-bottom: var(--space-4);
 }
 
@@ -140,7 +140,7 @@
 .section__intro p {
   font-size: 1.05rem;
   line-height: 1.75;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   max-width: 65ch;
   margin-left: auto;
   margin-right: auto;
@@ -197,7 +197,7 @@
 
 .card p {
   margin: 0 0 var(--space-3);
-  color: var(--color-text-muted);
+  color: var(--color-text);
 }
 
 .card ul {
@@ -211,7 +211,7 @@
 .card li {
   position: relative;
   padding-left: 1.3rem;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   font-size: 0.95rem;
 }
 
@@ -318,7 +318,7 @@
 .plan-card li {
   position: relative;
   padding-left: 1.4rem;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   font-size: 0.95rem;
 }
 
@@ -335,7 +335,7 @@
 }
 
 .plan-card p {
-  color: var(--color-text-muted);
+  color: var(--color-text);
   line-height: 1.65;
   margin: 0;
 }
@@ -424,7 +424,7 @@
 
 .process p {
   margin: 0;
-  color: var(--color-text-muted);
+  color: var(--color-text);
 }
 
 /* ============================================
@@ -458,7 +458,7 @@
 .assurance__list li {
   position: relative;
   padding-left: 1.8rem;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   font-size: 1rem;
 }
 
@@ -522,7 +522,7 @@
 }
 
 .contact__panel li {
-  color: var(--color-text-muted);
+  color: var(--color-text);
   font-size: 0.95rem;
   line-height: 1.6;
 }

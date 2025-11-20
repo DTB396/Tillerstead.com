@@ -3,27 +3,20 @@
    Modern, Organized SCSS Structure
    ============================================ */
 
-/* 1. Design Tokens (CSS Custom Properties) */
-@import '../styles/tokens.css';
+/* 1. Common Base Styles (Sass modules must load first) */
+@use 'common';
 
-/* 2. Common Base Styles */
-@import 'common';
+/* 2. Component Modules */
+@use 'components';
 
-/* 3. Component Modules */
-@import 'components/buttons';
-@import 'components/cards';
-@import 'components/header';
-@import 'components/footer';
-@import 'components/hero';
-@import 'components/forms';
+/* 3. Layout Modules */
+@use 'layouts';
 
-/* 4. Layout Modules */
-@import 'layouts/page';
-@import 'layouts/sections';
+/* 4. Utility Classes */
+@use 'utilities';
 
-/* 5. Utility Classes */
-@import 'utilities/spacing';
-@import 'utilities/text';
+/* 5. Design Tokens (CSS Custom Properties) */
+@import url('../styles/tokens.css');
 
 /* ============================================
    Legacy Token Compatibility
