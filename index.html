@@ -40,6 +40,7 @@ hero_bg_pattern: "sacred-tile"
         <li><strong>Documentation:</strong> 100% written scopes, waterproofing details & change orders</li>
         <li><strong>Response time:</strong> &lt;24 hours for active clients</li>
         <li><strong>Licensing:</strong> NJ HIC #13VH10808800, fully insured</li>
+        <li><strong>Warranty:</strong> Craftsmanship coverage on every tile assembly</li>
       </ul>
       <div class="hero__actions hero__actions--center">
         <a class="btn btn--primary" href="{{ '/contact/' | relative_url }}">Request a consultation</a>
@@ -64,7 +65,7 @@ hero_bg_pattern: "sacred-tile"
           </div>
         </div>
         <div class="gallery-strip__grid">
-          {% assign preview_items = gallery_strip | slice: 0, 6 %}
+          {% assign preview_items = gallery_strip | slice: 0, 4 %}
           {% for item in preview_items %}
             <figure class="gallery-strip__item">
               <img src="{{ item.file | relative_url }}"

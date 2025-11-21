@@ -15,19 +15,19 @@ Usage examples:
 <section id="services" class="section" aria-labelledby="services-title" aria-describedby="services-summary" itemscope itemtype="https://schema.org/OfferCatalog">
   <meta itemprop="name" content="Services Overview">
   <div class="container">
-    <header class="section__intro"></header>
+    <header class="section__intro">
       <p class="eyebrow">{{ eyebrow }}</p>
       <h2 id="services-title">{{ heading }}</h2>
       <p id="services-summary">{{ summary }}</p>
     </header>
     {% assign services = site.data.services.services | default: site.data.services %}
     {% if services and services.size > 0 %}
-      <section class="service-grid" role="list" aria-label="Primary service offerings"></section>
+      <div class="service-grid" role="list" aria-label="Primary service offerings">
         {% for s in services %}
           <article class="service-card" role="listitem" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service" aria-labelledby="service-{{ s.id | default: forloop.index }}-title">
             <meta itemprop="name" content="{{ s.name }}">
             {% if s.description %}<meta itemprop="description" content="{{ s.description }}">{% endif %}
-            <header class="service-card__header"></header>
+            <header class="service-card__header">
               {% assign service_icon = s.icon | default: s.id %}
               <div class="service-card__icon" aria-hidden="true" data-icon="{{ service_icon }}">
                 {% case service_icon %}
@@ -62,7 +62,7 @@ Usage examples:
                     </svg>
                 {% endcase %}
               </div>
-              <div class="service-card__header-text"></div>
+              <div class="service-card__header-text">
                 <p class="service-card__eyebrow">Specialized service</p>
                 <h3 id="service-{{ s.id | default: forloop.index }}-title" class="service-card__title">{{ s.name }}</h3>
               </div>
@@ -84,11 +84,11 @@ Usage examples:
             {% endif %}
           </article>
         {% endfor %}
-      </section>
+      </div>
     {% endif %}
-    <nav class="hero__actions" aria-label="Service section actions">
+    <div class="hero__actions" aria-label="Service section actions">
       <a class="btn" href="{{ '/services/' | relative_url }}">{{ cta_services_label }}</a>
       <a class="btn btn-ghost" href="{{ '/portfolio/' | relative_url }}">{{ cta_portfolio_label }}</a>
-    </nav>
+    </div>
   </div>
 </section>

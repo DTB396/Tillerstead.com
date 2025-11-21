@@ -15,8 +15,9 @@ Usage: {% include portfolio-highlights.html %}
 
     {% assign items = site.data.portfolio_highlights.highlights | default: site.data.portfolio_highlights %}
     {% if items and items.size > 0 %}
+      {% assign preview_items = items | slice: 0, 3 %}
       <ul class="cards cards--3col">
-        {% for item in items %}
+        {% for item in preview_items %}
           <li class="card card--portfolio">
             <div class="card-media" style="--ar: {{ item.ar | default: '4/3' }}">
               <img src="{{ item.file | relative_url }}"
