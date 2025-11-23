@@ -3,47 +3,73 @@ layout: default
 title: Tillerstead LLC | Tile Installation, Remodeling & Property Care in South Jersey
 description: Licensed NJ home improvement contractor specializing in waterproof tile assemblies, organized remodels, and monthly property maintenance for Atlantic, Ocean & Cape May Counties.
 body_class: page-home
-is_home: true
-styles:
-  - /assets/css/home.css
 
-# Unified hero configuration
-hero_eyebrow: "Licensed NJ Home Improvement Contractor"
-hero_title: "Precision Tile & Dependable Remodeling for South Jersey"
-hero_summary: >
-  I deliver waterproof tile assemblies, clean finish work, and reliable property maintenance for homeowners, landlords, and businesses across Atlantic, Cape May, and Ocean Counties. Every project is documented, transparent, and built to earn your trust.
-hero_primary_url: "/contact/"
-hero_primary_label: "Request a consultation"
-hero_secondary_url: "/portfolio/"
-hero_secondary_label: "View recent work"
-hero_kpis:
-  - label: "Documentation"
-    text: "100% documented scopes, waterproofing details & change orders"
-  - label: "Response time"
-    text: "<24 hours for active clients"
-  - label: "Licensing"
-    text: "NJ HIC #13VH10808800"
-hero_bg_pattern: "sacred-tile"
----
-{% comment %} Hero rendered by unified-hero include via front-matter above {% endcomment %}
-<section class="ts-hero parchment-bg celtic-border sicilian-accent" aria-label="Tillerstead LLC Hero">
-  <div class="container ts-hero__content">
-    <div class="ts-hero__main">
-      <span class="ts-hero__eyebrow">Licensed NJ Home Improvement Contractor</span>
-      <h1 class="ts-hero__title heading-1">Tile, Remodeling &amp; Property Care for NJ Shore Homes</h1>
-      <p class="ts-hero__lead">Owner-operated, waterproof builds. Serving Atlantic, Cape May &amp; Ocean Counties. Every project is documented, transparent, and built to earn your trust.</p>
-      <ul class="ts-hero__badges">
-        <li class="ts-hero__badge">NJ HIC #13VH10808800</li>
-        <li class="ts-hero__badge">Fully Insured</li>
-        <li class="ts-hero__badge">5-Star Reviews</li>
-      </ul>
-      <div class="ts-hero__actions">
-        <a class="btn btn--primary" href="/contact/">Request a Consultation</a>
-        <a class="btn btn--ghost" href="/portfolio/">See Recent Work</a>
-      </div>
-    </div>
-  </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tillerstead LLC | Tile, Bath & Remodeling</title>
+    <meta name="description" content="Tillerstead LLC is a New Jersey-licensed home improvement business specializing in tile, bath, and remodeling services.">
+    <meta property="og:title" content="Tillerstead LLC | Tile, Bath & Remodeling">
+    <meta property="og:description" content="Tillerstead LLC is a New Jersey-licensed home improvement business specializing in tile, bath, and remodeling services.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tillerstead.com/">
+    <meta property="og:image" content="/assets/img/og-tillerstead.jpg">
+    <link rel="canonical" href="https://tillerstead.com/">
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <link rel="stylesheet" href="/assets/css/_hero-patterns.css">
+    <link rel="icon" href="/assets/img/favicon.ico">
+    <link rel="manifest" href="/manifest.webmanifest">
+    {% include head.html %}
+  </head>
+  <body>
+    {% include header.html %}
+    {% include unified-hero.html %}
+    <main id="main-content" tabindex="-1">
+      <!-- Service Summary Grid -->
+      <section class="service-grid bg-surface-elevated p-6 rounded-lg shadow-lift" aria-label="Our Services">
+        <h2 class="heading-2 text-primary mb-4">Our Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div class="service-card">
+            <h3 class="heading-3">Tile Installation</h3>
+            <p>Expert tile work for kitchens, baths, and floors. Precision, durability, and style.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="heading-3">Bath Remodeling</h3>
+            <p>Transform your bathroom with custom designs, quality fixtures, and seamless finishes.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="heading-3">Home Renovation</h3>
+            <p>Comprehensive remodeling for any space. Licensed, insured, and client-focused.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portfolio Highlights -->
+      <section class="portfolio-highlights mt-8" aria-label="Featured Projects">
+        <h2 class="heading-2 text-primary mb-4">Featured Projects</h2>
+        {% include portfolio-highlights.html %}
+      </section>
+
+      <!-- Testimonials -->
+      <section class="reviews-highlights mt-8 bg-gradient p-6 rounded-lg" aria-label="Client Testimonials">
+        <h2 class="heading-2 text-primary mb-4">What Clients Say</h2>
+        {% include reviews-highlights.html %}
+      </section>
+
+      <!-- Contact CTA -->
+      <section class="cta-estimate mt-8 text-center p-6 bg-surface rounded-lg shadow-soft" aria-label="Get an Estimate">
+        <h2 class="heading-2 text-accent mb-2">Ready to Start Your Project?</h2>
+        <p class="mb-4">Contact Tillerstead for a free, no-obligation estimate. We respond within 24 hours.</p>
+        {% include cta-estimate.html %}
+      </section>
+    </main>
+    {% include footer.html %}
+    <script src="/assets/js/agent.js" type="module" defer></script>
+    {% include scripts.html %}
+  </body>
+</html>
 
 {% assign gallery_strip = site.data.portfolio_highlights.highlights | default: site.data.portfolio_highlights %}
 {% if gallery_strip and gallery_strip.size > 0 %}
