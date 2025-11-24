@@ -1,5 +1,9 @@
 {% comment %}
-Legacy hero – retained only for backward compatibility.
-All new pages should use `{% include unified-hero.html %}`.
+Legacy hero include now routes to dedicated homepage or page-aware unified heroes.
 {% endcomment %}
-{% include unified-hero.html %}
+
+{% if page.is_home %}
+  {% include unified-hero-home.html %}
+{% else %}
+  {% include unified-hero.html %}
+{% endif %}

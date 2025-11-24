@@ -1,28 +1,58 @@
-<!-- Modern Unified Hero Section for Tillerstead LLC -->
-<header class="hero hero--center bg-surface-elevated shadow-lift" aria-label="Tillerstead LLC Hero">
-  <div class="container hero__content hero__content--center p-6" style="max-width: 700px;">
-    <div class="hero__cred-bar mb-4">
-      <span class="eyebrow hero__cred-badge rounded-pill bg-accent text-surface px-3 py-1" style="font-size: 0.95rem; letter-spacing: 0.05em;">
-        LICENSED NJ HOME IMPROVEMENT CONTRACTOR
-      </span>
-    </div>
+{% assign hero_badge = include.badge | default: page.hero_badge | default: 'Licensed NJ Home Improvement Contractor' %}
+{% assign hero_eyebrow = include.eyebrow | default: page.hero_eyebrow | default: 'Licensed & Documented' %}
+{% assign hero_title = include.title | default: page.hero_title | default: page.title | default: site.title %}
+{% assign hero_summary = include.summary | default: page.hero_summary | default: page.description | default: site.tagline %}
+{% assign hero_kpis = include.kpis | default: page.hero_kpis %}
+{% assign hero_primary_url = include.primary_url | default: page.hero_primary_url | default: '/contact/' %}
+{% assign hero_primary_label = include.primary_label | default: page.hero_primary_label | default: 'Request a consultation' %}
+{% assign hero_secondary_url = include.secondary_url | default: page.hero_secondary_url | default: '/portfolio/' %}
+{% assign hero_secondary_label = include.secondary_label | default: page.hero_secondary_label | default: 'View recent work' %}
+{% assign hero_badge_class = include.badge_class | default: page.hero_badge_class | default: 'bg-accent text-surface' %}
+
+<header class="hero hero--center bg-surface-elevated shadow-lift unified-hero" aria-label="Page hero">
+  <div class="container hero__content hero__content--center p-6" style="max-width: 760px;">
+    {% if hero_badge %}
+      <div class="hero__cred-bar mb-4">
+        <span class="eyebrow hero__cred-badge rounded-pill {{ hero_badge_class }} px-3 py-1" style="font-size: 0.95rem; letter-spacing: 0.05em;">
+          {{ hero_badge }}
+        </span>
+      </div>
+    {% endif %}
+
+    {% if hero_eyebrow %}
+      <p class="ts-eyebrow mb-3">{{ hero_eyebrow }}</p>
+    {% endif %}
+
     <h1 class="heading-1 text-primary hero__title mb-3" style="line-height: 1.1;">
-      Precision Tile, Remodeling &amp; Property Care in South Jersey
+      {{ hero_title }}
     </h1>
-    <p class="lead text-muted hero__lead mb-5" style="max-width: 600px;">
-      Tillerstead LLC delivers waterproof tile assemblies, organized remodels, and proactive maintenance for homes, rentals, and businesses in Atlantic, Ocean, and Cape May Counties. Every project is documented, transparent, and built to earn your trust.
-    </p>
-    <section class="hero__stats-panel mb-6" aria-label="Credentials and guarantees">
-      <ul class="hero__stats-list" style="list-style: none; padding: 0; margin: 0;">
-        <li class="mb-2"><strong class="text-accent">Documentation:</strong> 100% written scopes, waterproofing details &amp; change orders</li>
-        <li class="mb-2"><strong class="text-accent">Response time:</strong> &lt;24 hours for active clients</li>
-        <li class="mb-2"><strong class="text-accent">Licensing:</strong> NJ HIC #13VH10808800, fully insured</li>
-        <li><strong class="text-accent">Satisfaction:</strong> 5-star client reviews (Thumbtack &amp; Google)</li>
-      </ul>
-    </section>
+
+    {% if hero_summary %}
+      <p class="lead text-muted hero__lead mb-5" style="max-width: 650px;">
+        {{ hero_summary }}
+      </p>
+    {% endif %}
+
+    {% if hero_kpis %}
+      <section class="hero__stats-panel mb-6" aria-label="Key points">
+        <ul class="hero__stats-list" style="list-style: none; padding: 0; margin: 0;">
+          {% for metric in hero_kpis %}
+            <li class="mb-2">
+              {% if metric.label %}<strong class="text-accent">{{ metric.label }}:</strong>{% endif %}
+              {% if metric.text %} {{ metric.text }}{% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endif %}
+
     <nav class="hero__actions hero__actions--center flex gap-4" aria-label="Primary actions">
-      <a class="btn btn--primary rounded-lg px-5 py-2" href="{{ '/contact/' | relative_url }}">Request a consultation</a>
-      <a class="btn btn--ghost rounded-lg px-5 py-2" href="{{ '/portfolio/' | relative_url }}">View recent work</a>
+      {% if hero_primary_url %}
+        <a class="btn btn--primary rounded-lg px-5 py-2" href="{{ hero_primary_url | relative_url }}">{{ hero_primary_label }}</a>
+      {% endif %}
+      {% if hero_secondary_url %}
+        <a class="btn btn--ghost rounded-lg px-5 py-2" href="{{ hero_secondary_url | relative_url }}">{{ hero_secondary_label }}</a>
+      {% endif %}
     </nav>
   </div>
 </header>
