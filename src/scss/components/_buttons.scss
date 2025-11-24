@@ -81,6 +81,14 @@
   }
 }
 
+.btn--primary {
+  @extend .btn-primary;
+}
+
+.btn--ghost {
+  @extend .btn-ghost;
+}
+
 /* Button row layout */
 .btn-row {
   display: flex;
@@ -91,6 +99,17 @@
   &.center {
     justify-content: center;
     margin-block: 1rem 0.5rem;
+  }
+}
+
+.btn + .btn {
+  margin-inline-start: var(--space-3);
+}
+
+@media (max-width: 640px) {
+  .btn + .btn {
+    margin-inline-start: 0;
+    margin-block-start: var(--space-2);
   }
 }
 
