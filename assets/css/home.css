@@ -181,6 +181,280 @@
 }
 
 /* ============================================
+   Modern TS Homepage Sections (spacing, grids, contrast)
+   ============================================ */
+
+/* Utility helpers used only on the homepage */
+.bg-surface { background: var(--color-surface); }
+.bg-surface-elevated { background: var(--color-surface-elevated); }
+.bg-gradient-primary { background: var(--gradient-primary); color: #fdfbf7; }
+.text-surface { color: #fdfbf7; }
+
+.py-8 { padding-block: var(--space-8); }
+.gap-6 { gap: clamp(1.5rem, 3vw, 2.5rem); }
+
+.md\:grid-cols-3 { grid-template-columns: 1fr; }
+@media (min-width: 768px) {
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Shared section shell */
+.ts-services,
+.ts-plans,
+.ts-process,
+.ts-deliver,
+.ts-assurance,
+.ts-contact {
+  padding: clamp(2.75rem, 6vw, 4.5rem) 0;
+  position: relative;
+}
+
+.ts-services .container,
+.ts-plans .container,
+.ts-process .container,
+.ts-deliver .container,
+.ts-assurance .container,
+.ts-contact .container {
+  display: grid;
+  gap: clamp(1.75rem, 3vw, 2.75rem);
+}
+
+/* Services */
+.ts-services {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ts-services__header {
+  text-align: center;
+  display: grid;
+  gap: 0.5rem;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.ts-services__grid {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2rem);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.ts-service-card {
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.ts-service-card h3 { margin: 0; color: var(--color-heading); }
+.ts-service-card p { margin: 0; color: var(--color-text-muted); }
+
+.ts-services__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+/* Plans */
+.ts-plans {
+  background: linear-gradient(180deg, #f7f1e6 0%, #efe5d2 100%);
+}
+
+.ts-plans__header {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.ts-plans__grid {
+  display: grid;
+  gap: clamp(1.75rem, 3vw, 2.5rem);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.ts-plan-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  background: var(--color-surface);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.ts-plan-card--accent {
+  background: linear-gradient(135deg, rgba(13, 59, 44, 0.1), rgba(201, 154, 63, 0.16));
+  border-color: rgba(13, 59, 44, 0.28);
+  box-shadow: var(--shadow-lift);
+}
+
+.ts-plan-card h3 { margin: 0; color: var(--color-heading); }
+.ts-plan-card p { margin: 0; color: var(--color-text-muted); }
+
+.ts-plan-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.45rem;
+  color: var(--color-text-muted);
+}
+
+.ts-plan-stats {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.ts-plans__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+/* Process */
+.ts-process {
+  background: var(--color-surface);
+}
+
+.ts-process__header {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.ts-process__steps {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2rem);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.ts-process__step {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-elevated);
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  gap: var(--space-2);
+}
+
+.ts-process__step p { margin: 0; color: var(--color-text-muted); }
+
+/* Deliver */
+.ts-deliver {
+  background: var(--gradient-surface-alt);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ts-deliver__grid {
+  display: grid;
+  gap: clamp(1.75rem, 3vw, 2.5rem);
+
+  @media (min-width: 960px) {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: stretch;
+  }
+}
+
+.ts-deliver__intro { display: grid; gap: var(--space-3); }
+.ts-deliver__intro ul { margin: 0; padding-left: 1.1rem; color: var(--color-text-muted); }
+
+.ts-deliver__card {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.ts-deliver__eyebrow {
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.ts-deliver__features {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.45rem;
+  color: var(--color-text-muted);
+}
+
+.ts-deliver__meta { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.ts-deliver__chip { background: var(--color-surface-elevated); border: 1px solid var(--color-border); border-radius: var(--radius-pill); padding: 0.35rem 0.85rem; font-size: 0.9rem; }
+.ts-deliver__chip--outline { background: transparent; }
+
+/* Assurance */
+.ts-assurance {
+  background: linear-gradient(135deg, rgba(13, 59, 44, 0.06), rgba(201, 154, 63, 0.08));
+}
+
+.ts-assurance__list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.ts-assurance__list li {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  padding: 0.9rem 1.1rem;
+  color: var(--color-text-muted);
+  box-shadow: var(--shadow-soft);
+}
+
+.ts-assurance__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* Contact */
+.ts-contact {
+  background: var(--color-surface);
+}
+
+.ts-contact__grid {
+  display: grid;
+  gap: clamp(1.75rem, 3vw, 2.5rem);
+
+  @media (min-width: 960px) {
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: start;
+  }
+}
+
+.ts-contact__copy { display: grid; gap: var(--space-3); }
+.ts-contact__copy p { margin: 0; color: var(--color-text-muted); }
+
+.ts-contact__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+
+.ts-contact__panel {
+  background: var(--color-surface-elevated);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.ts-contact__panel h3 { margin: 0 0 0.5rem; }
+.ts-contact__panel dl { margin: 0; display: grid; gap: 0.4rem 0.75rem; grid-template-columns: auto 1fr; }
+.ts-contact__panel dt { font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-heading); }
+.ts-contact__panel dd { margin: 0; color: var(--color-text-muted); }
+
+/* ============================================
   Homepage Section Refinements (Assurance / Contact / Card Media AR)
   ============================================ */
 .assurance { --assurance-bg: linear-gradient(135deg, #f8f6ee 0%, #ece7d9 100%); }
