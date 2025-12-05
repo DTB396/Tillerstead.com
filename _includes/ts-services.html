@@ -3,56 +3,56 @@
 
 {%- comment -%}
   CORE CAPABILITIES section for Tillerstead homepage.
-  Uses three service cards focused on waterproof tile assemblies, finish work, and property care.
+  Supports:
+  - String format: "paint|Title|Description|/url|Tagline|Details"
+  - Object format: { "icon": "...", "title": "...", "description": "...", "url": "...", "tagline": "...", "details": "..." }
 {%- endcomment -%}
 
 <section class="ts-services" aria-labelledby="ts-services-title">
   <div class="container">
     <header class="ts-services__header">
       <span class="eyebrow text-accent">Core Capabilities</span>
-      <h2 id="ts-services-title" class="heading-2 text-primary">Remodels, tile assemblies, and property upkeep</h2>
+      <h2 id="ts-services-title" class="heading-2 text-primary">
+        Remodels, tile assemblies, and property upkeep
+      </h2>
       <p class="lead">{{ summary }}</p>
     </header>
 
-    <div class="ts-services__grid" role="list">
-      {% for raw in services %}
-        {%- comment -%}
-        Normalize service fields so this works with either:
-        - String format: "paint|Title|Description|/url|Tagline|Details"
-        - Object format: { "icon": "...", "title": "...", "description": "...", "url": "...", "tagline": "...", "details": "..." }
-        {%- endcomment -%}
+    {% if services and services != empty %}
+      <div class="ts-services__grid" role="list">
+        {% for raw in services %}
+          {%- assign service_tagline = raw.tagline -%}
+          {%- assign service_details = raw.details -%}
 
-        {% assign service_tagline = raw.tagline %}
-        {% assign service_details = raw.details %}
+          {%- if raw contains '|' -%}
+            {%- assign parts = raw | split: '|' -%}
+            {%- assign service_icon_key   = parts[0] | strip -%}
+            {%- assign service_title      = parts[1] | strip -%}
+            {%- assign service_description= parts[2] | strip -%}
+            {%- assign service_url        = parts[3] | strip -%}
+            {%- if parts.size > 4 -%}
+              {%- assign service_tagline = parts[4] | strip -%}
+            {%- endif -%}
+            {%- if parts.size > 5 -%}
+              {%- assign service_details = parts[5] | strip -%}
+            {%- endif -%}
+          {%- else -%}
+            {%- assign service_icon_key   = raw.icon -%}
+            {%- assign service_title      = raw.title -%}
+            {%- assign service_description= raw.description -%}
+            {%- assign service_url        = raw.url -%}
+          {%- endif -%}
 
-        {% if raw contains '|' %}
-          {% assign parts = raw | split: '|' %}
-          {% assign service_icon_key = parts[0] | strip %}
-          {% assign service_title = parts[1] | strip %}
-          {% assign service_description = parts[2] | strip %}
-          {% assign service_url = parts[3] | strip %}
-          {% if parts.size > 4 %}
-            {% assign service_tagline = parts[4] | strip %}
-          {% endif %}
-          {% if parts.size > 5 %}
-            {% assign service_details = parts[5] | strip %}
-          {% endif %}
-        {% else %}
-          {% assign service_icon_key = raw.icon %}
-          {% assign service_title = raw.title %}
-          {% assign service_description = raw.description %}
-          {% assign service_url = raw.url %}
-        {% endif %}
-
-        {% include ts-service-card.html
-          icon=service_icon_key
-          title=service_title
-          description=service_description
-          tagline=service_tagline
-          details=service_details
-          url=service_url %}
-      {% endfor %}
-    </div>
+          {% include ts-service-card.html
+            icon=service_icon_key
+            title=service_title
+            description=service_description
+            tagline=service_tagline
+            details=service_details
+            url=service_url %}
+        {% endfor %}
+      </div>
+    {% endif %}
 
     <nav class="ts-services__actions" aria-label="Service actions">
       <a class="btn btn--primary" href="/contact/">Book property upkeep</a>
