@@ -1,31 +1,47 @@
-<header class="hero hero-home" aria-label="Tillerstead LLC Hero">
-  <div class="container hero__content hero-home__content">
-    <div class="hero-head-card" aria-label="Tillerstead brand">
-      <div class="hero-head-card__logo">
-        {% include logo-main.html class="ts-logo-link--hero" img_class="ts-logo ts-logo--hero" variant="dark" %}
-      </div>
-      <p class="hero-head-card__tagline">Property Maintenance · Remodeling · Tile</p>
+<section class="ts-hero ts-hero--home" aria-labelledby="home-hero-title">
+  <div class="ts-hero__inner">
+    <header class="ts-hero__brand">
+      {% include logo-main.html
+         class="ts-logo-link--hero"
+         img_class="ts-logo ts-logo--hero"
+         variant="dark" %}
+      <p class="ts-hero__tagline">
+        Property Maintenance · Remodeling · Tile
+      </p>
+    </header>
+
+    <div class="ts-hero__badge">
+      <span class="ts-hero__badge-label">
+        LICENSED NJ HOME IMPROVEMENT CONTRACTOR
+      </span>
     </div>
 
-    <div class="hero-home__body">
-      <div class="hero__cred-bar">
-        <span class="hero__cred-badge">LICENSED NJ HOME IMPROVEMENT CONTRACTOR</span>
-      </div>
-      <h1 class="hero__title">Precision Tile, Remodeling &amp; Property Care in South Jersey</h1>
-      <p class="hero__lead">
-        Tillerstead LLC delivers waterproof tile assemblies, organized remodels, and proactive maintenance for homes, rentals, and businesses in Atlantic, Ocean, and Cape May Counties. Every project is documented, transparent, and built to earn your trust.
+    <div class="ts-hero__copy">
+      <h1 id="home-hero-title" class="ts-hero__title">
+        Precision Tile, Remodeling &amp; Property Care in South Jersey
+      </h1>
+
+      <p class="ts-hero__lede">
+        Tillerstead LLC delivers waterproof tile assemblies, organized remodels,
+        and proactive maintenance for homes, rentals, and businesses in Atlantic,
+        Ocean, and Cape May Counties. Every project is documented, transparent,
+        and built to earn your trust.
       </p>
-      <section class="hero__stats-panel" aria-label="Credentials and guarantees">
-        <ul class="hero__stats-list">
-          <li><strong class="text-accent">Tile &amp; Stone:</strong> waterproof shower builds, heated floors, and backer prep</li>
-          <li><strong class="text-accent">Remodeling:</strong> clean, durable interior finishes with written change orders</li>
-          <li><strong class="text-accent">Maintenance Plans:</strong> recurring checks, punch lists, and rapid responses</li>
-        </ul>
-      </section>
-      <nav class="hero__actions" aria-label="Primary actions">
-        <a class="btn btn--primary" href="{{ '/contact/' | relative_url }}">Request a consultation</a>
-        <a class="btn btn--ghost" href="{{ '/portfolio/' | relative_url }}">View recent work</a>
-      </nav>
+
+      <ul class="ts-hero__bullets">
+        <li>Tile &amp; Stone: waterproof shower builds, heated floors, and backer prep</li>
+        <li>Remodeling: clean, durable interior finishes with written change orders</li>
+        <li>Maintenance Plans: recurring checks, punch lists, and rapid responses</li>
+      </ul>
+
+      <div class="ts-hero__actions">
+        <a class="ts-btn ts-btn--primary" href="/contact/">
+          Request an estimate
+        </a>
+        <a class="ts-btn ts-btn--ghost" href="/portfolio/">
+          View recent work
+        </a>
+      </div>
     </div>
   </div>
-</header>
+</section>
