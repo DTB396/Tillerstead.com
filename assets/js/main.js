@@ -29,6 +29,9 @@
       "aria-label",
       open ? "Close navigation menu" : "Open navigation menu",
     );
+    if (navShell) navShell.dataset.open = open ? "true" : "false";
+    if (nav) nav.dataset.open = open ? "true" : "false";
+    if (navOverlay) navOverlay.dataset.open = open ? "true" : "false";
   };
 
   const onKeydownEsc = (e) => {
