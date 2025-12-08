@@ -64,6 +64,12 @@
     <!-- Scripts (deferred for performance) -->
     {% include scripts.html %}
 
+    <!-- Structured Data for SEO -->
+    {% include schema-local-business.html %}
+    {% if page.include_faq_schema %}
+      {% include schema-faq.html %}
+    {% endif %}
+
     <!-- Structured data for current page (if provided in front-matter) -->
     {% if page.structured_data %}
       <script type="application/ld+json">

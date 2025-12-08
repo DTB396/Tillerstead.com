@@ -1,0 +1,148 @@
+<!-- Local Business Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "@id": "{{ site.url }}/#organization",
+  "name": "{{ site.company.name | default: site.title }}",
+  "legalName": "Tillerstead LLC",
+  "url": "{{ site.url }}",
+  "logo": "{{ site.url }}/assets/img/logo/tillerstead-logo-full.svg",
+  "image": "{{ site.url }}/assets/img/og.jpg",
+  "description": "{{ site.description | escape }}",
+  "telephone": "{{ site.company.phone_link }}",
+  "email": "{{ site.company.email }}",
+  "priceRange": "$$",
+  "paymentAccepted": "Cash, Check, Credit Card, Financing Available",
+  "currenciesAccepted": "USD",
+  "foundingDate": "2020",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ site.company.address_line }}",
+    "addressLocality": "{{ site.company.address_locality }}",
+    "addressRegion": "{{ site.company.address_region }}",
+    "postalCode": "08205",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "39.4784",
+    "longitude": "-74.4771"
+  },
+  "areaServed": [
+    {
+      "@type": "State",
+      "name": "New Jersey"
+    },
+    {
+      "@type": "City",
+      "name": "Atlantic County",
+      "containedIn": {
+        "@type": "State",
+        "name": "New Jersey"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Ocean County",
+      "containedIn": {
+        "@type": "State",
+        "name": "New Jersey"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Cape May County",
+      "containedIn": {
+        "@type": "State",
+        "name": "New Jersey"
+      }
+    }
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "07:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "08:00",
+      "closes": "16:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.thumbtack.com/nj/absecon/tile/tillerstead-llc/service/547437618353160199"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Tile & Remodeling Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Custom Tile Installation",
+          "description": "Professional custom tile installation including showers, backsplashes, floors, and heated floor systems."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Waterproof Shower Systems",
+          "description": "Certified waterproof assemblies using Schluter, RedGard, and ANSI A118.10 standards."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Natural Stone Installation",
+          "description": "Marble, granite, and natural stone installation with professional fabrication coordination."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Bathroom Remodeling",
+          "description": "Complete bathroom renovations including tile work, fixtures, and waterproofing."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Property Maintenance Plans",
+          "description": "Monthly property care with scheduled inspections, repairs, and maintenance documentation."
+        }
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "{{ site.data.reviews.size | default: 15 }}",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "additionalType": [
+    "https://www.wikidata.org/wiki/Q1080313",
+    "https://www.wikidata.org/wiki/Q4287745"
+  ],
+  "knowsAbout": [
+    "Tile Installation",
+    "Waterproofing Systems",
+    "Bathroom Remodeling",
+    "Natural Stone Work",
+    "Heated Floors",
+    "Schluter Systems",
+    "Large Format Tile",
+    "Custom Showers"
+  ],
+  "slogan": "Expert Tile & Stone Installation"
+}
+</script>

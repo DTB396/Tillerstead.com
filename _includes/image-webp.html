@@ -1,0 +1,58 @@
+<!-- Picture element for WebP with fallbacks -->
+<!-- Usage: Include this where you need responsive images with WebP support -->
+
+{% comment %}
+  Parameters:
+  - src: Path to image (required)
+  - alt: Alt text (required)
+  - class: CSS classes (optional)
+  - loading: 'lazy' or 'eager' (default: lazy)
+  - sizes: Responsive sizes attribute (optional)
+  - width: Image width (optional, for aspect ratio)
+  - height: Image height (optional, for aspect ratio)
+  
+  Example:
+  {% include image-webp.html 
+     src="/assets/img/portfolio/bathroom-tile-1.jpg"
+     alt="Custom shower tile installation in Atlantic County NJ"
+     class="portfolio-image"
+     loading="lazy"
+     sizes="(max-width: 768px) 100vw, 50vw"
+  %}
+{% endcomment %}
+
+{% assign image_path = include.src %}
+{% assign image_webp = image_path | replace: '.jpg', '.webp' | replace: '.png', '.webp' %}
+{% assign loading_attr = include.loading | default: 'lazy' %}
+{% assign img_class = include.class | default: '' %}
+{% assign img_sizes = include.sizes %}
+
+<picture>
+  <!-- WebP version for modern browsers -->
+  <source 
+    type="image/webp"
+    {% if loading_attr == 'lazy' %}
+      data-srcset="{{ image_webp | relative_url }}"
+    {% else %}
+      srcset="{{ image_webp | relative_url }}"
+    {% endif %}
+    {% if img_sizes %}
+      sizes="{{ img_sizes }}"
+    {% endif %}>
+  
+  <!-- Fallback to original format -->
+  <img 
+    {% if loading_attr == 'lazy' %}
+      data-src="{{ image_path | relative_url }}"
+      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 {{ include.width | default: 800 }} {{ include.height | default: 600 }}'%3E%3C/svg%3E"
+    {% else %}
+      src="{{ image_path | relative_url }}"
+    {% endif %}
+    alt="{{ include.alt | escape }}"
+    {% if img_class != '' %}class="{{ img_class }}"{% endif %}
+    {% if include.width %}width="{{ include.width }}"{% endif %}
+    {% if include.height %}height="{{ include.height }}"{% endif %}
+    loading="{{ loading_attr }}"
+    decoding="async"
+    {% if img_sizes %}sizes="{{ img_sizes }}"{% endif %}>
+</picture>

@@ -151,6 +151,61 @@
   background: var(--ts-color-accent-soft);
 }
 
+/* Contact Priority Box - Emergency Service Callout */
+.contact-priority-box {
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(239, 68, 68, 0.05));
+  border: 2px solid #ef4444;
+  border-radius: var(--ts-radius-md);
+  margin: var(--ts-spacing-md) 0;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.12);
+  
+  h4 {
+    margin: 0 0 0.5rem;
+    color: #ef4444;
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+  }
+  
+  p {
+    margin: 0;
+    color: var(--ts-color-heading);
+    line-height: 1.6;
+  }
+  
+  a {
+    color: #ef4444;
+    font-weight: 700;
+    text-decoration: underline;
+    
+    &:hover {
+      color: #dc2626;
+    }
+  }
+}
+
+/* Hero Trust Line */
+.ts-hero__trust-line {
+  margin-top: var(--ts-spacing-sm);
+  font-size: var(--font-size-sm);
+  color: var(--ts-color-muted);
+  text-align: center;
+  
+  strong {
+    color: var(--ts-color-primary);
+    font-weight: 600;
+  }
+}
+
+/* Navigation Phone Item */
+.nav-item--phone {
+  padding-top: var(--ts-spacing-sm);
+  border-top: 1px solid var(--ts-color-border);
+  margin-top: var(--ts-spacing-sm);
+}
+  background: var(--ts-color-accent-soft);
+}
+
 .card-featured {
   border-color: var(--ts-color-primary);
   border-width: 2px;

@@ -5,6 +5,12 @@
 <meta http-equiv="x-dns-prefetch-control" content="on">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+<!-- Performance: DNS prefetch for external resources -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 {%- assign meta_description = page.description | default: site.description | default: 'Tillerstead LLC provides monthly property maintenance, remodeling, and waterproof tile installations for South Jersey homeowners, landlords, and small commercial spaces.' -%}
 <meta name="description" content="{{ meta_description | escape }}">
 
@@ -38,7 +44,13 @@
 <link rel="apple-touch-icon" href="{{ '/assets/img/logo/tillerstead-logo-mark.svg' | relative_url }}">
 <link rel="manifest" href="{{ '/manifest.webmanifest' | relative_url }}">
 <link rel="mask-icon" href="{{ '/assets/img/logo/tillerstead-logo-mark.svg' | relative_url }}" color="#1cb394">
+
+<!-- Performance: Preload critical assets -->
 <link rel="preload" as="image" href="{{ '/assets/img/logo/tillerstead-logo-full.svg' | relative_url }}" fetchpriority="high">
+<link rel="preload" as="style" href="{{ '/assets/css/main.css' | relative_url }}">
+{% if page.is_home or page.hero_image %}
+  <link rel="preload" as="image" href="{{ page.hero_image | default: '/assets/img/hero-bg.jpg' | relative_url }}" fetchpriority="high">
+{% endif %}
 
 <!-- Open Graph / Social -->
 {%- assign og_title = page.seo_title | default: page.title | default: site.title -%}

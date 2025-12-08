@@ -38,6 +38,22 @@ secondary:
     title: Blog
     url: /blog/
     match: /blog/
+  - id: atlantic-county
+    title: Atlantic County NJ
+    url: /atlantic-county-nj/
+    match: /atlantic-county-nj/
+  - id: ocean-county
+    title: Ocean County NJ
+    url: /ocean-county-nj/
+    match: /ocean-county-nj/
+  - id: cape-may-county
+    title: Cape May County NJ
+    url: /cape-may-county-nj/
+    match: /cape-may-county-nj/
+  - id: download-guide
+    title: Free NJ Tile Guide
+    url: /download/nj-tile-guide/
+    match: /download/
   - id: privacy
     title: Privacy
     url: /privacy/
