@@ -13,22 +13,24 @@
   ========================= */
   const navToggle = $(".nav-toggle");
   const header = $(".site-header");
-  const navShell = header?.querySelector("[data-nav-container]");
-  const nav = header?.querySelector("#site-nav");
-  const navClose = header?.querySelector("[data-nav-close]");
-  const navOverlay = header?.querySelector("[data-nav-overlay]");
+  const navShell = header ? header.querySelector("[data-nav-container]") : null;
+  const nav = header ? header.querySelector("#site-nav") : null;
+  const navClose = header ? header.querySelector("[data-nav-close]") : null;
+  const navOverlay = header ? header.querySelector("[data-nav-overlay]") : null;
   let lastFocus = null;
   const BP_DESKTOP = 920; // matches SCSS breakpoint for drawer
 
   const isNavOpen = () => !!navShell && navShell.classList.contains("is-open");
 
   const syncAria = (open) => {
-    nav?.setAttribute("aria-expanded", String(open));
-    navToggle?.setAttribute("aria-expanded", String(open));
-    navToggle?.setAttribute(
-      "aria-label",
-      open ? "Close navigation menu" : "Open navigation menu",
-    );
+    if (nav) nav.setAttribute("aria-expanded", String(open));
+    if (navToggle) navToggle.setAttribute("aria-expanded", String(open));
+    if (navToggle) {
+      navToggle.setAttribute(
+        "aria-label",
+        open ? "Close navigation menu" : "Open navigation menu",
+      );
+    }
     if (navShell) navShell.dataset.open = open ? "true" : "false";
     if (nav) nav.dataset.open = open ? "true" : "false";
     if (navOverlay) navOverlay.dataset.open = open ? "true" : "false";
@@ -67,7 +69,7 @@
 
   const outsideClick = (e) => {
     if (!isNavOpen()) return;
-    if (header?.contains(e.target)) return;
+    if (header && header.contains(e.target)) return;
     closeNav();
   };
 
@@ -80,7 +82,7 @@
     document.body.classList.add("nav-open");
 
     const firstLink = $("a, button", nav);
-    firstLink?.focus();
+    if (firstLink) firstLink.focus();
 
     document.addEventListener("keydown", trapFocus);
     document.addEventListener("keydown", onKeydownEsc);
@@ -98,15 +100,20 @@
     document.removeEventListener("keydown", onKeydownEsc);
     document.removeEventListener("click", outsideClick, true);
 
-    (lastFocus || navToggle || document.body).focus?.();
+    const focusTarget = lastFocus || navToggle || document.body;
+    if (focusTarget && typeof focusTarget.focus === "function") {
+      focusTarget.focus();
+    }
   };
 
-  navToggle?.addEventListener("click", () => {
-    isNavOpen() ? closeNav() : openNav();
-  });
+  if (navToggle) {
+    navToggle.addEventListener("click", () => {
+      isNavOpen() ? closeNav() : openNav();
+    });
+  }
 
-  navClose?.addEventListener("click", closeNav);
-  navOverlay?.addEventListener("click", closeNav);
+  if (navClose) navClose.addEventListener("click", closeNav);
+  if (navOverlay) navOverlay.addEventListener("click", closeNav);
 
   // Close nav on link click (mobile only)
   if (nav) {
@@ -141,8 +148,10 @@
 
   const applyHighContrast = (enabled) => {
     document.documentElement.classList.toggle('high-contrast', !!enabled);
-    contrastToggle?.setAttribute('aria-pressed', String(!!enabled));
-    contrastToggle?.setAttribute('aria-label', enabled ? 'Disable high contrast mode' : 'Enable high contrast mode');
+    if (contrastToggle) {
+      contrastToggle.setAttribute('aria-pressed', String(!!enabled));
+      contrastToggle.setAttribute('aria-label', enabled ? 'Disable high contrast mode' : 'Enable high contrast mode');
+    }
     if (typeof window.applyContrast === 'function') window.applyContrast(enabled ? 7 : 7); // keep AAA target
     if (typeof window.autoContrast === 'function') window.autoContrast();
   };
@@ -152,11 +161,13 @@
     applyHighContrast(storedHC);
   } catch (_) { /* ignore */ }
 
-  contrastToggle?.addEventListener('click', () => {
-    const enabled = !document.documentElement.classList.contains('high-contrast');
-    applyHighContrast(enabled);
-    try { localStorage.setItem(HC_KEY, enabled ? '1' : '0'); } catch (_) { /* ignore */ }
-  });
+  if (contrastToggle) {
+    contrastToggle.addEventListener('click', () => {
+      const enabled = !document.documentElement.classList.contains('high-contrast');
+      applyHighContrast(enabled);
+      try { localStorage.setItem(HC_KEY, enabled ? '1' : '0'); } catch (_) { /* ignore */ }
+    });
+  }
 
   /* =========================
      KEYBOARD SHORTCUTS
@@ -177,7 +188,7 @@
         localStorage.removeItem('ts:audit');
         // Remove existing panel if present without reload
         const panel = document.querySelector('.ts-dev-overlay');
-        panel?.remove();
+        if (panel) panel.remove();
       } else {
         localStorage.setItem('ts:audit', '1');
         // Reload to allow dev-overlay.js to initialize
