@@ -1,0 +1,8 @@
+/* Base (variables + resets) */
+@import "../../_sass/base/tokens";
+
+/* Layout (page-wide structures) */
+@import "../../_sass/layout/grid";
+
+/* Components (header, nav, hero, cards, footer…) */
+@import "../../_sass/components/theme";

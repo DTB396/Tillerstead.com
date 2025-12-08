@@ -9,8 +9,8 @@
   "scripts": {
     "lint": "eslint . && htmlhint *.html",
     "format": "prettier --write .",
-    "build:css": "sass src/scss/theme.scss:assets/css/theme-compiled.css --no-source-map --style=compressed",
-    "watch:css": "sass src/scss/theme.scss:assets/css/theme-compiled.css --watch --no-source-map",
+    "build:css": "sass assets/css/main-build.scss:assets/css/main.css --no-source-map --style=compressed",
+    "watch:css": "sass assets/css/main-build.scss:assets/css/main.css --watch --no-source-map",
     "dev": "npm run build:css && bundle exec jekyll serve --host 0.0.0.0 --port 4000 --livereload --livereload-port 35729",
     "build": "npm run build:css && bundle exec jekyll build",
     "build:site": "npm run build",
