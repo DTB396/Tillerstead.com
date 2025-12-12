@@ -1,0 +1,10 @@
+{% comment %}
+Usage: {% include ts-icon.html name="icon-plan" size="22" class="optional-classes" %}
+Renders: <svg><use href="#icon-plan"></use></svg>
+{% endcomment %}
+{% assign icon_name = include.name | default: 'icon-plan' %}
+{% assign icon_size = include.size | default: '20' %}
+{% assign icon_class = include.class | default: 'ts-icon' %}
+<svg class="{{ icon_class }}" width="{{ icon_size }}" height="{{ icon_size }}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <use href="#{{ icon_name }}"></use>
+</svg>

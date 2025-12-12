@@ -44,8 +44,9 @@
 
 .site-branding {
   display: flex;
-  align-items: center;
-  gap: clamp(0.75rem, 2vw, 1.25rem);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(0.35rem, 1.5vw, 0.6rem);
   min-width: 0;
 }
 
@@ -127,8 +128,11 @@
 .brand-meta {
   display: none;
   flex-direction: column;
-  gap: 0.125rem;
+  gap: 0.1rem;
   min-width: 0;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  color: var(--color-text-muted);
 
   @media (min-width: 900px) {
     display: flex;
@@ -136,18 +140,16 @@
 }
 
 .brand-tagline {
-  font-size: clamp(0.6875rem, 1.2vw, 0.75rem);
+  font-size: clamp(0.7rem, 1.6vw, 0.8rem);
   font-weight: 600;
   color: var(--color-primary);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .brand-license {
-  font-size: clamp(0.625rem, 1.1vw, 0.6875rem);
+  font-size: clamp(0.65rem, 1.4vw, 0.75rem);
   color: var(--color-text-muted);
   font-weight: 500;
   white-space: nowrap;
