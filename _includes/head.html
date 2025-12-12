@@ -48,8 +48,9 @@
 <!-- Performance: Preload critical assets -->
 <link rel="preload" as="image" href="{{ '/assets/img/logo/tillerstead-logo-header.svg' | relative_url }}" fetchpriority="high">
 <link rel="preload" as="style" href="{{ '/assets/css/main.css' | relative_url }}">
-{% if page.is_home or page.hero_image %}
-  <link rel="preload" as="image" href="{{ page.hero_image | default: '/assets/img/hero-bg.jpg' | relative_url }}" fetchpriority="high">
+{% assign hero_preload_image = page.hero_image | default: site.hero_default_image | default: site.default_og_image %}
+{% if (page.is_home or page.hero_image) and hero_preload_image %}
+  <link rel="preload" as="image" href="{{ hero_preload_image | relative_url }}" fetchpriority="high">
 {% endif %}
 
 <!-- Open Graph / Social -->
