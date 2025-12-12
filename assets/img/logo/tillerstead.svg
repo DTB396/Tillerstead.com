@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 520 160"
+     viewBox="0 0 640 160"
      role="img"
      aria-label="Tillerstead logo">
   <style>
@@ -25,6 +25,6 @@
     <rect class="logo-tile" x="56"  y="112" width="42" height="42" rx="6"/>
   </g>
 
-  <text class="logo-word" x="220" y="92">TILLERSTEAD</text>
+  <!-- nudged a bit left so there's plenty of room for the D -->
+  <text class="logo-word" x="210" y="92">TILLERSTEAD</text>
 </svg>
-
