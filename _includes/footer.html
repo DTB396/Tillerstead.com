@@ -11,7 +11,10 @@
   <meta itemprop="areaServed" content="Atlantic County, New Jersey">
 <meta itemprop="areaServed" content="Ocean County, New Jersey">
 <meta itemprop="areaServed" content="Cape May County, New Jersey">
-
+<meta itemprop="sameAs" content="https://www.instagram.com/tillerstead">
+<meta itemprop="sameAs" content="https://www.facebook.com/share/17ZQCR2zdZ/">
+<meta itemprop="sameAs" content="https://x.com/tillerstead">
+  
   <div class="footer-shell">
     <div class="footer-panel ts-panel ts-panel--navy">
       <div class="container footer-flex">
@@ -217,20 +220,24 @@
               {{ site.company.email }}
             </a>
           </p>
-
-          <p class="footer-subnote">
-            <small>
-  <strong>Fast response.</strong> Written scopes. Compliance-first contracting.
-</small>
-          </p>
+          <p class="footer-cta-secondary">
+  <a href="{{ '/contact/' | relative_url }}" class="footer-link">
+    Request a written estimate →
+  </a>
+</p>
+       <p class="footer-subnote">
+  <small>
+    <strong>Clear scopes.</strong> Straight answers. Work done right.
+  </small>
+</p>
         </div>
-
       </div>
-
       <!-- Bottom Line -->
       <div class="container footer-bottom">
   {% include compliance-footer.html %}
-
+  <p class="footer-legal-note">
+  <small>Operating in accordance with New Jersey consumer-protection and home-improvement regulations.</small>
+</p>
   <p>
     &copy; {{ 'now' | date: '%Y' }} Tillerstead LLC. All rights reserved.
     <a href="{{ '/privacy/' | relative_url }}" class="footer-link">Privacy</a> |
