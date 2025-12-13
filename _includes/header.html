@@ -47,7 +47,7 @@
                 {% assign is_current = true %}
               {% endif %}
             {% endif %}
-            <li class="nav-item" role="listitem">{% raw %}<a href="{{ item.url | relative_url }}" class="nav-link{% if is_current %} active{% endif %}"{% if is_current %} aria-current="page"{% endif %}>{{ item.title }}</a>{% endraw %}</li>
+            <li class="nav-item" role="listitem"><a href="{{ item.url | relative_url }}" class="nav-link{% if is_current %} active{% endif %}"{% if is_current %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
           {% endfor %}
           <li class="nav-cta nav-cta--drawer">
             <a class="btn btn-primary btn-lg" href="{{ '/contact/' | relative_url }}" aria-label="Request a free estimate">

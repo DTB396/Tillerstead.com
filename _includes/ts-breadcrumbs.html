@@ -8,7 +8,8 @@
 {%- endif -%}
 
 {%- if render_breadcrumbs -%}
-  {%- assign clean_url = page.url | default: '' | replace: 'index.html', '' | replace: '.html', '' -%}
+  {%- assign raw_url = page.url | default: '' -%}
+  {%- assign clean_url = '' | append: raw_url | replace: 'index.html', '' | replace: '.html', '' -%}
   {%- assign segments = clean_url | split: '/' -%}
   {%- assign clean_segments_list = '' -%}
   {%- for seg in segments -%}
@@ -25,6 +26,8 @@
   {%- else -%}
     {%- assign clean_segments = '' | split: '' -%}
   {%- endif -%}
+
+  <!-- breadcrumb-debug is_home={{ is_home }} url={{ page.url }} raw_url={{ raw_url }} clean_url={{ clean_url }} segments={{ segments | join: ',' }} first_segment={{ segments | first }} segment_count={{ segments | size }} clean_list={{ clean_segments_list }} -->
 
   {%- assign is_post = false -%}
   {%- if page.collection == 'posts' or page.layout == 'post' -%}
@@ -114,7 +117,7 @@
         <ol class="breadcrumbs-list ts-breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
           {%- assign home_relative = '/' | relative_url -%}
           <li class="breadcrumbs-item ts-breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a class="breadcrumbs-link ts-breadcrumbs__link" href="{{ home_relative }}" itemprop="item">
+            <a class="breadcrumbs-link ts-breadcrumbs__link ts-crumb-link" href="{{ home_relative }}" itemprop="item">
               <span itemprop="name">Home</span>
             </a>
             <meta itemprop="position" content="1">
@@ -126,7 +129,7 @@
             {%- assign parent_relative = parent_href | relative_url -%}
             {%- assign parent_absolute = parent_href | absolute_url -%}
             <li class="breadcrumbs-item ts-breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <a class="breadcrumbs-link ts-breadcrumbs__link" href="{{ parent_relative }}" itemprop="item">
+              <a class="breadcrumbs-link ts-breadcrumbs__link ts-crumb-link" href="{{ parent_relative }}" itemprop="item">
                 <span itemprop="name">{{ parent_label }}</span>
               </a>
               <meta itemprop="position" content="{{ crumb_position }}">
@@ -195,10 +198,10 @@
             {%- endif -%}
             <li class="breadcrumbs-item ts-breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
               {%- if is_last_segment -%}
-                <span class="breadcrumbs-current ts-breadcrumbs__current" aria-current="page" itemprop="name">{{ label }}</span>
+                <span class="breadcrumbs-current ts-breadcrumbs__current ts-crumb-current" aria-current="page" itemprop="name">{{ label }}</span>
                 <meta itemprop="item" content="{{ crumb_absolute }}">
               {%- else -%}
-                <a class="breadcrumbs-link ts-breadcrumbs__link" href="{{ crumb_relative }}" itemprop="item">
+                <a class="breadcrumbs-link ts-breadcrumbs__link ts-crumb-link" href="{{ crumb_relative }}" itemprop="item">
                   <span itemprop="name">{{ label }}</span>
                 </a>
               {%- endif -%}
