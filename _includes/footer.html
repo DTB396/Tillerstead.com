@@ -4,11 +4,13 @@
   <meta itemprop="name" content="Tillerstead LLC">
   <meta itemprop="@id" content="{{ site.url }}/#contractor">
   <meta itemprop="url" content="{{ site.url }}/">
-  <meta itemprop="priceRange" content="$$">
+  <meta itemprop="priceRange" content="Varies by project">
   <meta itemprop="telephone" content="{{ site.company.phone_link }}">
   <meta itemprop="email" content="{{ site.company.email }}">
-  <meta itemprop="description" content="Property maintenance, remodeling, and tile installation across Atlantic, Ocean, and Cape May counties.">
-  <meta itemprop="areaServed" content="Atlantic County NJ, Ocean County NJ, Cape May County NJ">
+  <meta itemprop="description" content="Property caretaking, thoughtful home renovations, and expert tile installation serving Atlantic, Ocean, and Cape May counties.">
+  <meta itemprop="areaServed" content="Atlantic County, New Jersey">
+<meta itemprop="areaServed" content="Ocean County, New Jersey">
+<meta itemprop="areaServed" content="Cape May County, New Jersey">
 
   <div class="footer-shell">
     <div class="footer-panel ts-panel ts-panel--navy">
@@ -22,16 +24,14 @@
    img_class="ts-logo ts-logo--footer footer-logo"
    variant="inverse" %}
             <div class="footer-brand-meta">
-              <p class="footer-tagline">Professional Tile & Stone Installation</p>
-              <p class="footer-license-badge">NJ Licensed HIC #{{ site.company.hic }}</p>
+              <p class="footer-tagline">Professional Remodeling & Tile and Stone Installation</p>
+              <p class="footer-license-badge">NJ HIC License #{{ site.company.hic }}</p>
             </div>
           </div>
 
           <p class="footer-desc">
-            Expert tile and stone craftsmen specializing in custom showers, heated floors, natural stone surfaces, and waterproof assemblies. Serving South Jersey with precision and lasting quality.
+            Expert tile and stone craftsmen delivering custom showers, radiant heated floors, natural stone surfaces, and code-compliant waterproof assemblies. Serving South Jersey with precision and lasting quality.
           </p>
-          
-          {% include compliance-footer.html %}
         </div>
 
         <!-- Navigation -->
@@ -119,12 +119,15 @@
 
       <!-- Bottom Line -->
       <div class="container footer-bottom">
-        <p>
-          &copy; {{ 'now' | date: '%Y' }} Tillerstead LLC. All rights reserved.
-          <a href="{{ '/privacy/' | relative_url }}" class="footer-link">Privacy</a> |
-          <a href="{{ '/terms/' | relative_url }}" class="footer-link">Terms</a>
-        </p>
-      </div>
+        <div class="container footer-bottom">
+  {% include compliance-footer.html %}
+
+  <p>
+    &copy; {{ 'now' | date: '%Y' }} Tillerstead LLC. All rights reserved.
+    <a href="{{ '/privacy/' | relative_url }}" class="footer-link">Privacy</a> |
+    <a href="{{ '/terms/' | relative_url }}" class="footer-link">Terms</a>
+  </p>
+</div>
 
     </div>
   </div>
