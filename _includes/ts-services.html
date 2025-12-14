@@ -98,12 +98,33 @@
     {% else %}
       <div class="ts-services__gallery" aria-label="Recent tile work examples">
         <figure class="ts-services__photo">
-          <img src="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-marble-shower-niche.jpg' | relative_url }}"
-               alt="Marble-look shower with mosaic niche and window returns.">
-          <figcaption>Curbless shower rebuild with sealed shelf, window trims, and waterproof proof photos.</figcaption>
+          <picture>
+            <source type="image/webp" srcset="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-accent-wall-progress.webp' | relative_url }}">
+            <img src="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-accent-wall-progress.jpg' | relative_url }}"
+                 alt="Progress shot of the accent wall and shower prep.">
+          </picture>
+          <figcaption>Progress shot: waterproofing and layout set before stone panels go in.</figcaption>
         </figure>
-             </div>
+
+        <figure class="ts-services__photo ts-services__photo--rotate">
+          <picture>
+            <source type="image/webp" srcset="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-accent-wall-and-shower.webp' | relative_url }}">
+            <img src="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-accent-wall-and-shower.jpg' | relative_url }}"
+                 alt="Mid-stage view of the accent wall and shower layout.">
+          </picture>
+          <figcaption>Mid-stage: tile panels staged and waterproofing confirmed before grout.</figcaption>
+        </figure>
+
+        <figure class="ts-services__photo ts-services__photo--rotate">
+          <picture>
+            <source type="image/webp" srcset="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-accent-wall-detail.webp' | relative_url }}">
+            <img src="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-accent-wall-detail.jpg' | relative_url }}"
+                 alt="Finished accent wall and shower detail.">
+          </picture>
+          <figcaption>Final detail: polished accent wall with step shelf and flush grout joints.</figcaption>
+        </figure>
+
+      </div>
     {% endif %}
   </div>
 </section>
-

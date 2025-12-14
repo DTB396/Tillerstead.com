@@ -241,6 +241,11 @@ body.ts-theme {
   }
 }
 
+.ts-services__photo--rotate img {
+  transform: rotate(90deg);
+  transform-origin: center;
+}
+
 /* Service Card Enhancements */
 .card--service,
 .ts-service-card {
