@@ -1,0 +1,94 @@
+/* ========================================
+   HEADER BRAND & LOGO IMPROVEMENTS
+   ======================================== */
+
+/* Logo sizing improvements */
+.ts-logo {
+  display: block;
+  width: clamp(160px, 32vw, 240px);
+  max-height: 56px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.12));
+  transition: filter var(--transition-fast), transform var(--transition-fast);
+
+  &--header {
+    width: clamp(180px, 30vw, 240px);
+    max-height: 54px;
+  }
+}
+
+/* Brand meta (tagline + license) */
+.brand-meta {
+  display: none; // Hidden on mobile by default
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(255, 255, 255, 0.25);
+  
+  @media (min-width: 1024px) {
+    display: flex;
+  }
+}
+
+.brand-tagline {
+  margin: 0;
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  color: var(--ts-white, #fff);
+  text-transform: none;
+  white-space: nowrap;
+}
+
+.brand-license {
+  margin: 0;
+  font-size: clamp(0.7rem, 1vw, 0.8rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* Improved brand container */
+.site-brand,
+.ts-brand {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.9rem, 2.5vw, 1.5rem);
+  flex-shrink: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1280px) {
+  .brand-meta {
+    padding-left: 0.75rem;
+  }
+  
+  .brand-tagline {
+    font-size: 0.85rem;
+  }
+  
+  .brand-license {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .brand-meta {
+    display: none;
+  }
+  
+  .ts-logo--header {
+    width: clamp(160px, 28vw, 200px);
+    max-height: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ts-logo--header {
+    width: clamp(140px, 35vw, 180px);
+    max-height: 44px;
+  }
+}
