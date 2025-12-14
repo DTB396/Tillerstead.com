@@ -1,6 +1,8 @@
 ﻿# ============================
 #  Tillerstead.com â€” _config.yml
 # ============================
+#  Tillerstead.com — _config.yml
+# ============================
 
 # Site identity
 title: Tillerstead LLC
@@ -37,6 +39,9 @@ social:
   instagram: "https://www.instagram.com/tillerstead?igsh=MWg5NjlwNXBnYXM2Mg%3D%3D&utm_source=qr"
   facebook: "https://www.facebook.com/share/17ZQCR2zdZ/?mibextid=wwXIfr"
   x: "https://x.com/tillerstead?s=21"
+    # Add social links once ready:
+    # - https://www.instagram.com/tillerstead
+    # - https://www.facebook.com/tillerstead
 
 # Business variables
 company:
@@ -55,7 +60,9 @@ company:
 logo: /assets/img/logo/tillerstead-logo-header.svg
 # Use existing project imagery for social + hero preloads
 default_og_image: /assets/img/social/tillerstead-showcase.jpg
-hero_default_image: /assets/img/tillerstead-work/bathrooms/bathroom-remodel-finished.webp
+hero_default_image: /assets/img/tillerstead-work/bathrooms/bathroom-accent-wall-and-shower.jpg
+# Use an existing raster image for social sharing previews
+default_og_image: /assets/img/marble-bath.jpg
 
 # Cache-busting helper
 assets_version: "2025-11-23.1"
@@ -90,6 +97,7 @@ ux:
   cta_secondary_label: "Explore services"
   reassurances:
     - "NJ Licensed & Insured â€¢ HIC #13VH10808800"
+    - "NJ Licensed & Insured • HIC #13VH10808800"
     - "Written scopes & change orders"
     - "Waterproof assemblies by default"
     - "Owner on site and accountable"
@@ -104,3 +112,4 @@ forms:
   redirect_path: "/success/?form=contact"
   guide_redirect_path: "/download/nj-tile-guide/thank-you/"
   subject: "New Tillerstead LLC inquiry from tillerstead.com"
+    - "Monthly property care plans with photo reports"

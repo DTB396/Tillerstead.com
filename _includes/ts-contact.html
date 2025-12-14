@@ -15,6 +15,11 @@
         method="post"
         action="{{ form_endpoint }}"
         accept-charset="UTF-8"
+        action="/contact/"
+        data-netlify="true"
+        data-contact-form
+        data-contact-email="{{ site.company.email }}"
+        data-contact-phone="{{ site.company.phone_display }}"
         netlify-honeypot="bot-field"
         aria-describedby="ts-contact-title"
       >

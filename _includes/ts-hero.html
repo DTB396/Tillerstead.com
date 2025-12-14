@@ -1,6 +1,9 @@
 ﻿{% assign hero_eyebrow = include.eyebrow | default: page.hero_eyebrow | default: 'Licensed NJ contractor' %}
 {% assign hero_title = include.title | default: page.hero_title | default: 'Remodels & turnover-ready upkeep for landlords and homeowners' %}
 {% assign hero_summary = include.summary | default: page.hero_summary | default: 'Owner-operated remodels, waterproof tile, and organized turnover prep for rentals, condos, and small businessesâ€”delivered with documented scopes and clean job sites.' %}
+{% assign hero_eyebrow = include.eyebrow | default: page.hero_eyebrow | default: 'Licensed NJ contractor' %}
+{% assign hero_title = include.title | default: page.hero_title | default: 'Remodels & turnover-ready upkeep for landlords and homeowners' %}
+{% assign hero_summary = include.summary | default: page.hero_summary | default: 'Owner-operated remodels, waterproof tile, and organized turnover prep for rentals, condos, and small businesses—delivered with documented scopes and clean job sites.' %}
 {% assign hero_title = include.title | default: page.hero_title | default: 'Professional Property Upkeep for Landlords & Homeowners' %}
 {% assign hero_summary = include.summary | default: page.hero_summary | default: 'Owner-operated waterproofing, refinishing, and maintenance plans that keep every rental or residence show-ready year-round.' %}
 {% assign hero_kpis = include.kpis | default: page.hero_kpis %}
@@ -25,13 +28,14 @@
         </div>
 
         <div class="hero-cred">
-          <p class="hero-note">Owner-operated | NJ HIC #{{ site.company.hic | default: '13VH10808800' }}</p>
+                 <p class="hero-note">Owner-operated | NJ HIC #{{ site.company.hic | default: '13VH10808800' }} | Fully insured</p>
         </div>
       </div>
 
       <div class="hero-visual" aria-label="Examples of cared-for homes">
         <figure class="hero-visual__primary">
           <img src="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-marble-floor-finish.jpg' | relative_url }}" alt="Finished marble-look bathroom with curbless entry by Tillerstead" loading="lazy" decoding="async">
+          <img src="{{ '/assets/img/bathroom-remodel-final.webp' | relative_url }}" alt="Tiled shower with glass door and bright natural light" loading="lazy" decoding="async">
         </figure>
         <figure class="hero-visual__secondary">
           <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80&fm=webp" alt="Freshly painted coastal home exterior with clean trim" loading="lazy" decoding="async">

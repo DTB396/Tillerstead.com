@@ -11,11 +11,13 @@ Below is a **Good–Better–Best** breakdown to help you understand where each 
 ---
 
 ## 🟢 Good: Liquid-Applied Waterproofing (e.g., RedGard®)
+
 **Best for:** Standard layouts, budget-conscious builds, or repairs over existing cement board.
 
 **How it works:** A roll-on or trowel-on membrane creates a waterproof barrier directly over the cement board.
 
 **Keys to success:**
+
 - Apply to the **required thickness** (check the label and use a **wet-film gauge**).
 - Ensure **complete coverage** at corners, seams, and penetrations.
 - Allow full **cure time** before tile.
@@ -32,6 +34,7 @@ Below is a **Good–Better–Best** breakdown to help you understand where each 
 ---
 
 ## 🟡 Better: Sheet Membrane Systems (e.g., Schluter® KERDI)
+
 **Best for:** Full shower rebuilds where you want consistent, testable waterproofing.
 
 **How it works:** Thinset-bonded sheets overlap to form a continuous barrier, sealed with banding and corners.
@@ -48,19 +51,20 @@ Below is a **Good–Better–Best** breakdown to help you understand where each 
 
 ---
 
-## 🟣 Best: Foam Board + Integrated Pan (e.g., KERDI-Board®, GoBoard®)
-**Best for:** Full rebuilds, large-format tile, or tight deadlines where precision and speed both matter.
+## 🟣 Best: Foam Backer Boards + Integrated Pans (e.g., KERDI-BOARD®, KERDI-SHOWER, GoBoard®)
 
-**How it works:** Lightweight foam boards create a waterproof substrate and tie into a prefabricated pan and drain kit.
+**Best for:** Full rebuilds, large-format tile, or tight deadlines where precision, flatness, and an integrated drain solution matter.
+
+**How it works:** Lightweight foam backer boards create a waterproof substrate that ties into prefabricated pans or manufacturer drain kits to form a single, testable waterproof assembly.
 
 **Pros:**  
 ✅ Ultra-flat planes for **large-format tile**  
-✅ No fasteners through wet zones when detailed right  
-✅ Lighter and cleaner handling on site  
+✅ Few or no exposed fasteners in wet zones when detailed per the manufacturer  
+✅ Faster, lighter, and cleaner handling on site  
 
 **Watch-outs:**  
-⚠️ Use the manufacturer’s **fasteners, washers, tapes, and sealants**—mixing brands voids warranties.  
-⚠️ Double-check screw spacing and seal all penetrations.
+⚠️ Use the manufacturer’s **fasteners, washers, tapes, sealants, and drain kits**—mixing brands or improvised details can void warranties.  
+⚠️ Follow specified screw spacing, bedding, and bonding methods; confirm slope to drain and seal all penetrations.
 
 ---
 
@@ -69,6 +73,7 @@ Below is a **Good–Better–Best** breakdown to help you understand where each 
 All three systems—liquid, sheet, and foam—can perform beautifully **if** installed correctly. The weak link is never the product; it’s the **method**.
 
 At **Tillerstead**, we:
+
 - Install to **manufacturer and ANSI standards** (A118.10 / A118.12).  
 - Use **movement joints** per TCNA EJ171.  
 - Perform **flood tests** where required.  
@@ -84,7 +89,7 @@ You can buy quality waterproofing materials at any big-box store—but durabilit
 If you’re in **South Jersey or Atlantic County**, we’re happy to help you plan the right mix of DIY + professional installation.
 
 **Next step:**  
-Send your shower photos and goals to **info@tillerstead.com**, or visit the [Contact page](/contact.html) to start a consultation.
+Send your shower photos and goals to **<info@tillerstead.com>**, or visit the [Contact page](/contact.html) to start a consultation.
 
 ---
 

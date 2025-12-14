@@ -3,6 +3,9 @@
   Flexible, accessible, and maintainable grid layouts
   Improved for best practices and flexibility
   ============================================ */
+   Modern Grid System
+   Flexible, responsive grid layouts
+   ============================================ */
 
 /* Base Grid */
 .grid {
@@ -23,6 +26,35 @@
 // Support for none (single column)
 .grid-cols-none {
   grid-template-columns: none;
+}
+
+/* Column Definitions */
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.grid-cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
 /* Auto-fit Grids - Responsive without media queries */
@@ -70,6 +102,64 @@
     grid-column: span #{$i} / span #{$i};
   }
 }
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--auto-grid-min, 280px)), 1fr));
+}
+
+.grid-auto-fill {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--auto-grid-min, 280px)), 1fr));
+}
+
+/* Predefined Auto-fit Sizes */
+.grid-auto-sm {
+  --auto-grid-min: 200px;
+}
+
+.grid-auto-md {
+  --auto-grid-min: 280px;
+}
+
+.grid-auto-lg {
+  --auto-grid-min: 360px;
+}
+
+.grid-auto-xl {
+  --auto-grid-min: 480px;
+}
+
+/* Gap Utilities */
+.gap-xs {
+  gap: var(--ts-spacing-xs);
+}
+
+.gap-sm {
+  gap: var(--ts-spacing-sm);
+}
+
+.gap-md {
+  gap: var(--ts-spacing-md);
+}
+
+.gap-lg {
+  gap: var(--ts-spacing-lg);
+}
+
+.gap-xl {
+  gap: var(--ts-spacing-xl);
+}
+
+/* Grid Item Spanning */
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
+.col-span-3 {
+  grid-column: span 3 / span 3;
+}
+
+.col-span-4 {
+  grid-column: span 4 / span 4;
+}
+
 .col-span-full {
   grid-column: 1 / -1;
 }
@@ -100,6 +190,30 @@
 .place-start { place-items: start; }
 .place-end { place-items: end; }
 .place-stretch { place-items: stretch; }
+/* Grid Alignment */
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: start;
+}
+
+.items-end {
+  align-items: end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.place-center {
+  place-items: center;
+}
 
 /* Card Grids */
 .cards,
@@ -151,4 +265,43 @@
   .xl\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .xl\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .xl\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+}
+
+/* Responsive Grid Utilities */
+@media (min-width: 640px) {
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  
+  .lg\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
 }

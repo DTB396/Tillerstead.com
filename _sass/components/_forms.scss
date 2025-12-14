@@ -2,6 +2,9 @@
   Form Components
   Enhanced, accessible, modern form elements
   ============================================ */
+   Form Components
+   Modern, accessible form elements
+   ============================================ */
 
 /* Form Group */
 .form-group {
@@ -65,6 +68,8 @@ select {
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
   appearance: none;
   box-sizing: border-box;
+  transition: all var(--transition-fast);
+  appearance: none;
   
   &::placeholder {
     color: var(--ts-color-muted);
@@ -72,6 +77,7 @@ select {
   }
   
   &:hover:not(:disabled):not([readonly]) {
+  &:hover {
     border-color: var(--ts-color-border-strong);
   }
   
@@ -88,6 +94,8 @@ select {
   
   &:disabled,
   &[aria-disabled="true"] {
+  
+  &:disabled {
     background: var(--ts-color-surface-muted);
     color: var(--ts-color-muted);
     cursor: not-allowed;
@@ -108,6 +116,11 @@ select {
     
     &:focus,
     &:focus-visible {
+  &.is-invalid,
+  &:invalid {
+    border-color: var(--ts-color-error);
+    
+    &:focus {
       box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
     }
   }
@@ -128,6 +141,11 @@ select {
     -webkit-text-fill-color: var(--ts-color-text);
     border-color: var(--ts-color-primary);
     transition: background-color 5000s ease-in-out 0s;
+  }
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    }
   }
 }
 
@@ -185,6 +203,16 @@ input[type="radio"] {
     border-color: var(--ts-color-border);
     cursor: not-allowed;
     opacity: 0.6;
+  transition: all var(--transition-fast);
+  
+  &:checked {
+    background-color: var(--ts-color-primary);
+    border-color: var(--ts-color-primary);
+  }
+  
+  &:focus {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
   }
 }
 
@@ -274,6 +302,7 @@ input[type="radio"] {
     margin-right: 0.25em;
     background: url('data:image/svg+xml,%3Csvg fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"%3E%3Ccircle cx="10" cy="10" fill="%23ef4444" r="10"/%3E%3Cpath d="M10 5v5m0 3h.01" stroke="%23fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/%3E%3C/svg%3E') no-repeat center/contain;
     vertical-align: middle;
+    content: "⚠";
   }
 }
 
@@ -295,6 +324,7 @@ input[type="radio"] {
     margin-right: 0.25em;
     background: url('data:image/svg+xml,%3Csvg fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"%3E%3Ccircle cx="10" cy="10" fill="%2310b981" r="10"/%3E%3Cpath d="M6 10.5l3 3 5-5" stroke="%23fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/%3E%3C/svg%3E') no-repeat center/contain;
     vertical-align: middle;
+    content: "✓";
   }
 }
 
@@ -309,6 +339,9 @@ input[type="radio"] {
     background: rgba(16, 185, 129, 0.08);
     color: var(--ts-color-success);
     border: 1px solid rgba(16, 185, 129, 0.22);
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--ts-color-success);
+    border: 1px solid rgba(16, 185, 129, 0.3);
   }
   
   &.is-error,
@@ -316,6 +349,9 @@ input[type="radio"] {
     background: rgba(239, 68, 68, 0.08);
     color: var(--ts-color-error);
     border: 1px solid rgba(239, 68, 68, 0.22);
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--ts-color-error);
+    border: 1px solid rgba(239, 68, 68, 0.3);
   }
   
   &.is-info {
@@ -500,11 +536,16 @@ input[type="range"] {
 @media (max-width: 640px) {
   .form-grid {
     grid-template-columns: 1fr;
+<<<<<<< HEAD
     gap: var(--ts-spacing-md);
   }
   .form-group {
     margin-bottom: var(--ts-spacing-md);
   }
+=======
+  }
+  
+>>>>>>> cd94431d4595c868507e3ce0fccbb2a3869edcde
   .form-input,
   .form-textarea,
   .form-select,
@@ -512,6 +553,7 @@ input[type="range"] {
   textarea,
   select {
     font-size: 16px; /* Prevent iOS zoom on focus */
+<<<<<<< HEAD
     min-height: 44px;
     padding: 0.75rem 0.75rem;
   }
@@ -522,5 +564,7 @@ input[type="range"] {
   .form-check {
     min-height: 2.25rem;
     gap: 0.5rem;
+=======
+>>>>>>> cd94431d4595c868507e3ce0fccbb2a3869edcde
   }
 }

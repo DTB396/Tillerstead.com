@@ -99,6 +99,7 @@
 .bg-gradient .btn--primary:focus-visible {
   color: var(--ts-color-primary-strong);
 }
+.bg-gradient { background: var(--ts-gradient-primary) !important; }
 
 /* ===== Borders ===== */
 .rounded-sm { border-radius: var(--ts-radius-sm) !important; }

@@ -8,3 +8,8 @@
 
 // Import the main theme partial
 @import "../theme/_tillerstead.scss";
+   Deprecated Theme Entry
+   This file now proxies to theme/_tillerstead.scss
+   ============================================ */
+
+@import "../theme/tillerstead";

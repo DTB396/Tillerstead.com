@@ -74,6 +74,12 @@
 <!-- Alternate / full logo SVGs for tools that might request them -->
 <link rel="alternate" type="image/svg+xml" href="{{ '/assets/img/logo/tillerstead-logo-full.svg' | relative_url }}" title="Tillerstead Logo">
 
+<meta name="theme-color" content="#0b1421" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/svg+xml" href="{{ '/assets/img/logo/tillerstead-favicon.svg' | relative_url }}" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/logo/tillerstead-logo-mark.svg' | relative_url }}">
+<link rel="manifest" href="{{ '/manifest.webmanifest' | relative_url }}">
+<link rel="mask-icon" href="{{ '/assets/img/logo/tillerstead-logo-mark.svg' | relative_url }}" color="#1cb394">
 {% include ts-icon-sprite.html %}
 
 <!-- Performance: Preload critical assets -->
@@ -104,6 +110,8 @@
 {% assign hero_preload_image = page.hero_image | default: site.hero_default_image | default: site.default_og_image %}
 {% if (page.is_home or page.hero_image) and hero_preload_image %}
   <link rel="preload" as="image" href="{{ hero_preload_image | relative_url }}" fetchpriority="high">
+{% if page.is_home or page.hero_image %}
+  <link rel="preload" as="image" href="{{ page.hero_image | default: '/assets/img/hero-bg.jpg' | relative_url }}" fetchpriority="high">
 {% endif %}
 
 <!-- Open Graph / Social -->

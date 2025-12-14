@@ -1,4 +1,5 @@
 ﻿{% assign summary = include.summary | default: page.services_summary | default: 'Every scope starts with layout math, flood-tested waterproofing, and photos you can hand to a lender, tenant, or GC. No shortcuts, no sliver tiles unless the plan leaves no other choice.' %}
+{% assign summary = include.summary | default: page.services_summary | default: 'Every scope starts with layout math, flood-tested waterproofing, and photos you can hand to a lender, tenant, or GC. No shortcuts, no sliver tiles unless the plan leaves no other choice.' %}
 {% assign services = include.services | default: page.services | default: site.data.services.services %}
 {% assign services_gallery = include.gallery | default: page.services_gallery %}
 
@@ -89,6 +90,8 @@
                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                    style="width:100%;height:auto">
             </picture>
+          <figure class="ts-services__photo">
+            <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt | default: 'Tile installation detail' }}">
             {% if photo.caption %}
               <figcaption>{{ photo.caption }}</figcaption>
             {% endif %}
@@ -98,12 +101,12 @@
     {% else %}
       <div class="ts-services__gallery" aria-label="Recent tile work examples">
         <figure class="ts-services__photo">
-          <picture>
-            <source type="image/webp" srcset="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-accent-wall-progress.webp' | relative_url }}">
-            <img src="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-accent-wall-progress.jpg' | relative_url }}"
-                 alt="Progress shot of the accent wall and shower prep.">
-          </picture>
-          <figcaption>Progress shot: waterproofing and layout set before stone panels go in.</figcaption>
+          <img src="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-marble-shower-niche.jpg' | relative_url }}"
+               alt="Marble-look shower with mosaic niche and window returns.">
+          <figcaption>Curbless shower rebuild with sealed shelf, window trims, and waterproof proof photos.</figcaption>
+          <img src="{{ '/assets/img/bathroom-remodel-final.webp' | relative_url }}"
+               alt="Tile shower surround with matte black fixtures.">
+          <figcaption>Curbless shower rebuild with waterproofed bench and matte fixtures.</figcaption>
         </figure>
 
         <figure class="ts-services__photo ts-services__photo--rotate">

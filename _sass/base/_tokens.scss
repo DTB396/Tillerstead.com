@@ -20,6 +20,15 @@
   --ts-stone-warm: #3a413c;
   --ts-stone-cool: #58615c;
   --ts-ink: #131915;
+  --ts-emerald: #0b6b5c;
+  --ts-emerald-soft: #16a384;
+  --ts-emerald-deep: #084c3d;
+  --ts-gold: #c89d4f;
+  --ts-gold-soft: #e4c980;
+  --ts-parchment: #f7f1e3;
+  --ts-parchment-deep: #ede4cf;
+  --ts-stone: #2f3533;
+  --ts-ink: #1c231f;
   --ts-white: #ffffff;
 
   /* ===========================
@@ -34,6 +43,14 @@
   --ts-color-muted: color-mix(in srgb, var(--ts-color-text) 60%, #768077);
   --ts-color-text-subtle: color-mix(in srgb, var(--ts-color-text) 46%, #8e978f);
   --ts-color-heading: #151d19;
+  --ts-color-surface: #fbf7ee;
+  --ts-color-surface-muted: #f0e7d6;
+  --ts-color-surface-elevated: #ffffff;
+  --ts-color-surface-highlight: #fefbf4;
+  --ts-color-text: #1f2b24;
+  --ts-color-muted: color-mix(in srgb, var(--ts-color-text) 62%, #6f756f);
+  --ts-color-text-subtle: color-mix(in srgb, var(--ts-color-text) 48%, #8e958d);
+  --ts-color-heading: #14231d;
   --ts-color-primary: var(--ts-emerald);
   --ts-color-primary-strong: var(--ts-emerald-deep);
   --ts-color-primary-soft: rgba(11, 107, 92, 0.14);
@@ -43,6 +60,9 @@
   --ts-color-border: rgba(33, 41, 37, 0.16);
   --ts-color-border-strong: rgba(33, 41, 37, 0.36);
   --ts-color-divider: rgba(33, 41, 37, 0.22);
+  --ts-color-border: rgba(28, 35, 31, 0.16);
+  --ts-color-border-strong: rgba(28, 35, 31, 0.38);
+  --ts-color-divider: rgba(28, 35, 31, 0.18);
 
   /* ===========================
      Semantic States
@@ -78,6 +98,16 @@
                     radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.25) 0, transparent 55%);
   --ts-card-grid: repeating-linear-gradient(135deg, rgba(11, 107, 92, 0.08) 0 1px, transparent 1px 18px);
   --ts-card-geometry: radial-gradient(circle at 80% 0%, rgba(200, 157, 79, 0.14) 0, transparent 55%);
+  --ts-gradient-primary: linear-gradient(135deg, #1ab699 0%, var(--ts-emerald) 60%, var(--ts-emerald-deep) 100%);
+  --ts-gradient-accent: linear-gradient(135deg, var(--ts-gold) 0%, var(--ts-emerald) 100%);
+  --ts-gradient-surface: radial-gradient(circle at 18% 22%, rgba(200, 157, 79, 0.08), transparent 36%),
+                         radial-gradient(circle at 82% 8%, rgba(22, 163, 149, 0.12), transparent 40%),
+                         var(--ts-parchment);
+  --ts-gradient-section: linear-gradient(180deg, #ffffff 0%, var(--ts-parchment) 55%, #fefbf4 100%);
+  --ts-bg-pattern: radial-gradient(circle at 12% 18%, rgba(11, 107, 92, 0.08) 0, transparent 32px),
+                   radial-gradient(circle at 80% 12%, rgba(200, 157, 79, 0.06) 0, transparent 28px);
+  --ts-bg-pattern-size: 220px 220px;
+  --ts-bg-pattern-opacity: 0.14;
   --ts-color-overlay: rgba(9, 17, 15, 0.7);
 
   /* ===========================
@@ -225,6 +255,16 @@ html[data-theme="dark"] {
   --ts-color-muted: #a6c1b3;
   --ts-color-text-subtle: #8fa397;
   --ts-color-heading: #f7fffa;
+  --ts-color-bg: #081310;
+  --ts-color-surface: #0e1815;
+  --ts-color-surface-elevated: #12211b;
+  --ts-color-surface-muted: #0d1a16;
+  --ts-color-surface-highlight: #152520;
+
+  --ts-color-text: #e1efe7;
+  --ts-color-muted: #a8c0b2;
+  --ts-color-text-subtle: #8da196;
+  --ts-color-heading: #f8fffb;
   --ts-color-primary: var(--ts-emerald-soft);
   --ts-color-primary-strong: color-mix(in srgb, var(--ts-emerald-soft) 80%, #042621);
   --ts-color-primary-soft: rgba(26, 182, 153, 0.18);

@@ -1,3 +1,4 @@
+---
 layout: post
 title: "Your First Tile/Bath Consultation in NJ: What to Expect & How to Prep"
 description: "A simple 15-minute prep guide for South Jersey homeowners—photos to take, measurements to grab, and how Tillerstead builds a clean, fair proposal for tile and bathroom projects."
@@ -102,13 +103,10 @@ A little prep goes a long way.
 
 **Next step:**  
 
-- Email your **five photos** and quick measurements to <a href="mailto:info@tillerstead.com?subject=Project%20Inquiry&body=Hi%20Tillerstead%2C%0AI'm%20interested%20in...">
-Email Tillerstead
-</a>, or  
+-- Email your **five photos** and quick measurements to [Email Tillerstead](mailto:info@tillerstead.com?subject=Project%20Inquiry&body=Hi%20Tillerstead%2C%0AI%27m%20interested%20in...) , or  
+
 - Visit the **Contact** page and tap **“Start Your Project”** to share details for a streamlined estimate.
 
 Whether you’re in **Egg Harbor Township, Galloway, or elsewhere in Atlantic County**, the goal is the same: a calm, honest consultation and tile or bathroom work you’re proud to live with every day.
-
----
 
 Do the work with integrity and care. That's the Tillerstead approach to every consultation and project.

@@ -4,6 +4,7 @@
 {%- if is_home
     or (page.show_breadcrumbs != nil and page.show_breadcrumbs == false)
     or (page.breadcrumb != nil and page.breadcrumb == false) -%}
+{%- if is_home or page.show_breadcrumbs == false -%}
   {%- assign render_breadcrumbs = false -%}
 {%- endif -%}
 
@@ -218,5 +219,107 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{ json_items }}]}
     </script>
   {%- endif -%}
+  {%- assign clean_url = page.url | default: '' | replace: 'index.html', '' | replace: '.html', '' -%}
+  {%- assign segments = clean_url | split: '/' -%}
+  {%- assign clean_segments = '' | split: '' -%}
+  {%- for seg in segments -%}
+    {%- unless seg == '' -%}
+      {%- assign clean_segments = clean_segments | push: seg -%}
+    {%- endunless -%}
+  {%- endfor -%}
+
+  {%- assign parent_url = page.parent | default: page.breadcrumb_parent -%}
+  {%- assign parent_page = nil -%}
+  {%- assign parent_label = nil -%}
+  {%- assign parent_parts = '' | split: '' -%}
+  {%- assign parent_path = '' -%}
+  {%- if parent_url and parent_url != '' -%}
+    {%- assign parent_page = site.html_pages | where_exp: 'p', 'p.url == parent_url' | first -%}
+    {%- assign parent_label = parent_page.breadcrumb_title | default: parent_page.hero_title | default: parent_page.title | default: page.parent_title | default: page.parent_label -%}
+    {%- assign parent_parts = parent_url | replace: 'index.html', '' | replace: '.html', '' | split: '/' -%}
+    {%- if parent_label == nil -%}
+      {%- assign parent_label = parent_url | replace: 'index.html', '' | replace: '.html', '' | split: '/' | last | replace: '-', ' ' | capitalize -%}
+    {%- endif -%}
+    {%- for part in parent_parts -%}
+      {%- unless part == '' -%}
+        {%- assign parent_path = parent_path | append: '/' | append: part -%}
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endif -%}
+
+  <nav class="ts-breadcrumbs" aria-label="Breadcrumb" role="navigation" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <ol>
+      {%- assign crumb_position = 1 -%}
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a class="ts-crumb-link" href="{{ '/' | relative_url }}" itemprop="item">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="{{ crumb_position }}">
+      </li>
+
+      {%- assign crumb_position = crumb_position | plus: 1 -%}
+      {%- assign current_path = '' -%}
+
+      {%- if parent_url -%}
+        {%- assign current_path = parent_path -%}
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a class="ts-crumb-link" href="{{ current_path | append: '/' | relative_url }}" itemprop="item">
+            <span itemprop="name">{{ parent_label }}</span>
+          </a>
+          <meta itemprop="position" content="{{ crumb_position }}">
+        </li>
+        {%- assign crumb_position = crumb_position | plus: 1 -%}
+      {%- endif -%}
+
+      {%- assign parent_slug = parent_parts | last -%}
+      {%- for segment in clean_segments -%}
+        {%- if parent_url and segment == parent_slug -%}
+          {%- continue -%}
+        {%- endif -%}
+        {%- assign current_path = current_path | append: '/' | append: segment -%}
+        {%- assign is_last = forloop.last -%}
+        {%- assign label = segment | replace: '-', ' ' | capitalize -%}
+        {%- if is_last -%}
+          {%- assign label = page.breadcrumb_title | default: page.hero_title | default: page.title | default: label -%}
+        {%- endif -%}
+        {%- assign crumb_href = current_path | append: '/' -%}
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a class="ts-crumb-link {% if is_last %}ts-crumb-current{% endif %}" href="{{ crumb_href | relative_url }}" itemprop="item" {% if is_last %}aria-current="page"{% endif %}>
+            <span itemprop="name">{{ label }}</span>
+          </a>
+          <meta itemprop="position" content="{{ crumb_position }}">
+        </li>
+        {%- assign crumb_position = crumb_position | plus: 1 -%}
+      {%- endfor -%}
+    </ol>
+  </nav>
+
+  {%- comment -%} JSON-LD breadcrumb trail {%- endcomment -%}
+  {%- assign json_items = '' -%}
+  {%- assign json_items = json_items | append: '{"@type":"ListItem","position":1,"name":"Home","item":"' | append: site.url | append: '/"}' -%}
+  {%- assign crumb_position = 2 -%}
+  {%- if parent_url -%}
+    {%- assign parent_item_url = site.url | append: parent_path | append: '/' -%}
+    {%- assign json_items = json_items | append: ',{"@type":"ListItem","position":' | append: crumb_position | append: ',"name":"' | append: parent_label | append: '","item":"' | append: parent_item_url | append: '"}' -%}
+    {%- assign crumb_position = crumb_position | plus: 1 -%}
+  {%- endif -%}
+  {%- assign current_path = parent_path -%}
+  {%- for segment in clean_segments -%}
+    {%- if parent_url and segment == parent_slug -%}
+      {%- continue -%}
+    {%- endif -%}
+    {%- assign current_path = current_path | append: '/' | append: segment -%}
+    {%- assign is_last = forloop.last -%}
+    {%- assign label = segment | replace: '-', ' ' | capitalize -%}
+    {%- if is_last -%}
+      {%- assign label = page.breadcrumb_title | default: page.hero_title | default: page.title | default: label -%}
+    {%- endif -%}
+    {%- assign item_url = site.url | append: current_path | append: '/' -%}
+    {%- assign json_items = json_items | append: ',{"@type":"ListItem","position":' | append: crumb_position | append: ',"name":"' | append: label | append: '","item":"' | append: item_url | append: '"}' -%}
+    {%- assign crumb_position = crumb_position | plus: 1 -%}
+  {%- endfor -%}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{ json_items }}]}
+  </script>
 {%- endif -%}
 {% endunless %}

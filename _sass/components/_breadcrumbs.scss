@@ -41,6 +41,15 @@
   background: transparent;
 
   /* Hide on homepage (handled by layout logic) */
+.ts-breadcrumbs {
+  display: flex;
+  align-items: center;
+  max-width: var(--shell-width);
+  margin: 0 auto;
+  padding: var(--ts-spacing-sm) clamp(1.25rem, 3vw, 2rem);
+  position: relative;
+
+  /* Hidden on homepage (handled by layout logic) */
   .page-home & {
     display: none;
   }
@@ -50,6 +59,7 @@
   }
 
   /* Style ordered list */
+  /* Style both direct ol elements and those with classes */
   ol,
   .ts-breadcrumbs__list {
     list-style: none;
@@ -60,6 +70,9 @@
     align-items: center;
     gap: 0.25rem;
     width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
   }
 
   /* Style all list items */
@@ -67,7 +80,6 @@
   .ts-breadcrumbs__item {
   display: inline-flex;
   align-items: center;
-  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   white-space: nowrap;
   min-width: 0;
@@ -101,9 +113,28 @@
   text-decoration: none;
   font-weight: 500;
   transition: color var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-text-muted);
+
+    &:not(:last-child)::after {
+      content: "/";
+      margin-left: var(--space-2);
+      color: var(--color-border-strong);
+      font-weight: 400;
+      opacity: 0.6;
+    }
+  }
+}
+
+.ts-breadcrumbs__link,
+.ts-crumb-link {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-fast);
   border-radius: var(--radius-sm);
   padding: 0.25rem 0.5rem;
-  display: inline-flex;
   align-items: center;
   outline: none;
   background: transparent;
@@ -128,6 +159,15 @@
 }
 
 
+
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+  }
+}
 
 .ts-breadcrumbs__current,
 .ts-crumb-current {
@@ -213,4 +253,32 @@
 .ts-breadcrumbs {
   content-visibility: auto;
   contain-intrinsic-size: 40px 20px;
+}
+  padding: 0.25rem 0.5rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ts-breadcrumbs {
+    padding: var(--ts-spacing-xs) clamp(0.9rem, 4vw, 1.4rem);
+  }
+
+  .ts-breadcrumbs__item,
+  .ts-breadcrumbs li {
+    font-size: var(--font-size-xs);
+  }
+
+  .ts-breadcrumbs__link,
+  .ts-crumb-link {
+    padding: 0.2rem 0.4rem;
+  }
+}
+
+/* Accessibility: Hide breadcrumbs on print */
+@media print {
+  .ts-breadcrumbs {
+    display: none;
+  }
 }

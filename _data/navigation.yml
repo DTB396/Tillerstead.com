@@ -26,6 +26,9 @@ primary:
 
 # Items that only appear in footer / legal
 secondary:
+    title: Portfolio
+    url: /portfolio/
+    match: /portfolio/
   - id: gc
     title: Contractors
     url: /for-general-contractors/
@@ -34,10 +37,21 @@ secondary:
     title: Reviews
     url: /reviews/
     match: /reviews/
+  - id: about
+    title: About
+    url: /about/
+    match: /about/
   - id: financing
     title: Financing
     url: /financing/
     match: /financing/
+  - id: contact
+    title: Contact
+    url: /contact/
+    match: /contact/
+
+# Items that only appear in footer / legal
+secondary:
   - id: blog
     title: Blog
     url: /blog/

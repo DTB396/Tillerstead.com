@@ -63,6 +63,42 @@
 }
 
 
+   Deliver Section
+   Modern, high-quality styling and layout
+   ============================================ */
+
+.ts-deliver {
+  padding: var(--section-padding-y) 0;
+}
+
+.ts-deliver__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: clamp(1.25rem, 3vw, 2rem);
+  align-items: start;
+}
+
+.ts-deliver__intro {
+  background: var(--ts-color-surface);
+  border: 1px solid var(--ts-color-border);
+  border-radius: var(--ts-radius-lg);
+  box-shadow: var(--ts-shadow-soft);
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.ts-deliver__list {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.ts-deliver__list li {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
 .ts-deliver__list li::before {
   content: "";
   position: absolute;
@@ -127,6 +163,42 @@
   font-weight: 500;
 }
 
+
+  top: 0.45rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--ts-color-accent);
+  box-shadow: 0 0 0 3px var(--ts-color-accent-soft);
+}
+
+.ts-deliver__card {
+  background: var(--ts-color-surface-elevated);
+  border: 1px solid var(--ts-color-border);
+  border-radius: var(--ts-radius-lg);
+  box-shadow: var(--ts-shadow-lift);
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.ts-deliver__eyebrow {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ts-color-primary);
+}
+
+.ts-deliver__features {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.ts-deliver__features li {
+  position: relative;
+  padding-left: 1.25rem;
+}
 
 .ts-deliver__features li::before {
   content: "";
@@ -209,4 +281,34 @@
   .ts-deliver__eyebrow {
     font-size: 0.8rem;
   }
+  top: 0.45rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 2px;
+  background: var(--ts-color-primary);
+  box-shadow: 0 0 0 3px var(--ts-color-primary-soft);
+}
+
+.ts-deliver__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ts-spacing-xs);
+  margin-top: var(--ts-spacing-sm);
+}
+
+.ts-deliver__chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--ts-radius-pill);
+  background: var(--ts-color-primary-soft);
+  color: var(--ts-color-primary);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+.ts-deliver__chip--outline {
+  background: transparent;
+  border: 1px solid var(--ts-color-border);
+  color: var(--ts-color-heading);
 }

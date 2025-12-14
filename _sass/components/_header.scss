@@ -11,6 +11,7 @@
   position: sticky;
   top: 0;
   z-index: 4000;
+  z-index: 1400;
   background: var(--header-bg);
   border-bottom: 1px solid var(--color-border);
   backdrop-filter: blur(16px) saturate(180%);
@@ -33,6 +34,14 @@
   align-items: center;
   gap: var(--space-3);
   min-width: 0;
+  max-width: var(--shell-width);
+  margin: 0 auto;
+  padding: clamp(0.6rem, 2vw, 0.85rem) clamp(0.9rem, 3.5vw, 1.75rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ts-spacing-xs);
+  min-height: calc(var(--header-height) - 6px);
 }
 
 /* -----------------------------
@@ -75,6 +84,11 @@
     opacity: 0.96;
     transform: translateY(-1px);
   }
+  &:hover {
+    opacity: 0.96;
+    transform: translateY(-1px);
+  }
+
   &:focus-visible {
     outline-color: var(--color-primary);
   }
@@ -96,11 +110,20 @@
     max-height: 50px;
   }
   &.ts-logo--footer {
+  &--header {
+    width: clamp(150px, 28vw, 220px);
+    max-height: 50px;
+  }
+
+  &--footer {
     width: clamp(160px, 32vw, 240px);
     max-height: 56px;
     opacity: 0.95;
   }
   &.ts-logo--hero {
+
+  /* Hero/heroine logo sizing moved here so header styles stay canonical */
+  &--hero {
     width: clamp(200px, 50vw, 300px);
     max-height: 64px;
   }
@@ -108,6 +131,7 @@
 
 .ts-logo-link:hover .ts-logo,
 .ts-logo-link:focus-visible .ts-logo {
+.ts-logo-link:hover .ts-logo {
   filter: drop-shadow(0 2px 4px var(--ts-color-shadow-medium));
 }
 
@@ -156,6 +180,7 @@
    Header Actions (Call + CTA)
    ----------------------------- */
 
+
 .site-header-actions {
   display: flex;
   align-items: center;
@@ -180,6 +205,7 @@
   justify-content: center;
   position: relative;
   z-index: 5000;
+  z-index: 1300;
 }
 
 .site-nav-backdrop {
@@ -199,6 +225,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-4);
+  flex: 0 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Drawer header only for mobile */
@@ -355,6 +385,9 @@
     padding: 0.75rem clamp(1rem, 4vw, 1.5rem);
     gap: var(--space-2);
     min-width: 0;
+  .site-header-inner {
+    padding: 0.75rem clamp(1rem, 4vw, 1.5rem);
+    gap: var(--space-2);
   }
 
   .site-branding {
@@ -385,6 +418,9 @@
     margin-left: auto;
     gap: var(--ts-spacing-sm);
     flex-shrink: 0;
+  .site-header-actions {
+    margin-left: auto;
+    gap: var(--ts-spacing-sm);
   }
 
   /* Backdrop */
@@ -397,6 +433,7 @@
     pointer-events: none;
     transition: opacity var(--transition-med);
     z-index: 5005;
+    z-index: 1325;
 
     @supports (backdrop-filter: blur(4px)) {
       backdrop-filter: blur(4px) saturate(140%);
@@ -432,6 +469,9 @@
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     outline: none;
+    z-index: 1450;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .site-nav-shell.is-open .site-nav {
@@ -509,6 +549,8 @@
   }
 
 
+  }
+
   .site-menu .nav-link {
     width: 100%;
     padding: 0.875rem 1rem;
@@ -519,6 +561,10 @@
 
 
   .site-menu .nav-link::after {
+  }
+
+  .site-menu .nav-link::after {
+    /* remove desktop underline bar in drawer */
     display: none;
   }
 
@@ -588,6 +634,18 @@
     display: none;
   }
 
+
+  }
+
+  /* Toggle / actions */
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .header-cta {
+    /* drawer handles CTAs on mobile */
+    display: none;
+  }
 
   .call-btn {
     display: none;
@@ -660,7 +718,108 @@ body.nav-open .site-header {
     transition: none !important;
     animation: none !important;
   }
+
   .site-menu .nav-link:hover {
     transform: none !important;
   }
+}
+/* ============================================
+   PATCH: Mobile Drawer Reliability
+   - fixes stacking, clickability, and open state
+   - supports either .site-nav-shell.is-open OR body.nav-open
+   ============================================ */
+
+/* Ensure header doesn't trap the drawer in a lower stacking context */
+.site-header {
+  isolation: isolate; /* creates predictable stacking for children */
+}
+
+/* Mobile drawer/backdrop must sit ABOVE sticky header */
+@media (max-width: 920px) {
+  .site-nav-shell {
+    /* already fixed/inset in your code — reinforce reliability */
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2000; /* must be > .site-header z-index (1400) */
+  }
+
+  /* If your JS toggles body.nav-open instead of .is-open, this will still work */
+  body.nav-open .site-nav-shell {
+    pointer-events: auto;
+  }
+
+  .site-nav-shell.is-open {
+    pointer-events: auto;
+  }
+
+  .site-nav-backdrop {
+    /* you already set z-index: 1325 — that can fall behind header (1400) */
+    z-index: 2001;
+  }
+
+  .site-nav {
+    /* you already set z-index: 1450 — also can fall behind header */
+    z-index: 2002;
+
+    /* Ensure transforms/opacity don't create “invisible but clickable” bugs */
+    will-change: transform, opacity;
+  }
+
+  /* OPEN state — support BOTH toggling methods safely */
+  body.nav-open .site-nav-backdrop,
+  .site-nav-shell.is-open .site-nav-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  body.nav-open .site-nav,
+  .site-nav-shell.is-open .site-nav {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* CLOSED state — ensure hidden panel isn't clickable */
+  body:not(.nav-open) .site-nav-shell:not(.is-open) .site-nav {
+    pointer-events: none;
+  }
+
+  /* Prevent page from scrolling behind the drawer on iOS */
+  body.nav-open {
+    position: relative;
+    overscroll-behavior: contain;
+  }
+}
+/* ============================================
+   SAFETY PATCH — prevent invisible header items
+   ============================================ */
+
+.site-header-inner {
+  min-height: var(--header-height);
+}
+
+.site-branding,
+.ts-logo-link,
+.ts-logo {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.nav-toggle {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Ensure mobile toggle always appears on small screens */
+@media (max-width: 920px) {
+  .nav-toggle {
+    display: inline-flex !important;
+  }
+}
+
+/* Prevent accidental collapse */
+.site-header-actions {
+  min-height: 44px;
 }

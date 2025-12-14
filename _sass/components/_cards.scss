@@ -32,6 +32,22 @@
     border-color: var(--ts-color-primary);
     box-shadow: var(--ts-shadow-lift);
     z-index: 2;
+  gap: var(--ts-spacing-md);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  background: var(--ts-color-surface-elevated);
+  border: 1px solid var(--ts-color-border);
+  border-radius: var(--ts-radius-lg);
+  box-shadow: var(--ts-shadow-soft);
+  transition: transform var(--transition-med), 
+              box-shadow var(--transition-med), 
+              border-color var(--transition-med);
+  position: relative;
+  overflow: hidden;
+  
+  &:focus-within {
+    outline: none;
+    border-color: var(--ts-color-primary);
+    box-shadow: var(--ts-shadow-lift);
   }
 }
 
@@ -66,6 +82,11 @@
     opacity: 1;
     transform: none;
     box-shadow: var(--ts-shadow-soft);
+@media (prefers-reduced-motion: no-preference) {
+  .card:hover,
+  .ts-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ts-shadow-lift);
   }
 }
 
@@ -76,6 +97,7 @@
   justify-content: space-between;
   gap: clamp(0.5rem, 1vw, 1.25rem);
   margin-bottom: 0.5em;
+  gap: var(--ts-spacing-sm);
 }
 
 /* Card Title */
@@ -86,6 +108,9 @@
   color: var(--ts-color-heading);
   line-height: 1.2;
   letter-spacing: -0.01em;
+  font-weight: 600;
+  color: var(--ts-color-heading);
+  line-height: 1.3;
 }
 
 /* Card Body */
@@ -96,6 +121,8 @@
   gap: clamp(0.75rem, 1vw, 1.5rem);
   color: var(--ts-color-text);
   margin-bottom: 0.5em;
+  gap: var(--ts-spacing-sm);
+  color: var(--ts-color-text);
 }
 
 /* Card Description */
@@ -112,6 +139,8 @@
   justify-content: space-between;
   gap: clamp(0.5rem, 1vw, 1.25rem);
   padding-top: clamp(0.75rem, 1vw, 1.25rem);
+  gap: var(--ts-spacing-sm);
+  padding-top: var(--ts-spacing-sm);
   border-top: 1px solid var(--ts-color-border);
   margin-top: auto;
 }
@@ -130,6 +159,14 @@
     object-fit: cover;
     border-radius: var(--ts-radius-xl) var(--ts-radius-xl) 0 0;
     transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  margin: calc(var(--ts-spacing-md) * -1) calc(var(--ts-spacing-md) * -1) var(--ts-spacing-md);
+  
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: var(--ts-radius-lg) var(--ts-radius-lg) 0 0;
   }
 }
 
@@ -156,6 +193,15 @@
   border-radius: var(--ts-radius-pill);
   border: 1.5px solid var(--ts-color-primary);
   box-shadow: 0 1px 4px 0 rgba(0,0,0,0.03);
+  padding: 0.25rem 0.75rem;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--ts-color-primary-soft);
+  color: var(--ts-color-primary);
+  border-radius: var(--ts-radius-pill);
+  border: 1px solid var(--ts-color-primary);
 }
 
 /* Card Variants */
@@ -274,6 +320,20 @@
     border-color: var(--ts-color-primary);
     box-shadow: var(--ts-shadow-lift);
     z-index: 2;
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+  }
+  
+  &:hover {
+    border-color: var(--ts-color-primary);
   }
 }
 
@@ -307,6 +367,31 @@
     }
   }
 
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+  
+  .card-image {
+    width: 40%;
+    margin: 0;
+    
+    @media (max-width: 768px) {
+      width: 100%;
+      margin: calc(var(--ts-spacing-md) * -1) calc(var(--ts-spacing-md) * -1) var(--ts-spacing-md);
+    }
+    
+    img {
+      height: 100%;
+      border-radius: var(--ts-radius-lg) 0 0 var(--ts-radius-lg);
+      
+      @media (max-width: 768px) {
+        height: auto;
+        border-radius: var(--ts-radius-lg) var(--ts-radius-lg) 0 0;
+      }
+    }
+  }
+  
   .card-body {
     flex: 1;
   }
@@ -316,12 +401,16 @@
 .card-compact {
   padding: clamp(1rem, 2vw, 1.5rem);
   gap: clamp(0.5rem, 1vw, 1rem);
+  padding: var(--ts-spacing-md);
+  gap: var(--ts-spacing-sm);
 }
 
 /* Card Spacious */
 .card-spacious {
   padding: clamp(2.5rem, 6vw, 4rem);
   gap: clamp(2rem, 4vw, 3rem);
+  padding: clamp(2rem, 4vw, 3rem);
+  gap: var(--ts-spacing-lg);
 }
 
 /* Specific Card Types */
@@ -463,6 +552,12 @@
   }
   .card-title {
     font-size: var(--heading-5);
+    padding: var(--ts-spacing-md);
+    gap: var(--ts-spacing-sm);
+  }
+  
+  .card-spacious {
+    padding: var(--ts-spacing-lg);
   }
 }
 

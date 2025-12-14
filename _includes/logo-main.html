@@ -3,6 +3,7 @@ Main Tillerstead logo include shared by header, hero, and footer.
 
 Params:
   - class: extra classes for the wrapper link
+  - img_class: extra classes for the <img alt="">
   - img_class: extra classes for the <img>
   - alt: optional alt text override
   - variant: header (default), inverse/on-dark, full, mark, header-dark
@@ -23,6 +24,8 @@ Allow repository-wide configuration of the logo asset base path via site.logo_ba
 {%- endcomment -%}
 
 {%- assign logo_base = site.logo_base | default: '/assets/img/logo' -%}
+  {%- assign logo_img_classes = include.img_class -%}
+{%- endif -%}
 
 {%- assign variant = include.variant | default: 'header' | downcase -%}
 {%- case variant -%}
@@ -38,7 +41,21 @@ Allow repository-wide configuration of the logo asset base path via site.logo_ba
     {%- assign logo_file = 'tillerstead-logo-header.svg' -%}
 {%- endcase -%}
 
-{%- assign logo_alt = include.alt | default: site.title | default: 'Tillerstead LLC - Professional Tile & Stone' -%}
+{%- assign logo_alt = include.alt | default: site.title | default: 'Tillerstead LLC – Professional Tile & Stone' -%}
+    {%- assign logo_src = '/assets/img/logo/tillerstead-inverse.svg' -%}
+  {%- when 'full' -%}
+    {%- assign logo_src = '/assets/img/logo/tillerstead-logo-full.svg' -%}
+  {%- when 'mark' -%}
+    {%- assign logo_src = '/assets/img/logo/tillerstead-logo-mark.svg' -%}
+  {%- when 'header-dark' -%}
+    {%- assign logo_src = '/assets/img/logo/tillerstead-logo-header-dark.svg' -%}
+  {%- else -%}
+    {%- assign logo_src = '/assets/img/logo/tillerstead-logo-header.svg' -%}
+{%- endcase -%}
+
+{%- assign logo_alt = include.alt
+  | default: 'Tillerstead LLC – Professional Tile & Stone'
+-%}
 
 <a href="{{ '/' | relative_url }}"
    class="{{ logo_link_classes }}"

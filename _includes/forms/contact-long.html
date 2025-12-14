@@ -8,6 +8,9 @@
   action="{{ form_endpoint }}"
   netlify-honeypot="_trap"
   accept-charset="UTF-8"
+  action="/success/"             <!-- Netlify form endpoint redirect -->
+  data-netlify="true"
+  netlify-honeypot="_trap"
   aria-describedby="{{ include.aria_describedby | default: 'form-intro' }}"
   aria-live="polite"
 >
@@ -122,5 +125,9 @@
   <button type="submit" class="btn btn--primary ts-button ts-button--primary" aria-describedby="{{ include.prefix }}privacy-note">
     {{ include.button_label | default: 'Submit request' }}
   </button>
+<<<<<<< HEAD
     <p id="{{ include.prefix }}form-status-long" data-form-status class="sr-only" role="status" aria-live="polite"></p>
 </form>
+=======
+</form>
+>>>>>>> cd94431d4595c868507e3ce0fccbb2a3869edcde

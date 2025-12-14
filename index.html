@@ -2,6 +2,9 @@
 layout: default
 title: Tillerstead | Devon Tyler — NJ Licensed Tile Contractor
 owner: Devon Tyler
+---
+layout: default
+title: Tillerstead LLC | Tile Showers & Waterproof Floors in South Jersey
 description: Licensed South Jersey tile contractor specializing in custom showers, waterproofing, heated floors, and stone work. Serving Atlantic, Ocean & Cape May Counties with documented, accountable installations.
 body_class: page-home
 is_home: true
@@ -11,6 +14,10 @@ hero_eyebrow: Tillerstead — New Jersey Home Improvement Contractor (NJ HIC)
 hero_title: NJ Licensed Tile Contractor — Devon Tyler, Owner/Tiler
 hero_summary: >
   Tillerstead (Owner/Tiler: Devon Tyler) builds and repairs showers, bathrooms, and tile floors with proper
+hero_eyebrow: Licensed South Jersey Tile Contractor
+hero_title: Waterproof tile showers that look sharp and stay solid
+hero_summary: >
+  Tillerstead LLC builds and repairs showers, bathrooms, and tile floors with proper
   waterproofing, slope, and layout—so your home, rental, or shore place stays dry.
   You see clear photos from demo through final clean-up, and you always know what’s
   behind the tile in Atlantic, Ocean, and Cape May Counties.
@@ -24,6 +31,11 @@ hero_project_image:
   src: /assets/img/tillerstead-work/bathrooms/bathroom-marble-shower-niche.jpg
   alt: Marble-look shower tied into a large-format bathroom floor built by Tillerstead.
   caption: South Jersey shower rebuild - curbless entry, heated floor, and photo proof of the waterproof assembly.
+
+hero_project_image:
+  src: /assets/img/bathroom-remodel-final.webp
+  alt: Tillerstead shower remodel with emerald accents and branded watermark.
+  caption: South Jersey shower rebuild — waterproofed, flood-tested, and laid out for clean grout lines and glass.
 
 hero_facts:
   - label: Waterproofing you can see
@@ -55,6 +67,17 @@ services_gallery:
     alt: Marble bathroom floor finish installed by Tillerstead.
     caption: Finished marble-look bathroom floor showing grout and clean layout.
   
+services_gallery:
+  - src: /assets/img/bathroom-remodel.webp
+    alt: Tillerstead bathroom remodel with company watermark.
+    caption: Full shower gut and rebuild over a modern waterproofing system—ready for glass and daily use.
+  - src: /assets/img/bathroom-remodel-2.webp
+    alt: Glass-ready shower stall with Tillerstead watermark.
+    caption: Straight grout lines carried through niches, benches, and trims for a clean, high-end finish.
+  - src: /assets/img/bathroom-remodel-final-2.webp
+    alt: Tillerstead repair scope with company branding over tile and ceiling work.
+    caption: Repair and refresh for a landlord who needed proof the work was done right this time.
+
 services:
   - icon: waterproof
     title: Custom Tile & Waterproof Showers
@@ -117,6 +140,54 @@ services:
   </section>
 
 </main>
+<section class="animate-in pt-6 pb-8" aria-labelledby="services-heading">
+  {% include ts-services.html
+    summary="Bathrooms, showers, and tile floors built to handle real South Jersey life—salt, sand, guests, and rentals—without leaks or loose tile. From first walkthrough to final clean, you get clear pricing, honest scopes, and photo-documented work." %}
+</section>
+
+<section class="animate-in pt-6 pb-8 bg-surface-elevated rounded-lg shadow-soft" aria-labelledby="plans-heading">
+  {% include ts-plans.html
+    summary="Set up a simple check-in rhythm for your bathroom, shower, and grout. Small re-caulks, touch-ups, and moisture checks now can prevent full tear-outs later—especially in busy homes and shore rentals." %}
+</section>
+
+<section class="animate-in pt-6 pb-8" aria-labelledby="process-heading">
+  {% include ts-process.html
+    summary="A clear, step-by-step process: walkthrough and estimate, scope confirmation, protection and prep, waterproofing and inspections, tile and grout, punch list, and final photos you can keep for records or resale." %}
+</section>
+
+<section class="animate-in pt-6 pb-8 bg-surface rounded-lg" aria-labelledby="deliver-heading">
+  {% include ts-deliver.html
+    summary="You don’t just get a finished bathroom—you get a documented project. Before-and-after photos, waterproofing shots, product info, and care notes so you know how to protect your investment for years to come." %}
+</section>
+
+<section class="animate-in pt-6 pb-8" aria-labelledby="assurance-heading">
+  {% include ts-assurance.html
+    summary="Licensed, insured, and committed to doing the work the way we’d want it done in our own homes. Clear communication, written scopes, realistic timelines, and respect for your property from start to finish." %}
+</section>
+
+<section class="animate-in pt-8 pb-10 bg-gradient rounded-lg shadow-lift" aria-labelledby="portfolio-heading">
+  {% include portfolio-highlights.html
+    eyebrow="Recent South Jersey projects"
+    title="Custom tile and stone work from AC to Cape May"
+    summary="Browse real bathrooms, shower rebuilds, and repair scopes across Atlantic, Ocean, and Cape May Counties. Every project shows how proper prep, waterproofing, and layout planning pay off in the finished room." %}
+</section>
+
+<section class="animate-in pt-6 pb-8" aria-labelledby="reviews-heading">
+  {% include reviews-highlights.html
+    limit=3
+    title="What homeowners and partners say"
+    summary="Clients highlight clean jobsites, clear expectations, and the peace of mind that comes from knowing their shower and tile were built the right way." %}
+</section>
+
+<section class="animate-in pt-6 pb-8" aria-labelledby="blog-heading">
+  {% include blog-highlights.html
+    summary="Short, practical breakdowns of leaks, grout failures, waterproofing options, and what South Jersey owners should ask before hiring a tile contractor." %}
+</section>
+
+<section class="animate-in pt-8 pb-12 bg-surface-elevated rounded-lg shadow-soft" aria-labelledby="contact-heading">
+  {% include ts-contact.html
+    summary="Tell us about your bathroom, shower, or tile project—whether it’s a full gut, a leak you’re worried about, or a rental that needs to be ready for the season. We’ll respond with a clear next step and realistic options." %}
+</section>
 
 {% comment %}
 Performance: Below-the-fold content uses includes to keep markup lean.

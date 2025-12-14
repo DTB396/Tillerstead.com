@@ -80,6 +80,11 @@ hero_summary: >
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_next" value="{{ guide_redirect_url }}">
+            action="/download/nj-tile-guide/thank-you/"
+            data-netlify="true"
+            netlify-honeypot="bot-field">
+            
+            <input type="hidden" name="form-name" value="tile-guide-download">
             
             <p class="sr-only">
               <label for="bot-field">Don't fill this out</label>

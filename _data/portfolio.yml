@@ -106,3 +106,112 @@ projects:
     alt: Finished ceiling repair with skimmed patch
     caption: "Ceiling repair - patched, skimmed, and sanded for paint."
 
+
+# Portfolio slider entries for /portfolio/
+projects:
+  - id: shower-white
+    tags:
+      - showers
+    file: shower-white.jpg
+    # file_webp: shower-white.webp (add when asset available)
+    alt: Waterproof shower with white tile, bench, and niche in Atlantic County, New Jersey
+    caption: "Waterproof shower with bench and hex floor — movement joints and sealed edges."
+  - id: shower-blue
+    tags:
+      - showers
+    file: shower-blue.jpg
+    # file_webp: shower-blue.webp
+    alt: Feature wall with patterned blue tile for a South Jersey remodeler
+    caption: "Patterned feature wall — aligned layout around fixtures and niche."
+  - id: bathroom-gray
+    tags:
+      - showers
+      - floors
+    file: bathroom-gray.jpg
+    # file_webp: bathroom-gray.webp
+    alt: Large-format tile floor and shower installation for a New Jersey general contractor
+    caption: "Large-format layout — flat substrate and clean transitions."
+  - id: marble-bath
+    tags:
+      - showers
+    file: marble-bath.jpg
+    # file_webp: marble-bath.webp
+    alt: Marble-look bathroom tile installation completed for a South Jersey builder
+    caption: "Stone installation — matched setting materials and sealed stone."
+  - id: kitchen-green
+    tags:
+      - backsplashes
+    file: kitchen-green.jpg
+    # file_webp: kitchen-green.webp
+    alt: Kitchen backsplash tile installation for a New Jersey remodeling contractor
+    caption: "Subway backsplash — tight outlet cuts and caulked edges."
+  - id: kitchen-hex
+    tags:
+      - backsplashes
+    file: kitchen-hex.jpg
+    # file_webp: kitchen-hex.webp
+    alt: Hex backsplash tile detail during a South Jersey renovation
+    caption: "Hex feature — balanced cuts and clean terminations."
+  - id: backsplash-white
+    tags:
+      - backsplashes
+    file: backsplash-white.jpg
+    # file_webp: backsplash-white.webp
+    alt: Classic subway backsplash installed by tile subcontractor for local remodeler
+    caption: "Classic subway — lippage control and even joints."
+  - id: hardwood-room
+    tags:
+      - floors
+    file: hardwood-room.jpg
+    # file_webp: hardwood-room.webp
+    alt: Tile-ready substrate and flooring prep for New Jersey builder
+    caption: "Flooring & trim — straight lines and clean scribe work."
+  - id: tile-pattern-dark
+    tags:
+      - floors
+    file: tile-pattern-dark.jpg
+    # file_webp: tile-pattern-dark.webp
+    alt: Modular tile pattern layout executed for a South Jersey commercial fit-out
+    caption: "Pattern layout — modular grid with consistent reveals."
+  - id: drywall-greenboard
+    tags:
+      - repairs
+    file: drywall-greenboard.jpg
+    # file_webp: drywall-greenboard.webp
+    alt: Tile substrate preparation with moisture-resistant board for GC project
+    caption: "Drywall repairs — blocking, fasteners, and seam treatment for tile-ready walls."
+  - id: ceiling-repair
+    tags:
+      - repairs
+    file: Ceiling-repair.webp
+    file_webp: Ceiling-repair.webp
+    alt: Ceiling repair patch completed for a property management client
+    caption: "Ceiling repair — patched, skimmed, and finished for paint."
+  - id: bathroom-final
+    tags:
+      - showers
+    file: bathroom-remodel-final.webp
+    file_webp: bathroom-remodel-final.webp
+    alt: Finished bathroom remodel tile scope completed for New Jersey GC
+    caption: "Bathroom remodel (final) — code-compliant wet area."
+  - id: bathroom-final-2
+    tags:
+      - showers
+    file: bathroom-remodel-final-2.webp
+    file_webp: bathroom-remodel-final-2.webp
+    alt: Alternate angle of finished bathroom remodel tile scope
+    caption: "Bathroom remodel (final, angle 2) — clean lines and sealed transitions."
+  - id: bathroom-detail
+    tags:
+      - showers
+    file: bathroom-remodel-2.webp
+    file_webp: bathroom-remodel-2.webp
+    alt: Shower detail showcasing tile layout and niche for South Jersey remodel
+    caption: "Shower detail — even joints and proper cuts."
+  - id: bathroom-progress
+    tags:
+      - showers
+    file: bathroom-remodel.webp
+    file_webp: bathroom-remodel.webp
+    alt: Bathroom remodel in progress with waterproofing underway for GC partner
+    caption: "In-progress — substrate prep prior to grout."

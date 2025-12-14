@@ -14,3 +14,17 @@
   badges:
     - "Top Pro"
   url: "https://www.thumbtack.com/nj/absecon/tile/tillerstead-llc/service/547437618353160199"
+reviews:
+  - id: "thumbtack-sample"
+    source: "Thumbtack"
+    platform: "Thumbtack"
+    rating: 5
+    rating_max: 5
+    quote_html: "<p>Sample review text…</p>"
+    author: "Sample Client"
+    location: "Absecon, NJ"
+    job_type: "Shower tile"
+    date: "2025-01-01"
+    badges:
+      - "Top Pro"
+    url: "https://www.thumbtack.com/nj/absecon/tile/tillerstead-llc/service/547437618353160199"

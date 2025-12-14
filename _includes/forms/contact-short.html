@@ -7,6 +7,8 @@
   method="post"
   action="{{ form_endpoint }}"
   accept-charset="UTF-8"
+  action="/success/"          <!-- FIX: real Netlify redirect -->
+  data-netlify="true"
   netlify-honeypot="_trap_short"
   aria-live="polite"
 >
@@ -103,4 +105,5 @@
   </button>
 
   <p id="{{ include.prefix }}form-status-short" data-form-status class="sr-only" role="status" aria-live="polite"></p>
+</form>
 </form>

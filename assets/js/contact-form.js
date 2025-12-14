@@ -5,8 +5,13 @@
     const subject = encodeURIComponent('New Tillerstead project inquiry');
     const bodyLines = [];
     formData.forEach((value, key) => {
+<<<<<<< HEAD
       // Skip internal fields like form-name, honeypots, and hidden control fields
       if (key === 'form-name' || key === 'bot-field' || key === '_trap' || /^_|trap/i.test(key)) return;
+=======
+      // Skip internal fields like form-name, honeypot, etc.
+      if (key === 'form-name' || key === 'bot-field' || key === '_trap') return;
+>>>>>>> cd94431d4595c868507e3ce0fccbb2a3869edcde
       // Normalize line breaks to CRLF for email clients
       const cleanValue = String(value).replace(/\r\n/g, '\n').replace(/\r/g, '\n').replace(/\n/g, '\r\n');
       bodyLines.push(`${key}: ${cleanValue}`);
@@ -72,11 +77,14 @@
               'success',
             );
             form.reset();
+<<<<<<< HEAD
             // If a success redirect is provided, navigate there via GET to avoid 405s
             const nextUrl = (new FormData(form)).get('_next');
             if (nextUrl) {
               setTimeout(() => { window.location.href = nextUrl; }, 250);
             }
+=======
+>>>>>>> cd94431d4595c868507e3ce0fccbb2a3869edcde
           } catch (error) {
             console.error('Form submission failed; falling back to mailto:', error);
           }

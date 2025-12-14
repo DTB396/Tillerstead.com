@@ -11,7 +11,7 @@
 ## Ruby environment (Windows via RubyInstaller)
 - Install [RubyInstaller 3.1+ with MSYS2](https://rubyinstaller.org/downloads/) and select option 3 to run `ridk install` when prompted so the DevKit and build tooling are configured.
 - From a PowerShell terminal in the project root, run `powershell -ExecutionPolicy Bypass -File scripts/activate-ruby.ps1`. The helper locates your RubyInstaller installation and ensures the Ruby toolchain is on `PATH` for the vendored Jekyll executable.
-- Re-run `scripts/activate-ruby.ps1` any time you open a fresh shell so the Ruby toolchain is on your `PATH` before invoking the build scripts.
+- Re-run `scripts/activate-ruby.ps1` whenever you open a new PowerShell session so the Ruby toolchain is added to your `PATH` before running build scripts.
 - If Ruby is installed in a non-standard directory, provide the path manually: `powershell -ExecutionPolicy Bypass -File scripts/activate-ruby.ps1 -RubyRoot 'D:\Tools\Ruby32-x64'`.
 
 ### Typical workflow

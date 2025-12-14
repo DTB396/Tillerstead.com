@@ -21,6 +21,9 @@
   @media (max-width: 640px) {
     padding: clamp(2rem, 8vw, 3rem) 0;
   }
+.ts-hero {
+  position: relative;
+  padding: var(--section-padding-y) 0;
 }
 
 .ts-hero__inner {
@@ -45,6 +48,14 @@
     padding: clamp(1.2rem, 6vw, 2rem);
     gap: var(--ts-spacing-md);
   }
+  border-radius: var(--ts-radius-xl);
+  border: 1px solid var(--ts-color-border);
+  box-shadow: var(--ts-shadow-lift);
+  padding: clamp(2rem, 4vw, 3rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+  overflow: hidden;
 }
 
 .ts-hero__inner::before {
@@ -75,6 +86,10 @@
   opacity: 0.18;
   pointer-events: none;
   z-index: 0;
+  background-image: var(--ts-bg-pattern);
+  background-size: var(--ts-bg-pattern-size);
+  opacity: var(--ts-bg-pattern-opacity);
+  pointer-events: none;
 }
 
 .ts-hero__body {
@@ -85,6 +100,10 @@
   gap: clamp(1.5rem, 3vw, 2.8rem);
   justify-content: center;
   min-width: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ts-spacing-md);
 }
 
 .ts-hero__brand {
@@ -105,6 +124,9 @@
   color: var(--ts-color-primary);
   font-weight: 700;
   opacity: 0.92;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ts-color-text-subtle);
 }
 
 .ts-hero__badge {
@@ -126,6 +148,16 @@
 
 .ts-hero__eyebrow {
   font-size: var(--font-size-xs);
+  border: 1px solid var(--ts-color-border);
+  background: var(--ts-color-surface-elevated);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.ts-hero__eyebrow {
+  font-size: var(--font-size-sm);
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--ts-color-primary);
@@ -159,6 +191,20 @@
   max-width: 62ch;
   font-weight: 500;
   opacity: 0.98;
+  font-size: var(--heading-1);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  color: var(--ts-color-heading);
+  text-wrap: balance;
+}
+
+.ts-hero__lede {
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: var(--line-height-relaxed);
+  color: var(--ts-color-muted);
+  margin: 0;
+  max-width: 64ch;
 }
 
 .ts-hero__bullets {
@@ -215,6 +261,35 @@
   font-size: var(--font-size-sm);
   color: var(--ts-color-muted);
   line-height: 1.45;
+  display: grid;
+  gap: var(--ts-spacing-sm);
+}
+
+.ts-hero__bullets li {
+  position: relative;
+  padding-left: 1.75rem;
+  font-weight: 600;
+  color: var(--ts-color-heading);
+  line-height: 1.35;
+}
+
+.ts-hero__bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 2px;
+  background: var(--ts-color-primary);
+  box-shadow: 0 0 0 4px rgba(11, 107, 92, 0.18);
+}
+
+.ts-hero__bullets span {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--ts-color-muted);
 }
 
 .ts-hero__actions {
@@ -223,6 +298,8 @@
   gap: var(--ts-spacing-lg);
   align-items: center;
   margin-top: 1.6rem;
+  gap: var(--ts-spacing-sm);
+  align-items: center;
 }
 
 .ts-hero__actions .btn {
@@ -266,6 +343,13 @@
   gap: var(--ts-spacing-lg);
   min-width: 260px;
   z-index: 2;
+  border-radius: var(--ts-radius-lg);
+  border: 1px solid var(--ts-color-border);
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  box-shadow: var(--ts-shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ts-spacing-md);
 }
 
 .ts-hero__project {
@@ -314,6 +398,7 @@
   background: var(--ts-color-surface-elevated);
   box-shadow: 0 1px 4px 0 rgba(26,182,153,0.06);
   font-size: 1.08em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .ts-hero__fact-label {
@@ -354,6 +439,24 @@
     gap: var(--ts-spacing-sm);
     margin-top: 0.8rem;
   }
+}
+
+@media (max-width: 960px) {
+  .ts-hero__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .ts-hero__inner {
+    padding: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .ts-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   .ts-hero__actions .btn {
     width: 100%;
     min-width: 0;
