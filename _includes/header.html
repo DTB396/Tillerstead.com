@@ -1,43 +1,59 @@
-<header class="site-header ts-header ts-theme" role="banner" itemscope itemtype="https://schema.org/Organization">
+<header class="site-header ts-header ts-theme" role="banner" itemscope itemtype="https://schema.org/Organization" data-site-header>
   <meta itemprop="name" content="{{ site.title }}">
   <meta itemprop="url" content="{{ site.url }}">
   <meta itemprop="logo" content="{{ '/assets/img/logo/tillerstead-inverse.svg' | absolute_url }}">
 
   <div class="site-header-inner">
+    <!-- Brand / Logo -->
     <div class="site-branding">
-      <!-- Professional Brand -->
-      <div class="site-brand ts-brand" style="display:flex;align-items:center;gap:12px;">
+      <div class="site-brand ts-brand">
         {% include logo-main.html
            class="ts-logo-link ts-logo-link--header"
            img_class="ts-logo ts-logo--header"
            variant="inverse" %}
+        
+        <!-- Desktop-only brand meta with improved spacing -->
+        <div class="brand-meta">
+          <div class="brand-tagline">Precision Tile • Remodel • Maintenance</div>
+          <div class="brand-license">New Jersey HIC #{{ site.company.hic }}</div>
+        </div>
       </div>
     </div>
 
     <!-- Navigation container -->
     <div class="site-nav-shell" data-nav-container>
       <div class="site-nav-backdrop" data-nav-overlay aria-hidden="true"></div>
-       <nav id="site-nav"
-         class="site-nav"
-         role="navigation"
-         aria-label="Primary navigation"
-         aria-expanded="false">
+      
+      <nav id="site-nav"
+           class="site-nav"
+           role="navigation"
+           aria-label="Primary navigation"
+           aria-expanded="false">
+        
+        <!-- Mobile drawer header -->
         <div class="site-nav-drawer-header">
           <p class="nav-drawer-label">Menu</p>
-          <button type="button" class="nav-close" data-nav-close aria-label="Close navigation menu">
-            <span class="nav-close-label">Close</span>
+          <button type="button" 
+                  class="nav-close" 
+                  data-nav-close 
+                  aria-label="Close navigation menu">
             <span class="nav-close-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="18" height="18" role="img" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" role="img" aria-hidden="true" focusable="false">
                 <line x1="4" y1="4" x2="20" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                 <line x1="20" y1="4" x2="4" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
               </svg>
             </span>
+            <span class="nav-close-label">Close</span>
           </button>
         </div>
+
+        <!-- Navigation menu -->
         <ul class="site-menu site-nav__list" role="list">
           {% assign nav_items = site.data.navigation.primary %}
           {% for item in nav_items %}
             {% assign is_current = false %}
+            
+            {%- comment -%} Check if current page matches nav item {%- endcomment -%}
             {% if item.exact %}
               {% if page.url == item.exact %}
                 {% assign is_current = true %}
@@ -47,164 +63,98 @@
                 {% assign is_current = true %}
               {% endif %}
             {% endif %}
+            
             <li class="nav-item" role="listitem">
               <a href="{{ item.url | relative_url }}"
                  class="nav-link{% if is_current %} active{% endif %}"
-                 style="display:inline-flex;align-items:center;padding:0.5rem 0.75rem;white-space:nowrap;text-transform:none;"
                  {% if is_current %} aria-current="page"{% endif %}>
                 {{ item.title }}
               </a>
             </li>
           {% endfor %}
+
+          <!-- Mobile-only phone link -->
+          <li class="nav-item nav-item--phone">
+            <a class="btn btn-ghost btn-lg" 
+               href="tel:+16098628808" 
+               aria-label="Call Tillerstead at (609) 862-8808">
+              <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+              <span>(609) 862-8808</span>
+            </a>
+          </li>
+
+          <!-- Mobile-only CTA -->
           <li class="nav-cta nav-cta--drawer">
-            <a class="btn btn-primary btn-lg" href="{{ '/contact/' | relative_url }}" aria-label="Request a free estimate">
+            <a class="btn btn-primary btn-lg" 
+               href="{{ '/contact/' | relative_url }}" 
+               aria-label="Request a free estimate">
               <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
                 <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
               </svg>
               <span>Free Estimate</span>
             </a>
           </li>
-          <li class="nav-item nav-item--phone">
-            <a class="btn btn-ghost btn-lg" href="tel:+16098628808" aria-label="Call Tillerstead at (609) 862-8808">
-              <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-              </svg>
-              <span>Call (609) 862-8808</span>
-            </a>
-          </li>
         </ul>
-        <div class="nav-social-links" data-nav-social style="display:flex;align-items:center;gap:8px;padding:0.5rem 1rem;">
-          {% include social-links.html class="social-links--drawer" aria_label="Follow Tillerstead" %}
+
+        <!-- Mobile drawer social links -->
+        <div class="nav-social-links" data-nav-social>
+          {% include social-links.html class="social-links--drawer" aria_label="Follow Tillerstead on social media" %}
         </div>
       </nav>
     </div>
 
-    <div class="site-header-actions" role="group" aria-label="Site actions" style="display:flex;align-items:center;gap:0.5rem;">
-      <div class="site-header-social" style="display:flex;align-items:center;gap:8px;">
-        {% include social-links.html class="social-links--header" aria_label="Follow Tillerstead" %}
+    <!-- Header actions (desktop) -->
+    <div class="site-header-actions" role="group" aria-label="Site actions">
+      <!-- Desktop social links -->
+      <div class="site-header-social">
+        {% include social-links.html class="social-links--header" aria_label="Follow Tillerstead on social media" %}
       </div>
-      <a class="call-btn" href="tel:+16098628808" aria-label="Call Tillerstead at (609) 862-8808">
+
+      <!-- Desktop phone button -->
+      <a class="btn btn-ghost call-btn" 
+         href="tel:+16098628808" 
+         aria-label="Call Tillerstead at (609) 862-8808">
         <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
           <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
         </svg>
         <span>Call</span>
       </a>
-      <a class="btn btn-primary header-cta header-cta-estimate" href="{{ '/contact/' | relative_url }}" aria-label="Request a free estimate">
+
+      <!-- Desktop CTA button -->
+      <a class="btn btn-primary header-cta header-cta-estimate" 
+         href="{{ '/contact/' | relative_url }}" 
+         aria-label="Request a free estimate">
         <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
           <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
         </svg>
         <span>Free Estimate</span>
       </a>
+
+      <!-- Mobile menu toggle -->
       <button type="button"
-        class="nav-toggle site-nav-toggle"
-        aria-controls="site-nav"
-        aria-expanded="false"
-        aria-label="Open navigation menu"
-        data-nav-toggle>
+              class="nav-toggle site-nav-toggle"
+              aria-controls="site-nav"
+              aria-expanded="false"
+              aria-label="Open navigation menu"
+              data-nav-toggle>
         <span class="sr-only">Toggle navigation</span>
-        <span class="nav-toggle-label" aria-hidden="true">Menu</span>
         <span class="nav-toggle-icon" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg"
                viewBox="0 0 24 24"
+               width="24"
+               height="24"
                fill="none"
                stroke="currentColor"
                stroke-width="2"
                stroke-linecap="round"
                stroke-linejoin="round"
-               aria-hidden="true" focusable="false">
+               aria-hidden="true" 
+               focusable="false">
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </span>
-      </button>
-    </div>
-  </div>
-</header>
-<header class="site-header" role="banner" data-site-header>
-  <div class="site-header-inner">
-    <!-- Brand / Logo -->
-    <div class="site-branding">
-      <div class="ts-brand">
-        <a class="ts-logo-link" href="{{ '/' | relative_url }}" aria-label="Tillerstead Home">
-          {%- assign logo_header = '/assets/img/logo/tillerstead-logo-header.svg' | relative_url -%}
-          {%- assign logo_fallback = '/assets/img/logo/tillerstead-logo-full.svg' | relative_url -%}
-          <img
-            class="ts-logo ts-logo--header"
-            src="{{ logo_header }}"
-            alt="Tillerstead"
-            loading="eager"
-            decoding="async"
-            onerror="this.onerror=null;this.src='{{ logo_fallback }}';"
-          >
-        </a>
-
-        <!-- Optional desktop-only brand meta (your SCSS already supports this) -->
-        <div class="brand-meta" aria-hidden="true">
-          <div class="brand-tagline">Precision Tile • Remodel • Maintenance</div>
-          <div class="brand-license">New Jersey</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Desktop nav (your SCSS styles .site-menu/.nav-link) -->
-    <div class="site-nav-shell" id="site-nav-shell">
-      <div class="site-nav-backdrop" data-nav-backdrop aria-hidden="true"></div>
-
-      <nav class="site-nav" aria-label="Primary navigation" role="navigation">
-        <!-- Drawer header (mobile only; SCSS shows it on <=920px) -->
-        <div class="site-nav-drawer-header">
-          <span class="nav-drawer-label">Menu</span>
-          <button class="nav-close" type="button" aria-label="Close menu" data-nav-close>
-            <span class="nav-close-icon" aria-hidden="true">✕</span>
-            Close
-          </button>
-        </div>
-
-        <ul class="site-menu" role="list">
-          <li><a class="nav-link" href="{{ '/services/' | relative_url }}">Services</a></li>
-          <li><a class="nav-link" href="{{ '/work/' | relative_url }}">Tillerstead Work</a></li>
-          <li><a class="nav-link" href="{{ '/about/' | relative_url }}">About</a></li>
-          <li><a class="nav-link" href="{{ '/contact/' | relative_url }}">Contact</a></li>
-
-          <!-- Drawer-only phone item (your SCSS has .nav-item--phone) -->
-          <li class="nav-item--phone">
-            <a class="nav-link" href="tel:+16098628808">Call (609) 862-8808</a>
-          </li>
-
-          <!-- Drawer-only CTA (your SCSS has .nav-cta--drawer) -->
-          <li class="nav-cta nav-cta--drawer">
-            <a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Request a Free Estimate</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-
-    <!-- Header actions (right side) -->
-    <div class="site-header-actions" role="group" aria-label="Site actions">
-      <!-- Optional call button (hidden on mobile by your SCSS) -->
-      <a class="btn btn-ghost call-btn" href="tel:+16098628808" aria-label="Call Tillerstead">
-        Call
-      </a>
-
-      <!-- Desktop CTA (your SCSS hides .header-cta on mobile) -->
-      <a class="btn btn-primary header-cta" href="{{ '/contact/' | relative_url }}" aria-label="Request a free estimate">
-        Free Estimate
-      </a>
-
-      <!-- Mobile toggle (your SCSS shows .nav-toggle on <=920px) -->
-      <button
-        class="nav-toggle"
-        type="button"
-        aria-label="Open menu"
-        aria-controls="site-nav-shell"
-        aria-expanded="false"
-        data-nav-toggle
-      >
-        <span class="nav-toggle-icon" aria-hidden="true">
-          <!-- simple hamburger -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M4 7h16M4 12h16M4 17h16"></path>
           </svg>
         </span>
         <span class="nav-toggle-label">Menu</span>
