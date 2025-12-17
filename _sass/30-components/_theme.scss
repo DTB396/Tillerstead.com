@@ -6,5 +6,5 @@
    theme structure changes in the future.
    ============================================ */
 
-// Import the main theme partial
-@import "../theme/tillerstead";
+// Back-compat import for legacy includes
+@import "20-layout/tillerstead-theme";

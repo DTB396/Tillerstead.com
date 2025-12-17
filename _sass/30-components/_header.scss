@@ -15,7 +15,7 @@
 }
 
 .site-header-inner {
-  max-width: var(--shell-width);
+  max-width: var(--layout-max);
   margin: 0 auto;
   padding: clamp(0.65rem, 2vw, 0.95rem) clamp(0.9rem, 4vw, 1.75rem);
   display: flex;

@@ -6,29 +6,29 @@
    Modern, modular CSS architecture
    ============================================ */
 
-/* Base Layer - Foundations */
-@import "base/tokens";
-@import "base/reset";
-@import "base/typography";
+/* 00 - Settings */
+@import "00-settings/tokens";
 
-/* Layout Layer - Page structure */
-@import "layout/container";
-@import "layout/grid";
+/* 10 - Base */
+@import "10-base/reset";
+@import "10-base/typography";
 
-/* Component Layer - Reusable UI elements */
-@import "components/buttons";
-@import "components/cards";
-@import "components/plans";
-@import "components/forms";
-@import "components/header";
-@import "components/footer";
-@import "components/hero";
-@import "components/deliver";
-@import "components/breadcrumbs";
-@import "components/social-links";
+/* 20 - Layout */
+@import "20-layout/container";
+@import "20-layout/grid";
+@import "20-layout/tillerstead-theme";
 
-/* Utilities Layer - Helper classes */
-@import "utilities/helpers";
+/* 30 - Components */
+@import "30-components/buttons";
+@import "30-components/cards";
+@import "30-components/plans";
+@import "30-components/forms";
+@import "30-components/header";
+@import "30-components/footer";
+@import "30-components/hero";
+@import "30-components/deliver";
+@import "30-components/breadcrumbs";
+@import "30-components/social-links";
 
-/* Theme Layer - Brand-specific surfaces */
-@import "theme/tillerstead";
+/* 40 - Utilities */
+@import "40-utilities/helpers";
