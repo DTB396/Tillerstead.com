@@ -35,10 +35,31 @@ Parameters:
 
 {%- assign logo_alt = include.alt | default: site.title | default: 'Tillerstead LLC - Professional Tile & Stone' -%}
 
+{%- assign logo_symbol = 'logo-full-mono' -%}
+{%- assign logo_viewbox = '0 0 720 200' -%}
+{%- case variant -%}
+  {%- when 'mark' -%}
+    {%- assign logo_symbol = 'logo-mark-mono' -%}
+    {%- assign logo_viewbox = '0 0 174 174' -%}
+  {%- when 'full' -%}
+    {%- assign logo_symbol = 'logo-full' -%}
+    {%- assign logo_viewbox = '0 0 720 200' -%}
+  {%- when 'stacked' -%}
+    {%- assign logo_symbol = 'logo-stacked-mono' -%}
+    {%- assign logo_viewbox = '0 0 260 320' -%}
+  {%- when 'inverse', 'dark', 'on-dark', 'header-dark', 'header' -%}
+    {%- assign logo_symbol = 'logo-full-mono' -%}
+    {%- assign logo_viewbox = '0 0 720 200' -%}
+{%- endcase -%}
+
 <a href="{{ '/' | relative_url }}"
    class="{{ logo_link_classes }}"
    aria-label="Tillerstead - home">
-  <img src="{{ logo_base }}/{{ logo_file }}"
-       class="{{ logo_img_classes }}"
-       alt="{{ logo_alt }}">
+  <svg class="{{ logo_img_classes }}"
+       viewBox="{{ logo_viewbox }}"
+       preserveAspectRatio="xMinYMid meet"
+       aria-hidden="true"
+       focusable="false">
+    <use href="#{{ logo_symbol }}"></use>
+  </svg>
 </a>

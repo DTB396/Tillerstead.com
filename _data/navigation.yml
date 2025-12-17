@@ -1,12 +1,4 @@
 primary:
-  - id: home
-    title: Home
-    url: /
-    exact: /
-  - id: new-jersey
-    title: Service Area
-    url: /services/#new-jersey-coverage
-    match: /services/
   - id: services
     title: Services
     url: /services/
@@ -15,6 +7,10 @@ primary:
     title: Our Work
     url: /portfolio/
     match: /portfolio/
+  - id: reviews
+    title: Reviews
+    url: /reviews/
+    match: /reviews/
   - id: about
     title: About
     url: /about/
