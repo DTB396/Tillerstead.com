@@ -11,9 +11,6 @@ hero:
   secondary:
     label: View recent projects
     url: /portfolio/
-  image:
-    src: /assets/img/tillerstead-work/bathrooms/bathroom-marble-shower-niche.jpg
-    alt: Finished marble shower niche and window returns built by Tillerstead
   highlights:
     - title: Documented waterproofing
       summary: Photos of pans, drains, membranes, and flood tests—know exactly what’s behind the tile.
@@ -78,9 +75,9 @@ services:
 work:
   eyebrow: Recent South Jersey projects
   title: System-based tile and stone work from AC to Cape May
-  summary: Browse bathrooms, shower rebuilds, and repairs showing how substrate prep, membranes, and planned layout translate into durable finishes.
+  summary: Browse our completed projects showing substrate prep, membranes, and planned layout translating into durable finishes.
   cta:
-    label: View full portfolio
+    label: Learn more about our work
     url: /portfolio/
 
 process:
