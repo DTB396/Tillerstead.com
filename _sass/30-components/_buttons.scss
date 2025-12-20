@@ -132,7 +132,11 @@
 .btn-text:focus-visible {
   text-decoration: underline;
   background: var(--ts-color-primary-soft);
-}-block: 0.5rem;
+}
+
+.btn-sm,
+.btn--sm {
+  padding-block: 0.5rem;
   padding-inline: 1.25rem;
   font-size: 0.92rem;
   min-inline-size: 2em;
