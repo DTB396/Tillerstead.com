@@ -53,6 +53,26 @@
   outline-offset: 4px;
 }
 
+/* Hide mobile nav toggle on desktop (above 920px) */
+@media (min-width: 921px) {
+  .nav-toggle {
+    display: none !important;
+  }
+  
+  .site-nav-drawer-header {
+    display: none !important;
+  }
+  
+  .nav-close {
+    display: none !important;
+  }
+  
+  .nav-cta--drawer,
+  .nav-item--phone {
+    display: none !important;
+  }
+}
+
 .nav-toggle {
   display: none;
   background: transparent;
