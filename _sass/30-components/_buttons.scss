@@ -70,6 +70,8 @@
   background: var(--ts-color-primary-bg);
   color: var(--ts-white);
   box-shadow: 0 10px 24px var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-primary:hover:not(:disabled),
@@ -77,8 +79,7 @@
 .btn--primary:hover:not(:disabled),
 .btn--primary:focus-visible {
   background: var(--ts-color-primary-bg-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 12px 28px var(--shadow-soft);
+  box-shadow: 0 12px 28px var(--shadow-soft), 0 0 0 3px rgba(13, 154, 170, 0.2);
 }
 
 /* Secondary — outlined, for less prominent actions */
@@ -87,16 +88,35 @@
   background: transparent;
   color: var(--ts-color-heading);
   border: 1.5px solid var(--ts-color-primary-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--ts-color-primary-soft);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition-fast);
+  z-index: -1;
+}
+
+.btn-secondary:hover:not(:disabled)::before,
+.btn-secondary:focus-visible::before,
+.btn--secondary:hover:not(:disabled)::before,
+.btn--secondary:focus-visible::before {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .btn-secondary:hover:not(:disabled),
 .btn-secondary:focus-visible,
 .btn--secondary:hover:not(:disabled),
 .btn--secondary:focus-visible {
-  background: var(--ts-color-primary-soft);
   border-color: var(--ts-color-primary-strong);
   color: var(--ts-color-heading);
-  transform: translateY(-1px);
 }
 
 /* Accent — for special actions, e.g., estimates or consultations */
@@ -106,6 +126,8 @@
   color: var(--ts-color-heading);
   border: 1.5px solid var(--ts-color-border);
   box-shadow: 0 2px 10px var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-accent:hover:not(:disabled),
@@ -114,23 +136,48 @@
 .btn--accent:focus-visible {
   border-color: var(--ts-color-primary);
   background: var(--ts-color-surface-highlight);
-  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--shadow-soft);
 }
 
 /* Ghost/Outline — minimal, for low-priority or tertiary actions */
 .btn-ghost,
 .btn--ghost,
-.btn-outline {
+.btn-outline,
+.btn.ghost {
   background: transparent;
   border: 1.5px solid var(--ts-color-primary);
   color: var(--ts-color-heading);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ghost::before,
+.btn--ghost::before,
+.btn-outline::before,
+.btn.ghost::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--ts-color-primary-soft);
+  transform: scale(0);
+  transition: transform var(--transition-fast);
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.btn-ghost:hover:not(:disabled)::before,
+.btn-outline:hover:not(:disabled)::before,
+.btn-ghost:focus-visible::before,
+.btn-outline:focus-visible::before,
+.btn.ghost:hover:not(:disabled)::before {
+  transform: scale(1);
 }
 
 .btn-ghost:hover:not(:disabled),
 .btn-outline:hover:not(:disabled),
 .btn-ghost:focus-visible,
-.btn-outline:focus-visible {
-  background: var(--ts-color-primary-soft);
+.btn-outline:focus-visible,
+.btn.ghost:hover:not(:disabled) {
   border-color: var(--ts-color-primary-strong);
   color: var(--ts-color-heading);
 }
@@ -184,7 +231,142 @@
 }
 
 /* =========================
-  Responsive & Container Queries
+  Button Animations
+  ========================= */
+
+/* Hover lift animation */
+.btn:hover:not(:disabled),
+.button:hover:not(:disabled) {
+  animation: btn-lift 0.3s ease forwards;
+}
+
+@keyframes btn-lift {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Active press animation */
+.btn:active:not(:disabled),
+.button:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+/* Pulse animation for primary CTAs */
+@keyframes btn-pulse {
+  0%, 100% {
+    box-shadow: 0 10px 24px var(--shadow-soft);
+  }
+  50% {
+    box-shadow: 0 10px 24px var(--shadow-soft), 0 0 0 4px rgba(13, 154, 170, 0.15);
+  }
+}
+
+.btn-primary.pulse,
+.btn--primary.pulse {
+  animation: btn-pulse 2s ease-in-out infinite;
+}
+
+/* Shimmer effect for special CTAs */
+@keyframes btn-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: btn-shimmer 3s ease-in-out infinite;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Icon animations */
+.btn-icon svg,
+.btn .btn-icon {
+  transition: transform var(--transition-fast);
+}
+
+.btn:hover:not(:disabled) .btn-icon {
+  transform: translateX(2px);
+}
+
+.btn-icon-bounce .btn-icon {
+  animation: icon-bounce 0.6s ease infinite;
+}
+
+@keyframes icon-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Loading state animation */
+.btn-loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: btn-spin 0.6s linear infinite;
+}
+
+@keyframes btn-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success flash animation */
+@keyframes btn-success {
+  0% {
+    background: var(--ts-color-success);
+  }
+  100% {
+    background: var(--ts-color-primary-bg);
+  }
+}
+
+.btn-success-flash {
+  animation: btn-success 0.6s ease;
+}
+
+/* =========================
+  Responsive Button Groups
   ========================= */
 
 /* Container query: stack buttons and expand to container width on small containers */
@@ -194,9 +376,54 @@
    inline-size: 100%;
   }
 
-  .btn-group {
+  .btn-group,
+  .btn-row {
    flex-direction: column;
    inline-size: 100%;
+  }
+
+  .btn-group > .btn,
+  .btn-group > .button,
+  .btn-row > .btn,
+  .btn-row > .button {
+   width: 100%;
+  }
+
+  .btn-grid {
+   grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile: stack by default */
+@media (max-width: 640px) {
+  .btn-group:not(.btn-group--inline),
+  .btn-row:not(.btn-row--inline) {
+   flex-direction: column;
+   width: 100%;
+  }
+
+  .btn-group:not(.btn-group--inline) > .btn,
+  .btn-group:not(.btn-group--inline) > .button,
+  .btn-row:not(.btn-row--inline) > .btn,
+  .btn-row:not(.btn-row--inline) > .button {
+   width: 100%;
+  }
+
+  .btn-grid {
+   grid-template-columns: 1fr;
+   gap: 0.875rem;
+  }
+}
+
+/* Tablet: 2-column grid */
+@media (min-width: 641px) and (max-width: 920px) {
+  .btn-grid {
+   grid-template-columns: repeat(2, 1fr);
+  }
+
+  .btn-grid > .btn:last-child:nth-child(odd),
+  .btn-grid > .button:last-child:nth-child(odd) {
+   grid-column: 1 / -1;
   }
 }
 
@@ -218,18 +445,79 @@
 }
 
 /* =========================
-  Button Groups
+  Button Groups & Layouts
   ========================= */
 .btn-group {
-  display: inline-flex;
-  gap: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
   container-type: inline-size;
   container-name: btn-group;
 }
 
 .btn-group > .btn,
 .btn-group > .button {
-  flex: 1;
+  flex: 0 1 auto;
+}
+
+/* Centered button groups */
+.btn-group-center,
+.btn-group--center,
+.btn-row.center {
+  justify-content: center;
+}
+
+/* Right-aligned button groups */
+.btn-group-end,
+.btn-group--end {
+  justify-content: flex-end;
+}
+
+/* Space between buttons */
+.btn-group-between,
+.btn-group--between {
+  justify-content: space-between;
+}
+
+/* Grid layout for 3+ buttons */
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.btn-grid > .btn,
+.btn-grid > .button {
+  width: 100%;
+}
+
+/* Stack buttons vertically */
+.btn-stack,
+.btn-group--stack {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.btn-stack > .btn,
+.btn-stack > .button,
+.btn-group--stack > .btn,
+.btn-group--stack > .button {
+  width: 100%;
+}
+
+/* Legacy btn-row support */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn-row.center {
+  justify-content: center;
 }
 
 /* =========================
