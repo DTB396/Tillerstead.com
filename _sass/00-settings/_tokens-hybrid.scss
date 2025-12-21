@@ -12,7 +12,7 @@
    ============================================ */
 
 @use "sass:math";
-@use "contrast" as *;
+@use "../99-archive/contrast" as *;
 
 :root {
   color-scheme: light;
