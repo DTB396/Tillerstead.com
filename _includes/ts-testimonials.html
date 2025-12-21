@@ -109,11 +109,31 @@ Testimonials include
             {%- continue -%}
           {%- endif -%}
 
+          {% assign quote_text = review.quote_html | strip_html | strip %}
+          {% assign is_long = false %}
+          {% if quote_text.size > 300 %}
+            {% assign is_long = true %}
+          {% endif %}
+
           {% assign rating_value = review.rating | default: 5 %}
           {% assign rating_max = review.rating_max | default: 5 %}
-          <article class="ts-testimonial" role="listitem" aria-label="Testimonial from {{ review.author | default: 'Client' }}">
+          
+          <article class="ts-testimonial{% if is_long %} ts-testimonial--expandable{% endif %}" role="listitem" aria-label="Testimonial from {{ review.author | default: 'Client' }}">
             <blockquote class="ts-testimonial__quote">
-              <div class="ts-testimonial__quote-text">{{ review.quote_html }}</div>
+              <div class="ts-testimonial__quote-text">
+                {% if is_long %}
+                  <span class="ts-testimonial__quote-preview">{{ review.quote_html | strip_html | truncate: 280, '...' }}</span>
+                  <span class="ts-testimonial__quote-full" style="display: none;">{{ review.quote_html }}</span>
+                  <button type="button" class="ts-testimonial__read-more" aria-expanded="false">
+                    <span class="ts-testimonial__read-more-text">Read more</span>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <polyline points="2 4 6 8 10 4"></polyline>
+                    </svg>
+                  </button>
+                {% else %}
+                  {{ review.quote_html }}
+                {% endif %}
+              </div>
             </blockquote>
 
             <div class="ts-testimonial__rating" aria-label="Rated {{ rating_value }} out of {{ rating_max }} stars">

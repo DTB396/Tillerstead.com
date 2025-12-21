@@ -62,6 +62,13 @@
   src="{{ '/assets/js/scroll-animations.js' | relative_url }}?v={{ site.assets_version | default: '1.0' }}"
   crossorigin="anonymous"></script>
 
+<!-- Testimonials Read More (pages with reviews) -->
+{% if page.url contains '/reviews' or page.is_home or page.has_testimonials %}
+<script defer
+  src="{{ '/assets/js/testimonials-read-more.js' | relative_url }}?v={{ site.assets_version | default: '1.0' }}"
+  crossorigin="anonymous"></script>
+{% endif %}
+
 <!-- No-JS fallback: Hides elements requiring JavaScript, per accessibility standards -->
 <noscript>
   <style>
