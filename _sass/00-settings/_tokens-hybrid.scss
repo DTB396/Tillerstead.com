@@ -18,18 +18,107 @@
   color-scheme: light;
 
   /* ===========================
+     🎨 CORE HEX COLOR LIBRARY
+     Consolidated repeated colors
+     =========================== */
+  
+  /* Brand Teals */
+  --hex-teal-900: #0f766e;        /* Primary brand teal - 144 uses */
+  --hex-teal-700: #0b6b5c;        /* Deep teal - 12 uses */
+  --hex-teal-600: #0d9aaa;        /* Medium teal - 25 uses */
+  --hex-teal-500: #1cb394;        /* Bright teal - 24 uses */
+  --hex-teal-400: #16a384;        /* Light teal - 6 uses */
+  --hex-teal-300: #2ba9ba;        /* Sky teal - 4 uses */
+  --hex-teal-200: #84d1b8;        /* Pale teal - 4 uses */
+  --hex-teal-100: #b3dce8;        /* Very light teal - 4 uses */
+  --hex-teal-50: #e0f2f7;         /* Softest teal - 4 uses */
+  --hex-teal-dark: #053a2e;       /* Darkest teal - 12 uses */
+  --hex-teal-deeper: #022318;     /* Even darker - 10 uses */
+  
+  /* Warm Neutrals & Creams */
+  --hex-cream-warm: #fffbe6;      /* Warm cream - 25 uses */
+  --hex-cream-light: #fffbeb;     /* Light cream - 12 uses */
+  --hex-cream-soft: #f9f5eb;      /* Soft cream - 10 uses */
+  --hex-cream-muted: #f0ead8;     /* Muted cream - 4 uses */
+  --hex-amber-pale: #fef3c7;      /* Pale amber - 6 uses */
+  --hex-amber-light: #fff9c4;     /* Light amber - 10 uses */
+  --hex-amber-bright: #fcd34d;    /* Bright amber - 4 uses */
+  
+  /* Golds & Yellows */
+  --hex-gold-rich: #c99a3f;       /* Rich gold - 24 uses */
+  --hex-gold-warm: #d6b45b;       /* Warm gold - 8 uses */
+  --hex-gold-muted: #c89d4f;      /* Muted gold - 2 uses */
+  --hex-gold-deep: #92400e;       /* Deep bronze - 6 uses */
+  
+  /* Coral & Sunset */
+  --hex-coral-bright: #ff8461;    /* Bright coral - 8 uses */
+  --hex-coral-medium: #e86f4e;    /* Medium coral - 4 uses */
+  --hex-coral-deep: #c85a3d;      /* Deep coral - 4 uses */
+  --hex-coral-light: #ff9d7d;     /* Light coral - 4 uses */
+  --hex-coral-pale: #ffe4dc;      /* Pale coral - 4 uses */
+  --hex-coral-softest: #fff5f2;   /* Softest coral - 4 uses */
+  
+  /* Greens - Success & Nature */
+  --hex-green-mint: #ecfdf5;      /* Mint green - 8 uses */
+  --hex-green-light: #d1fae5;     /* Light green - 6 uses */
+  --hex-green-bright: #10b981;    /* Bright green - 4 uses */
+  --hex-green-teal: #1fbf7a;      /* Teal green - 4 uses */
+  --hex-green-forest: #0b5a34;    /* Forest green - 4 uses */
+  
+  /* Blues */
+  --hex-blue-navy: #000080;       /* Navy blue - 24 uses */
+  --hex-blue-deep: #0057b8;       /* Deep blue - 8 uses */
+  --hex-blue-bright: #4A90E2;     /* Bright blue - 10 uses */
+  --hex-blue-sky: #7fd1ff;        /* Sky blue - 4 uses */
+  --hex-blue-pale: #e0f2fe;       /* Pale blue - 4 uses */
+  
+  /* Reds - Alerts & Accents */
+  --hex-red-blood: #b00;          /* Blood red - 24 uses */
+  --hex-red-bright: #d32f2f;      /* Bright red - 10 uses */
+  --hex-red-error: #ef4444;       /* Error red - 4 uses */
+  --hex-red-deep: #dc2626;        /* Deep red - 2 uses */
+  --hex-red-dark: #b91c1c;        /* Dark red - 2 uses */
+  
+  /* Slate Grays */
+  --hex-slate-900: #1e293b;       /* Darkest slate - 8 uses */
+  --hex-slate-700: #334155;       /* Dark slate - 4 uses */
+  --hex-slate-600: #475569;       /* Medium slate - 5 uses */
+  --hex-slate-500: #64748b;       /* Mid slate - 9 uses */
+  --hex-slate-400: #94a3b8;       /* Light slate - 3 uses */
+  --hex-slate-300: #cbd5e1;       /* Lighter slate - 3 uses */
+  --hex-slate-200: #e2e8f0;       /* Very light slate - 12 uses */
+  --hex-slate-100: #f1f5f9;       /* Almost white slate - 5 uses */
+  --hex-slate-50: #f8fafc;        /* Lightest slate - 9 uses */
+  
+  /* Dark Neutrals */
+  --hex-charcoal: #1A1A1A;        /* Charcoal - 38 uses */
+  --hex-charcoal-green: #1c231f;  /* Charcoal with green - 18 uses */
+  --hex-charcoal-deep: #0f1713;   /* Deep charcoal - 4 uses */
+  --hex-charcoal-blue: #12212c;   /* Blue charcoal - 6 uses */
+  --hex-gray-dark: #3a413c;       /* Dark gray - 6 uses */
+  --hex-gray-medium: #58615c;     /* Medium gray - 4 uses */
+  
+  /* Pure & Near-Pure */
+  --hex-white: #ffffff;           /* Pure white - 90 uses */
+  --hex-white-alt: #fff;          /* White short - 17 uses */
+  --hex-black: #000000;           /* Pure black - 7 uses */
+  --hex-black-alt: #000;          /* Black short - 2 uses */
+  --hex-off-white: #f8f9fa;       /* Off white - 10 uses */
+  --hex-snow: #fafbfc;            /* Snow white - 6 uses */
+
+  /* ===========================
      🎯 PRIMARY BRAND COLORS
      Professional + Trustworthy
      =========================== */
   
   /* Tile Professional Teal - Main brand identity */
-  --color-brand-teal-50: #e0f2f7;
-  --color-brand-teal-100: #b3dce8;
-  --color-brand-teal-400: #2ba9ba;      /* Lighter accent */
-  --color-brand-teal-500: var(--color-brand-teal-500);      /* Primary brand */
-  --color-brand-teal-600: var(--color-brand-teal-600);      /* Hover state */
-  --color-brand-teal-700: var(--color-brand-teal-700);      /* Deep emphasis */
-  --color-brand-teal-900: var(--color-brand-teal-900);      /* Dark text */
+  --color-brand-teal-50: var(--hex-teal-50);
+  --color-brand-teal-100: var(--hex-teal-100);
+  --color-brand-teal-400: var(--hex-teal-300);
+  --color-brand-teal-500: var(--hex-teal-500);
+  --color-brand-teal-600: var(--hex-teal-600);
+  --color-brand-teal-700: var(--hex-teal-700);
+  --color-brand-teal-900: var(--hex-teal-900);
 
   /* ===========================
      🌅 NOSTALGIC WARMTH
@@ -37,20 +126,20 @@
      =========================== */
   
   /* Sunset Coral (not too orange, not too pink) */
-  --color-sunset-50: #fff5f2;
-  --color-sunset-100: #ffe4dc;
-  --color-sunset-400: #ff9d7d;
-  --color-sunset-500: #ff8461;          /* Warm accent */
-  --color-sunset-600: #e86f4e;          /* Hover */
-  --color-sunset-700: #c85a3d;          /* Deep */
+  --color-sunset-50: var(--hex-coral-softest);
+  --color-sunset-100: var(--hex-coral-pale);
+  --color-sunset-400: var(--hex-coral-light);
+  --color-sunset-500: var(--hex-coral-bright);
+  --color-sunset-600: var(--hex-coral-medium);
+  --color-sunset-700: var(--hex-coral-deep);
 
   /* Golden Hour (warm, inviting) */
-  --color-golden-50: #fffbeb;
-  --color-golden-100: #fef3c7;
-  --color-golden-400: var(--color-golden-400);
-  --color-golden-500: var(--color-golden-500);          /* Accent gold */
-  --color-golden-600: var(--color-golden-600);          /* Rich gold */
-  --color-golden-700: var(--color-golden-700);          /* Deep bronze */
+  --color-golden-50: var(--hex-cream-light);
+  --color-golden-100: var(--hex-amber-pale);
+  --color-golden-400: var(--hex-gold-warm);
+  --color-golden-500: var(--hex-gold-rich);
+  --color-golden-600: var(--hex-gold-muted);
+  --color-golden-700: var(--hex-gold-deep);
 
   /* ===========================
      🎪 STRATEGIC ENERGY POPS
@@ -58,39 +147,43 @@
      =========================== */
   
   /* Success Green (fresh, positive) */
-  --color-success-50: #ecfdf5;
-  --color-success-100: #d1fae5;
-  --color-success-500: var(--color-success-500);
-  --color-success-600: var(--color-success-600);
-  --color-success-700: var(--color-success-700);
+  --color-success-50: var(--hex-green-mint);
+  --color-success-100: var(--hex-green-light);
+  --color-success-500: var(--hex-green-bright);
+  --color-success-600: var(--hex-green-teal);
+  --color-success-700: var(--hex-green-forest);
 
   /* Attention Yellow (badges, highlights) */
-  --color-attention-50: #fffbeb;
-  --color-attention-400: #fcd34d;
-  --color-attention-500: var(--color-golden-400);
-  --color-attention-600: var(--color-golden-500);
+  --color-attention-50: var(--hex-cream-light);
+  --color-attention-400: var(--hex-amber-bright);
+  --color-attention-500: var(--hex-gold-warm);
+  --color-attention-600: var(--hex-gold-rich);
 
   /* Alert Coral (not aggressive, just clear) */
   --color-alert-50: #fef2f2;
-  --color-alert-500: #ef4444;
-  --color-alert-600: var(--color-alert-600);
-  --color-alert-700: var(--color-alert-700);
+  --color-alert-500: var(--hex-red-error);
+  --color-alert-600: var(--hex-red-deep);
+  --color-alert-700: var(--hex-red-dark);
 
   /* ===========================
      📐 REFINED NEUTRALS
      Clean, professional foundation
      =========================== */
   
-  --color-slate-50: var(--color-slate-50);
-  --color-slate-100: var(--color-slate-100);
-  --color-slate-200: var(--color-slate-200);
-  --color-slate-300: var(--color-slate-300);
-  --color-slate-400: var(--color-slate-400);
-  --color-slate-500: var(--color-slate-500);
-  --color-slate-600: var(--color-slate-600);
-  --color-slate-700: var(--color-slate-700);
-  --color-slate-800: var(--color-slate-800);
-  --color-slate-900: var(--color-slate-900);
+  --color-slate-50: var(--hex-slate-50);
+  --color-slate-100: var(--hex-slate-100);
+  --color-slate-200: var(--hex-slate-200);
+  --color-slate-300: var(--hex-slate-300);
+  --color-slate-400: var(--hex-slate-400);
+  --color-slate-500: var(--hex-slate-500);
+  --color-slate-600: var(--hex-slate-600);
+  --color-slate-700: var(--hex-slate-700);
+  --color-slate-800: var(--hex-slate-900);
+  --color-slate-900: var(--hex-charcoal);
+  
+  /* Pure colors */
+  --ts-white: var(--hex-white);
+  --ts-black: var(--hex-black);
 
   /* ===========================
      🎨 SEMANTIC MAPPING
