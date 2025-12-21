@@ -102,8 +102,8 @@ ux:
 
 # Form submission defaults
 forms:
-  endpoint: "https://formsubmit.co/info@tillerstead.com"
-  guide_endpoint: "https://formsubmit.co/info@tillerstead.com"
+  endpoint: "https://formsubmit.co/f249670ee046b9a9dbc022194f773c35"
+  guide_endpoint: "https://formsubmit.co/f249670ee046b9a9dbc022194f773c35"
   redirect_path: "/success/?form=contact"
   guide_redirect_path: "/download/nj-tile-guide/thank-you/"
   subject: "New Tillerstead LLC inquiry from tillerstead.com"

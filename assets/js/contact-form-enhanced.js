@@ -74,7 +74,7 @@
 
   // Update field UI with validation state
   function updateFieldUI(input, isValid, errorMessage) {
-    const formGroup = input.closest('.form-group, .field');
+    const formGroup = input.closest('.form-group, .form-field');
 
     if (isValid) {
       input.classList.remove('is-invalid');
@@ -99,8 +99,9 @@
     error.className = 'field-error';
     error.setAttribute('role', 'alert');
     error.textContent = message;
+    error.id = 'error-' + (input.id || input.name);
 
-    const formGroup = input.closest('.form-group, .field');
+    const formGroup = input.closest('.form-group, .form-field');
     if (formGroup) {
       formGroup.appendChild(error);
     } else {
@@ -109,12 +110,12 @@
 
     // Announce to screen readers
     input.setAttribute('aria-invalid', 'true');
-    input.setAttribute('aria-describedby', error.id || 'error-' + input.name);
+    input.setAttribute('aria-describedby', error.id);
   }
 
   // Remove error message
   function removeError(input) {
-    const formGroup = input.closest('.form-group, .field');
+    const formGroup = input.closest('.form-group, .form-field');
     const error = formGroup?.querySelector('.field-error') ||
                  input.parentNode.querySelector('.field-error');
 

@@ -1,18 +1,15 @@
-{% assign form_endpoint = site.forms.endpoint | default: 'https://formsubmit.co/info@tillerstead.com' %}
-{% assign redirect_url = '/success/?form=contact' | absolute_url %}
+{% assign form_endpoint = site.forms.endpoint | default: 'https://formsubmit.co/f249670ee046b9a9dbc022194f773c35' %}
+{% assign redirect_url = site.forms.redirect_path | default: '/success/?form=contact' | absolute_url %}
 <form
   name="{{ include.form_name | default: 'contact-long' }}"
   id="{{ include.form_id | default: 'contact-form-long' }}"
   class="contact-form contact-form--long"
-  method="post"
+  method="POST"
   action="{{ form_endpoint }}"
   accept-charset="UTF-8"
-  data-netlify="true"
-  netlify-honeypot="_trap"
   aria-describedby="{{ include.aria_describedby | default: 'form-intro' }}"
   aria-live="polite"
 >
-  <input type="hidden" name="form-name" value="{{ include.form_name | default: 'contact-long' }}">
   <input type="hidden" name="_subject" value="{{ site.forms.subject | default: 'New Tillerstead LLC inquiry' }}">
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_template" value="table">

@@ -4,12 +4,56 @@
   ========================================================================== */
 
 /* Grouping for logical, accessible fieldsets */
-.form-group {
+.form-group,
+.form-field {
   display: flex;
   flex-direction: column;
   gap: var(--ts-spacing-sm);
   margin-bottom: var(--ts-spacing-lg);
   width: 100%;
+  position: relative;
+}
+
+/* Error state for form fields */
+.form-field.has-error input,
+.form-field.has-error textarea,
+.form-field.has-error select,
+.form-group.has-error input,
+.form-group.has-error textarea,
+.form-group.has-error select {
+  border-color: var(--ts-color-error);
+  border-width: 2px;
+  background-color: rgb(255, 245, 245, 0.5);
+}
+
+.form-field.has-error label,
+.form-group.has-error label {
+  color: var(--ts-color-error);
+  font-weight: 600;
+}
+
+/* Error message styling */
+.field-error {
+  display: block;
+  color: var(--ts-color-error);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  margin-top: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--ts-color-error-bg);
+  border-left: 3px solid var(--ts-color-error);
+  border-radius: 4px;
+}
+
+/* Success state */
+.form-field.has-success input,
+.form-field.has-success textarea,
+.form-field.has-success select,
+.form-group.has-success input,
+.form-group.has-success textarea,
+.form-group.has-success select {
+  border-color: var(--ts-color-success);
+  background-color: rgb(236, 253, 245, 0.5);
 }
 
 /* Labeling — clear, accessible, and WCAG-compliant */
