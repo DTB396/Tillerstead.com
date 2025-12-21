@@ -44,14 +44,12 @@
 
 /* Hero (home) — integrates with premium hero base styles */
 .page-home .ts-hero {
-  /* Remove background override to use premium SVG pattern */
-
-  /* background: transparent; */
+  /* Apply tile crosshatch pattern for visual interest */
+  background-image: url('/assets/img/patterns/tile-crosshatch.svg');
+  background-size: 120px 120px;
+  background-repeat: repeat;
+  background-color: var(--ts-color-background-soft, #f8f9fa);
   color: var(--ts-color-text);
-
-  /* padding: 0; - Let premium hero handle padding */
-
-  /* display: block; - Let premium hero handle display */
 }
 
 .page-home .ts-hero__inner {

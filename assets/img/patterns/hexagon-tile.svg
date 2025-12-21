@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="104" viewBox="0 0 120 104">
+  <defs>
+    <!-- Hexagon tile pattern (honeycomb) -->
+    <pattern id="hexagon-tile" x="0" y="0" width="120" height="104" patternUnits="userSpaceOnUse">
+      <!-- Base -->
+      <rect width="120" height="104" fill="#f8f9fa" opacity="0.2"/>
+      
+      <!-- Hexagon row 1 -->
+      <polygon points="30,0 45,8.66 45,26 30,34.64 15,26 15,8.66" 
+               fill="none" stroke="#2c5282" stroke-width="0.6" opacity="0.14"/>
+      <polygon points="60,17.32 75,26 75,43.3 60,52 45,43.3 45,26" 
+               fill="none" stroke="#2c5282" stroke-width="0.6" opacity="0.14"/>
+      <polygon points="90,0 105,8.66 105,26 90,34.64 75,26 75,8.66" 
+               fill="none" stroke="#2c5282" stroke-width="0.6" opacity="0.14"/>
+      
+      <!-- Hexagon row 2 -->
+      <polygon points="0,34.64 15,43.3 15,60.64 0,69.28 -15,60.64 -15,43.3" 
+               fill="none" stroke="#2c5282" stroke-width="0.6" opacity="0.14"/>
+      <polygon points="30,34.64 45,43.3 45,60.64 30,69.28 15,60.64 15,43.3" 
+               fill="none" stroke="#2c5282" stroke-width="0.6" opacity="0.14"/>
+      <polygon points="60,34.64 75,43.3 75,60.64 60,69.28 45,60.64 45,43.3" 
+               fill="none" stroke="#2c5282" stroke-width="0.6" opacity="0.14"/>
+      <polygon points="90,34.64 105,43.3 105,60.64 90,69.28 75,60.64 75,43.3" 
+               fill="none" stroke="#2c5282" stroke-width="0.6" opacity="0.14"/>
+      <polygon points="120,34.64 135,43.3 135,60.64 120,69.28 105,60.64 105,43.3" 
+               fill="none" stroke="#2c5282" stroke-width="0.6" opacity="0.14"/>
+      
+      <!-- Hexagon row 3 -->
+      <polygon points="60,69.28 75,78 75,95.36 60,104 45,95.36 45,78" 
+               fill="none" stroke="#2c5282" stroke-width="0.6" opacity="0.14"/>
+      <polygon points="90,69.28 105,78 105,95.36 90,104 75,95.36 75,78" 
+               fill="none" stroke="#2c5282" stroke-width="0.6" opacity="0.14"/>
+      
+      <!-- Center dots for dimension -->
+      <circle cx="30" cy="17.32" r="1.2" fill="#3182ce" opacity="0.1"/>
+      <circle cx="60" cy="34.64" r="1.2" fill="#3182ce" opacity="0.1"/>
+      <circle cx="90" cy="17.32" r="1.2" fill="#3182ce" opacity="0.1"/>
+      <circle cx="30" cy="52" r="1.2" fill="#3182ce" opacity="0.1"/>
+      <circle cx="60" cy="69.28" r="1.2" fill="#3182ce" opacity="0.1"/>
+      <circle cx="90" cy="52" r="1.2" fill="#3182ce" opacity="0.1"/>
+    </pattern>
+  </defs>
+  <rect width="120" height="104" fill="url(#hexagon-tile)"/>
+</svg>

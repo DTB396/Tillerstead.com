@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <!-- Tile crosshatch pattern with grout lines -->
+    <pattern id="tile-crosshatch" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+      <!-- Base subtle texture -->
+      <rect width="120" height="120" fill="#f8f9fa" opacity="0.3"/>
+      
+      <!-- Horizontal grout lines -->
+      <line x1="0" y1="30" x2="120" y2="30" stroke="#2c5282" stroke-width="0.5" opacity="0.15"/>
+      <line x1="0" y1="60" x2="120" y2="60" stroke="#2c5282" stroke-width="0.5" opacity="0.15"/>
+      <line x1="0" y1="90" x2="120" y2="90" stroke="#2c5282" stroke-width="0.5" opacity="0.15"/>
+      
+      <!-- Vertical grout lines -->
+      <line x1="30" y1="0" x2="30" y2="120" stroke="#2c5282" stroke-width="0.5" opacity="0.15"/>
+      <line x1="60" y1="0" x2="60" y2="120" stroke="#2c5282" stroke-width="0.5" opacity="0.15"/>
+      <line x1="90" y1="0" x2="90" y2="120" stroke="#2c5282" stroke-width="0.5" opacity="0.15"/>
+      
+      <!-- Tile highlights (subtle corner details) -->
+      <circle cx="30" cy="30" r="1.5" fill="#3182ce" opacity="0.1"/>
+      <circle cx="60" cy="30" r="1.5" fill="#3182ce" opacity="0.1"/>
+      <circle cx="90" cy="30" r="1.5" fill="#3182ce" opacity="0.1"/>
+      <circle cx="30" cy="60" r="1.5" fill="#3182ce" opacity="0.1"/>
+      <circle cx="60" cy="60" r="1.5" fill="#3182ce" opacity="0.1"/>
+      <circle cx="90" cy="60" r="1.5" fill="#3182ce" opacity="0.1"/>
+      <circle cx="30" cy="90" r="1.5" fill="#3182ce" opacity="0.1"/>
+      <circle cx="60" cy="90" r="1.5" fill="#3182ce" opacity="0.1"/>
+      <circle cx="90" cy="90" r="1.5" fill="#3182ce" opacity="0.1"/>
+      
+      <!-- Subtle diagonal accent lines for dimension -->
+      <line x1="0" y1="30" x2="30" y2="0" stroke="#3182ce" stroke-width="0.3" opacity="0.08"/>
+      <line x1="30" y1="60" x2="60" y2="30" stroke="#3182ce" stroke-width="0.3" opacity="0.08"/>
+      <line x1="60" y1="90" x2="90" y2="60" stroke="#3182ce" stroke-width="0.3" opacity="0.08"/>
+      <line x1="90" y1="120" x2="120" y2="90" stroke="#3182ce" stroke-width="0.3" opacity="0.08"/>
+    </pattern>
+  </defs>
+  <rect width="120" height="120" fill="url(#tile-crosshatch)"/>
+</svg>
