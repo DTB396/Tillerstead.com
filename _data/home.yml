@@ -105,13 +105,10 @@ materials:
         - "Honed, polished, or leathered finishes per project aesthetic"
 
 testimonials:
-  eyebrow: "Client Testimonials"
-  title: "What Property Owners Say About Our Work"
+  eyebrow: "Verified Client Feedback"
+  title: "What South Jersey Property Owners Say About TCNA-Compliant Work"
   limit: 3
-  reviews:
-    - id: thumbtack-ahmed-a-2025-07-20-2
-    - id: thumbtack-maria-j-2025-05-06-3
-    - id: thumbtack-alexandra-s-2025-08-19-1
+  reviews: null  # Uses site.data.reviews.reviews by default (first 3)
 
 cta:
   eyebrow: "Ready to Start Your Project?"

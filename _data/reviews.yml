@@ -1,4 +1,45 @@
+# Tillerstead Reviews - Authoritative Source
+# All client testimonials synced from Thumbtack and manually curated
+# Reference: /.ai/COMPLIANCE.md (testimonials must be genuine, not incentivized)
+# Client words are NEVER edited - only formatted for HTML display
+# Last Updated: 2024-12-21
+
 reviews:
+  - id: thumbtack-ahmed-a-2025-07-20-2
+    source: Thumbtack
+    platform: Thumbtack
+    rating: 5
+    rating_max: 5
+    quote_html: |
+      <p>I recently hired Devon for a bathroom remodel, and my wife and I couldn't be happier with the results. From start to finish, Devon was professional, punctual, and detail-oriented. He took the time to listen to what we wanted, offered helpful suggestions, and executed everything with precision.</p>
+      <p>Devon kept the work area tidy throughout the project and completed the job on time without cutting corners.</p>
+      <p>It's rare to find someone who truly takes pride in their work the way Devon does. I'd highly recommend him.</p>
+    author: Ahmed A.
+    location: null
+    job_type: Bathroom Remodel
+    date: '2025-07-20'
+    badges:
+      - Professionalism
+      - Value
+      - Responsiveness
+    url: https://www.thumbtack.com/nj/absecon/tile/tillerstead-llc/service/547437618353160199
+
+  - id: thumbtack-maria-j-2025-05-06-3
+    source: Thumbtack
+    platform: Thumbtack
+    rating: 5
+    rating_max: 5
+    quote_html: <p>I hired Devon Tyler for tile work in my home and was impressed by his patience, precision, and professionalism. He took his time to get every cut right and made sure the job was solid and clean. I'd absolutely recommend him to anyone looking for quality tile work done with care.</p>
+    author: Maria J.
+    location: null
+    job_type: Tile Installation and Replacement
+    date: '2025-05-06'
+    badges:
+      - Professionalism
+      - Value
+      - Responsiveness
+    url: https://www.thumbtack.com/nj/absecon/tile/tillerstead-llc/service/547437618353160199
+
   - id: thumbtack-alexandra-s-2025-08-19-1
     source: Thumbtack
     platform: Thumbtack
@@ -7,31 +48,10 @@ reviews:
     quote_html: <p>It was a pleasure working with Devon to repair our ceiling in our closet. We chose to repair it rather than replace. Devon walked us through what that would look like offering the most cost effective option. He was very professional. I recommend working with him!!</p>
     author: Alexandra S.
     location: null
-    job_type: null
+    job_type: Drywall Repair and Texturing
     date: '2025-08-19'
-    badges: []
-    url: https://www.thumbtack.com/nj/absecon/tile/tillerstead-llc/service/547437618353160199
-  - id: thumbtack-ahmed-a-2025-07-20-2
-    source: Thumbtack
-    platform: Thumbtack
-    rating: 5
-    rating_max: 5
-    quote_html: <p>I recently hired Devon for a bathroom remodel, and my wife and I couldn’t be happier with the results. From start to finish, Devon was professional, punctual, and detail-oriented. He took the time to listen to what we wanted, offered helpful suggestions, and executed everything with precision.<br>Devon kept the work area tidy throughout the project and completed the job on time without cutting corners.<br>It’s rare to find someone who truly takes pride in their work the way Devon does. I’d highly recommend him.</p>
-    author: Ahmed A.
-    location: null
-    job_type: null
-    date: '2025-07-20'
-    badges: []
-    url: https://www.thumbtack.com/nj/absecon/tile/tillerstead-llc/service/547437618353160199
-  - id: thumbtack-maria-j-2025-05-06-3
-    source: Thumbtack
-    platform: Thumbtack
-    rating: 5
-    rating_max: 5
-    quote_html: <p>I hired Devon Tyler for tile work in my home and was impressed by his patience, precision, and professionalism. He took his time to get every cut right and made sure the job was solid and clean. I’d absolutely recommend him to anyone looking for quality tile work done with care.</p>
-    author: Maria J.
-    location: null
-    job_type: null
-    date: '2025-05-06'
-    badges: []
+    badges:
+      - Professionalism
+      - Value
+      - Responsiveness
     url: https://www.thumbtack.com/nj/absecon/tile/tillerstead-llc/service/547437618353160199

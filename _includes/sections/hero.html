@@ -1,10 +1,10 @@
 {%- comment -%}
   Section: Hero
-  Loads hero data from include or site default, then renders unified hero component.
+  Loads hero data directly from site.data.home.hero
 {%- endcomment -%}
-{% assign hero = include.data | default: site.data.home.hero %}
+{% assign hero = site.data.home.hero %}
 
-{% if hero.title or hero.summary %}
+{% if hero and hero.title %}
   {% assign hero_image = hero.image %}
   {% include unified-hero-home.html
     eyebrow=hero.eyebrow
@@ -19,3 +19,4 @@
     bullets=hero.highlights
   %}
 {% endif %}
+

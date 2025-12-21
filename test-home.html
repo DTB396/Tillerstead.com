@@ -1,0 +1,9 @@
+---
+layout: default
+title: Test Home
+---
+<h1>Test</h1>
+{% assign home = site.data.home %}
+<p>Hero title: {{ home.hero.title }}</p>
+<p>Services title: {{ home.services.title }}</p>
+{% include sections/hero.html data=home.hero %}

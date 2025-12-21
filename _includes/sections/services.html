@@ -1,6 +1,6 @@
-{% assign services = include.data | default: site.data.home.services %}
+{% assign services = site.data.home.services %}
 
-{% if services.title or services.cards %}
+{% if services and services.title %}
   {% assign section_id = include.section_id | default: 'home-services' %}
   {% assign heading_id = include.heading_id | default: section_id | append: '-title' %}
   {% assign summary_id = section_id | append: '-summary' %}

@@ -30,7 +30,7 @@ Testimonials include
           {% assign rating_max = review.rating_max | default: 5 %}
           <article class="ts-testimonial" role="listitem" aria-label="Testimonial from {{ review.author | default: 'Client' }}">
             <blockquote class="ts-testimonial__quote">
-              <div class="ts-testimonial__quote-text">{{ review.quote_html | markdownify }}</div>
+              <div class="ts-testimonial__quote-text">{{ review.quote_html }}</div>
             </blockquote>
 
             <div class="ts-testimonial__rating" aria-label="Rated {{ rating_value }} out of {{ rating_max }} stars">

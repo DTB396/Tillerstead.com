@@ -32,14 +32,12 @@
       {% include header.html %}
 
       <main id="main" class="site-main ts-section ts-surface" role="main" tabindex="-1">
-        {% assign home = site.data.home %}
-
-        {% include sections/hero.html data=home.hero %}
-        {% include sections/services.html data=home.services %}
-        {% include sections/process.html data=home.process %}
-        {% include sections/materials.html data=home.materials %}
-        {% include sections/testimonials.html data=home.testimonials %}
-        {% include sections/cta.html data=home.cta %}
+        {% include sections/hero.html data=site.data.home.hero %}
+        {% include sections/services.html data=site.data.home.services %}
+        {% include sections/process.html data=site.data.home.process %}
+        {% include sections/materials.html data=site.data.home.materials %}
+        {% include sections/testimonials.html data=site.data.home.testimonials %}
+        {% include sections/cta.html data=site.data.home.cta %}
       </main>
 
       {% include footer.html %}

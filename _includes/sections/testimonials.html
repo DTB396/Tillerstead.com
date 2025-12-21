@@ -1,15 +1,42 @@
 {%- comment -%}
   Testimonials section include.
   Data fallback: include.data → site.data.home.testimonials → empty object.
+  Handles both direct reviews array and review ID references.
+  If no reviews specified, pulls from site.data.reviews.reviews automatically.
 {%- endcomment -%}
 {% assign testimonials = include.data | default: site.data.home.testimonials | default: {} %}
 
-{% if testimonials.reviews and testimonials.reviews.size > 0 %}
+{% if testimonials.title %}
   {% assign section_id = include.section_id | default: 'home-testimonials' %}
+  
+  {%- comment -%} Resolve review references to actual review objects {%- endcomment -%}
+  {% assign resolved_reviews = '' | split: '' %}
+  {% if testimonials.reviews and testimonials.reviews != null %}
+    {% for item in testimonials.reviews %}
+      {% if item.id %}
+        {%- comment -%} It's a reference object with just an ID {%- endcomment -%}
+        {% for review in site.data.reviews.reviews %}
+          {% if review.id == item.id %}
+            {% assign resolved_reviews = resolved_reviews | push: review %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {%- comment -%} It's a full review object {%- endcomment -%}
+        {% assign resolved_reviews = resolved_reviews | push: item %}
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    {%- comment -%} No reviews specified, use default from site.data.reviews.reviews {%- endcomment -%}
+    {% assign resolved_reviews = site.data.reviews.reviews %}
+  {% endif %}
+  
   {% include ts-testimonials.html
     section_id=section_id
     eyebrow=testimonials.eyebrow
     heading=testimonials.title
     limit=testimonials.limit
-    reviews=testimonials.reviews %}
+    reviews=resolved_reviews %}
 {% endif %}
+
+

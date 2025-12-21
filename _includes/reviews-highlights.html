@@ -2,7 +2,7 @@
 Homepage Reviews Highlights Include
 - Renders top N reviews from _data/reviews.yml as trust cards
 - Params: limit (default 3), eyebrow, title, summary, cta_url, cta_label
-  - Optional IDs: section_id (default: home-reviews), heading_id (default: section_id + '-title')
+- Optional IDs: section_id (default: home-reviews), heading_id (default: section_id + '-title')
 Usage: {% include reviews-highlights.html limit=3 %}
 {% endcomment %}
 {% assign all = site.data.reviews.reviews | default: [] %}
@@ -15,7 +15,7 @@ Usage: {% include reviews-highlights.html limit=3 %}
     <div class="section-header">
       <p class="eyebrow text-accent">{{ include.eyebrow | default: 'Verified Client Feedback' }}</p>
       <h2 id="{{ heading_id }}" class="heading-2">
-        {{ include.title | default: 'South Jersey’s TCNA-Compliant Tile & Bath Reviews' }}
+        {{ include.title | default: 'South Jersey's TCNA-Compliant Tile & Bath Reviews' }}
       </h2>
       <p class="lead">
         {{ include.summary | default: 'Every project meets TCNA standards and NJ HIC regulations. Clients value our transparent communication, meticulous site cleanliness, and precision tile installation.' }}
@@ -25,26 +25,31 @@ Usage: {% include reviews-highlights.html limit=3 %}
     {% if items and items.size > 0 %}
       <ul class="cards cards--3col" role="list" aria-label="Highlighted client reviews">
         {% for r in items %}
+          {% assign stars = r.rating | default: 5 %}
           <li>
-            {% assign stars = r.rating | default: 5 %}
-            <article class="card card--review" itemscope itemtype="https://schema.org/Review" aria-label="Review from {{ r.name | default: 'Client' | escape }}">
+            <article class="card card--review" itemscope itemtype="https://schema.org/Review" aria-label="Review from {{ r.author | default: 'Client' | escape }}">
               <div class="card-rating" aria-label="{{ stars }} out of 5 stars" role="img">
                 {% for i in (1..5) %}
                   <span class="star{% if i <= stars %} star--filled{% endif %}" aria-hidden="true">{% if i <= stars %}★{% else %}☆{% endif %}</span>
                 {% endfor %}
               </div>
               <meta itemprop="reviewRating" content="{{ stars }}">
-              {% if r.text %}
-                <p class="card-quote" itemprop="reviewBody">
-                  {{ r.text | escape }}
-                </p>
+              {% if r.quote_html %}
+                <div class="card-quote" itemprop="reviewBody">
+                  {{ r.quote_html }}
+                </div>
               {% endif %}
               <p class="card-author">
-                {% if r.name %}
-                  <strong id="review--name-{{ forloop.index }}" itemprop="author">{{ r.name | escape }}</strong>
+                {% if r.author %}
+                  <strong id="review--name-{{ forloop.index }}" itemprop="author">{{ r.author | escape }}</strong>
                 {% endif %}
-                {% if r.source %}
+                {% if r.job_type %}
+                  <span class="card-role"> · {{ r.job_type | escape }}</span>
+                {% elsif r.source %}
                   <span class="card-role"> · {{ r.source | escape }}</span>
+                {% endif %}
+                {% if r.date %}
+                  <span class="card-date"> · {{ r.date | date: "%b %Y" }}</span>
                 {% endif %}
               </p>
             </article>
