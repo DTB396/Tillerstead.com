@@ -19,7 +19,7 @@
   border: 3px solid var(--cartoon-black, #1A1A1A);
   box-shadow: 
     5px 5px 0 var(--cartoon-black, #1A1A1A),
-    0 4px 20px rgba(230, 57, 70, 0.4);
+    0 4px 20px rgb(230, 57, 70, 0.4);
   font-family: var(--font-display, "Impact", sans-serif);
   font-weight: 700;
   font-size: 16px;
@@ -36,7 +36,7 @@
   transform: scale(1.05) translateY(-2px);
   box-shadow: 
     7px 7px 0 var(--cartoon-black, #1A1A1A),
-    0 6px 25px rgba(230, 57, 70, 0.6);
+    0 6px 25px rgb(230, 57, 70, 0.6);
 }
 
 .sticky-call-btn:active {
@@ -54,12 +54,13 @@
   0%, 100% {
     box-shadow: 
       5px 5px 0 var(--cartoon-black, #1A1A1A),
-      0 4px 20px rgba(230, 57, 70, 0.4);
+      0 4px 20px rgb(230, 57, 70, 0.4);
   }
+
   50% {
     box-shadow: 
       5px 5px 0 var(--cartoon-black, #1A1A1A),
-      0 4px 30px rgba(230, 57, 70, 0.7);
+      0 4px 30px rgb(230, 57, 70, 0.7);
   }
 }
 
@@ -239,7 +240,7 @@
 
 .contact-btn small {
   font-size: 14px;
-  color: var(--cartoon-gray, #555);
+  color: var(--cartoon-gray, #555555);
 }
 
 .contact-btn-call {
@@ -405,6 +406,7 @@
     transform: translateX(400px);
     opacity: 0;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;

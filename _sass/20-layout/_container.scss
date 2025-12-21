@@ -19,6 +19,7 @@
 /* Container variants for specific content widths */
 .container-narrow   { max-inline-size: 800px; }
 .container-wide     { max-inline-size: 1400px; }
+
 .container-full     {
   inline-size: 100%;
   max-inline-size: 100%;
@@ -49,20 +50,24 @@
 
 /* Section variants for theme and elevation */
 .section-compact   { padding-block: clamp(2rem, 4vi, 3.5rem); }
+
 .section-primary   {
   background: var(--ts-gradient-primary);
   color: var(--ts-white);
 }
 .section-muted     { background: var(--ts-color-surface-muted); }
+
 .section-elevated  {
   background: var(--ts-color-surface-elevated);
-  box-shadow: 0 2px 16px rgb(0 0 0 / 6%);
+  box-shadow: 0 2px 16px rgb(0 0 0 / 0.06);
 }
+
 .section-gradient  {
   position: relative;
   isolation: isolate;
   background: var(--ts-gradient-surface);
 }
+
 .section-gradient::before {
   content: "";
   position: absolute;
@@ -116,11 +121,13 @@
   gap: clamp(1.5rem, 3vi, 2.5rem);
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
 }
+
 .grid-3col {
   display: grid;
   gap: clamp(1.5rem, 3vi, 2.5rem);
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
 }
+
 .grid-4col {
   display: grid;
   gap: clamp(1rem, 2.5vi, 2rem);
@@ -185,6 +192,7 @@
   .shell {
    padding-inline: clamp(1rem, 4vi, 1.75rem);
   }
+
   .section,
   .ts-section {
    padding-block: clamp(2.5rem, 6vb, 5.25rem);
@@ -196,6 +204,7 @@
   display: grid;
   gap: clamp(1rem, 3vi, 2rem);
 }
+
 .cluster-responsive {
   display: flex;
   flex-wrap: wrap;
@@ -210,6 +219,7 @@
    grid-template-columns: repeat(12, 1fr);
    gap: var(--gutter);
   }
+
   .grid-child {
    grid-column: span 12;
    display: grid;
@@ -223,6 +233,7 @@
   .cluster {
    gap: var(--stack-gap-mobile, var(--ts-spacing-sm));
   }
+
   .hide-mobile {
    display: none !important;
   }

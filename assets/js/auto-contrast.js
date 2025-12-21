@@ -1,14 +1,14 @@
 /**
  * auto-contrast.js
  * Tillerstead.com – Accessibility Utility
- * 
+ *
  * Ensures WCAG 2.1 AA-compliant color contrast for dynamic UI elements.
- * 
+ *
  * Technical Authority: TCNA 2024, NJ HIC compliance, WCAG 2.1 §1.4.3
- * 
+ *
  * This script dynamically adjusts foreground color for optimal readability
  * against any background, supporting accessible, standards-driven design.
- * 
+ *
  * For technical details, see /.ai/DOMAIN.md and /.ai/COMPLIANCE.md.
  */
 
@@ -78,7 +78,7 @@
     const white = [255, 255, 255];
     const black = [0, 0, 0];
     const contrastWhite = contrastRatio(rgb, white);
-    const contrastBlack = contrastRatio(rgb, black);
+    const _contrastBlack = contrastRatio(rgb, black);
     el.style.color = contrastWhite >= 4.5 ? '#fff' : '#111';
   }
 

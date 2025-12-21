@@ -13,10 +13,10 @@
 
 /* HTML root: font smoothing, legibility, and accessibility (WCAG 2.1 AA) */
 html {
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   scroll-behavior: smooth;
 }
 
@@ -33,8 +33,8 @@ body {
   font-family: var(--font-sans, system-ui, Arial, sans-serif);
   font-size: var(--font-size-base, 1rem);
   line-height: var(--line-height-base, 1.6);
-  color: var(--ts-color-text, #222);
-  background: var(--ts-color-bg, #fff);
+  color: var(--ts-color-text, #222222);
+  background: var(--ts-color-bg, #ffffff);
   overflow-x: hidden;
 }
 
@@ -88,14 +88,14 @@ a {
   text-decoration: underline;
   text-decoration-thickness: from-font;
   text-underline-offset: 0.18em;
-  text-decoration-color: color-mix(in srgb, currentColor 38%, transparent);
+  text-decoration-color: color-mix(in srgb, currentcolor 38%, transparent);
   transition: var(--transition-fast, color 0.18s cubic-bezier(.4,0,.2,1));
 }
 
 a:hover,
 a:focus-visible {
   color: var(--ts-color-primary-strong, #003a75);
-  text-decoration-color: color-mix(in srgb, currentColor 65%, transparent);
+  text-decoration-color: color-mix(in srgb, currentcolor 65%, transparent);
 }
 
 a:focus-visible {
@@ -120,8 +120,8 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
-  -webkit-appearance: button;
   appearance: button;
+  appearance: auto;
   cursor: pointer;
 }
 
@@ -166,7 +166,7 @@ table {
   top: -40px;
   left: 0;
   background: var(--ts-color-primary, #0057b8);
-  color: var(--ts-white, #fff);
+  color: var(--ts-white, #ffffff);
   padding: 0.5rem 1rem;
   text-decoration: none;
   z-index: 10000;

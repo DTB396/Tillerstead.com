@@ -6,7 +6,7 @@
 .nj-statewide {
   padding-block: var(--section-pad-y, clamp(2.5rem, 6vb, 5.25rem));
   padding-inline: 0;
-  border-block-start: 1px solid rgba(255, 255, 255, 0.10);
+  border-block-start: 1px solid rgb(255, 255, 255, 0.10);
   container-type: inline-size;
 }
 
@@ -19,12 +19,12 @@
 .nj-kicker {
   font-size: 12px;
   letter-spacing: 0.2px;
-  color: rgba(255, 255, 255, 0.70);
+  color: rgb(255, 255, 255, 0.70);
   display: inline-block;
   padding: 8px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgb(255, 255, 255, 0.10);
+  background: rgb(255, 255, 255, 0.02);
 }
 
 .nj-head {
@@ -32,16 +32,17 @@
    margin: 12px 0 8px;
    font-size: clamp(22px, 2.8vw, 34px);
    letter-spacing: -0.5px;
+
    /* TCNA/NJ HIC-compliant headline styling for clarity and authority */
    font-family: var(--font-sans, 'Inter', Arial, sans-serif);
    font-weight: 700;
-   color: var(--color-primary, #fff);
+   color: var(--color-primary, #ffffff);
   }
 }
 
 .nj-lead {
   margin: 0;
-  color: rgba(255, 255, 255, 0.85); /* Improved contrast for accessibility (WCAG 2.1 AA) */
+  color: rgb(255, 255, 255, 0.85); /* Improved contrast for accessibility (WCAG 2.1 AA) */
   max-width: 70ch;
   font-size: 1.08rem;
   line-height: 1.6;
@@ -61,11 +62,11 @@
 }
 
 .nj-card {
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid rgb(255, 255, 255, 0.10);
   border-radius: 18px;
   padding: 16px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
-  box-shadow: var(--shadow-soft, 0 2px 8px rgba(0,0,0,0.04));
+  background: linear-gradient(180deg, rgb(255, 255, 255, 0.04), rgb(255, 255, 255, 0.02));
+  box-shadow: var(--shadow-soft, 0 2px 8px rgb(0,0,0,0.04));
 
   h3 {
    margin: 0 0 8px;
@@ -73,12 +74,13 @@
    font-family: var(--font-sans, 'Inter', Arial, sans-serif);
    font-weight: 650;
    color: var(--color-accent, #d6b45b);
+
    /* Emphasize technical authority and service area */
   }
 
   p,
   li {
-   color: rgba(255, 255, 255, 0.80); /* Improved contrast */
+   color: rgb(255, 255, 255, 0.80); /* Improved contrast */
    font-size: 15px;
    line-height: 1.5;
   }
@@ -93,12 +95,13 @@
 .nj-subtle {
   margin-top: 10px;
   font-size: 13px;
-  border-left: 3px solid rgba(214, 180, 91, 0.55);
+  border-left: 3px solid rgb(214, 180, 91, 0.55);
   padding: 10px 12px;
-  background: rgba(214, 180, 91, 0.06);
+  background: rgb(214, 180, 91, 0.06);
   border-radius: 12px;
   color: var(--color-accent, #d6b45b);
   font-weight: 500;
+
   /* Used for compliance notes, licensing, or TCNA references */
 }
 
@@ -115,25 +118,25 @@
   justify-content: center;
   padding: 10px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid rgb(255, 255, 255, 0.10);
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgb(255, 255, 255, 0.03);
   font-weight: 650;
   font-size: 14px;
-  color: var(--color-primary, #fff);
+  color: var(--color-primary, #ffffff);
   transition: background 0.18s, border-color 0.18s, color 0.18s;
 
   &:hover,
   &:focus {
    background: var(--gradient-primary, linear-gradient(90deg, #1fbf7a 0%, #d6b45b 100%));
-   color: #fff;
+   color: #ffffff;
    border-color: var(--color-accent, #d6b45b);
    outline: none;
   }
 
   &.nj-primary {
-   border-color: rgba(31, 191, 122, 0.55);
-   background: linear-gradient(180deg, rgba(31, 191, 122, 0.20), rgba(31, 191, 122, 0.08));
-   color: #fff;
+   border-color: rgb(31, 191, 122, 0.55);
+   background: linear-gradient(180deg, rgb(31, 191, 122, 0.20), rgb(31, 191, 122, 0.08));
+   color: #ffffff;
   }
 }

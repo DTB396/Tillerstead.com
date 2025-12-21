@@ -1,25 +1,25 @@
 /**
  * contrast.js — Tillerstead High-Visibility Contrast System
- * 
+ *
  * Purpose:
  * Ensures all text with `.c-contrast` class meets or exceeds WCAG 2.1 AA contrast ratios
  * against its computed background, supporting accessibility and NJ HIC legal compliance.
- * 
+ *
  * Features:
  * - Scans for `.c-contrast` elements on DOMContentLoaded and on manual invocation.
  * - Calculates background color (supports CSS variables, rgba, hex, named colors).
  * - Computes contrast ratio per WCAG 2.1 (TCNA-recommended).
  * - Applies optimal text color (black/white) via inline style or CSS variable.
  * - Designed for single inclusion per page; avoids infinite loops and Safari crashes.
- * 
+ *
  * Usage:
  * - Add `.c-contrast` to any element requiring dynamic contrast correction.
  * - Call `window.applyContrast()` after theme or DOM changes.
- * 
+ *
  * Compliance:
  * - Follows TCNA 2024, NJ HIC, and WCAG 2.1 AA/AAA standards.
  * - All logic and naming per /.ai/OUTPUT_RULES.md and /.ai/DOMAIN.md.
- * 
+ *
  * Authoritative: Do not duplicate or polyfill elsewhere.
  */
 
@@ -93,16 +93,16 @@
       const contrastWhite = contrast(bgRgb, white);
 
       // Choose color meeting WCAG AA (4.5:1 for normal text)
-      let chosen, chosenStr;
+      let _chosen, chosenStr;
       if (contrastBlack >= 4.5 && contrastBlack >= contrastWhite) {
-        chosen = black;
+        _chosen = black;
         chosenStr = '#000';
       } else if (contrastWhite >= 4.5) {
-        chosen = white;
+        _chosen = white;
         chosenStr = '#fff';
       } else {
         // Fallback: pick higher contrast, even if not compliant
-        chosen = contrastBlack > contrastWhite ? black : white;
+        _chosen = contrastBlack > contrastWhite ? black : white;
         chosenStr = contrastBlack > contrastWhite ? '#000' : '#fff';
       }
 

@@ -1,6 +1,7 @@
 /* ==========================================================================
   Tillerstead Theme — TCNA-Compliant Surfaces, Spacing, and Responsive Helpers
   ========================================================================== */
+
 /* See: /.ai/DOMAIN.md (TCNA 2024), /.ai/OUTPUT_RULES.md (naming, tokens), /.ai/STYLE.md (clarity, authority) */
 
 :root {
@@ -19,6 +20,7 @@ body.ts-theme {
 /* Section Block — Modular, accessible, and responsive */
 .ts-section {
   padding-block: var(--section-pad-y, var(--section-padding-y, 3rem));
+
   /* Uses design tokens for vertical rhythm; see _tokens.scss */
 }
 
@@ -30,6 +32,7 @@ body.ts-theme {
   box-shadow: var(--ts-shadow-soft);
   position: relative;
   overflow: hidden;
+
   /* Ensures visual separation and tactile clarity per TCNA guidelines */
 }
 
@@ -57,6 +60,7 @@ body.ts-theme {
 .ts-section__note {
   color: var(--ts-color-muted);
   font-size: 0.95rem;
+
   /* Ensure 4.5:1 contrast ratio for legal compliance */
 }
 

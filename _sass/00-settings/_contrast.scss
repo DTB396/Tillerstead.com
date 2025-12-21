@@ -29,9 +29,11 @@
 // Convert 8-bit RGB channel to linear RGB (0-1)
 @function linearize-channel($channel) {
   $channel: math.div($channel, 255);
+
   @if $channel <= 0.03928 {
    @return math.div($channel, 12.92);
   }
+
   @return math.pow(math.div($channel + 0.055, 1.055), 2.4);
 }
 
@@ -41,6 +43,7 @@
   $r: linearize-channel(map-get($rgb, red));
   $g: linearize-channel(map-get($rgb, green));
   $b: linearize-channel(map-get($rgb, blue));
+
   @return 0.2126 * $r + 0.7152 * $g + 0.0722 * $b;
 }
 
@@ -50,6 +53,7 @@
   $lum2: luminance($background);
   $lighter: math.max($lum1, $lum2);
   $darker: math.min($lum1, $lum2);
+
   @return math.div($lighter + 0.05, $darker + 0.05);
 }
 
@@ -72,6 +76,7 @@
 @function auto-text-color($background, $light: #ffffff, $dark: #1c231f) {
   $light-contrast: contrast-ratio($light, $background);
   $dark-contrast: contrast-ratio($dark, $background);
+
   @return if($light-contrast > $dark-contrast, $light, $dark);
 }
 
@@ -96,13 +101,16 @@
 @function lighten-until-contrast($color, $background, $min-contrast: 4.5, $max-iterations: 20) {
   $result: $color;
   $iteration: 0;
+
   @while contrast-ratio($result, $background) < $min-contrast and $iteration < $max-iterations {
    $result: lighten($result, 5%);
    $iteration: $iteration + 1;
   }
+
   @if $iteration >= $max-iterations {
    @warn "Contrast adjustment failed: #{$color} on #{$background} did not reach #{$min-contrast}:1 after #{$max-iterations} steps.";
   }
+
   @return $result;
 }
 
@@ -110,23 +118,29 @@
 @function darken-until-contrast($color, $background, $min-contrast: 4.5, $max-iterations: 20) {
   $result: $color;
   $iteration: 0;
+
   @while contrast-ratio($result, $background) < $min-contrast and $iteration < $max-iterations {
    $result: darken($result, 5%);
    $iteration: $iteration + 1;
   }
+
   @if $iteration >= $max-iterations {
    @warn "Contrast adjustment failed: #{$color} on #{$background} did not reach #{$min-contrast}:1 after #{$max-iterations} steps.";
   }
+
   @return $result;
 }
 
 // Adjust color to ensure minimum contrast (AA/AAA as required)
 @function ensure-contrast($color, $background, $min-contrast: 4.5) {
   $current-contrast: contrast-ratio($color, $background);
+
   @if $current-contrast >= $min-contrast {
    @return $color;
   }
+
   $bg-luminance: luminance($background);
+
   @if $bg-luminance > 0.5 {
    @return darken-until-contrast($color, $background, $min-contrast);
   } @else {
@@ -148,6 +162,7 @@
   -------------------------------------------------------------------------- */
 @mixin debug-contrast($fg, $bg) {
   $ratio: contrast-ratio($fg, $bg);
+
   @debug "Contrast: #{$fg} on #{$bg} = #{$ratio}:1";
   @debug "AA Normal (4.5:1): #{meets-aa-normal($fg, $bg)}";
   @debug "AA Large (3:1): #{meets-aa-large($fg, $bg)}";

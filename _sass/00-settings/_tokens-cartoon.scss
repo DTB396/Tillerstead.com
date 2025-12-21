@@ -73,8 +73,8 @@
   --surface-yellow-tint: #FFF9C4;   /* Light yellow wash */
   
   /* Shadows (animation cel style) */
-  --shadow-cartoon: rgba(0, 0, 0, 0.25);
-  --shadow-cartoon-soft: rgba(0, 0, 0, 0.15);
+  --shadow-cartoon: rgb(0, 0, 0, 0.25);
+  --shadow-cartoon-soft: rgb(0, 0, 0, 0.15);
 
   /* ===========================
      ✍️ TEXT & OUTLINES
@@ -188,9 +188,9 @@
   --shadow-cel-xl: 12px 12px 0 var(--cartoon-black);
   
   /* Soft shadow (modern touch) */
-  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.1);
-  --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.15);
-  --shadow-strong: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --shadow-soft: 0 2px 8px rgb(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 16px rgb(0, 0, 0, 0.15);
+  --shadow-strong: 0 8px 24px rgb(0, 0, 0, 0.2);
 
   /* ===========================
      ✍️ TYPOGRAPHY SYSTEM
@@ -292,6 +292,7 @@
 
 /* Text styles */
 .text-cartoon { font-family: var(--font-display); }
+
 .text-outline {
   text-shadow:
     -2px -2px 0 var(--outline-color),

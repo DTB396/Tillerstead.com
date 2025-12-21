@@ -216,6 +216,7 @@
 .btn-comic-primary { 
   background: var(--neon-teal-500); 
 }
+
 .btn-comic-primary:hover { 
   background: var(--neon-teal-600); 
 }
@@ -223,6 +224,7 @@
 .btn-comic-secondary { 
   background: var(--sunset-orange-500); 
 }
+
 .btn-comic-secondary:hover { 
   background: var(--sunset-orange-600); 
 }
@@ -230,6 +232,7 @@
 .btn-comic-accent { 
   background: var(--hot-pink-500); 
 }
+
 .btn-comic-accent:hover { 
   background: var(--hot-pink-600); 
 }
@@ -238,6 +241,7 @@
   background: var(--lime-green-500); 
   color: var(--cool-gray-900);
 }
+
 .btn-comic-success:hover { 
   background: var(--lime-green-600); 
 }
@@ -274,8 +278,8 @@
   position: absolute;
   inset: 0;
   background-image: 
-    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
-    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 2px, transparent 2px);
+    radial-gradient(circle at 20% 20%, rgb(255, 255, 255, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 80% 80%, rgb(255, 255, 255, 0.1) 2px, transparent 2px);
   background-size: 30px 30px;
   background-position: 0 0, 15px 15px;
   pointer-events: none;
@@ -291,7 +295,7 @@
   line-height: 1.1;
   text-shadow: 
     3px 3px 0 var(--cool-gray-900),
-    6px 6px 0 rgba(0, 0, 0, 0.2);
+    6px 6px 0 rgb(0, 0, 0, 0.2);
   margin-bottom: var(--space-6);
 }
 

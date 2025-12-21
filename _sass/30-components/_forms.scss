@@ -74,7 +74,7 @@ input[type="password"]:focus,
 textarea:focus,
 select:focus {
   border-color: var(--ts-color-primary);
-  box-shadow: 0 0 0 3px rgb(14 165 233 / 25%);
+  box-shadow: 0 0 0 3px rgb(14 165 233 / 0.25);
   outline: 2px solid var(--ts-color-primary);
   outline-offset: 1px;
   background: var(--ts-color-surface-elevated);
@@ -114,14 +114,14 @@ select:disabled {
 
 .form-status.is-success {
   color: var(--ts-color-success);
-  background: rgb(16 185 129 / 12%);
-  border: 1px solid rgb(16 185 129 / 30%);
+  background: rgb(16 185 129 / 0.12);
+  border: 1px solid rgb(16 185 129 / 0.3);
 }
 
 .form-status.is-error {
   color: var(--ts-color-error);
-  background: rgb(239 68 68 / 10%);
-  border: 1px solid rgb(239 68 68 / 30%);
+  background: rgb(239 68 68 / 0.1);
+  border: 1px solid rgb(239 68 68 / 0.3);
 }
 
 /* Action row — clear separation, mobile-friendly */

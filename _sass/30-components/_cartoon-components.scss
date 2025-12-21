@@ -265,7 +265,7 @@
     3px -3px 0 var(--cartoon-black),
     -3px 3px 0 var(--cartoon-black),
     3px 3px 0 var(--cartoon-black),
-    0 6px 0 rgba(0, 0, 0, 0.3);
+    0 6px 0 rgb(0, 0, 0, 0.3);
 }
 
 .hero-cartoon-subtitle {
@@ -460,6 +460,7 @@
   0%, 100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -469,9 +470,11 @@
   0%, 100% {
     transform: rotate(0deg);
   }
+
   25% {
     transform: rotate(-3deg);
   }
+
   75% {
     transform: rotate(3deg);
   }
@@ -482,9 +485,11 @@
     transform: scale(0.8);
     opacity: 0;
   }
+
   50% {
     transform: scale(1.1);
   }
+
   100% {
     transform: scale(1);
     opacity: 1;

@@ -93,7 +93,7 @@ let skipped = 0;
 let reconverted = 0;
 
 (async () => {
-  console.log(`\nImage WebP Conversion (TCNA/NJ HIC Compliant)\n---------------------------------------------`);
+  console.log('\nImage WebP Conversion (TCNA/NJ HIC Compliant)\n---------------------------------------------');
   console.log(`Source directory: ${sourceDir}`);
   console.log(`Quality: ${quality}`);
   console.log(`Force: ${force ? 'yes' : 'no'}  Dry-run: ${dryRun ? 'yes' : 'no'}`);

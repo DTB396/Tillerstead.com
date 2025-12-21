@@ -10,6 +10,7 @@
 .ts-card {
   content-visibility: auto;
   contain-intrinsic-size: 0 400px;
+
   /* Ensures rapid first paint for above-the-fold, defers off-screen rendering */
 }
 
@@ -17,6 +18,7 @@
 img {
   content-visibility: auto;
   contain-intrinsic-size: 300px 200px;
+
   /* Use srcset and descriptive alt per accessibility/SEO requirements */
 }
 
@@ -41,6 +43,7 @@ img {
   .ts-card {
    will-change: transform;
   }
+
   .btn:hover,
   .card:hover,
   .ts-card:hover {
@@ -65,7 +68,7 @@ img {
 
 /* Font rendering: maximize clarity and accessibility (WCAG 2.1 AA) */
 body {
-  text-rendering: optimizeSpeed;
+  text-rendering: optimizespeed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

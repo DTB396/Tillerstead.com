@@ -36,6 +36,7 @@
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
   position: relative;
   min-width: 0;
+
   /* Ensures keyboard focus is visible for accessibility */
   &:focus-within {
    outline: 2px solid var(--ts-color-accent);
@@ -73,6 +74,7 @@
   width: 100%;
   height: auto;
   display: block;
+
   /* Enforce alt attribute for accessibility and NJ HIC compliance */
   alt: "";
 }
@@ -132,6 +134,7 @@
   height: auto;
   display: block;
   object-fit: cover;
+
   /* Enforce alt attribute for accessibility */
   alt: "";
 }

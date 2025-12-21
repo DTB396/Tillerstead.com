@@ -8,7 +8,7 @@
   top: 0;
   width: 100%;
   z-index: 1400;
-  background: var(--header-bg, rgba(255, 255, 255, 0.92));
+  background: var(--header-bg, rgb(255, 255, 255, 0.92));
   border-bottom: 1px solid var(--ts-color-border);
   box-shadow: var(--ts-shadow-header);
   backdrop-filter: blur(14px);
@@ -232,7 +232,7 @@
    display: block;
    position: fixed;
    inset: 0;
-   background: rgba(15, 23, 42, 0.4);
+   background: rgb(15, 23, 42, 0.4);
    z-index: 1350;
   }
 }

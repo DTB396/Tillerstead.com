@@ -27,8 +27,8 @@
   --emerald-700: #084c3d;      /* Emerald hover */
 
   /* Shadow colors for depth and accessibility */
-  --shadow-soft: rgba(28, 35, 31, 0.12);
-  --shadow-deep: rgba(28, 35, 31, 0.18);
+  --shadow-soft: rgb(28, 35, 31, 0.12);
+  --shadow-deep: rgb(28, 35, 31, 0.18);
 
   /* Layout & Rhythm — Responsive, accessible spacing */
   --container: 1100px;
@@ -70,17 +70,17 @@
 
   --ts-color-primary: #053a2e;                 /* Primary action (emerald, AA+) */
   --ts-color-primary-strong: #022318;          /* Primary hover */
-  --ts-color-primary-soft: rgba(11, 107, 92, 0.08);
+  --ts-color-primary-soft: rgb(11, 107, 92, 0.08);
   --ts-color-primary-bg: #0b6b5c;
   --ts-color-primary-bg-hover: #084c3d;
 
   --ts-color-accent: #053a2e;
   --ts-color-accent-strong: #022318;
-  --ts-color-accent-soft: rgba(11, 107, 92, 0.06);
+  --ts-color-accent-soft: rgb(11, 107, 92, 0.06);
 
-  --ts-color-border: rgba(58, 65, 60, 0.18);
-  --ts-color-border-strong: rgba(58, 65, 60, 0.35);
-  --ts-color-divider: rgba(58, 65, 60, 0.22);
+  --ts-color-border: rgb(58, 65, 60, 0.18);
+  --ts-color-border-strong: rgb(58, 65, 60, 0.35);
+  --ts-color-divider: rgb(58, 65, 60, 0.22);
 
   /* ===========================
      Semantic States (WCAG 2.1 AA)
@@ -103,7 +103,7 @@
   --footer-text-muted: #9fb4a5;
   --footer-link: #16a384;
   --footer-link-hover: #84d1b8;
-  --footer-border: rgba(22, 163, 132, 0.2);
+  --footer-border: rgb(22, 163, 132, 0.2);
   --ts-footer-link: #84d1b8;
   --ts-footer-link-hover: #a8e0cd;
   --ts-footer-success: #d0f5e8;
@@ -113,7 +113,7 @@
      =========================== */
   --hero-bg: linear-gradient(180deg, #1c231f 0%, #0f1713 100%);
   --hero-text: #ffffff;
-  --hero-text-muted: rgba(255, 255, 255, 0.85);
+  --hero-text-muted: rgb(255, 255, 255, 0.85);
 
   /* ===========================
      Gradients & Patterns (Designer: update for new scheme)
@@ -125,7 +125,7 @@
   --ts-bg-pattern: none;
   --ts-bg-pattern-size: 220px 220px;
   --ts-bg-pattern-opacity: 0;
-  --ts-color-overlay: rgba(28, 35, 31, 0.75);
+  --ts-color-overlay: rgb(28, 35, 31, 0.75);
 
   /* ===========================
      Typography (Accessible, system fallback)
@@ -133,7 +133,7 @@
   --font-heading: "Montserrat", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-sans: var(--font-body);
-  --font-mono: "IBM Plex Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  --font-mono: "IBM Plex Mono", sfmono-regular, menlo, monaco, consolas, "Liberation Mono", monospace;
 
   --font-size-xs: 0.78rem;
   --font-size-sm: 0.92rem;
@@ -191,10 +191,10 @@
   --ts-shadow-soft: 0 10px 30px var(--shadow-soft);
   --ts-shadow-lift: 0 14px 34px var(--shadow-soft);
   --ts-shadow-header: 0 10px 28px var(--shadow-soft);
-  --ts-shadow-header-scrolled: 0 12px 24px rgba(0, 0, 0, 0.12), -8px 0 24px rgba(0, 0, 0, 0.08);
-  --ts-shadow-glow: 0 0 0 3px rgba(11, 107, 92, 0.25);
-  --ts-shadow-glow-accent: 0 0 0 3px rgba(11, 107, 92, 0.3);
-  --focus-ring: 0 0 0 3px rgba(11, 107, 92, 0.35);
+  --ts-shadow-header-scrolled: 0 12px 24px rgb(0, 0, 0, 0.12), -8px 0 24px rgb(0, 0, 0, 0.08);
+  --ts-shadow-glow: 0 0 0 3px rgb(11, 107, 92, 0.25);
+  --ts-shadow-glow-accent: 0 0 0 3px rgb(11, 107, 92, 0.3);
+  --focus-ring: 0 0 0 3px rgb(11, 107, 92, 0.35);
   --transition-fast: 160ms ease;
   --transition-med: 240ms ease;
 
@@ -214,8 +214,8 @@
   /* ===========================
      Header/Footer (No duplicate keys, AA+ contrast)
      =========================== */
-  --header-bg: rgba(249, 245, 235, 0.95);
-  --header-border: rgba(11, 107, 92, 0.18);
+  --header-bg: rgb(249, 245, 235, 0.95);
+  --header-border: rgb(11, 107, 92, 0.18);
 
   /* ===========================
      Legacy Alias Support (for utility classes)

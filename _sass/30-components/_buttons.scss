@@ -64,6 +64,7 @@
   color: var(--ts-white);
   box-shadow: 0 10px 24px var(--shadow-soft);
 }
+
 .btn-primary:hover:not(:disabled),
 .btn-primary:focus-visible,
 .btn--primary:hover:not(:disabled),
@@ -80,6 +81,7 @@
   color: var(--ts-color-heading);
   border: 1.5px solid var(--ts-color-primary-bg);
 }
+
 .btn-secondary:hover:not(:disabled),
 .btn-secondary:focus-visible,
 .btn--secondary:hover:not(:disabled),
@@ -98,6 +100,7 @@
   border: 1.5px solid var(--ts-color-border);
   box-shadow: 0 2px 10px var(--shadow-soft);
 }
+
 .btn-accent:hover:not(:disabled),
 .btn-accent:focus-visible,
 .btn--accent:hover:not(:disabled),
@@ -115,6 +118,7 @@
   border: 1.5px solid var(--ts-color-primary);
   color: var(--ts-color-heading);
 }
+
 .btn-ghost:hover:not(:disabled),
 .btn-outline:hover:not(:disabled),
 .btn-ghost:focus-visible,
@@ -133,6 +137,7 @@
   letter-spacing: 0.01em;
   color: var(--ts-color-primary);
 }
+
 .btn-text:hover:not(:disabled),
 .btn-text:focus-visible {
   text-decoration: underline;
@@ -150,12 +155,14 @@
   min-inline-size: 2em;
   min-block-size: 2em;
 }
+
 .btn-lg,
 .btn--lg {
   padding-block: 1.05rem;
   padding-inline: 2rem;
   font-size: 1.1rem;
 }
+
 .btn-xl,
 .btn--xl {
   padding-block: 1.3rem;
@@ -179,6 +186,7 @@
   .button:not(.btn-icon-only) {
    inline-size: 100%;
   }
+
   .btn-group {
    flex-direction: column;
    inline-size: 100%;
@@ -197,6 +205,7 @@
   padding-block: 0.7rem;
   padding-inline: 1rem;
 }
+
 .btn-icon-only {
   padding: 0.6rem;
 }
@@ -210,6 +219,7 @@
   container-type: inline-size;
   container-name: btn-group;
 }
+
 .btn-group > .btn,
 .btn-group > .button {
   flex: 1;
@@ -224,6 +234,7 @@
    transition: none !important;
    will-change: auto;
   }
+
   .btn:hover,
   .button:hover,
   .btn:focus-visible,

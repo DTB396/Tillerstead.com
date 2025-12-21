@@ -57,7 +57,7 @@ const LOGOS_TO_CONVERT = [
 
 async function checkTools() {
   const tools = ['convert', 'inkscape', 'rsvg-convert'];
-  
+
   for (const tool of tools) {
     try {
       await execAsync(`which ${tool}`);
@@ -67,7 +67,7 @@ async function checkTools() {
       // Tool not found, try next
     }
   }
-  
+
   return null;
 }
 
@@ -104,9 +104,9 @@ async function convertSvgToPng(tool, inputPath, outputPath, width, height) {
 
 async function main() {
   console.log('🎨 Generating high-quality PNG logos...\n');
-  
+
   const tool = await checkTools();
-  
+
   if (!tool) {
     console.error('❌ No SVG conversion tool found!');
     console.error('Please install one of: ImageMagick (convert), Inkscape, or librsvg (rsvg-convert)');
@@ -114,25 +114,25 @@ async function main() {
     console.error('  sudo apt-get update && sudo apt-get install -y imagemagick');
     process.exit(1);
   }
-  
+
   console.log(`Using: ${tool}\n`);
-  
+
   let converted = 0;
   let failed = 0;
-  
+
   for (const logo of LOGOS_TO_CONVERT) {
     const inputPath = path.join(LOGO_DIR, logo.input);
-    
+
     if (!fs.existsSync(inputPath)) {
       console.log(`⚠️  Skipping ${logo.input} (not found)`);
       continue;
     }
-    
+
     console.log(`Converting: ${logo.input}`);
-    
+
     for (const output of logo.outputs) {
       const outputPath = path.join(OUTPUT_DIR, output.name);
-      
+
       try {
         await convertSvgToPng(tool, inputPath, outputPath, output.width, output.height);
         console.log(`  ✓ ${output.name} (${output.width}×${output.height})`);
@@ -143,10 +143,10 @@ async function main() {
         failed++;
       }
     }
-    
+
     console.log('');
   }
-  
+
   console.log(`\n✨ Complete! Generated ${converted} PNG files.`);
   if (failed > 0) {
     console.log(`⚠️  ${failed} conversions failed.`);

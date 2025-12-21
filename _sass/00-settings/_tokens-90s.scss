@@ -96,7 +96,7 @@
   /* Speech bubble colors */
   --bubble-bg: #ffffff;
   --bubble-border: var(--cool-gray-900);
-  --bubble-shadow: rgba(0, 0, 0, 0.25);
+  --bubble-shadow: rgb(0, 0, 0, 0.25);
   
   /* Comic action effects */
   --pow-yellow: var(--cyber-yellow-500);
@@ -188,10 +188,10 @@
   
   --ts-surface-base: var(--cool-gray-50);
   --ts-surface-raised: #ffffff;
-  --ts-surface-overlay: rgba(255, 255, 255, 0.95);
-  --ts-surface-tinted-teal: rgba(0, 151, 167, 0.05);
-  --ts-surface-tinted-orange: rgba(255, 152, 0, 0.05);
-  --ts-surface-tinted-pink: rgba(233, 30, 99, 0.05);
+  --ts-surface-overlay: rgb(255, 255, 255, 0.95);
+  --ts-surface-tinted-teal: rgb(0, 151, 167, 0.05);
+  --ts-surface-tinted-orange: rgb(255, 152, 0, 0.05);
+  --ts-surface-tinted-pink: rgb(233, 30, 99, 0.05);
   
   /* ===========================
      ✍️ TEXT SYSTEM
@@ -221,9 +221,9 @@
      =========================== */
   
   /* Soft shadows (subtle elevation) */
-  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.08);
-  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.10);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-xs: 0 1px 3px rgb(0, 0, 0, 0.08);
+  --shadow-sm: 0 2px 6px rgb(0, 0, 0, 0.10);
+  --shadow-md: 0 4px 12px rgb(0, 0, 0, 0.12);
   
   /* Comic shadows (bold, graphic) */
   --shadow-comic-sm: 
@@ -235,14 +235,14 @@
   
   /* Colored glow shadows (90s neon effect) */
   --shadow-glow-teal: 
-    0 0 20px rgba(0, 151, 167, 0.4),
-    0 0 40px rgba(0, 151, 167, 0.2);
+    0 0 20px rgb(0, 151, 167, 0.4),
+    0 0 40px rgb(0, 151, 167, 0.2);
   --shadow-glow-pink: 
-    0 0 20px rgba(233, 30, 99, 0.4),
-    0 0 40px rgba(233, 30, 99, 0.2);
+    0 0 20px rgb(233, 30, 99, 0.4),
+    0 0 40px rgb(233, 30, 99, 0.2);
   --shadow-glow-orange: 
-    0 0 20px rgba(255, 152, 0, 0.4),
-    0 0 40px rgba(255, 152, 0, 0.2);
+    0 0 20px rgb(255, 152, 0, 0.4),
+    0 0 40px rgb(255, 152, 0, 0.2);
 
   /* ===========================
      📏 SPACING SCALE
@@ -425,9 +425,9 @@
 .text-neon {
   color: var(--cyber-yellow-500);
   text-shadow: 
-    0 0 10px rgba(255, 235, 59, 0.8),
-    0 0 20px rgba(255, 235, 59, 0.6),
-    0 0 30px rgba(255, 235, 59, 0.4);
+    0 0 10px rgb(255, 235, 59, 0.8),
+    0 0 20px rgb(255, 235, 59, 0.6),
+    0 0 30px rgb(255, 235, 59, 0.4);
 }
 
 /* ============================================

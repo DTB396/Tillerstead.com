@@ -9,16 +9,16 @@
  * data scraped from the public Thumbtack service page.
  */
 
-import fs from 'fs'
-import https from 'https'
-import path from 'path'
-import { load } from 'cheerio'
-import yaml from 'js-yaml'
+import fs from 'fs';
+import https from 'https';
+import path from 'path';
+import { load } from 'cheerio';
+import yaml from 'js-yaml';
 
 const SERVICE_URL =
-  'https://www.thumbtack.com/nj/absecon/tile/tillerstead-llc/service/547437618353160199'
-const DATA_PATH = path.join(__dirname, '..', '_data', 'reviews.yml')
-const BACKUP_PATH = path.join(__dirname, '..', '_data', 'reviews.backup.yml')
+  'https://www.thumbtack.com/nj/absecon/tile/tillerstead-llc/service/547437618353160199';
+const DATA_PATH = path.join(__dirname, '..', '_data', 'reviews.yml');
+const BACKUP_PATH = path.join(__dirname, '..', '_data', 'reviews.backup.yml');
 
 function fetchHtml (url) {
   return new Promise((resolve, reject) => {
@@ -33,62 +33,62 @@ function fetchHtml (url) {
         },
         res => {
           if (res.statusCode !== 200) {
-            reject(new Error(`Request failed with status ${res.statusCode}`))
-            return
+            reject(new Error(`Request failed with status ${res.statusCode}`));
+            return;
           }
 
-          let html = ''
+          let html = '';
           res.on('data', chunk => {
-            html += chunk.toString()
-          })
-          res.on('end', () => resolve(html))
+            html += chunk.toString();
+          });
+          res.on('end', () => resolve(html));
         }
       )
-      .on('error', reject)
-  })
+      .on('error', reject);
+  });
 }
 
 function cleanHtml ($, element) {
-  const clone = $(element).clone()
-  clone.find('script, style, noscript').remove()
-  const html = clone.html() || ''
-  return html.trim()
+  const clone = $(element).clone();
+  clone.find('script, style, noscript').remove();
+  const html = clone.html() || '';
+  return html.trim();
 }
 
 function textFrom ($, element) {
-  const value = $(element).text().trim()
-  return value || null
+  const value = $(element).text().trim();
+  return value || null;
 }
 
 function parseRating (card) {
-  const ratingValue = card.find('[itemprop="ratingValue"]').attr('content')
-  if (ratingValue) return { rating: parseFloat(ratingValue), ratingMax: 5 }
+  const ratingValue = card.find('[itemprop="ratingValue"]').attr('content');
+  if (ratingValue) return { rating: parseFloat(ratingValue), ratingMax: 5 };
 
   const ariaLabel = card
     .find('[aria-label*="star"], [data-test*="rating"], .tt-rating')
     .first()
-    .attr('aria-label')
+    .attr('aria-label');
 
   if (ariaLabel) {
-    const match = ariaLabel.match(/([0-9.]+)\s*(?:out of\s*([0-9.]+))?/i)
+    const match = ariaLabel.match(/([0-9.]+)\s*(?:out of\s*([0-9.]+))?/i);
     if (match) {
-      const rating = parseFloat(match[1])
-      const ratingMax = match[2] ? parseFloat(match[2]) : 5
-      if (!Number.isNaN(rating)) return { rating, ratingMax }
+      const rating = parseFloat(match[1]);
+      const ratingMax = match[2] ? parseFloat(match[2]) : 5;
+      if (!Number.isNaN(rating)) return { rating, ratingMax };
     }
   }
 
-  const starCount = card.find('[data-test="star"], .tt-star').length
-  if (starCount) return { rating: starCount, ratingMax: 5 }
+  const starCount = card.find('[data-test="star"], .tt-star').length;
+  if (starCount) return { rating: starCount, ratingMax: 5 };
 
-  return { rating: null, ratingMax: 5 }
+  return { rating: null, ratingMax: 5 };
 }
 
 function slugify (value) {
   return (value || '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
+    .replace(/^-+|-+$/g, '');
 }
 
 function escapeHtml (value) {
@@ -97,70 +97,70 @@ function escapeHtml (value) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;')
+    .replace(/'/g, '&#39;');
 }
 
 function toIsoDate (value) {
-  if (!value) return null
-  const parsed = new Date(value)
-  if (Number.isNaN(parsed.getTime())) return null
-  return parsed.toISOString().split('T')[0]
+  if (!value) return null;
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return null;
+  return parsed.toISOString().split('T')[0];
 }
 
 function flattenArrayDeep (value) {
-  if (!Array.isArray(value)) return [value]
-  const out = []
-  for (const item of value) out.push(...flattenArrayDeep(item))
-  return out
+  if (!Array.isArray(value)) return [value];
+  const out = [];
+  for (const item of value) out.push(...flattenArrayDeep(item));
+  return out;
 }
 
 function findJsonLdReviews (html) {
-  const $ = load(html)
-  const scripts = $('script[type="application/ld+json"]')
-  if (!scripts.length) return []
+  const $ = load(html);
+  const scripts = $('script[type="application/ld+json"]');
+  if (!scripts.length) return [];
 
-  const reviews = []
+  const reviews = [];
 
   scripts.each((_, el) => {
-    const raw = $(el).text()
-    if (!raw) return
+    const raw = $(el).text();
+    if (!raw) return;
 
-    let parsed
+    let parsed;
     try {
-      parsed = JSON.parse(raw)
+      parsed = JSON.parse(raw);
     } catch {
-      return
+      return;
     }
 
-    const candidates = []
-    if (Array.isArray(parsed)) candidates.push(...parsed)
-    else candidates.push(parsed)
+    const candidates = [];
+    if (Array.isArray(parsed)) candidates.push(...parsed);
+    else candidates.push(parsed);
 
     for (const candidate of candidates) {
-      const graph = candidate && candidate['@graph']
-      const nodes = Array.isArray(graph) ? graph : [candidate]
+      const graph = candidate && candidate['@graph'];
+      const nodes = Array.isArray(graph) ? graph : [candidate];
 
       for (const node of nodes) {
-        if (!node || typeof node !== 'object') continue
-        if (!node.review) continue
+        if (!node || typeof node !== 'object') continue;
+        if (!node.review) continue;
 
-        const flattened = flattenArrayDeep(node.review)
+        const flattened = flattenArrayDeep(node.review);
         for (const review of flattened) {
-          if (!review || typeof review !== 'object') continue
+          if (!review || typeof review !== 'object') continue;
           const authorName =
             (review.author && (review.author.name || review.author['@name'])) ||
             review.authorName ||
-            'Client'
-          const description = review.description || review.reviewBody || ''
-          const date = toIsoDate(review.datePublished)
+            'Client';
+          const description = review.description || review.reviewBody || '';
+          const date = toIsoDate(review.datePublished);
           const ratingValue =
             (review.reviewRating && review.reviewRating.ratingValue) ||
             review.ratingValue ||
-            null
-          const rating = ratingValue != null ? Number(ratingValue) : null
+            null;
+          const rating = ratingValue != null ? Number(ratingValue) : null;
 
-          const quote = escapeHtml(description).replace(/\n+/g, '<br>')
-          const quoteHtml = quote ? `<p>${quote}</p>` : ''
+          const quote = escapeHtml(description).replace(/\n+/g, '<br>');
+          const quoteHtml = quote ? `<p>${quote}</p>` : '';
 
           reviews.push({
             author: String(authorName).trim() || 'Client',
@@ -168,34 +168,34 @@ function findJsonLdReviews (html) {
             rating: Number.isFinite(rating) ? rating : null,
             rating_max: 5,
             quote_html: quoteHtml
-          })
+          });
         }
       }
     }
-  })
+  });
 
-  return reviews
+  return reviews;
 }
 
 function parseDate ($, card) {
-  const time = card.find('time').first()
-  const datetime = time.attr('datetime')
-  if (datetime) return datetime.trim()
+  const time = card.find('time').first();
+  const datetime = time.attr('datetime');
+  if (datetime) return datetime.trim();
 
-  const text = textFrom($, time)
+  const text = textFrom($, time);
   if (text) {
-    const parsed = new Date(text)
-    if (!isNaN(parsed)) return parsed.toISOString().split('T')[0]
+    const parsed = new Date(text);
+    if (!isNaN(parsed)) return parsed.toISOString().split('T')[0];
   }
-  return null
+  return null;
 }
 
 function extractReviews (html) {
-  const jsonLd = findJsonLdReviews(html)
+  const jsonLd = findJsonLdReviews(html);
   if (jsonLd.length) {
     return jsonLd.map((review, index) => {
-      const baseSlug = slugify(review.author)
-      const dateSlug = review.date ? review.date : 'unknown-date'
+      const baseSlug = slugify(review.author);
+      const dateSlug = review.date ? review.date : 'unknown-date';
       return {
         id: `thumbtack-${baseSlug || 'client'}-${dateSlug}-${index + 1}`,
         source: 'Thumbtack',
@@ -209,11 +209,11 @@ function extractReviews (html) {
         date: review.date,
         badges: [],
         url: SERVICE_URL
-      }
-    })
+      };
+    });
   }
 
-  const $ = load(html)
+  const $ = load(html);
 
   const reviewCards = $(
     [
@@ -223,41 +223,41 @@ function extractReviews (html) {
       '.review-card',
       'section:has([itemprop="reviewBody"])'
     ].join(', ')
-  )
+  );
 
   if (!reviewCards.length) {
-    throw new Error('No review cards found in JSON-LD or DOM. Thumbtack may have changed their markup.')
+    throw new Error('No review cards found in JSON-LD or DOM. Thumbtack may have changed their markup.');
   }
 
   return reviewCards
     .map((index, el) => {
-      const card = $(el)
+      const card = $(el);
 
       const body =
-        card.find('[data-test="review-card-body"], [data-testid="review-body"], [itemprop="reviewBody"], .review-body').first()
+        card.find('[data-test="review-card-body"], [data-testid="review-body"], [itemprop="reviewBody"], .review-body').first();
       const author =
         textFrom(
           $,
           card.find(
             '[data-test*="consumer-name"], [itemprop="author"], [data-testid*="reviewer"], .reviewer, .reviewer-name'
           ).first()
-        ) || 'Client'
+        ) || 'Client';
       const location =
-        textFrom($, card.find('[data-test*="location"], .consumer-location, .reviewer-location').first()) || null
+        textFrom($, card.find('[data-test*="location"], .consumer-location, .reviewer-location').first()) || null;
       const jobType =
-        textFrom($, card.find('[data-test*="project"], [data-test*="job"], .project-type, .job-type').first()) || null
-      const date = parseDate($, card)
-      const badgeEls = card.find('[data-test*="badge"], .badge, .pill, .chip')
+        textFrom($, card.find('[data-test*="project"], [data-test*="job"], .project-type, .job-type').first()) || null;
+      const date = parseDate($, card);
+      const badgeEls = card.find('[data-test*="badge"], .badge, .pill, .chip');
       const badges = badgeEls
         .map((_, badgeEl) => textFrom($, badgeEl))
         .get()
-        .filter(Boolean)
+        .filter(Boolean);
 
-      const { rating, ratingMax } = parseRating(card)
+      const { rating, ratingMax } = parseRating(card);
 
-      const quoteHtml = body.length ? cleanHtml($, body) : ''
-      const baseSlug = slugify(author)
-      const id = `thumbtack-${baseSlug || 'client'}-${index + 1}`
+      const quoteHtml = body.length ? cleanHtml($, body) : '';
+      const baseSlug = slugify(author);
+      const id = `thumbtack-${baseSlug || 'client'}-${index + 1}`;
 
       return {
         id,
@@ -272,40 +272,40 @@ function extractReviews (html) {
         date,
         badges,
         url: SERVICE_URL
-      }
+      };
     })
-    .get()
+    .get();
 }
 
 function backupExisting () {
   if (fs.existsSync(DATA_PATH)) {
-    fs.copyFileSync(DATA_PATH, BACKUP_PATH)
-    console.log(`Backed up existing data to ${BACKUP_PATH}`)
+    fs.copyFileSync(DATA_PATH, BACKUP_PATH);
+    console.log(`Backed up existing data to ${BACKUP_PATH}`);
   }
 }
 
 function writeYaml (reviews) {
-  const yamlBody = yaml.dump({ reviews }, { lineWidth: 1000 })
-  fs.writeFileSync(DATA_PATH, yamlBody)
-  console.log(`Wrote ${reviews.length} review(s) to ${DATA_PATH}`)
+  const yamlBody = yaml.dump({ reviews }, { lineWidth: 1000 });
+  fs.writeFileSync(DATA_PATH, yamlBody);
+  console.log(`Wrote ${reviews.length} review(s) to ${DATA_PATH}`);
 }
 
 async function main () {
   try {
-    console.log(`Fetching Thumbtack reviews from ${SERVICE_URL}`)
-    const html = await fetchHtml(SERVICE_URL)
-    const reviews = extractReviews(html)
+    console.log(`Fetching Thumbtack reviews from ${SERVICE_URL}`);
+    const html = await fetchHtml(SERVICE_URL);
+    const reviews = extractReviews(html);
 
     if (!reviews.length) {
-      throw new Error('Parsed review list is empty; aborting write to prevent data loss.')
+      throw new Error('Parsed review list is empty; aborting write to prevent data loss.');
     }
 
-    backupExisting()
-    writeYaml(reviews)
+    backupExisting();
+    writeYaml(reviews);
   } catch (error) {
-    console.error('Failed to sync Thumbtack reviews:', error.message)
-    process.exitCode = 1
+    console.error('Failed to sync Thumbtack reviews:', error.message);
+    process.exitCode = 1;
   }
 }
 
-main()
+main();
