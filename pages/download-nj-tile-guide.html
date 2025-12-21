@@ -64,24 +64,23 @@ hero_summary: >
           <h3>Download Your Free Guide</h3>
           <p>Enter your email to receive instant access to the <strong>NJ Homeowner’s Tile Installation Guide</strong> (PDF). Tillerstead is a licensed NJ HIC contractor—your information is protected and never sold.</p>
           
-          {% assign guide_endpoint = site.forms.guide_endpoint | default: site.forms.endpoint | default: 'https://formsubmit.co/info@tillerstead.com' %}
+          {% assign guide_endpoint = site.forms.guide_endpoint | default: site.forms.endpoint | default: 'https://formsubmit.co/f249670ee046b9a9dbc022194f773c35' %}
           {% assign guide_redirect = site.forms.guide_redirect_path | default: '/download/nj-tile-guide/thank-you/' %}
           {% assign guide_redirect_url = guide_redirect | absolute_url %}
           <form 
-            class="form-group"
+            class="form-group guide-download-form"
             name="tile-guide-download"
             method="POST"
             action="{{ guide_endpoint }}"
             accept-charset="UTF-8"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
             aria-label="Download NJ Tile Guide Form">
             
-            <input type="hidden" name="form-name" value="tile-guide-download">
-            <input type="hidden" name="_subject" value="NJ Tile Guide download request">
+            <!-- FormSubmit Configuration -->
+            <input type="hidden" name="_subject" value="NJ Tile Guide - Download Request from Tillerstead.com">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_next" value="{{ guide_redirect_url }}">
+            <input type="hidden" name="_autoresponse" value="Thank you for downloading the NJ Homeowner's Tile Installation Guide! Your comprehensive guide to TCNA standards, waterproofing, and NJ contractor requirements is ready. Visit {{ guide_redirect_url }} to access your guide, or contact Tillerstead LLC at (609) 862-8808 for personalized project assistance.">
 
             <p class="sr-only">
               <label for="bot-field">Do not fill this field (anti-spam)</label>
