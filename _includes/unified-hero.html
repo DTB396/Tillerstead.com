@@ -30,9 +30,7 @@
 
       {% if hero_eyebrow %}<p class="ts-eyebrow mb-3">{{ hero_eyebrow }}</p>{% endif %}
 
-      {% capture heading_tag_open %}<{{ hero_heading_level }} class="hero__title">{% endcapture %}
-      {% capture heading_tag_close %}</{{ hero_heading_level }}>{% endcapture %}
-      {{ heading_tag_open | strip_newlines }}{{ hero_title }}{{ heading_tag_close | strip_newlines }}
+      <{{ hero_heading_level }} class="hero__title">{{ hero_title }}</{{ hero_heading_level }}>
 
       {% if hero_summary %}
         <p class="hero__lead">{{ hero_summary }}</p>
