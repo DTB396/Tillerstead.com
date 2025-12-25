@@ -142,7 +142,6 @@
     var(--ts-color-heading) 0%,
     color-mix(in srgb, var(--ts-color-heading) 85%, var(--ts-color-primary) 15%) 100%
   );
-  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }

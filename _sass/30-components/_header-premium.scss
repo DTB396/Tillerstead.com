@@ -226,7 +226,6 @@
   inset: 0;
   background: rgb(0, 0, 0, 0.7);
   backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -455,15 +454,16 @@
 }
 
 /* GPU acceleration for smooth animations */
-.site-header,
+.site-header {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+  contain: layout style;
+}
+
 .ts-logo,
 .mobile-nav {
   transform: translateZ(0);
   backface-visibility: hidden;
   will-change: transform;
-}
-
-/* Prevent layout shift */
-.site-header {
-  contain: layout style;
 }

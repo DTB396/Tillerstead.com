@@ -55,8 +55,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: clamp(2rem, 5vw, 4rem);
-  align-items: start;
-  justify-items: center;
+  place-items: start center;
 }
 
 /* ========== Center Branding ========== */

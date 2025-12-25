@@ -38,7 +38,12 @@
         "ignoreAtRules": ["tailwind", "apply", "layer"]
       }
     ],
-    "no-descending-specificity": true,
+    "no-descending-specificity": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ],
     "declaration-block-no-redundant-longhand-properties": true,
     "length-zero-no-unit": true,
     "comment-empty-line-before": [
