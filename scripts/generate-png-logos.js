@@ -7,6 +7,7 @@
 import fs from 'fs';
 import path from 'path';
 import { exec } from 'child_process';
+import sharp from 'sharp';
 import { promisify } from 'util';
 
 const execAsync = promisify(exec);
@@ -55,67 +56,7 @@ const LOGOS_TO_CONVERT = [
   }
 ];
 
-async function checkTools() {
-  const tools = ['convert', 'inkscape', 'rsvg-convert'];
-
-  for (const tool of tools) {
-    try {
-      await execAsync(`which ${tool}`);
-      console.log(`✓ Found: ${tool}`);
-      return tool;
-    } catch {
-      // Tool not found, try next
-    }
-  }
-
-  return null;
-}
-
-async function convertWithImageMagick(inputPath, outputPath, width, height) {
-  const cmd = `convert -background none -density 300 -resize ${width}x${height} "${inputPath}" "${outputPath}"`;
-  await execAsync(cmd);
-}
-
-async function convertWithInkscape(inputPath, outputPath, width, height) {
-  const cmd = `inkscape "${inputPath}" --export-filename="${outputPath}" --export-width=${width} --export-height=${height}`;
-  await execAsync(cmd);
-}
-
-async function convertWithRsvg(inputPath, outputPath, width, height) {
-  const cmd = `rsvg-convert -w ${width} -h ${height} "${inputPath}" -o "${outputPath}"`;
-  await execAsync(cmd);
-}
-
-async function convertSvgToPng(tool, inputPath, outputPath, width, height) {
-  switch (tool) {
-    case 'convert':
-      await convertWithImageMagick(inputPath, outputPath, width, height);
-      break;
-    case 'inkscape':
-      await convertWithInkscape(inputPath, outputPath, width, height);
-      break;
-    case 'rsvg-convert':
-      await convertWithRsvg(inputPath, outputPath, width, height);
-      break;
-    default:
-      throw new Error('No SVG conversion tool available');
-  }
-}
-
-async function main() {
-  console.log('🎨 Generating high-quality PNG logos...\n');
-
-  const tool = await checkTools();
-
-  if (!tool) {
-    console.error('❌ No SVG conversion tool found!');
-    console.error('Please install one of: ImageMagick (convert), Inkscape, or librsvg (rsvg-convert)');
-    console.error('\nFor dev container, run:');
-    console.error('  sudo apt-get update && sudo apt-get install -y imagemagick');
-    process.exit(1);
-  }
-
-  console.log(`Using: ${tool}\n`);
+console.log(`Using: ${tool}\n`);
 
   let converted = 0;
   let failed = 0;

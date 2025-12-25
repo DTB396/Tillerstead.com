@@ -1,0 +1,51 @@
+{
+    "siteBuildDir": "_site",
+    "pagesToCheck": [
+        "_site/index.html"
+    ],
+    "requiredAssets": [
+        "assets/css/main.css",
+        "assets/js/main.js"
+    ],
+    "logoCandidates": [
+        "assets/img/logo.svg",
+        "assets/img/logo.png",
+        "assets/img/tillerstead-logo.svg",
+        "assets/img/tillerstead-logo.png"
+    ],
+    "homeChecks": {
+        "mustContainAnySelectors": [
+            ".site-header",
+            "header.site-header",
+            "nav",
+            ".site-nav"
+        ],
+        "navChecks": {
+            "mustHaveAny": [
+                "button[aria-controls]",
+                "button[aria-expanded]",
+                ".nav-toggle",
+                "[data-drawer-toggle]"
+            ],
+            "drawerMustHaveAny": [
+                "#mobile-nav",
+                ".mobile-drawer",
+                ".nav-drawer",
+                "[data-drawer]"
+            ]
+        },
+        "logoChecks": {
+            "mustHaveAny": [
+                "img.site-logo",
+                "img[alt*=\"Tillerstead\" i]",
+                "svg.site-logo",
+                "a.logo img",
+                "a.logo svg"
+            ],
+            "mustNotContain": [
+                "src=\"\"",
+                "href=\"\""
+            ]
+        }
+    }
+}

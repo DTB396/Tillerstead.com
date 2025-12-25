@@ -85,14 +85,6 @@ const COLOR_MAP = {
 };
 
 // Files to process (glob patterns)
-const _FILE_PATTERNS = [
-  '**/*.css',
-  '**/*.scss',
-  '**/*.html',
-  '_includes/**/*.html',
-  '_layouts/**/*.html',
-  'pages/**/*.html'
-];
 
 // Directories to exclude
 const EXCLUDE_DIRS = [

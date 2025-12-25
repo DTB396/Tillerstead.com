@@ -28,13 +28,7 @@
     "test": "npm run build && node scripts/check-links.js",
     "images:webp": "node scripts/convert-images-to-webp.js",
     "slugify": "node scripts/slugify.js",
-    "sync:thumbtack": "node scripts/sync_thumbtack_reviews.js",
-
-    "fix:phase1": "node scripts/fix-undefined-css-vars.js",
-    "fix:phase2": "node scripts/refactor-all-css-prefixes.js && node scripts/fix-all-property-usages.js",
-    "fix:phase3": "node scripts/scan-and-fix-all-violations.js && node scripts/final-mega-fix.js",
-    "fix:phase4": "node scripts/phase4-final-cleanup.js",
-    "fix:all": "npm run fix:phase1 && npm run fix:phase2 && npm run fix:phase3 && npm run fix:phase4 && npm run lint:css && npm run lint:css:fix && npm run lint:css"
+    "sync:thumbtack": "node scripts/sync_thumbtack_reviews.js"
   },
   "devDependencies": {
     "cheerio": "1.1.2",
@@ -48,10 +42,14 @@
     "htmlhint": "1.8.0",
     "js-yaml": "4.1.1",
     "prettier": "3.7.4",
-    "sass": "^1.97.0",
-    "sharp": "^0.34.5",
+    "rimraf": "^6.1.2",
+    "sass": "1.97.0",
+    "sharp": "0.34.5",
     "stylelint": "16.23.1",
     "stylelint-config-standard-scss": "16.0.0",
     "stylelint-scss": "6.8.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

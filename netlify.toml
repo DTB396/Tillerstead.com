@@ -8,7 +8,7 @@
 
 [build.environment]
   RUBY_VERSION = "3.2.2"         # Matches Gemfile.lock for Jekyll compatibility
-  NODE_VERSION = "18"            # Ensures ES6+ support and npm compatibility
+  NODE_VERSION = "20"            # Ensures ES6+ support and npm compatibility
 
 [context.production.environment]
   JEKYLL_ENV = "production"      # Enables minification, accessibility, and compliance checks

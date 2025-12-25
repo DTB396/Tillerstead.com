@@ -100,16 +100,12 @@ projects:
 
   - id: shower-white
     tags: [showers]
-    file: tillerstead-work/showers/shower-white.jpg
-    # file_webp: tillerstead-work/showers/shower-white.webp
-    alt: Waterproof shower with white tile, bench, and niche installed to TCNA B421 standards
+    file: tillerstead-work/showers/shower-white.jpg    alt: Waterproof shower with white tile, bench, and niche installed to TCNA B421 standards
     caption: "Waterproof shower — bench, hex floor, movement joints, and sealed edges for NJ code compliance."
 
   - id: shower-blue
     tags: [showers]
-    file: tillerstead-work/showers/shower-blue.jpg
-    # file_webp: tillerstead-work/showers/shower-blue.webp
-    alt: Patterned blue tile feature wall with aligned layout around fixtures and niche
+    file: tillerstead-work/showers/shower-blue.jpg    alt: Patterned blue tile feature wall with aligned layout around fixtures and niche
     caption: "Patterned feature wall — precise layout, fixture alignment, and waterproofing per ANSI A118.10."
 
   - id: bathroom-gray
@@ -128,16 +124,12 @@ projects:
 
   - id: kitchen-green
     tags: [backsplashes]
-    file: tillerstead-work/kitchens/kitchen-green.jpg
-    # file_webp: tillerstead-work/kitchens/kitchen-green.webp
-    alt: Kitchen backsplash tile installation with tight outlet cuts and caulked edges
+    file: tillerstead-work/kitchens/kitchen-green.jpg    alt: Kitchen backsplash tile installation with tight outlet cuts and caulked edges
     caption: "Subway backsplash — precise outlet cuts, caulked edges, and grout per ANSI A118.4."
 
   - id: kitchen-hex
     tags: [backsplashes]
-    file: tillerstead-work/kitchens/kitchen-hex.jpg
-    # file_webp: tillerstead-work/kitchens/kitchen-hex.webp
-    alt: Hex backsplash tile detail with balanced cuts and clean terminations
+    file: tillerstead-work/kitchens/kitchen-hex.jpg    alt: Hex backsplash tile detail with balanced cuts and clean terminations
     caption: "Hex feature — balanced cuts, clean terminations, and lippage control per TCNA standards."
 
   - id: backsplash-white
@@ -149,23 +141,17 @@ projects:
 
   - id: hardwood-room
     tags: [floors]
-    file: tillerstead-work/floors/hardwood-room.jpg
-    # file_webp: tillerstead-work/floors/hardwood-room.webp
-    alt: Tile-ready substrate and flooring prep with straight lines and clean scribe work
+    file: tillerstead-work/floors/hardwood-room.jpg    alt: Tile-ready substrate and flooring prep with straight lines and clean scribe work
     caption: "Flooring & trim — straight lines, clean scribe work, and substrate prep per TCNA F185."
 
   - id: tile-pattern-dark
     tags: [floors]
-    file: tillerstead-work/floors/tile-pattern-dark.jpg
-    # file_webp: tillerstead-work/floors/tile-pattern-dark.webp
-    alt: Modular tile pattern layout with consistent reveals for commercial fit-out
+    file: tillerstead-work/floors/tile-pattern-dark.jpg    alt: Modular tile pattern layout with consistent reveals for commercial fit-out
     caption: "Pattern layout — modular grid, consistent reveals, and movement joints per TCNA EJ171."
 
   - id: drywall-greenboard
     tags: [repairs]
-    file: tillerstead-work/repairs/drywall-greenboard.jpg
-    # file_webp: tillerstead-work/repairs/drywall-greenboard.webp
-    alt: Tile substrate preparation with moisture-resistant board and seam treatment
+    file: tillerstead-work/repairs/drywall-greenboard.jpg    alt: Tile substrate preparation with moisture-resistant board and seam treatment
     caption: "Drywall repairs — blocking, fasteners, and seam treatment for tile-ready walls per ASTM C1396."
 
   - id: bathroom-final

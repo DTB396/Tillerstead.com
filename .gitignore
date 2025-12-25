@@ -49,3 +49,4 @@ coverage/
 
 # Custom: Exclude AI and Copilot instruction artifacts
 .ai/
+Gemfile.lock
