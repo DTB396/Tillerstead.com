@@ -22,6 +22,7 @@
         <div class="site-nav-drawer-header">
           <p class="nav-drawer-label">Menu</p>
 
+<<<<<<< HEAD
           <button type="button" class="nav-close" data-nav-close aria-label="Close navigation menu">
             <!-- Visible label for sighted users -->
             <span class="nav-close-label">Close</span>
@@ -39,6 +40,61 @@
           {% assign nav_items = site.data.navigation.primary %}
           {% for item in nav_items %}
           {% assign is_current = false %}
+=======
+  <!-- Mobile navigation drawer -->
+  <div class="mobile-nav-shell" data-nav-container>
+    <div class="mobile-nav-backdrop" data-nav-overlay aria-hidden="true"></div>
+    <nav id="mobile-nav" class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+      <div class="mobile-nav-header">
+        <span class="mobile-nav-title">Menu</span>
+        <button type="button" class="nav-close" data-nav-close aria-label="Close menu">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+            <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      
+      <ul class="mobile-menu">
+        {% comment %}Mobile menu: Essential navigation items only{% endcomment %}
+        
+        <li class="mobile-nav-item">
+          <a href="/services/" class="mobile-nav-link{% if page.url contains '/services/' %} active{% endif %}">
+            Services
+          </a>
+        </li>
+        
+        <li class="mobile-nav-item">
+          <a href="/portfolio/" class="mobile-nav-link{% if page.url contains '/portfolio/' %} active{% endif %}">
+            Our Work
+          </a>
+        </li>
+        
+        <li class="mobile-nav-item">
+          <a href="/recommended-products/" class="mobile-nav-link{% if page.url contains '/recommended-products/' or page.url contains '/products/' %} active{% endif %}">
+            Products
+          </a>
+        </li>
+        
+        <li class="mobile-nav-item">
+          <a href="/reviews/" class="mobile-nav-link{% if page.url contains '/reviews/' %} active{% endif %}">
+            Reviews
+          </a>
+        </li>
+        
+        <li class="mobile-nav-item">
+          <a href="/about/" class="mobile-nav-link{% if page.url contains '/about/' %} active{% endif %}">
+            About
+          </a>
+        </li>
+        
+        <li class="mobile-nav-item">
+          <a href="/contact/" class="mobile-nav-link{% if page.url contains '/contact/' %} active{% endif %}">
+            Contact
+          </a>
+        </li>
+      </ul>
+>>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
 
           {% if item.exact and page.url == item.exact %}
           {% assign is_current = true %}

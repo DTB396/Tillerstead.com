@@ -115,6 +115,7 @@
   // (Add form handling logic here as needed, following OUTPUT_RULES.md)
 
   // =========================
+<<<<<<< HEAD
   // MOBILE NAVIGATION DRAWER
   // - Modal dialog pattern (ARIA compliant)
   // - ESC closes, backdrop click closes
@@ -195,6 +196,8 @@
   }
 
   // =========================
+=======
+>>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
   // TESTIMONIAL READ MORE
   // - Expands truncated testimonials
   // - Accessible button toggle

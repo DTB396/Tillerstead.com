@@ -14,6 +14,11 @@
   border-bottom: 1px solid rgb(0, 0, 0, 0.08);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, padding;
+
+  /* GPU acceleration for smooth animations */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: layout style;
 }
 
 /* Scrolled state - compact header */
@@ -55,9 +60,14 @@
 }
 
 .ts-logo {
+<<<<<<< HEAD
   max-width: 220px;
   transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1), height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+=======
+  max-width: clamp(140px, 20vw, 200px);
+  width: 100%;
+>>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
   height: auto;
   display: block;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -65,9 +75,13 @@
 
 /* Logo shrinks on scroll */
 .site-header.is-scrolled .ts-logo {
+<<<<<<< HEAD
   max-width: 90px;
   height: auto;
 }
+=======
+  max-width: clamp(100px, 15vw, 140px);
+>>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
 }
 
 .ts-logo-link:hover {
@@ -205,6 +219,7 @@
 }
 
 /* ========== Mobile Navigation Drawer ========== */
+
 /* Z-index hierarchy:
    - Header: 1400
    - Nav toggle: 1500
@@ -226,13 +241,9 @@
 
 .mobile-nav-backdrop {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  inset: 0;
+  background: rgb(0, 0, 0, 0.7);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -252,8 +263,13 @@
   right: 0;
   bottom: 0;
   width: min(400px, 85vw);
+<<<<<<< HEAD
   background: var(--ts-color-surface, #fff);
   box-shadow: -10px 0 60px rgba(0, 0, 0, 0.3);
+=======
+  background: var(--ts-color-surface);
+  box-shadow: -10px 0 60px rgb(0, 0, 0, 0.3);
+>>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
   transform: translateX(100%);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2; /* Relative to parent shell - above backdrop */
@@ -460,16 +476,9 @@
   }
 }
 
-/* GPU acceleration for smooth animations */
-.site-header,
 .ts-logo,
 .mobile-nav {
   transform: translateZ(0);
   backface-visibility: hidden;
   will-change: transform;
-}
-
-/* Prevent layout shift */
-.site-header {
-  contain: layout style;
 }

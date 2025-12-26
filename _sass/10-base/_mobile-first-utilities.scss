@@ -17,7 +17,7 @@
 /* Base: Mobile styles (no media query needed) */
 html {
   font-size: 100%; /* 16px */
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -341,7 +341,7 @@ img {
 
 /* Mobile: full width form fields */
 .form-field,
-input:not([type="checkbox"]):not([type="radio"]),
+input:not([type="checkbox"], [type="radio"]),
 textarea,
 select {
   width: 100%;

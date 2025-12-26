@@ -7,7 +7,7 @@ title: Tillerstead
 tagline: TCNA-Compliant Tile Installation & Waterproofing in South Jersey
 description: Licensed New Jersey Home Improvement Contractor specializing in TCNA-compliant tile installations, waterproof showers, and bathroom remodeling. Substrate verified, flood-tested waterproofing, complete documentation. Serving Atlantic, Ocean & Cape May Counties.
 url: https://tillerstead.com
-baseurl: ""                 # keep empty for apex/root
+baseurl: ""  # Empty for custom domain (CNAME: tillerstead.com)
 timezone: America/New_York
 
 # Global keyword focus for SEO

@@ -211,7 +211,7 @@ code {
   border: 1px solid var(--ts-color-border);
   border-radius: var(--ts-radius-sm);
   color: var(--ts-color-heading);
-  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 pre {

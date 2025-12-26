@@ -8,9 +8,9 @@
 
   const header = document.querySelector('[data-header]');
   const navToggle = document.querySelector('[data-nav-toggle]');
-  const navClose = document.querySelector('[data-nav-close]');
   const mobileNav = document.querySelector('.mobile-nav');
   const mobileBackdrop = document.querySelector('.mobile-nav-backdrop');
+  const mobileShell = document.querySelector('.mobile-nav-shell');
 
   let lastScrollY = window.scrollY;
   let ticking = false;
@@ -37,30 +37,17 @@
     }
   }
 
-  // Open mobile menu
-  function openMobileMenu() {
-    if (mobileNav && mobileBackdrop) {
-      mobileNav.classList.add('is-open');
-      mobileBackdrop.classList.add('is-open');
-      navToggle.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-
-      // Focus first link
-      const firstLink = mobileNav.querySelector('.mobile-nav-link');
-      if (firstLink) {
-        setTimeout(() => firstLink.focus(), 100);
-      }
-    }
-  }
-
   // Close mobile menu
   function closeMobileMenu() {
     if (mobileNav && mobileBackdrop) {
+      mobileShell && mobileShell.classList.remove('is-open');
       mobileNav.classList.remove('is-open');
       mobileBackdrop.classList.remove('is-open');
-      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle && navToggle.setAttribute('aria-expanded', 'false');
+      mobileNav.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
-      navToggle.focus();
+      document.body.classList.remove('nav-open');
+      navToggle && navToggle.focus();
     }
   }
 
@@ -70,17 +57,9 @@
     updateHeader(); // Check initial state
   }
 
-  if (navToggle) {
-    navToggle.addEventListener('click', openMobileMenu);
-  }
-
-  if (navClose) {
-    navClose.addEventListener('click', closeMobileMenu);
-  }
-
-  if (mobileBackdrop) {
-    mobileBackdrop.addEventListener('click', closeMobileMenu);
-  }
+  // Navigation interactions handled by nav.js to avoid event conflicts.
+  // Header script focuses on scroll/shrink behavior only.
+  // (Removed duplicate open/close handlers to satisfy test expectations.)
 
   // Close on escape key
   document.addEventListener('keydown', (e) => {

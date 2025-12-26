@@ -1,8 +1,15 @@
 hero:
+<<<<<<< HEAD
   eyebrow: "Licensed NJ HIC #13VH10808800 · TCNA-Compliant Tile & Waterproofing"
   title: "TCNA-Compliant Tile & Waterproofing That Survives South Jersey"
   subtitle: "Licensed contractor, substrate-verified installation, flood-tested waterproofing"
   summary: "Tile installations built to code, not guesswork. TCNA-compliant substrate prep, ANSI A118.10 waterproofing, and photo documentation for every phase. Serving Atlantic, Ocean & Cape May Counties with technical rigor and transparent communication."
+=======
+  eyebrow: "Licensed NJ HIC #13VH10808800 · TCNA 2024 Compliant"
+  title: "TCNA-Compliant Tile & Waterproofing That Survives South Jersey"
+  subtitle: "Code-built, documented, transparent"
+  summary: "Tile installations built to code, not guesswork. Substrate prep that meets spec. Waterproofing systems that pass flood tests—with photo documentation for insurance and warranty."
+>>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
   primary:
     label: "Request an Estimate"
     url: /contact/
@@ -20,6 +27,7 @@ hero:
       label: "Service Area"
       text: "Atlantic, Ocean, Cape May"
   highlights:
+<<<<<<< HEAD
     - "Substrate flatness verified to ±1/8\" per TCNA EJ171—no guesswork"
     - "Waterproofing flood-tested before tile installation, documented with photos"
     - "Daily documentation (photos, measurements, notes) archived for your records"
@@ -57,12 +65,52 @@ services:
         - "Flood testing (24+ hours) with photographic documentation"
         - "All penetrations (valves, drains, niches) detailed per TCNA guidelines"
         - "Care guide and warranty documentation provided upon completion"
+=======
+    - "Substrate flatness verified with precision tools—installed per ANSI A108"
+    - "Waterproofing systems (ANSI A118.10 certified) flood-tested with photo documentation"
+    - "Complete installation documentation for insurance, warranty, and resale"
+    - "Large-format tile set with full mortar coverage—95% minimum per TCNA"
+
+services:
+  eyebrow: "Expert Execution—From Foundation to Finish"
+  title: "Tile Installation & Waterproofing Built to Standards"
+  summary: "Tile is durable only if installed correctly. Professional tile installation requires substrate flatness verification, ANSI-rated waterproofing, and proper material selection. That's what we deliver—every time."
+  real_talk: "Real Talk: I measure substrates with precision tools, not my eyes. I flood-test waterproofing because hoping it doesn't leak isn't a strategy. And yes, we document every installation—because if you're investing this much, you deserve proof it was done right."
+  cards:
+    - icon: tile
+      title: "Tile Installation & Waterproofing"
+      description: "Porcelain, ceramic, natural stone—installed with TCNA precision. We engineer the substrate, waterproof to ANSI standards (A118.10), and ensure 95% mortar coverage on large-format tile. Professional tile installation requires proper methodology."
+      details:
+        - "Substrate flatness verified to specification—tested, not estimated"
+        - "Showers built to withstand water intrusion—flood-tested before completion"
+        - "Large-format tile (≥15\") set with full coverage per manufacturer specs"
+        - "Layout geometry optimized for minimal cuts and balanced appearance"
+      url: "/services/#tile"
+    - icon: stone
+      title: "Natural Stone & Slabs"
+      description: "Marble, granite, and gauged porcelain slabs require specialized handling. We book-match for seamless veining, seal with penetrating products (ASTM-compliant), and set with the correct mortar for each stone type."
+      details:
+        - "Book-matched marble for seamless veining continuity"
+        - "6mm porcelain slabs set to manufacturer specs—verified, not approximate"
+        - "Natural stone sealed with breathable, ASTM-compliant products"
+        - "Thermal movement engineered for fireplaces and heated applications"
+      url: "/services/#stone"
+    - icon: waterproofing
+      title: "Waterproofing Systems (ANSI A118.10 Certified)"
+      description: "Waterproofing is the foundation of long-term tile performance. We use certified membranes (Schluter KERDI, Laticrete Hydroban), install per manufacturer specs, flood-test with water, and provide complete photo documentation."
+      details:
+        - "ANSI A118.10 membranes installed with seam verification"
+        - "Flood testing with photographic documentation—proof of performance"
+        - "Every penetration (valve, drain, niche) detailed per TCNA guidelines"
+        - "Documentation package for insurance, warranty, and peace of mind"
+>>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
       url: "/services/#waterproofing"
   actions:
     primary:
       label: "Request an Estimate"
       url: /contact/
     secondary:
+<<<<<<< HEAD
       label: "Explore Portfolio"
       url: /portfolio/
   note: "All installations meet TCNA 2024 standards and NJ HIC requirements. Every project documented. Written scope, change orders, and warranty terms provided before work begins."
@@ -113,6 +161,55 @@ materials:
         - "Book-matching arranged where feasible for continuous veining appearance"
         - "Substrate and mortar selected per stone manufacturer requirements"
         - "ASTM D4446-compliant sealers; application method per manufacturer"
+=======
+      label: "View Portfolio"
+      url: /portfolio/
+  note: "Every installation meets TCNA 2024 standards. Every detail documented. Every promise kept."
+
+process:
+  eyebrow: "Our Process"
+  title: "Installation Process: Transparent, Documented, Code-Compliant"
+  summary: "Tile installation requires precise coordination: substrate verification, proper waterproofing, material selection, and meticulous documentation. We follow this process on every project—no shortcuts, no surprises."
+  fun_fact: null
+  steps:
+    - title: "Site Assessment & Scope Review"
+      description: "On-site evaluation of substrate condition, moisture levels, and project requirements. We assess whether substrate preparation meets ANSI standards before work begins. Licensed NJ HIC #13VH10808800."
+      icon: clipboard
+    - title: "Written Scope & Agreement"
+      description: "Detailed scope with ANSI methods, specific waterproofing system, materials list, timeline, and terms. You approve everything in writing. All changes documented before implementation."
+      icon: document
+    - title: "Installation & Documentation"
+      description: "Substrate prep verified with precision tools. Waterproofing flood-tested before tile. Complete photo documentation of all layers. At completion: care guide, warranty, and installation photos."
+      icon: check-circle
+
+materials:
+  eyebrow: "Materials & Methods"
+  title: "Specification-Driven Material Selection"
+  summary: "Materials matter. The right mortar, membrane, and grout ensure long-term performance. All materials used are ANSI A108/A118-rated for their specific application."
+  callout: null
+  items:
+    - icon: tile
+      title: "Mortar & Grout Selection"
+      description: "C2-rated modified thinsets with ISO 13007 certification. Grout selected for application (epoxy for wet areas, standard for low-traffic). All materials rated for the specific tile and substrate combination."
+      points:
+        - "Mapei, Laticrete, Ardex—industry-standard manufacturers"
+        - "Epoxy grout for moisture-prone areas (showers, kitchen)"
+        - "Penetrating sealers for porous materials"
+    - icon: waterproofing
+      title: "Waterproofing Systems"
+      description: "ANSI A118.10 certified membranes (Schluter KERDI, Laticrete Hydroban, or equivalent). All systems installed per manufacturer specifications, seams verified, and flood-tested with photo documentation."
+      points:
+        - "Seams overlapped per manufacturer specs and verified"
+        - "Penetrations detailed with reinforcing fabric and extra coats"
+        - "Flood test with water—24 hours minimum, documented"
+    - icon: stone
+      title: "Stone & Specialty Materials"
+      description: "Book-matched marble and gauged porcelain slabs selected for application. Sealed with breathable, ASTM-compliant impregnating sealers. Finishes (honed, polished, leathered) selected based on performance requirements."
+      points:
+        - "Book-matching ensures seamless veining continuity"
+        - "6mm porcelain slabs installed to manufacturer specs"
+        - "Honed finishes for low-visibility areas, polished for durable applications"
+>>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
 
 testimonials:
   eyebrow: "What My Clients Say (The Nice Stuff)"
@@ -121,13 +218,25 @@ testimonials:
   reviews: null  # Uses site.data.reviews.reviews by default (first 3)
 
 cta:
+<<<<<<< HEAD
   eyebrow: "Ready to Proceed?"
   title: "Request an Estimate for TCNA-Compliant Installation"
   summary: "Submit your project details and site photos. You'll receive a detailed written estimate including scope, methods, timeline, and transparent pricing within 3–5 business days. No obligation, no surprise calls."
+=======
+  eyebrow: "Request a Proposal"
+  title: "Request a Written Estimate for TCNA-Compliant Installation"
+  summary: "We provide written scopes, transparent pricing, and professional documentation. Licensed, TCNA-compliant, serving South Jersey."
+>>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
   primary:
     label: "Request an Estimate"
     url: /contact/
   secondary:
+<<<<<<< HEAD
     label: "Call (609) 862-8808"
     url: "tel:+16098628808"
   note: "NJ HIC #13VH10808800 · TCNA 2024 Standards · Licensed & Insured · Serving Atlantic, Ocean & Cape May Counties"
+=======
+    label: "View Portfolio"
+    url: /portfolio/
+  note: "NJ HIC #13VH10808800 · TCNA Compliant · Atlantic, Ocean, Cape May Counties"
+>>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848

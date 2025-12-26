@@ -110,7 +110,7 @@
   /* Letter spacing */
   --tracking-tighter: -0.05em;
   --tracking-tight: -0.025em;
-  --tracking-normal: 0em;
+  --tracking-normal: 0;
   --tracking-wide: 0.025em;
   --tracking-wider: 0.05em;
   --tracking-widest: 0.1em;
@@ -185,6 +185,7 @@
 
 /* Frosted glass effect */
 .glass-light {
+<<<<<<< HEAD
   background: var(--tiller-overlay-light);
   backdrop-filter: var(--tiller-backdrop-blur-md);
   -webkit-backdrop-filter: var(--tiller-backdrop-blur-md);
@@ -194,6 +195,15 @@
   background: var(--tiller-overlay-medium);
   backdrop-filter: var(--tiller-backdrop-blur-lg);
   -webkit-backdrop-filter: var(--tiller-backdrop-blur-lg);
+=======
+  background: var(--overlay-light);
+  backdrop-filter: var(--backdrop-blur-md);
+}
+
+.glass-medium {
+  background: var(--overlay-medium);
+  backdrop-filter: var(--backdrop-blur-lg);
+>>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
 }
 
 /* Smooth hover lifts */
@@ -247,6 +257,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

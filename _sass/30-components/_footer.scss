@@ -14,16 +14,26 @@
   position: relative;
   overflow: hidden;
   
+<<<<<<< HEAD
   /* Cross hatch SVG tile pattern overlay */
+=======
+  /* SVG tile pattern (green crosshatch) - increased opacity to 0.35 for visibility */
+>>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
   &::before {
     content: '';
     position: absolute;
     inset: 0;
+<<<<<<< HEAD
     background-image: url('/assets/img/patterns/tile-crosshatch.svg');
     background-size: 120px 120px;
     background-repeat: repeat;
     background-position: center;
     opacity: 0.6;
+=======
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300d9a3' fill-opacity='0.35'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-size: 60px 60px;
+    opacity: 1;
+>>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
     pointer-events: none;
     z-index: 0;
   }
@@ -55,9 +65,9 @@
   margin: 0 auto;
   padding: 0 clamp(1.5rem, 4vw, 3rem);
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: clamp(2rem, 5vw, 4rem);
-  align-items: start;
+  place-items: start center;
 }
 
 /* ========== Center Branding ========== */
@@ -152,14 +162,14 @@
 
 .footer-nav--left {
   grid-column: 1;
-  align-items: flex-end;
-  text-align: right;
+  align-items: center;
+  text-align: center;
 }
 
 .footer-nav--right {
   grid-column: 3;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
 }
 
 .footer-nav-column {

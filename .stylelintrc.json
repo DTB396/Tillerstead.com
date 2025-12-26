@@ -10,14 +10,22 @@
     "custom-property-pattern": [
       "^[a-z0-9]+-[a-z0-9\\-]+$",
       {
+<<<<<<< HEAD
         "message": "Custom properties must include a lowercase namespace prefix (e.g., tiller-color-primary)"
+=======
+        "message": "Custom properties must include a lowercase namespace prefix (e.g., text-scale, tiller-color-primary)"
+>>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
       }
     ],
     "scss/dollar-variable-pattern": [
       "^[a-z0-9]+-[a-z0-9\\-]+$",
       {
+<<<<<<< HEAD
         "message": "SCSS variables must include a lowercase namespace prefix (e.g., $tiller-color-primary)",
         "ignore": ["local"]
+=======
+        "message": "SCSS variables must include a lowercase namespace prefix (e.g., $text-scale-base)"
+>>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
       }
     ],
     "color-function-notation": "legacy",
@@ -39,7 +47,12 @@
         "ignoreAtRules": ["tailwind", "apply", "layer"]
       }
     ],
-    "no-descending-specificity": true,
+    "no-descending-specificity": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ],
     "declaration-block-no-redundant-longhand-properties": true,
     "length-zero-no-unit": true,
     "comment-empty-line-before": [

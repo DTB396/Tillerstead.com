@@ -84,8 +84,11 @@ const COLOR_MAP = {
   '#12212c': 'var(--color-navy-900)',
 };
 
+<<<<<<< HEAD
 // Files to process (glob patterns)
 
+=======
+>>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
 // Directories to exclude
 const EXCLUDE_DIRS = [
   'node_modules',
