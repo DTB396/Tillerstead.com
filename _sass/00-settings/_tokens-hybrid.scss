@@ -61,13 +61,13 @@
   /* Greens - Success & Nature */
   --hex-green-mint: #ecfdf5;      /* Mint green - 8 uses */
   --hex-green-light: #d1fae5;     /* Light green - 6 uses */
-  --hex-green-bright: #10b981;    /* Bright green - 4 uses */
+  --hex-green-bright: var(--color-success-500);    /* Bright green - 4 uses */
   --hex-green-teal: #1fbf7a;      /* Teal green - 4 uses */
   --hex-green-forest: #0b5a34;    /* Forest green - 4 uses */
   
   /* Blues */
-  --hex-blue-navy: #000080;       /* Navy blue - 24 uses */
-  --hex-blue-deep: #0057b8;       /* Deep blue - 8 uses */
+  --hex-blue-navy: var(--color-navy-800);       /* Navy blue - 24 uses */
+  --hex-blue-deep: var(--color-navy-600);       /* Deep blue - 8 uses */
   --hex-blue-bright: #4A90E2;     /* Bright blue - 10 uses */
   --hex-blue-sky: #7fd1ff;        /* Sky blue - 4 uses */
   --hex-blue-pale: #e0f2fe;       /* Pale blue - 4 uses */
@@ -80,29 +80,29 @@
   --hex-red-dark: #DA121A;        /* Rasta red */
   
   /* Slate Grays */
-  --hex-slate-900: #1e293b;       /* Darkest slate - 8 uses */
-  --hex-slate-700: #334155;       /* Dark slate - 4 uses */
-  --hex-slate-600: #475569;       /* Medium slate - 5 uses */
-  --hex-slate-500: #64748b;       /* Mid slate - 9 uses */
-  --hex-slate-400: #94a3b8;       /* Light slate - 3 uses */
-  --hex-slate-300: #cbd5e1;       /* Lighter slate - 3 uses */
-  --hex-slate-200: #e2e8f0;       /* Very light slate - 12 uses */
-  --hex-slate-100: #f1f5f9;       /* Almost white slate - 5 uses */
-  --hex-slate-50: #f8fafc;        /* Lightest slate - 9 uses */
+  --hex-slate-900: var(--color-slate-800);       /* Darkest slate - 8 uses */
+  --hex-slate-700: var(--color-slate-700);       /* Dark slate - 4 uses */
+  --hex-slate-600: var(--color-slate-600);       /* Medium slate - 5 uses */
+  --hex-slate-500: var(--color-slate-500);       /* Mid slate - 9 uses */
+  --hex-slate-400: var(--color-slate-400);       /* Light slate - 3 uses */
+  --hex-slate-300: var(--color-slate-300);       /* Lighter slate - 3 uses */
+  --hex-slate-200: var(--color-slate-200);       /* Very light slate - 12 uses */
+  --hex-slate-100: var(--color-slate-100);       /* Almost white slate - 5 uses */
+  --hex-slate-50: var(--color-slate-50);        /* Lightest slate - 9 uses */
   
   /* Dark Neutrals */
-  --hex-charcoal: #1A1A1A;        /* Charcoal - 38 uses */
+  --hex-charcoal: var(--ts-color-heading);        /* Charcoal - 38 uses */
   --hex-charcoal-green: #1c231f;  /* Charcoal with green - 18 uses */
   --hex-charcoal-deep: #0f1713;   /* Deep charcoal - 4 uses */
-  --hex-charcoal-blue: #12212c;   /* Blue charcoal - 6 uses */
+  --hex-charcoal-blue: var(--color-navy-900);   /* Blue charcoal - 6 uses */
   --hex-gray-dark: #3a413c;       /* Dark gray - 6 uses */
   --hex-gray-medium: #58615c;     /* Medium gray - 4 uses */
   
   /* Pure & Near-Pure */
-  --hex-white: #ffffff;           /* Pure white - 90 uses */
-  --hex-white-alt: #ffffff;          /* White short - 17 uses */
-  --hex-black: #000000;           /* Pure black - 7 uses */
-  --hex-black-alt: #000000;          /* Black short - 2 uses */
+  --hex-white: var(--ts-white);           /* Pure white - 90 uses */
+  --hex-white-alt: var(--ts-white);          /* White short - 17 uses */
+  --hex-black: var(--ts-color-ink);           /* Pure black - 7 uses */
+  --hex-black-alt: var(--ts-color-ink);          /* Black short - 2 uses */
   --hex-off-white: #f8f9fa;       /* Off white - 10 uses */
   --hex-snow: #fafbfc;            /* Snow white - 6 uses */
 

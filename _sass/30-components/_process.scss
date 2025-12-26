@@ -1,0 +1,109 @@
+/* ============================================
+  Process Section with Icon Steps
+  ============================================ */
+
+.ts-process {
+  background: var(--ts-color-surface-muted);
+}
+
+.ts-process__grid {
+  display: grid;
+  gap: var(--ts-spacing-lg);
+  margin-top: var(--ts-spacing-xl);
+  
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.ts-process__step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ts-spacing-md);
+  padding: var(--ts-spacing-lg);
+  background: var(--ts-color-surface);
+  border: 1px solid var(--ts-color-border);
+  border-radius: var(--ts-radius-lg);
+  transition: all var(--tiller-duration-base) var(--tiller-ease-standard);
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ts-shadow-lift);
+    border-color: var(--ts-color-primary);
+  }
+}
+
+.ts-process__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--ts-color-primary) 0%, var(--ts-color-primary-strong) 100%);
+  box-shadow: 0 4px 12px rgba(13, 154, 170, 0.25);
+  flex-shrink: 0;
+  
+  .ts-icon {
+    width: 2rem;
+    height: 2rem;
+    color: var(--ts-white);
+  }
+  
+  .ts-process__step:hover & {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 16px rgba(13, 154, 170, 0.35);
+  }
+}
+
+.ts-process__content {
+  flex: 1;
+}
+
+.ts-process__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--ts-color-heading);
+  margin: 0 0 var(--ts-spacing-sm);
+}
+
+.ts-process__description {
+  font-size: var(--font-size-sm);
+  line-height: var(--font-line-height-relaxed);
+  color: var(--ts-color-muted);
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .ts-process__step {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--ts-spacing-md);
+  }
+  
+  .ts-process__icon {
+    width: 3rem;
+    height: 3rem;
+    
+    .ts-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ts-process__step,
+  .ts-process__icon {
+    transition: none;
+  }
+  
+  .ts-process__step:hover,
+  .ts-process__step:hover .ts-process__icon {
+    transform: none;
+  }
+}

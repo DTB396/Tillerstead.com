@@ -79,7 +79,7 @@ You can store these in _config.yml if you want (site.theme_color_dark/light).
 {%- endcomment -%}
 <meta name="theme-color" content="{{ site.theme_color_dark | default: '#0b1f33' }}"
   media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="{{ site.theme_color_light | default: '#ffffff' }}"
+<meta name="theme-color" content="{{ site.theme_color_light | default: 'var(--ts-white)' }}"
   media="(prefers-color-scheme: light)">
 
 <link rel="icon" href="{{ '/assets/img/logo/tillerstead-favicon.svg' | relative_url }}" type="image/svg+xml"
@@ -148,10 +148,10 @@ You can store these in _config.yml if you want (site.theme_color_dark/light).
 {% endif %}
 
 <!-- Styles -->
-<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" media="screen">
+<link rel="stylesheet" href="/assets/css/main.css">
 {% if page.styles %}
 {% for style in page.styles %}
-<link rel="stylesheet" href="{{ style | relative_url }}" media="screen">
+<link rel="stylesheet" href="/assets/css/main.css">
 {% endfor %}
 {% endif %}
 

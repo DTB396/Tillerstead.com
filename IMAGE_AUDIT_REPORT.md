@@ -1,39 +1,36 @@
 # Image Asset Audit Report
-Generated: 2025-12-20 23:53:53
+Generated: 2025-12-25 21:15:00
 
 ## Summary
 
-- **Total Images**: 59
-- **Total References**: 61
-- **Broken References**: 48
-- **Non-compliant Names**: 4
+- **Total Images**: 36
+- **Total References**: 71
+- **Broken References**: 52
+- **Non-compliant Names**: 0
 
 ## Images by Category
 
-- **concepts**: 21 files
-- **logo**: 25 files
-- **patterns**: 3 files
-- **social**: 2 files
-- **tillerstead-work\repairs**: 1 files
-- **tillerstead-work\tile**: 7 files
+- ****: 1 files
+- **concepts**: 2 files
+- **logo**: 10 files
+- **patterns**: 5 files
+- **tillerstead-work\bathrooms**: 15 files
+- **tillerstead-work\floors**: 1 files
+- **tillerstead-work\kitchens**: 1 files
+- **tillerstead-work\tile**: 1 files
 
 
 ## Images by Format
 
-- **.jpeg**: 4 files
-- **.jpg**: 14 files
-- **.png**: 10 files
+- **.jpg**: 12 files
+- **.png**: 3 files
 - **.svg**: 11 files
-- **.webp**: 20 files
+- **.webp**: 10 files
 
 
 ## Non-Compliant Names
 
-- `\assets\img\tillerstead-work\tile\IMG_0449.jpeg`
-- `\assets\img\tillerstead-work\tile\IMG_0485.jpeg`
-- `\assets\img\tillerstead-work\tile\IMG_0497.jpeg`
-- `\assets\img\tillerstead-work\tile\IMG_9E9CC837-0EC3-44C5-B7ED-BD9DCA721D57.JPEG`
-
+✓ All images follow kebab-case naming convention
 
 ## Broken References
 
@@ -50,31 +47,19 @@ Generated: 2025-12-20 23:53:53
   **Reference**: `/assets/img/logo/tillerstead-icon-180.png'`
 
 - **File**: `\_includes\head.html`
-  **Reference**: `/assets/img/logo/tillerstead-icon-192.png'`
-
-- **File**: `\_includes\head.html`
-  **Reference**: `/assets/img/logo/tillerstead-icon-512.png'`
-
-- **File**: `\_includes\head.html`
-  **Reference**: `/assets/img/logo/tillerstead-icon-180.png'`
-
-- **File**: `\_includes\head.html`
   **Reference**: `/assets/img/logo/tillerstead-logo-mark.svg'`
 
 - **File**: `\_includes\head.html`
   **Reference**: `/assets/img/og.jpg'`
 
 - **File**: `\_includes\header.html`
-  **Reference**: `/assets/img/logo/tillerstead-inverse.svg'`
-
-- **File**: `\_includes\image-webp.html`
-  **Reference**: `/assets/img/portfolio/bathroom-tile-1.jpg`
-
-- **File**: `\_includes\image-webp.html`
-  **Reference**: `/assets/img/portfolio/bathroom-tile-1.jpg`
+  **Reference**: `/assets/img/logo/tillerstead-logo-header.svg'`
 
 - **File**: `\_includes\logo-main.html`
-  **Reference**: `/assets/img/logo'`
+  **Reference**: `/assets/img/logo/tillerstead-logo-header-dark.svg'`
+
+- **File**: `\_includes\logo-main.html`
+  **Reference**: `/assets/img/logo/tillerstead-logo-header.svg'`
 
 - **File**: `\_includes\pattern-showcase.html`
   **Reference**: `/assets/img/tillerstead-work/bathrooms/bathroom-marble-shower-niche.webp'`
@@ -100,14 +85,38 @@ Generated: 2025-12-20 23:53:53
 - **File**: `\_includes\pattern-showcase.html`
   **Reference**: `/assets/img/tillerstead-work/bathrooms/bathroom-floor-install-progress.jpg'`
 
-- **File**: `\_includes\schema-local-business.html`
-  **Reference**: `/assets/img/og.jpg`
+- **File**: `\_includes\responsive-image.html`
+  **Reference**: `/assets/img/optimized/{{`
 
-- **File**: `\_includes\ts-hero.html`
-  **Reference**: `/assets/img/tillerstead-work/bathrooms/bathroom-marble-floor-finish.jpg'`
+- **File**: `\_includes\responsive-image.html`
+  **Reference**: `/assets/img/optimized/{{`
 
-- **File**: `\_includes\ts-hero.html`
-  **Reference**: `/assets/img/tillerstead-work/exteriors/exterior-painted-trim.webp'`
+- **File**: `\_includes\responsive-image.html`
+  **Reference**: `/assets/img/optimized/{{`
+
+- **File**: `\_includes\responsive-image.html`
+  **Reference**: `/assets/img/optimized/{{`
+
+- **File**: `\_includes\responsive-image.html`
+  **Reference**: `/assets/img/{{`
+
+- **File**: `\_includes\responsive-image.html`
+  **Reference**: `/assets/img/optimized/{{`
+
+- **File**: `\_includes\responsive-image.html`
+  **Reference**: `/assets/img/optimized/{{`
+
+- **File**: `\_includes\responsive-image.html`
+  **Reference**: `/assets/img/optimized/{{`
+
+- **File**: `\_includes\ts-portfolio.html`
+  **Reference**: `/assets/img/patterns/herringbone-subtle.svg'`
+
+- **File**: `\_includes\ts-process.html`
+  **Reference**: `/assets/img/patterns/flower-of-life.svg'`
+
+- **File**: `\_includes\ts-services.html`
+  **Reference**: `/assets/img/patterns/grid-tile-light.svg'`
 
 - **File**: `\_includes\ts-services.html`
   **Reference**: `/assets/img/tillerstead-work/bathrooms/bathroom-marble-shower-niche.webp'`
@@ -133,26 +142,8 @@ Generated: 2025-12-20 23:53:53
 - **File**: `\_includes\ts-services.html`
   **Reference**: `/assets/img/tillerstead-work/bathrooms/bathroom-accent-wall-detail.jpg'`
 
-- **File**: `\_layouts\home.html`
-  **Reference**: `/assets/img/og-tillerstead.jpg`
-
-- **File**: `\_layouts\home.html`
-  **Reference**: `/assets/img/og-tillerstead.jpg`
-
-- **File**: `\_data\portfolio_highlights.yml`
-  **Reference**: `/assets/img/tillerstead-work/bathrooms/bathroom-remodel-finished.webp`
-
-- **File**: `\_data\portfolio_highlights.yml`
-  **Reference**: `/assets/img/tillerstead-work/bathrooms/bathroom-marble-floor-finish.jpg`
-
-- **File**: `\_data\portfolio_highlights.yml`
-  **Reference**: `/assets/img/tillerstead-work/bathrooms/bathroom-marble-shower-niche.jpg`
-
-- **File**: `\_data\portfolio_highlights.yml`
-  **Reference**: `/assets/img/tillerstead-work/bathrooms/bathroom-accent-wall-and-shower.jpg`
-
-- **File**: `\_data\portfolio_highlights.yml`
-  **Reference**: `/assets/img/tillerstead-work/bathrooms/bathroom-floor-ditra-progress.jpg`
+- **File**: `\_includes\ts-testimonials.html`
+  **Reference**: `/assets/img/patterns/vesica-piscis.svg'`
 
 - **File**: `\_data\portfolio_highlights.yml`
   **Reference**: `/assets/img/bathroom-remodel-final.webp`
@@ -169,17 +160,35 @@ Generated: 2025-12-20 23:53:53
 - **File**: `\_data\portfolio_highlights.yml`
   **Reference**: `/assets/img/tile-pattern-dark.jpg`
 
+- **File**: `\_sass\00-settings\_patterns.scss`
+  **Reference**: `/assets/img/patterns/hexagon-tile.svg'`
+
+- **File**: `\_sass\00-settings\_patterns.scss`
+  **Reference**: `/assets/img/patterns/moroccan-tile.svg'`
+
+- **File**: `\_sass\00-settings\_patterns.scss`
+  **Reference**: `/assets/img/patterns/subway-tile.svg'`
+
+- **File**: `\_sass\30-components\_footer.scss`
+  **Reference**: `/assets/img/patterns/tile-crosshatch.svg'`
+
+- **File**: `\_sass\30-components\_home.scss`
+  **Reference**: `/assets/img/patterns/tile-crosshatch.svg'`
+
+- **File**: `\_sass\30-components\_patterns-complimentary.scss`
+  **Reference**: `/assets/img/patterns/tile-crosshatch.svg'`
+
 - **File**: `\pages\portfolio.html`
   **Reference**: `/assets/img/tillerstead-work/bathrooms/bathroom-marble-floor-finish.jpg'`
 
 - **File**: `\pages\portfolio.html`
   **Reference**: `/assets/img/'`
 
-- **File**: `\_config.yml`
-  **Reference**: `/assets/img/tillerstead-work/bathrooms/bathroom-marble-floor-finish.jpg`
+- **File**: `\manifest.webmanifest`
+  **Reference**: `/assets/img/logo/tillerstead-icon-192.png`
 
-- **File**: `\_config.yml`
-  **Reference**: `/assets/img/tillerstead-work/bathrooms/bathroom-accent-wall-and-shower.jpg`
+- **File**: `\manifest.webmanifest`
+  **Reference**: `/assets/img/logo/tillerstead-icon-512.png`
 
 
 
@@ -194,7 +203,7 @@ All images should have descriptive alt text following this pattern:
 
 ## Recommended Actions
 
-1. **Rename non-compliant files** to use kebab-case (lowercase with hyphens)
+1. ✓ Naming conventions are compliant
 
 2. **Fix broken references** or remove unused references
 
