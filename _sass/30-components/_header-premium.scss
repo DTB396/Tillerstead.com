@@ -236,7 +236,7 @@
   visibility: hidden;
   pointer-events: none;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1; /* Relative to parent shell */
+  z-index: 9998; /* Same level as shell */
 }
 
 .mobile-nav-shell.is-open .mobile-nav-backdrop {
@@ -255,7 +255,7 @@
   box-shadow: -10px 0 60px rgb(0, 0, 0, 0.3);
   transform: translateX(100%);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 2; /* Relative to parent shell - above backdrop */
+  z-index: 9999; /* Absolute z-index - above everything */
   display: flex;
   flex-direction: column;
   overflow-y: auto;
