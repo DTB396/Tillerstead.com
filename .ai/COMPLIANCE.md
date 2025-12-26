@@ -51,17 +51,26 @@ Every written contract must include (per N.J.S.A. 56:8-136):
 
 ### Payment Restrictions
 
-- **Initial deposit**: Max 10% of contract price or $1,000 (whichever is less)
+**NJ Law Requirements:**
+- **Written contract required** for all work >$500
+- **3-day right of rescission** on all home improvement contracts
+- **No statutory deposit cap** - payment terms are negotiable
+
+**Industry Best Practices:**
+- **Material deposits**: May require upfront payment or substantial deposit for specialty materials (custom tile, stone slabs, special-order fixtures)
+- **Labor deposits**: Typically 10-33% to secure scheduling
 - **Progress payments**: Tied to verifiable completion milestones
-- **Final payment**: At least 10% retained until substantial completion
-- **No full payment upfront** (strictly prohibited)
+- **Final holdback**: 10-15% retained until substantial completion and client satisfaction
 
-**Compliant Payment Example** (Backsplash, $2,500):
+**Compliant Payment Example** (Bathroom Remodel, $18,000 with $6,000 in specialty tile):
 
-- $250 deposit (10%)
-- $750 at substrate prep completion
-- $1,000 at tile installation completion
-- $500 after inspection/grout sealing
+- $6,000 material deposit (upon order placement for custom tile)
+- $2,000 labor deposit (to secure start date)
+- $5,000 at demolition/substrate prep completion
+- $4,000 at tile installation completion
+- $1,000 after inspection/grout sealing/final walkthrough
+
+**Note**: Payment terms must be clearly specified in written contract. NJ law does not cap deposits but requires transparency and written agreement.
 
 ### Change Orders
 
