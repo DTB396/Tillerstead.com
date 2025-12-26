@@ -1,40 +1,21 @@
 ---
-layout: home
-title: "TCNA-Compliant Tile & Waterproofing"
-seo_title: "TCNA-Compliant Tile, Waterproofing & Remodeling | Tillerstead LLC | NJ HIC #13VH10808800"
-seo_description: "Licensed NJ HIC contractor specializing in TCNA-compliant tile installations, waterproof shower assemblies, and code-compliant remodeling. Substrate verified, waterproofing flood-tested, every detail documented. Serving Atlantic, Ocean & Cape May Counties."
-permalink: /
-body_class: "home-page ts-home"
-include_faq_schema: false
+layout: default
+title: TCNA-Compliant Tile, Waterproofing & Remodeling | Tillerstead LLC
+description: Licensed NJ HIC #13VH10808800. Precision tile installation, custom bathrooms, and full-service remodeling—engineered for durability and code compliance in Southern New Jersey.
+body_class: page-home
+hero_project_image: /assets/img/tillerstead-work/bathrooms/bathroom-marble-shower-niche.webp
+hero_image_alt: TCNA-compliant tile installation by Tillerstead, New Jersey
 ---
-<!doctype html>
-<html lang="en">
 
-<head>
-    {% include head.html %}
-</head>
+{% comment %} Hero – first thing visitors see {% endcomment %}
+{% include unified-hero-home.html %}
 
-<body class="{{ page.body_class }}">
-    {% include header.html %}
+{% comment %} Highlights – reviews, blog, compliance {% endcomment %}
+<section class="highlights">
+    {% include reviews-highlights.html limit=3 %}
+    {% include blog-highlights.html limit=3 %}
+    {% include compliance.html %}
+</section>
 
-    <main id="main" class="site-main">
-        {% comment %} Hero – first thing visitors see {% endcomment %}
-        {% include unified-hero-home.html %}
-
-        {% comment %} Highlights – reviews, blog, compliance, patterns {% endcomment %}
-        <section class="highlights">
-            {% include reviews-highlights.html %}
-            {% include blog-highlights.html %}
-            {% include compliance.html %}
-            {% include pattern-showcase.html %}
-        </section>
-
-        {% comment %} Process – step‑by‑step workflow {% endcomment %}
-        {% include ts-process.html %}
-    </main>
-
-    {% include footer.html %}
-    {% include scripts.html %}
-</body>
-
-</html>
+{% comment %} Process – step‑by‑step workflow {% endcomment %}
+{% include ts-process.html %}
