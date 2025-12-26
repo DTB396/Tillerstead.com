@@ -182,7 +182,7 @@
   --color-slate-900: var(--hex-charcoal);
   
   /* Pure colors */
-  --ts-white: var(--hex-white);
+  --ts-white: #ffffff;
   --ts-black: var(--hex-black);
 
   /* ===========================
@@ -570,7 +570,6 @@
   --ts-stone-warm: var(--color-slate-600);
   --ts-stone-cool: var(--color-slate-500);
   --ts-ink: var(--color-slate-900);
-  --ts-white: var(--hex-white);
 
   /* Parchment mapped to warm surfaces */
   --ts-parchment: var(--tiller-slate-50);

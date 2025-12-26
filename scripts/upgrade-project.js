@@ -166,12 +166,12 @@ async function upgradeSass() {
   }
 
   // Prepare patterns for Sass import conversion
-  const importPattern = /@import\s+([^;]+);/g;  // matches '@import "file";' (capturing "file")
-  const importSplitPattern = /['"][^'"]+['"]/g; // matches each quoted import inside an import statement
+  const _importPattern = /@import\s+([^;]+);/g;  // matches '@import "file";' (capturing "file")
+  const _importSplitPattern = /['"][^'"]+['"]/g; // matches each quoted import inside an import statement
 
   for (const filePath of sassFiles) {
     let content = await fs.readFile(filePath, 'utf8');
-    const origContent = content;
+    const _origContent = content;
     const fileRelPath = path.relative(projectRoot, filePath).replace(/\\/g, '/');
     let importCount = 0;
     let issues = [];
@@ -267,7 +267,7 @@ async function upgradeDependencies() {
   let devDeps = pkgData.devDependencies || {};
 
   // Function to update a dependency set (deps or devDeps)
-  async function updateDepSet(depSet, depType) {
+  async function updateDepSet(depSet, _depType) {
     for (const [name, currVersion] of Object.entries(depSet)) {
       let latestVersion = null;
       // Skip local file references or git links (version starting with file:, git+, etc.)
