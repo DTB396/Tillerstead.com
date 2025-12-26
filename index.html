@@ -10,12 +10,103 @@ hero_image_alt: Completed bathroom tile installation by Tillerstead LLC, TCNA-co
 {% comment %} Hero – first thing visitors see {% endcomment %}
 {% include unified-hero-home.html %}
 
-{% comment %} Highlights – reviews, blog, compliance {% endcomment %}
-<section class="highlights">
-    {% include reviews-highlights.html limit=3 %}
-    {% include blog-highlights.html limit=3 %}
-    {% include compliance.html %}
+{% comment %} Trust Indicators – Reviews showcase {% endcomment %}
+{% include reviews-highlights.html limit=3 %}
+
+{% comment %} Process – How we work {% endcomment %}
+{% include ts-process.html %}
+
+{% comment %} Services Preview – What we do {% endcomment %}
+<section class="ts-section ts-services-preview" aria-labelledby="services-preview-title">
+  <div class="container">
+    <header class="section-header text-center">
+      <span class="eyebrow text-accent">Our Expertise</span>
+      <h2 id="services-preview-title" class="heading-2">South Jersey Tile & Remodeling Services</h2>
+      <p class="lead">From custom tile showers to complete bathroom transformations—every project engineered to last.</p>
+    </header>
+    
+    <div class="cards cards--3col">
+      <article class="card card--service">
+        <h3 class="heading-4">Tile Installation</h3>
+        <p>Large format tile, intricate mosaics, heated floors. TCNA-compliant methods, 95% thinset coverage, waterproof every time.</p>
+        <a href="/services/tile/" class="btn btn--ghost">Learn More</a>
+      </article>
+      
+      <article class="card card--service">
+        <h3 class="heading-4">Bathroom Remodeling</h3>
+        <p>Complete transformations from layout to fixtures. Designed for your lifestyle, built to NJ code, backed by our 2-year warranty.</p>
+        <a href="/services/bathrooms/" class="btn btn--ghost">Learn More</a>
+      </article>
+      
+      <article class="card card--service">
+        <h3 class="heading-4">Waterproofing & Repairs</h3>
+        <p>ANSI A118.10 assemblies, ASTM E2947 flood testing. Stop leaks permanently with proper engineering—not just caulk.</p>
+        <a href="/services/waterproofing/" class="btn btn--ghost">Learn More</a>
+      </article>
+    </div>
+  </div>
 </section>
 
-{% comment %} Process – step‑by‑step workflow {% endcomment %}
-{% include ts-process.html %}
+{% comment %} Portfolio Preview – Proof of quality {% endcomment %}
+<section class="ts-section ts-portfolio-preview bg-soft" aria-labelledby="portfolio-preview-title">
+  <div class="container">
+    <header class="section-header text-center">
+      <span class="eyebrow text-accent">Our Work</span>
+      <h2 id="portfolio-preview-title" class="heading-2">Bathrooms Built to Last in Atlantic, Ocean & Cape May Counties</h2>
+      <p class="lead">Real projects. Real results. Every installation documented and verified.</p>
+    </header>
+    
+    <div class="section-action">
+      <a href="/portfolio/" class="btn btn--primary">See Completed Projects</a>
+    </div>
+  </div>
+</section>
+
+{% comment %} Local Trust – NJ-specific credibility {% endcomment %}
+<section class="ts-section ts-local-trust" aria-labelledby="local-trust-title">
+  <div class="container">
+    <header class="section-header text-center">
+      <span class="eyebrow text-accent">Southern New Jersey</span>
+      <h2 id="local-trust-title" class="heading-2">Licensed, Insured & Proud to Serve Your Community</h2>
+    </header>
+    
+    <div class="cards cards--4col">
+      <div class="card card--stat text-center">
+        <p class="stat-number text-primary">100%</p>
+        <p class="stat-label">TCNA Compliant Installations</p>
+      </div>
+      
+      <div class="card card--stat text-center">
+        <p class="stat-number text-primary">2-Year</p>
+        <p class="stat-label">Workmanship Warranty</p>
+      </div>
+      
+      <div class="card card--stat text-center">
+        <p class="stat-number text-primary">$1M</p>
+        <p class="stat-label">Liability Coverage</p>
+      </div>
+      
+      <div class="card card--stat text-center">
+        <p class="stat-number text-primary">NJ HIC</p>
+        <p class="stat-label">#13VH10808800</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} Final CTA – Get them to act {% endcomment %}
+<section class="ts-section ts-cta-final bg-primary text-white" aria-labelledby="final-cta-title">
+  <div class="container text-center">
+    <h2 id="final-cta-title" class="heading-2">Ready for a Bathroom That's Built Right?</h2>
+    <p class="lead">Get your free, no-pressure assessment. We'll walk your space, answer every question, and show you exactly what proper installation looks like.</p>
+    
+    <div class="cta-actions">
+      <a href="/contact/" class="btn btn--secondary">Request Free Estimate</a>
+      <a href="tel:+1-555-123-4567" class="btn btn--ghost-white">Call Now</a>
+    </div>
+    
+    <p class="trust-line">
+      <small>Licensed NJ HIC #13VH10808800 • Serving Atlantic, Ocean & Cape May Counties • 3-Day Rescission Right</small>
+    </p>
+  </div>
+</section>

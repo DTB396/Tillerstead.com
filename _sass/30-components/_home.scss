@@ -485,3 +485,149 @@
   }
 }
 
+/* ========================================================================
+   Homepage Section Enhancements - "Wow Factor" Components
+   ======================================================================== */
+
+/* Services Preview */
+.ts-services-preview {
+  background: var(--ts-white);
+}
+
+.ts-services-preview .card--service {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ts-spacing-sm);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid var(--color-slate-200);
+  border-radius: var(--ts-radius-xl);
+  background: var(--ts-white);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    border-color: var(--ts-color-primary);
+    box-shadow: 0 8px 32px rgb(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+  }
+  
+  h3 {
+    color: var(--ts-color-heading);
+  }
+  
+  p {
+    flex: 1;
+    color: var(--ts-color-muted);
+    line-height: 1.6;
+  }
+  
+  .btn {
+    align-self: flex-start;
+    margin-top: auto;
+  }
+}
+
+/* Portfolio Preview */
+.ts-portfolio-preview {
+  background: var(--color-stone-50);
+}
+
+/* Local Trust Stats */
+.ts-local-trust {
+  background: var(--ts-white);
+}
+
+.card--stat {
+  padding: clamp(1.5rem, 4vw, 2rem);
+  border: 1px solid var(--color-slate-200);
+  border-radius: var(--ts-radius-lg);
+  background: var(--ts-white);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    border-color: var(--ts-color-primary);
+    box-shadow: 0 4px 16px rgb(13, 154, 170, 0.12);
+    transform: translateY(-2px);
+  }
+}
+
+.stat-number {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: var(--font-size-sm);
+  color: var(--ts-color-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Final CTA Section */
+.ts-cta-final {
+  background: linear-gradient(
+    135deg,
+    var(--color-brand-teal-700) 0%,
+    var(--color-brand-teal-900) 100%
+  );
+  padding-block: clamp(4rem, 8vb, 6rem);
+  
+  .heading-2,
+  .lead {
+    color: var(--ts-white);
+  }
+  
+  .lead {
+    max-width: 65ch;
+    margin-inline: auto;
+    opacity: 0.95;
+  }
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ts-spacing-sm);
+  justify-content: center;
+  margin-top: var(--ts-spacing-lg);
+  margin-bottom: var(--ts-spacing-md);
+}
+
+.trust-line {
+  margin-top: var(--ts-spacing-md);
+  opacity: 0.85;
+  
+  small {
+    font-size: var(--font-size-xs);
+  }
+}
+
+.btn--ghost-white {
+  background: transparent;
+  color: var(--ts-white);
+  border: 2px solid rgb(255, 255, 255, 0.4);
+  
+  &:hover {
+    background: rgb(255, 255, 255, 0.15);
+    border-color: var(--ts-white);
+  }
+}
+
+/* Utility: Background variants */
+.bg-soft {
+  background: var(--color-stone-50);
+}
+
+.bg-primary {
+  background: var(--ts-color-primary);
+}
+
+.text-white {
+  color: var(--ts-white);
+  
+  * {
+    color: var(--ts-white);
+  }
+}
