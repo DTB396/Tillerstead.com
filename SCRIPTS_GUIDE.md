@@ -2,12 +2,20 @@
 
 ## 🚀 Quick Start Commands
 
-### **Complete Site Harmony (Recommended)**
-Runs everything in optimal order:
+### **Intelligent Site Harmony (Recommended)**
+🧠 **Audits FIRST**, then fixes only what's broken:
 ```powershell
 cd tillerstead-stone
 .\scripts\run-all-harmony.ps1
 ```
+
+**What it does:**
+1. ✅ Runs comprehensive audits (CSS, images, config, Jekyll, navigation)
+2. 🔍 Detects specific issues in your site
+3. 🔧 Applies fixes ONLY for detected issues
+4. 🏗️ Builds optimized production site
+5. ✅ Validates & tests everything
+6. 📊 Shows detailed status report
 
 ### **Quick Build & Deploy**
 ```powershell
