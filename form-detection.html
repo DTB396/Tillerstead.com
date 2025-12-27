@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Netlify Forms Detection</title>
+</head>
+<body style="display:none;">
+  <!-- This form allows Netlify to detect and enable Forms feature -->
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="contact" />
+    <input name="bot-field" />
+    <input name="name" required />
+    <input name="email" type="email" required />
+    <input name="phone" type="tel" />
+    <textarea name="message" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

@@ -1,5 +1,8 @@
 <!-- _includes/forms/contact.html -->
 <form class="ts-form contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success/">
+    <!-- Hidden field required for Netlify Forms -->
+    <input type="hidden" name="form-name" value="contact" />
+    
     <!-- Honeypot field for spam protection -->
     <p style="position: absolute; left: -9999px;" aria-hidden="true">
         <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
