@@ -74,6 +74,38 @@
   display: block;
 }
 
+/* Base social link */
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--tiller-social-bg, transparent);
+  border: 1.5px solid var(--tiller-social-border, var(--ts-color-border));
+  color: var(--tiller-social-icon-color, var(--ts-color-icon));
+  transition: 
+    background var(--tiller-duration-quick) var(--tiller-ease-standard), 
+    border-color var(--tiller-duration-quick) var(--tiller-ease-standard), 
+    color var(--tiller-duration-quick) var(--tiller-ease-standard), 
+    transform var(--tiller-duration-quick) var(--tiller-ease-decelerate),
+    box-shadow var(--tiller-duration-base) var(--tiller-ease-standard);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.social-link:hover,
+.social-link:focus-visible {
+  background: var(--tiller-social-bg-hover, var(--ts-color-primary-soft));
+  border-color: var(--tiller-social-border-hover, var(--ts-color-primary));
+  color: var(--tiller-social-icon-color-hover, var(--ts-color-primary));
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px var(--color-shadow-soft);
+}
+
 /* Header context: High-contrast for navigation bar */
 .social-links--header {
   --tiller-social-border: rgb(255, 255, 255, 0.3);

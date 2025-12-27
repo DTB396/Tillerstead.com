@@ -41,17 +41,13 @@
     min-width: 44px;
     min-height: 44px;
   }
-  
-  /* Luxury hover lift */
-  &:hover:not(:disabled) {
-    transform: translateY(-2px);
-    animation: btn-lift 0.3s ease forwards;
-  }
-  
-  &:active:not(:disabled) {
-    transform: translateY(0) scale(0.98);
-    transition: transform 0.1s ease;
-  }
+}
+
+/* Luxury hover lift */
+.btn:hover:not(:disabled),
+.button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  animation: btn-lift 0.3s ease forwards;
 }
 
 /* Focus ring — luxury accessible focus */
@@ -59,6 +55,13 @@
 .button:focus-visible {
   box-shadow: var(--tiller-focus-ring);
   z-index: 2;
+}
+
+/* Active state */
+.btn:active:not(:disabled),
+.button:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+  transition: transform 0.1s ease;
 }
 
 /* Disabled state — visually and programmatically disabled */
@@ -96,7 +99,8 @@
 
 /* Secondary — outlined, for less prominent actions */
 .btn-secondary,
-.btn--secondary {
+.btn--secondary,
+.btn--color-secondary {
   background: transparent;
   color: var(--ts-color-heading);
   border: 1.5px solid var(--ts-color-primary-bg);
@@ -104,7 +108,9 @@
   overflow: hidden;
 }
 
-.btn-secondary::before {
+.btn-secondary::before,
+.btn--secondary::before,
+.btn--color-secondary::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -115,25 +121,38 @@
   z-index: -1;
 }
 
+.btn-secondary:hover:not(:disabled),
+.btn--secondary:hover:not(:disabled),
+.btn--color-secondary:hover:not(:disabled) {
+  border-color: var(--ts-color-primary-strong);
+  color: var(--ts-color-heading);
+}
+
 .btn-secondary:hover:not(:disabled)::before,
-.btn-secondary:focus-visible::before,
-.btn--color-secondary:hover:not(:disabled)::before,
-.btn--color-secondary:focus-visible::before {
+.btn--secondary:hover:not(:disabled)::before,
+.btn--color-secondary:hover:not(:disabled)::before {
   transform: scaleX(1);
   transform-origin: left;
 }
 
-.btn-secondary:hover:not(:disabled),
 .btn-secondary:focus-visible,
-.btn--color-secondary:hover:not(:disabled),
+.btn--secondary:focus-visible,
 .btn--color-secondary:focus-visible {
   border-color: var(--ts-color-primary-strong);
   color: var(--ts-color-heading);
 }
 
+.btn-secondary:focus-visible::before,
+.btn--secondary:focus-visible::before,
+.btn--color-secondary:focus-visible::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 /* Accent — for special actions, e.g., estimates or consultations */
 .btn-accent,
-.btn--accent {
+.btn--accent,
+.btn--color-accent {
   background: transparent;
   color: var(--ts-color-heading);
   border: 1.5px solid var(--ts-color-border);
@@ -143,8 +162,15 @@
 }
 
 .btn-accent:hover:not(:disabled),
+.btn--accent:hover:not(:disabled),
+.btn--color-accent:hover:not(:disabled) {
+  border-color: var(--ts-color-primary);
+  background: var(--ts-color-surface-highlight);
+  box-shadow: 0 4px 12px var(--color-shadow-soft);
+}
+
 .btn-accent:focus-visible,
-.btn--color-accent:hover:not(:disabled),
+.btn--accent:focus-visible,
 .btn--color-accent:focus-visible {
   border-color: var(--ts-color-primary);
   background: var(--ts-color-surface-highlight);
@@ -164,6 +190,7 @@
 }
 
 .btn-ghost::before,
+.btn--ghost::before,
 .btn--tiller-ghost::before,
 .btn-outline::before,
 .btn.ghost::before {
@@ -177,21 +204,32 @@
   border-radius: inherit;
 }
 
+.btn-ghost:hover:not(:disabled),
+.btn--ghost:hover:not(:disabled),
+.btn-outline:hover:not(:disabled),
+.btn.ghost:hover:not(:disabled) {
+  border-color: var(--ts-color-primary-strong);
+  color: var(--ts-color-heading);
+}
+
 .btn-ghost:hover:not(:disabled)::before,
+.btn--ghost:hover:not(:disabled)::before,
 .btn-outline:hover:not(:disabled)::before,
-.btn-ghost:focus-visible::before,
-.btn-outline:focus-visible::before,
 .btn.ghost:hover:not(:disabled)::before {
   transform: scale(1);
 }
 
-.btn-ghost:hover:not(:disabled),
-.btn-outline:hover:not(:disabled),
 .btn-ghost:focus-visible,
-.btn-outline:focus-visible,
-.btn.ghost:hover:not(:disabled) {
+.btn--ghost:focus-visible,
+.btn-outline:focus-visible {
   border-color: var(--ts-color-primary-strong);
   color: var(--ts-color-heading);
+}
+
+.btn-ghost:focus-visible::before,
+.btn--ghost:focus-visible::before,
+.btn-outline:focus-visible::before {
+  transform: scale(1);
 }
 
 /* Text Button — for inline actions, links, or disclosures */
@@ -204,7 +242,11 @@
   color: var(--ts-color-primary);
 }
 
-.btn-text:hover:not(:disabled),
+.btn-text:hover:not(:disabled) {
+  text-decoration: underline;
+  background: var(--ts-color-primary-soft);
+}
+
 .btn-text:focus-visible {
   text-decoration: underline;
   background: var(--ts-color-primary-soft);
@@ -300,7 +342,14 @@
 }
 
 /* Icon animations */
-.btn-icon svg,
+.btn-icon {
+  transition: transform var(--tiller-transition-fast);
+}
+
+.btn-icon svg {
+  transition: transform var(--tiller-transition-fast);
+}
+
 .btn .btn-icon {
   transition: transform var(--tiller-transition-fast);
 }

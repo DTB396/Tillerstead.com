@@ -7,19 +7,19 @@
 /* ========== Pattern Mixin ========== */
 @mixin tile-crosshatch-pattern($opacity: 0.6) {
   position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url('/assets/img/patterns/tile-crosshatch.svg');
-    background-size: 120px 120px;
-    background-repeat: repeat;
-    background-position: center;
-    opacity: $opacity;
-    pointer-events: none;
-    z-index: 0;
-  }
+}
+
+@mixin tile-crosshatch-pattern-before($opacity: 0.6) {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/img/patterns/tile-crosshatch.svg');
+  background-size: 120px 120px;
+  background-repeat: repeat;
+  background-position: center;
+  opacity: $opacity;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* ========== Hero Sections ========== */
@@ -28,48 +28,78 @@
 .page-hero {
   @include tile-crosshatch-pattern(0.5);
   
-  /* Ensure content stays above pattern */
-  .ts-hero__inner,
-  .hero__inner,
-  > * {
-    position: relative;
-    z-index: 1;
+  &::before {
+    @include tile-crosshatch-pattern-before(0.5);
   }
+}
+
+/* Ensure content stays above pattern - base */
+.ts-hero__inner,
+.hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.ts-hero > *,
+.hero > *,
+.page-hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Home hero - higher opacity for light backgrounds */
 .page-home .ts-hero {
   @include tile-crosshatch-pattern(0.4);
+  
+  &::before {
+    @include tile-crosshatch-pattern-before(0.4);
+  }
 }
 
 /* ========== Major Sections ========== */
 .ts-section {
   position: relative;
-  
-  /* Apply subtle pattern to alternating sections */
-  &:nth-of-type(odd) {
-    @include tile-crosshatch-pattern(0.08);
-    
-    /* Ensure content visibility */
-    .container,
-    > * {
-      position: relative;
-      z-index: 1;
-    }
+}
+
+/* Base container and children positioning */
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Apply subtle pattern to alternating sections */
+.ts-section:nth-of-type(odd) {
+  &::before {
+    @include tile-crosshatch-pattern-before(0.08);
   }
+}
+
+/* Ensure content visibility in odd sections */
+.ts-section:nth-of-type(odd) .container {
+  position: relative;
+  z-index: 1;
+}
+
+.ts-section:nth-of-type(odd) > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Services section - light pattern */
 .ts-services {
   @include tile-crosshatch-pattern(0.1);
   
-  .container,
-  .ts-services__header,
-  .ts-services__grid,
-  .ts-services__actions {
-    position: relative;
-    z-index: 1;
+  &::before {
+    @include tile-crosshatch-pattern-before(0.1);
   }
+}
+
+.ts-services .container,
+.ts-services .ts-services__header,
+.ts-services .ts-services__grid,
+.ts-services .ts-services__actions {
+  position: relative;
+  z-index: 1;
 }
 
 /* Portfolio/Work section - light pattern */
@@ -77,23 +107,33 @@
 .portfolio-section {
   @include tile-crosshatch-pattern(0.08);
   
-  .container,
-  > * {
-    position: relative;
-    z-index: 1;
+  &::before {
+    @include tile-crosshatch-pattern-before(0.08);
   }
+}
+
+.ts-portfolio .container,
+.portfolio-section .container,
+.ts-portfolio > *,
+.portfolio-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Testimonials section - light pattern */
 .ts-testimonials {
   @include tile-crosshatch-pattern(0.1);
   
-  .container,
-  .ts-testimonials__header,
-  .ts-testimonials__grid {
-    position: relative;
-    z-index: 1;
+  &::before {
+    @include tile-crosshatch-pattern-before(0.1);
   }
+}
+
+.ts-testimonials .container,
+.ts-testimonials .ts-testimonials__header,
+.ts-testimonials .ts-testimonials__grid {
+  position: relative;
+  z-index: 1;
 }
 
 /* Process/Steps section - light pattern */
@@ -101,11 +141,17 @@
 .process-section {
   @include tile-crosshatch-pattern(0.08);
   
-  .container,
-  > * {
-    position: relative;
-    z-index: 1;
+  &::before {
+    @include tile-crosshatch-pattern-before(0.08);
   }
+}
+
+.ts-process .container,
+.process-section .container,
+.ts-process > *,
+.process-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* CTA sections - subtle pattern */
@@ -114,13 +160,25 @@
 .section-cta {
   @include tile-crosshatch-pattern(0.12);
   
-  .container,
-  .cta-content,
-  .cta__inner,
-  > * {
-    position: relative;
-    z-index: 1;
+  &::before {
+    @include tile-crosshatch-pattern-before(0.12);
   }
+}
+
+.ts-cta .container,
+.cta-section .container,
+.section-cta .container,
+.ts-cta .cta-content,
+.cta-section .cta-content,
+.section-cta .cta-content,
+.ts-cta .cta__inner,
+.cta-section .cta__inner,
+.section-cta .cta__inner,
+.ts-cta > *,
+.cta-section > *,
+.section-cta > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* ========== Header Enhancement ========== */

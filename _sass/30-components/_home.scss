@@ -412,20 +412,18 @@
     outline: 2px solid var(--ts-color-primary);
     outline-offset: 2px;
   }
+}
 
-  svg {
-    transition: transform 0.2s ease;
-  }
+.ts-testimonial__read-more svg {
+  transition: transform 0.2s ease;
+}
 
-  &[aria-expanded="true"] {
-    svg {
-      transform: rotate(180deg);
-    }
+.ts-testimonial__read-more[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
 
-    .ts-testimonial__read-more-text::after {
-      content: ' less';
-    }
-  }
+.ts-testimonial__read-more[aria-expanded="true"] .ts-testimonial__read-more-text::after {
+  content: ' less';
 }
 
 .ts-testimonial__stars {

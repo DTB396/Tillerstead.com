@@ -14,48 +14,6 @@
   position: relative;
 }
 
-/* Error state for form fields */
-.form-field.has-error input,
-.form-field.has-error textarea,
-.form-field.has-error select,
-.form-group.has-error input,
-.form-group.has-error textarea,
-.form-group.has-error select {
-  border-color: var(--ts-color-error);
-  border-width: 2px;
-  background-color: rgb(255, 245, 245, 0.5);
-}
-
-.form-field.has-error label,
-.form-group.has-error label {
-  color: var(--ts-color-error);
-  font-weight: 600;
-}
-
-/* Error message styling */
-.field-error {
-  display: block;
-  color: var(--ts-color-error);
-  font-size: var(--font-size-sm);
-  font-weight: 500;
-  margin-top: 0.25rem;
-  padding: 0.25rem 0.5rem;
-  background: var(--ts-color-error-bg);
-  border-left: 3px solid var(--ts-color-error);
-  border-radius: 4px;
-}
-
-/* Success state */
-.form-field.has-success input,
-.form-field.has-success textarea,
-.form-field.has-success select,
-.form-group.has-success input,
-.form-group.has-success textarea,
-.form-group.has-success select {
-  border-color: var(--ts-color-success);
-  background-color: rgb(236, 253, 245, 0.5);
-}
-
 /* Labeling — clear, accessible, and WCAG-compliant */
 .form-label,
 .form-label-required {
@@ -77,10 +35,20 @@
   aria-hidden: true;
 }
 
+/* Error message styling */
+.field-error {
+  display: block;
+  color: var(--ts-color-error);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  margin-top: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--ts-color-error-bg);
+  border-left: 3px solid var(--ts-color-error);
+  border-radius: 4px;
+}
+
 /* Unified input surface — meets TCNA/ADA touch targets */
-.form-input,
-.form-textarea,
-.form-select,
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -99,6 +67,21 @@ select {
   min-block-size: 44px; /* WCAG/ADA minimum touch target */
 }
 
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  background: var(--ts-color-surface);
+  color: var(--ts-color-text);
+  border: 1px solid var(--ts-color-border);
+  border-radius: var(--ts-radius-sm);
+  box-sizing: border-box;
+  transition: border-color var(--tiller-transition-fast), box-shadow var(--tiller-transition-fast);
+  min-block-size: 44px;
+}
+
 .form-input::placeholder,
 .form-textarea::placeholder,
 .form-select::placeholder,
@@ -110,9 +93,6 @@ select::placeholder {
 }
 
 /* Focus state — high contrast, visible, accessible */
-.form-input:focus,
-.form-textarea:focus,
-.form-select:focus,
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus,
@@ -126,10 +106,17 @@ select:focus {
   background: var(--ts-color-surface-elevated);
 }
 
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  border-color: var(--ts-color-primary);
+  box-shadow: 0 0 0 3px rgb(14, 165, 233, 0.25);
+  outline: 2px solid var(--ts-color-primary);
+  outline-offset: 1px;
+  background: var(--ts-color-surface-elevated);
+}
+
 /* Disabled state — clear, non-interactive, meets contrast */
-.form-input:disabled,
-.form-textarea:disabled,
-.form-select:disabled,
 input:disabled,
 textarea:disabled,
 select:disabled {
@@ -138,6 +125,45 @@ select:disabled {
   cursor: not-allowed;
   opacity: 0.65;
   border-style: dashed;
+}
+
+.form-input:disabled,
+.form-textarea:disabled,
+.form-select:disabled {
+  background: var(--ts-color-surface-muted);
+  color: var(--ts-color-muted);
+  cursor: not-allowed;
+  opacity: 0.65;
+  border-style: dashed;
+}
+
+/* Error state for form fields */
+.form-field.has-error input,
+.form-field.has-error textarea,
+.form-field.has-error select,
+.form-group.has-error input,
+.form-group.has-error textarea,
+.form-group.has-error select {
+  border-color: var(--ts-color-error);
+  border-width: 2px;
+  background-color: rgb(255, 245, 245, 0.5);
+}
+
+.form-field.has-error label,
+.form-group.has-error label {
+  color: var(--ts-color-error);
+  font-weight: 600;
+}
+
+/* Success state */
+.form-field.has-success input,
+.form-field.has-success textarea,
+.form-field.has-success select,
+.form-group.has-success input,
+.form-group.has-success textarea,
+.form-group.has-success select {
+  border-color: var(--ts-color-success);
+  background-color: rgb(236, 253, 245, 0.5);
 }
 
 /* Helper text — clear, accessible, and compliant */
