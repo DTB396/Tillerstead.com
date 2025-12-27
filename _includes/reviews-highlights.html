@@ -12,15 +12,15 @@ Usage: {% include reviews-highlights.html limit=3 %}
 {% assign heading_id = include.heading_id | default: section_id | append: '-title' %}
 <section class="ts-section section reviews" aria-labelledby="{{ heading_id }}">
   <div class="container">
-    <div class="section-header">
-      <p class="eyebrow text-accent">{{ include.eyebrow | default: 'Verified Client Feedback' }}</p>
+    <header class="section-header text-center">
+      <span class="eyebrow eyebrow--dark">{{ include.eyebrow | default: 'Verified Client Feedback' }}</span>
       <h2 id="{{ heading_id }}" class="heading-2">
-        {{ include.title | default: 'South Jersey's TCNA-Compliant Tile & Bath Reviews' }}
+        {{ include.title | default: 'South Jersey Tile & Bath Reviews' }}
       </h2>
       <p class="lead">
-        {{ include.summary | default: 'Every project installed per TCNA 2024 Handbook and ANSI A108 specifications (proper trowel selection for complete mortar coverage, ANSI A108.10 waterproofing) and NJ HIC regulations. Clients value transparent communication, meticulous site cleanliness, and precision installation that passes ASTM E2947 flood tests.' }}
+        {{ include.summary | default: 'Clients consistently point to disciplined workmanship, clear communication, and well-managed job sites. Tile and bath projects are executed using TCNA-recognized methods and ANSI A108 installation practices, including appropriate surface preparation, trowel selection, coverage checks during installation, and professionally designed waterproofing assemblies where required—fully aligned with New Jersey HIC standards.' }}
       </p>
-    </div>
+    </header>
 
     {% if items and items.size > 0 %}
       <ul class="cards cards--3col" role="list" aria-label="Highlighted client reviews">
@@ -58,9 +58,9 @@ Usage: {% include reviews-highlights.html limit=3 %}
       </ul>
     {% endif %}
 
-    <div class="section-action">
-      <a href="{{ include.cta_url | default: '/reviews/' | relative_url }}" class="btn btn--primary" aria-label="Read detailed client reviews and compliance credentials">
-        {{ include.cta_label | default: 'See More Verified Reviews & Credentials' }}
+    <div class="section-action text-center">
+      <a href="{{ include.cta_url | default: '/reviews/' | relative_url }}" class="btn btn--ghost" aria-label="Read more client reviews">
+        {{ include.cta_label | default: 'Read More Client Reviews →' }}
       </a>
     </div>
   </div>

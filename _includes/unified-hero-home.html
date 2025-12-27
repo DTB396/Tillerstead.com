@@ -4,12 +4,11 @@ Unified Hero for Homepage + Tillerstead.com
 
 {%- assign src = include | default: page -%}
 
-{%- assign hero_title = src.title | default: page.title | default: "TCNA-Compliant Tile & Bathroom Remodeling Experts"
+{%- assign hero_title = src.title | default: page.title | default: "TCNA-Compliant Tile & Remodeling"
 -%}
-{%- assign hero_summary = src.summary | default: page.description | default: "Precision tile installation, custom
-bathrooms, and full-service remodeling—engineered for durability and code compliance in Southern New Jersey." -%}
-{%- assign hero_eyebrow = src.eyebrow | default: "Licensed & Insured NJ Home Improvement Contractor" -%}
-{%- assign hero_badge = src.badge | default: "NJ HIC #13VH10808800" -%}
+{%- assign hero_summary = src.summary | default: page.description | default: "ANSI A108 installation methods, ANSI A108.10 waterproofing assemblies, and deflection evaluated where applicable—planned, documented, and built to perform." -%}
+{%- assign hero_eyebrow = src.eyebrow | default: "Licensed New Jersey Home Improvement Contractor" -%}
+{%- assign hero_badge = src.badge | default: "NJ HIC #13VH10808800 · Serving New Jersey since 2019" -%}
 
 {%- assign bullets = src.bullets | default: page.hero_bullets | default: page.services -%}
 {%- assign facts = src.facts | default: page.hero_facts -%}
