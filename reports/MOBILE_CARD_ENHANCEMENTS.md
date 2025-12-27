@@ -170,7 +170,7 @@ Implemented enterprise-grade mobile card responsiveness using modern CSS feature
 
 ### Grid Behavior
 
-**2-Column Cards (.cards--2col)**
+#### 2-Column Cards (.cards--2col)
 
 ```scss
 /* Base: intrinsic */
@@ -182,7 +182,7 @@ grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
 }
 ```
 
-**3-Column Cards (.cards--3col)**
+#### 3-Column Cards (.cards--3col)
 
 ```scss
 /* Base: intrinsic */
@@ -194,7 +194,7 @@ grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
 }
 ```
 
-**4-Column Cards (.cards--4col)**
+#### 4-Column Cards (.cards--4col)
 
 ```scss
 /* Base: intrinsic */
