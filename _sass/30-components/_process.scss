@@ -1,21 +1,22 @@
 /* ============================================
-  Process Section with Icon Steps
-  ============================================ */
+   Process Section — Tillerstead
+   Mobile-first, component-scoped, no Tailwind dependency
+   ============================================ */
 
 .ts-process {
+  position: relative;
   background: var(--ts-color-surface-muted);
 }
 
-/* Enhanced process section with subtle pattern background */
 .ts-process--enhanced {
   position: relative;
   background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
-  
+
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background-image: url('/assets/img/patterns/tile-crosshatch.svg');
+    background-image: url("/assets/img/patterns/tile-crosshatch.svg");
     background-size: 180px 180px;
     background-position: center;
     opacity: 0.03;
@@ -26,140 +27,132 @@
 .ts-process__header {
   position: relative;
   z-index: 1;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
 }
 
-.ts-process__grid,
 .ts-process__steps {
-  display: grid;
-  gap: var(--ts-spacing-lg);
-  margin-top: var(--ts-spacing-xl);
   position: relative;
   z-index: 1;
-  
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: clamp(1.5rem, 3vw, 2rem);
-  }
-  
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(1.5rem, 3vw, 2.5rem);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  margin-top: clamp(1rem, 3vw, 2rem);
+}
+
+/* 2-col tablet, 3-col desktop */
+@media (min-width: 768px) {
+  .ts-process__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+@media (min-width: 1024px) {
+  .ts-process__steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Card */
 .ts-process__step {
   display: flex;
   flex-direction: column;
-  gap: var(--ts-spacing-md);
-  padding: clamp(1.5rem, 4vw, 2rem);
-  background: var(--ts-white);
-  border: 1px solid rgb(13, 154, 170, 0.12);
-  border-radius: var(--ts-radius-lg);
-  box-shadow: 
-    0 2px 8px rgb(0, 0, 0, 0.04),
-    0 4px 16px rgb(0, 0, 0, 0.02);
-  transition: all var(--tiller-duration-base) var(--tiller-ease-standard);
-  
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 
-      0 8px 20px rgb(0, 0, 0, 0.08),
-      0 12px 32px rgb(0, 0, 0, 0.04);
-    border-color: var(--ts-color-primary);
-  }
+  gap: var(--ts-spacing-md, 1rem);
+
+  padding: clamp(1.25rem, 3.5vw, 2rem);
+  background: var(--ts-white, #fff);
+
+  border: 1px solid rgba(13, 154, 170, 0.12);
+  border-radius: var(--ts-radius-lg, 0.75rem);
+
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 4px 16px rgba(0, 0, 0, 0.02);
+
+  transition: transform var(--tiller-duration-base, 180ms) var(--tiller-ease-standard, ease),
+    box-shadow var(--tiller-duration-base, 180ms) var(--tiller-ease-standard, ease),
+    border-color var(--tiller-duration-base, 180ms) var(--tiller-ease-standard, ease);
+}
+
+.ts-process__step:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.08),
+    0 12px 32px rgba(0, 0, 0, 0.04);
+  border-color: var(--ts-color-primary, #0d9aaa);
+}
+
+/* Title/description (works whether you use BEM title classes or heading-* classes) */
+.ts-process__title,
+.ts-process__step h3 {
+  margin: 0;
+  color: var(--ts-color-heading, #0f172a);
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: 1.2;
+  font-size: clamp(1.05rem, 1.2vw, 1.25rem);
+}
+
+.ts-process__description,
+.ts-process__step p {
+  margin: 0;
+  color: var(--ts-color-muted, #475569);
+  line-height: var(--font-line-height-relaxed, 1.65);
+  font-size: clamp(0.95rem, 1.05vw, 1.02rem);
+}
+
+/* Optional icon support (only applies if markup includes .ts-process__icon) */
+.ts-process__step--with-icon {
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 .ts-process__icon {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--ts-color-primary) 0%, var(--ts-color-primary-strong) 100%);
-  box-shadow: 0 4px 12px rgb(13, 154, 170, 0.25);
+
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 999px;
+
+  background: linear-gradient(135deg,
+      var(--ts-color-primary, #0d9aaa) 0%,
+      var(--ts-color-primary-strong, #0b6b5c) 100%);
+
+  box-shadow: 0 4px 12px rgba(13, 154, 170, 0.25);
   flex-shrink: 0;
-  
-  .ts-icon {
-    width: 2rem;
-    height: 2rem;
-    color: var(--ts-white);
-  }
-  
-  .ts-process__step:hover & {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 6px 16px rgb(13, 154, 170, 0.35);
-  }
 }
 
-.ts-process__content {
-  flex: 1;
+.ts-process__icon .ts-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  color: var(--ts-white, #fff);
 }
 
-.ts-process__title {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  color: var(--ts-color-heading);
-  margin: 0 0 var(--ts-spacing-sm);
+.ts-process__step:hover .ts-process__icon {
+  transform: scale(1.06) rotate(3deg);
+  box-shadow: 0 6px 16px rgba(13, 154, 170, 0.35);
 }
 
-.ts-process__description {
-  font-size: var(--font-size-sm);
-  line-height: var(--font-line-height-relaxed);
-  color: var(--ts-color-muted);
-  margin: 0;
-}
-
-@media (max-width: 767px) {
-  .ts-process__step {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: var(--ts-spacing-md);
-  }
-  
-  .ts-process__icon {
-    width: 3rem;
-    height: 3rem;
-    
-    .ts-icon {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-  }
-  
-  /* Better mobile spacing for process section */
-  .ts-process__header {
-    margin-bottom: clamp(1.5rem, 4vw, 2rem);
-  }
-  
-  .ts-process__steps,
-  .ts-process__grid {
-    gap: 1.25rem;
-  }
-}
-
-/* iPhone and similar narrow viewports */
+/* Narrow viewports: keep cards stacked & readable */
 @media (max-width: 430px) {
   .ts-process__step {
-    padding: 1.25rem;
-  }
-  
-  .ts-process__title {
-    font-size: var(--font-size-base);
-  }
-  
-  .ts-process__description {
-    font-size: var(--font-size-xs);
+    padding: 1.15rem;
   }
 }
 
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
+
   .ts-process__step,
   .ts-process__icon {
     transition: none;
   }
-  
-  .ts-process__step:hover,
+
+  .ts-process__step:hover {
+    transform: none;
+  }
+
   .ts-process__step:hover .ts-process__icon {
     transform: none;
   }

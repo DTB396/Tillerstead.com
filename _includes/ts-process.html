@@ -1,56 +1,163 @@
-<!-- Process Steps Section (Accessible, Conversion-Optimized, Mobile-Safe) -->
-{% assign section_id = include.section_id | default: 'ts-process' %}
-{% assign heading_id = include.heading_id | default: section_id | append: '-title' %}
+/* ============================================
+Process Section — Tillerstead
+Matches _includes/ts-process.html structure:
+.ts-process__steps (ol) > .ts-process__step (li)
+Badge + content layout, mobile-safe
+============================================ */
 
-<section class="ts-process ts-section ts-process--enhanced" id="{{ section_id }}" aria-labelledby="{{ heading_id }}">
-  <div class="container">
-    <header class="ts-process__header">
-      <span class="eyebrow eyebrow--dark">How We Work</span>
-      <h2 id="{{ heading_id }}" class="heading-2">
-        A documented, code-aware process—so your tile doesn’t become a redo
-      </h2>
-      <p class="lead ts-process__lede">
-        Written scope, verified prep, waterproofing you can prove, and clean closeout documentation.
-      </p>
-    </header>
+.ts-process {
+position: relative;
+background: var(--ts-color-surface-muted);
+}
 
-    <ol class="ts-process__steps" role="list">
-      <li class="ts-process__step">
-        <div class="ts-process__badge" aria-hidden="true">1</div>
-        <div class="ts-process__content">
-          <h3 class="ts-process__title">On-site assessment &amp; substrate verification</h3>
-          <p class="ts-process__text">
-            A licensed, documented walkthrough focused on real conditions: structure, flatness, moisture risk,
-            and layout feasibility. We verify what matters before tile gets ordered—so the plan is based on your space,
-            not assumptions.
-          </p>
-        </div>
-      </li>
+.ts-process--enhanced {
+position: relative;
+background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
 
-      <li class="ts-process__step">
-        <div class="ts-process__badge" aria-hidden="true">2</div>
-        <div class="ts-process__content">
-          <h3 class="ts-process__title">Written scope, materials, and contract terms</h3>
-          <p class="ts-process__text">
-            You receive a written scope that calls out the assembly approach, material categories, and a clear
-            change-order process.
-            Contract terms follow New Jersey HIC requirements (including required notices and cancellation rights).
-          </p>
-        </div>
-      </li>
+&::before {
+content: "";
+position: absolute;
+inset: 0;
+background-image: url("/assets/img/patterns/tile-crosshatch.svg");
+background-size: 180px 180px;
+background-position: center;
+opacity: 0.03;
+pointer-events: none;
+}
+}
 
-      <li class="ts-process__step">
-        <div class="ts-process__badge" aria-hidden="true">3</div>
-        <div class="ts-process__content">
-          <h3 class="ts-process__title">Installation, verification, and closeout packet</h3>
-          <p class="ts-process__text">
-            Work is executed with jobsite cleanliness and photo documentation (prep → waterproofing details → setting).
-            Flood testing is performed where applicable. You get a closeout packet: care notes, warranty terms, and
-            photo records
-            for future trades and peace of mind.
-          </p>
-        </div>
-      </li>
-    </ol>
-  </div>
-</section>
+.ts-process__header {
+position: relative;
+z-index: 1;
+margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+
+.ts-process__lede {
+max-width: 60ch;
+}
+
+/* Steps container */
+.ts-process__steps {
+position: relative;
+z-index: 1;
+
+/* Reset list default styling */
+list-style: none;
+padding: 0;
+margin: clamp(1rem, 2.5vw, 1.75rem) 0 0;
+
+display: grid;
+grid-template-columns: 1fr;
+gap: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+/* 3-up on larger screens */
+@media (min-width: 1024px) {
+.ts-process__steps {
+grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+}
+
+/* Step card */
+.ts-process__step {
+display: flex;
+align-items: flex-start;
+gap: clamp(0.85rem, 2vw, 1.1rem);
+
+padding: clamp(1.25rem, 3.5vw, 2rem);
+background: var(--ts-white, #fff);
+
+border: 1px solid rgba(13, 154, 170, 0.12);
+border-radius: var(--ts-radius-lg, 0.75rem);
+
+box-shadow:
+0 2px 8px rgba(0, 0, 0, 0.04),
+0 4px 16px rgba(0, 0, 0, 0.02);
+
+transition:
+transform var(--tiller-duration-base, 180ms) var(--tiller-ease-standard, ease),
+box-shadow var(--tiller-duration-base, 180ms) var(--tiller-ease-standard, ease),
+border-color var(--tiller-duration-base, 180ms) var(--tiller-ease-standard, ease);
+}
+
+.ts-process__step:hover {
+transform: translateY(-3px);
+box-shadow:
+0 8px 20px rgba(0, 0, 0, 0.08),
+0 12px 32px rgba(0, 0, 0, 0.04);
+border-color: var(--ts-color-primary, #0d9aaa);
+}
+
+/* Number badge */
+.ts-process__badge {
+flex: 0 0 auto;
+width: 2.4rem;
+height: 2.4rem;
+
+display: inline-flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 999px;
+font-weight: 800;
+line-height: 1;
+font-size: 1rem;
+
+color: var(--ts-white, #fff);
+background: linear-gradient(
+135deg,
+var(--ts-color-primary, #0d9aaa) 0%,
+var(--ts-color-primary-strong, #0b6b5c) 100%
+);
+
+box-shadow: 0 4px 12px rgba(13, 154, 170, 0.22);
+}
+
+.ts-process__step:hover .ts-process__badge {
+box-shadow: 0 6px 16px rgba(13, 154, 170, 0.32);
+}
+
+/* Content */
+.ts-process__content {
+min-width: 0; /* important: allows text wrapping inside flex item */
+}
+
+.ts-process__title {
+margin: 0 0 0.5rem;
+color: var(--ts-color-heading, #0f172a);
+font-weight: var(--font-weight-semibold, 600);
+line-height: 1.2;
+font-size: clamp(1.05rem, 1.2vw, 1.25rem);
+}
+
+.ts-process__text {
+margin: 0;
+color: var(--ts-color-muted, #475569);
+line-height: var(--font-line-height-relaxed, 1.65);
+font-size: clamp(0.95rem, 1.05vw, 1.02rem);
+}
+
+/* Mobile polish */
+@media (max-width: 430px) {
+.ts-process__step {
+padding: 1.15rem;
+}
+
+.ts-process__badge {
+width: 2.2rem;
+height: 2.2rem;
+font-size: 0.95rem;
+}
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+.ts-process__step,
+.ts-process__badge {
+transition: none;
+}
+
+.ts-process__step:hover {
+transform: none;
+}
+}

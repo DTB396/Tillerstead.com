@@ -1,0 +1,82 @@
+
+file                                                                           token
+----                                                                           -----
+C:\Users\Devon Tyler\tillerstead\_includes\blog-highlights.html                text-
+C:\Users\Devon Tyler\tillerstead\_includes\compliance.html                     text-
+C:\Users\Devon Tyler\tillerstead\_includes\cta-section.html                    text-
+C:\Users\Devon Tyler\tillerstead\_includes\head.html                           p-
+C:\Users\Devon Tyler\tillerstead\_includes\logo-sprite-inline.html             text-
+C:\Users\Devon Tyler\tillerstead\_includes\portfolio-highlights.html           text-
+C:\Users\Devon Tyler\tillerstead\_includes\reviews-highlights.html             text-
+C:\Users\Devon Tyler\tillerstead\_includes\sections\process.html               text-
+C:\Users\Devon Tyler\tillerstead\_includes\ts-icon-sprite.html                 p-
+C:\Users\Devon Tyler\tillerstead\_includes\ts-plans.html                       text-
+C:\Users\Devon Tyler\tillerstead\_includes\ts-portfolio.html                   text-
+C:\Users\Devon Tyler\tillerstead\_includes\ts-services.html                    text-
+C:\Users\Devon Tyler\tillerstead\_includes\ts-testimonials.html                text-
+C:\Users\Devon Tyler\tillerstead\_includes\unified-hero.html                   text-
+C:\Users\Devon Tyler\tillerstead\_layouts\default.html                         p-
+C:\Users\Devon Tyler\tillerstead\_layouts\post.html                            text-
+C:\Users\Devon Tyler\tillerstead\.ai\CODEX.md                                  text-
+C:\Users\Devon Tyler\tillerstead\.ai\COMPLIANCE.md                             p-
+C:\Users\Devon Tyler\tillerstead\.ai\COPILOT.md                                text-
+C:\Users\Devon Tyler\tillerstead\.ai\GPT.md                                    md:
+C:\Users\Devon Tyler\tillerstead\.ai\GPT.md                                    text-
+C:\Users\Devon Tyler\tillerstead\.github\instructions\build-troubleshooting.md p-
+C:\Users\Devon Tyler\tillerstead\.github\instructions\README.md                py-
+C:\Users\Devon Tyler\tillerstead\404.html                                      text-
+C:\Users\Devon Tyler\tillerstead\dist\.AI_GOVERNANCE.md                        py-
+C:\Users\Devon Tyler\tillerstead\dist\90S-DESIGN-GUIDE.md                      text-
+C:\Users\Devon Tyler\tillerstead\dist\CARTOON-DESIGN-GUIDE.md                  p-
+C:\Users\Devon Tyler\tillerstead\dist\CONVERSION-OPTIMIZATION-PLAN.md          p-
+C:\Users\Devon Tyler\tillerstead\dist\FOOTER-PATTERN-REFERENCE.md              py-
+C:\Users\Devon Tyler\tillerstead\dist\GITHUB_ACTIONS_COMPLETE.md               p-
+C:\Users\Devon Tyler\tillerstead\dist\GITHUB_ACTIONS_DEBUG_SUMMARY.md          p-
+C:\Users\Devon Tyler\tillerstead\dist\GITHUB_ACTIONS_FIX_REPORT.md             p-
+C:\Users\Devon Tyler\tillerstead\dist\GOVERNANCE_COMPLIANCE_AUDIT.md           p-
+C:\Users\Devon Tyler\tillerstead\dist\HYBRID-DESIGN-IMPLEMENTATION.md          lg:
+C:\Users\Devon Tyler\tillerstead\dist\HYBRID-DESIGN-IMPLEMENTATION.md          md:
+C:\Users\Devon Tyler\tillerstead\dist\HYBRID-DESIGN-IMPLEMENTATION.md          sm:
+C:\Users\Devon Tyler\tillerstead\dist\ICON_PLACEMENT_GUIDE.md                  p-
+C:\Users\Devon Tyler\tillerstead\dist\ICON_SYSTEM.md                           p-
+C:\Users\Devon Tyler\tillerstead\dist\ICON_SYSTEM.md                           text-
+C:\Users\Devon Tyler\tillerstead\dist\index.html                               gap-
+C:\Users\Devon Tyler\tillerstead\dist\index.html                               grid-cols-
+C:\Users\Devon Tyler\tillerstead\dist\index.html                               md:
+C:\Users\Devon Tyler\tillerstead\dist\index.html                               md:grid-cols-
+C:\Users\Devon Tyler\tillerstead\dist\index.html                               p-
+C:\Users\Devon Tyler\tillerstead\dist\index.html                               py-
+C:\Users\Devon Tyler\tillerstead\dist\index.html                               rounded-
+C:\Users\Devon Tyler\tillerstead\dist\index.html                               text-
+C:\Users\Devon Tyler\tillerstead\dist\NODE24_UPGRADE_REPORT.md                 p-
+C:\Users\Devon Tyler\tillerstead\dist\OPTIMIZATION-FUN-PLAN.md                 p-
+C:\Users\Devon Tyler\tillerstead\dist\OPTIMIZATION-FUN-PLAN.md                 text-
+C:\Users\Devon Tyler\tillerstead\dist\POST_DEPLOYMENT_VERIFICATION.md          p-
+C:\Users\Devon Tyler\tillerstead\dist\POST_DEPLOYMENT_VERIFICATION.md          px-
+C:\Users\Devon Tyler\tillerstead\dist\QUICK_REFERENCE.md                       p-
+C:\Users\Devon Tyler\tillerstead\dist\SCRIPTS_GUIDE.md                         p-
+C:\Users\Devon Tyler\tillerstead\dist\TILLERSTEAD_404_COMPREHENSIVE_FIX.md     p-
+C:\Users\Devon Tyler\tillerstead\dist\TILLERSTEAD_DEPLOYMENT_STATUS.md         p-
+C:\Users\Devon Tyler\tillerstead\DOCUMENTATION_AUDIT.md                        p-
+C:\Users\Devon Tyler\tillerstead\icon-demo.html                                p-
+C:\Users\Devon Tyler\tillerstead\index.html                                    text-
+C:\Users\Devon Tyler\tillerstead\instruction docs\curbless-shower-rebuild.md   p-
+C:\Users\Devon Tyler\tillerstead\instruction docs\README.md                    p-
+C:\Users\Devon Tyler\tillerstead\pages\atlantic-county-nj.html                 p-
+C:\Users\Devon Tyler\tillerstead\pages\cape-may-county-nj.html                 p-
+C:\Users\Devon Tyler\tillerstead\pages\ocean-county-nj.html                    p-
+C:\Users\Devon Tyler\tillerstead\pages\portfolio.html                          text-
+C:\Users\Devon Tyler\tillerstead\pages\pricing.html                            text-
+C:\Users\Devon Tyler\tillerstead\pages\process.html                            p-
+C:\Users\Devon Tyler\tillerstead\pages\reviews.html                            p-
+C:\Users\Devon Tyler\tillerstead\pages\success.html                            text-
+C:\Users\Devon Tyler\tillerstead\README.md                                     text-
+C:\Users\Devon Tyler\tillerstead\reports\FOOTER_AND_PATTERNS_AUDIT.md          p-
+C:\Users\Devon Tyler\tillerstead\reports\FOOTER_AND_PATTERNS_AUDIT.md          px-
+C:\Users\Devon Tyler\tillerstead\reports\MOBILE_CARD_ENHANCEMENTS.md           px-
+C:\Users\Devon Tyler\tillerstead\test-results\html\index.html                  p-
+C:\Users\Devon Tyler\tillerstead\test-results\html\index.html                  px-
+C:\Users\Devon Tyler\tillerstead\test-results\html\index.html                  py-
+C:\Users\Devon Tyler\tillerstead\test-results\html\index.html                  text-
+
+
