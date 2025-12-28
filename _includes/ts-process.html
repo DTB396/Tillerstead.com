@@ -1,40 +1,56 @@
-<!-- Unified Process Steps Section (TCNA/New Jersey HIC Compliant, Accessible, Conversion-Optimized) -->
+<!-- Process Steps Section (Accessible, Conversion-Optimized, Mobile-Safe) -->
 {% assign section_id = include.section_id | default: 'ts-process' %}
 {% assign heading_id = include.heading_id | default: section_id | append: '-title' %}
-{% assign step1_title_id = section_id | append: '-step1-title' %}
-{% assign step2_title_id = section_id | append: '-step2-title' %}
-{% assign step3_title_id = section_id | append: '-step3-title' %}
 
-<section class="ts-process py-8 ts-section ts-process--enhanced" id="{{ section_id }}" aria-labelledby="{{ heading_id }}">
+<section class="ts-process ts-section ts-process--enhanced" id="{{ section_id }}" aria-labelledby="{{ heading_id }}">
   <div class="container">
-    <header class="ts-process__header mb-6">
-      <span class="eyebrow eyebrow--dark mb-2 d-block">How We Work</span>
-      <h2 id="{{ heading_id }}" class="heading-2 text-primary">
-        TCNA 2024-Compliant Process—From ANSI A108.10 Assessment to ASTM E2947 Testing
+    <header class="ts-process__header">
+      <span class="eyebrow eyebrow--dark">How We Work</span>
+      <h2 id="{{ heading_id }}" class="heading-2">
+        A documented, code-aware process—so your tile doesn’t become a redo
       </h2>
+      <p class="lead ts-process__lede">
+        Written scope, verified prep, waterproofing you can prove, and clean closeout documentation.
+      </p>
     </header>
 
-    <div class="ts-process__steps grid gap-6 md:grid-cols-3">
-      <article class="ts-process__step p-5 rounded-lg bg-white" aria-labelledby="{{ step1_title_id }}">
-        <h3 id="{{ step1_title_id }}" class="heading-3 mb-3 text-primary">On-Site Assessment &amp; Substrate Verification</h3>
-        <p>
-          Complimentary New Jersey HIC-licensed walk-through with documented substrate evaluation: L/360 deflection testing, moisture mapping, flatness verification (1/8" in 10' for LFT). TCNA 2024 compliance assessment ensures your project starts with engineering-grade documentation—not guesswork.
-        </p>
-      </article>
+    <ol class="ts-process__steps" role="list">
+      <li class="ts-process__step">
+        <div class="ts-process__badge" aria-hidden="true">1</div>
+        <div class="ts-process__content">
+          <h3 class="ts-process__title">On-site assessment &amp; substrate verification</h3>
+          <p class="ts-process__text">
+            A licensed, documented walkthrough focused on real conditions: structure, flatness, moisture risk,
+            and layout feasibility. We verify what matters before tile gets ordered—so the plan is based on your space,
+            not assumptions.
+          </p>
+        </div>
+      </li>
 
-      <article class="ts-process__step p-5 rounded-lg bg-white" aria-labelledby="{{ step2_title_id }}">
-        <h3 id="{{ step2_title_id }}" class="heading-3 mb-3 text-primary">Detailed Scope, ISO 13007 Materials &amp; Written Contract</h3>
-        <p>
-          Receive written scope specifying ANSI A108 installation methods, ANSI A118.10 waterproofing assemblies, and ISO 13007 C2-rated thinset—plus New Jersey Consumer Fraud Act-compliant contract terms (3-day rescission, max 10% deposit, milestone payments). You approve every technical detail and legal protection.
-        </p>
-      </article>
+      <li class="ts-process__step">
+        <div class="ts-process__badge" aria-hidden="true">2</div>
+        <div class="ts-process__content">
+          <h3 class="ts-process__title">Written scope, materials, and contract terms</h3>
+          <p class="ts-process__text">
+            You receive a written scope that calls out the assembly approach, material categories, and a clear
+            change-order process.
+            Contract terms follow New Jersey HIC requirements (including required notices and cancellation rights).
+          </p>
+        </div>
+      </li>
 
-      <article class="ts-process__step p-5 rounded-lg bg-white" aria-labelledby="{{ step3_title_id }}">
-        <h3 id="{{ step3_title_id }}" class="heading-3 mb-3 text-primary">TCNA-Compliant Installation &amp; ASTM E2947 Flood Testing</h3>
-        <p>
-          Work proceeds with daily photo documentation including periodic quality-control checks during installation, OSHA 1926.1153 silica control, and ASTM E2947 flood testing. At completion: closeout package with 2-year workmanship warranty, care instructions, and technical documentation—ensuring long-term performance and legal compliance.
-        </p>
-      </article>
-    </div>
+      <li class="ts-process__step">
+        <div class="ts-process__badge" aria-hidden="true">3</div>
+        <div class="ts-process__content">
+          <h3 class="ts-process__title">Installation, verification, and closeout packet</h3>
+          <p class="ts-process__text">
+            Work is executed with jobsite cleanliness and photo documentation (prep → waterproofing details → setting).
+            Flood testing is performed where applicable. You get a closeout packet: care notes, warranty terms, and
+            photo records
+            for future trades and peace of mind.
+          </p>
+        </div>
+      </li>
+    </ol>
   </div>
 </section>

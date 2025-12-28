@@ -2,116 +2,134 @@
 #  Tillerstead.com — _config.yml
 # ============================
 
+# ----------------------------
 # Site identity
-title: Tillerstead
-tagline: TCNA-Compliant Tile Installation & Waterproofing in South Jersey
-description: Licensed New Jersey Home Improvement Contractor specializing in TCNA-compliant tile installations, waterproof showers, and bathroom remodeling. Substrate verified, flood-tested waterproofing, complete documentation. Serving Atlantic, Ocean & Cape May Counties.
-url: https://tillerstead.com
-baseurl: ""  # Empty for custom domain (CNAME: tillerstead.com)
-timezone: America/New_York
+# ----------------------------
+title: "Tillerstead LLC"
+tagline: "TCNA-Compliant Tile & Stone Installation — South Jersey"
+description: >-
+  TCNA-standard tile and stone installation: custom showers, heated floors, waterproof assemblies,
+  and natural stone surfaces. New Jersey HIC #13VH10808800. Serving Atlantic, Ocean, and Cape May
+  Counties with precision, transparency, and owner oversight.
 
-# Global keyword focus for SEO
-keywords:
-  - Tile installation New Jersey
-  - Waterproof showers NJ
-  - Tile contractor South Jersey
-  - Bathroom remodeling Atlantic County
-  - Large format tile installer NJ
-  - Licensed tile contractor NJ
+url: "https://tillerstead.com"
+baseurl: "" # keep empty for apex/root
+timezone: "America/New_York"
 
-# No theme injection; use custom layouts/includes
+# ----------------------------
+# Build settings
+# ----------------------------
+permalink: pretty
+
+# If you are NOT using a theme gem, keep theme unset/null.
+# IMPORTANT: Do not reuse the key "theme" for your own site variables.
 theme: null
 
-# Build & content
-permalink: pretty           # /about/ instead of /about.html
+# If you use plugins, keep this list. If not, you can delete the whole plugins block.
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
 
-# Social/SEO defaults
+# ----------------------------
+# SEO
+# ----------------------------
+keywords:
+  - "TCNA-compliant tile installation South Jersey"
+  - "Custom shower waterproofing New Jersey HIC contractor"
+  - "Heated floor tile systems Atlantic County"
+  - "Natural stone and marble tile New Jersey"
+  - "Large format tile installation NJ"
+  - "Schluter-certified waterproofing South Jersey"
+  - "Porcelain slab installation expert NJ"
+  - "Licensed tile contractor Atlantic County"
+  - "Owner-supervised tile projects NJ"
+  - "Written scopes and change orders NJ"
+
 social:
-  name: Tillerstead LLC
+  name: "Tillerstead LLC"
   links:
-    - https://tillerstead.com
-    - https://www.instagram.com/tillerstead?igsh=MWg5NjlwNXBnYXM2Mg%3D%3D&utm_source=qr
-    - https://www.facebook.com/share/17ZQCR2zdZ/?mibextid=wwXIfr
-    - https://x.com/tillerstead?s=21
-  instagram: "https://www.instagram.com/tillerstead?igsh=MWg5NjlwNXBnYXM2Mg%3D%3D&utm_source=qr"
-  facebook: "https://www.facebook.com/share/17ZQCR2zdZ/?mibextid=wwXIfr"
-  x: "https://x.com/tillerstead?s=21"
+    - "https://tillerstead.com"
+    - "https://www.instagram.com/tillerstead?igsh=MWg5NjlwNXBnYXM2Mg%3D%3D&utm_source=qr"
+    - "https://www.facebook.com/share/17ZQCR2zdZ/?mibextid=wwXIfr"
+    - "https://x.com/tillerstead?s=21"
 
+logo: "/assets/img/logo/tillerstead-logo-header.svg"
+default_og_image: "/assets/img/social/tillerstead-showcase.jpg"
+hero_default_image: "/assets/img/tillerstead-work/bathrooms/bathroom-accent-wall-and-shower.jpg"
+
+# Cache-busting helper (used in CSS/JS includes)
+assets_version: "2025-11-23.1"
+
+# ----------------------------
 # Business variables
+# ----------------------------
 company:
-  owner: "Tyler of Tillerstead"
+  owner: "Tyler, Owner/Operator"
   phone_display: "(609) 862-8808"
   phone_link: "+16098628808"
   hic: "13VH10808800"
   address_line: "325 E. Jimmie Leeds Road, Suite 7-333"
-  address_city: "Galloway, New Jersey 08205"
-  address_locality: "Galloway"
+  address_city: "Galloway"
   address_region: "NJ"
   address_postal_code: "08205"
   email: "info@tillerstead.com"
 
-# OG/social defaults
-logo: /assets/img/logo/tillerstead-logo-header.svg
-default_og_image: /assets/img/tillerstead-work/bathrooms/bathroom-marble-floor-finish.jpg
-hero_default_image: /assets/img/tillerstead-work/bathrooms/large-format-tile-installation.jpg
+# ----------------------------
+# Site-wide design & UX flags (custom; safe keys)
+# ----------------------------
+site_preset: "brand-2025"
 
-# Cache-busting helper
-assets_version: "2025-11-23.1"
-
-# Publish / build controls
-exclude:
-  - README.md
-  - LICENSE
-  - node_modules/
-  - vendor/
-  - package.json
-  - package-lock.json
-  - Gemfile
-  - Gemfile.lock
-  - .DS_Store
-  - .gitignore
-  - .ai/
-  - .github/
-  - "*.code-workspace"
-  - "*.devcontainer.json"
-
-keep_files:
-  - CNAME
-  - assets/
-
-# sitemap.xml is maintained manually in the repo root
-
-# Site-wide theme and UX flags
-theme_preset: "brand-2025"
-theme:
+ui:
   animations_enabled: true
   respect_reduced_motion: true
 
 ux:
-  cta_primary_label: "Request a scope review"
-  cta_secondary_label: "View services"
+  cta_primary_label: "Book a TCNA-Compliant Consultation"
+  cta_secondary_label: "See Tile Services"
   reassurances:
-    - "New Jersey licensed HIC #13VH10808800"
-    - "Written scopes and change orders"
-    - "TCNA tile installation standards"
-    - "Owner on site and accountable"
+    - "New Jersey licensed & insured • HIC #13VH10808800"
+    - "Written scopes, change orders, and transparent pricing"
+    - "Owner on site — no subcontracted labor"
+    - "Waterproof assemblies per TCNA standards"
+    - "All work documented for warranty and compliance"
   value_props:
-    - "Design consultations to align look, budget, and timeline"
+    - "Design consultations: align vision, budget, and timeline"
     - "Transparent scheduling and material lead times"
-    - "Monthly property care plans with photo reports"
+    - "Monthly property care plans with photo documentation"
+    - "All installations meet or exceed TCNA and manufacturer specs"
 
+# ----------------------------
 # Form submission defaults
+# ----------------------------
 forms:
-  endpoint: "https://formsubmit.co/f249670ee046b9a9dbc022194f773c35"
-  guide_endpoint: "https://formsubmit.co/f249670ee046b9a9dbc022194f773c35"
+  endpoint: "https://formsubmit.co/info@tillerstead.com"
+  guide_endpoint: "https://formsubmit.co/info@tillerstead.com"
   redirect_path: "/success/?form=contact"
   guide_redirect_path: "/download/nj-tile-guide/thank-you/"
-  subject: "New Tillerstead LLC inquiry from tillerstead.com"
+  subject: "New Tillerstead LLC inquiry — TCNA/New Jersey HIC Compliant"
 
+# ----------------------------
+# Exclusions (keep builds deterministic)
+# ----------------------------
+exclude:
+  - "README.md"
+  - "LICENSE"
+  - "node_modules/"
+  - "vendor/"
+  - "package.json"
+  - "package-lock.json"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - ".DS_Store"
+  - ".gitignore"
 
+  # Prevent “baseline/docs” YAML and other non-site content from ever interfering
+  - "docs/"
+  - "docs/**"
+  - "baseline/"
+  - "baseline/**"
 
-
-
-
-
-
+# GitHub Pages / static hosting helpers
+keep_files:
+  - "CNAME"
+  - "assets/"
