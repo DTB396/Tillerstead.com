@@ -29,48 +29,48 @@ license:
     - "Project Coordination and Construction Management (administrative)"
 
 business:
-	legal_name: "Tillerstead LLC"
-	trade_name: "Tillerstead"
-	owner: "Faith Frontier Ecclesiastical Trust"
-	address:
-		street: "325 East Jimmie Leeds Road, Suite 7-333"
-		city: "Galloway Township"
-		state: "NJ"
-		zip: "08205"
+  legal_name: "Tillerstead LLC"
+  trade_name: "Tillerstead"
+  owner: "Faith Frontier Ecclesiastical Trust"
+  address:
+    street: "325 East Jimmie Leeds Road, Suite 7-333"
+    city: "Galloway Township"
+    state: "NJ"
+    zip: "08205"
 
 standards:
-	tcna:
-		handbook: "TCNA 2024 Handbook for Ceramic, Glass, and Stone Tile Installation"
-		scope_notice: >
-			TCNA methods are referenced as recognized industry standards for tile
-			assemblies. Use of TCNA references does not imply certification or
-			endorsement by the Tile Council of North America.
-		references:
-			- "EJ171 – Movement Joint Guidelines"
-	ansi:
-		installation:
-			- "ANSI A108.01 – Substrates and Preparation"
-			- "ANSI A108.02 – Materials, Environmental, and Workmanship"
-			- "ANSI A108.05 – Thin-set and Modified Mortar Tile Installation"
-			- "ANSI A108.10 – Installation of Grout in Tilework"
-			- "ANSI A108.13 – Installation of Load-Bearing Bonded Waterproof Membranes"
-			- "ANSI A108.19 – Interior Installation of Gauged Porcelain Tile Panels/Slabs"
-			- "ANSI A108.20 – Exterior Installation of Gauged Porcelain Tile Panels/Slabs"
-			- "ANSI A108.21 – Self-Leveling Underlayments"
-			- "ANSI A108.22 – Installation of Pre-Mixed Grout"
-		material_specifications:
-			- "ANSI A118.1 – Dry-Set Cement Mortar"
-			- "ANSI A118.4 – Modified Dry-Set Cement Mortar"
-			- "ANSI A118.11 – EGP Mortar for Plywood"
-			- "ANSI A118.15 – Improved Modified Dry-Set Cement Mortar"
-			- "ANSI A118.10 – Load-Bearing Bonded Waterproof Membranes"
-			- "ANSI A118.12 – Crack Isolation Membranes"
-	astm:
-		- "ASTM D5957 – Flood (Ponding) Testing of Horizontal Waterproofing"
-		- "ASTM C627 – Robinson-Type Floor Tester"
-	osha:
-		- "29 CFR 1926.1153 – Respirable Crystalline Silica"
-		- "29 CFR 1926.501 – Fall Protection"
+  tcna:
+    handbook: "TCNA 2024 Handbook for Ceramic, Glass, and Stone Tile Installation"
+    scope_notice: >
+      TCNA methods are referenced as recognized industry standards for tile
+      assemblies. Use of TCNA references does not imply certification or
+      endorsement by the Tile Council of North America.
+    references:
+      - "EJ171 – Movement Joint Guidelines"
+  ansi:
+    installation:
+      - "ANSI A108.01 – Substrates and Preparation"
+      - "ANSI A108.02 – Materials, Environmental, and Workmanship"
+      - "ANSI A108.05 – Thin-set and Modified Mortar Tile Installation"
+      - "ANSI A108.10 – Installation of Grout in Tilework"
+      - "ANSI A108.13 – Installation of Load-Bearing Bonded Waterproof Membranes"
+      - "ANSI A108.19 – Interior Installation of Gauged Porcelain Tile Panels/Slabs"
+      - "ANSI A108.20 – Exterior Installation of Gauged Porcelain Tile Panels/Slabs"
+      - "ANSI A108.21 – Self-Leveling Underlayments"
+      - "ANSI A108.22 – Installation of Pre-Mixed Grout"
+    material_specifications:
+      - "ANSI A118.1 – Dry-Set Cement Mortar"
+      - "ANSI A118.4 – Modified Dry-Set Cement Mortar"
+      - "ANSI A118.11 – EGP Mortar for Plywood"
+      - "ANSI A118.15 – Improved Modified Dry-Set Cement Mortar"
+      - "ANSI A118.10 – Load-Bearing Bonded Waterproof Membranes"
+      - "ANSI A118.12 – Crack Isolation Membranes"
+  astm:
+    - "ASTM D5957 – Flood (Ponding) Testing of Horizontal Waterproofing"
+    - "ASTM C627 – Robinson-Type Floor Tester"
+  osha:
+    - "29 CFR 1926.1153 – Respirable Crystalline Silica"
+    - "29 CFR 1926.501 – Fall Protection"
 
 insurance:
 	general_liability: "$1M per occurrence / $2M aggregate"
