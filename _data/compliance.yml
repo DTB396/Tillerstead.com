@@ -18,16 +18,11 @@ license:
     Licensure is held as a New Jersey Home Improvement Contractor. References to
     technical standards apply only to tile and stone assemblies and related
     waterproofing systems within the scope of licensed home improvement work.
-  trades:
-    - "Tile Installation (ceramic, porcelain, glass)"
-    - "Natural Stone Tile Installation (thin-set methods only)"
-    - "Large-Format & Gauged Porcelain Tile Panels/Slabs (GPTP)"
-    - "Bonded Waterproofing Systems within Tile Assemblies"
-
-	# Compliance & Legal Data
-	# Purpose: Public-facing compliance disclosures and internal reference
-	# Authority: New Jersey Home Improvement Contractor Act, NJ Consumer Fraud Act
-	# Technical Standards: TCNA 2024 · ANSI A108/A118 (tile assemblies only)
+	trades:
+		- "Tile Installation (ceramic, porcelain, glass)"
+		- "Natural Stone Tile Installation (thin-set methods only)"
+		- "Large-Format & Gauged Porcelain Tile Panels/Slabs (GPTP)"
+		- "Bonded Waterproofing Systems within Tile Assemblies"
 
 	license:
 		number: "13VH10808800"
