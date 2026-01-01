@@ -159,9 +159,10 @@ const COMMON_COMBINATIONS = [
   { fg: 'red-600', bg: 'cream-100', label: 'Accent on Cream' },
   { fg: 'red-700', bg: 'white', label: 'Accent Dark on White' },
   
-  // Highlight on light backgrounds
-  { fg: 'gold-600', bg: 'white', label: 'Highlight on White' },
-  { fg: 'gold-700', bg: 'white', label: 'Highlight Dark on White' },
+  // Highlight on light backgrounds (using correct dark gold for text)
+  { fg: 'gold-700', bg: 'white', label: 'Dark Gold Text on White' },
+  { fg: 'gold-600', bg: 'white', label: 'Logo Gold (Highlight Only - Fails)' },
+  { fg: 'gold-700', bg: 'cream-100', label: 'Dark Gold on Cream' },
   
   // Text on light backgrounds
   { fg: 'charcoal-800', bg: 'white', label: 'Text on White' },
