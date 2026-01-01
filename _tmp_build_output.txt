@@ -1,0 +1,204 @@
+[LiquidEngine] Attempting to include: cta-estimate.html
+[LiquidEngine] Rendering include: cta-estimate.html
+[Jekyll::Site] Writing output to: C:/Users/Devon Tyler/tillerstead/_site/blog/nj-tile-bath-consultation-guide/index.html
+[Jekyll::Site] Final output for index.html:
+---
+layout: default
+hide_hero: true
+---
+
+<article class="ts-section ts-surface section blog-post" itemscope itemtype="https://schema.org/BlogPosting"
+  tabindex="-1">
+
+  <!-- SEO & Schema.org metadata -->
+  <meta itemprop="headline" content="Your First Tile/Bath Consultation in New Jersey: What to Expect & How to Prep">
+  <meta itemprop="datePublished" content="2025-11-02T00:00:00Z">
+  
+  
+  
+  <meta itemprop="description" content="A 15-minute prep guide for South Jersey homeownersΓÇöphotos, measurements, and how Tillerstead delivers TCNA-compliant, transparent proposals for tile and bathroom projects.">
+  
+  
+
+  <div class="container shell">
+    <!-- Article header -->
+    <header class="post-header stack-md">
+      <h1 class="post-title" itemprop="headline">Your First Tile/Bath Consultation in New Jersey: What to Expect & How to Prep</h1>
+
+      <div class="post-meta" role="doc-credits">
+        <time class="post-date" datetime="2025-11-02" itemprop="datePublished">
+          November 2, 2025
+        </time>
+
+        
+
+        
+      </div>
+
+      
+
+      
+      <p class="post-lead lead" itemprop="description">A 15-minute prep guide for South Jersey homeownersΓÇöphotos, measurements, and how Tillerstead delivers TCNA-compliant, transparent proposals for tile and bathroom projects.</p>
+      
+    </header>
+
+    <!-- Post content -->
+    <div class="prose post-body" itemprop="articleBody">
+      <p>If youΓÇÖve never hired a licensed home improvement contractor in New Jersey, your first consultation can feel opaque. <strong>Tillerstead LLC</strong> makes it straightforward: a calm walkthrough, clear expectations, and a proposal based on your real spaceΓÇönot guesswork or ΓÇ£ballparkΓÇ¥ numbers.</p>
+<p>This guide shows you how to prep in <strong>15 minutes</strong> for a consultation (Atlantic County and all South Jersey) thatΓÇÖs efficient, accurate, and fully New Jersey HIC/TCNA compliant.</p>
+<hr>
+<h2>What We AssessΓÇöand Why It Matters</h2>
+<p>During a tile or bathroom consultatio
+...
+[LiquidEngine] Attempting to include: cta-estimate.html
+[LiquidEngine] Rendering include: cta-estimate.html
+[Jekyll::Site] Writing output to: C:/Users/Devon Tyler/tillerstead/_site/blog/home-depot-shower-systems-picks/index.html
+[Jekyll::Site] Final output for index.html:
+---
+layout: default
+hide_hero: true
+---
+
+<article class="ts-section ts-surface section blog-post" itemscope itemtype="https://schema.org/BlogPosting"
+  tabindex="-1">
+
+  <!-- SEO & Schema.org metadata -->
+  <meta itemprop="headline" content="Home Depot Picks: GoodΓÇôBetterΓÇôBest Shower Systems (and How Pros Use Them Right)">
+  <meta itemprop="datePublished" content="2025-11-05T00:00:00Z">
+  
+  
+  
+  <meta itemprop="description" content="South Jersey homeowners: discover which Home Depot waterproofing systemsΓÇöRedGard, Schluter┬« KERDI, GoBoardΓÇöactually meet code, and how Tillerstead installs them to TCNA and New Jersey HIC standards.">
+  
+  
+
+  <div class="container shell">
+    <!-- Article header -->
+    <header class="post-header stack-md">
+      <h1 class="post-title" itemprop="headline">Home Depot Picks: GoodΓÇôBetterΓÇôBest Shower Systems (and How Pros Use Them Right)</h1>
+
+      <div class="post-meta" role="doc-credits">
+        <time class="post-date" datetime="2025-11-05" itemprop="datePublished">
+          November 5, 2025
+        </time>
+
+        
+
+        
+      </div>
+
+      
+
+      
+      <p class="post-lead lead" itemprop="description">South Jersey homeowners: discover which Home Depot waterproofing systemsΓÇöRedGard, Schluter┬« KERDI, GoBoardΓÇöactually meet code, and how Tillerstead installs them to TCNA and New Jersey HIC standards.</p>
+      
+    </header>
+
+    <!-- Post content -->
+    <div class="prose post-body" itemprop="articleBody">
+      <p>You can source robust, code-compliant shower waterproofing at <strong>Home Depot</strong>ΓÇöif you know what to look for and how to install it. The difference between a lasting shower and a future leak isnΓÇÖt the brand; itΓÇÖs <strong>TCNA-compliant prep, manufacturer-correct methods, and New Jersey HIC-licensed execution</strong>. ThatΓÇÖs the Tillerstead standard for Atlantic County and South Jersey.</p>
+<p>Below, we break down the <strong>GoodΓÇôBetterΓÇôBest</strong> options, with technical specifics and pro-level cautions.</p
+...
+[LiquidEngine] Attempting to include: cta-estimate.html
+[LiquidEngine] Rendering include: cta-estimate.html
+[Jekyll::Site] Writing output to: C:/Users/Devon Tyler/tillerstead/_site/blog/large-format-tile-flatness-mortars-trowels/index.html
+[Jekyll::Site] Final output for index.html:
+---
+layout: default
+hide_hero: true
+---
+
+<article class="ts-section ts-surface section blog-post" itemscope itemtype="https://schema.org/BlogPosting"
+  tabindex="-1">
+
+  <!-- SEO & Schema.org metadata -->
+  <meta itemprop="headline" content="Large-Format Tile Done Right: Flatness, Mortars, & Trowels">
+  <meta itemprop="datePublished" content="2025-11-09T00:00:00Z">
+  
+  
+  
+  <meta itemprop="description" content="Installing large-format tile in South Jersey? HereΓÇÖs how Tillerstead ensures flat substrates, the right mortar choice, and consistent coverage for floors and walls that stay beautiful.">
+  
+  
+
+  <div class="container shell">
+    <!-- Article header -->
+    <header class="post-header stack-md">
+      <h1 class="post-title" itemprop="headline">Large-Format Tile Done Right: Flatness, Mortars, & Trowels</h1>
+
+      <div class="post-meta" role="doc-credits">
+        <time class="post-date" datetime="2025-11-09" itemprop="datePublished">
+          November 9, 2025
+        </time>
+
+        
+
+        
+      </div>
+
+      
+
+      
+      <p class="post-lead lead" itemprop="description">Installing large-format tile in South Jersey? HereΓÇÖs how Tillerstead ensures flat substrates, the right mortar choice, and consistent coverage for floors and walls that stay beautiful.</p>
+      
+    </header>
+
+    <!-- Post content -->
+    <div class="prose post-body" itemprop="articleBody">
+      <p>Large-format tileΓÇö<strong>15ΓÇ│ or greater on any side</strong>ΓÇödelivers a seamless, modern aesthetic. But performance and longevity depend on strict adherence to <strong>TCNA</strong> and <strong>ANSI</strong> standards. At <strong>Tillerstead LLC</strong>, we donΓÇÖt cut corners: every step is engineered for lasting results and New Jersey HIC compliance.</p>
+<hr>
+<h2>ΓÜû∩╕Å Flatness: The Foundation of Success</h2>
+<p>Tile only performs as well as the surface beneath it. <strong>TCNA Handbook (Methods TR115 &amp; TR117)</strong> mandates:</p>
+<ul>
+<li><strong>Γëñ1/8ΓÇ│ variation in 10 ft</strong> (Γëñ
+...
+[LiquidEngine] Attempting to include: cta-estimate.html
+[LiquidEngine] Rendering include: cta-estimate.html
+[Jekyll::Site] Writing output to: C:/Users/Devon Tyler/tillerstead/_site/blog/waterproofing-redgard-vs-kerdi-vs-hydroban/index.html
+[Jekyll::Site] Final output for index.html:
+---
+layout: default
+hide_hero: true
+---
+
+<article class="ts-section ts-surface section blog-post" itemscope itemtype="https://schema.org/BlogPosting"
+  tabindex="-1">
+
+  <!-- SEO & Schema.org metadata -->
+  <meta itemprop="headline" content="Waterproofing 101: RedGard┬« vs Schluter┬« KERDI vs LATICRETE┬« HYDRO BAN┬«">
+  <meta itemprop="datePublished" content="2025-11-09T00:00:00Z">
+  
+  
+  
+  <meta itemprop="description" content="A technical, code-compliant comparison of RedGard, KERDI, and HYDRO BANΓÇöhow Tillerstead selects and installs each system to TCNA and New Jersey code for lasting, warrantable showers.">
+  
+  
+
+  <div class="container shell">
+    <!-- Article header -->
+    <header class="post-header stack-md">
+      <h1 class="post-title" itemprop="headline">Waterproofing 101: RedGard┬« vs Schluter┬« KERDI vs LATICRETE┬« HYDRO BAN┬«</h1>
+
+      <div class="post-meta" role="doc-credits">
+        <time class="post-date" datetime="2025-11-09" itemprop="datePublished">
+          November 9, 2025
+        </time>
+
+        
+
+        
+      </div>
+
+      
+
+      
+      <p class="post-lead lead" itemprop="description">A technical, code-compliant comparison of RedGard, KERDI, and HYDRO BANΓÇöhow Tillerstead selects and installs each system to TCNA and New Jersey code for lasting, warrantable showers.</p>
+      
+    </header>
+
+    <!-- Post content -->
+    <div class="prose post-body" itemprop="articleBody">
+      <p>Even flawless tile work fails if the waterproofing beneath isnΓÇÖt installed <strong>precisely to manufacturer and code spec</strong>. At <strong>Tillerstead LLC</strong>, every shower is built to <strong>ANSI A118.10 (waterproof membranes)</strong>, <strong>A118.12 (crack isolation)</strong>, and the <strong>TCNA Handbook</strong> (details B422, B421, B415, etc.), ensuring your system is <strong>documented, warrantable, and durable</strong>ΓÇönot just attractive.</p>
+<p>Below: a field-tested, code-referenced comparison of three leading systems available at local supply 
+Build failed: (<unknown>): could not find expected ':' while scanning a simple key at line 6 column 1
+...

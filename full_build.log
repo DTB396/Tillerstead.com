@@ -1,0 +1,82 @@
+[DEBUG] Parsing front matter:
+Build failed: (<unknown>): could not find expected ':' while scanning a simple key at line 6 column 1
+layout: post
+title: "Your First Tile/Bath Consultation in New Jersey: What to Expect & How to Prep"
+description: "A 15-minute prep guide for South Jersey homeownersΓÇöphotos, measurements, and how Tillerstead delivers TCNA-compliant, transparent proposals for tile and bathroom projects."
+accessibility: "All content uses semantic headings, lists, and descriptive links for screen reader compatibility and New Jersey HIC compliance."
+[/DEBUG]
+[DEBUG] Parsing front matter:
+layout: post
+title: "Home Depot Picks: GoodΓÇôBetterΓÇôBest Shower Systems (and How Pros Use Them Right)"
+description: "South Jersey homeowners: discover which Home Depot waterproofing systemsΓÇöRedGard, Schluter┬« KERDI, GoBoardΓÇöactually meet code, and how Tillerstead installs them to TCNA and New Jersey HIC standards."
+[/DEBUG]
+[DEBUG] Parsing front matter:
+layout: post
+title: "Large-Format Tile Done Right: Flatness, Mortars, & Trowels"
+description: "Installing large-format tile in South Jersey? HereΓÇÖs how Tillerstead ensures flat substrates, the right mortar choice, and consistent coverage for floors and walls that stay beautiful."
+[/DEBUG]
+[DEBUG] Parsing front matter:
+layout: post
+title: "Waterproofing 101: RedGard┬« vs Schluter┬« KERDI vs LATICRETE┬« HYDRO BAN┬«"
+description: "A technical, code-compliant comparison of RedGard, KERDI, and HYDRO BANΓÇöhow Tillerstead selects and installs each system to TCNA and New Jersey code for lasting, warrantable showers."
+[/DEBUG]
+[LiquidEngine] Attempting to include: cta-estimate.html
+[LiquidEngine] Rendering include: cta-estimate.html
+[LiquidEngine] Attempting to include: cta-estimate.html
+[LiquidEngine] Rendering include: cta-estimate.html
+[LiquidEngine] Attempting to include: cta-estimate.html
+[LiquidEngine] Rendering include: cta-estimate.html
+[LiquidEngine] Attempting to include: cta-estimate.html
+[LiquidEngine] Rendering include: cta-estimate.html
+[DEBUG] Parsing front matter:
+layout: default
+title: Page Not Found
+permalink: /404/
+hero_eyebrow: "404 Error"
+hero_title: "Page Not Found"
+hero_summary: >
+  The page you requested does not exist or has been relocated. Tillerstead LLC is committed to transparency and technical excellenceΓÇöletΓÇÖs help you find what you need.
+hero_primary_url: "/"
+hero_primary_label: "Return to Homepage"
+hero_secondary_url: "/contact/"
+hero_secondary_label: "Request a Free Estimate"
+[/DEBUG]
+[DEBUG] Parsing front matter:
+layout: default
+title: Icon Demo
+permalink: /icon-demo/
+[/DEBUG]
+[DEBUG] Parsing front matter:
+layout: default
+title: Tile, Waterproofing & Remodeling | South Jersey
+description: Licensed NJ HIC #13VH10808800. Tile showers, waterproofing systems, and bathroom remodeling in Atlantic, Ocean & Cape May Counties.
+body_class: page-home
+is_home: true
+show_breadcrumbs: false
+hide_hero: true
+hero_project_image: /assets/img/tillerstead-work/bathrooms/after-entry-shot.jpg
+hero_image_alt: Completed bathroom tile installation by Tillerstead LLC in Southern New Jersey
+show_process: false
+[/DEBUG]
+[DEBUG] Parsing front matter:
+layout: default
+title: About Tillerstead LLC | Licensed NJ Tile Contractor
+permalink: /about/
+body_class: page-about
+description: Tillerstead LLC delivers standards-based tile and waterproofing systems with written scope, verified prep,
+and photo documentation. Licensed NJ HIC #13VH10808800. Serving South Jersey.
+hero_eyebrow: About Tillerstead LLC
+hero_title: One Licensed Contractor. No Mystery Crews.
+hero_summary: >-
+Devon Tyler Barber leads Tillerstead with standards-based tile work and wet-area waterproofing built as complete
+assemblies.
+Based in Galloway Township, we serve homeowners who want clear scope, clean execution, and documentation they can keep.
+hero_kpis:
+- label: "Licensed & Insured"
+text: "New Jersey HIC #13VH10808800. Certificates available on request."
+- label: "Lead Times Reflect Quality"
+text: "Typical scheduling runs 4ΓÇô8 weeks. Prep, waterproofing, and curing time arenΓÇÖt rushed."
+- label: "Standards-Based Work"
+text: "Tile assemblies follow published methods (TCNA 2024) and applicable ANSI A108/A118 product and installation
+standards."
+[/DEBUG]

@@ -1,0 +1,172 @@
+{
+  "timestamp": "2026-01-01T06:48:04.332Z",
+  "siteUrl": "https://tillerstead.com",
+  "complianceLicense": "13VH10808800",
+  "results": {
+    "tcna": {
+      "status": "pass",
+      "findings": [],
+      "score": 100
+    },
+    "njHic": {
+      "status": "pass",
+      "findings": [],
+      "licenseDisplayed": true
+    },
+    "wcag": {
+      "status": "pass",
+      "findings": [
+        {
+          "level": "warning",
+          "location": "index.html",
+          "message": "Page has 0 h1 tags (should have exactly 1)"
+        },
+        {
+          "level": "warning",
+          "message": "CSS may be missing visible focus indicators"
+        }
+      ],
+      "targetLevel": "AAA"
+    },
+    "buildPhase": {
+      "status": "pass",
+      "findings": [
+        {
+          "level": "warning",
+          "file": "pages/build/common-build-failures.md",
+          "message": "Contains technical terms but may lack explanations for homeowners"
+        },
+        {
+          "level": "info",
+          "file": "pages/build/common-build-failures.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "warning",
+          "file": "pages/build/curbs-curbless.md",
+          "message": "Contains technical terms but may lack explanations for homeowners"
+        },
+        {
+          "level": "info",
+          "file": "pages/build/curbs-curbless.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "warning",
+          "file": "pages/build/flood-testing.md",
+          "message": "Contains technical terms but may lack explanations for homeowners"
+        },
+        {
+          "level": "info",
+          "file": "pages/build/flood-testing.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "warning",
+          "file": "pages/build/framing-benches-niches.md",
+          "message": "Contains technical terms but may lack explanations for homeowners"
+        },
+        {
+          "level": "info",
+          "file": "pages/build/framing-benches-niches.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "info",
+          "file": "pages/build/nj-codes-permits.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "warning",
+          "file": "pages/build/shower-pans-slopes-drains.md",
+          "message": "Contains technical terms but may lack explanations for homeowners"
+        },
+        {
+          "level": "info",
+          "file": "pages/build/shower-pans-slopes-drains.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "info",
+          "file": "pages/build/tile-installation-standards.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "warning",
+          "file": "pages/build/waterproofing-systems.md",
+          "message": "Contains technical terms but may lack explanations for homeowners"
+        },
+        {
+          "level": "info",
+          "file": "pages/build/waterproofing-systems.md",
+          "message": "Consider adding links to related Build Phase guides"
+        }
+      ]
+    },
+    "metadata": {
+      "status": "fail",
+      "findings": [
+        {
+          "level": "error",
+          "message": "Missing viewport meta tag"
+        },
+        {
+          "level": "error",
+          "message": "Missing description meta tag"
+        },
+        {
+          "level": "error",
+          "message": "Missing og:title meta tag"
+        },
+        {
+          "level": "error",
+          "message": "Missing og:description meta tag"
+        },
+        {
+          "level": "error",
+          "message": "Missing og:image meta tag"
+        },
+        {
+          "level": "warning",
+          "message": "Canonical URL not specified"
+        }
+      ]
+    },
+    "colors": {
+      "status": "fail",
+      "findings": [
+        {
+          "level": "warning",
+          "colors": "Teal on White",
+          "ratio": "4.54:1",
+          "message": "Meets WCAG AA (4.5:1) but not AAA (7:1)"
+        },
+        {
+          "level": "warning",
+          "colors": "Red on White",
+          "ratio": "5.14:1",
+          "message": "Meets WCAG AA (4.5:1) but not AAA (7:1)"
+        },
+        {
+          "level": "error",
+          "colors": "Gold on White",
+          "ratio": "1.36:1",
+          "message": "Does not meet WCAG AA minimum (4.5:1)"
+        },
+        {
+          "level": "warning",
+          "colors": "White on Teal",
+          "ratio": "4.54:1",
+          "message": "Meets WCAG AA (4.5:1) but not AAA (7:1)"
+        }
+      ],
+      "totalPairsTested": 6
+    }
+  },
+  "summary": {
+    "totalChecks": 26,
+    "passed": 4,
+    "warnings": 0,
+    "failures": 2
+  }
+}
