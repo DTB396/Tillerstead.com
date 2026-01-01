@@ -1,29 +1,49 @@
 primary:
-  - id: services
-    title: "Services"
-    url: "/services/"
-    match: "^/services(/|$)"
+  - id: build
+    title: "Build Phase Guides"
+    url: "/pages/build/"
+    match: "^/pages/build(/|$)"
     external: false
     children:
-      - id: services-tile
-        title: "Tile & Waterproofing"
-        url: "/services/#tile"
-        match: "^/services/#tile$"
+      - id: nj-codes-permits
+        title: "Codes, Permits & Inspections"
+        url: "/pages/build/nj-codes-permits/"
+        match: "^/pages/build/nj-codes-permits(/|$)"
         external: false
-      - id: services-remodeling
-        title: "Bath & Kitchen Remodeling"
-        url: "/services/#remodeling"
-        match: "^/services/#remodeling$"
+      - id: shower-pans-slopes
+        title: "Shower Pans, Slopes & Drains"
+        url: "/pages/build/shower-pans-slopes-drains/"
+        match: "^/pages/build/shower-pans-slopes-drains(/|$)"
         external: false
-      - id: services-maintenance
-        title: "Maintenance Plans"
-        url: "/services/#maintenance"
-        match: "^/services/#maintenance$"
+      - id: waterproofing-systems
+        title: "Waterproofing Systems"
+        url: "/pages/build/waterproofing-systems/"
+        match: "^/pages/build/waterproofing-systems(/|$)"
         external: false
-      - id: financing
-        title: "Financing & Payments"
-        url: "/financing/"
-        match: "^/financing(/|$)"
+      - id: curbs-curbless
+        title: "Curbs & Curbless Showers"
+        url: "/pages/build/curbs-curbless/"
+        match: "^/pages/build/curbs-curbless(/|$)"
+        external: false
+      - id: framing-benches
+        title: "Framing Benches & Niches"
+        url: "/pages/build/framing-benches-niches/"
+        match: "^/pages/build/framing-benches-niches(/|$)"
+        external: false
+      - id: tile-installation
+        title: "Tile Installation Standards"
+        url: "/pages/build/tile-installation-standards/"
+        match: "^/pages/build/tile-installation-standards(/|$)"
+        external: false
+      - id: flood-testing
+        title: "Flood Testing & Verification"
+        url: "/pages/build/flood-testing/"
+        match: "^/pages/build/flood-testing(/|$)"
+        external: false
+      - id: common-failures
+        title: "Common Failures & Red Flags"
+        url: "/pages/build/common-build-failures/"
+        match: "^/pages/build/common-build-failures(/|$)"
         external: false
 
   - id: portfolio
@@ -102,125 +122,27 @@ primary:
         url: "/for-general-contractors/"
         match: "^/for-general-contractors(/|$)"
         external: false
-    external: false
-    children:
-      - id: services-tile
-        title: "Tile & Waterproofing"
-        url: "services/#tile"
-        match: "^/services/#tile$"
-        external: false
-      - id: services-remodeling
-        title: "Bath & Kitchen Remodeling"
-        url: "services/#remodeling"
-        match: "^/services/#remodeling$"
-        external: false
-      - id: services-maintenance
-        title: "Maintenance Plans"
-        url: "services/#maintenance"
-        match: "^/services/#maintenance$"
-        external: false
-      - id: financing
-        title: "Financing & Payments"
-        url: "financing/"
-        match: "^/financing(/|$)"
-        external: false
-
-  - id: portfolio
-    title: "Our Work"
-    url: "portfolio/"
-    match: "^/portfolio(/|$)"
-    external: false
-
-  - id: reviews
-    title: "Reviews"
-    url: "reviews/"
-    match: "^/reviews(/|$)"
-    external: false
-
-  - id: resources
-    title: "Resources"
-    aria_label: "Resources for New Jersey homeowners"
-    children:
-      - id: faq
-        title: "FAQ"
-        url: "faq/"
-        match: "^/faq(/|$)"
-        external: false
-      - id: download-guide
-        title: "Free NJ Tile Guide"
-        url: "download/nj-tile-guide/"
-        match: "^/download(/|$)"
-        external: false
-      - id: blog
-        title: "Blog"
-        url: "blog/"
-        match: "^/blog(/|$)"
-        external: false
-      - id: products
-        title: "Recommended Products"
-        url: "recommended-products/"
-        match: "^/recommended-products(/|$)"
-        external: false
-
-  - id: service-areas
-    title: "Service Areas"
-    aria_label: "Service Areas in South Jersey"
-    children:
-      - id: atlantic-county
-        title: "Atlantic County"
-        url: "atlantic-county-nj/"
-        match: "^/atlantic-county-nj(/|$)"
-        external: false
-      - id: ocean-county
-        title: "Ocean County"
-        url: "ocean-county-nj/"
-        match: "^/ocean-county-nj(/|$)"
-        external: false
-      - id: cape-may-county
-        title: "Cape May County"
-        url: "cape-may-county-nj/"
-        match: "^/cape-may-county-nj(/|$)"
-        external: false
-
-  - id: company
-    title: "Company"
-    aria_label: "Company information"
-    children:
-      - id: about
-        title: "About"
-        url: "about/"
-        match: "^/about(/|$)"
-        external: false
-      - id: contact
-        title: "Request an Estimate"
-        url: "contact/"
-        match: "^/contact(/|$)"
-        external: false
-      - id: for-gcs
-        title: "For General Contractors"
-        url: "for-general-contractors/"
-        match: "^/for-general-contractors(/|$)"
-        external: false
 
 secondary:
   - id: privacy
     title: "Privacy"
-    url: "privacy/"
+    url: "/privacy/"
     match: "^/privacy(/|$)"
     external: false
 
   - id: terms
     title: "Terms"
-    url: "terms/"
+    url: "/terms/"
     match: "^/terms(/|$)"
     external: false
 
 footer:
-  - group: "Start Here"
+  - group: "Build Guides"
     items:
-      - ref: blog
-      - ref: financing
-      - ref: gc
+      - ref: nj-codes-permits
+      - ref: shower-pans-slopes
+      - ref: waterproofing-systems
+      - ref: curbs-curbless
 
   - group: "Resources"
     items:
@@ -228,7 +150,6 @@ footer:
       - ref: download-guide
       - ref: blog
       - ref: products
-      - ref: financing
 
   - group: "Service Areas"
     items:
