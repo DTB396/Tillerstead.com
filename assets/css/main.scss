@@ -1,11 +1,11 @@
 /* ============================================
    Tillerstead Main Stylesheet
    TCNA-Compliant, Modular CSS Architecture
-   Professional + Nostalgic + Memorable
+   Modern + Professional + Dynamic
    ============================================ */
 
 /* 00 - Settings: Design Tokens & Variables */
-@import "00-settings/tokens-hybrid";
+@import "00-settings/tokens-modern";
 @import "00-settings/dark-theme-experiment";
 @import "00-settings/luxury-refinements";
 @import "00-settings/patterns";
@@ -14,6 +14,7 @@
 @import "00-settings/spacing-system";
 
 /* 10 - Base: Accessibility, Typography, Performance */
+@import "10-base/animations";
 @import "10-base/reset";
 @import "10-base/typography";
 @import "10-base/performance";
@@ -26,6 +27,7 @@
 @import "20-layout/tillerstead-theme";
 
 /* 30 - Components: TCNA-Standard UI Elements */
+@import "30-components/modern-components";
 @import "30-components/buttons";
 @import "30-components/cards";
 @import "30-components/plans";

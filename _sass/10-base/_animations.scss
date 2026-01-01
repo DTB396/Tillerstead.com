@@ -1,0 +1,424 @@
+/* ============================================
+   ✨ TILLERSTEAD ANIMATIONS & TRANSITIONS
+   Modern, Smooth, Purposeful Motion Design
+   ============================================ */
+
+@import '../00-settings/tokens-modern';
+
+/* ========================================
+   🎯 KEYFRAME ANIMATIONS
+   ======================================== */
+
+/* Fade In - Entrance animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide In - Directional entrance */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale In - Emphasize entrance */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scalePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Bounce In - Playful entrance */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Shimmer - Loading effect */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Float - Subtle floating motion */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Glow - Emphasis effect */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(7, 137, 48, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(7, 137, 48, 0);
+  }
+}
+
+/* Pulse - Attention grabber */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Rotate - Loading spinner */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Wave - Tilework effect */
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+}
+
+/* ========================================
+   🎬 REUSABLE ANIMATION CLASSES
+   ======================================== */
+
+.animate-fade-in {
+  animation: fadeIn var(--duration-base) var(--easing-out);
+}
+
+.animate-slide-in-up {
+  animation: slideInUp var(--duration-base) var(--easing-out);
+}
+
+.animate-slide-in-down {
+  animation: slideInDown var(--duration-base) var(--easing-out);
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft var(--duration-base) var(--easing-out);
+}
+
+.animate-slide-in-right {
+  animation: slideInRight var(--duration-base) var(--easing-out);
+}
+
+.animate-scale-in {
+  animation: scaleIn var(--duration-base) var(--easing-out);
+}
+
+.animate-bounce-in {
+  animation: bounceIn var(--duration-base) var(--easing-bounce);
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Stagger children animations */
+.animate-stagger > * {
+  animation: fadeIn var(--duration-base) var(--easing-out);
+  opacity: 0;
+}
+
+.animate-stagger > *:nth-child(1) { animation-delay: 0ms; opacity: 1; }
+.animate-stagger > *:nth-child(2) { animation-delay: 75ms; opacity: 1; }
+.animate-stagger > *:nth-child(3) { animation-delay: 150ms; opacity: 1; }
+.animate-stagger > *:nth-child(4) { animation-delay: 225ms; opacity: 1; }
+.animate-stagger > *:nth-child(5) { animation-delay: 300ms; opacity: 1; }
+.animate-stagger > *:nth-child(n+6) { animation-delay: 375ms; opacity: 1; }
+
+/* ========================================
+   🎯 INTERACTIVE TRANSITIONS
+   ======================================== */
+
+/* Standard button/link transition */
+.transition-hover {
+  transition: var(--transition-fast);
+  
+  &:hover {
+    color: var(--color-primary);
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Smooth color transition */
+.transition-color {
+  transition: color var(--duration-base) var(--easing-in-out),
+              background-color var(--duration-base) var(--easing-in-out),
+              border-color var(--duration-base) var(--easing-in-out);
+}
+
+/* Smooth transform transition */
+.transition-transform {
+  transition: transform var(--duration-base) var(--easing-in-out);
+}
+
+/* Shadow transition for depth */
+.transition-shadow {
+  transition: box-shadow var(--duration-fast) var(--easing-out);
+}
+
+/* Combined transition for elevation effects */
+.transition-elevation {
+  transition: box-shadow var(--duration-fast) var(--easing-out),
+              transform var(--duration-fast) var(--easing-out);
+  
+  &:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+}
+
+/* ========================================
+   🔘 BUTTON & LINK ANIMATIONS
+   ======================================== */
+
+button, a, [role="button"] {
+  &:not([class*="btn--disabled"]):not([aria-disabled="true"]) {
+    transition: var(--transition-fast);
+    position: relative;
+    
+    &:hover {
+      transform: translateY(-1px);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+    
+    /* Focus visible ring animation */
+    &:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+      border-radius: var(--radius-md);
+    }
+  }
+}
+
+/* Primary button with accent glow */
+.btn--primary {
+  &:hover {
+    box-shadow: 0 0 0 4px rgba(7, 137, 48, 0.1);
+  }
+  
+  &:active {
+    box-shadow: 0 0 0 2px rgba(7, 137, 48, 0.05);
+  }
+}
+
+/* Accent button with red glow */
+.btn--accent {
+  &:hover {
+    box-shadow: 0 0 0 4px rgba(218, 18, 26, 0.1);
+  }
+}
+
+/* ========================================
+   📦 CARD & COMPONENT ANIMATIONS
+   ======================================== */
+
+/* Card hover lift effect */
+.card, [class*="card--"] {
+  transition: var(--transition-base);
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* Smooth image zoom on hover */
+img {
+  transition: transform var(--duration-base) var(--easing-in-out);
+}
+
+a:hover img,
+.card:hover img {
+  transform: scale(1.05);
+}
+
+/* Smooth input focus states */
+input, textarea, select {
+  transition: var(--transition-base);
+  
+  &:focus {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-teal-sm);
+  }
+}
+
+/* ========================================
+   📊 LIST & GRID ANIMATIONS
+   ======================================== */
+
+/* Stagger animation for list items */
+.list-animate {
+  li {
+    opacity: 0;
+    animation: slideInUp var(--duration-base) var(--easing-out) forwards;
+  }
+  
+  @for $i from 1 through 10 {
+    li:nth-child(#{$i}) {
+      animation-delay: #{($i - 1) * 50ms};
+    }
+  }
+}
+
+/* Grid item entrance */
+.grid-animate {
+  > * {
+    opacity: 0;
+    animation: scaleIn var(--duration-base) var(--easing-out) forwards;
+  }
+  
+  @for $i from 1 through 12 {
+    > *:nth-child(#{$i}) {
+      animation-delay: #{($i - 1) * 30ms};
+    }
+  }
+}
+
+/* ========================================
+   🎪 PAGE TRANSITION EFFECTS
+   ======================================== */
+
+/* Fade page sections in */
+main, [role="main"] {
+  animation: fadeIn var(--duration-slow) var(--easing-out);
+}
+
+/* Section entrance with slide */
+section {
+  opacity: 0;
+  
+  &:in-viewport {
+    animation: slideInUp var(--duration-base) var(--easing-out) forwards;
+  }
+}
+
+/* ========================================
+   ⚡ PERFORMANCE OPTIMIZATION
+   ======================================== */
+
+/* Use transform & opacity for performance */
+@media (prefers-reduced-motion: no-preference) {
+  /* These are GPU-accelerated and smooth */
+  .gpu-accelerate {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
+
+/* Disable animations on low-power devices */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
