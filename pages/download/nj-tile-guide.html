@@ -80,7 +80,7 @@ body_class: page-download
               <p class="download-card-subtitle">PDF • 12 pages • Updated 2024</p>
             </div>
 
-            <form class="download-form" action="/success/" method="GET" data-form="download">
+            <form class="download-form" action="/assets/downloads/nj-tile-guide.html" method="GET" target="_blank">
               <div class="form-group">
                 <label for="download-name" class="form-label">Your Name</label>
                 <input type="text" id="download-name" name="name" class="form-input" required placeholder="John Smith">
@@ -103,7 +103,7 @@ body_class: page-download
                 </label>
               </div>
 
-              <button type="submit" class="btn btn--primary btn--block">
+              <button type="button" class="btn btn--primary btn--block" onclick="downloadGuide(this.closest('form'))">
                 Download Free Guide
               </button>
 
@@ -186,6 +186,52 @@ body_class: page-download
     </div>
   </section>
 </main>
+
+<script>
+function downloadGuide(formEl) {
+  // Get form data
+  const formData = new FormData(formEl);
+  const name = formData.get('name');
+  const email = formData.get('email');
+  const zip = formData.get('zip');
+  const newsletter = formData.get('newsletter');
+  
+  // Validate
+  if (!name || !email) {
+    alert('Please enter your name and email');
+    return;
+  }
+  
+  // Store in localStorage for potential CRM integration
+  try {
+    localStorage.setItem('lastDownload', JSON.stringify({
+      name,
+      email,
+      zip,
+      newsletter,
+      timestamp: new Date().toISOString(),
+      resource: 'nj-tile-guide'
+    }));
+  } catch (e) {
+    // Storage not available, continue anyway
+  }
+  
+  // Open the guide in new tab/window
+  window.open('/assets/downloads/nj-tile-guide.html', '_blank');
+  
+  // Optional: show success message
+  const btn = event.target;
+  const originalText = btn.textContent;
+  btn.textContent = '✅ Guide opening...';
+  btn.disabled = true;
+  
+  setTimeout(() => {
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }, 3000);
+}
+</script>
+
 
 <style>
 .download-layout {
