@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: build-page
 title: Build Phase - TCNA Compliant Construction Process
 description: Step-by-step guides for TCNA-standard bathroom and shower construction in New Jersey, covering codes, permits, waterproofing, and installation.
 permalink: /pages/build/

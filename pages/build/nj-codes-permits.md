@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: build-page
 title: "NJ Codes, Permits & Inspections - Step 1"
 description: "Why permits exist, how inspections work, and what New Jersey actually requires for bathroom and shower renovations. Built on TCNA standards."
 permalink: /pages/build/nj-codes-permits/

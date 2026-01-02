@@ -1,0 +1,142 @@
+---
+layout: default
+---
+
+<div class="ts-section ts-build-content">
+  <div class="container">
+    <div class="build-content-grid">
+      <aside class="build-content-sidebar">
+        {% include content/build-sidenav.html %}
+      </aside>
+
+      <main class="build-content-main">
+        {{ content }}
+
+        <nav class="build-nav-prev-next" aria-label="Build phase navigation">
+          {% assign all_phases = site.collection_files | where: "collection", "pages" | where: "dir", "/pages/build/" %}
+          
+          <!-- This is a simplified prev/next for now -->
+          <div class="build-nav-footer">
+            <p class="text-small text-muted" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--ts-color-border);">
+              <strong>💡 Tip:</strong> Read the Build Phase guides in order for a complete understanding, or jump to the phase relevant to your project.
+            </p>
+          </div>
+        </nav>
+      </main>
+    </div>
+  </div>
+</div>
+
+<style>
+.ts-build-content {
+  padding-block: var(--ts-spacing-lg, 2rem);
+}
+
+.build-content-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: var(--ts-spacing-xl, 3rem);
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.build-content-sidebar {
+  position: sticky;
+  top: calc(var(--ts-spacing-lg, 2rem) + 60px);
+}
+
+.build-content-main {
+  min-width: 0;
+}
+
+.build-content-main h1 {
+  margin-top: 0;
+}
+
+.build-content-main h2 {
+  margin-top: var(--ts-spacing-xl, 2.5rem);
+  margin-bottom: var(--ts-spacing-md, 1rem);
+  padding-bottom: var(--ts-spacing-sm, 0.5rem);
+  border-bottom: 2px solid var(--ts-color-border-light, #f0f0f0);
+}
+
+.build-content-main h3 {
+  margin-top: var(--ts-spacing-lg, 1.5rem);
+  margin-bottom: var(--ts-spacing-sm, 0.5rem);
+}
+
+.build-content-main p {
+  line-height: 1.7;
+  margin-bottom: var(--ts-spacing-md, 1rem);
+}
+
+.build-content-main ul,
+.build-content-main ol {
+  margin-bottom: var(--ts-spacing-md, 1rem);
+  margin-left: var(--ts-spacing-lg, 1.5rem);
+}
+
+.build-content-main li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.build-nav-prev-next {
+  margin-top: var(--ts-spacing-2xl, 4rem);
+  padding-top: var(--ts-spacing-lg, 2rem);
+  border-top: 1px solid var(--ts-color-border, #e0e7ed);
+}
+
+.build-nav-footer {
+  text-align: center;
+}
+
+.text-small {
+  font-size: 0.9rem;
+}
+
+.text-muted {
+  color: var(--ts-color-muted, #666);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .build-content-grid {
+    grid-template-columns: 280px 1fr;
+    gap: var(--ts-spacing-lg, 2rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .build-content-grid {
+    grid-template-columns: 1fr;
+    gap: var(--ts-spacing-lg, 2rem);
+  }
+
+  .build-content-sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .build-content-grid {
+    gap: var(--ts-spacing-md, 1rem);
+  }
+
+  .build-content-main h2 {
+    font-size: 1.5rem;
+    margin-top: var(--ts-spacing-lg, 1.5rem);
+  }
+
+  .build-content-main h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .build-content-sidebar {
+    position: relative;
+  }
+}
+</style>

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: build-page
 title: "Waterproofing Systems - Step 3"
 description: "TCNA-compliant waterproofing: surface-applied vs. traditional systems, ANSI A118.10 membranes, compatibility, and continuity."
 permalink: /pages/build/waterproofing-systems/

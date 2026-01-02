@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: build-page
 title: "Common Build Failures & Red Flags - Step 8"
 description: "TCNA-based analysis: where bathroom and shower failures originate, warning signs, and prevention."
 permalink: /pages/build/common-build-failures/

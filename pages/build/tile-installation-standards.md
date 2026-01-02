@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: build-page
 title: "Tile Installation Standards - Step 6"
 description: "TCNA and ANSI A118 tile installation standards: substrate prep, mortar selection, coverage, and movement joints."
 permalink: /pages/build/tile-installation-standards/
