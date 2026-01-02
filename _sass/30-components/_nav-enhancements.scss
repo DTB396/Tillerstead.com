@@ -1,0 +1,405 @@
+/* ==========================================================================
+   Navigation Enhancements - Mega Menu, Dropdowns, Mobile
+   Premium UX upgrades for Tillerstead navigation
+   ========================================================================== */
+
+/* ========== Dropdown Menus ========== */
+
+.nav-item.has-children {
+  position: relative;
+}
+
+.nav-caret {
+  margin-left: 0.375rem;
+  transition: transform 0.25s ease;
+}
+
+.nav-item.has-children:hover .nav-caret,
+.nav-item.has-children.is-open .nav-caret {
+  transform: rotate(180deg);
+}
+
+/* Standard Dropdown */
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  min-width: 200px;
+  background: var(--ts-color-surface, #fff);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12), 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 0.5rem 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  list-style: none;
+  margin: 0;
+}
+
+.nav-item.has-children:hover .nav-dropdown,
+.nav-item.has-children.is-open .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-link {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: var(--ts-color-text, #333);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.nav-dropdown-link:hover {
+  background: var(--ts-color-surface-muted, #f5f5f5);
+  color: var(--ts-color-primary, #0d9aaa);
+}
+
+.nav-dropdown-link--featured {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  background: var(--ts-color-primary-soft, rgba(13, 154, 170, 0.05));
+  border-radius: 8px;
+  margin: 0.5rem;
+  padding: 0.875rem 1rem;
+}
+
+.nav-dropdown-link--featured small {
+  font-size: 0.75rem;
+  color: var(--ts-color-muted, #666);
+  font-weight: 400;
+}
+
+.nav-dropdown-link--featured:hover {
+  background: var(--ts-color-primary-soft, rgba(13, 154, 170, 0.1));
+}
+
+.nav-dropdown-link--cta {
+  background: var(--ts-color-primary, #0d9aaa);
+  color: white !important;
+  border-radius: 8px;
+  margin: 0.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.nav-dropdown-link--cta:hover {
+  background: var(--ts-color-primary-strong, #0b8a9a);
+  color: white !important;
+}
+
+.nav-dropdown-divider {
+  height: 1px;
+  background: var(--ts-color-border, #e0e7ed);
+  margin: 0.5rem 0;
+}
+
+/* ========== Mega Menu ========== */
+
+.nav-item--mega {
+  position: static;
+}
+
+.nav-mega {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--ts-color-surface, #fff);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 4px 20px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  border-top: 1px solid var(--ts-color-border, #e0e7ed);
+}
+
+.nav-item--mega:hover .nav-mega,
+.nav-item--mega.is-open .nav-mega {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.nav-mega-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 2rem;
+}
+
+.nav-mega-header {
+  margin-bottom: 1.5rem;
+}
+
+.nav-mega-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--ts-color-heading, #0f172a);
+  margin: 0 0 0.375rem 0;
+}
+
+.nav-mega-desc {
+  font-size: 0.875rem;
+  color: var(--ts-color-muted, #666);
+  margin: 0;
+}
+
+.nav-mega-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-mega-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.875rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--ts-color-text, #333);
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.nav-mega-link:hover {
+  background: var(--ts-color-surface-muted, #f8f9fa);
+  border-color: var(--ts-color-border, #e0e7ed);
+}
+
+.nav-mega-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  background: var(--ts-color-primary, #0d9aaa);
+  color: white;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.nav-mega-link:hover .nav-mega-num {
+  background: var(--ts-color-primary-strong, #0b8a9a);
+  transform: scale(1.05);
+}
+
+.nav-mega-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.nav-mega-content strong {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ts-color-heading, #0f172a);
+}
+
+.nav-mega-content small {
+  font-size: 0.8125rem;
+  color: var(--ts-color-muted, #666);
+}
+
+.nav-mega-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2rem;
+  border-left: 1px solid var(--ts-color-border, #e0e7ed);
+}
+
+.nav-mega-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: var(--ts-color-primary-soft, rgba(13, 154, 170, 0.05));
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--ts-color-text, #333);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.nav-mega-cta:hover {
+  background: var(--ts-color-primary-soft, rgba(13, 154, 170, 0.1));
+}
+
+.nav-mega-cta-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ts-color-primary, #0d9aaa);
+}
+
+.nav-mega-cta-desc {
+  font-size: 0.875rem;
+  color: var(--ts-color-muted, #666);
+}
+
+.nav-mega-cta-arrow {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  color: var(--ts-color-primary, #0d9aaa);
+  transition: transform 0.2s ease;
+}
+
+.nav-mega-cta:hover .nav-mega-cta-arrow {
+  transform: translateY(-50%) translateX(4px);
+}
+
+/* ========== Mobile Menu Enhancements ========== */
+
+.mobile-menu-scroll {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.mobile-nav-item--section {
+  border-bottom: 1px solid var(--ts-color-border-light, #f0f0f0);
+}
+
+.mobile-nav-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-nav-link--parent {
+  flex: 1;
+}
+
+.mobile-nav-link--label {
+  flex: 1;
+  cursor: default;
+}
+
+.mobile-subtoggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--ts-color-muted, #666);
+  transition: all 0.2s ease;
+}
+
+.mobile-subtoggle:hover {
+  color: var(--ts-color-primary, #0d9aaa);
+}
+
+.mobile-subtoggle svg {
+  transition: transform 0.25s ease;
+}
+
+.mobile-subtoggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.mobile-submenu {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.5rem 0;
+  background: var(--ts-color-surface-muted, #f8f9fa);
+}
+
+.mobile-submenu.is-open {
+  display: block;
+}
+
+.mobile-sublink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 2rem;
+  color: var(--ts-color-text, #333);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  transition: all 0.15s ease;
+}
+
+.mobile-sublink:hover {
+  color: var(--ts-color-primary, #0d9aaa);
+  background: rgba(13, 154, 170, 0.05);
+}
+
+.mobile-sublink-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  background: var(--ts-color-primary, #0d9aaa);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+/* ========== Responsive Adjustments ========== */
+
+@media (max-width: 1200px) {
+  .nav-mega-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .nav-mega-inner {
+    grid-template-columns: 1fr 220px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .nav-dropdown,
+  .nav-mega {
+    display: none !important;
+  }
+}
+
+/* ========== Keyboard Navigation ========== */
+
+.nav-dropdown-link:focus-visible,
+.nav-mega-link:focus-visible,
+.nav-mega-cta:focus-visible {
+  outline: 2px solid var(--ts-color-primary, #0d9aaa);
+  outline-offset: 2px;
+}
+
+/* ========== Reduced Motion ========== */
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-dropdown,
+  .nav-mega,
+  .nav-caret,
+  .nav-mega-num,
+  .nav-mega-cta-arrow,
+  .mobile-subtoggle svg {
+    transition: none !important;
+  }
+}

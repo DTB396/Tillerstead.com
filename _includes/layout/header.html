@@ -1,174 +1,223 @@
-{% assign nav = site.data.navigation %}
-<header class="site-header ts-header ts-theme"
-        role="banner"
-        itemscope
-        itemtype="https://schema.org/Organization"
-        data-header>
+{%- comment -%}
+Site Header Include - Tillerstead
+Premium navigation with mega menu, enhanced dropdowns, and mobile drawer
+Usage: {% include layout/header.html %}
+{%- endcomment -%}
 
-  <!-- Organization microdata -->
+{% assign nav = site.data.navigation %}
+
+<header class="site-header ts-header" role="banner" itemscope itemtype="https://schema.org/Organization" data-header>
+  
+  {%- comment -%} Organization microdata {%- endcomment -%}
   <meta itemprop="name" content="{{ site.title | escape }}">
   <meta itemprop="url" content="{{ site.url | default: site.github.url }}">
   <meta itemprop="logo" content="{{ '/assets/img/logo/tillerstead-logo-header.svg' | absolute_url }}">
   <meta itemprop="telephone" content="+1-609-862-8808">
-  <meta itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-  <meta itemprop="addressLocality" content="New Jersey">
 
   <div class="site-header-inner">
 
-    <!-- Left side navigation (first 3 items) -->
+    {%- comment -%} Left Navigation {%- endcomment -%}
     <nav class="site-nav site-nav--left" role="navigation" aria-label="Primary navigation">
-      <ul class="site-menu site-menu--left">
-        {% for item in nav.primary limit:3 %}
-          {% assign is_active = false %}
-          {% if item.match and page.url %}
-            {% if page.url matches item.match %}
-              {% assign is_active = true %}
-            {% endif %}
-          {% endif %}
-
-          <li class="nav-item{% if item.children %} has-children{% endif %}">
-            {% if item.url %}
-              <a href="{{ item.url | relative_url }}"
-                 class="nav-link{% if is_active %} active{% endif %}"
-                 {% if item.external %} target="_blank" rel="noopener"{% endif %}>
-                {{ item.title }}
-              </a>
-            {% else %}
-              <span class="nav-link nav-link--label">{{ item.title }}</span>
-            {% endif %}
-
-            {% if item.children %}
-              <button class="nav-subtoggle"
-                      type="button"
-                      aria-label="Open {{ item.title }} menu"
-                      aria-expanded="false"
-                      data-subtoggle>
-                <span aria-hidden="true">▾</span>
-              </button>
-
-              <ul class="nav-submenu" data-submenu>
-                {% for child in item.children %}
-                  {% assign child_active = false %}
-                  {% if child.match and page.url %}
-                    {% if page.url matches child.match %}
-                      {% assign child_active = true %}
-                    {% endif %}
-                  {% endif %}
-                  <li class="nav-subitem">
-                    <a href="{{ child.url | relative_url }}"
-                       class="nav-sublink{% if child_active %} active{% endif %}"
-                       {% if child.external %} target="_blank" rel="noopener"{% endif %}>
-                      {{ child.title }}
+      <ul class="site-menu">
+        
+        {%- comment -%} Build Guides - Mega Menu {%- endcomment -%}
+        <li class="nav-item nav-item--mega has-children" data-nav-item>
+          <a href="{{ '/pages/build/' | relative_url }}" class="nav-link{% if page.url contains '/pages/build' %} active{% endif %}">
+            Build Guides
+            <svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true">
+              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </svg>
+          </a>
+          
+          <div class="nav-mega" data-submenu>
+            <div class="nav-mega-inner">
+              <div class="nav-mega-main">
+                <div class="nav-mega-header">
+                  <h3 class="nav-mega-title">8 Phases of Construction</h3>
+                  <p class="nav-mega-desc">Understand every step of a TCNA-compliant bathroom build</p>
+                </div>
+                
+                <ul class="nav-mega-grid">
+                  <li>
+                    <a href="{{ '/pages/build/nj-codes-permits/' | relative_url }}" class="nav-mega-link">
+                      <span class="nav-mega-num">1</span>
+                      <span class="nav-mega-content">
+                        <strong>Codes & Permits</strong>
+                        <small>NJ requirements & inspections</small>
+                      </span>
                     </a>
                   </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </li>
-        {% endfor %}
+                  <li>
+                    <a href="{{ '/pages/build/shower-pans-slopes-drains/' | relative_url }}" class="nav-mega-link">
+                      <span class="nav-mega-num">2</span>
+                      <span class="nav-mega-content">
+                        <strong>Shower Pans</strong>
+                        <small>Slopes, drains & water direction</small>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ '/pages/build/waterproofing-systems/' | relative_url }}" class="nav-mega-link">
+                      <span class="nav-mega-num">3</span>
+                      <span class="nav-mega-content">
+                        <strong>Waterproofing</strong>
+                        <small>ANSI A118.10 membranes</small>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ '/pages/build/curbs-curbless/' | relative_url }}" class="nav-mega-link">
+                      <span class="nav-mega-num">4</span>
+                      <span class="nav-mega-content">
+                        <strong>Thresholds</strong>
+                        <small>Curbs & curbless designs</small>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ '/pages/build/framing-benches-niches/' | relative_url }}" class="nav-mega-link">
+                      <span class="nav-mega-num">5</span>
+                      <span class="nav-mega-content">
+                        <strong>Benches & Niches</strong>
+                        <small>Structural planning</small>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ '/pages/build/tile-installation-standards/' | relative_url }}" class="nav-mega-link">
+                      <span class="nav-mega-num">6</span>
+                      <span class="nav-mega-content">
+                        <strong>Tile Installation</strong>
+                        <small>ANSI A108 standards</small>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ '/pages/build/flood-testing/' | relative_url }}" class="nav-mega-link">
+                      <span class="nav-mega-num">7</span>
+                      <span class="nav-mega-content">
+                        <strong>Flood Testing</strong>
+                        <small>Verification & documentation</small>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ '/pages/build/common-build-failures/' | relative_url }}" class="nav-mega-link">
+                      <span class="nav-mega-num">8</span>
+                      <span class="nav-mega-content">
+                        <strong>Common Failures</strong>
+                        <small>Red flags & prevention</small>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              
+              <div class="nav-mega-side">
+                <a href="{{ '/pages/build/' | relative_url }}" class="nav-mega-cta">
+                  <span class="nav-mega-cta-title">View All Guides</span>
+                  <span class="nav-mega-cta-desc">Complete 8-phase construction guide</span>
+                  <span class="nav-mega-cta-arrow">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        {%- comment -%} Portfolio {%- endcomment -%}
+        <li class="nav-item">
+          <a href="{{ '/portfolio/' | relative_url }}" class="nav-link{% if page.url contains '/portfolio' %} active{% endif %}">
+            Portfolio
+          </a>
+        </li>
+
+        {%- comment -%} Reviews {%- endcomment -%}
+        <li class="nav-item">
+          <a href="{{ '/reviews/' | relative_url }}" class="nav-link{% if page.url contains '/reviews' %} active{% endif %}">
+            Reviews
+          </a>
+        </li>
       </ul>
     </nav>
 
-    <!-- Center logo -->
+    {%- comment -%} Center Logo {%- endcomment -%}
     <div class="site-branding" data-logo>
       <a href="{{ '/' | relative_url }}" class="ts-logo-link" aria-label="{{ site.title | escape }} home">
         <img src="{{ '/assets/img/logo/tillerstead-logo-header-dark.svg' | relative_url }}"
              alt="{{ site.title | escape }}"
-             class="ts-logo">
+             class="ts-logo"
+             width="180"
+             height="40">
       </a>
     </div>
 
-    <!-- Right side navigation (next 3 items, then overflow into More dropdown) -->
+    {%- comment -%} Right Navigation {%- endcomment -%}
     <nav class="site-nav site-nav--right" role="navigation" aria-label="Secondary navigation">
-      <ul class="site-menu site-menu--right">
+      <ul class="site-menu">
+        
+        {%- comment -%} Learn Dropdown {%- endcomment -%}
+        <li class="nav-item has-children" data-nav-item>
+          <button type="button" class="nav-link nav-link--button" aria-expanded="false" data-dropdown-toggle>
+            Learn
+            <svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true">
+              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <ul class="nav-dropdown" data-submenu>
+            <li><a href="{{ '/faq/' | relative_url }}" class="nav-dropdown-link">FAQ</a></li>
+            <li><a href="{{ '/blog/' | relative_url }}" class="nav-dropdown-link">Articles</a></li>
+            <li><a href="{{ '/recommended-products/' | relative_url }}" class="nav-dropdown-link">Materials</a></li>
+            <li class="nav-dropdown-divider"></li>
+            <li><a href="{{ '/download/nj-tile-guide/' | relative_url }}" class="nav-dropdown-link nav-dropdown-link--featured">
+              <span>Free Tile Guide</span>
+              <small>Download PDF</small>
+            </a></li>
+          </ul>
+        </li>
 
-        {% assign right_items = nav.primary offset:3 %}
-        {% assign visible_right = right_items | slice: 0, 3 %}
-        {% assign overflow_right = right_items | slice: 3, 50 %}
+        {%- comment -%} Service Areas Dropdown {%- endcomment -%}
+        <li class="nav-item has-children" data-nav-item>
+          <button type="button" class="nav-link nav-link--button" aria-expanded="false" data-dropdown-toggle>
+            Areas
+            <svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true">
+              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <ul class="nav-dropdown" data-submenu>
+            <li><a href="{{ '/atlantic-county-nj/' | relative_url }}" class="nav-dropdown-link">Atlantic County</a></li>
+            <li><a href="{{ '/ocean-county-nj/' | relative_url }}" class="nav-dropdown-link">Ocean County</a></li>
+            <li><a href="{{ '/cape-may-county-nj/' | relative_url }}" class="nav-dropdown-link">Cape May County</a></li>
+          </ul>
+        </li>
 
-        {% for item in visible_right %}
-          {% assign is_active = false %}
-          {% if item.match and page.url %}
-            {% if page.url matches item.match %}
-              {% assign is_active = true %}
-            {% endif %}
-          {% endif %}
-
-          <li class="nav-item{% if item.children %} has-children{% endif %}">
-            {% if item.url %}
-              <a href="{{ item.url | relative_url }}"
-                 class="nav-link{% if is_active %} active{% endif %}"
-                 {% if item.external %} target="_blank" rel="noopener"{% endif %}>
-                {{ item.title }}
-              </a>
-            {% else %}
-              <span class="nav-link nav-link--label">{{ item.title }}</span>
-            {% endif %}
-
-            {% if item.children %}
-              <button class="nav-subtoggle"
-                      type="button"
-                      aria-label="Open {{ item.title }} menu"
-                      aria-expanded="false"
-                      data-subtoggle>
-                <span aria-hidden="true">▾</span>
-              </button>
-
-              <ul class="nav-submenu" data-submenu>
-                {% for child in item.children %}
-                  <li class="nav-subitem">
-                    <a href="{{ child.url | relative_url }}"
-                       class="nav-sublink"
-                       {% if child.external %} target="_blank" rel="noopener"{% endif %}>
-                      {{ child.title }}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </li>
-        {% endfor %}
-
-        {% if overflow_right and overflow_right.size > 0 %}
-          <li class="nav-item has-children nav-item--more">
-            <button class="nav-link nav-link--button"
-                    type="button"
-                    aria-label="Open more menu"
-                    aria-expanded="false"
-                    data-subtoggle>
-              More <span aria-hidden="true">▾</span>
-            </button>
-            <ul class="nav-submenu" data-submenu>
-              {% for item in overflow_right %}
-                <li class="nav-subitem">
-                  <a href="{{ item.url | relative_url }}"
-                     class="nav-sublink"
-                     {% if item.external %} target="_blank" rel="noopener"{% endif %}>
-                    {{ item.title }}
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
-          </li>
-        {% endif %}
+        {%- comment -%} About Dropdown {%- endcomment -%}
+        <li class="nav-item has-children" data-nav-item>
+          <button type="button" class="nav-link nav-link--button" aria-expanded="false" data-dropdown-toggle>
+            About
+            <svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true">
+              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <ul class="nav-dropdown" data-submenu>
+            <li><a href="{{ '/about/' | relative_url }}" class="nav-dropdown-link">About Tillerstead</a></li>
+            <li><a href="{{ '/for-general-contractors/' | relative_url }}" class="nav-dropdown-link">For Contractors</a></li>
+            <li class="nav-dropdown-divider"></li>
+            <li><a href="{{ '/contact/' | relative_url }}" class="nav-dropdown-link nav-dropdown-link--cta">Get an Estimate</a></li>
+          </ul>
+        </li>
 
       </ul>
     </nav>
 
-    <!-- Mobile menu toggle -->
-    <button type="button"
-            class="nav-toggle"
-            aria-controls="mobile-nav"
-            aria-expanded="false"
-            aria-label="Open navigation menu"
-            data-nav-toggle>
+    {%- comment -%} Mobile Menu Toggle {%- endcomment -%}
+    <button type="button" class="nav-toggle" aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation menu" data-nav-toggle>
       <span class="nav-toggle-icon" aria-hidden="true">
         <span></span><span></span><span></span>
       </span>
     </button>
   </div>
 
-  <!-- Mobile navigation drawer -->
+  {%- comment -%} Mobile Navigation Drawer {%- endcomment -%}
   <div class="mobile-nav-shell" data-nav-container>
     <div class="mobile-nav-backdrop" data-nav-overlay aria-hidden="true"></div>
 
@@ -183,54 +232,100 @@
         </button>
       </div>
 
-      <ul class="mobile-menu">
-        {% for item in nav.primary %}
-          {% assign is_active = false %}
-          {% if item.match and page.url %}
-            {% if page.url matches item.match %}
-              {% assign is_active = true %}
-            {% endif %}
-          {% endif %}
-
-          <li class="mobile-nav-item{% if item.children %} has-children{% endif %}">
-            {% if item.url %}
-              <a href="{{ item.url | relative_url }}"
-                 class="mobile-nav-link{% if is_active %} active{% endif %}"
-                 {% if item.external %} target="_blank" rel="noopener"{% endif %}>
-                {{ item.title }}
+      <div class="mobile-menu-scroll">
+        <ul class="mobile-menu">
+          
+          {%- comment -%} Build Guides Section {%- endcomment -%}
+          <li class="mobile-nav-item mobile-nav-item--section">
+            <div class="mobile-nav-section-header">
+              <a href="{{ '/pages/build/' | relative_url }}" class="mobile-nav-link mobile-nav-link--parent{% if page.url contains '/pages/build' %} active{% endif %}">
+                Build Guides
               </a>
-            {% else %}
-              <span class="mobile-nav-link mobile-nav-link--label">{{ item.title }}</span>
-            {% endif %}
-
-            {% if item.children %}
-              <button class="mobile-subtoggle"
-                      type="button"
-                      aria-label="Open {{ item.title }} submenu"
-                      aria-expanded="false"
-                      data-mobile-subtoggle>
-                <span aria-hidden="true">▾</span>
+              <button type="button" class="mobile-subtoggle" aria-expanded="false" data-mobile-subtoggle aria-label="Expand Build Guides">
+                <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                  <path d="M3 4.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                </svg>
               </button>
-
-              <ul class="mobile-submenu" data-mobile-submenu>
-                {% for child in item.children %}
-                  <li class="mobile-subitem">
-                    <a href="{{ child.url | relative_url }}"
-                       class="mobile-sublink"
-                       {% if child.external %} target="_blank" rel="noopener"{% endif %}>
-                      {{ child.title }}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
+            </div>
+            <ul class="mobile-submenu" data-mobile-submenu>
+              <li><a href="{{ '/pages/build/nj-codes-permits/' | relative_url }}" class="mobile-sublink"><span class="mobile-sublink-num">1</span> Codes & Permits</a></li>
+              <li><a href="{{ '/pages/build/shower-pans-slopes-drains/' | relative_url }}" class="mobile-sublink"><span class="mobile-sublink-num">2</span> Shower Pans</a></li>
+              <li><a href="{{ '/pages/build/waterproofing-systems/' | relative_url }}" class="mobile-sublink"><span class="mobile-sublink-num">3</span> Waterproofing</a></li>
+              <li><a href="{{ '/pages/build/curbs-curbless/' | relative_url }}" class="mobile-sublink"><span class="mobile-sublink-num">4</span> Thresholds</a></li>
+              <li><a href="{{ '/pages/build/framing-benches-niches/' | relative_url }}" class="mobile-sublink"><span class="mobile-sublink-num">5</span> Benches & Niches</a></li>
+              <li><a href="{{ '/pages/build/tile-installation-standards/' | relative_url }}" class="mobile-sublink"><span class="mobile-sublink-num">6</span> Tile Installation</a></li>
+              <li><a href="{{ '/pages/build/flood-testing/' | relative_url }}" class="mobile-sublink"><span class="mobile-sublink-num">7</span> Flood Testing</a></li>
+              <li><a href="{{ '/pages/build/common-build-failures/' | relative_url }}" class="mobile-sublink"><span class="mobile-sublink-num">8</span> Common Failures</a></li>
+            </ul>
           </li>
-        {% endfor %}
-      </ul>
+
+          {%- comment -%} Portfolio {%- endcomment -%}
+          <li class="mobile-nav-item">
+            <a href="{{ '/portfolio/' | relative_url }}" class="mobile-nav-link{% if page.url contains '/portfolio' %} active{% endif %}">Portfolio</a>
+          </li>
+
+          {%- comment -%} Reviews {%- endcomment -%}
+          <li class="mobile-nav-item">
+            <a href="{{ '/reviews/' | relative_url }}" class="mobile-nav-link{% if page.url contains '/reviews' %} active{% endif %}">Reviews</a>
+          </li>
+
+          {%- comment -%} Learn Section {%- endcomment -%}
+          <li class="mobile-nav-item mobile-nav-item--section">
+            <div class="mobile-nav-section-header">
+              <span class="mobile-nav-link mobile-nav-link--label">Learn</span>
+              <button type="button" class="mobile-subtoggle" aria-expanded="false" data-mobile-subtoggle aria-label="Expand Learn">
+                <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                  <path d="M3 4.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+            <ul class="mobile-submenu" data-mobile-submenu>
+              <li><a href="{{ '/faq/' | relative_url }}" class="mobile-sublink">FAQ</a></li>
+              <li><a href="{{ '/blog/' | relative_url }}" class="mobile-sublink">Articles</a></li>
+              <li><a href="{{ '/recommended-products/' | relative_url }}" class="mobile-sublink">Materials</a></li>
+              <li><a href="{{ '/download/nj-tile-guide/' | relative_url }}" class="mobile-sublink">Free Tile Guide</a></li>
+            </ul>
+          </li>
+
+          {%- comment -%} Service Areas {%- endcomment -%}
+          <li class="mobile-nav-item mobile-nav-item--section">
+            <div class="mobile-nav-section-header">
+              <span class="mobile-nav-link mobile-nav-link--label">Service Areas</span>
+              <button type="button" class="mobile-subtoggle" aria-expanded="false" data-mobile-subtoggle aria-label="Expand Service Areas">
+                <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                  <path d="M3 4.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+            <ul class="mobile-submenu" data-mobile-submenu>
+              <li><a href="{{ '/atlantic-county-nj/' | relative_url }}" class="mobile-sublink">Atlantic County</a></li>
+              <li><a href="{{ '/ocean-county-nj/' | relative_url }}" class="mobile-sublink">Ocean County</a></li>
+              <li><a href="{{ '/cape-may-county-nj/' | relative_url }}" class="mobile-sublink">Cape May County</a></li>
+            </ul>
+          </li>
+
+          {%- comment -%} About {%- endcomment -%}
+          <li class="mobile-nav-item mobile-nav-item--section">
+            <div class="mobile-nav-section-header">
+              <a href="{{ '/about/' | relative_url }}" class="mobile-nav-link mobile-nav-link--parent{% if page.url contains '/about' %} active{% endif %}">About</a>
+              <button type="button" class="mobile-subtoggle" aria-expanded="false" data-mobile-subtoggle aria-label="Expand About">
+                <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                  <path d="M3 4.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+            <ul class="mobile-submenu" data-mobile-submenu>
+              <li><a href="{{ '/about/' | relative_url }}" class="mobile-sublink">About Tillerstead</a></li>
+              <li><a href="{{ '/for-general-contractors/' | relative_url }}" class="mobile-sublink">For Contractors</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
 
       <div class="mobile-nav-cta">
-        <a class="btn btn--primary btn--block" href="{{ 'contact/' | relative_url }}">
-          Request Estimate
+        <a class="btn btn--primary btn--block" href="{{ '/contact/' | relative_url }}">
+          Get an Estimate
         </a>
         <a class="btn btn--ghost btn--block" href="tel:+16098628808">
           Call (609) 862-8808
