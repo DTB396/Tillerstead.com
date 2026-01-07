@@ -1,8 +1,5 @@
 name: Deploy Jekyll Site to GitHub Pages
 
-env:
-  PAGES_ARTIFACT_NAME: github-pages
-
 on:
   push:
     branches: [main]
@@ -15,13 +12,14 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages-${{ github.event.pull_request.number || github.ref }}
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   build:
-    name: Build & Lint (TCNA/New Jersey HIC Compliant)
+    name: Build (PRs) / Build + Publish (main)
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -29,51 +27,48 @@ jobs:
       - name: Setup Node.js (LTS)
         uses: actions/setup-node@v4
         with:
-          node-version: "24"
+          node-version: "20"
           cache: npm
 
       - name: Install npm Dependencies
         run: npm ci
 
-      # Skip linting temporarily to get deployment working
-      # - name: Lint HTML & JavaScript
-      #   run: npm run lint
-
-      - name: Setup Ruby (Jekyll Vendor)
+      - name: Setup Ruby (Jekyll)
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.2"
-          bundler: "2.4.19"
           bundler-cache: true
 
-      - name: Configure GitHub Pages (Internal Only)
-        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+      - name: Configure GitHub Pages
+        if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
 
-      - name: Build Site (Production, TCNA/New Jersey HIC Standards)
+      - name: Build Site (Production)
         env:
           JEKYLL_ENV: production
         run: npm run build
 
+      - name: Verify build output exists
+        run: |
+          test -d _site
+          test -f _site/index.html
+
       - name: Upload Pages Artifact
-        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
-          name: ${{ env.PAGES_ARTIFACT_NAME }}
 
   deploy:
-    name: Deploy to GitHub Pages (Preview & Production)
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    name: Deploy to GitHub Pages (main only)
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
+
     steps:
-      - name: Deploy to GitHub Pages (Preview on PRs, Production on Main)
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          preview: ${{ github.event_name == 'pull_request' }}
-          artifact_name: ${{ env.PAGES_ARTIFACT_NAME }}
