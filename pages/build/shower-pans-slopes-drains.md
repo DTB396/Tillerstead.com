@@ -1,8 +1,12 @@
 ---
 layout: build-page
-title: "Shower Pans, Slopes & Drains - Step 2"
-description: "TCNA-compliant shower pan design with proper slope and drainage. How water is directed safely to drain before tile, and why most failures start here."
-permalink: /pages/build/shower-pans-slopes-drains/
+title: "Build Phase 2: Shower Pans, Slopes & Drains"
+description: "How showers manage water before tile—proper slope, pan construction, and drainage according to TCNA standards."
+permalink: /build/shower-pans-slopes-drains/
+build_phase: 2
+build_title: "Shower Pans, Slopes & Drains"
+build_order: 2
+toc: true
 ---
 
 # Shower Pans, Slopes & Drains
