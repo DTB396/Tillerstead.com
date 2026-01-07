@@ -2,151 +2,99 @@
 layout: default
 hide_hero: true
 ---
-<!doctype html>
-<article
-  class="ts-section ts-surface section blog-post"
-  itemscope
-  itemtype="https://schema.org/BlogPosting"
-  tabindex="-1"
->
-  <!-- SEO & Schema.org metadata -->
+<article class="ts-section ts-surface section blog-post" itemscope itemtype="https://schema.org/BlogPosting">
   <meta itemprop="headline" content="{{ page.title }}" />
-  <meta
-    itemprop="datePublished"
-    content="{{ page.date | date: '%Y-%m-%dT%H:%M:%SZ' }}"
-  />
+  <meta itemprop="datePublished" content="{{ page.date | date: '%Y-%m-%dT%H:%M:%SZ' }}" />
+
   {% if page.date_modified %}
-  <meta
-    itemprop="dateModified"
-    content="{{ page.date_modified | date: '%Y-%m-%dT%H:%M:%SZ' }}"
-    ---
-    layout: default
-    hide_hero: true
-    ---
-  {% endif %} {% if page.author %}
-  <meta itemprop="author" content="{{ page.author }}" />
-  {% endif %} {% if page.description %}
-  <meta itemprop="description" content="{{ page.description }}" />
-  {% endif %} {% if page.featured_image %}
-  <meta itemprop="image" content="{{ page.featured_image | absolute_url }}" />
+    <meta itemprop="dateModified" content="{{ page.date_modified | date: '%Y-%m-%dT%H:%M:%SZ' }}" />
+  {% endif %}
+
+  {% if page.author %}
+    <meta itemprop="author" content="{{ page.author }}" />
+  {% endif %}
+
+  {% if page.description %}
+    <meta itemprop="description" content="{{ page.description }}" />
+  {% endif %}
+
+  {% if page.featured_image %}
+    <meta itemprop="image" content="{{ page.featured_image | absolute_url }}" />
   {% endif %}
 
   <div class="container container-wide shell">
-    <!-- Article header -->
     <header class="post-header stack-md">
       <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
 
       <div class="post-meta" role="doc-credits">
-        <time
-          class="post-date"
-          datetime="{{ page.date | date: '%Y-%m-%d' }}"
-          itemprop="datePublished"
-        >
+        <time class="post-date" datetime="{{ page.date | date: '%Y-%m-%d' }}" itemprop="datePublished">
           {{ page.date | date: "%B %-d, %Y" }}
         </time>
 
         {% if page.author %}
-        <span class="post-author" itemprop="author">
-          By <strong>{{ page.author }}</strong>
-        </span>
-        {% endif %} {% if page.reading_time %}
-        <span class="post-reading-time">
-          {{ page.reading_time }} min read
-        </span>
+          <span class="post-author" itemprop="author">By <strong>{{ page.author }}</strong></span>
+        {% endif %}
+
+        {% if page.reading_time %}
+          <span class="post-reading-time">{{ page.reading_time }} min read</span>
         {% endif %}
       </div>
 
       {% if page.featured_image %}
-      <figure class="post-featured-image">
-        <img
-          src="{{ page.featured_image | relative_url }}"
-          alt="{% if page.featured_image_alt %}{{ page.featured_image_alt }}{% else %}Featured image for {{ page.title }}: TCNA/New Jersey HIC-compliant installation example{% endif %}"
-          loading="lazy"
-          decoding="async"
-          itemprop="image"
-        />
-        {% if page.featured_image_caption %}
-        <figcaption>{{ page.featured_image_caption }}</figcaption>
-        {% endif %}
-      </figure>
-      {% endif %} {% if page.description %}
-      <p class="post-lead lead" itemprop="description">
-        {{ page.description }}
-      </p>
+        <figure class="post-featured-image">
+          <img
+            src="{{ page.featured_image | relative_url }}"
+            alt="{{ page.featured_image_alt | default: 'Featured image for ' | append: page.title }}"
+            loading="lazy"
+            decoding="async"
+            itemprop="image"
+          />
+          {% if page.featured_image_caption %}
+            <figcaption>{{ page.featured_image_caption }}</figcaption>
+          {% endif %}
+        </figure>
+      {% endif %}
+
+      {% if page.description %}
+        <p class="post-lead lead" itemprop="description">{{ page.description }}</p>
       {% endif %}
     </header>
 
-    <!-- Post content -->
-    <div class="prose post-body" itemprop="articleBody">{{ content }}</div>
+    <div class="prose post-body" itemprop="articleBody">
+      {{ content }}
+    </div>
 
     <footer class="post-footer stack-lg">
       <hr class="divider" />
 
-      <!-- Tags -->
       {% if page.tags %}
-      <nav class="post-tags" aria-label="Article tags">
-        <h2 class="text-small">Tagged:</h2>
-        <ul class="tag-list" role="list">
-          {% assign unique_tags = page.tags | uniq %} {% for tag in unique_tags
-          %}
-          <li role="listitem">
-            <a
-              href="{{ '/tags/' | append: tag | append: '/' | relative_url }}"
-              class="tag"
-            >
-              {{ tag }}
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-      </nav>
+        <nav class="post-tags" aria-label="Article tags">
+          <h2 class="text-small">Tagged:</h2>
+          <ul class="tag-list" role="list">
+            {% assign unique_tags = page.tags | uniq %}
+            {% for tag in unique_tags %}
+              <li><a href="{{ '/tags/' | append: tag | append: '/' | relative_url }}" class="tag">{{ tag }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
       {% endif %}
 
-      <!-- Author bio -->
       {% if page.author_bio %}
-      <div class="author-info" role="doc-afterword">
-        <h2 class="text-small">About the Author</h2>
-        <p>{{ page.author_bio }}</p>
-      </div>
+        <div class="author-info" role="doc-afterword">
+          <h2 class="text-small">About the Author</h2>
+          <p>{{ page.author_bio }}</p>
+        </div>
       {% endif %}
 
-      <!-- Share buttons -->
       {% if page.enable_sharing %}
-      <div class="post-share" role="group" aria-label="Share this article">
-        <h2 class="text-small">Share</h2>
-        <ul class="share-list" role="list">
-          <li role="listitem">
-            <a
-              href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}"
-              class="share-btn"
-              target="_blank"
-              rel="noopener"
-            >
-              Facebook
-            </a>
-          </li>
-          <li role="listitem">
-            <a
-              href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title | url_encode }}"
-              class="share-btn"
-              target="_blank"
-              rel="noopener"
-            >
-              Twitter / X
-            </a>
-          </li>
-          <li role="listitem">
-            <a
-              href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url }}"
-              class="share-btn"
-              target="_blank"
-              rel="noopener"
-            >
-              LinkedIn
-            </a>
-          </li>
-        </ul>
-      </div>
+        <div class="post-share" role="group" aria-label="Share this article">
+          <h2 class="text-small">Share</h2>
+          <ul class="share-list" role="list">
+            <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" class="share-btn" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title | url_encode }}" class="share-btn" target="_blank" rel="noopener">Twitter / X</a></li>
+            <li><a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url }}" class="share-btn" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
       {% endif %}
     </footer>
   </div>
@@ -154,19 +102,16 @@ hide_hero: true
 
 {% if page.show_related %}
 <section class="related-posts ts-section ts-surface section">
-  <div class="container">
+  <div class="container container-wide">
     <h2>Related Articles</h2>
     <div class="post-grid">
-      {% assign related = site.posts | where_exp: "post", "post.tags contains
-      page.tags[0]" | where_exp: "post", "post.url != page.url" | limit: 3 %} {%
-      for post in related %}
-      <article class="post-card">
-        <h3>
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </h3>
-        <p class="text-small">{{ post.date | date: "%B %-d, %Y" }}</p>
-        <p>{{ post.description | default: post.excerpt }}</p>
-      </article>
+      {% assign related = site.posts | where_exp: "post", "post.url != page.url" | limit: 3 %}
+      {% for post in related %}
+        <article class="post-card">
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p class="text-small">{{ post.date | date: "%B %-d, %Y" }}</p>
+          <p>{{ post.description | default: post.excerpt }}</p>
+        </article>
       {% endfor %}
     </div>
   </div>
