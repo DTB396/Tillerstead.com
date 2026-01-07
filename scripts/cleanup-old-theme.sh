@@ -46,14 +46,14 @@ echo "-----------------------------------------------------"
 safe_remove "src/assets" "Obsolete assets directory"
 
 echo ""
-echo "3️⃣  Renaming main-build.scss → main.scss (per OUTPUT_RULES.md naming)"
+echo "3️⃣  Renaming main-build.scss → style.scss (per OUTPUT_RULES.md naming)"
 echo "-----------------------------------------------------"
 if [ -f "assets/css/main-build.scss" ]; then
-    echo "  📝 Renaming: assets/css/main-build.scss → assets/css/main.scss"
+    echo "  📝 Renaming: assets/css/main-build.scss → assets/css/style.scss"
     if [ "$BACKUP" = true ]; then
         cp "assets/css/main-build.scss" "$BACKUP_DIR/" 2>/dev/null || true
     fi
-    mv "assets/css/main-build.scss" "assets/css/main.scss"
+    mv "assets/css/main-build.scss" "assets/css/style.scss"
     echo "     ✅ Renamed for TCNA/NJ HIC compliance"
 else
     echo "  ⏭️  main-build.scss not found or already renamed"
@@ -62,7 +62,7 @@ fi
 echo ""
 echo "4️⃣  Removing deprecated/duplicate CSS files (per OUTPUT_RULES.md)"
 echo "-----------------------------------------------------"
-for css in "assets/css/theme.css" "assets/css/theme-compiled.css" "assets/css/style.css"; do
+for css in "assets/css/theme.css" "assets/css/theme-compiled.css" "assets/css/main.css"; do
     safe_remove "$css" "Deprecated CSS: $(basename "$css")"
 done
 
@@ -95,7 +95,7 @@ fi
 echo "Next steps:"
 echo "  1. Run: ./scripts/run-jekyll.sh build"
 echo "  2. Validate output with HTMLHint, ESLint, and Jekyll"
-echo "  3. Confirm main.css is generated and accessible"
+echo "  3. Confirm style.css is generated and accessible"
 echo ""
 echo "🔎 All actions performed per TCNA 2024, NJ HIC, and project OUTPUT_RULES.md"
 echo "🏆 Tillerstead: Setting the technical standard for New Jersey home improvement."

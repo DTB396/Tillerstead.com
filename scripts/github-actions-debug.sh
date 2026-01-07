@@ -117,7 +117,7 @@ fi
 # 6. Post-Build Artifact Check
 section "5. ARTIFACT VERIFICATION"
 
-REQUIRED_FILES=("index.html" "404.html" "css/main.css" "sitemap.xml" "robots.txt")
+REQUIRED_FILES=("index.html" "404.html" "css/style.css" "sitemap.xml" "robots.txt")
 for file in "${REQUIRED_FILES[@]}"; do
   if [ -f "_site/$file" ]; then
     log_success "Found: _site/$file"

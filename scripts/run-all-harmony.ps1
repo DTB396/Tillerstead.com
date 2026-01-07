@@ -194,7 +194,7 @@ Write-Host "━━━━━━━━━━━━━━━━━━━━━━�
 
 Write-Host "[1/3] Cleaning previous build..." -ForegroundColor Green
 Remove-Item -Recurse -Force _site -ErrorAction SilentlyContinue
-Remove-Item -Force assets\css\main.css -ErrorAction SilentlyContinue
+Remove-Item -Force assets\css\style.css -ErrorAction SilentlyContinue
 
 Write-Host "[2/3] Building CSS from SCSS..." -ForegroundColor Green
 node "$scriptDir\build-css.js"
@@ -281,11 +281,10 @@ if (Test-Path "_site") {
     $fileCount = (Get-ChildItem -Recurse _site -File).Count
     Write-Host "  📁 _site/: $fileCount files generated" -ForegroundColor Gray
 }
-if (Test-Path "assets\css\main.css") {
-    $cssSize = [math]::Round((Get-Item "assets\css\main.css").Length / 1KB, 2)
+if (Test-Path "assets\css\style.css") {
+    $cssSize = [math]::Round((Get-Item "assets\css\style.css").Length / 1KB, 2)
     Write-Host "  📄 CSS compiled: ${cssSize}KB" -ForegroundColor Gray
 }
 
 Write-Host ""
 Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Cyan
-

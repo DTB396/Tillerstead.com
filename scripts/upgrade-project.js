@@ -102,7 +102,7 @@ async function upgradeSass() {
   }
   await crawl(path.join(projectRoot, '_sass'));
   await crawl(path.join(projectRoot, 'assets'));
-  // Also check root in case main.scss is there (some Jekyll setups)
+  // Also check root in case style.scss is there (some Jekyll setups)
   try {
     const rootFiles = await fs.readdir(projectRoot, { withFileTypes: true });
     for (const f of rootFiles) {

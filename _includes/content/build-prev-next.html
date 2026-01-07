@@ -1,4 +1,4 @@
-{% assign build_pages = site.pages | where_exp: "p", "p.build_order" | sort: "build_order" %}
+{% assign build_pages = site.build | where_exp: "p", "p.build_order" | sort: "build_order" %}
 {% assign idx = nil %}
 
 {% for p in build_pages %}
@@ -15,21 +15,23 @@
 
   <nav class="build-prev-next" aria-label="Build phase navigation">
     <div class="build-prev-next__grid">
-      <div>
-        {% if prev_p %}
-          <a class="build-prev-next__link" href="{{ prev_p.url | relative_url }}">
-            ← Step {{ prev_p.build_order }}: {{ prev_p.title }}
-          </a>
-        {% endif %}
-      </div>
+      {% if prev_p %}
+        <a class="build-prev-next__card build-prev-next__card--prev" href="{{ prev_p.url | relative_url }}">
+          <span class="build-prev-next__eyebrow">Previous</span>
+          <span class="build-prev-next__title">Step {{ prev_p.build_order }}: {{ prev_p.title }}</span>
+        </a>
+      {% else %}
+        <div class="build-prev-next__card build-prev-next__card--empty" aria-hidden="true"></div>
+      {% endif %}
 
-      <div style="text-align:right">
-        {% if next_p %}
-          <a class="build-prev-next__link" href="{{ next_p.url | relative_url }}">
-            Step {{ next_p.build_order }}: {{ next_p.title }} →
-          </a>
-        {% endif %}
-      </div>
+      {% if next_p %}
+        <a class="build-prev-next__card build-prev-next__card--next" href="{{ next_p.url | relative_url }}">
+          <span class="build-prev-next__eyebrow">Next</span>
+          <span class="build-prev-next__title">Step {{ next_p.build_order }}: {{ next_p.title }}</span>
+        </a>
+      {% else %}
+        <div class="build-prev-next__card build-prev-next__card--empty" aria-hidden="true"></div>
+      {% endif %}
     </div>
   </nav>
 {% endif %}

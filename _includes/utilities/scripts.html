@@ -43,12 +43,8 @@ endcomment %} {% assign cache_version = site.cache_version | default:
   src="{{ '/assets/js/build-calculators.js' | relative_url }}?v={{ cache_version }}"
   defer
 ></script>
-{% endif %} {% if jekyll.environment == 'development' %}
-<!-- Development overlay for debugging -->
-<script
-  src="{{ '/assets/js/dev-overlay.js' | relative_url }}?v={{ cache_version }}"
-  defer
-></script>
+{% endif %}
+<!-- Table of contents builder -->
 <script>
 (function () {
   const toc = document.querySelector('[data-toc]');
@@ -82,4 +78,10 @@ endcomment %} {% assign cache_version = site.cache_version | default:
   toc.appendChild(ul);
 })();
 </script>
+{% if jekyll.environment == 'development' %}
+<!-- Development overlay for debugging -->
+<script
+  src="{{ '/assets/js/dev-overlay.js' | relative_url }}?v={{ cache_version }}"
+  defer
+></script>
 {% endif %}

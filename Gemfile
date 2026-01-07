@@ -5,7 +5,7 @@ source "https://rubygems.org"
 ruby ">= 3.2", "< 3.4"
 
 # Core
-gem "jekyll", "~> 4.3.0"
+gem "jekyll", "~> 4.4.1"
 
 # Plugins (stable + common)
 gem "jekyll-feed", "~> 0.17"

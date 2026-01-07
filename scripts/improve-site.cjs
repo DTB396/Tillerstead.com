@@ -247,8 +247,8 @@ async function checkStyles() {
     {
       name: "Mobile breakpoints defined",
       check: () => {
-        const mainCss = fs.existsSync("assets/css/main.css")
-          ? fs.readFileSync("assets/css/main.css", "utf8")
+        const mainCss = fs.existsSync("assets/css/style.css")
+          ? fs.readFileSync("assets/css/style.css", "utf8")
           : "";
 
         const hasBreakpoints =
@@ -476,8 +476,8 @@ async function checkPerformance() {
     {
       name: "CSS file size < 100KB",
       check: () => {
-        if (fs.existsSync("assets/css/main.css")) {
-          const stats = fs.statSync("assets/css/main.css");
+        if (fs.existsSync("assets/css/style.css")) {
+          const stats = fs.statSync("assets/css/style.css");
           const sizeKB = stats.size / 1024;
 
           if (sizeKB > 100) {

@@ -466,10 +466,10 @@ function createProcessCSS() {
 }
 
 /**
- * Update main.scss to include process styles
+ * Update style.scss to include process styles
  */
 function updateMainSCSS() {
-  const scssPath = path.join(__dirname, "../assets/css/main.scss");
+  const scssPath = path.join(__dirname, "../assets/css/style.scss");
   let content = fs.readFileSync(scssPath, "utf8");
 
   if (!content.includes("30-components/process")) {
@@ -479,7 +479,7 @@ function updateMainSCSS() {
     );
 
     fs.writeFileSync(scssPath, content, "utf8");
-    console.log("✅ Updated main.scss with process import");
+    console.log("✅ Updated style.scss with process import");
   }
 }
 

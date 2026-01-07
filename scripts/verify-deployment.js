@@ -195,7 +195,7 @@ function testMobileNavigation(html) {
 function testAssets(html) {
   section('Phase 4: Asset Loading Test');
 
-  if (html.includes('/assets/css/main.css')) {
+  if (html.includes('/assets/css/style.css')) {
     pass('Main CSS file linked');
   } else {
     fail('Main CSS file not linked');

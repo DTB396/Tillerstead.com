@@ -4,6 +4,7 @@
   name="viewport"
   content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content"
 />
+<meta name="color-scheme" content="light dark" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
 {%- comment -%} TITLE (fixes "Missing title tag") Priority: 1) page.seo_title 2)
@@ -232,10 +233,16 @@ og_image_abs = og_image | absolute_url -%}
 {% endif %}
 
 <!-- Styles -->
-<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
-{% if page.styles %} {% for style in page.styles %}
-<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
-{% endfor %} {% endif %} {% if page.schema %} {% for schema in page.schema %}
+<link
+  rel="stylesheet"
+  href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.assets_version }}"
+/>
+{% if page.styles %}
+  {% for style in page.styles %}
+    <link rel="stylesheet" href="{{ style | relative_url }}" />
+  {% endfor %}
+{% endif %}
+{% if page.schema %} {% for schema in page.schema %}
 <script type="application/ld+json">
   {{ schema | jsonify }}
 </script>

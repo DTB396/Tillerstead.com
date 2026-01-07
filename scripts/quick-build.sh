@@ -9,7 +9,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$SCRIPT_DIR"
 
 echo "🧹 [TCNA/NJ HIC] Cleaning build artifacts for compliance..."
-rm -rf _site assets/css/main.css
+rm -rf _site assets/css/style.css
 
 echo "🎨 Compiling CSS to TCNA-compliant output..."
 if ! npm run build:css 2>&1 | grep -v "Deprecation Warning"; then
@@ -28,8 +28,8 @@ if [ -f "_site/index.html" ]; then
     echo "✅ Build successful — site meets TCNA and NJ HIC requirements."
     echo ""
     echo "Updated outputs:"
-    if [ -f assets/css/main.css ]; then
-        ls -lh assets/css/main.css
+    if [ -f assets/css/style.css ]; then
+        ls -lh assets/css/style.css
     else
         echo "  ⚠️  CSS not found — check build:css output."
     fi

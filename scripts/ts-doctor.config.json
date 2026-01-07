@@ -1,7 +1,7 @@
 {
   "siteBuildDir": "_site",
   "pagesToCheck": ["_site/index.html"],
-  "requiredAssets": ["assets/css/main.css", "assets/js/main.js"],
+  "requiredAssets": ["assets/css/style.css", "assets/js/main.js"],
   "logoCandidates": [
     "assets/img/logo.svg",
     "assets/img/logo.png",

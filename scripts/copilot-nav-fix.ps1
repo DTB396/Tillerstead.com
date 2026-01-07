@@ -4,8 +4,8 @@
   in static/Jekyll sites (or similar). Safe: read-first, then guided edits.
 
 .USAGE
-  pwsh -File .\scripts\copilot-nav-fix.ps1 -RepoName "tillerstead" -Paths @("_includes/header.html","_includes/footer.html","assets/main.scss")
-  pwsh -File .\scripts\copilot-nav-fix.ps1 -RepoName "faithfrontier" -Paths @("_includes/header.html","assets/css/main.scss","assets/js/main.js")
+  pwsh -File .\scripts\copilot-nav-fix.ps1 -RepoName "tillerstead" -Paths @("_includes/header.html","_includes/footer.html","assets/css/style.scss")
+  pwsh -File .\scripts\copilot-nav-fix.ps1 -RepoName "faithfrontier" -Paths @("_includes/header.html","assets/css/style.scss","assets/js/main.js")
 
 .NOTES
   You can run this in either repo. It generates:

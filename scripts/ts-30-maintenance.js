@@ -268,7 +268,7 @@ for (const file of rootFiles) {
   }
 }
 
-// 5.B Remove unused SCSS partials in _sass (not imported in main.scss)
+// 5.B Remove unused SCSS partials in _sass (not imported in style.scss)
 const sassDir = '_sass';
 if (fs.existsSync(sassDir)) {
   // Collect all .scss files under _sass (relative paths without extension)
@@ -289,8 +289,8 @@ if (fs.existsSync(sassDir)) {
     });
   };
   walkDir(sassDir);
-  // Get imports from main.scss
-  const mainScssPath = path.join('assets', 'css', 'main.scss');
+  // Get imports from style.scss
+  const mainScssPath = path.join('assets', 'css', 'style.scss');
   const importedPaths = new Set();
   if (fs.existsSync(mainScssPath)) {
     const mainContent = fs.readFileSync(mainScssPath, 'utf8');

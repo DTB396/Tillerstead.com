@@ -10,9 +10,7 @@ layout: default
       </aside>
 
       <div class="build-content-main">
-        {% if page.toc %}
-          <nav class="toc" data-toc data-toc-scope=".build-content-main" aria-label="On this page"></nav>
-        {% endif %}
+        {% include components/toc.html %}
 
         <article class="prose">
           {{ content }}
@@ -24,4 +22,9 @@ layout: default
   </div>
 </section>
 
-{% include schema/build-phase-schema.html %}
+{% assign schema_kind = page.schema_type | default: "HowTo" %}
+{% if schema_kind == "HowTo" %}
+  {% include schema/schema-howto.html %}
+{% else %}
+  {% include schema/schema-techarticle.html %}
+{% endif %}

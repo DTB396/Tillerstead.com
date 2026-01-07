@@ -63,7 +63,7 @@ Write-Section "Quick sanity checks"
 # Check required key files
 $mustHave = @(
     "_includes\header.html",
-    "_sass\main.scss",
+    "assets\css\style.scss",
     "assets\js\nav.js",
     "_data\navigation.yml"
 )

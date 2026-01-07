@@ -1,49 +1,49 @@
 primary:
   - id: build
     title: "Build Guides"
-    url: "/pages/build/"
-    match: "^/pages/build(/|$)"
+    url: "/build/"
+    match: "^/build(/|$)"
     external: false
     children:
       - id: nj-codes-permits
         title: "Codes & Permits"
-        url: "/pages/build/nj-codes-permits/"
-        match: "^/pages/build/nj-codes-permits(/|$)"
+        url: "/build/nj-codes-permits/"
+        match: "^/build/nj-codes-permits(/|$)"
         external: false
       - id: shower-pans-slopes
         title: "Shower Pans & Slopes"
-        url: "/pages/build/shower-pans-slopes-drains/"
-        match: "^/pages/build/shower-pans-slopes-drains(/|$)"
+        url: "/build/shower-pans-slopes-drains/"
+        match: "^/build/shower-pans-slopes-drains(/|$)"
         external: false
       - id: waterproofing-systems
         title: "Waterproofing"
-        url: "/pages/build/waterproofing-systems/"
-        match: "^/pages/build/waterproofing-systems(/|$)"
+        url: "/build/waterproofing-systems/"
+        match: "^/build/waterproofing-systems(/|$)"
         external: false
       - id: curbs-curbless
         title: "Thresholds & Curbs"
-        url: "/pages/build/curbs-curbless/"
-        match: "^/pages/build/curbs-curbless(/|$)"
+        url: "/build/curbs-curbless/"
+        match: "^/build/curbs-curbless(/|$)"
         external: false
       - id: framing-benches
         title: "Benches & Niches"
-        url: "/pages/build/framing-benches-niches/"
-        match: "^/pages/build/framing-benches-niches(/|$)"
+        url: "/build/framing-benches-niches/"
+        match: "^/build/framing-benches-niches(/|$)"
         external: false
       - id: tile-installation
         title: "Tile Installation"
-        url: "/pages/build/tile-installation-standards/"
-        match: "^/pages/build/tile-installation-standards(/|$)"
+        url: "/build/tile-installation-standards/"
+        match: "^/build/tile-installation-standards(/|$)"
         external: false
       - id: flood-testing
         title: "Verification & Testing"
-        url: "/pages/build/flood-testing/"
-        match: "^/pages/build/flood-testing(/|$)"
+        url: "/build/flood-testing/"
+        match: "^/build/flood-testing(/|$)"
         external: false
       - id: common-failures
         title: "Common Failures"
-        url: "/pages/build/common-build-failures/"
-        match: "^/pages/build/common-build-failures(/|$)"
+        url: "/build/common-build-failures/"
+        match: "^/build/common-build-failures(/|$)"
         external: false
 
   - id: portfolio

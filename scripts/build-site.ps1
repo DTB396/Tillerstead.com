@@ -65,8 +65,8 @@ else {
 
 #-------------------------------------------------
 # 2️⃣  Compile SCSS → CSS
-#    Output: assets/css/main.<hash>.css  (production) or main.css (dev)
-$scssEntry = "$projectRoot\src\scss\main.scss"
+#    Output: assets/css/style.<hash>.css  (production) or style.css (dev)
+$scssEntry = "$projectRoot\assets\css\style.scss"
 $cssOutDir = "$projectRoot\assets\css"
 $timestamp = Get-Date -Format "yyyyMMddHHmmss"
 $hash = (Get-FileHash -Algorithm SHA256 -Path $scssEntry).Hash.Substring(0, 8)
@@ -74,12 +74,12 @@ $hash = (Get-FileHash -Algorithm SHA256 -Path $scssEntry).Hash.Substring(0, 8)
 if (-not (Test-Path $cssOutDir)) { New-Item -ItemType Directory -Path $cssOutDir | Out-Null }
 
 if ($Production) {
-    $cssFile = "main.$hash.css"
+    $cssFile = "style.$hash.css"
     $style = "compressed"
     $sourceMap = $false
 }
 else {
-    $cssFile = "main.css"
+    $cssFile = "style.css"
     $style = "expanded"
     $sourceMap = $true
 }

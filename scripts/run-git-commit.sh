@@ -19,7 +19,7 @@ git add _sass/components/_forms.scss
 git add _sass/components/_header.scss
 git add _sass/components/_footer.scss
 git add _sass/components/_hero.scss
-git add assets/css/main.scss
+git add assets/css/style.scss
 
 # Stage updated files (naming, structure, compliance)
 echo "📝 Staging updated files..."

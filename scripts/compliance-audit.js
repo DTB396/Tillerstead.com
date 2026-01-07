@@ -154,7 +154,7 @@ function auditTCNACompliance() {
 
   // Check Build Phase guides for TCNA references
   try {
-    const buildDir = join(ROOT, 'pages/build');
+    const buildDir = join(ROOT, '_build');
     const files = readdirSync(buildDir).filter((f) => f.endsWith('.md'));
 
     files.forEach((file) => {
@@ -164,7 +164,7 @@ function auditTCNACompliance() {
       if (tcnaRefs === 0) {
         findings.push({
           level: 'warning',
-          file: 'pages/build/' + file,
+          file: '_build/' + file,
           message:
             'No TCNA references found - Build guides should reference applicable standards',
         });
@@ -335,7 +335,7 @@ function auditBuildPhaseCompliance() {
   console.log('🏗️  Auditing Build Phase content standards...');
 
   const findings = [];
-  const buildDir = join(ROOT, 'pages/build');
+  const buildDir = join(ROOT, '_build');
 
   try {
     const files = readdirSync(buildDir).filter((f) => f.endsWith('.md'));
@@ -351,7 +351,7 @@ function auditBuildPhaseCompliance() {
       if (!frontMatterMatch) {
         findings.push({
           level: 'error',
-          file: 'pages/build/' + file,
+          file: '_build/' + file,
           message: 'Missing YAML front matter',
         });
         return;
@@ -364,7 +364,7 @@ function auditBuildPhaseCompliance() {
         if (!frontMatter.includes(field)) {
           findings.push({
             level: 'error',
-            file: 'pages/build/' + file,
+            file: '_build/' + file,
             message: 'Missing required front matter field: ' + field,
           });
         }
@@ -386,7 +386,7 @@ function auditBuildPhaseCompliance() {
         if (!explanationCheck) {
           findings.push({
             level: 'warning',
-            file: 'pages/build/' + file,
+            file: '_build/' + file,
             message:
               'Contains technical terms but may lack explanations for homeowners',
           });
@@ -395,11 +395,11 @@ function auditBuildPhaseCompliance() {
 
       // Check for links to other Build guides
       const hasInternalLinks =
-        bodyContent.includes('/pages/build/') || bodyContent.includes('](/');
+        bodyContent.includes('/build/') || bodyContent.includes('](/');
       if (!hasInternalLinks) {
         findings.push({
           level: 'info',
-          file: 'pages/build/' + file,
+          file: '_build/' + file,
           message: 'Consider adding links to related Build Phase guides',
         });
       }

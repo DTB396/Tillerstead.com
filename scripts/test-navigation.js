@@ -70,7 +70,7 @@ if (fs.existsSync(headerPath)) {
 
 // Check 2: CSS Compilation
 section('Phase 2: CSS Styles');
-const cssPath = path.join(rootDir, '_site', 'assets', 'css', 'main.css');
+const cssPath = path.join(rootDir, '_site', 'assets', 'css', 'style.css');
 if (fs.existsSync(cssPath)) {
   const css = fs.readFileSync(cssPath, 'utf8');
 
@@ -95,7 +95,7 @@ if (fs.existsSync(cssPath)) {
     ? pass('Fixed positioning found')
     : fail('Fixed positioning missing');
 } else {
-  fail('_site/assets/css/main.css not found - run build first');
+  fail('_site/assets/css/style.css not found - run build first');
 }
 
 // Check 3: JavaScript

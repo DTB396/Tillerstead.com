@@ -10,7 +10,7 @@ cd "$SCRIPT_DIR"
 
 echo "🧹 [TCNA 2024] Removing previous build artifacts for a clean, standards-compliant rebuild..."
 rm -rf _site
-rm -f assets/css/main.css
+rm -f assets/css/style.css
 
 echo ""
 echo "🎨 Compiling SCSS to CSS (per TCNA Section 16, ANSI A108.01)..."

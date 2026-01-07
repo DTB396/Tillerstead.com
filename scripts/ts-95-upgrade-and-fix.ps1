@@ -88,12 +88,12 @@ else {
 }
 
 Write-Step "Stop Sass @import deprecation warnings by moving imports to SCSS entrypoint"
-# If your build process currently compiles assets/css/main.css directly, create a real SCSS entry.
-$scssEntry = ".\assets\css\main.scss"
-$cssEntry = ".\assets\css\main.css"
+# If your build process currently compiles assets/css/style.css directly, create a real SCSS entry.
+$scssEntry = ".\assets\css\style.scss"
+$cssEntry = ".\assets\css\style.css"
 
 if (!(Test-Path $scssEntry)) {
-    # If main.css contains Sass-like @import lines, migrate them into main.scss and leave main.css as built output only.
+    # If style.css contains Sass-like @import lines, migrate them into style.scss and leave style.css as built output only.
     $raw = ""
     if (Test-Path $cssEntry) { $raw = Get-Content $cssEntry -Raw }
 
@@ -101,24 +101,24 @@ if (!(Test-Path $scssEntry)) {
     if ($hasSassImports) {
         @"
 ---
-# Jekyll will compile this SCSS into /assets/css/main.css
+# Jekyll will compile this SCSS into /assets/css/style.css
 ---
 
 @use "sass:math";
 
-/* Migrated from assets/css/main.css (Sass @import deprecations) */
+/* Migrated from assets/css/style.css (Sass @import deprecations) */
 $raw
 "@ | Set-Content -Encoding utf8 $scssEntry
 
         Write-Host "Created SCSS entrypoint: $scssEntry"
-        Write-Host "NOTE: assets/css/main.css should now be treated as build output, not source."
+        Write-Host "NOTE: assets/css/style.css should now be treated as build output, not source."
     }
     else {
         @"
 ---
 ---
 
-/* SCSS entrypoint placeholder (no Sass imports detected in assets/css/main.css) */
+/* SCSS entrypoint placeholder (no Sass imports detected in assets/css/style.css) */
 "@ | Set-Content -Encoding utf8 $scssEntry
         Write-Host "Created basic SCSS entrypoint: $scssEntry"
     }

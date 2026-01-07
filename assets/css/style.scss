@@ -1,3 +1,5 @@
+---
+---
 /* ============================================
    Tillerstead Main Stylesheet
    TCNA-Compliant, Modular CSS Architecture
@@ -38,11 +40,7 @@
 @use "30-components/animations" as *;
 @use "30-components/breadcrumbs" as *;
 @use "30-components/peace-of-mind" as *;
-
-/* TEST RULE: This should appear in main.css if build works */
-body {
-  background: #ffdddd !important;
-}
+@use "30-components/build-page" as *;
 @use "30-components/social-links" as *;
 @use "30-components/icons" as *;
 @use "30-components/process" as *;

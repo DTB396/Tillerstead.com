@@ -1,0 +1,5 @@
+{% if page.toc %}
+  <nav class="toc" data-toc data-toc-scope="{{ include.scope | default: '.build-content-main' }}" aria-label="On this page">
+    <div class="toc__title">On this page</div>
+  </nav>
+{% endif %}

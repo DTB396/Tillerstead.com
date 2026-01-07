@@ -22,6 +22,9 @@ timezone: "America/New_York"
 permalink: pretty
 theme: null
 
+sass:
+  style: compressed
+
 # ----------------------------
 # Plugins (safe)
 # ----------------------------

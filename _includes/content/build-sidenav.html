@@ -1,4 +1,4 @@
-{% assign build_pages = site.pages | where_exp: "p", "p.build_order" | sort: "build_order" %}
+{% assign build_pages = site.build | where_exp: "p", "p.build_order" | sort: "build_order" %}
 
 <nav class="build-sidenav" aria-label="Build phases">
   <ul class="build-sidenav__list" role="list">
