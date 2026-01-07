@@ -1,8 +1,12 @@
 ---
 layout: build-page
-title: "Framing for Benches, Seats & Niches - Step 5"
-description: "TCNA-compliant structural planning for benches and niches before waterproofing and tile."
-permalink: /pages/build/framing-benches-niches/
+title: "Build Phase 5: Framing for Benches, Seats & Niches"
+description: "Structural planning for benches and niches before waterproofing and tile, based on TCNA methods."
+permalink: /build/framing-benches-niches/
+build_phase: 5
+build_title: "Benches, Seats & Niches"
+build_order: 5
+toc: true
 ---
 
 # Framing for Benches, Seats & Niches
