@@ -1,8 +1,12 @@
 ---
 layout: build-page
-title: "Flood Testing & Verification - Step 7"
-description: "ASTM D5957 flood testing methods for waterproofing verification before tile conceals the system."
+title: "Build Phase 7: Flood Testing & Verification"
+description: "ASTM D5957 flood testing methods used to verify waterproofing before tile conceals the system."
 permalink: /build/flood-testing/
+build_phase: 7
+build_title: "Flood Testing & Verification"
+build_order: 7
+toc: true
 ---
 
 # Flood Testing & Pre-Tile Verification
