@@ -1,0 +1,31 @@
+{%- assign schema_type = page.schema_type | default: "TechArticle" -%}
+{%- assign headline = page.title | default: site.title -%}
+{%- assign desc = page.description | default: site.description -%}
+{%- assign url = page.url | absolute_url -%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{ schema_type }}",
+  "headline": {{ headline | jsonify }},
+  "description": {{ desc | jsonify }},
+  "url": {{ url | jsonify }},
+  "inLanguage": "en-US",
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "name": "Build Phase Guides",
+    "url": {{ "/build/" | absolute_url | jsonify }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site.title | jsonify }},
+    "url": {{ site.url | jsonify }}
+  }
+  {%- if page.date -%},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }}
+  {%- endif -%}
+  {%- if page.date_modified -%},
+  "dateModified": {{ page.date_modified | date_to_xmlschema | jsonify }}
+  {%- endif -%}
+}
+</script>
