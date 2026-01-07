@@ -127,15 +127,15 @@ class Validator {
     console.log('\n💧 Validating Liquid Templates...');
     const liquidPatterns = [
       {
-        regex: /\{\%\s*if\s+(\w+)\s+gt\s+/g,
+        regex: /\{%\s*if\s+(\w+)\s+gt\s+/g,
         issue: 'Invalid operator "gt" (use ">")',
       },
       {
-        regex: /\{\%\s*if\s+(\w+)\s+lt\s+/g,
+        regex: /\{%\s*if\s+(\w+)\s+lt\s+/g,
         issue: 'Invalid operator "lt" (use "<")',
       },
       {
-        regex: /\{\%\s*\w+\s*\|\s*(\w+)\s*:\s*'([^']*)'\s*\|\s*/g,
+        regex: /{%\s*\w+\s*\|\s*(\w+)\s*:\s*'([^']*)'\s*\|\s*/g,
         issue: 'Check filter syntax',
       },
     ];

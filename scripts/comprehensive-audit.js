@@ -137,7 +137,7 @@ function scanFile(filePath, type) {
     }
 
     // 6. Check for unquoted attributes
-    const unquotedAttrRegex = /\s\w+=(?!["\'])/g;
+    const unquotedAttrRegex = /\s\w+=(?!["'])/g;
     if (content.match(unquotedAttrRegex)) {
       fileIssues.push({
         category: 'UNQUOTED_ATTR',
