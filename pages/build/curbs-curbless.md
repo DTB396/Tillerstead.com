@@ -7,6 +7,7 @@ build_phase: 4
 build_title: "Curbs & Curbless Showers"
 build_order: 4
 toc: true
+schema_type: HowTo
 ---
 
 # Curbs, Curbless Showers & Thresholds
