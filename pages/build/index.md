@@ -5,6 +5,7 @@ description: Complete guide to TCNA-standard bathroom and shower construction in
 permalink: /build/
 is_build_hub: true
 toc: true
+schema_type: TechArticle
 ---
 # The Build Phase
 
