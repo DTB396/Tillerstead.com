@@ -1,8 +1,12 @@
 ---
 layout: build-page
-title: "Curbs & Curbless Showers - Step 4"
-description: "TCNA-compliant threshold design. How showers contain water at entry with or without a curb in New Jersey."
+title: "Build Phase 4: Curbs & Curbless Showers"
+description: "How showers contain water at the entry, including curbed and curbless designs permitted in New Jersey."
 permalink: /build/curbs-curbless/
+build_phase: 4
+build_title: "Curbs & Curbless Showers"
+build_order: 4
+toc: true
 ---
 
 # Curbs, Curbless Showers & Thresholds
