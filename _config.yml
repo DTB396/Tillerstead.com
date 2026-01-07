@@ -33,6 +33,9 @@ plugins:
   - jekyll-archives
   - jekyll-paginate
 
+kramdown:
+  auto_ids: true
+
 # ----------------------------
 # SEO
 # ----------------------------
