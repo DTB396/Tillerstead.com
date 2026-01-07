@@ -1,0 +1,45 @@
+{%- assign phases = site.data.build_phases | sort: "order" -%}
+{%- assign here = page.url | append: "" -%}
+
+{%- assign idx = nil -%}
+{%- for p in phases -%}
+  {%- if here == p.url or here == (p.url | relative_url) -%}
+    {%- assign idx = forloop.index0 -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if idx != nil -%}
+  {%- assign prev_i = idx | minus: 1 -%}
+  {%- assign next_i = idx | plus: 1 -%}
+
+  {%- assign prev = nil -%}
+  {%- assign next = nil -%}
+  {%- if prev_i >= 0 -%}{%- assign prev = phases[prev_i] -%}{%- endif -%}
+  {%- if next_i < phases.size -%}{%- assign next = phases[next_i] -%}{%- endif -%}
+
+  <nav class="build-prev-next" aria-label="Build phase navigation">
+    <div class="build-prev-next__grid">
+      <div class="build-prev-next__cell">
+        {%- if prev -%}
+          <a class="build-prev-next__link is-prev" href="{{ prev.url | relative_url }}">
+            <span class="build-prev-next__kicker">Previous</span>
+            <span class="build-prev-next__title">{{ prev.title }}</span>
+          </a>
+        {%- endif -%}
+      </div>
+
+      <div class="build-prev-next__cell">
+        {%- if next -%}
+          <a class="build-prev-next__link is-next" href="{{ next.url | relative_url }}">
+            <span class="build-prev-next__kicker">Next</span>
+            <span class="build-prev-next__title">{{ next.title }}</span>
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <p class="build-prev-next__tip">
+      Tip: Read in order for the full system sequence, or jump to the phase that matches your project.
+    </p>
+  </nav>
+{%- endif -%}
