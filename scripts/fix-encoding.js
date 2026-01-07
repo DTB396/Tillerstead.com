@@ -7,19 +7,19 @@
  * - Validates and fixes Liquid syntax
  */
 
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.resolve(__dirname, "..");
+const ROOT = path.resolve(__dirname, '..');
 const EXCLUDE_DIRS = [
-  ".git",
-  "node_modules",
-  "_site",
-  ".github",
-  "vendor",
-  "dist",
+  '.git',
+  'node_modules',
+  '_site',
+  '.github',
+  'vendor',
+  'dist',
 ];
 
 class EncodingFixer {
@@ -41,39 +41,39 @@ class EncodingFixer {
 
   normalizeLineEndings(content) {
     // Convert CRLF to LF
-    return content.replace(/\r\n/g, "\n");
+    return content.replace(/\r\n/g, '\n');
   }
 
   fixYamlTabs(filePath, content) {
-    if (!filePath.endsWith(".yml") && !filePath.endsWith(".yaml")) {
+    if (!filePath.endsWith('.yml') && !filePath.endsWith('.yaml')) {
       return { content, modified: false };
     }
 
-    const lines = content.split("\n");
+    const lines = content.split('\n');
     let modified = false;
     const fixed = lines.map((line) => {
-      if (line.includes("\t")) {
+      if (line.includes('\t')) {
         modified = true;
-        return line.replace(/\t/g, "  ");
+        return line.replace(/\t/g, '  ');
       }
       return line;
     });
 
-    return { content: fixed.join("\n"), modified };
+    return { content: fixed.join('\n'), modified };
   }
 
   fixLiquidOperators(content) {
     let modified = false;
 
     // Replace 'gt' with '>'
-    if (content.includes(" gt ")) {
-      content = content.replace(/\s+gt\s+/g, " > ");
+    if (content.includes(' gt ')) {
+      content = content.replace(/\s+gt\s+/g, ' > ');
       modified = true;
     }
 
     // Replace 'lt' with '<'
-    if (content.includes(" lt ")) {
-      content = content.replace(/\s+lt\s+/g, " < ");
+    if (content.includes(' lt ')) {
+      content = content.replace(/\s+lt\s+/g, ' < ');
       modified = true;
     }
 
@@ -82,7 +82,7 @@ class EncodingFixer {
 
   processFile(filePath) {
     try {
-      let content = fs.readFileSync(filePath, "utf8");
+      let content = fs.readFileSync(filePath, 'utf8');
       let isModified = false;
 
       // Remove BOM
@@ -115,7 +115,7 @@ class EncodingFixer {
 
       // Write back if modified
       if (isModified) {
-        fs.writeFileSync(filePath, content, "utf8");
+        fs.writeFileSync(filePath, content, 'utf8');
         this.fixed.push(filePath);
         console.log(`✅ Fixed: ${filePath}`);
       }
@@ -136,12 +136,12 @@ class EncodingFixer {
         if (stat.isDirectory()) {
           this.walkDir(filePath);
         } else if (
-          file.endsWith(".html") ||
-          file.endsWith(".md") ||
-          file.endsWith(".yml") ||
-          file.endsWith(".yaml") ||
-          file.endsWith(".json") ||
-          file.endsWith(".js")
+          file.endsWith('.html') ||
+          file.endsWith('.md') ||
+          file.endsWith('.yml') ||
+          file.endsWith('.yaml') ||
+          file.endsWith('.json') ||
+          file.endsWith('.js')
         ) {
           this.processFile(filePath);
         }
@@ -152,21 +152,21 @@ class EncodingFixer {
   }
 
   run() {
-    console.log("🔧 Starting Encoding Fix Process...\n");
+    console.log('🔧 Starting Encoding Fix Process...\n');
     this.walkDir(ROOT);
 
-    console.log("\n" + "=".repeat(60));
-    console.log("📊 FIX SUMMARY");
-    console.log("=".repeat(60));
+    console.log('\n' + '='.repeat(60));
+    console.log('📊 FIX SUMMARY');
+    console.log('='.repeat(60));
     console.log(`✅ Files fixed: ${this.fixed.length}`);
     console.log(`❌ Errors: ${this.errors.length}`);
 
     if (this.errors.length > 0) {
-      console.log("\n🔴 ERRORS:");
+      console.log('\n🔴 ERRORS:');
       this.errors.forEach((err) => console.log(`  - ${err}`));
     }
 
-    console.log("=".repeat(60));
+    console.log('='.repeat(60));
     return this.errors.length === 0 ? 0 : 1;
   }
 }

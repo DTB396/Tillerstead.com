@@ -10,9 +10,9 @@
  * - Form accessibility
  */
 
-import fs from "fs";
-import path from "path";
-import { globSync } from "glob";
+import fs from 'fs';
+import path from 'path';
+import { globSync } from 'glob';
 
 const results = {
   pages: [],
@@ -26,18 +26,18 @@ const results = {
 
 function scanBuiltPage(filePath) {
   try {
-    const content = fs.readFileSync(filePath, "utf8");
-    const relativePath = path.relative("_site", filePath);
+    const content = fs.readFileSync(filePath, 'utf8');
+    const relativePath = path.relative('_site', filePath);
     const issues = [];
 
     // 1. Check H1
     const h1s = content.match(/<h1[^>]*>/gi) || [];
     if (h1s.length === 0) {
-      issues.push({ type: "no-h1", severity: "error" });
+      issues.push({ type: 'no-h1', severity: 'error' });
     } else if (h1s.length > 1) {
       issues.push({
-        type: "multiple-h1",
-        severity: "warning",
+        type: 'multiple-h1',
+        severity: 'warning',
         count: h1s.length,
       });
     }
@@ -54,8 +54,8 @@ function scanBuiltPage(filePath) {
       const diff = headingOrder[i] - headingOrder[i - 1];
       if (diff > 1) {
         issues.push({
-          type: "heading-skip",
-          severity: "warning",
+          type: 'heading-skip',
+          severity: 'warning',
           from: `h${headingOrder[i - 1]}`,
           to: `h${headingOrder[i]}`,
         });
@@ -68,10 +68,10 @@ function scanBuiltPage(filePath) {
     const images = content.match(imgRegex) || [];
     let withAlt = 0;
     images.forEach((img) => {
-      if (img.includes("alt=") && !img.includes('alt=""')) {
+      if (img.includes('alt=') && !img.includes('alt=""')) {
         withAlt++;
       } else {
-        issues.push({ type: "missing-alt", severity: "error" });
+        issues.push({ type: 'missing-alt', severity: 'error' });
       }
     });
 
@@ -81,26 +81,26 @@ function scanBuiltPage(filePath) {
 
     // 4. Viewport meta
     if (!content.includes('name="viewport"')) {
-      issues.push({ type: "no-viewport", severity: "error" });
+      issues.push({ type: 'no-viewport', severity: 'error' });
     }
 
     // 5. Form inputs with labels
     const inputs = content.match(/<input[^>]*>/gi) || [];
     inputs.forEach((input) => {
-      if (input.match(/type=["\'](?:text|email|tel|password)/i)) {
+      if (input.match(/type=['"](?:text|email|tel|password)/i)) {
         if (
-          !input.includes("aria-label") &&
-          !input.includes("aria-describedby")
+          !input.includes('aria-label') &&
+          !input.includes('aria-describedby')
         ) {
           // Check if there's an associated label
-          const inputId = input.match(/id=["\']([^"\']+)/i);
+          const inputId = input.match(/id=['"]([^'"]+)/i);
           if (inputId) {
             const hasLabel = content.includes(`for="${inputId[1]}"`);
             if (!hasLabel) {
-              issues.push({ type: "unlabeled-input", severity: "warning" });
+              issues.push({ type: 'unlabeled-input', severity: 'warning' });
             }
           } else {
-            issues.push({ type: "unlabeled-input", severity: "warning" });
+            issues.push({ type: 'unlabeled-input', severity: 'warning' });
           }
         }
       }
@@ -112,8 +112,8 @@ function scanBuiltPage(filePath) {
     ).length;
     if (imgWithoutDimensions > 0) {
       issues.push({
-        type: "img-no-dimensions",
-        severity: "info",
+        type: 'img-no-dimensions',
+        severity: 'info',
         count: imgWithoutDimensions,
       });
     }
@@ -123,8 +123,8 @@ function scanBuiltPage(filePath) {
       .length;
     if (imgWithoutLazy > 0 && images.length > 3) {
       issues.push({
-        type: "missing-lazy-load",
-        severity: "info",
+        type: 'missing-lazy-load',
+        severity: 'info',
         count: imgWithoutLazy,
       });
     }
@@ -133,8 +133,8 @@ function scanBuiltPage(filePath) {
     const styleWithColor = (content.match(/style="[^"]*color:/gi) || []).length;
     if (styleWithColor > 0) {
       issues.push({
-        type: "inline-color-styles",
-        severity: "info",
+        type: 'inline-color-styles',
+        severity: 'info',
         count: styleWithColor,
       });
     }
@@ -157,10 +157,10 @@ function scanBuiltPage(filePath) {
 }
 
 function audit() {
-  console.log("🔍 Scanning built HTML files in _site...\n");
+  console.log('🔍 Scanning built HTML files in _site...\n');
 
-  const pages = globSync("_site/**/*.html").filter(
-    (f) => !f.includes("/assets/"),
+  const pages = globSync('_site/**/*.html').filter(
+    (f) => !f.includes('/assets/'),
   );
 
   pages.forEach((page) => {
@@ -183,44 +183,44 @@ function audit() {
 }
 
 function generateReport() {
-  const timestamp = new Date().toISOString().split("T")[0];
-  const reportPath = path.join("reports", `post-build-audit-${timestamp}.md`);
+  const timestamp = new Date().toISOString().split('T')[0];
+  const reportPath = path.join('reports', `post-build-audit-${timestamp}.md`);
 
-  let md = `# Post-Build HTML Audit Report\n\n`;
+  let md = '# Post-Build HTML Audit Report\n\n';
   md += `**Date:** ${new Date().toLocaleDateString()}\n\n`;
 
-  md += `## Summary\n\n`;
+  md += '## Summary\n\n';
   md += `- **Pages Scanned:** ${results.stats.totalPages}\n`;
   md += `- **Total Issues Found:** ${results.stats.totalIssues}\n`;
   md += `- **Images Total:** ${results.stats.imageStats.total}\n`;
   md += `- **Images with Alt Text:** ${results.stats.imageStats.withAlt} (${Math.round((results.stats.imageStats.withAlt / results.stats.imageStats.total) * 100)}%)\n`;
   md += `- **Images Missing Alt:** ${results.stats.imageStats.withoutAlt}\n\n`;
 
-  md += `## Issues by Type\n\n`;
+  md += '## Issues by Type\n\n';
   Object.entries(results.stats.byType).forEach(([type, count]) => {
     md += `- ${type}: ${count}\n`;
   });
 
-  md += `\n## Pages with Critical Issues\n\n`;
+  md += '\n## Pages with Critical Issues\n\n';
   const errors = results.pages.filter((p) =>
-    p.issues?.some((i) => i.severity === "error"),
+    p.issues?.some((i) => i.severity === 'error'),
   );
   if (errors.length === 0) {
-    md += "None! ✓\n\n";
+    md += 'None! ✓\n\n';
   } else {
     errors.forEach((page) => {
       md += `### ${page.page}\n`;
       md += `- H1 Count: ${page.h1Count}\n`;
       page.issues
-        .filter((i) => i.severity === "error")
+        .filter((i) => i.severity === 'error')
         .forEach((issue) => {
           md += `- ❌ ${issue.type}\n`;
         });
-      md += "\n";
+      md += '\n';
     });
   }
 
-  md += `\n## Top Pages by Issue Count\n\n`;
+  md += '\n## Top Pages by Issue Count\n\n';
   const sorted = results.pages
     .filter((p) => p.issueCount > 0)
     .sort((a, b) => b.issueCount - a.issueCount);
@@ -229,13 +229,13 @@ function generateReport() {
   });
 
   // Save report
-  if (!fs.existsSync("reports")) {
-    fs.mkdirSync("reports", { recursive: true });
+  if (!fs.existsSync('reports')) {
+    fs.mkdirSync('reports', { recursive: true });
   }
   fs.writeFileSync(reportPath, md);
 
-  console.log(`\n✅ Post-build audit complete!`);
-  console.log(`📊 Results:`);
+  console.log('\n✅ Post-build audit complete!');
+  console.log('📊 Results:');
   console.log(`   Pages: ${results.stats.totalPages}`);
   console.log(`   Total issues: ${results.stats.totalIssues}`);
   console.log(

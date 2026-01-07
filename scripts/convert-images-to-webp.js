@@ -25,16 +25,16 @@
  *   - Writes alongside original: example.jpg -> example.webp
  */
 
-import fs from "node:fs";
-import path from "node:path";
-import process from "node:process";
+import fs from 'node:fs';
+import path from 'node:path';
+import process from 'node:process';
 
 let sharp;
 try {
-  sharp = (await import("sharp")).default;
+  sharp = (await import('sharp')).default;
 } catch (e) {
   console.error(
-    "\n[ERROR] sharp not installed. Run: npm install --save-dev sharp\n",
+    '\n[ERROR] sharp not installed. Run: npm install --save-dev sharp\n',
   );
   process.exitCode = 1;
   process.exit();
@@ -44,14 +44,14 @@ const argv = process.argv.slice(2);
 const getArg = (name, def) => {
   const found = argv.find((a) => a.startsWith(`--${name}`));
   if (!found) return def;
-  const parts = found.split("=");
+  const parts = found.split('=');
   return parts.length > 1 ? parts[1] : true;
 };
 
-const force = !!getArg("force", false);
-const quality = parseInt(getArg("quality", "82"), 10);
-const dryRun = !!getArg("dry-run", false);
-const sourceDir = path.resolve(getArg("dir", "assets/img"));
+const force = !!getArg('force', false);
+const quality = parseInt(getArg('quality', '82'), 10);
+const dryRun = !!getArg('dry-run', false);
+const sourceDir = path.resolve(getArg('dir', 'assets/img'));
 
 if (!fs.existsSync(sourceDir)) {
   console.error(`[ERROR] Source directory not found: ${sourceDir}`);
@@ -61,22 +61,22 @@ if (!fs.existsSync(sourceDir)) {
 
 function isConvertible(file) {
   const ext = path.extname(file).toLowerCase();
-  if (![".jpg", ".jpeg", ".png"].includes(ext)) return false;
-  if (file.startsWith(".")) return false;
+  if (!['.jpg', '.jpeg', '.png'].includes(ext)) return false;
+  if (file.startsWith('.')) return false;
   // Allow logos, but skip SVG and favicon by convention
   if (/favicon/i.test(file)) return false;
   return true;
 }
 
 function getTargetPath(file) {
-  return file.replace(/\.(jpg|jpeg|png)$/i, ".webp");
+  return file.replace(/\.(jpg|jpeg|png)$/i, '.webp');
 }
 
 function walkDir(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   let files = [];
   for (const entry of entries) {
-    if (entry.name.startsWith(".") || entry.name === "patterns") continue; // skip hidden & patterns (already optimized)
+    if (entry.name.startsWith('.') || entry.name === 'patterns') continue; // skip hidden & patterns (already optimized)
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) {
       files = files.concat(walkDir(full));
@@ -96,12 +96,12 @@ let reconverted = 0;
 
 (async () => {
   console.log(
-    "\nImage WebP Conversion (TCNA/New Jersey HIC Compliant)\n---------------------------------------------",
+    '\nImage WebP Conversion (TCNA/New Jersey HIC Compliant)\n---------------------------------------------',
   );
   console.log(`Source directory: ${sourceDir}`);
   console.log(`Quality: ${quality}`);
   console.log(
-    `Force: ${force ? "yes" : "no"}  Dry-run: ${dryRun ? "yes" : "no"}`,
+    `Force: ${force ? 'yes' : 'no'}  Dry-run: ${dryRun ? 'yes' : 'no'}`,
   );
   console.log(`Found ${candidates.length} convertible images.\n`);
 
@@ -142,18 +142,18 @@ let reconverted = 0;
     }
   }
 
-  console.log("\nSummary");
-  console.log("-------");
+  console.log('\nSummary');
+  console.log('-------');
   console.log(`Converted:   ${converted}`);
   if (force) console.log(`Reconverted: ${reconverted}`);
   console.log(`Skipped:     ${skipped}`);
-  if (dryRun) console.log("NOTE: Dry-run performed, no files written.");
+  if (dryRun) console.log('NOTE: Dry-run performed, no files written.');
 
-  console.log("\nNext Steps");
-  console.log("----------");
-  console.log("1. Verify new .webp files load correctly in browser dev tools.");
-  console.log("2. Commit changes: git add assets/img/*.webp");
+  console.log('\nNext Steps');
+  console.log('----------');
+  console.log('1. Verify new .webp files load correctly in browser dev tools.');
+  console.log('2. Commit changes: git add assets/img/*.webp');
   console.log(
-    "3. Ensure portfolio.yml has file_webp entries aligned with generated files.",
+    '3. Ensure portfolio.yml has file_webp entries aligned with generated files.',
   );
 })();

@@ -8,24 +8,24 @@
  */
 
 (function () {
-  "use strict";
+  'use strict';
 
   // Respect user's motion preferences
   const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
+    '(prefers-reduced-motion: reduce)',
   ).matches;
 
   if (prefersReducedMotion) {
     // Skip animations but still make elements visible
-    document.querySelectorAll("[data-animate]").forEach((el) => {
-      el.style.opacity = "1";
-      el.style.transform = "none";
+    document.querySelectorAll('[data-animate]').forEach((el) => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
     });
     return;
   }
 
   // Get all elements to animate
-  const animatedElements = document.querySelectorAll("[data-animate]");
+  const animatedElements = document.querySelectorAll('[data-animate]');
 
   if (!animatedElements.length) {
     return;
@@ -34,7 +34,7 @@
   // Intersection Observer options
   const options = {
     root: null,
-    rootMargin: "0px 0px -80px 0px", // Trigger 80px before entering viewport
+    rootMargin: '0px 0px -80px 0px', // Trigger 80px before entering viewport
     threshold: 0.1,
   };
 
@@ -47,7 +47,7 @@
 
         // Apply animation with delay
         setTimeout(() => {
-          element.classList.add("is-animated");
+          element.classList.add('is-animated');
         }, delay);
 
         // Stop observing once animated
@@ -65,7 +65,7 @@
   });
 
   // Animate elements already in viewport on page load
-  window.addEventListener("load", () => {
+  window.addEventListener('load', () => {
     animatedElements.forEach((element) => {
       const rect = element.getBoundingClientRect();
       const isInViewport =
@@ -79,7 +79,7 @@
       if (isInViewport) {
         const delay = parseInt(element.dataset.animateDelay) || 0;
         setTimeout(() => {
-          element.classList.add("is-animated");
+          element.classList.add('is-animated');
         }, delay);
         observer.unobserve(element);
       }

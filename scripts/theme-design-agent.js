@@ -19,12 +19,12 @@
  * node scripts/theme-design-agent.js
  */
 
-import fs from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.resolve(__dirname, "..");
+const ROOT = path.resolve(__dirname, '..');
 
 // ============================================
 // COLOR CONTRAST UTILITIES
@@ -34,10 +34,10 @@ function hexToRgb(hex) {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result
     ? [
-        parseInt(result[1], 16),
-        parseInt(result[2], 16),
-        parseInt(result[3], 16),
-      ]
+      parseInt(result[1], 16),
+      parseInt(result[2], 16),
+      parseInt(result[3], 16),
+    ]
     : null;
 }
 
@@ -63,10 +63,10 @@ function getContrastRatio(color1, color2) {
 }
 
 function getLevel(ratio) {
-  if (ratio >= 7) return "✓ AAA";
-  if (ratio >= 4.5) return "✓ AA";
-  if (ratio >= 3) return "✓ UI (3:1)";
-  return "✗ FAIL";
+  if (ratio >= 7) return '✓ AAA';
+  if (ratio >= 4.5) return '✓ AA';
+  if (ratio >= 3) return '✓ UI (3:1)';
+  return '✗ FAIL';
 }
 
 // ============================================
@@ -76,24 +76,24 @@ function getLevel(ratio) {
 function updateTokensRadius() {
   const tokensPath = path.join(
     ROOT,
-    "_sass",
-    "00-settings",
-    "_tokens-modern.scss",
+    '_sass',
+    '00-settings',
+    '_tokens-modern.scss',
   );
-  let content = fs.readFileSync(tokensPath, "utf8");
+  let content = fs.readFileSync(tokensPath, 'utf8');
 
   const changes = [];
 
   // Update radius tokens to 33pt (44px = 2.75rem)
   const radiusMap = {
-    "--radius-none": "0",
-    "--radius-xs": "0.25rem", // Keep minimal
-    "--radius-sm": "0.375rem", // Keep small
-    "--radius-md": "2.75rem", // 33pt = 44px
-    "--radius-lg": "2.75rem", // 33pt
-    "--radius-xl": "2.75rem", // 33pt
-    "--radius-2xl": "2.75rem", // 33pt
-    "--radius-full": "9999px", // Keep full
+    '--radius-none': '0',
+    '--radius-xs': '0.25rem', // Keep minimal
+    '--radius-sm': '0.375rem', // Keep small
+    '--radius-md': '2.75rem', // 33pt = 44px
+    '--radius-lg': '2.75rem', // 33pt
+    '--radius-xl': '2.75rem', // 33pt
+    '--radius-2xl': '2.75rem', // 33pt
+    '--radius-full': '9999px', // Keep full
   };
 
   for (const [prop, value] of Object.entries(radiusMap)) {
@@ -104,18 +104,18 @@ function updateTokensRadius() {
     }
   }
 
-  fs.writeFileSync(tokensPath, content, "utf8");
+  fs.writeFileSync(tokensPath, content, 'utf8');
   return changes;
 }
 
 function updateButtonRadius() {
   const buttonsPath = path.join(
     ROOT,
-    "_sass",
-    "30-components",
-    "_buttons.scss",
+    '_sass',
+    '30-components',
+    '_buttons.scss',
   );
-  let content = fs.readFileSync(buttonsPath, "utf8");
+  let content = fs.readFileSync(buttonsPath, 'utf8');
 
   const changes = [];
 
@@ -124,22 +124,22 @@ function updateButtonRadius() {
   const matches = content.match(pattern);
 
   if (matches) {
-    content = content.replace(pattern, "border-radius: var(--radius-lg);");
+    content = content.replace(pattern, 'border-radius: var(--radius-lg);');
     changes.push(`Updated ${matches.length} button border-radius declarations`);
   }
 
-  fs.writeFileSync(buttonsPath, content, "utf8");
+  fs.writeFileSync(buttonsPath, content, 'utf8');
   return changes;
 }
 
 function updateContainerRadius() {
   const containerPath = path.join(
     ROOT,
-    "_sass",
-    "20-layout",
-    "_container.scss",
+    '_sass',
+    '20-layout',
+    '_container.scss',
   );
-  let content = fs.readFileSync(containerPath, "utf8");
+  let content = fs.readFileSync(containerPath, 'utf8');
 
   const changes = [];
 
@@ -148,13 +148,13 @@ function updateContainerRadius() {
   const matches = content.match(pattern);
 
   if (matches) {
-    content = content.replace(pattern, "border-radius: var(--radius-lg);");
+    content = content.replace(pattern, 'border-radius: var(--radius-lg);');
     changes.push(
       `Updated ${matches.length} container border-radius declarations`,
     );
   }
 
-  fs.writeFileSync(containerPath, content, "utf8");
+  fs.writeFileSync(containerPath, content, 'utf8');
   return changes;
 }
 
@@ -165,11 +165,11 @@ function updateContainerRadius() {
 function auditContrast() {
   const tokensPath = path.join(
     ROOT,
-    "_sass",
-    "00-settings",
-    "_tokens-modern.scss",
+    '_sass',
+    '00-settings',
+    '_tokens-modern.scss',
   );
-  const content = fs.readFileSync(tokensPath, "utf8");
+  const content = fs.readFileSync(tokensPath, 'utf8');
 
   // Extract color definitions
   const colorRegex = /--color-[a-z0-9-]+:\s*(#[0-9a-f]{6})/gi;
@@ -177,41 +177,41 @@ function auditContrast() {
   let match;
 
   while ((match = colorRegex.exec(content)) !== null) {
-    const propName = match[0].split(":")[0].trim();
+    const propName = match[0].split(':')[0].trim();
     colors[propName] = match[1];
   }
 
   // Test critical combinations
   const tests = [
     {
-      name: "Text on White",
-      fg: colors["--color-text"],
-      bg: colors["--color-bg"],
-      standard: "7:1 AAA",
+      name: 'Text on White',
+      fg: colors['--color-text'],
+      bg: colors['--color-bg'],
+      standard: '7:1 AAA',
     },
     {
-      name: "Primary Text on White",
-      fg: colors["--color-primary"],
-      bg: colors["--color-bg"],
-      standard: "7:1 AAA",
+      name: 'Primary Text on White',
+      fg: colors['--color-primary'],
+      bg: colors['--color-bg'],
+      standard: '7:1 AAA',
     },
     {
-      name: "Primary Button (teal on white)",
-      fg: "#ffffff",
-      bg: colors["--color-primary"],
-      standard: "4.5:1 AA",
+      name: 'Primary Button (teal on white)',
+      fg: '#ffffff',
+      bg: colors['--color-primary'],
+      standard: '4.5:1 AA',
     },
     {
-      name: "Accent Button (red)",
-      fg: "#ffffff",
-      bg: colors["--color-accent"],
-      standard: "4.5:1 AA",
+      name: 'Accent Button (red)',
+      fg: '#ffffff',
+      bg: colors['--color-accent'],
+      standard: '4.5:1 AA',
     },
     {
-      name: "Text on Cream",
-      fg: colors["--color-text"],
-      bg: colors["--color-bg-soft"],
-      standard: "7:1 AAA",
+      name: 'Text on Cream',
+      fg: colors['--color-text'],
+      bg: colors['--color-bg-soft'],
+      standard: '7:1 AAA',
     },
   ];
 
@@ -223,8 +223,8 @@ function auditContrast() {
         name: test.name,
         fg: test.fg,
         bg: test.bg,
-        ratio: ratio ? ratio.toFixed(2) : "N/A",
-        level: ratio ? getLevel(ratio) : "✗ ERROR",
+        ratio: ratio ? ratio.toFixed(2) : 'N/A',
+        level: ratio ? getLevel(ratio) : '✗ ERROR',
         standard: test.standard,
       });
     }
@@ -240,41 +240,41 @@ function auditContrast() {
 function generateReport() {
   const report = {
     timestamp: new Date().toISOString(),
-    theme: "modern",
-    radiusTarget: "33pt (2.75rem / 44px)",
-    contrastStandard: "WCAG 2.1 AAA",
+    theme: 'modern',
+    radiusTarget: '33pt (2.75rem / 44px)',
+    contrastStandard: 'WCAG 2.1 AAA',
     changes: [],
     contrastAudit: [],
   };
 
   // Apply changes
-  console.log("╔════════════════════════════════════════════════════╗");
-  console.log("║  Tillerstead Theme Design Agent                   ║");
-  console.log("║  No Sharp Angles • WCAG AAA Contrast             ║");
-  console.log("╚════════════════════════════════════════════════════╝\n");
+  console.log('╔════════════════════════════════════════════════════╗');
+  console.log('║  Tillerstead Theme Design Agent                   ║');
+  console.log('║  No Sharp Angles • WCAG AAA Contrast             ║');
+  console.log('╚════════════════════════════════════════════════════╝\n');
 
-  console.log("📐 Updating Border Radius to 33pt...\n");
+  console.log('📐 Updating Border Radius to 33pt...\n');
   const radiusChanges = updateTokensRadius();
   radiusChanges.forEach((c) => {
     console.log(`  ✓ ${c}`);
     report.changes.push(c);
   });
 
-  console.log("\n🔘 Updating Button Styles...\n");
+  console.log('\n🔘 Updating Button Styles...\n');
   const buttonChanges = updateButtonRadius();
   buttonChanges.forEach((c) => {
     console.log(`  ✓ ${c}`);
     report.changes.push(c);
   });
 
-  console.log("\n📦 Updating Container Styles...\n");
+  console.log('\n📦 Updating Container Styles...\n');
   const containerChanges = updateContainerRadius();
   containerChanges.forEach((c) => {
     console.log(`  ✓ ${c}`);
     report.changes.push(c);
   });
 
-  console.log("\n🎨 Auditing Contrast Ratios...\n");
+  console.log('\n🎨 Auditing Contrast Ratios...\n');
   const contrastResults = auditContrast();
   contrastResults.forEach((result) => {
     console.log(
@@ -285,17 +285,17 @@ function generateReport() {
   });
 
   // Save report
-  const reportPath = path.join(ROOT, "theme-design-report.json");
-  fs.writeFileSync(reportPath, JSON.stringify(report, null, 2), "utf8");
+  const reportPath = path.join(ROOT, 'theme-design-report.json');
+  fs.writeFileSync(reportPath, JSON.stringify(report, null, 2), 'utf8');
 
-  console.log("\n╔════════════════════════════════════════════════════╗");
-  console.log("║  ✓ Theme Design Agent Complete                    ║");
-  console.log("╚════════════════════════════════════════════════════╝\n");
-  console.log("Report saved to: theme-design-report.json\n");
-  console.log("Next steps:");
-  console.log("  1. npm run lint:css");
-  console.log("  2. bundle exec jekyll build");
-  console.log("  3. npm run audit:contrast\n");
+  console.log('\n╔════════════════════════════════════════════════════╗');
+  console.log('║  ✓ Theme Design Agent Complete                    ║');
+  console.log('╚════════════════════════════════════════════════════╝\n');
+  console.log('Report saved to: theme-design-report.json\n');
+  console.log('Next steps:');
+  console.log('  1. npm run lint:css');
+  console.log('  2. bundle exec jekyll build');
+  console.log('  3. npm run audit:contrast\n');
 }
 
 // ============================================
@@ -305,6 +305,6 @@ function generateReport() {
 try {
   generateReport();
 } catch (error) {
-  console.error("❌ Theme Design Agent Error:", error.message);
+  console.error('❌ Theme Design Agent Error:', error.message);
   process.exit(1);
 }

@@ -9,24 +9,24 @@
   - All output and controls meet WCAG 2.1 AA, New Jersey HIC, and TCNA documentation standards.
 */
 (() => {
-  "use strict";
+  'use strict';
   const params = new URLSearchParams(location.search);
-  const auditParam = params.get("audit");
-  const lsFlag = localStorage.getItem("ts:audit");
-  if (!(auditParam === "1" || lsFlag === "1")) return; // activation condition
+  const auditParam = params.get('audit');
+  const lsFlag = localStorage.getItem('ts:audit');
+  if (!(auditParam === '1' || lsFlag === '1')) return; // activation condition
 
   // Collect all elements with auto-contrast adjustments, including compliance metadata
   function collectContrast() {
-    return [...document.querySelectorAll("[data-contrast-fixed]")].map(
+    return [...document.querySelectorAll('[data-contrast-fixed]')].map(
       (el) => ({
         tag: el.tagName.toLowerCase(),
         text: el.textContent.trim().slice(0, 80),
-        original: el.getAttribute("data-contrast-original"),
-        background: el.getAttribute("data-contrast-bg"),
-        applied: el.style.color || "",
-        ratio: el.getAttribute("data-contrast-ratio"),
+        original: el.getAttribute('data-contrast-original'),
+        background: el.getAttribute('data-contrast-bg'),
+        applied: el.style.color || '',
+        ratio: el.getAttribute('data-contrast-ratio'),
         tcnaCompliant:
-          el.getAttribute("data-tcna-compliant") === "true" ? true : false,
+          el.getAttribute('data-tcna-compliant') === 'true' ? true : false,
       }),
     );
   }
@@ -37,21 +37,21 @@
     const metaDesc =
       document
         .querySelector('meta[name="description"]')
-        ?.getAttribute("content") || "";
+        ?.getAttribute('content') || '';
     const canonical =
-      document.querySelector('link[rel="canonical"]')?.getAttribute("href") ||
-      "";
+      document.querySelector('link[rel="canonical"]')?.getAttribute('href') ||
+      '';
     const ogImage =
       document
         .querySelector('meta[property="og:image"]')
-        ?.getAttribute("content") || "";
+        ?.getAttribute('content') || '';
     const ogImageAlt =
       document
         .querySelector('meta[property="og:image:alt"]')
-        ?.getAttribute("content") || "";
-    const imgAlts = [...document.querySelectorAll("img")].map((img) => ({
-      src: img.getAttribute("src"),
-      alt: img.getAttribute("alt") || "",
+        ?.getAttribute('content') || '';
+    const imgAlts = [...document.querySelectorAll('img')].map((img) => ({
+      src: img.getAttribute('src'),
+      alt: img.getAttribute('alt') || '',
     }));
     return {
       titleLength: title.length,
@@ -69,10 +69,10 @@
 
   // Panel creation with accessible markup and clear labeling per OUTPUT_RULES.md
   function createPanel() {
-    const panel = document.createElement("div");
-    panel.className = "ts-dev-overlay";
-    panel.setAttribute("role", "region");
-    panel.setAttribute("aria-label", "Developer Audit Panel");
+    const panel = document.createElement('div');
+    panel.className = 'ts-dev-overlay';
+    panel.setAttribute('role', 'region');
+    panel.setAttribute('aria-label', 'Developer Audit Panel');
     panel.innerHTML = `
     <div class="ts-dev-overlay-head">
       <strong>Audit Panel</strong>
@@ -88,7 +88,7 @@
       <pre class="ts-dev-seo" data-seo></pre>
     </div>
     <div class="ts-dev-foot">
-      <label for="ts-dev-persist"><input id="ts-dev-persist" type="checkbox" data-persist ${auditParam === "1" ? "checked" : ""}/> Persist (localStorage)</label>
+      <label for="ts-dev-persist"><input id="ts-dev-persist" type="checkbox" data-persist ${auditParam === '1' ? 'checked' : ''}/> Persist (localStorage)</label>
     </div>
    `;
     document.body.appendChild(panel);
@@ -100,23 +100,23 @@
     const data = collectContrast();
     listEl.innerHTML = data.length
       ? data
-          .map(
-            (d) => `
+        .map(
+          (d) => `
     <div class="ts-dev-item">
       <code>${d.tag}</code>
-      <span class="ts-dev-text">${d.text || "(empty)"}</span>
+      <span class="ts-dev-text">${d.text || '(empty)'}</span>
       <div class="ts-dev-meta">
        <span>orig: <b>${d.original}</b></span>
        <span>bg: <b>${d.background}</b></span>
        <span>new: <b>${d.applied}</b></span>
        <span>ratio: <b>${d.ratio}</b></span>
-       <span class="ts-dev-tcna" title="TCNA/ADA Compliance">${d.tcnaCompliant ? "TCNA/ADA" : "—"}</span>
+       <span class="ts-dev-tcna" title="TCNA/ADA Compliance">${d.tcnaCompliant ? 'TCNA/ADA' : '—'}</span>
       </div>
     </div>`,
-          )
-          .join("")
-      : "<em>No auto-contrast adjustments detected.</em>";
-    panel.querySelector("[data-contrast-count]").textContent =
+        )
+        .join('')
+      : '<em>No auto-contrast adjustments detected.</em>';
+    panel.querySelector('[data-contrast-count]').textContent =
       `(${data.length})`;
     return data;
   }
@@ -126,9 +126,9 @@
     const seo = collectSEO();
     preEl.textContent = JSON.stringify(seo, null, 2);
     if (!seo.accessibility) {
-      preEl.setAttribute("aria-live", "polite");
+      preEl.setAttribute('aria-live', 'polite');
       preEl.insertAdjacentHTML(
-        "beforebegin",
+        'beforebegin',
         '<div class="ts-dev-warn" role="alert">⚠️ Some images lack alt text (required by New Jersey HIC & ADA).</div>',
       );
     }
@@ -136,27 +136,27 @@
   }
 
   const panel = createPanel();
-  const contrastList = panel.querySelector("[data-contrast-list]");
-  const seoPre = panel.querySelector("[data-seo]");
+  const contrastList = panel.querySelector('[data-contrast-list]');
+  const seoPre = panel.querySelector('[data-seo]');
   let contrastData = renderContrast(contrastList);
   renderSEO(seoPre);
 
-  panel.addEventListener("click", (e) => {
-    if (e.target.matches("[data-close]")) {
+  panel.addEventListener('click', (e) => {
+    if (e.target.matches('[data-close]')) {
       panel.remove();
-    } else if (e.target.matches("[data-copy-contrast]")) {
+    } else if (e.target.matches('[data-copy-contrast]')) {
       try {
         navigator.clipboard.writeText(JSON.stringify(contrastData, null, 2));
-        e.target.textContent = "Copied!";
-        setTimeout(() => (e.target.textContent = "Copy JSON"), 1800);
+        e.target.textContent = 'Copied!';
+        setTimeout(() => (e.target.textContent = 'Copy JSON'), 1800);
       } catch (_) {
         /* ignore */
       }
-    } else if (e.target.matches("[data-persist]")) {
+    } else if (e.target.matches('[data-persist]')) {
       if (e.target.checked) {
-        localStorage.setItem("ts:audit", "1");
+        localStorage.setItem('ts:audit', '1');
       } else {
-        localStorage.removeItem("ts:audit");
+        localStorage.removeItem('ts:audit');
       }
     }
   });

@@ -24,24 +24,24 @@
  */
 
 (function () {
-  "use strict";
+  'use strict';
 
   /**
    * Utility: Parse CSS color to RGB array.
    * Supports hex, rgb(a), and named colors.
    */
   function parseColor(color) {
-    const ctx = document.createElement("canvas").getContext("2d");
+    const ctx = document.createElement('canvas').getContext('2d');
     ctx.fillStyle = color;
     const computed = ctx.fillStyle;
     // Now ctx.fillStyle is always in rgb(a) or hex
-    if (computed.startsWith("#")) {
+    if (computed.startsWith('#')) {
       let hex = computed.slice(1);
       if (hex.length === 3)
         hex = hex
-          .split("")
+          .split('')
           .map((x) => x + x)
-          .join("");
+          .join('');
       const num = parseInt(hex, 16);
       return [(num >> 16) & 255, (num >> 8) & 255, num & 255];
     }
@@ -76,12 +76,12 @@
    * Main: Apply optimal contrast to all .c-contrast elements.
    */
   function applyContrast() {
-    document.querySelectorAll(".c-contrast").forEach((el) => {
+    document.querySelectorAll('.c-contrast').forEach((el) => {
       // Get computed background color (walk up if transparent)
       let bg = window.getComputedStyle(el).backgroundColor;
       let parent = el;
       while (
-        (bg === "rgba(0, 0, 0, 0)" || bg === "transparent") &&
+        (bg === 'rgba(0, 0, 0, 0)' || bg === 'transparent') &&
         parent.parentElement
       ) {
         parent = parent.parentElement;
@@ -99,22 +99,22 @@
       let _chosen, chosenStr;
       if (contrastBlack >= 4.5 && contrastBlack >= contrastWhite) {
         _chosen = black;
-        chosenStr = "#000";
+        chosenStr = '#000';
       } else if (contrastWhite >= 4.5) {
         _chosen = white;
-        chosenStr = "#fff";
+        chosenStr = '#fff';
       } else {
         // Fallback: pick higher contrast, even if not compliant
         _chosen = contrastBlack > contrastWhite ? black : white;
-        chosenStr = contrastBlack > contrastWhite ? "#000" : "#fff";
+        chosenStr = contrastBlack > contrastWhite ? '#000' : '#fff';
       }
 
       // Apply as inline style for specificity and legal traceability
       el.style.color = chosenStr;
-      el.setAttribute("data-contrast-applied", "true");
+      el.setAttribute('data-contrast-applied', 'true');
       el.setAttribute(
-        "aria-label",
-        "High-contrast text for accessibility compliance",
+        'aria-label',
+        'High-contrast text for accessibility compliance',
       );
     });
   }
@@ -123,8 +123,8 @@
   window.applyContrast = applyContrast;
 
   // Initial run on DOMContentLoaded
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", applyContrast, {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyContrast, {
       once: true,
     });
   } else {

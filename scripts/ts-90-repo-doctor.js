@@ -16,20 +16,20 @@
  *   missing drawer button, missing drawer container, empty src/href, broken asset refs.
  */
 
-import fs from "fs";
-import path from "path";
-import { execSync } from "child_process";
+import fs from 'fs';
+import path from 'path';
+import { execSync } from 'child_process';
 
-const CFG_PATH = "scripts/ts-doctor.config.json";
-const PHASE = (argValue("--phase") || "all").toLowerCase();
+const CFG_PATH = 'scripts/ts-doctor.config.json';
+const PHASE = (argValue('--phase') || 'all').toLowerCase();
 
 function argValue(name) {
-  const hit = process.argv.find((a) => a.startsWith(name + "="));
-  return hit ? hit.split("=").slice(1).join("=") : null;
+  const hit = process.argv.find((a) => a.startsWith(name + '='));
+  return hit ? hit.split('=').slice(1).join('=') : null;
 }
 
 function readJson(p) {
-  return JSON.parse(fs.readFileSync(p, "utf8"));
+  return JSON.parse(fs.readFileSync(p, 'utf8'));
 }
 
 function exists(p) {
@@ -53,11 +53,11 @@ function logFail(msg) {
 
 function run(cmd) {
   console.log(`\n> ${cmd}`);
-  execSync(cmd, { stdio: "inherit" });
+  execSync(cmd, { stdio: 'inherit' });
 }
 
 function readText(p) {
-  return fs.readFileSync(p, "utf8");
+  return fs.readFileSync(p, 'utf8');
 }
 
 function findAssetRefs(html) {
@@ -70,12 +70,12 @@ function findAssetRefs(html) {
     const v = m[1].trim();
     if (!v) continue;
     if (
-      v.startsWith("http://") ||
-      v.startsWith("https://") ||
-      v.startsWith("data:")
+      v.startsWith('http://') ||
+      v.startsWith('https://') ||
+      v.startsWith('data:')
     )
       continue;
-    if (v.startsWith("#")) continue;
+    if (v.startsWith('#')) continue;
     refs.add(v);
   }
 
@@ -84,7 +84,7 @@ function findAssetRefs(html) {
 
 function normalizeRefToRepoPath(ref) {
   // convert /assets/... to assets/...
-  if (ref.startsWith("/")) return ref.slice(1);
+  if (ref.startsWith('/')) return ref.slice(1);
   return ref;
 }
 
@@ -99,24 +99,24 @@ function selectorAnyPresent(html, selectors) {
     const s = sel.trim();
     if (!s) continue;
 
-    if (s.startsWith(".")) {
+    if (s.startsWith('.')) {
       const cls = s.slice(1);
-      const re = new RegExp(`class=["'][^"']*\\b${escapeRe(cls)}\\b`, "i");
+      const re = new RegExp(`class=["'][^"']*\\b${escapeRe(cls)}\\b`, 'i');
       if (re.test(html)) return true;
-    } else if (s.startsWith("#")) {
+    } else if (s.startsWith('#')) {
       const id = s.slice(1);
-      const re = new RegExp(`id=["']${escapeRe(id)}["']`, "i");
+      const re = new RegExp(`id=["']${escapeRe(id)}["']`, 'i');
       if (re.test(html)) return true;
-    } else if (s.includes("[") && s.includes("]")) {
+    } else if (s.includes('[') && s.includes(']')) {
       // attribute-ish presence check
       const attr = s
-        .replace(/.*\[(.+?)\].*/, "$1")
-        .split("=")[0]
+        .replace(/.*\[(.+?)\].*/, '$1')
+        .split('=')[0]
         .trim();
-      if (attr && new RegExp(`\\b${escapeRe(attr)}\\b`, "i").test(html))
+      if (attr && new RegExp(`\\b${escapeRe(attr)}\\b`, 'i').test(html))
         return true;
     } else if (/^[a-z]+$/i.test(s)) {
-      const re = new RegExp(`<\\s*${escapeRe(s)}\\b`, "i");
+      const re = new RegExp(`<\\s*${escapeRe(s)}\\b`, 'i');
       if (re.test(html)) return true;
     } else {
       // fallback substring
@@ -134,44 +134,44 @@ function mustNotContain(html, needles) {
 }
 
 function escapeRe(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 function phaseBuild(_cfg) {
   // Build CSS if scripts exist; then Jekyll build if available.
   // We keep it tolerant: won't hard-fail if you don't have Ruby set up, but will report it.
-  const pkg = exists("package.json") ? readJson("package.json") : null;
+  const pkg = exists('package.json') ? readJson('package.json') : null;
   const scripts = pkg?.scripts || {};
 
-  const hasNpm = exists("package-lock.json") || exists("package.json");
+  const hasNpm = exists('package-lock.json') || exists('package.json');
   if (!hasNpm)
-    logWarn("No package.json found; skipping npm-based build steps.");
+    logWarn('No package.json found; skipping npm-based build steps.');
 
   // prefer explicit scripts if present
-  if (scripts["build:css"]) {
-    run("npm run build:css");
-    logOk("CSS build completed (npm run build:css).");
-  } else if (scripts["build"]) {
-    run("npm run build");
-    logOk("npm run build completed.");
+  if (scripts['build:css']) {
+    run('npm run build:css');
+    logOk('CSS build completed (npm run build:css).');
+  } else if (scripts['build']) {
+    run('npm run build');
+    logOk('npm run build completed.');
   } else {
     logWarn(
-      "No npm build scripts found (build:css/build). Skipping npm build.",
+      'No npm build scripts found (build:css/build). Skipping npm build.',
     );
   }
 
   // Jekyll build
   // Try bundle exec if Gemfile exists
-  if (exists("Gemfile")) {
+  if (exists('Gemfile')) {
     try {
-      run("bundle exec jekyll build");
-      logOk("Jekyll build completed (bundle exec jekyll build).");
+      run('bundle exec jekyll build');
+      logOk('Jekyll build completed (bundle exec jekyll build).');
     } catch (e) {
-      logFail("Jekyll build failed. Fix Ruby/Bundler/Jekyll errors above.");
+      logFail('Jekyll build failed. Fix Ruby/Bundler/Jekyll errors above.');
       throw e;
     }
   } else {
-    logWarn("No Gemfile found; skipping Jekyll build.");
+    logWarn('No Gemfile found; skipping Jekyll build.');
   }
 }
 
@@ -186,7 +186,7 @@ function phaseScan(cfg) {
 
   // Check required assets exist
   for (const rel of cfg.requiredAssets || []) {
-    const p = path.join(".", rel);
+    const p = path.join('.', rel);
     if (exists(p)) logOk(`Required asset present: ${rel}`);
     else logFail(`Required asset missing: ${rel}`);
   }
@@ -206,62 +206,62 @@ function phaseScan(cfg) {
     const mustSel = cfg.homeChecks?.mustContainAnySelectors || [];
     if (!selectorAnyPresent(html, mustSel)) {
       logFail(
-        `Homepage structure check failed: none of ${mustSel.join(", ")} detected.`,
+        `Homepage structure check failed: none of ${mustSel.join(', ')} detected.`,
       );
     } else {
-      logOk("Homepage structure selectors detected.");
+      logOk('Homepage structure selectors detected.');
     }
 
     // Nav toggle button check
     const navMust = cfg.homeChecks?.navChecks?.mustHaveAny || [];
     if (!selectorAnyPresent(html, navMust)) {
       logFail(
-        `Nav toggle check failed: none of ${navMust.join(", ")} detected.`,
+        `Nav toggle check failed: none of ${navMust.join(', ')} detected.`,
       );
     } else {
-      logOk("Nav toggle / drawer trigger detected.");
+      logOk('Nav toggle / drawer trigger detected.');
     }
 
     // Drawer container check
     const drawerMust = cfg.homeChecks?.navChecks?.drawerMustHaveAny || [];
     if (!selectorAnyPresent(html, drawerMust)) {
       logFail(
-        `Drawer container check failed: none of ${drawerMust.join(", ")} detected.`,
+        `Drawer container check failed: none of ${drawerMust.join(', ')} detected.`,
       );
     } else {
-      logOk("Drawer container detected.");
+      logOk('Drawer container detected.');
     }
 
     // Logo presence check
     const logoMust = cfg.homeChecks?.logoChecks?.mustHaveAny || [];
     if (!selectorAnyPresent(html, logoMust)) {
-      logFail(`Logo check failed: none of ${logoMust.join(", ")} detected.`);
+      logFail(`Logo check failed: none of ${logoMust.join(', ')} detected.`);
     } else {
-      logOk("Logo markup detected.");
+      logOk('Logo markup detected.');
     }
 
     // “empty src/href” check
     const mustNot = cfg.homeChecks?.logoChecks?.mustNotContain || [];
     if (!mustNotContain(html, mustNot)) {
-      logFail("Empty attribute check failed (found empty src/href).");
+      logFail('Empty attribute check failed (found empty src/href).');
     } else {
-      logOk("No obvious empty src/href found.");
+      logOk('No obvious empty src/href found.');
     }
 
     // Missing asset references
     const refs = findAssetRefs(html)
       .map(normalizeRefToRepoPath)
-      .filter((r) => !r.startsWith("?") && !r.startsWith("#"));
+      .filter((r) => !r.startsWith('?') && !r.startsWith('#'));
 
     const missing = [];
     for (const r of refs) {
       // allow querystrings
-      const clean = r.split("?")[0].split("#")[0];
+      const clean = r.split('?')[0].split('#')[0];
       if (!clean) continue;
 
       // If it points into _site, check there first
       const sitePath = path.join(cfg.siteBuildDir, clean);
-      const repoPath = path.join(".", clean);
+      const repoPath = path.join('.', clean);
 
       if (exists(sitePath) || exists(repoPath)) continue;
       missing.push(clean);
@@ -274,7 +274,7 @@ function phaseScan(cfg) {
       if (missing.length > 40)
         console.error(`  ... plus ${missing.length - 40} more`);
     } else {
-      logOk("No missing referenced assets detected on this page.");
+      logOk('No missing referenced assets detected on this page.');
     }
   }
 
@@ -288,7 +288,7 @@ function phaseScan(cfg) {
   }
   if (!anyLogoExists) {
     logFail(
-      `No logo candidates found. Add at least one of: ${(cfg.logoCandidates || []).join(", ")}`,
+      `No logo candidates found. Add at least one of: ${(cfg.logoCandidates || []).join(', ')}`,
     );
   }
 
@@ -298,7 +298,7 @@ function phaseScan(cfg) {
     );
     process.exit(3);
   } else {
-    logOk("Scan completed clean (no missing asset references).");
+    logOk('Scan completed clean (no missing asset references).');
   }
 }
 
@@ -308,61 +308,61 @@ function phaseFixes(_cfg) {
   // It DOES create a default .vscode launch config and adds a helpful docs note.
 
   // Ensure .vscode/launch.json exists with Jekyll + Node targets
-  const vscodeDir = ".vscode";
+  const vscodeDir = '.vscode';
   if (!exists(vscodeDir)) fs.mkdirSync(vscodeDir, { recursive: true });
 
-  const launchPath = path.join(vscodeDir, "launch.json");
+  const launchPath = path.join(vscodeDir, 'launch.json');
   if (!exists(launchPath)) {
     const launch = {
-      version: "0.2.0",
+      version: '0.2.0',
       configurations: [
         {
-          type: "node",
-          request: "launch",
-          name: "Debug: build-css.js",
-          program: "${workspaceFolder}/scripts/build-css.js",
-          cwd: "${workspaceFolder}",
-          console: "integratedTerminal",
-          skipFiles: ["<node_internals>/**"],
+          type: 'node',
+          request: 'launch',
+          name: 'Debug: build-css.js',
+          program: '${workspaceFolder}/scripts/build-css.js',
+          cwd: '${workspaceFolder}',
+          console: 'integratedTerminal',
+          skipFiles: ['<node_internals>/**'],
         },
         {
-          type: "node",
-          request: "launch",
-          name: "Debug: link checker",
-          program: "${workspaceFolder}/scripts/check-links.js",
-          cwd: "${workspaceFolder}",
-          console: "integratedTerminal",
-          skipFiles: ["<node_internals>/**"],
+          type: 'node',
+          request: 'launch',
+          name: 'Debug: link checker',
+          program: '${workspaceFolder}/scripts/check-links.js',
+          cwd: '${workspaceFolder}',
+          console: 'integratedTerminal',
+          skipFiles: ['<node_internals>/**'],
         },
         {
-          type: "node",
-          request: "launch",
-          name: "Debug: repo doctor (scan)",
-          program: "${workspaceFolder}/scripts/ts-90-repo-doctor.js",
-          args: ["--phase=scan"],
-          cwd: "${workspaceFolder}",
-          console: "integratedTerminal",
-          skipFiles: ["<node_internals>/**"],
+          type: 'node',
+          request: 'launch',
+          name: 'Debug: repo doctor (scan)',
+          program: '${workspaceFolder}/scripts/ts-90-repo-doctor.js',
+          args: ['--phase=scan'],
+          cwd: '${workspaceFolder}',
+          console: 'integratedTerminal',
+          skipFiles: ['<node_internals>/**'],
         },
       ],
     };
     fs.writeFileSync(
       launchPath,
-      JSON.stringify(launch, null, 2) + "\n",
-      "utf8",
+      JSON.stringify(launch, null, 2) + '\n',
+      'utf8',
     );
-    logOk("Created .vscode/launch.json with debugging targets.");
+    logOk('Created .vscode/launch.json with debugging targets.');
   } else {
-    logOk(".vscode/launch.json already exists (not overwritten).");
+    logOk('.vscode/launch.json already exists (not overwritten).');
   }
 
   // Add a short doc note about Node versions if missing
-  const readme = exists("README.md") ? readText("README.md") : "";
-  if (exists("README.md") && !/Node\s+(18|20)/i.test(readme)) {
+  const readme = exists('README.md') ? readText('README.md') : '';
+  if (exists('README.md') && !/Node\s+(18|20)/i.test(readme)) {
     const note =
-      "\n\n## Dev Requirements\n- Node.js 20 (preferred) or Node.js 18+\n- Ruby/Bundler (for Jekyll)\n";
-    fs.writeFileSync("README.md", readme + note, "utf8");
-    logOk("Updated README.md with dev requirements note.");
+      '\n\n## Dev Requirements\n- Node.js 20 (preferred) or Node.js 18+\n- Ruby/Bundler (for Jekyll)\n';
+    fs.writeFileSync('README.md', readme + note, 'utf8');
+    logOk('Updated README.md with dev requirements note.');
   }
 }
 
@@ -373,9 +373,9 @@ function main() {
   }
   const cfg = readJson(CFG_PATH);
 
-  if (PHASE === "all" || PHASE === "build") phaseBuild(cfg);
-  if (PHASE === "all" || PHASE === "fixes") phaseFixes(cfg);
-  if (PHASE === "all" || PHASE === "scan") phaseScan(cfg);
+  if (PHASE === 'all' || PHASE === 'build') phaseBuild(cfg);
+  if (PHASE === 'all' || PHASE === 'fixes') phaseFixes(cfg);
+  if (PHASE === 'all' || PHASE === 'scan') phaseScan(cfg);
 
   logOk(`Done. Phase=${PHASE}`);
 }

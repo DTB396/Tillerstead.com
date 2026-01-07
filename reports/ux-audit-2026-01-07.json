@@ -1,0 +1,1862 @@
+{
+  "pages": [
+    {
+      "file": "pages/success.html",
+      "type": "pages",
+      "issueCount": 3,
+      "issues": [
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 2
+      }
+    },
+    {
+      "file": "pages/services.html",
+      "type": "pages",
+      "issueCount": 2,
+      "issues": [
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 11
+      }
+    },
+    {
+      "file": "pages/reviews.html",
+      "type": "pages",
+      "issueCount": 3,
+      "issues": [
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 4
+      }
+    },
+    {
+      "file": "pages/recommended-products.html",
+      "type": "pages",
+      "issueCount": 3,
+      "issues": [
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 7
+      }
+    },
+    {
+      "file": "pages/process.html",
+      "type": "pages",
+      "issueCount": 4,
+      "issues": [
+        {
+          "category": "HEADING_HIERARCHY",
+          "message": "Page has no H1 tag",
+          "severity": "error"
+        },
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 7
+      }
+    },
+    {
+      "file": "pages/pricing.html",
+      "type": "pages",
+      "issueCount": 4,
+      "issues": [
+        {
+          "category": "HEADING_HIERARCHY",
+          "message": "Page has no H1 tag",
+          "severity": "error"
+        },
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 9
+      }
+    },
+    {
+      "file": "pages/portfolio.html",
+      "type": "pages",
+      "issueCount": 4,
+      "issues": [
+        {
+          "category": "HEADING_HIERARCHY",
+          "message": "Page has no H1 tag",
+          "severity": "error"
+        },
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 1,
+        "inputs": 0,
+        "headings": 5
+      }
+    },
+    {
+      "file": "pages/plans.html",
+      "type": "pages",
+      "issueCount": 4,
+      "issues": [
+        {
+          "category": "HEADING_HIERARCHY",
+          "message": "Page has no H1 tag",
+          "severity": "error"
+        },
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 6
+      }
+    },
+    {
+      "file": "pages/ocean-county-nj.html",
+      "type": "pages",
+      "issueCount": 4,
+      "issues": [
+        {
+          "category": "HEADING_HIERARCHY",
+          "message": "Page has no H1 tag",
+          "severity": "error"
+        },
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 5
+      }
+    },
+    {
+      "file": "pages/for-general-contractors.html",
+      "type": "pages",
+      "issueCount": 4,
+      "issues": [
+        {
+          "category": "HEADING_HIERARCHY",
+          "message": "Page has no H1 tag",
+          "severity": "error"
+        },
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 8
+      }
+    },
+    {
+      "file": "pages/financing.html",
+      "type": "pages",
+      "issueCount": 3,
+      "issues": [
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 2,
+        "inputs": 0,
+        "headings": 4
+      }
+    },
+    {
+      "file": "pages/faq.html",
+      "type": "pages",
+      "issueCount": 3,
+      "issues": [
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 6
+      }
+    },
+    {
+      "file": "pages/design-showcase.html",
+      "type": "pages",
+      "issueCount": 4,
+      "issues": [
+        {
+          "category": "HEADING_HIERARCHY",
+          "message": "Page has no H1 tag",
+          "severity": "error"
+        },
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 14
+      }
+    },
+    {
+      "file": "pages/contact.html",
+      "type": "pages",
+      "issueCount": 4,
+      "issues": [
+        {
+          "category": "HEADING_HIERARCHY",
+          "message": "Page has no H1 tag",
+          "severity": "error"
+        },
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 6
+      }
+    },
+    {
+      "file": "pages/cape-may-county-nj.html",
+      "type": "pages",
+      "issueCount": 4,
+      "issues": [
+        {
+          "category": "HEADING_HIERARCHY",
+          "message": "Page has no H1 tag",
+          "severity": "error"
+        },
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 5
+      }
+    },
+    {
+      "file": "pages/blog.html",
+      "type": "pages",
+      "issueCount": 3,
+      "issues": [
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 4
+      }
+    },
+    {
+      "file": "pages/atlantic-county-nj.html",
+      "type": "pages",
+      "issueCount": 4,
+      "issues": [
+        {
+          "category": "HEADING_HIERARCHY",
+          "message": "Page has no H1 tag",
+          "severity": "error"
+        },
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 10
+      }
+    },
+    {
+      "file": "pages/about.html",
+      "type": "pages",
+      "issueCount": 2,
+      "issues": [
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 6
+      }
+    },
+    {
+      "file": "pages/download/nj-tile-guide.html",
+      "type": "pages",
+      "issueCount": 4,
+      "issues": [
+        {
+          "category": "FORM_LABEL",
+          "message": "Input 4 missing aria-label or id for label association",
+          "severity": "warning"
+        },
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        },
+        {
+          "category": "MISSING_TITLE",
+          "message": "Missing <title> tag",
+          "severity": "error"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 4,
+        "headings": 13
+      }
+    }
+  ],
+  "posts": [
+    {
+      "file": "_posts/2025-11-09-waterproofing-redgard-vs-kerdi-vs-hydroban.md",
+      "type": "posts",
+      "issueCount": 1,
+      "issues": [
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_posts/2025-11-09-large-format-tile-flatness-mortars-trowels.md",
+      "type": "posts",
+      "issueCount": 1,
+      "issues": [
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_posts/2025-11-05-home-depot-shower-systems-picks.md",
+      "type": "posts",
+      "issueCount": 1,
+      "issues": [
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_posts/2025-11-02-nj-tile-bath-consultation-guide.md",
+      "type": "posts",
+      "issueCount": 1,
+      "issues": [
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    }
+  ],
+  "layouts": [
+    {
+      "file": "_layouts/post.html",
+      "type": "layouts",
+      "issueCount": 2,
+      "issues": [
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        }
+      ],
+      "stats": {
+        "images": 1,
+        "inputs": 0,
+        "headings": 6
+      }
+    },
+    {
+      "file": "_layouts/default.html",
+      "type": "layouts",
+      "issueCount": 1,
+      "issues": [
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_layouts/build-page.html",
+      "type": "layouts",
+      "issueCount": 3,
+      "issues": [
+        {
+          "category": "NO_VIEWPORT",
+          "message": "Missing viewport meta tag",
+          "severity": "warning"
+        },
+        {
+          "category": "MOBILE_VIEWPORT",
+          "message": "No responsive design classes detected",
+          "severity": "info"
+        },
+        {
+          "category": "HARD_CODED_SIZE",
+          "message": "4 hard-coded pixel values found (use CSS variables)",
+          "severity": "warning",
+          "count": 4
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    }
+  ],
+  "includes": [
+    {
+      "file": "_includes/utilities/scripts.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/sections/testimonials.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/sections/services.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/sections/process.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 7
+      }
+    },
+    {
+      "file": "_includes/sections/portfolio.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/sections/home-trust-stats.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 1
+      }
+    },
+    {
+      "file": "_includes/sections/home-services-preview.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 5
+      }
+    },
+    {
+      "file": "_includes/sections/home-portfolio-preview.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 1
+      }
+    },
+    {
+      "file": "_includes/sections/home-faq.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 1
+      }
+    },
+    {
+      "file": "_includes/sections/home-cta-final.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 1
+      }
+    },
+    {
+      "file": "_includes/sections/hero.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/sections/cta.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/schema/schema-local-business.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/schema/schema-faq.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/layout/logo-sprite-inline.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/layout/logo-header.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/layout/header.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 1,
+        "inputs": 0,
+        "headings": 1
+      }
+    },
+    {
+      "file": "_includes/layout/head.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/layout/footer.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 4
+      }
+    },
+    {
+      "file": "_includes/hero/unified-hero.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/hero/unified-hero-home.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 1,
+        "inputs": 0,
+        "headings": 1
+      }
+    },
+    {
+      "file": "_includes/hero/page-hero.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/forms/contact.html",
+      "type": "includes",
+      "issueCount": 2,
+      "issues": [
+        {
+          "category": "FORM_LABEL",
+          "message": "Input 1 missing aria-label or id for label association",
+          "severity": "warning"
+        },
+        {
+          "category": "FORM_LABEL",
+          "message": "Input 2 missing aria-label or id for label association",
+          "severity": "warning"
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 5,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/forms/contact-long.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 1
+      }
+    },
+    {
+      "file": "_includes/features/faq-section.html",
+      "type": "includes",
+      "issueCount": 1,
+      "issues": [
+        {
+          "category": "UNQUOTED_ATTR",
+          "message": "HTML attributes with unquoted values found",
+          "severity": "warning",
+          "count": 2
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 1
+      }
+    },
+    {
+      "file": "_includes/features/cta-estimate.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 1
+      }
+    },
+    {
+      "file": "_includes/features/contact-options.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 1
+      }
+    },
+    {
+      "file": "_includes/features/build-phase-cta.html",
+      "type": "includes",
+      "issueCount": 1,
+      "issues": [
+        {
+          "category": "HARD_CODED_SIZE",
+          "message": "4 hard-coded pixel values found (use CSS variables)",
+          "severity": "warning",
+          "count": 4
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 1
+      }
+    },
+    {
+      "file": "_includes/content/ts-services.html",
+      "type": "includes",
+      "issueCount": 1,
+      "issues": [
+        {
+          "category": "UNQUOTED_ATTR",
+          "message": "HTML attributes with unquoted values found",
+          "severity": "warning",
+          "count": 8
+        }
+      ],
+      "stats": {
+        "images": 5,
+        "inputs": 0,
+        "headings": 1
+      }
+    },
+    {
+      "file": "_includes/content/ts-service-card.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 1
+      }
+    },
+    {
+      "file": "_includes/content/ts-process.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/content/ts-portfolio.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 1,
+        "inputs": 0,
+        "headings": 2
+      }
+    },
+    {
+      "file": "_includes/content/ts-plans.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 4
+      }
+    },
+    {
+      "file": "_includes/content/reviews-highlights.html",
+      "type": "includes",
+      "issueCount": 1,
+      "issues": [
+        {
+          "category": "UNQUOTED_ATTR",
+          "message": "HTML attributes with unquoted values found",
+          "severity": "warning",
+          "count": 1
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 1
+      }
+    },
+    {
+      "file": "_includes/content/portfolio-highlights.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 1,
+        "inputs": 0,
+        "headings": 2
+      }
+    },
+    {
+      "file": "_includes/content/build-sidenav.html",
+      "type": "includes",
+      "issueCount": 1,
+      "issues": [
+        {
+          "category": "HARD_CODED_SIZE",
+          "message": "7 hard-coded pixel values found (use CSS variables)",
+          "severity": "warning",
+          "count": 7
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 1
+      }
+    },
+    {
+      "file": "_includes/content/blog-highlights.html",
+      "type": "includes",
+      "issueCount": 1,
+      "issues": [
+        {
+          "category": "UNQUOTED_ATTR",
+          "message": "HTML attributes with unquoted values found",
+          "severity": "warning",
+          "count": 1
+        }
+      ],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 2
+      }
+    },
+    {
+      "file": "_includes/components/ts-peace-of-mind.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/components/ts-icon.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/components/ts-icon-sprite.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/components/ts-breadcrumbs.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/components/trust-bar.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/components/social-links.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 0,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/components/responsive-image.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 1,
+        "inputs": 0,
+        "headings": 0
+      }
+    },
+    {
+      "file": "_includes/components/pattern-showcase.html",
+      "type": "includes",
+      "issueCount": 0,
+      "issues": [],
+      "stats": {
+        "images": 4,
+        "inputs": 0,
+        "headings": 1
+      }
+    }
+  ],
+  "issues": [
+    {
+      "file": "pages/success.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/success.html",
+      "type": "pages",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "pages/success.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/services.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/services.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/reviews.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/reviews.html",
+      "type": "pages",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "pages/reviews.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/recommended-products.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/recommended-products.html",
+      "type": "pages",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "pages/recommended-products.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/process.html",
+      "type": "pages",
+      "category": "HEADING_HIERARCHY",
+      "message": "Page has no H1 tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/process.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/process.html",
+      "type": "pages",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "pages/process.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/pricing.html",
+      "type": "pages",
+      "category": "HEADING_HIERARCHY",
+      "message": "Page has no H1 tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/pricing.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/pricing.html",
+      "type": "pages",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "pages/pricing.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/portfolio.html",
+      "type": "pages",
+      "category": "HEADING_HIERARCHY",
+      "message": "Page has no H1 tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/portfolio.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/portfolio.html",
+      "type": "pages",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "pages/portfolio.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/plans.html",
+      "type": "pages",
+      "category": "HEADING_HIERARCHY",
+      "message": "Page has no H1 tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/plans.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/plans.html",
+      "type": "pages",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "pages/plans.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/ocean-county-nj.html",
+      "type": "pages",
+      "category": "HEADING_HIERARCHY",
+      "message": "Page has no H1 tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/ocean-county-nj.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/ocean-county-nj.html",
+      "type": "pages",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "pages/ocean-county-nj.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/for-general-contractors.html",
+      "type": "pages",
+      "category": "HEADING_HIERARCHY",
+      "message": "Page has no H1 tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/for-general-contractors.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/for-general-contractors.html",
+      "type": "pages",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "pages/for-general-contractors.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/financing.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/financing.html",
+      "type": "pages",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "pages/financing.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/faq.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/faq.html",
+      "type": "pages",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "pages/faq.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/design-showcase.html",
+      "type": "pages",
+      "category": "HEADING_HIERARCHY",
+      "message": "Page has no H1 tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/design-showcase.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/design-showcase.html",
+      "type": "pages",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "pages/design-showcase.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/contact.html",
+      "type": "pages",
+      "category": "HEADING_HIERARCHY",
+      "message": "Page has no H1 tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/contact.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/contact.html",
+      "type": "pages",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "pages/contact.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/cape-may-county-nj.html",
+      "type": "pages",
+      "category": "HEADING_HIERARCHY",
+      "message": "Page has no H1 tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/cape-may-county-nj.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/cape-may-county-nj.html",
+      "type": "pages",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "pages/cape-may-county-nj.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/blog.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/blog.html",
+      "type": "pages",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "pages/blog.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/atlantic-county-nj.html",
+      "type": "pages",
+      "category": "HEADING_HIERARCHY",
+      "message": "Page has no H1 tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/atlantic-county-nj.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/atlantic-county-nj.html",
+      "type": "pages",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "pages/atlantic-county-nj.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/about.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/about.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "pages/download/nj-tile-guide.html",
+      "type": "pages",
+      "category": "FORM_LABEL",
+      "message": "Input 4 missing aria-label or id for label association",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/download/nj-tile-guide.html",
+      "type": "pages",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "pages/download/nj-tile-guide.html",
+      "type": "pages",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "pages/download/nj-tile-guide.html",
+      "type": "pages",
+      "category": "MISSING_TITLE",
+      "message": "Missing <title> tag",
+      "severity": "error"
+    },
+    {
+      "file": "_posts/2025-11-09-waterproofing-redgard-vs-kerdi-vs-hydroban.md",
+      "type": "posts",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "_posts/2025-11-09-large-format-tile-flatness-mortars-trowels.md",
+      "type": "posts",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "_posts/2025-11-05-home-depot-shower-systems-picks.md",
+      "type": "posts",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "_posts/2025-11-02-nj-tile-bath-consultation-guide.md",
+      "type": "posts",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "_layouts/post.html",
+      "type": "layouts",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "_layouts/post.html",
+      "type": "layouts",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "_layouts/default.html",
+      "type": "layouts",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "_layouts/build-page.html",
+      "type": "layouts",
+      "category": "NO_VIEWPORT",
+      "message": "Missing viewport meta tag",
+      "severity": "warning"
+    },
+    {
+      "file": "_layouts/build-page.html",
+      "type": "layouts",
+      "category": "MOBILE_VIEWPORT",
+      "message": "No responsive design classes detected",
+      "severity": "info"
+    },
+    {
+      "file": "_layouts/build-page.html",
+      "type": "layouts",
+      "category": "HARD_CODED_SIZE",
+      "message": "4 hard-coded pixel values found (use CSS variables)",
+      "severity": "warning",
+      "count": 4
+    },
+    {
+      "file": "_includes/forms/contact.html",
+      "type": "includes",
+      "category": "FORM_LABEL",
+      "message": "Input 1 missing aria-label or id for label association",
+      "severity": "warning"
+    },
+    {
+      "file": "_includes/forms/contact.html",
+      "type": "includes",
+      "category": "FORM_LABEL",
+      "message": "Input 2 missing aria-label or id for label association",
+      "severity": "warning"
+    },
+    {
+      "file": "_includes/features/faq-section.html",
+      "type": "includes",
+      "category": "UNQUOTED_ATTR",
+      "message": "HTML attributes with unquoted values found",
+      "severity": "warning",
+      "count": 2
+    },
+    {
+      "file": "_includes/features/build-phase-cta.html",
+      "type": "includes",
+      "category": "HARD_CODED_SIZE",
+      "message": "4 hard-coded pixel values found (use CSS variables)",
+      "severity": "warning",
+      "count": 4
+    },
+    {
+      "file": "_includes/content/ts-services.html",
+      "type": "includes",
+      "category": "UNQUOTED_ATTR",
+      "message": "HTML attributes with unquoted values found",
+      "severity": "warning",
+      "count": 8
+    },
+    {
+      "file": "_includes/content/reviews-highlights.html",
+      "type": "includes",
+      "category": "UNQUOTED_ATTR",
+      "message": "HTML attributes with unquoted values found",
+      "severity": "warning",
+      "count": 1
+    },
+    {
+      "file": "_includes/content/build-sidenav.html",
+      "type": "includes",
+      "category": "HARD_CODED_SIZE",
+      "message": "7 hard-coded pixel values found (use CSS variables)",
+      "severity": "warning",
+      "count": 7
+    },
+    {
+      "file": "_includes/content/blog-highlights.html",
+      "type": "includes",
+      "category": "UNQUOTED_ATTR",
+      "message": "HTML attributes with unquoted values found",
+      "severity": "warning",
+      "count": 1
+    }
+  ],
+  "stats": {
+    "totalFiles": 71,
+    "filesWithIssues": 33,
+    "totalIssues": 84,
+    "byCategory": {
+      "NO_VIEWPORT": 21,
+      "MOBILE_VIEWPORT": 24,
+      "MISSING_TITLE": 19,
+      "HEADING_HIERARCHY": 10,
+      "FORM_LABEL": 3,
+      "HARD_CODED_SIZE": 3,
+      "UNQUOTED_ATTR": 4
+    }
+  }
+}

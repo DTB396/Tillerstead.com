@@ -5,11 +5,11 @@
  */
 
 (function () {
-  "use strict";
+  'use strict';
 
   // Respect user motion preferences (ADA/WCAG 2.1 §2.3.3)
   const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
+    '(prefers-reduced-motion: reduce)',
   ).matches;
 
   /**
@@ -34,18 +34,18 @@
    * Highlights Tillerstead’s attention to detail (TCNA §4.1.6)
    */
   function initCardHoverEffects() {
-    const cards = document.querySelectorAll(".ts-card, .card, .gc-card");
+    const cards = document.querySelectorAll('.ts-card, .card, .gc-card');
     cards.forEach((card) => {
-      card.addEventListener("mousemove", (e) => {
+      card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width) * 100;
         const y = ((e.clientY - rect.top) / rect.height) * 100;
-        card.style.setProperty("--mouse-x", `${x}%`);
-        card.style.setProperty("--mouse-y", `${y}%`);
+        card.style.setProperty('--mouse-x', `${x}%`);
+        card.style.setProperty('--mouse-y', `${y}%`);
       });
-      card.addEventListener("mouseleave", () => {
-        card.style.setProperty("--mouse-x", "50%");
-        card.style.setProperty("--mouse-y", "50%");
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--mouse-x', '50%');
+        card.style.setProperty('--mouse-y', '50%');
       });
     });
   }
@@ -55,19 +55,19 @@
    */
   function initImageLazyLoading() {
     const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-    if ("IntersectionObserver" in window) {
+    if ('IntersectionObserver' in window) {
       const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const img = entry.target;
-            img.classList.add("loaded");
+            img.classList.add('loaded');
             imageObserver.unobserve(img);
           }
         });
       });
       lazyImages.forEach((img) => imageObserver.observe(img));
     } else {
-      lazyImages.forEach((img) => img.classList.add("loaded"));
+      lazyImages.forEach((img) => img.classList.add('loaded'));
     }
   }
 
@@ -75,11 +75,11 @@
    * Material Design-inspired ripple effect for .btn (ADA/WCAG 2.1 §2.4.7)
    */
   function initButtonRippleEffect() {
-    const buttons = document.querySelectorAll(".btn, button.btn");
+    const buttons = document.querySelectorAll('.btn, button.btn');
     buttons.forEach((button) => {
-      button.addEventListener("click", function (e) {
+      button.addEventListener('click', function (e) {
         if (prefersReducedMotion) return;
-        const ripple = document.createElement("span");
+        const ripple = document.createElement('span');
         const rect = this.getBoundingClientRect();
         const size = Math.max(rect.width, rect.height);
         const x = e.clientX - rect.left - size / 2;
@@ -101,9 +101,9 @@
       });
     });
     // Add ripple animation keyframes if not already present
-    if (!document.getElementById("ripple-styles")) {
-      const style = document.createElement("style");
-      style.id = "ripple-styles";
+    if (!document.getElementById('ripple-styles')) {
+      const style = document.createElement('style');
+      style.id = 'ripple-styles';
       style.textContent = `
         @keyframes ripple-animation {
           to {
@@ -121,13 +121,13 @@
    */
   function initSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        const href = this.getAttribute("href");
-        if (!href || href === "#") return;
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           if (history.pushState) history.pushState(null, null, href);
           target.focus({ preventScroll: true });
         }
@@ -140,7 +140,7 @@
    */
   function initParallaxEffects() {
     const heroSections = document.querySelectorAll(
-      ".hero-surface, .hero-panel",
+      '.hero-surface, .hero-panel',
     );
     if (!heroSections.length) return;
     let ticking = false;
@@ -156,7 +156,7 @@
       });
       ticking = false;
     }
-    window.addEventListener("scroll", () => {
+    window.addEventListener('scroll', () => {
       if (!ticking) {
         window.requestAnimationFrame(updateParallax);
         ticking = true;
@@ -170,19 +170,19 @@
   function initIntersectionObserver() {
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
+      rootMargin: '0px 0px -50px 0px',
     };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
+          entry.target.classList.add('is-visible');
           observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
-    const elements = document.querySelectorAll(".ts-section, .ts-card, .card");
+    const elements = document.querySelectorAll('.ts-section, .ts-card, .card');
     elements.forEach((el) => {
-      el.classList.add("fade-in-element");
+      el.classList.add('fade-in-element');
       observer.observe(el);
     });
     // Ensure first-view content is visible
@@ -192,17 +192,17 @@
       elements.forEach((el) => {
         const rect = el.getBoundingClientRect();
         if (rect.top <= viewportHeight * 0.9 && rect.bottom >= 0) {
-          el.classList.add("is-visible");
+          el.classList.add('is-visible');
         }
       });
     };
     revealVisibleContent();
-    window.addEventListener("load", revealVisibleContent, { once: true });
-    window.addEventListener("resize", revealVisibleContent);
+    window.addEventListener('load', revealVisibleContent, { once: true });
+    window.addEventListener('resize', revealVisibleContent);
     // Add CSS for fade-in animation if not present
-    if (!document.getElementById("fade-in-styles")) {
-      const style = document.createElement("style");
-      style.id = "fade-in-styles";
+    if (!document.getElementById('fade-in-styles')) {
+      const style = document.createElement('style');
+      style.id = 'fade-in-styles';
       style.textContent = `
         .fade-in-element {
           opacity: 0;
@@ -234,11 +234,11 @@
       '[role="button"], .chip, [data-tooltip]',
     );
     interactiveElements.forEach((element) => {
-      if (!element.hasAttribute("tabindex")) {
-        element.setAttribute("tabindex", "0");
+      if (!element.hasAttribute('tabindex')) {
+        element.setAttribute('tabindex', '0');
       }
-      element.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
+      element.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           element.click();
         }
@@ -250,18 +250,18 @@
    * Focus management for accessibility (ADA/WCAG 2.4.7)
    */
   function initFocusManagement() {
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Tab") {
-        document.body.classList.add("keyboard-nav");
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+        document.body.classList.add('keyboard-nav');
       }
     });
-    document.addEventListener("mousedown", () => {
-      document.body.classList.remove("keyboard-nav");
+    document.addEventListener('mousedown', () => {
+      document.body.classList.remove('keyboard-nav');
     });
     // Add styles for keyboard navigation
-    if (!document.getElementById("keyboard-nav-styles")) {
-      const style = document.createElement("style");
-      style.id = "keyboard-nav-styles";
+    if (!document.getElementById('keyboard-nav-styles')) {
+      const style = document.createElement('style');
+      style.id = 'keyboard-nav-styles';
       style.textContent = `
         body:not(.keyboard-nav) *:focus {
           outline: none;
@@ -295,11 +295,11 @@
     // console.log('Window resized, recalculating...');
   }, 250);
 
-  window.addEventListener("resize", handleResize);
+  window.addEventListener('resize', handleResize);
 
   // DOM ready initialization
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
   }

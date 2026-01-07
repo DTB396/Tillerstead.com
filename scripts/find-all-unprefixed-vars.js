@@ -2,31 +2,31 @@
 // Tillerstead: Comprehensive scanner to find ALL remaining unprefixed CSS variables
 // Both definitions and usages
 
-import fs from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import { glob } from "glob";
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { glob } from 'glob';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const sassDir = path.resolve(__dirname, "..", "_sass");
+const sassDir = path.resolve(__dirname, '..', '_sass');
 
 // Valid prefixes
 const validPrefixes = [
-  "ts-",
-  "tiller-",
-  "color-",
-  "spacing-",
-  "font-",
-  "z-",
-  "breakpoint-",
+  'ts-',
+  'tiller-',
+  'color-',
+  'spacing-',
+  'font-',
+  'z-',
+  'breakpoint-',
 ];
 
 /**
  * Check if a property has a valid prefix
  */
 function hasValidPrefix(propName) {
-  const prop = propName.replace(/^--/, "");
+  const prop = propName.replace(/^--/, '');
   return validPrefixes.some((prefix) => prop.startsWith(prefix));
 }
 
@@ -35,8 +35,8 @@ function hasValidPrefix(propName) {
  */
 function scanFile(filePath) {
   try {
-    const content = fs.readFileSync(filePath, "utf8");
-    const lines = content.split("\n");
+    const content = fs.readFileSync(filePath, 'utf8');
+    const lines = content.split('\n');
     const results = {
       definitions: [],
       usages: [],
@@ -84,13 +84,13 @@ function scanFile(filePath) {
  * Main process
  */
 async function main() {
-  console.log("╔════════════════════════════════════════════════════╗");
-  console.log("║  Tillerstead: Find All Unprefixed Variables       ║");
-  console.log("║  Phase 3 - Complete Inventory                      ║");
-  console.log("╚════════════════════════════════════════════════════╝\n");
+  console.log('╔════════════════════════════════════════════════════╗');
+  console.log('║  Tillerstead: Find All Unprefixed Variables       ║');
+  console.log('║  Phase 3 - Complete Inventory                      ║');
+  console.log('╚════════════════════════════════════════════════════╝\n');
 
   try {
-    const scssFiles = await glob("**/*.scss", { cwd: sassDir, absolute: true });
+    const scssFiles = await glob('**/*.scss', { cwd: sassDir, absolute: true });
 
     console.log(`Scanning ${scssFiles.length} SCSS files...\n`);
 
@@ -123,8 +123,8 @@ async function main() {
     }
 
     // Report
-    console.log("═══════════════════════════════════════════════════\n");
-    console.log("📊 SUMMARY:");
+    console.log('═══════════════════════════════════════════════════\n');
+    console.log('📊 SUMMARY:');
     console.log(`   Files with issues: ${fileResults.length}`);
     console.log(`   Unique unprefixed definitions: ${allDefinitions.size}`);
     console.log(`   Unique unprefixed usages: ${allUsages.size}`);
@@ -133,7 +133,7 @@ async function main() {
     );
 
     // Top offenders
-    console.log("🔥 TOP UNPREFIXED PROPERTIES:\n");
+    console.log('🔥 TOP UNPREFIXED PROPERTIES:\n');
     const sortedDefs = [...allDefinitions.entries()].sort(
       (a, b) => b[1].length - a[1].length,
     );
@@ -142,7 +142,7 @@ async function main() {
     });
 
     // Detailed file report
-    console.log("\n\n📁 DETAILED FILE REPORT:\n");
+    console.log('\n\n📁 DETAILED FILE REPORT:\n');
     fileResults.slice(0, 15).forEach(({ file, definitions, usages }) => {
       const total = definitions.length + usages.length;
       console.log(`\n${file} (${total} violations)`);
@@ -172,10 +172,10 @@ async function main() {
       console.log(`\n  ... and ${fileResults.length - 15} more files`);
     }
 
-    console.log("\n\n═══════════════════════════════════════════════════");
-    console.log("Run: npm run lint:css for full stylelint report");
+    console.log('\n\n═══════════════════════════════════════════════════');
+    console.log('Run: npm run lint:css for full stylelint report');
   } catch (err) {
-    console.error("✗ Scan failed:", err.message);
+    console.error('✗ Scan failed:', err.message);
     process.exit(1);
   }
 }

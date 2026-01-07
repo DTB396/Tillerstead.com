@@ -1,6 +1,8 @@
+---
+layout: default
+hide_hero: true
+---
 <!doctype html>
---- layout: default hide_hero: true ---
-
 <article
   class="ts-section ts-surface section blog-post"
   itemscope
@@ -17,7 +19,10 @@
   <meta
     itemprop="dateModified"
     content="{{ page.date_modified | date: '%Y-%m-%dT%H:%M:%SZ' }}"
-  />
+    ---
+    layout: default
+    hide_hero: true
+    ---
   {% endif %} {% if page.author %}
   <meta itemprop="author" content="{{ page.author }}" />
   {% endif %} {% if page.description %}

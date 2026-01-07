@@ -19,12 +19,12 @@
  * - contrast-audit-report.md
  */
 
-import { readFileSync, writeFileSync, readdirSync } from "fs";
-import { join, extname, resolve } from "path";
-import { fileURLToPath } from "url";
+import { readFileSync, writeFileSync, readdirSync } from 'fs';
+import { join, extname, resolve } from 'path';
+import { fileURLToPath } from 'url';
 
-const __dirname = resolve(fileURLToPath(import.meta.url), "..");
-const ROOT = join(__dirname, "..");
+const __dirname = resolve(fileURLToPath(import.meta.url), '..');
+const ROOT = join(__dirname, '..');
 
 // ============================================
 // COLOR UTILITIES
@@ -37,10 +37,10 @@ function hexToRgb(hex) {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result
     ? [
-        parseInt(result[1], 16),
-        parseInt(result[2], 16),
-        parseInt(result[3], 16),
-      ]
+      parseInt(result[1], 16),
+      parseInt(result[2], 16),
+      parseInt(result[3], 16),
+    ]
     : null;
 }
 
@@ -77,13 +77,13 @@ function getContrastRatio(color1, color2) {
  */
 function getWCAGLevel(ratio, isLargeText = false) {
   if (isLargeText) {
-    if (ratio >= 4.5) return "AAA";
-    if (ratio >= 3) return "AA";
-    return "FAIL";
+    if (ratio >= 4.5) return 'AAA';
+    if (ratio >= 3) return 'AA';
+    return 'FAIL';
   } else {
-    if (ratio >= 7) return "AAA";
-    if (ratio >= 4.5) return "AA";
-    return "FAIL";
+    if (ratio >= 7) return 'AAA';
+    if (ratio >= 4.5) return 'AA';
+    return 'FAIL';
   }
 }
 
@@ -93,108 +93,108 @@ function getWCAGLevel(ratio, isLargeText = false) {
 
 const BRAND_COLORS = {
   // Teals
-  "teal-900": "#054a1f",
-  "teal-800": "#066b2d",
-  "teal-700": "#078930", // Primary
-  "teal-600": "#0fa640",
-  "teal-500": "#1dc055",
-  "teal-400": "#43d779",
-  "teal-300": "#6ae594",
-  "teal-200": "#a8f4b8",
-  "teal-100": "#d5fae3",
-  "teal-50": "#eefbf5",
+  'teal-900': '#054a1f',
+  'teal-800': '#066b2d',
+  'teal-700': '#078930', // Primary
+  'teal-600': '#0fa640',
+  'teal-500': '#1dc055',
+  'teal-400': '#43d779',
+  'teal-300': '#6ae594',
+  'teal-200': '#a8f4b8',
+  'teal-100': '#d5fae3',
+  'teal-50': '#eefbf5',
 
   // Reds
-  "red-900": "#5d0608",
-  "red-800": "#8b0a0e",
-  "red-700": "#b80d12",
-  "red-600": "#da121a", // Accent
-  "red-500": "#f11a22",
-  "red-400": "#f73c47",
-  "red-300": "#fc6b73",
-  "red-200": "#fed9dc",
-  "red-100": "#fee9eb",
-  "red-50": "#fef5f5",
+  'red-900': '#5d0608',
+  'red-800': '#8b0a0e',
+  'red-700': '#b80d12',
+  'red-600': '#da121a', // Accent
+  'red-500': '#f11a22',
+  'red-400': '#f73c47',
+  'red-300': '#fc6b73',
+  'red-200': '#fed9dc',
+  'red-100': '#fee9eb',
+  'red-50': '#fef5f5',
 
   // Golds
-  "gold-900": "#8b7500",
-  "gold-800": "#b89900",
-  "gold-700": "#d4b100",
-  "gold-600": "#fcdd09", // Highlight
-  "gold-500": "#fde34f",
-  "gold-400": "#fff4a3",
-  "gold-300": "#fffbcc",
-  "gold-200": "#fffde7",
-  "gold-100": "#fffff0",
-  "gold-50": "#fffff7",
+  'gold-900': '#8b7500',
+  'gold-800': '#b89900',
+  'gold-700': '#d4b100',
+  'gold-600': '#fcdd09', // Highlight
+  'gold-500': '#fde34f',
+  'gold-400': '#fff4a3',
+  'gold-300': '#fffbcc',
+  'gold-200': '#fffde7',
+  'gold-100': '#fffff0',
+  'gold-50': '#fffff7',
 
   // Charcoals
-  "charcoal-900": "#0f0f0f",
-  "charcoal-800": "#1a1a1a",
-  "charcoal-700": "#2d2d2d",
-  "charcoal-600": "#3f3f3f",
-  "charcoal-500": "#525252",
-  "charcoal-400": "#6b6b6b",
-  "charcoal-300": "#888888",
-  "charcoal-200": "#ababab",
-  "charcoal-100": "#d4d4d4",
-  "charcoal-50": "#ebebeb",
+  'charcoal-900': '#0f0f0f',
+  'charcoal-800': '#1a1a1a',
+  'charcoal-700': '#2d2d2d',
+  'charcoal-600': '#3f3f3f',
+  'charcoal-500': '#525252',
+  'charcoal-400': '#6b6b6b',
+  'charcoal-300': '#888888',
+  'charcoal-200': '#ababab',
+  'charcoal-100': '#d4d4d4',
+  'charcoal-50': '#ebebeb',
 
   // Creams
-  "cream-100": "#f9f7f4",
-  "cream-75": "#faf8f5",
-  "cream-50": "#fcfaf7",
-  "cream-25": "#fdfcfa",
+  'cream-100': '#f9f7f4',
+  'cream-75': '#faf8f5',
+  'cream-50': '#fcfaf7',
+  'cream-25': '#fdfcfa',
 
   // Pure
-  white: "#ffffff",
-  black: "#000000",
+  white: '#ffffff',
+  black: '#000000',
 };
 
 // Common text + background combinations
 const COMMON_COMBINATIONS = [
   // Primary on light backgrounds
-  { fg: "teal-700", bg: "white", label: "Primary on White" },
+  { fg: 'teal-700', bg: 'white', label: 'Primary on White' },
   {
-    fg: "teal-700",
-    bg: "cream-100",
-    label: "Primary on Cream (Avoid - Below AA)",
+    fg: 'teal-700',
+    bg: 'cream-100',
+    label: 'Primary on Cream (Avoid - Below AA)',
   },
-  { fg: "teal-800", bg: "white", label: "Primary Dark on White" },
+  { fg: 'teal-800', bg: 'white', label: 'Primary Dark on White' },
 
   // Accent on light backgrounds
-  { fg: "red-600", bg: "white", label: "Accent on White" },
-  { fg: "red-600", bg: "cream-100", label: "Accent on Cream" },
-  { fg: "red-700", bg: "white", label: "Accent Dark on White" },
+  { fg: 'red-600', bg: 'white', label: 'Accent on White' },
+  { fg: 'red-600', bg: 'cream-100', label: 'Accent on Cream' },
+  { fg: 'red-700', bg: 'white', label: 'Accent Dark on White' },
 
   // Highlight on light backgrounds (using correct dark gold for text)
-  { fg: "gold-700", bg: "white", label: "Dark Gold Text on White" },
-  { fg: "gold-600", bg: "white", label: "Logo Gold (Highlight Only - Fails)" },
-  { fg: "gold-700", bg: "cream-100", label: "Dark Gold on Cream" },
+  { fg: 'gold-700', bg: 'white', label: 'Dark Gold Text on White' },
+  { fg: 'gold-600', bg: 'white', label: 'Logo Gold (Highlight Only - Fails)' },
+  { fg: 'gold-700', bg: 'cream-100', label: 'Dark Gold on Cream' },
 
   // Text on light backgrounds
-  { fg: "charcoal-800", bg: "white", label: "Text on White" },
-  { fg: "charcoal-800", bg: "cream-100", label: "Text on Cream" },
-  { fg: "charcoal-600", bg: "white", label: "Muted Text on White" },
+  { fg: 'charcoal-800', bg: 'white', label: 'Text on White' },
+  { fg: 'charcoal-800', bg: 'cream-100', label: 'Text on Cream' },
+  { fg: 'charcoal-600', bg: 'white', label: 'Muted Text on White' },
 
   // White text on dark backgrounds
-  { fg: "white", bg: "teal-700", label: "White on Primary" },
-  { fg: "white", bg: "teal-800", label: "White on Primary Dark" },
-  { fg: "white", bg: "red-600", label: "White on Accent" },
-  { fg: "white", bg: "charcoal-800", label: "White on Dark" },
+  { fg: 'white', bg: 'teal-700', label: 'White on Primary' },
+  { fg: 'white', bg: 'teal-800', label: 'White on Primary Dark' },
+  { fg: 'white', bg: 'red-600', label: 'White on Accent' },
+  { fg: 'white', bg: 'charcoal-800', label: 'White on Dark' },
 
   // Button states
-  { fg: "white", bg: "teal-700", label: "Button Primary" },
-  { fg: "white", bg: "red-600", label: "Button Accent" },
-  { fg: "teal-700", bg: "white", label: "Button Secondary (Fixed - White BG)" },
+  { fg: 'white', bg: 'teal-700', label: 'Button Primary' },
+  { fg: 'white', bg: 'red-600', label: 'Button Accent' },
+  { fg: 'teal-700', bg: 'white', label: 'Button Secondary (Fixed - White BG)' },
 
   // Hover states
-  { fg: "white", bg: "teal-800", label: "Primary Hover" },
-  { fg: "white", bg: "red-700", label: "Accent Hover" },
+  { fg: 'white', bg: 'teal-800', label: 'Primary Hover' },
+  { fg: 'white', bg: 'red-700', label: 'Accent Hover' },
 
   // Links
-  { fg: "teal-700", bg: "white", label: "Link Default" },
-  { fg: "teal-800", bg: "white", label: "Link Hover" },
+  { fg: 'teal-700', bg: 'white', label: 'Link Default' },
+  { fg: 'teal-800', bg: 'white', label: 'Link Hover' },
 ];
 
 // ============================================
@@ -203,7 +203,7 @@ const COMMON_COMBINATIONS = [
 
 const REPORT = {
   timestamp: new Date().toISOString(),
-  wcagTarget: "AAA",
+  wcagTarget: 'AAA',
   totalCombinations: 0,
   passAAA: 0,
   passAA: 0,
@@ -216,7 +216,7 @@ const REPORT = {
 // ============================================
 
 function runContrastAudit() {
-  console.log("🎨 WCAG 2.1 Contrast Audit Started\n");
+  console.log('🎨 WCAG 2.1 Contrast Audit Started\n');
 
   REPORT.totalCombinations = COMMON_COMBINATIONS.length;
 
@@ -249,13 +249,13 @@ function runContrastAudit() {
         largeText: wcagLevelLarge,
       },
       status:
-        wcagLevel === "AAA" ? "PASS" : wcagLevel === "AA" ? "WARNING" : "FAIL",
+        wcagLevel === 'AAA' ? 'PASS' : wcagLevel === 'AA' ? 'WARNING' : 'FAIL',
     };
 
-    if (result.status === "PASS") {
+    if (result.status === 'PASS') {
       REPORT.passAAA++;
       console.log(`✅ ${combo.label}: ${ratio}:1 (AAA)`);
-    } else if (result.status === "WARNING") {
+    } else if (result.status === 'WARNING') {
       REPORT.passAA++;
       console.log(`⚠️  ${combo.label}: ${ratio}:1 (AA only)`);
     } else {
@@ -268,7 +268,7 @@ function runContrastAudit() {
 
   // Write JSON report
   writeFileSync(
-    join(ROOT, "contrast-audit-report.json"),
+    join(ROOT, 'contrast-audit-report.json'),
     JSON.stringify(REPORT, null, 2),
   );
 
@@ -292,9 +292,9 @@ function runContrastAudit() {
 `;
 
   // Group by status
-  const passed = REPORT.results.filter((r) => r.status === "PASS");
-  const warned = REPORT.results.filter((r) => r.status === "WARNING");
-  const failed = REPORT.results.filter((r) => r.status === "FAIL");
+  const passed = REPORT.results.filter((r) => r.status === 'PASS');
+  const warned = REPORT.results.filter((r) => r.status === 'WARNING');
+  const failed = REPORT.results.filter((r) => r.status === 'FAIL');
 
   if (passed.length > 0) {
     markdown += `\n### ✅ AAA Compliant (${passed.length})\n\n`;
@@ -319,7 +319,7 @@ function runContrastAudit() {
     failed.forEach((result) => {
       markdown += `- **${result.combination}**: ${result.contrastRatio}:1 ⚠️\n`;
       markdown +=
-        "  - Recommendation: Adjust colors or use different combination\n";
+        '  - Recommendation: Adjust colors or use different combination\n';
     });
   }
 
@@ -348,18 +348,18 @@ function runContrastAudit() {
 - Light: #ffffff
 `;
 
-  writeFileSync(join(ROOT, "contrast-audit-report.md"), markdown);
+  writeFileSync(join(ROOT, 'contrast-audit-report.md'), markdown);
 
   // Print summary
-  console.log("\n📊 Summary:");
+  console.log('\n📊 Summary:');
   console.log(
     `   AAA Compliant: ${REPORT.passAAA}/${REPORT.totalCombinations}`,
   );
   console.log(`   AA Only: ${REPORT.passAA}`);
   console.log(`   Failures: ${REPORT.failures}`);
-  console.log("\n📄 Reports written to:");
-  console.log("   - contrast-audit-report.json");
-  console.log("   - contrast-audit-report.md\n");
+  console.log('\n📄 Reports written to:');
+  console.log('   - contrast-audit-report.json');
+  console.log('   - contrast-audit-report.md\n');
 }
 
 runContrastAudit();

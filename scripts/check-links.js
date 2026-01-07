@@ -1,23 +1,23 @@
 #!/usr/bin/env node
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-import * as cheerio from "cheerio";
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import * as cheerio from 'cheerio';
 
 // __dirname workaround for ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const siteDir = path.join(__dirname, "..", "_site");
+const siteDir = path.join(__dirname, '..', '_site');
 if (!fs.existsSync(siteDir)) {
   console.error(
-    "Error: _site directory missing. Run `npm run build` before link checking. (TCNA/New Jersey HIC compliance)",
+    'Error: _site directory missing. Run `npm run build` before link checking. (TCNA/New Jersey HIC compliance)',
   );
   process.exit(1);
 }
 
 // Allowlist for intentionally missing assets (e.g., favicon)
-const allowMissing = new Set(["/favicon.ico"]);
+const allowMissing = new Set(['/favicon.ico']);
 
 /**
  * Determines if a link is external or non-checkable.
@@ -30,7 +30,7 @@ function isExternal(link) {
     /^mailto:/i.test(link) ||
     /^tel:/i.test(link) ||
     /^sms:/i.test(link) ||
-    link.startsWith("#")
+    link.startsWith('#')
   );
 }
 
@@ -40,8 +40,8 @@ function isExternal(link) {
  * @returns {string}
  */
 function stripFragmentsAndQuery(ref) {
-  const [pathPart] = ref.split("#");
-  return pathPart.split("?")[0];
+  const [pathPart] = ref.split('#');
+  return pathPart.split('?')[0];
 }
 
 /**
@@ -53,22 +53,22 @@ function normalizeTarget(href) {
   const cleaned = stripFragmentsAndQuery(href);
   let target = cleaned;
 
-  if (target.startsWith("/")) {
+  if (target.startsWith('/')) {
     target = target.slice(1);
   }
 
   const ext = path.extname(target);
   if (!ext) {
-    target = path.join(target, "index.html");
+    target = path.join(target, 'index.html');
   }
 
   const primary = path.join(siteDir, target);
   if (fs.existsSync(primary)) return primary;
 
-  if (ext === ".html") {
+  if (ext === '.html') {
     const fallback = path.join(
       siteDir,
-      target.replace(/\.html$/, "/index.html"),
+      target.replace(/\.html$/, '/index.html'),
     );
     if (fs.existsSync(fallback)) return fallback;
   }
@@ -88,21 +88,21 @@ function collectHtmlFiles(dir) {
     if (entry.isDirectory()) {
       return collectHtmlFiles(fullPath);
     }
-    return entry.name.endsWith(".html") ? [fullPath] : [];
+    return entry.name.endsWith('.html') ? [fullPath] : [];
   });
 }
 
 const missing = [];
 for (const file of collectHtmlFiles(siteDir)) {
-  const html = fs.readFileSync(file, "utf8");
+  const html = fs.readFileSync(file, 'utf8');
   const $ = cheerio.load(html);
-  const links = $("a[href], link[href]");
+  const links = $('a[href], link[href]');
   const images = $(
-    "img[src], source[src], video[src], audio[src], script[src]",
+    'img[src], source[src], video[src], audio[src], script[src]',
   );
 
   links.each((_, el) => {
-    const href = $(el).attr("href");
+    const href = $(el).attr('href');
     if (!href || isExternal(href)) return;
     const target = normalizeTarget(href);
     if (
@@ -114,7 +114,7 @@ for (const file of collectHtmlFiles(siteDir)) {
   });
 
   images.each((_, el) => {
-    const src = $(el).attr("src");
+    const src = $(el).attr('src');
     if (!src || isExternal(src)) return;
     const target = normalizeTarget(src);
     if (
@@ -128,7 +128,7 @@ for (const file of collectHtmlFiles(siteDir)) {
 
 if (missing.length) {
   console.error(
-    "Broken internal links/assets detected (TCNA/New Jersey HIC compliance required):",
+    'Broken internal links/assets detected (TCNA/New Jersey HIC compliance required):',
   );
   for (const issue of missing) {
     console.error(`- ${issue.source} → ${issue.ref}`);
@@ -137,5 +137,5 @@ if (missing.length) {
 }
 
 console.log(
-  "Link check passed: all internal references resolved to TCNA/New Jersey HIC standards.",
+  'Link check passed: all internal references resolved to TCNA/New Jersey HIC standards.',
 );

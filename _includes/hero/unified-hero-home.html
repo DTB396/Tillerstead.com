@@ -68,6 +68,15 @@ default: page.hero_actions -%} {%- unless actions -%} {%- assign actions =
           height="800"
           loading="eager"
           decoding="async"
+          {%
+          if
+          src.hero_image_position
+          or
+          page.hero_image_position
+          %}style="object-position: {{ src.hero_image_position | default: page.hero_image_position }}; object-fit: cover;"
+          {%
+          endif
+          %}
         />
       </figure>
 
@@ -91,6 +100,28 @@ default: page.hero_actions -%} {%- unless actions -%} {%- assign actions =
           </p>
         </li>
       </ul>
+      <div
+        class="ts-hero__review-link"
+        style="margin-top: 1.5rem; text-align: center"
+      >
+        <!-- TODO: Replace with 4K upscaled/optimized image when available -->
+        <a
+          class="btn btn--ghost"
+          href="https://www.thumbtack.com/nj/atlantic-city/tile/tillerstead-llc/service/469393949808353292?review=Ahmed"
+          target="_blank"
+          rel="noopener nofollow"
+          aria-label="See Ahmed's verified review and project photo on Thumbtack"
+        >
+          View Ahmed’s Verified Review & Photo on Thumbtack
+        </a>
+        <p
+          class="microcopy"
+          style="margin-top: 0.5rem; color: var(--color-muted, #888)"
+        >
+          Photo: Actual Tillerstead project, as reviewed by Ahmed (Thumbtack
+          Verified)
+        </p>
+      </div>
     </aside>
     {% endif %}
   </div>

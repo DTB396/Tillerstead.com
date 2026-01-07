@@ -13,7 +13,7 @@
  */
 
 (() => {
-  "use strict";
+  'use strict';
 
   /**
    * Calculates relative luminance of an RGB color.
@@ -49,17 +49,17 @@
    * @returns {Array|null}
    */
   function parseColor(color) {
-    const ctx = document.createElement("canvas").getContext("2d");
+    const ctx = document.createElement('canvas').getContext('2d');
     ctx.fillStyle = color;
     const computed = ctx.fillStyle;
     // Now ctx.fillStyle is always in rgb(r, g, b) or #rrggbb
-    if (computed.startsWith("#")) {
+    if (computed.startsWith('#')) {
       let hex = computed.slice(1);
       if (hex.length === 3)
         hex = hex
-          .split("")
+          .split('')
           .map((x) => x + x)
-          .join("");
+          .join('');
       const num = parseInt(hex, 16);
       return [(num >> 16) & 255, (num >> 8) & 255, num & 255];
     }
@@ -82,20 +82,20 @@
     const black = [0, 0, 0];
     const contrastWhite = contrastRatio(rgb, white);
     const _contrastBlack = contrastRatio(rgb, black);
-    el.style.color = contrastWhite >= 4.5 ? "#fff" : "#111";
+    el.style.color = contrastWhite >= 4.5 ? '#fff' : '#111';
   }
 
   /**
    * Applies auto-contrast to all elements with [data-auto-contrast]
    */
   function applyAutoContrast() {
-    document.querySelectorAll("[data-auto-contrast]").forEach(setAutoContrast);
+    document.querySelectorAll('[data-auto-contrast]').forEach(setAutoContrast);
   }
 
   // Expose for use in theme scripts and dynamic content
-  if (typeof window !== "undefined") {
+  if (typeof window !== 'undefined') {
     window.autoContrast = applyAutoContrast;
     // Run on DOMContentLoaded for static content
-    document.addEventListener("DOMContentLoaded", applyAutoContrast);
+    document.addEventListener('DOMContentLoaded', applyAutoContrast);
   }
 })();

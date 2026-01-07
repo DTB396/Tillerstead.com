@@ -4,41 +4,41 @@
  */
 
 (function () {
-  "use strict";
+  'use strict';
 
   const FORM_CONFIG = {
     formSelector: 'form[name="contact"]',
-    endpoint: "/.netlify/functions/contact",
+    endpoint: '/.netlify/functions/contact',
     successMessage: {
-      title: "Message Sent Successfully!",
-      body: "Thank you for contacting Tillerstead. We've received your inquiry and will respond within 48 hours. If you don't hear from us, please text us at (609) 862-8808 to confirm we received your message.",
-      confirmationSent: "A confirmation email has been sent to your address.",
+      title: 'Message Sent Successfully!',
+      body: 'Thank you for contacting Tillerstead. We've received your inquiry and will respond within 48 hours. If you don't hear from us, please text us at (609) 862-8808 to confirm we received your message.',
+      confirmationSent: 'A confirmation email has been sent to your address.',
     },
     errorMessage: {
-      title: "Submission Error",
-      body: "We apologize, but there was an issue sending your message. Please email us directly at info@tillerstead.com or call (609) 862-8808.",
+      title: 'Submission Error',
+      body: 'We apologize, but there was an issue sending your message. Please email us directly at info@tillerstead.com or call (609) 862-8808.',
     },
   };
 
-  function showMessage(type, title, body, extra = "") {
-    const container = document.createElement("div");
+  function showMessage(type, title, body, extra = '') {
+    const container = document.createElement('div');
     container.className = `form-message form-message--${type}`;
-    container.setAttribute("role", "status");
-    container.setAttribute("aria-live", "polite");
+    container.setAttribute('role', 'status');
+    container.setAttribute('aria-live', 'polite');
 
     container.innerHTML = `
       <div class="form-message__content">
         <h3 class="form-message__title">${title}</h3>
         <p class="form-message__body">${body}</p>
-        ${extra ? `<p class="form-message__extra">${extra}</p>` : ""}
+        ${extra ? `<p class="form-message__extra">${extra}</p>` : ''}
         <button type="button" class="form-message__close" aria-label="Close message">×</button>
       </div>
     `;
 
     // Add close functionality
     container
-      .querySelector(".form-message__close")
-      .addEventListener("click", () => {
+      .querySelector('.form-message__close')
+      .addEventListener('click', () => {
         container.remove();
       });
 
@@ -52,19 +52,19 @@
   function validateForm(formData) {
     const errors = [];
 
-    if (!formData.get("name")?.trim()) {
-      errors.push("Name is required");
+    if (!formData.get('name')?.trim()) {
+      errors.push('Name is required');
     }
 
-    const email = formData.get("email");
+    const email = formData.get('email');
     if (!email?.trim()) {
-      errors.push("Email is required");
+      errors.push('Email is required');
     } else if (!validateEmail(email)) {
-      errors.push("Please enter a valid email address");
+      errors.push('Please enter a valid email address');
     }
 
-    if (!formData.get("message")?.trim()) {
-      errors.push("Project details are required");
+    if (!formData.get('message')?.trim()) {
+      errors.push('Project details are required');
     }
 
     return errors;
@@ -73,28 +73,28 @@
   async function submitToNetlify(formData) {
     // Try Netlify Forms first
     try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData).toString(),
       });
 
       if (response.ok) {
-        return { success: true, method: "netlify" };
+        return { success: true, method: 'netlify' };
       }
     } catch (e) {
-      console.warn("Netlify Forms failed, trying mailto fallback:", e);
+      console.warn('Netlify Forms failed, trying mailto fallback:', e);
     }
 
     // Fallback to Formspree or direct email
-    const subject = `Contact Form: ${formData.get("name")}`;
+    const subject = `Contact Form: ${formData.get('name')}`;
     const body = `
-Name: ${formData.get("name")}
-Email: ${formData.get("email")}
-Phone: ${formData.get("phone") || "Not provided"}
+Name: ${formData.get('name')}
+Email: ${formData.get('email')}
+Phone: ${formData.get('phone') || 'Not provided'}
 
 Message:
-${formData.get("message")}
+${formData.get('message')}
 
 Submitted: ${new Date().toLocaleString()}
     `.trim();
@@ -102,44 +102,44 @@ Submitted: ${new Date().toLocaleString()}
     // Try Formspree endpoint (you'll need to set this up)
     try {
       const formspreeResponse = await fetch(
-        "https://formspree.io/f/YOUR_FORM_ID",
+        'https://formspree.io/f/YOUR_FORM_ID',
         {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            name: formData.get("name"),
-            email: formData.get("email"),
-            phone: formData.get("phone"),
-            message: formData.get("message"),
+            name: formData.get('name'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            message: formData.get('message'),
             _subject: subject,
-            _replyto: formData.get("email"),
+            _replyto: formData.get('email'),
           }),
         },
       );
 
       if (formspreeResponse.ok) {
-        return { success: true, method: "formspree" };
+        return { success: true, method: 'formspree' };
       }
     } catch (e) {
-      console.warn("Formspree failed:", e);
+      console.warn('Formspree failed:', e);
     }
 
     // Last resort: mailto link
     const mailtoLink = `mailto:info@tillerstead.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
 
-    return { success: true, method: "mailto" };
+    return { success: true, method: 'mailto' };
   }
 
   function initContactForm() {
     const form = document.querySelector(FORM_CONFIG.formSelector);
     if (!form) return;
 
-    form.addEventListener("submit", async (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       // Remove any existing messages
-      document.querySelectorAll(".form-message").forEach((msg) => msg.remove());
+      document.querySelectorAll('.form-message').forEach((msg) => msg.remove());
 
       const formData = new FormData(form);
       const submitBtn = form.querySelector('button[type="submit"]');
@@ -149,9 +149,9 @@ Submitted: ${new Date().toLocaleString()}
       const errors = validateForm(formData);
       if (errors.length > 0) {
         const errorMsg = showMessage(
-          "error",
-          "Please Fix These Errors",
-          errors.join(". "),
+          'error',
+          'Please Fix These Errors',
+          errors.join('. '),
         );
         form.insertBefore(errorMsg, form.firstChild);
         return;
@@ -160,7 +160,7 @@ Submitted: ${new Date().toLocaleString()}
       // Show loading state
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = "Sending...";
+        submitBtn.textContent = 'Sending...';
       }
 
       try {
@@ -169,7 +169,7 @@ Submitted: ${new Date().toLocaleString()}
         if (result.success) {
           // Show success message
           const successMsg = showMessage(
-            "success",
+            'success',
             FORM_CONFIG.successMessage.title,
             FORM_CONFIG.successMessage.body,
             FORM_CONFIG.successMessage.confirmationSent,
@@ -181,26 +181,26 @@ Submitted: ${new Date().toLocaleString()}
           form.reset();
 
           // Scroll to message
-          successMsg.scrollIntoView({ behavior: "smooth", block: "center" });
+          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
           // Optional: Redirect to success page after delay
           setTimeout(() => {
-            if (window.location.pathname !== "/success/") {
-              window.location.href = "/success/";
+            if (window.location.pathname !== '/success/') {
+              window.location.href = '/success/';
             }
           }, 3000);
         }
       } catch (error) {
-        console.error("Form submission error:", error);
+        console.error('Form submission error:', error);
 
         const errorMsg = showMessage(
-          "error",
+          'error',
           FORM_CONFIG.errorMessage.title,
           FORM_CONFIG.errorMessage.body,
         );
 
         form.insertBefore(errorMsg, form.firstChild);
-        errorMsg.scrollIntoView({ behavior: "smooth", block: "center" });
+        errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } finally {
         // Restore button
         if (submitBtn) {
@@ -211,9 +211,9 @@ Submitted: ${new Date().toLocaleString()}
     });
 
     // Add loading styles if not present
-    if (!document.querySelector("#form-handler-styles")) {
-      const styles = document.createElement("style");
-      styles.id = "form-handler-styles";
+    if (!document.querySelector('#form-handler-styles')) {
+      const styles = document.createElement('style');
+      styles.id = 'form-handler-styles';
       styles.textContent = `
         .form-message {
           padding: 1.5rem;
@@ -290,8 +290,8 @@ Submitted: ${new Date().toLocaleString()}
   }
 
   // Initialize when DOM is ready
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initContactForm);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContactForm);
   } else {
     initContactForm();
   }

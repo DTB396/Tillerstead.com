@@ -13,20 +13,20 @@
 
 function readInput() {
   const args = process.argv.slice(2);
-  if (args.length > 0) return args.join(" ");
+  if (args.length > 0) return args.join(' ');
 
   if (!process.stdin.isTTY) {
     return new Promise((resolve) => {
-      let data = "";
-      process.stdin.setEncoding("utf8");
-      process.stdin.on("data", (chunk) => {
+      let data = '';
+      process.stdin.setEncoding('utf8');
+      process.stdin.on('data', (chunk) => {
         data += chunk;
       });
-      process.stdin.on("end", () => resolve(data.trim()));
+      process.stdin.on('end', () => resolve(data.trim()));
     });
   }
 
-  return "";
+  return '';
 }
 
 /**
@@ -38,13 +38,13 @@ function readInput() {
  * @returns {string}
  */
 function slugify(value) {
-  if (typeof value !== "string") return "";
-  const normalized = value.normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
+  if (typeof value !== 'string') return '';
+  const normalized = value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
   return normalized
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .replace(/-{2,}/g, "-");
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-{2,}/g, '-');
 }
 
 (async () => {
@@ -60,7 +60,7 @@ function slugify(value) {
   const result = slugify(input);
   if (!result) {
     console.error(
-      "Unable to generate slug from input. Ensure input contains alphanumeric characters.",
+      'Unable to generate slug from input. Ensure input contains alphanumeric characters.',
     );
     process.exit(1);
   }

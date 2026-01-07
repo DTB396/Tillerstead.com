@@ -4,50 +4,50 @@
  * Uses sharp library for high-quality conversion
  */
 
-import fs from "fs";
-import path from "path";
-import sharp from "sharp";
+import fs from 'fs';
+import path from 'path';
+import sharp from 'sharp';
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
-const LOGO_DIR = path.join(__dirname, "../assets/img/logo");
+const LOGO_DIR = path.join(__dirname, '../assets/img/logo');
 const OUTPUT_DIR = LOGO_DIR;
 
 const LOGOS_TO_CONVERT = [
   {
-    input: "tillerstead-logo-header.svg",
+    input: 'tillerstead-logo-header.svg',
     outputs: [
-      { name: "tillerstead-logo-header.png", width: 496, height: 136 },
-      { name: "tillerstead-logo-header@2x.png", width: 992, height: 272 },
-      { name: "tillerstead-logo-header@3x.png", width: 1488, height: 408 },
+      { name: 'tillerstead-logo-header.png', width: 496, height: 136 },
+      { name: 'tillerstead-logo-header@2x.png', width: 992, height: 272 },
+      { name: 'tillerstead-logo-header@3x.png', width: 1488, height: 408 },
     ],
   },
   {
-    input: "tillerstead-logo-header-dark.svg",
+    input: 'tillerstead-logo-header-dark.svg',
     outputs: [
-      { name: "tillerstead-logo-header-dark.png", width: 496, height: 136 },
-      { name: "tillerstead-logo-header-dark@2x.png", width: 992, height: 272 },
+      { name: 'tillerstead-logo-header-dark.png', width: 496, height: 136 },
+      { name: 'tillerstead-logo-header-dark@2x.png', width: 992, height: 272 },
     ],
   },
   {
-    input: "tillerstead-logo-full.svg",
+    input: 'tillerstead-logo-full.svg',
     outputs: [
-      { name: "tillerstead-logo-full.png", width: 720, height: 200 },
-      { name: "tillerstead-logo-full@2x.png", width: 1440, height: 400 },
+      { name: 'tillerstead-logo-full.png', width: 720, height: 200 },
+      { name: 'tillerstead-logo-full@2x.png', width: 1440, height: 400 },
     ],
   },
   {
-    input: "tillerstead-logo-mark.svg",
+    input: 'tillerstead-logo-mark.svg',
     outputs: [
-      { name: "tillerstead-logo-mark.png", width: 174, height: 174 },
-      { name: "tillerstead-logo-mark@2x.png", width: 348, height: 348 },
-      { name: "tillerstead-logo-mark-512.png", width: 512, height: 512 },
+      { name: 'tillerstead-logo-mark.png', width: 174, height: 174 },
+      { name: 'tillerstead-logo-mark@2x.png', width: 348, height: 348 },
+      { name: 'tillerstead-logo-mark-512.png', width: 512, height: 512 },
     ],
   },
   {
-    input: "tillerstead-logo-stacked.svg",
+    input: 'tillerstead-logo-stacked.svg',
     outputs: [
-      { name: "tillerstead-logo-stacked.png", width: 260, height: 320 },
-      { name: "tillerstead-logo-stacked@2x.png", width: 520, height: 640 },
+      { name: 'tillerstead-logo-stacked.png', width: 260, height: 320 },
+      { name: 'tillerstead-logo-stacked@2x.png', width: 520, height: 640 },
     ],
   },
 ];
@@ -60,7 +60,7 @@ async function convertSvgToPng(inputPath, outputPath, width, height) {
 }
 
 async function main() {
-  const tool = "sharp";
+  const tool = 'sharp';
   console.log(`Using: ${tool}\n`);
   let converted = 0;
   let failed = 0;
@@ -94,7 +94,7 @@ async function main() {
       }
     }
 
-    console.log("");
+    console.log('');
   }
 
   console.log(`\nComplete! Generated ${converted} PNG files.`);
@@ -104,6 +104,6 @@ async function main() {
 }
 
 main().catch((error) => {
-  console.error("Error:", error);
+  console.error('Error:', error);
   process.exit(1);
 });

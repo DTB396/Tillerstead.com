@@ -7,14 +7,14 @@
  * /tillerstead-sandbox resolve to the same files as /.
  */
 
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const siteDir = path.resolve(__dirname, "..", "_site");
-const linkDir = path.join(siteDir, "tillerstead-sandbox");
+const siteDir = path.resolve(__dirname, '..', '_site');
+const linkDir = path.join(siteDir, 'tillerstead-sandbox');
 
 function ensureSiteDir() {
   if (!fs.existsSync(siteDir)) {
@@ -31,12 +31,12 @@ function removeExistingLink() {
       fs.rmSync(linkDir, { recursive: true, force: true });
     }
   } catch (err) {
-    if (err.code !== "ENOENT") throw err;
+    if (err.code !== 'ENOENT') throw err;
   }
 }
 
 function createJunction() {
-  fs.symlinkSync(siteDir, linkDir, "junction");
+  fs.symlinkSync(siteDir, linkDir, 'junction');
   console.log(`Linked ${linkDir} -> ${siteDir}`);
 }
 
