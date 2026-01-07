@@ -142,6 +142,7 @@ forms:
 # ----------------------------
 # Exclusions
 # ----------------------------
+<<<<<<< HEAD
 exclude:
   - "*.bak*"
   - "**/*.bak*"
@@ -167,6 +168,15 @@ exclude:
   - "recommended-products.md"
   - "reviews.md"
   - "terms/index.md"
+=======
+exclude:
+  - .backups
+  - scripts
+  - reports
+  - vendor
+  - node_modules
+  - dist
+>>>>>>> 73f77f53 (Finalize canonical Tillerstead build + preserve live footer gradient)
   - "README.md"
   - "LICENSE"
   - "node_modules/"
@@ -191,4 +201,13 @@ exclude:
 keep_files:
   - "CNAME"
   - "assets/"
+<<<<<<< HEAD
 
+=======
+
+
+exclude:
+  - "*.bak_keep_*"
+  - ".backups"
+  - "reports"
+>>>>>>> 73f77f53 (Finalize canonical Tillerstead build + preserve live footer gradient)

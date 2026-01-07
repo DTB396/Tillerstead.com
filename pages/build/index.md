@@ -1,14 +1,27 @@
 ---
 layout: build-page
+<<<<<<< HEAD
 title: Build Phase Guides - TCNA Compliant Construction
 description: Complete guide to TCNA-standard bathroom and shower construction in New Jersey. 8 phases covering codes, permits, waterproofing, tile installation, and verification.
 permalink: /build/
 is_build_hub: true
 toc: true
 schema_type: TechArticle
+=======
+title: "Build Phase — Standards-First Bathroom & Shower Construction (NJ)"
+description: "A standards-forward, inspection-aware guide to how compliant shower and bathroom projects are planned, built, and verified in New Jersey."
+permalink: /pages/build/
+keywords:
+  - New Jersey shower construction
+  - TCNA bathroom construction
+  - shower waterproofing NJ
+  - tile installation standards ANSI
+  - NJ permits inspections bathroom remodel
+>>>>>>> 73f77f53 (Finalize canonical Tillerstead build + preserve live footer gradient)
 ---
 # The Build Phase
 
+<<<<<<< HEAD
 The **Build Phase** is a complete, step-by-step guide to how a bathroom or shower should be planned, built, and verified under **TCNA standards** and **New Jersey construction requirements**.
 
 This is not a DIY manual.  
@@ -21,9 +34,27 @@ It’s an **education and alignment resource** designed to help homeowners, desi
 Most bathroom failures don’t start with tile.
 
 They start earlier—at framing, waterproofing, slope, drainage, or skipped verification steps that are later hidden by finished surfaces.
+=======
+# Build Phase: How We Build (and How You Can Verify It)
 
-These guides exist to:
+The **Build Phase** is Tillerstead’s standards-forward guide to bathroom and shower projects in New Jersey.
+It explains the *sequence*, the *verification points*, and the *common failure modes*—so expectations are clear before anything is sealed behind tile.
 
+This is **not a DIY manual**. It’s an education and alignment resource for homeowners who want a durable, compliant result.  
+(References include TCNA Handbook methods, ANSI tile standards, ASTM testing guidance, and NJ UCC context.)
+
+---
+
+## What We Build
+
+- Code-aware bathroom and shower remodels planned around **permits, inspections, and verifiable system steps**
+- Wet-area assemblies built as **systems** (structure → slope/drain → waterproofing → tile)
+- Clear documentation habits (photos at key phases; verification before concealment)
+>>>>>>> 73f77f53 (Finalize canonical Tillerstead build + preserve live footer gradient)
+
+## What We Don’t Do (by policy)
+
+<<<<<<< HEAD
 - Set clear expectations before construction begins
 - Reduce surprises during the build
 - Help homeowners recognize quality workmanship
@@ -141,3 +172,45 @@ Or if you’re ready to discuss your project:
 ---
 
 _Standards referenced: TCNA Handbook (2024), ANSI A108/A118, ASTM D5957, New Jersey Uniform Construction Code (N.J.A.C. 5:23)._
+=======
+- “Tile-over-problems” work that hides substrate, slope, or waterproofing issues
+- Mixed-system waterproofing assemblies without manufacturer compatibility or engineering rationale
+- Rushed sequencing that skips verification steps (especially before finishes conceal the work)
+
+---
+
+## The 8 Phases (Read in Order)
+
+Each phase builds on the previous one. Start at Phase 1 for the complete picture.
+
+1. **Codes, Permits & Inspections** — scope, AHJ expectations, inspection flow  
+2. **Shower Pans, Slopes & Drains** — water direction before tile  
+3. **Waterproofing Systems** — continuity + compatibility  
+4. **Curbs vs. Curbless** — threshold containment details  
+5. **Benches, Seats & Niches** — framing that won’t move  
+6. **Tile Installation Standards** — substrate, mortar, coverage, movement accommodation  
+7. **Flood Testing & Verification** — prove it before it’s hidden  
+8. **Common Failures & Red Flags** — how shortcuts turn into expensive tear-outs
+
+---
+
+## Jump Links
+
+- [Phase 1: NJ Codes, Permits & Inspections](/pages/build/nj-codes-permits/)
+- [Phase 2: Shower Pans, Slopes & Drains](/pages/build/shower-pans-slopes-drains/)
+- [Phase 3: Waterproofing Systems](/pages/build/waterproofing-systems/)
+- [Phase 4: Curbs, Curbless & Thresholds](/pages/build/curbs-curbless/)
+- [Phase 5: Benches, Seats & Niches](/pages/build/framing-benches-niches/)
+- [Phase 6: Tile Installation Standards](/pages/build/tile-installation-standards/)
+- [Phase 7: Flood Testing & Verification](/pages/build/flood-testing/)
+- [Phase 8: Common Failures & Red Flags](/pages/build/common-build-failures/)
+
+---
+
+## Plain-English Promise
+
+A good project is one where **nothing needs to be explained after the fact**.
+That usually means the hard work happened *before* finishes went in.
+
+If you want to discuss a project in South Jersey, we’ll talk scope, permitting, timeline, and system choices before we talk tile aesthetics.
+>>>>>>> 73f77f53 (Finalize canonical Tillerstead build + preserve live footer gradient)

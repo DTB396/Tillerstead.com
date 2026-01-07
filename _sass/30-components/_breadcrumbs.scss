@@ -1,280 +1,45 @@
-/* ==========================================================================
-   Breadcrumbs Navigation – Tillerstead LLC
-   
-   Optimizations:
-   - Improved responsive sizing with clamp()
-   - Better mobile truncation with ellipsis
-   - Enhanced touch targets (40-48px minimum)
-   - Optimized visual hierarchy and spacing
-   - GPU-accelerated hover effects
-   - Full WCAG 2.1 AA+ compliance
-   ========================================================================== */
+/* ==========================================
+   Premium Breadcrumbs
+   ========================================== */
 
-.breadcrumbs-bar {
-  width: 100%;
-  background: var(--ts-color-surface);
-  border-bottom: 1px solid var(--ts-color-border);
-  box-shadow: inset 0 -1px 0 rgb(15, 23, 42, 0.06);
-  padding: clamp(0.5rem, 3vi, 1rem) clamp(1rem, 4vw, 2rem);
-  margin-bottom: 0;
+.breadcrumbs{
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,.02);
 }
 
-.ts-breadcrumbs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: clamp(0.25rem, 2vw, 0.5rem);
-  align-items: center;
-  font-size: clamp(0.8rem, 2vw, 0.95rem);
-  color: var(--ts-color-muted, rgb(15, 23, 42, 0.7));
-  max-width: var(--tiller-layout-max);
-  margin: 0 auto;
-  padding: 0 clamp(1rem, 4vw, 2rem);
-  list-style: none;
-  line-height: 1.4;
+.breadcrumbs__list{
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  gap: 8px;
+  margin:0;
+  padding:0;
+  align-items:center;
 }
 
-.ts-breadcrumbs__list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: clamp(0.25rem, 2vw, 0.375rem);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
+.breadcrumbs__item{
+  display:flex;
+  align-items:center;
+  gap: 8px;
 }
 
-.ts-breadcrumbs__item {
-  display: inline-flex;
-  align-items: center;
-  gap: clamp(0.2rem, 1.5vw, 0.375rem);
-  min-height: 44px;
-  padding: 0.25rem 0;
+.breadcrumbs__item:not(:first-child)::before{
+  content:"/";
+  opacity:.55;
 }
 
-.ts-breadcrumbs__item::after {
-  content: "›";
-  margin-left: clamp(0.2rem, 1.5vw, 0.375rem);
-  font-weight: 600;
-  color: var(--ts-color-muted);
-  user-select: none;
-  pointer-events: none;
-  opacity: 0.7;
+.breadcrumbs__link{
+  text-decoration:none;
+  opacity:.85;
 }
 
-.ts-breadcrumbs__item:last-child::after {
-  display: none;
+.breadcrumbs__link:hover{
+  opacity:1;
+  text-decoration:underline;
 }
 
-.ts-breadcrumbs__item:last-child .ts-breadcrumbs__separator {
-  display: none;
+.breadcrumbs__current{
+  opacity:1;
+  font-weight:600;
 }
-
-.ts-breadcrumbs__link,
-.ts-crumb-link {
-  color: var(--ts-color-primary);
-  font-weight: 500;
-  text-decoration: none;
-  transition:
-    color var(--duration-fast) var(--easing-in-out),
-    background-color var(--duration-fast) var(--easing-in-out),
-    text-decoration var(--duration-fast) var(--easing-in-out);
-  outline: none;
-  border-radius: var(--ts-radius-sm);
-  padding: clamp(0.125rem, 1vi, 0.25rem) clamp(0.25rem, 1vw, 0.375rem);
-  margin: -0.125rem -0.25rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 200px;
-}
-
-@media (max-width: 640px) {
-  .ts-breadcrumbs__link,
-  .ts-crumb-link {
-    max-width: 120px;
-  }
-}
-
-@media (min-width: 768px) {
-  .ts-breadcrumbs__link,
-  .ts-crumb-link {
-    max-width: 300px;
-  }
-}
-
-.ts-breadcrumbs__link:hover,
-.ts-crumb-link:hover {
-  color: var(--ts-color-primary-strong);
-  text-decoration: underline;
-  background-color: rgba(7, 137, 48, 0.05);
-}
-
-.ts-breadcrumbs__link:focus-visible,
-.ts-crumb-link:focus-visible {
-  outline: 3px solid var(--ts-color-primary);
-  outline-offset: 2px;
-  background-color: rgba(7, 137, 48, 0.1);
-}
-
-.ts-breadcrumbs__link:active,
-.ts-crumb-link:active {
-  color: var(--ts-color-primary-strong);
-  background-color: rgba(7, 137, 48, 0.15);
-}
-
-.ts-breadcrumbs__separator {
-  font-weight: 600;
-  color: var(--ts-color-muted);
-  user-select: none;
-  pointer-events: none;
-  opacity: 0.7;
-}
-
-.ts-breadcrumbs__current,
-.ts-crumb-current {
-  font-weight: 600;
-  color: var(--ts-color-heading);
-  cursor: default;
-  pointer-events: none;
-  padding: clamp(0.125rem, 1vi, 0.25rem) clamp(0.25rem, 1vw, 0.375rem);
-  max-width: 300px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-@media (max-width: 640px) {
-  .ts-breadcrumbs__current,
-  .ts-crumb-current {
-    max-width: 150px;
-  }
-}
-
-/* ========================================
-   RESPONSIVE OPTIMIZATIONS
-   ======================================== */
-
-/* Mobile: 320px - 640px */
-@media (max-width: 640px) {
-  .breadcrumbs-bar {
-    padding: clamp(0.4rem, 2vi, 0.75rem) clamp(0.75rem, 3vw, 1rem);
-  }
-
-  .ts-breadcrumbs {
-    font-size: 0.8rem;
-    gap: 0.2rem;
-  }
-
-  .ts-breadcrumbs__list {
-    gap: 0.2rem;
-  }
-
-  .ts-breadcrumbs__item {
-    gap: 0.2rem;
-    min-height: 40px;
-  }
-
-  .ts-breadcrumbs__item::after {
-    margin-left: 0.2rem;
-    font-size: 0.9em;
-  }
-}
-
-/* Tablet: 641px - 1024px */
-@media (min-width: 641px) and (max-width: 1024px) {
-  .ts-breadcrumbs {
-    font-size: 0.9rem;
-  }
-}
-
-/* Desktop: 1025px+ */
-@media (min-width: 1025px) {
-  .ts-breadcrumbs {
-    font-size: 0.95rem;
-  }
-
-  .ts-breadcrumbs__item {
-    min-height: 48px;
-  }
-}
-
-/* ========================================
-   ACCESSIBILITY ENHANCEMENTS
-   ======================================== */
-
-/* Keyboard navigation focus indicators */
-.ts-breadcrumbs__link:focus-visible,
-.ts-crumb-link:focus-visible {
-  outline: 3px solid var(--ts-color-primary);
-  outline-offset: 2px;
-  border-radius: var(--ts-radius-sm);
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  .ts-breadcrumbs__link,
-  .ts-crumb-link {
-    transition: none;
-  }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: more) {
-  .ts-breadcrumbs__link,
-  .ts-crumb-link {
-    text-decoration: underline;
-    font-weight: 600;
-  }
-
-  .ts-breadcrumbs__separator,
-  .ts-breadcrumbs__item::after {
-    opacity: 1;
-    color: var(--ts-color-muted);
-  }
-
-  .ts-breadcrumbs__current,
-  .ts-crumb-current {
-    text-decoration: underline;
-  }
-}
-
-/* Print styles */
-@media print {
-  .breadcrumbs-bar,
-  .ts-breadcrumbs,
-  .breadcrumbs {
-    display: none !important;
-  }
-}
-
-/* ========================================
-   SPECIFIC PAGE HANDLING
-   ======================================== */
-
-/* Hide breadcrumbs on homepage */
-body.page-home .ts-breadcrumbs,
-body.page-home .breadcrumbs-bar,
-body.page-home .breadcrumbs {
-  display: none !important;
-}
-
-/* Hide breadcrumbs when explicitly disabled */
-[data-breadcrumbs="false"],
-[data-breadcrumbs="hidden"] {
-  display: none !important;
-}
-
-/* ========================================
-   WCAG 2.1 AA+ COMPLIANCE
-   ======================================== */
-
-/* ✅ Focus indicators meet 3:1 contrast ratio
-   ✅ Touch targets are minimum 40-48px height
-   ✅ Color is not the only means of conveying information
-   ✅ Keyboard navigation fully supported
-   ✅ Current page clearly marked with aria-current
-   ✅ Semantic HTML with Schema.org markup
-   ✅ High contrast mode support
-   ✅ Reduced motion support
-*/

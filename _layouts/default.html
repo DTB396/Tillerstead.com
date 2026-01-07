@@ -17,4 +17,15 @@
     {% include utilities/scripts.html %}
     {% include schema/schema-local-business.html %}
   </body>
+    {% include layout/footer.html %} {% include utilities/scripts.html %} {%
+    include schema/schema-local-business.html %} {%- if page.include_faq_schema
+    -%} {% include schema/schema-faq.html %} {%- endif -%} {%- if
+    page.structured_data -%}
+    <script type="application/ld+json">
+      {{ page.structured_data | jsonify }}
+    </script>
+    {%- endif -%}
+    <script src="{{ '/assets/js/nav-premium.js' | relative_url }}" defer></script>
+</body>
 </html>
+

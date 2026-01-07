@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Terms & Conditions | Tillerstead LLC
-permalink: /terms/
+permalink: /legal/terms/
 description: Binding legal terms for all Tillerstead LLC estimates, proposals, workmanship, payments, warranties, and New Jersey Home Improvement Contractor disclosures.
 body_class: page-legal
 hero_eyebrow: Legal
@@ -96,3 +96,4 @@ These Terms are governed by New Jersey law. Disputes are resolved in the appropr
 
 New Jersey HIC License #: {{ site.company.hic }}  
 For full compliance details, see [TCNA 2024 Standards](https://www.tcnatile.com/) and [NJ Division of Consumer Affairs](https://www.njconsumeraffairs.gov/).
+

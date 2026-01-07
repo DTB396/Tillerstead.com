@@ -13,7 +13,6 @@ gem "jekyll-sitemap", "~> 1.4"
 gem "jekyll-seo-tag", "~> 2.8"
 gem "jekyll-paginate", "~> 1.1"
 gem "jekyll-remote-theme"
-gem "jekyll-build"
 
 # Optional: only keep if you actively use archives and have it configured
 # gem "jekyll-archives", "~> 2.2"
@@ -25,3 +24,4 @@ gem "tzinfo-data", "~> 1.2024", platforms: %i[mingw mswin x64_mingw jruby]
 group :development do
   gem "jekyll-watch", "~> 2.2"
 end
+

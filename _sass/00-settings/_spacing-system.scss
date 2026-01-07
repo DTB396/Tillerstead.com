@@ -1,210 +1,23 @@
-/* ============================================
-   Spacing System - Consistent Rhythm
-   Based on 8px grid for perfect alignment
-   ============================================ */
+/* ==========================================
+   Spacing System (premium rhythm)
+   ========================================== */
 
-:root {
-  /* Base spacing unit: 8px */
-  --spacing-0: 0;
-  --spacing-1: 0.25rem; /* 4px */
-  --spacing-2: 0.5rem; /* 8px */
-  --spacing-3: 0.75rem; /* 12px */
-  --spacing-4: 1rem; /* 16px */
-  --spacing-5: 1.5rem; /* 24px */
-  --spacing-6: 2rem; /* 32px */
-  --spacing-7: 3rem; /* 48px */
-  --spacing-8: 4rem; /* 64px */
-  --spacing-9: 6rem; /* 96px */
-  --spacing-10: 8rem; /* 128px */
-
-  /* Section Spacing */
-  --spacing-section-padding-mobile: var(--spacing-7);
-  --spacing-section-padding-tablet: var(--spacing-8);
-  --spacing-section-padding-desktop: var(--spacing-9);
-
-  /* Component Spacing */
-  --spacing-component-gap-sm: var(--spacing-4);
-  --spacing-component-gap-md: var(--spacing-5);
-  --spacing-component-gap-lg: var(--spacing-6);
-
-  /* Section & layout tokens */
-  --spacing-space-1: var(--spacing-1);
-  --spacing-space-2: var(--spacing-2);
-  --spacing-space-3: var(--spacing-3);
-  --spacing-space-4: var(--spacing-4);
-  --spacing-space-5: var(--spacing-5);
-  --spacing-space-6: var(--spacing-6);
-  --spacing-space-7: var(--spacing-7);
-  --spacing-space-8: var(--spacing-8);
-
-  --spacing-container: 1100px;
-  --spacing-section-pad-y: clamp(2.5rem, 6vi, 5.25rem);
-  --spacing-section-padding-y: var(--spacing-section-pad-y);
-  --spacing-section-gap: clamp(1.4rem, 2.6vw, 2.6rem);
-  --spacing-card-pad: clamp(1.125rem, 2vi, 1.625rem);
-  --spacing-gutter: clamp(1.5rem, 3.5vi, 2.5rem);
-  --spacing-grid-gap: clamp(1.5rem, 3vi, 2.5rem);
-  --spacing-grid-min: 18rem;
-  --spacing-flow-space: var(--spacing-3);
-  --spacing-stack-gap: var(--spacing-4);
-  --spacing-stack-gap-mobile: var(--spacing-3);
-  --spacing-cluster-gap: var(--spacing-3);
+:root{
+  --container: 1120px;
+  --gutter: clamp(16px, 3vw, 28px);
+  --section-y: clamp(44px, 6vw, 86px);
+  --section-gap: clamp(14px, 2vw, 22px);
 }
 
-/* Section Spacing System */
-.section {
-  padding-top: var(--spacing-section-padding-mobile);
-  padding-bottom: var(--spacing-section-padding-mobile);
+.container{
+  width: min(var(--container), calc(100% - (var(--gutter) * 2)));
+  margin-inline: auto;
 }
 
-@media (min-width: 768px) {
-  .section {
-    padding-top: var(--spacing-section-padding-tablet);
-    padding-bottom: var(--spacing-section-padding-tablet);
-  }
+main > section{
+  padding-block: var(--section-y);
 }
 
-@media (min-width: 1024px) {
-  .section {
-    padding-top: var(--spacing-section-padding-desktop);
-    padding-bottom: var(--spacing-section-padding-desktop);
-  }
-}
-
-/* Spacing Utilities */
-.mt-0 {
-  margin-top: var(--spacing-0);
-}
-.mt-1 {
-  margin-top: var(--spacing-1);
-}
-.mt-2 {
-  margin-top: var(--spacing-2);
-}
-.mt-3 {
-  margin-top: var(--spacing-3);
-}
-.mt-4 {
-  margin-top: var(--spacing-4);
-}
-.mt-5 {
-  margin-top: var(--spacing-5);
-}
-.mt-6 {
-  margin-top: var(--spacing-6);
-}
-.mt-7 {
-  margin-top: var(--spacing-7);
-}
-.mt-8 {
-  margin-top: var(--spacing-8);
-}
-
-.mb-0 {
-  margin-bottom: var(--spacing-0);
-}
-.mb-1 {
-  margin-bottom: var(--spacing-1);
-}
-.mb-2 {
-  margin-bottom: var(--spacing-2);
-}
-.mb-3 {
-  margin-bottom: var(--spacing-3);
-}
-.mb-4 {
-  margin-bottom: var(--spacing-4);
-}
-.mb-5 {
-  margin-bottom: var(--spacing-5);
-}
-.mb-6 {
-  margin-bottom: var(--spacing-6);
-}
-.mb-7 {
-  margin-bottom: var(--spacing-7);
-}
-.mb-8 {
-  margin-bottom: var(--spacing-8);
-}
-
-.pt-0 {
-  padding-top: var(--spacing-0);
-}
-.pt-1 {
-  padding-top: var(--spacing-1);
-}
-.pt-2 {
-  padding-top: var(--spacing-2);
-}
-.pt-3 {
-  padding-top: var(--spacing-3);
-}
-.pt-4 {
-  padding-top: var(--spacing-4);
-}
-.pt-5 {
-  padding-top: var(--spacing-5);
-}
-.pt-6 {
-  padding-top: var(--spacing-6);
-}
-.pt-7 {
-  padding-top: var(--spacing-7);
-}
-.pt-8 {
-  padding-top: var(--spacing-8);
-}
-
-.pb-0 {
-  padding-bottom: var(--spacing-0);
-}
-.pb-1 {
-  padding-bottom: var(--spacing-1);
-}
-.pb-2 {
-  padding-bottom: var(--spacing-2);
-}
-.pb-3 {
-  padding-bottom: var(--spacing-3);
-}
-.pb-4 {
-  padding-bottom: var(--spacing-4);
-}
-.pb-5 {
-  padding-bottom: var(--spacing-5);
-}
-.pb-6 {
-  padding-bottom: var(--spacing-6);
-}
-.pb-7 {
-  padding-bottom: var(--spacing-7);
-}
-.pb-8 {
-  padding-bottom: var(--spacing-8);
-}
-
-.gap-1 {
-  gap: var(--space-1);
-}
-.gap-2 {
-  gap: var(--space-2);
-}
-.gap-3 {
-  gap: var(--space-3);
-}
-.gap-4 {
-  gap: var(--space-4);
-}
-.gap-5 {
-  gap: var(--space-5);
-}
-.gap-6 {
-  gap: var(--space-6);
-}
-.gap-7 {
-  gap: var(--space-7);
-}
-.gap-8 {
-  gap: var(--space-8);
+.section-header{
+  margin-bottom: var(--section-gap);
 }

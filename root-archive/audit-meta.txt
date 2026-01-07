@@ -1,3 +1,3 @@
-Root: C:\Users\Devon Tyler\tillerstead
+Root: C:\barber-cam\public\tillerstead
 Mode: FAST
-Date: 2026-01-02 15:46:08
+Date: 2026-01-06 16:23:49

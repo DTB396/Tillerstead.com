@@ -140,6 +140,8 @@ permalink: /portfolio/
 <script>
 
   const PROJECTS = {{ projects | jsonify | replace: "</", "<\/" }}
+  /* Image data – shared with slider and initial markup via _data/portfolio.yml */
+  const PROJECTS = {{ projects | jsonify | replace: '</', '<\/' }};
 </script>
 
 <script>
@@ -334,3 +336,9 @@ permalink: /portfolio/
     setFilter(initialFilter);
   })();
 </script>
+
+
+
+
+
+

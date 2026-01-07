@@ -38,7 +38,6 @@
     opacity: 1;
     transform: translateX(0);
   }
-}
 
 [data-scroll-animate="fade-in-right"] {
   transform: translateX(40px);
@@ -47,8 +46,6 @@
     opacity: 1;
     transform: translateX(0);
   }
-}
-}
 
 [data-scroll-animate="scale-in"] {
   transform: scale(0.95);
@@ -58,8 +55,6 @@
     opacity: 1;
     transform: scale(1);
   }
-}
-}
 
 /* ========================================
    🎨 STAGGERED GRID ANIMATIONS
@@ -75,14 +70,12 @@
       transform var(--duration-base) var(--easing-in-out);
     will-change: transform, opacity;
   }
-}
 
   &.in-view > * {
     opacity: 1;
     transform: translateY(0);
     will-change: auto;
   }
-}
 
   /* Optimized stagger delays - balanced for smoothness */
   @for $i from 1 through 12 {
@@ -90,8 +83,6 @@
       transition-delay: #{($i - 1) * 60ms};
     }
   }
-}
-}
 
 /* Grid animation with bounce effect */
 [data-grid-animate="bounce"] {
@@ -100,20 +91,16 @@
     animation: bounceEnter var(--duration-base) var(--easing-bounce) both;
     will-change: transform, opacity;
   }
-}
 
   @for $i from 1 through 12 {
     > *:nth-child(#{$i}) {
       animation-delay: #{($i - 1) * 75ms};
     }
   }
-}
 
   &.animation-complete > * {
     will-change: auto;
   }
-}
-}
 
 /* Fade up stagger for large lists */
 [data-list-animate] {
@@ -124,21 +111,17 @@
       opacity var(--duration-base) var(--easing-out),
       transform var(--duration-base) var(--easing-out);
   }
-}
 
   &.in-view > * {
     opacity: 1;
     transform: translateY(0);
   }
-}
 
   @for $i from 1 through 20 {
     &.in-view > *:nth-child(#{$i}) {
       transition-delay: #{($i - 1) * 40ms};
     }
   }
-}
-}
 
 /* ========================================
    🔄 COMPLEX STATE TRANSITIONS
