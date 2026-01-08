@@ -159,3 +159,6 @@ exclude:
 keep_files:
   - "CNAME"
   - "assets/"
+  - _backup/
+  - *.bak
+

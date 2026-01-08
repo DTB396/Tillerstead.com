@@ -11,10 +11,8 @@ permalink: /portfolio/
 
 {% include content/ts-portfolio.html %}
 
-{%- assign projects = site.data.portfolio.projects | default: nil -%}
-{%- if projects == nil -%}
-  {%- assign projects = "" | split: "," -%}
-{%- endif -%}
+{% assign projects = site.data.portfolio.projects %}
+{% if projects == nil %}{% assign projects = "" | split: "," %}{% endif %}
 
 {%- assign total_projects = projects | size | plus: 0 -%}
 
@@ -140,8 +138,8 @@ permalink: /portfolio/
 </section>
 
 <script>
-  /* Image data – shared with slider and initial markup via _data/portfolio.yml */
-  const PROJECTS = {{ projects | jsonify | replace: '</', '<\/' }};
+
+  const PROJECTS = {{ projects | jsonify | replace: "</", "<\/" }}
 </script>
 
 <script>
