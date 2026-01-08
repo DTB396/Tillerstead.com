@@ -141,6 +141,9 @@ forms:
 # Exclusions
 # ----------------------------
 exclude:
+  - "_backup/"
+  - "**/*.bak"
+  - "*.bak"
   - "root-archive/README.md"
   - "for-general-contractors.md"
   - "recommended-products.md"

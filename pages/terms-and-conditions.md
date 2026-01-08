@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Terms & Conditions
-permalink: /terms/
+permalink: /legal/terms-and-conditions/
 description: Legal terms, service conditions, and privacy commitments for Tillerstead LLC, a NJ-licensed home improvement contractor.
 body_class: page-legal
 
