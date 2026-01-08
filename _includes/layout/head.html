@@ -30,7 +30,7 @@ page.title -%} {%- if _page_title and _page_title != "" -%}
 {%- comment -%} DESCRIPTION Priority: 1) page.description 2) site.description 3)
 fallback string {%- endcomment -%} {%- assign meta_description =
 page.description | default: site.description | default: "New Jersey HIC
-#13VH12057400. Tillerstead: TCNA-compliant tile, stone, and waterproofing by
+#13VH10808800. Tillerstead: TCNA-compliant tile, stone, and waterproofing by
 licensed professionals. No shortcuts—just technical excellence." -%}
 <meta
   name="description"
@@ -50,7 +50,7 @@ endif -%} {%- if _kw.first -%}
 
 <meta
   name="author"
-  content="{{ site.company.owner | default: 'Tillerstead LLC (New Jersey HIC #13VH12057400)' | escape }}"
+  content="{{ site.company.owner | default: 'Tillerstead LLC (New Jersey HIC #13VH10808800)' | escape }}"
 />
 <meta name="geo.region" content="US-NJ" />
 <meta
@@ -154,7 +154,7 @@ og_image_abs = og_image | absolute_url -%}
 <meta property="og:image" content="{{ og_image_abs }}" />
 <meta
   property="og:image:alt"
-  content="{{ site.og_image_alt | default: 'Tillerstead LLC - TCNA-compliant tile & stone, New Jersey HIC #13VH12057400' | escape }}"
+  content="{{ site.og_image_alt | default: 'Tillerstead LLC - TCNA-compliant tile & stone, New Jersey HIC #13VH10808800' | escape }}"
 />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -171,7 +171,7 @@ og_image_abs = og_image | absolute_url -%}
 <meta name="twitter:image" content="{{ og_image_abs }}" />
 <meta
   name="twitter:image:alt"
-  content="{{ site.og_image_alt | default: 'Tillerstead LLC - TCNA-compliant tile & stone, New Jersey HIC #13VH12057400' | escape }}"
+  content="{{ site.og_image_alt | default: 'Tillerstead LLC - TCNA-compliant tile & stone, New Jersey HIC #13VH10808800' | escape }}"
 />
 
 <!-- Business contact microdata -->
@@ -247,3 +247,5 @@ og_image_abs = og_image | absolute_url -%}
   {{ schema | jsonify }}
 </script>
 {% endfor %} {% endif %} {% include components/ts-icon-sprite.html %}
+
+

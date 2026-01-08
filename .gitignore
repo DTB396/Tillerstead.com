@@ -61,3 +61,13 @@ _backup/
 assets/css/*.css
 assets/css/*.css.map
 
+
+# build artifacts (compiled)
+assets/css/*.css
+assets/css/*.css.map
+
+
+# local backups
+*.bak.*
+_tmp/injection-backups/
+
