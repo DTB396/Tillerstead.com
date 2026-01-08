@@ -141,6 +141,9 @@ forms:
 # Exclusions
 # ----------------------------
 exclude:
+  - "_backup/"
+  - "**/*.bak"
+  - "*.bak"
   - "root-archive/README.md"
   - "LICENSE"
   - "node_modules/"
@@ -159,11 +162,3 @@ exclude:
 keep_files:
   - "CNAME"
   - "assets/"
-
-
-  - _backup/
-  - "*.bak"
-
-  - "**/*.bak"
-  - "pages/recommended-products.html.bak"
-
