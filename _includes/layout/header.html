@@ -1,10 +1,148 @@
+{% assign primary_nav = site.data.navigation.primary %}
+{% assign split_index = primary_nav.size | divided_by: 2 %}
+{% assign left_nav = primary_nav | slice: 0, split_index %}
+{% assign right_nav = primary_nav | slice: split_index, primary_nav.size %}
+{% assign current_url = page.url | default: '' %}
+
 <header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-    <nav class="nav" aria-label="Primary">
-      <a href="{{ '/services/' | relative_url }}">Services</a>
-      <a href="{{ '/build/' | relative_url }}">Build Guide</a>
-      <a href="{{ '/contact/' | relative_url }}">Contact</a>
+  <div class="site-header-inner">
+    <nav class="site-nav site-nav--left" aria-label="Primary">
+      <ul class="site-menu">
+        {% for item in left_nav %}
+          {% assign has_children = item.children and item.children.size > 0 %}
+          {% assign is_active = current_url == item.url or current_url contains item.url %}
+          <li class="nav-item{% if has_children %} has-children{% endif %}">
+            <a
+              class="nav-link{% if is_active %} active{% endif %}"
+              href="{{ item.url | relative_url }}"
+              {% if has_children %}data-dropdown-toggle aria-expanded="false"{% endif %}
+            >
+              {{ item.title }}
+              {% if has_children %}
+                <span class="nav-caret" aria-hidden="true">▾</span>
+              {% endif %}
+            </a>
+            {% if has_children %}
+              <ul class="nav-dropdown" aria-label="{{ item.title }} submenu">
+                {% for child in item.children %}
+                  {% assign child_active = current_url == child.url or current_url contains child.url %}
+                  <li>
+                    <a
+                      class="nav-dropdown-link{% if child_active %} active{% endif %}"
+                      href="{{ child.url | relative_url }}"
+                    >
+                      {{ child.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="site-branding">
+      {% include layout/logo-header.html symbol="logo-full" %}
+    </div>
+
+    <nav class="site-nav site-nav--right" aria-label="Primary">
+      <ul class="site-menu">
+        {% for item in right_nav %}
+          {% assign has_children = item.children and item.children.size > 0 %}
+          {% assign is_active = current_url == item.url or current_url contains item.url %}
+          <li class="nav-item{% if has_children %} has-children{% endif %}">
+            <a
+              class="nav-link{% if is_active %} active{% endif %}"
+              href="{{ item.url | relative_url }}"
+              {% if has_children %}data-dropdown-toggle aria-expanded="false"{% endif %}
+            >
+              {{ item.title }}
+              {% if has_children %}
+                <span class="nav-caret" aria-hidden="true">▾</span>
+              {% endif %}
+            </a>
+            {% if has_children %}
+              <ul class="nav-dropdown" aria-label="{{ item.title }} submenu">
+                {% for child in item.children %}
+                  {% assign child_active = current_url == child.url or current_url contains child.url %}
+                  <li>
+                    <a
+                      class="nav-dropdown-link{% if child_active %} active{% endif %}"
+                      href="{{ child.url | relative_url }}"
+                    >
+                      {{ child.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav">
+      <span class="nav-toggle-icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <span class="sr-only">Menu</span>
+    </button>
+  </div>
+
+  <div class="mobile-nav-shell" data-nav-container>
+    <div class="mobile-nav-backdrop" data-nav-overlay></div>
+    <nav class="mobile-nav" id="mobile-nav" aria-expanded="false">
+      <div class="mobile-nav-header">
+        <span class="mobile-nav-title">Menu</span>
+        <button class="nav-close" type="button" data-nav-close aria-label="Close navigation">
+          ✕
+        </button>
+      </div>
+
+      <ul class="mobile-menu">
+        {% for item in primary_nav %}
+          {% assign has_children = item.children and item.children.size > 0 %}
+          {% assign is_active = current_url == item.url or current_url contains item.url %}
+          {% if has_children %}
+            <li class="mobile-nav-item mobile-nav-item--section">
+              <div class="mobile-nav-section-header">
+                <a class="mobile-nav-link mobile-nav-link--parent{% if is_active %} active{% endif %}" href="{{ item.url | relative_url }}">
+                  {{ item.title }}
+                </a>
+                <button class="mobile-subtoggle" type="button" data-mobile-subtoggle aria-expanded="false" aria-label="Toggle {{ item.title }} menu">
+                  <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <path d="M5 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+              </div>
+              <ul class="mobile-submenu" data-mobile-submenu>
+                {% for child in item.children %}
+                  {% assign child_active = current_url == child.url or current_url contains child.url %}
+                  <li>
+                    <a class="mobile-sublink{% if child_active %} active{% endif %}" href="{{ child.url | relative_url }}">
+                      {{ child.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% else %}
+            <li class="mobile-nav-item">
+              <a class="mobile-nav-link{% if is_active %} active{% endif %}" href="{{ item.url | relative_url }}">
+                {{ item.title }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+
+      <div class="mobile-nav-cta">
+        <a class="btn btn--primary" href="{{ '/contact/' | relative_url }}">Request Estimate</a>
+        <a class="btn btn--ghost" href="{{ '/portfolio/' | relative_url }}">View Portfolio</a>
+      </div>
     </nav>
   </div>
 </header>

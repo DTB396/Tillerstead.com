@@ -1,9 +1,120 @@
+{% assign footer_groups = site.data.navigation.footer %}
+{% assign left_groups = footer_groups | slice: 0, 2 %}
+{% assign right_groups = footer_groups | slice: 2, footer_groups.size %}
+{% assign primary_nav = site.data.navigation.primary %}
+{% assign secondary_nav = site.data.navigation.secondary %}
+
 <footer class="site-footer">
-  <div class="wrap">
-    <div>
-      {{ site.title }}
-      {% if site.company and site.company.hic %} • NJ HIC #{{ site.company.hic }}{% endif %}
+  <div class="footer-main">
+    <div class="footer-inner">
+      <nav class="footer-nav footer-nav--left" aria-label="Footer navigation">
+        {% for group in left_groups %}
+          <div class="footer-nav-column">
+            <p class="footer-nav-title">{{ group.group }}</p>
+            <ul class="footer-list">
+              {% for entry in group.items %}
+                {% assign link = nil %}
+                {% for item in primary_nav %}
+                  {% if item.id == entry.ref %}
+                    {% assign link = item %}
+                    {% break %}
+                  {% endif %}
+                  {% if item.children %}
+                    {% for child in item.children %}
+                      {% if child.id == entry.ref %}
+                        {% assign link = child %}
+                        {% break %}
+                      {% endif %}
+                    {% endfor %}
+                    {% if link %}{% break %}{% endif %}
+                  {% endif %}
+                {% endfor %}
+                {% unless link %}
+                  {% for item in secondary_nav %}
+                    {% if item.id == entry.ref %}
+                      {% assign link = item %}
+                      {% break %}
+                    {% endif %}
+                  {% endfor %}
+                {% endunless %}
+                {% if link %}
+                  <li>
+                    <a class="footer-link" href="{{ link.url | relative_url }}">{{ link.title }}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      </nav>
+
+      <div class="footer-brand">
+        {% include layout/logo-header.html symbol="logo-stacked" variant="mono" link_class="ts-logo-link ts-logo-link--footer" svg_class="ts-logo ts-logo--footer" %}
+        <p class="footer-tagline">{{ site.tagline }}</p>
+        <p class="footer-license">NJ HIC #{{ site.company.hic }}</p>
+        <address class="footer-address">
+          {{ site.company.address_line }}<br />
+          {{ site.company.address_city }}, {{ site.company.address_region }} {{ site.company.address_postal_code }}
+        </address>
+        <div class="footer-contact">
+          <a class="footer-phone" href="tel:{{ site.company.phone_link }}">{{ site.company.phone_display }}</a>
+          <span class="footer-separator" aria-hidden="true">•</span>
+          <a class="footer-email" href="mailto:{{ site.company.email }}">{{ site.company.email }}</a>
+        </div>
+      </div>
+
+      <nav class="footer-nav footer-nav--right" aria-label="Footer navigation">
+        {% for group in right_groups %}
+          <div class="footer-nav-column">
+            <p class="footer-nav-title">{{ group.group }}</p>
+            <ul class="footer-list">
+              {% for entry in group.items %}
+                {% assign link = nil %}
+                {% for item in primary_nav %}
+                  {% if item.id == entry.ref %}
+                    {% assign link = item %}
+                    {% break %}
+                  {% endif %}
+                  {% if item.children %}
+                    {% for child in item.children %}
+                      {% if child.id == entry.ref %}
+                        {% assign link = child %}
+                        {% break %}
+                      {% endif %}
+                    {% endfor %}
+                    {% if link %}{% break %}{% endif %}
+                  {% endif %}
+                {% endfor %}
+                {% unless link %}
+                  {% for item in secondary_nav %}
+                    {% if item.id == entry.ref %}
+                      {% assign link = item %}
+                      {% break %}
+                    {% endif %}
+                  {% endfor %}
+                {% endunless %}
+                {% if link %}
+                  <li>
+                    <a class="footer-link" href="{{ link.url | relative_url }}">{{ link.title }}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      </nav>
     </div>
-    <div class="muted">© {{ site.time | date: '%Y' }}</div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p class="footer-copyright">© {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+      <div class="footer-legal-links">
+        {% for item in secondary_nav %}
+          <a class="footer-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        {% endfor %}
+        <span class="footer-compliance">NJ HIC #{{ site.company.hic }}</span>
+      </div>
+    </div>
   </div>
 </footer>

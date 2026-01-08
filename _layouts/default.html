@@ -6,6 +6,7 @@
   <body class="{{ page.body_class | default: '' }}">
     <a class="skip" href="#main">Skip to content</a>
 
+    {% include layout/logo-sprite-inline.html %}
     {% include layout/header.html %}
 
     <main id="main" class="site-main">
@@ -13,5 +14,7 @@
     </main>
 
     {% include layout/footer.html %}
+    {% include utilities/scripts.html %}
+    {% include schema/schema-local-business.html %}
   </body>
 </html>
