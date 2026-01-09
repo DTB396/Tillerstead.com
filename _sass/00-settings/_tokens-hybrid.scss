@@ -1,13 +1,13 @@
 /* ============================================
    🎨 TILLERSTEAD HYBRID DESIGN SYSTEM
-   Professional + Nostalgic + Memorable
-   
-   Strategy: Classic cartoon color restraint meets 90s energy
-   - Primary: Trustworthy teal (professional tile expert)
-   - Accents: Warm sunset tones (nostalgic, approachable)
-   - Highlights: Strategic pops of energy (memorable moments)
-   - Foundation: Clean neutrals (readable, accessible)
-   
+   American Service + 90s Nostalgia + New Jersey Pride
+
+   Strategy: Boardwalk energy with reliable tradesperson trust.
+   - Primary: Americana navy + service blue (NJ dependable)
+   - Accents: 90s neon warmth (sunset red, gold signage)
+   - Highlights: Pop colors for badges and CTAs
+   - Foundation: Bright creams and clean neutrals
+
    WCAG 2.1 AA compliant throughout
    ============================================ */
 
@@ -22,62 +22,62 @@
      Consolidated repeated colors
      =========================== */
 
-  /* Brand Teals */
-  --hex-teal-900: #078930; /* Rasta green - replaces teal */
-  --hex-teal-700: #078930; /* Rasta green */
-  --hex-teal-600: #078930; /* Rasta green */
-  --hex-teal-500: #078930; /* Rasta green */
-  --hex-teal-400: #078930; /* Rasta green */
-  --hex-teal-300: #078930; /* Rasta green */
-  --hex-teal-200: #078930; /* Rasta green */
-  --hex-teal-100: #078930; /* Rasta green */
-  --hex-teal-50: #078930; /* Rasta green */
-  --hex-teal-dark: #078930; /* Rasta green */
-  --hex-teal-deeper: #078930; /* Rasta green */
+  /* Brand Blues (Americana Service Blue) */
+  --hex-teal-900: #0b1f3b; /* Midnight navy */
+  --hex-teal-700: #123b6f; /* Service blue */
+  --hex-teal-600: #1b4f91; /* Strong navy */
+  --hex-teal-500: #2b6cbf; /* Primary brand blue */
+  --hex-teal-400: #4a8fe3; /* Electric blue */
+  --hex-teal-300: #7fb4ff; /* Retro sky */
+  --hex-teal-200: #b6d6ff; /* Soft sky */
+  --hex-teal-100: #dbe9ff; /* Light wash */
+  --hex-teal-50: #eef5ff; /* Frosted blue */
+  --hex-teal-dark: #0a1a33; /* Deep navy */
+  --hex-teal-deeper: #06101f; /* Ink navy */
 
   /* Warm Neutrals & Creams */
-  --hex-cream-warm: #fffbe6; /* Warm cream - 25 uses */
-  --hex-cream-light: #fffbeb; /* Light cream - 12 uses */
-  --hex-cream-soft: #f9f5eb; /* Soft cream - 10 uses */
-  --hex-cream-muted: #f0ead8; /* Muted cream - 4 uses */
-  --hex-amber-pale: #fef3c7; /* Pale amber - 6 uses */
-  --hex-amber-light: #fff9c4; /* Light amber - 10 uses */
-  --hex-amber-bright: #fcd34d; /* Bright amber - 4 uses */
+  --hex-cream-warm: #fdf7ea; /* Warm cream - 25 uses */
+  --hex-cream-light: #fff5db; /* Light cream - 12 uses */
+  --hex-cream-soft: #f6efe1; /* Soft cream - 10 uses */
+  --hex-cream-muted: #eee3cf; /* Muted cream - 4 uses */
+  --hex-amber-pale: #ffe8ad; /* Pale amber - 6 uses */
+  --hex-amber-light: #fff1c2; /* Light amber - 10 uses */
+  --hex-amber-bright: #f6c85f; /* Bright amber - 4 uses */
 
   /* Golds & Yellows */
-  --hex-gold-rich: #fcdd09; /* Rasta gold - replaces gold */
-  --hex-gold-warm: #fcdd09; /* Rasta gold */
-  --hex-gold-muted: #fcdd09; /* Rasta gold */
-  --hex-gold-deep: #fcdd09; /* Rasta gold */
+  --hex-gold-rich: #f5b700; /* Boardwalk gold */
+  --hex-gold-warm: #f8c548; /* Bright signage gold */
+  --hex-gold-muted: #f0a500; /* Muted gold */
+  --hex-gold-deep: #e29400; /* Deep gold */
 
   /* Coral & Sunset */
-  --hex-coral-bright: #ff8461; /* Bright coral - 8 uses */
-  --hex-coral-medium: #e86f4e; /* Medium coral - 4 uses */
-  --hex-coral-deep: #c85a3d; /* Deep coral - 4 uses */
-  --hex-coral-light: #ff9d7d; /* Light coral - 4 uses */
-  --hex-coral-pale: #ffe4dc; /* Pale coral - 4 uses */
-  --hex-coral-softest: #fff5f2; /* Softest coral - 4 uses */
+  --hex-coral-bright: #ff6b6b; /* Neon sunset red - 8 uses */
+  --hex-coral-medium: #e85a4f; /* Boardwalk red - 4 uses */
+  --hex-coral-deep: #c04336; /* Deep brick red - 4 uses */
+  --hex-coral-light: #ff9aa2; /* Light neon coral - 4 uses */
+  --hex-coral-pale: #ffe3e3; /* Pale coral - 4 uses */
+  --hex-coral-softest: #fff5f5; /* Softest coral - 4 uses */
 
   /* Greens - Success & Nature */
-  --hex-green-mint: #ecfdf5; /* Mint green - 8 uses */
-  --hex-green-light: #d1fae5; /* Light green - 6 uses */
-  --hex-green-bright: var(--color-success-500); /* Bright green - 4 uses */
-  --hex-green-teal: #1fbf7a; /* Teal green - 4 uses */
-  --hex-green-forest: #0b5a34; /* Forest green - 4 uses */
+  --hex-green-mint: #e6f4ea; /* Mint green - 8 uses */
+  --hex-green-light: #c8ead4; /* Light green - 6 uses */
+  --hex-green-bright: #34c759; /* Bright green - 4 uses */
+  --hex-green-teal: #2f9e5d; /* Teal green - 4 uses */
+  --hex-green-forest: #1f6b40; /* Forest green - 4 uses */
 
   /* Blues */
   --hex-blue-navy: var(--color-navy-800); /* Navy blue - 24 uses */
   --hex-blue-deep: var(--color-navy-600); /* Deep blue - 8 uses */
-  --hex-blue-bright: #4a90e2; /* Bright blue - 10 uses */
-  --hex-blue-sky: #7fd1ff; /* Sky blue - 4 uses */
-  --hex-blue-pale: #e0f2fe; /* Pale blue - 4 uses */
+  --hex-blue-bright: #1e90ff; /* Bright blue - 10 uses */
+  --hex-blue-sky: #7cc8ff; /* Sky blue - 4 uses */
+  --hex-blue-pale: #e6f2ff; /* Pale blue - 4 uses */
 
   /* Reds - Alerts & Accents */
-  --hex-red-blood: #da121a; /* Rasta red - replaces red */
-  --hex-red-bright: #da121a; /* Rasta red */
-  --hex-red-error: #da121a; /* Rasta red */
-  --hex-red-deep: #da121a; /* Rasta red */
-  --hex-red-dark: #da121a; /* Rasta red */
+  --hex-red-blood: #c8102e; /* Jersey red - replaces red */
+  --hex-red-bright: #d7263d; /* Bright jersey red */
+  --hex-red-error: #c8102e; /* Jersey red */
+  --hex-red-deep: #8b0d21; /* Deep jersey red */
+  --hex-red-dark: #6f0a1a; /* Dark jersey red */
 
   /* Slate Grays */
   --hex-slate-900: var(--color-slate-800); /* Darkest slate - 8 uses */

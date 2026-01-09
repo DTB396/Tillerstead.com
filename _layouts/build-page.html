@@ -10,6 +10,17 @@ layout: default
       </aside>
 
       <div class="build-content-main">
+        {% if page.build_title or page.description %}
+          <header class="section-header" aria-label="Build guide overview">
+            {% if page.build_title %}
+              <p class="eyebrow">{{ page.build_title }}</p>
+            {% endif %}
+            {% if page.description %}
+              <p class="lead">{{ page.description }}</p>
+            {% endif %}
+          </header>
+        {% endif %}
+
         {% include components/toc.html %}
 
         <article class="prose">

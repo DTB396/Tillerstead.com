@@ -1,10 +1,8 @@
-name: Jekyll Build & Deploy (Tillerstead.com)
+name: Deploy site to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -13,46 +11,53 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages-${{ github.ref }}
+  group: pages
   cancel-in-progress: true
 
 jobs:
   build:
+    name: Build site
     runs-on: ubuntu-latest
+    env:
+      BUNDLE_WITHOUT: "development"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configure GitHub Pages
-        if: github.event_name != 'pull_request'
+      - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      - name: Setup Ruby
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.2.9"
+          ruby-version: "3.2"
           bundler-cache: true
 
+      - name: Install Node dependencies
+        run: npm ci
+
       - name: Build site
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
+        run: npm run build
 
       - name: Upload Pages artifact
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
   deploy:
-    if: github.event_name != 'pull_request'
-    needs: build
+    name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

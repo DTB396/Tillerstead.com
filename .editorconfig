@@ -1,0 +1,14 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.ps1]
+end_of_line = crlf
+
+[*.{png,jpg,jpeg,webp,gif,ico,svg,pdf}]
+trim_trailing_whitespace = false
+insert_final_newline = false

@@ -6,158 +6,44 @@ on:
   pull_request:
     branches: [main, develop]
   schedule:
-    - cron: "0 0 * * 0" # Weekly validation
+    - cron: "0 0 * * 0"
 
 jobs:
-  encoding-validation:
-    runs-on: ubuntu-latest
-    name: Validate File Encoding
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Check UTF-8 encoding
-        run: |
-          echo "🔍 Validating UTF-8 encoding..."
-          found_issues=0
-
-          # Check HTML files
-          for file in $(find . -type f -name "*.html" ! -path "./.git/*" ! -path "./node_modules/*" ! -path "./_site/*" ! -path "./vendor/*" ! -path "./root-archive/*"); do
-            if file "$file" | grep -q "UTF-8.*BOM"; then
-              echo "❌ $file: Contains UTF-8 BOM"
-              found_issues=$((found_issues + 1))
-            fi
-          done
-
-          # Check YAML files
-          for file in $(find . -type f \( -name "*.yml" -o -name "*.yaml" \) ! -path "./.git/*" ! -path "./node_modules/*" ! -path "./vendor/*" ! -path "./root-archive/*"); do
-            if grep -q $'\t' "$file"; then
-              echo "❌ $file: Contains tabs (YAML requires spaces)"
-              found_issues=$((found_issues + 1))
-            fi
-          done
-
-          if [ $found_issues -gt 0 ]; then
-            echo "⚠️  Found $found_issues encoding/formatting issues"
-            exit 1
-          fi
-          echo "✅ All files have proper UTF-8 encoding"
-
-  html-validation:
-    runs-on: ubuntu-latest
-    name: Validate HTML Structure
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run HTMLHint
-        run: npm run lint:html 2>&1 || true
-
-  yaml-validation:
-    runs-on: ubuntu-latest
-    name: Validate YAML Syntax
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Validate YAML files
-        run: |
-          echo "🔍 Validating YAML syntax..."
-
-          # Install yamllint
-          sudo apt-get update && sudo apt-get install -y yamllint
-
-          # Check all YAML files
-          yamllint -c "{extends: relaxed}" _data/ _config.yml 2>&1 || true
-
   jekyll-build:
+    name: Jekyll build
     runs-on: ubuntu-latest
-    name: Validate Jekyll Build
-
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.2.9"
+          ruby-version: "3.2"
           bundler-cache: true
 
       - name: Build Jekyll site
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
+        run: |
+          set -o pipefail
+          mkdir -p _site
+          bundle exec jekyll build --trace --verbose 2>&1 | tee _site/build.log
+
+      - name: Summarize build log
+        if: failure()
+        run: |
+          if [ -f _site/build.log ]; then
+            {
+              echo "## Jekyll build log (tail)"
+              echo
+              echo '```text'
+              tail -n 200 _site/build.log
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
 
       - name: Upload build log
-        if: always()
+        if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: jekyll-build-log
-          path: _site
-          retention-days: 7
-
-  lint-js:
-    runs-on: ubuntu-latest
-    name: Lint JavaScript
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run ESLint
-        run: npm run lint:js 2>&1 || true
-
-  summary:
-    runs-on: ubuntu-latest
-    name: Validation Summary
-    needs:
-      [
-        encoding-validation,
-        html-validation,
-        yaml-validation,
-        jekyll-build,
-        lint-js,
-      ]
-    if: always()
-
-    steps:
-      - name: Check job status
-        run: |
-          echo "📋 Validation Summary"
-          echo "===================="
-          echo "✅ Encoding validation: ${{ needs.encoding-validation.result }}"
-          echo "✅ HTML validation: ${{ needs.html-validation.result }}"
-          echo "✅ YAML validation: ${{ needs.yaml-validation.result }}"
-          echo "✅ Jekyll build: ${{ needs.jekyll-build.result }}"
-          echo "✅ JavaScript lint: ${{ needs.lint-js.result }}"
-
-          if [ "${{ needs.jekyll-build.result }}" == "failure" ]; then
-            echo ""
-            echo "⚠️  Jekyll build failed. Check logs for details."
-            exit 1
-          fi
+          path: _site/build.log

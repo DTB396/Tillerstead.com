@@ -1,0 +1,59 @@
+name: Site Build Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+jobs:
+  site-build:
+    name: Build & verify site
+    runs-on: ubuntu-latest
+    env:
+      BUNDLE_WITHOUT: "development"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Build site
+        run: |
+          set -o pipefail
+          mkdir -p _site
+          npm run build 2>&1 | tee _site/build.log
+
+      - name: Summarize build log
+        if: failure()
+        run: |
+          if [ -f _site/build.log ]; then
+            {
+              echo "## Build log (tail)"
+              echo
+              echo '```text'
+              tail -n 200 _site/build.log
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload build log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-build-log
+          path: _site/build.log

@@ -1,12 +1,31 @@
-* text=auto
+# Normalize text files to LF in repo
+* text=auto eol=lf
+
+# Explicit
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
 *.yml text eol=lf
 *.yaml text eol=lf
 *.md text eol=lf
-.gitattributes text eol=lf
-*.yml  text eol=lf
-*.md   text eol=lf
 *.html text eol=lf
-*.css  text eol=lf
+*.css text eol=lf
 *.scss text eol=lf
-*.js   text eol=lf
+*.js text eol=lf
 *.json text eol=lf
+
+# Binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.pdf binary
+# YAML / workflows: always LF
+*.yml  text eol=lf
+.github/workflows/* text eol=lf
+# JSON usually fine as LF too
+
