@@ -2,7 +2,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ page.title | default: site.title }}</title>
-  {% include layout/head.html %}
+  {% include head.html %}
 
   <!-- Core Styles -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
@@ -16,15 +16,15 @@
 
   <!-- Contact Schema -->
   {% if page.url == "/contact/" %}
-    {% include schema/contact-page.html %}
+    {% include contact-page.html %}
   {% endif %}
 
   <!-- Structured Data (HowTo/TechArticle) -->
   {% assign schema_kind = page.schema_type | default: "HowTo" %}
   {% if schema_kind == "HowTo" %}
-    {% include schema/schema-howto.html %}
+    {% include schema-howto.html %}
   {% else %}
-    {% include schema/schema-techarticle.html %}
+    {% include schema-techarticle.html %}
   {% endif %}
 
   <!-- FAQPage Structured Data -->

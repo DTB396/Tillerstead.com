@@ -22,7 +22,7 @@ body_class: page-faq
   </section>
 
   <!-- Peace of Mind Assurance -->
-  {% include components/ts-peace-of-mind.html %}
+  {% include ts-peace-of-mind.html %}
 
   {% for section in site.data.faq %}
   <section class="ts-section ts-faq{% if forloop.index0 % 2 == 1 %} bg-soft{% endif %}"
@@ -59,3 +59,4 @@ body_class: page-faq
     </div>
   </section>
 </main>
+

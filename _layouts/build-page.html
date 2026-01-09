@@ -9,7 +9,7 @@
     <div class="container container-wide">
       <div class="build-content-grid">
         <aside class="build-content-sidebar" aria-label="Build phase navigation">
-          {% include content/build-sidenav.html %}
+          {% include build-sidenav.html %}
         </aside>
         <div class="build-content-main">
           {% if page.build_title or page.description %}
@@ -22,11 +22,11 @@
               {% endif %}
             </header>
           {% endif %}
-          {% include components/toc.html %}
+          {% include toc.html %}
           <article class="prose">
             {{ content }}
           </article>
-          {% include content/build-prev-next.html %}
+          {% include build-prev-next.html %}
         </div>
       </div>
     </div>

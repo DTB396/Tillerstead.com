@@ -1,5 +1,4 @@
-{% comment %} Icon include - renders SVG icons inline Usage: {% include
-components/ts-icon.html name="icon-name" size="24" class="custom-class" %} {%
+{% comment %} Icon include - renders SVG icons inline Usage: {% include ts-icon.html name="icon-name" size="24" class="custom-class" %} {%
 endcomment %}
 <svg
   class="ts-icon {{ include.class }}"
@@ -9,3 +8,4 @@ endcomment %}
 >
   <use href="#{{ include.name }}"></use>
 </svg>
+

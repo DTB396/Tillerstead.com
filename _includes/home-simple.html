@@ -15,7 +15,7 @@
           {% for fact in home.hero.facts %}
             <li class="home-simple__fact">
               {% assign fact_icon = "icon-" | append: fact.icon %}
-              {% include components/ts-icon.html name=fact_icon size="20" class="home-simple__fact-icon" %}
+              {% include ts-icon.html name=fact_icon size="20" class="home-simple__fact-icon" %}
               <div>
                 <span class="home-simple__fact-label">{{ fact.label }}</span>
                 <span class="home-simple__fact-text">{{ fact.text }}</span>
@@ -49,7 +49,7 @@
       {% for service in home.services.cards %}
         <article class="home-simple__card">
           {% assign service_icon = "icon-" | append: service.icon %}
-          {% include components/ts-icon.html name=service_icon size="28" class="home-simple__card-icon" %}
+          {% include ts-icon.html name=service_icon size="28" class="home-simple__card-icon" %}
           <h3>{{ service.title }}</h3>
           <p>{{ service.description }}</p>
           <ul>
@@ -80,7 +80,7 @@
       {% for step in home.process.steps %}
         <article class="home-simple__step">
           {% assign step_icon = "icon-" | append: step.icon %}
-          {% include components/ts-icon.html name=step_icon size="24" class="home-simple__step-icon" %}
+          {% include ts-icon.html name=step_icon size="24" class="home-simple__step-icon" %}
           <h3>{{ step.title }}</h3>
           <p>{{ step.description }}</p>
         </article>
@@ -101,7 +101,7 @@
       {% for item in home.materials.items %}
         <article class="home-simple__card">
           {% assign item_icon = "icon-" | append: item.icon %}
-          {% include components/ts-icon.html name=item_icon size="28" class="home-simple__card-icon" %}
+          {% include ts-icon.html name=item_icon size="28" class="home-simple__card-icon" %}
           <h3>{{ item.title }}</h3>
           <p>{{ item.description }}</p>
           <ul>
@@ -157,3 +157,4 @@
     </div>
   </div>
 </section>
+

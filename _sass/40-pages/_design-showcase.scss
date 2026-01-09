@@ -1,0 +1,47 @@
+// Design Showcase Page Styles
+
+.section-design-showcase {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.design-showcase-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.design-showcase-content .lead {
+  margin: 1.5rem 0;
+  font-size: 1.2rem;
+  color: var(--ts-color-accent, #0b6cff);
+}
+
+.design-showcase-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.design-showcase-gallery img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  transition: transform 0.18s;
+}
+
+.design-showcase-gallery img:hover {
+  transform: scale(1.03);
+}
+
+.design-showcase-content .actions {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
