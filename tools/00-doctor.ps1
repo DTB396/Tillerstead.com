@@ -9,6 +9,7 @@ function Say($msg) { Write-Host $msg }
 function Bad($msg) { Write-Host "✖ $msg" -ForegroundColor Red }
 function Ok($msg)  { Write-Host "✔ $msg" -ForegroundColor Green }
 function Warn($msg){ Write-Host "⚠ $msg" -ForegroundColor Yellow }
+function Phase($msg){ Write-Host "`n== $msg ==" }
 
 Set-Location $RepoRoot
 
@@ -16,6 +17,7 @@ $problems = 0
 
 Say "`n== Git Doctor =="
 
+Phase "Repository integrity"
 # 1) Repo?
 git rev-parse --is-inside-work-tree *> $null
 if ($LASTEXITCODE -ne 0) { throw "Not a git repo: $RepoRoot" }
@@ -25,12 +27,76 @@ Ok "Git repo detected"
 $porcelain = git status --porcelain
 if ($porcelain) { Warn "Working tree not clean"; $problems++ } else { Ok "Working tree clean" }
 
+Phase "Branch + upstream"
 # 3) Branch + upstream
 $branch = (git rev-parse --abbrev-ref HEAD).Trim()
-Ok "On branch: $branch"
+if ($branch -eq "HEAD") {
+  Warn "Detached HEAD (checkout a branch before pushing)"
+  $problems++
+} else {
+  Ok "On branch: $branch"
+}
 $up = (git rev-parse --abbrev-ref --symbolic-full-name "@{u}" 2>$null)
 if (-not $up) { Warn "No upstream configured for $branch"; $problems++ } else { Ok "Upstream: $up" }
 
+Phase "Remote configuration"
+# 3b) Origin remote present
+$origin = git remote get-url origin 2>$null
+if (-not $origin) {
+  Warn "Missing git remote 'origin' (set with: git remote add origin <url>)"
+  $problems++
+} else {
+  Ok "Origin remote: $origin"
+  $originPush = git remote get-url --push origin 2>$null
+  if (-not $originPush) {
+    Warn "Origin push URL not set"
+    $problems++
+  } else {
+    Ok "Origin push URL: $originPush"
+  }
+  git ls-remote origin HEAD *> $null
+  if ($LASTEXITCODE -ne 0) {
+    Warn "Origin remote unreachable (check network/credentials)"
+    $problems++
+  } else {
+    Ok "Origin remote reachable"
+    git fetch --prune origin *> $null
+    if ($LASTEXITCODE -ne 0) {
+      Warn "Fetch from origin failed"
+      $problems++
+    } else {
+      Ok "Fetched latest origin refs"
+    }
+  }
+}
+
+Phase "Sync status"
+# 3c) Ahead/behind status (if upstream exists)
+if ($up) {
+  $counts = git rev-list --left-right --count "$up...HEAD" 2>$null
+  if ($LASTEXITCODE -eq 0 -and $counts) {
+    $parts = $counts -split '\s+'
+    $behind = [int]$parts[0]
+    $ahead = [int]$parts[1]
+    if ($behind -gt 0) { Warn "Branch is behind upstream by $behind commit(s)"; $problems++ } else { Ok "Branch not behind upstream" }
+    if ($ahead -gt 0) { Warn "Branch has $ahead unpushed commit(s)"; $problems++ } else { Ok "No unpushed commits" }
+  } else {
+    Warn "Unable to compute ahead/behind status"
+    $problems++
+  }
+}
+
+if ($origin -and $branch -ne "HEAD") {
+  git ls-remote --heads origin $branch *> $null
+  if ($LASTEXITCODE -ne 0) {
+    Warn "Remote branch 'origin/$branch' not found"
+    $problems++
+  } else {
+    Ok "Remote branch 'origin/$branch' exists"
+  }
+}
+
+Phase "Repository hygiene"
 # 4) Conflict markers
 $conflicts = git grep -n '^(<<<<<<<|=======|>>>>>>>)' -- ':!_site' ':!.jekyll-cache' 2>$null
 if ($conflicts) { Bad "Merge conflict markers found"; $problems++ } else { Ok "No merge conflict markers" }
