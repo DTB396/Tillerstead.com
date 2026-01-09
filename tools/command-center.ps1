@@ -5,8 +5,8 @@ function Get-CommandGroups {
             "bundle exec jekyll build"
         )
         "Backups" = @(
-            "git archive --format=zip --output tmp/repo-backup.zip HEAD",
-            "Write-Host 'Backup archived to tmp/repo-backup.zip' -ForegroundColor Green"
+            "pwsh tools/backup-repo.ps1 -All -Incremental",
+            "Write-Host 'Backups completed.' -ForegroundColor Green"
         )
         "Maintenance" = @(
             "pwsh tools/00-doctor.ps1",

@@ -1,9 +1,9 @@
 [CmdletBinding()]
 param(
   [string]$TaskName = "DailyBackup",
-  [string]$BackupScriptPath = "$(Join-Path $PSScriptRoot "daily-backup.ps1")",
+  [string]$BackupScriptPath = "$(Join-Path $PSScriptRoot "backup-repo.ps1")",
   [string]$ScheduleAt = "2:00AM",
-  [string]$LogPath = "$(Join-Path $PSScriptRoot "logs/daily-backup.log")",
+  [string]$LogPath = "$(Join-Path $PSScriptRoot "logs/backup.log")",
   [switch]$TestRun
 )
 
@@ -18,7 +18,7 @@ if (-not (Test-Path $logDir)) {
   New-Item -ItemType Directory -Path $logDir -Force | Out-Null
 }
 
-$actionArguments = "-NoProfile -ExecutionPolicy Bypass -File `"$BackupScriptPath`" -LogPath `"$LogPath`""
+$actionArguments = "-NoProfile -ExecutionPolicy Bypass -File `"$BackupScriptPath`" -All -Incremental -LogPath `"$LogPath`""
 $action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument $actionArguments
 $trigger = New-ScheduledTaskTrigger -Daily -At $ScheduleAt
 
@@ -29,7 +29,7 @@ Add-Content -Path $LogPath -Value "[$timestamp] [REGISTER] Task '$TaskName' regi
 
 if ($TestRun) {
   Add-Content -Path $LogPath -Value "[$timestamp] [TEST] Running backup script for validation."
-  & $BackupScriptPath -LogPath $LogPath -TestRun
+  & $BackupScriptPath -All -Incremental -LogPath $LogPath -DryRun
   Add-Content -Path $LogPath -Value "[$timestamp] [TEST] Validation run completed."
 }
 

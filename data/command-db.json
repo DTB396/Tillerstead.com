@@ -44,6 +44,11 @@
       "name": "repo-status",
       "description": "Show an abbreviated git status.",
       "command": "git status -sb"
+    },
+    {
+      "name": "backup-repos",
+      "description": "Run backups for all repositories defined in the backup config.",
+      "command": ".\\tools\\backup-repo.ps1 -All -Incremental"
     }
   ],
   "commandSets": [
@@ -78,6 +83,13 @@
         "run-quality",
         "check-links",
         "audit-site"
+      ]
+    },
+    {
+      "name": "backup-all-repos",
+      "description": "Run the backup workflow for all configured repositories.",
+      "commands": [
+        "backup-repos"
       ]
     }
   ]
