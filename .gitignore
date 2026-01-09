@@ -27,8 +27,6 @@ yarn-error.log*
 *~
 
 # --- Build artifacts that should not be tracked ---
-assets/css/style.css
-assets/css/style.css.map
 # backups / temp (never commit)
 _backup/
 _tmp/
