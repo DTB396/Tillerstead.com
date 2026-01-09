@@ -1,0 +1,49 @@
+name: Encoding & Quality Validation
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  schedule:
+    - cron: "0 0 * * 0"
+
+jobs:
+  jekyll-build:
+    name: Jekyll build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
+
+      - name: Build Jekyll site
+        run: |
+          set -o pipefail
+          mkdir -p _site
+          bundle exec jekyll build --trace --verbose 2>&1 | tee _site/build.log
+
+      - name: Summarize build log
+        if: failure()
+        run: |
+          if [ -f _site/build.log ]; then
+            {
+              echo "## Jekyll build log (tail)"
+              echo
+              echo '```text'
+              tail -n 200 _site/build.log
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload build log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jekyll-build-log
+          path: _site/build.log

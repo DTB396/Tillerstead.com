@@ -143,17 +143,15 @@ forms:
 exclude:
   - "*.bak*"
   - "**/*.bak*"
-  - .sass-cache
-  - "*.bak*"
-  - "**/*.bak*"
+  - ".sass-cache"
   - "vendor/**"
   - "root-archive/**"
-  - tools
-  - _audit
-  - vendor/bundle
-  - vendor
-  - node_modules
-  - root-archive
+  - "tools"
+  - "_audit"
+  - "vendor/bundle"
+  - "vendor"
+  - "node_modules"
+  - "root-archive"
   - "_backup/"
   - "**/*.bak"
   - "*.bak"
@@ -177,15 +175,13 @@ exclude:
   - "baseline/**"
   - "*.bak.*"
   - "**/*.bak.*"
-  - _site
-  - .jekyll-cache
-  - .jekyll-metadata
-  - ".sass-cache"
+  - "_site"
+  - ".jekyll-cache"
+  - ".jekyll-metadata"
 
 
 keep_files:
   - "CNAME"
   - "assets/"
-
 
 
