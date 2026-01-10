@@ -1,0 +1,16 @@
+# Tillerstead.com robots.txt
+# TCNA-compliant, New Jersey HIC-licensed contractor
+
+User-agent: *
+Disallow: /vendor/
+Disallow: /node_modules/
+Disallow: /drafts/
+Disallow: /_audit/
+Disallow: /_backup/
+Disallow: /_site/
+Disallow: /baseline/
+Disallow: /root-archive/
+Disallow: /reports/
+Allow: /
+
+Sitemap: https://tillerstead.com/sitemap.xml

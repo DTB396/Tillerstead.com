@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 130" role="img" aria-label="Tillerstead tile mark">
+  <style>
+    .logo-tile{fill:#078930;stroke:#FCDD09;stroke-width:8;stroke-linejoin:round;stroke-linecap:round}
+  </style>
+  <g class="logo-mark" transform="translate(5 5)">
+    <!-- Tighter tile spacing - 3px grout lines for professional tile aesthetic -->
+    <rect class="logo-tile" x="0"  y="0"  width="38" height="38" rx="5" />
+    <rect class="logo-tile" x="41" y="0"  width="38" height="38" rx="5" />
+    <rect class="logo-tile" x="82" y="0"  width="38" height="38" rx="5" />
+    <rect class="logo-tile" x="41" y="41" width="38" height="38" rx="5" />
+    <rect class="logo-tile" x="41" y="82" width="38" height="38" rx="5" />
+  </g>
+</svg>

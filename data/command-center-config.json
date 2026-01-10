@@ -1,0 +1,17 @@
+{
+  "smtp": {
+    "server": "smtp.example.com",
+    "port": 587,
+    "useSsl": true,
+    "username": "user@example.com",
+    "password": "",
+    "fromEmail": "system@example.com",
+    "toEmail": "alerts@example.com"
+  },
+  "systemHealth": {
+    "diskWarningThresholdGB": 80,
+    "driveName": "C",
+    "cleanupTemp": true,
+    "scheduleMinutes": 60
+  }
+}

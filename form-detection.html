@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Netlify Forms Detection | Tillerstead LLC</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="form-detection.css" />
+    <style>
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        border: 0;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        background: #f8fafc;
+        color: #222;
+        padding: 2rem;
+      }
+      form {
+        max-width: 400px;
+        margin: 2rem auto;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px #0001;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      label {
+        font-weight: 600;
+      }
+      input,
+      textarea,
+      button {
+        font-size: 1rem;
+      }
+      button {
+        background: #1d4ed8;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 0.75rem 1.5rem;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      button:hover,
+      button:focus {
+        background: #2563eb;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Netlify form detection for Tillerstead.com -->
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      autocomplete="off"
+      aria-label="Contact form for Netlify detection"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <label for="bot-field" class="visually-hidden"
+        >Leave this field blank</label
+      >
+      <input
+        id="bot-field"
+        name="bot-field"
+        placeholder="Leave blank"
+        title="Leave blank"
+        tabindex="-1"
+        autocomplete="off"
+      />
+      <label for="name">Name</label>
+      <input
+        id="name"
+        name="name"
+        required
+        placeholder="Your name"
+        title="Your name"
+        autocomplete="off"
+      />
+      <label for="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        required
+        title="Your email address"
+        placeholder="Your email address"
+        autocomplete="off"
+      />
+      <label for="phone">Phone</label>
+      <input
+        id="phone"
+        name="phone"
+        type="tel"
+        title="Your phone number"
+        placeholder="Your phone number (optional)"
+        autocomplete="off"
+      />
+      <label for="message">Message</label>
+      <textarea
+        id="message"
+        name="message"
+        required
+        title="Your message"
+        placeholder="Your message"
+      ></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

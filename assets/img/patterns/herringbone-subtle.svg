@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100">
+  <defs>
+    <pattern id="herringbone-subtle" x="0" y="0" width="200" height="100" patternUnits="userSpaceOnUse">
+      <rect width="200" height="100" fill="#fefefe" opacity="0.5"/>
+      <g opacity="0.08" stroke="#4a5568" stroke-width="0.5" fill="none">
+        <!-- Row 1 -->
+        <rect x="0" y="0" width="40" height="20" transform="rotate(45 20 10)"/>
+        <rect x="40" y="0" width="40" height="20" transform="rotate(-45 60 10)"/>
+        <rect x="80" y="0" width="40" height="20" transform="rotate(45 100 10)"/>
+        <rect x="120" y="0" width="40" height="20" transform="rotate(-45 140 10)"/>
+        <rect x="160" y="0" width="40" height="20" transform="rotate(45 180 10)"/>
+        <!-- Row 2 -->
+        <rect x="0" y="50" width="40" height="20" transform="rotate(-45 20 60)"/>
+        <rect x="40" y="50" width="40" height="20" transform="rotate(45 60 60)"/>
+        <rect x="80" y="50" width="40" height="20" transform="rotate(-45 100 60)"/>
+        <rect x="120" y="50" width="40" height="20" transform="rotate(45 140 60)"/>
+        <rect x="160" y="50" width="40" height="20" transform="rotate(-45 180 60)"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="200" height="100" fill="url(#herringbone-subtle)"/>
+</svg>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+  <!DOCTYPE html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Thank You | Tillerstead LLC</title>
+
+
+<meta name="description" content="TCNA-compliant tile and stone installation: custom showers, heated floors, waterproof assemblies, and natural stone surfaces. New Jersey HIC #13VH10808800. Serving Atlantic, Ocean, and Cape May Counties with precision, transparency, and owner oversight." />
+
+
+<link rel="stylesheet" href="/assets/css/style.css?v=2025-11-23.1">
+
+  <link rel="stylesheet" href="/assets/css/root-vars.css">
+  <link rel="stylesheet" href="/assets/css/tokens-hybrid.css">
+  <!-- Page-specific JS -->
+  
+  <!-- Contact Schema -->
+  
+  <!-- Structured Data (HowTo/TechArticle) -->
+  
+  
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Thank You",
+  "description": null,
+  "url": "https://tillerstead.com/success/"
+}
+</script>
+
+  
+  <!-- FAQPage Structured Data -->
+  
+  <!-- Success Page Confetti Script -->
+  
+    <script>
+      (function () {
+        const confettiRoot = document.getElementById("confetti");
+        const partyBtn = document.getElementById("partyBtn");
+        function burst(count) {
+          if (!confettiRoot) return;
+          confettiRoot.innerHTML = "";
+          const reduce =
+            window.matchMedia &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          if (reduce) return;
+          const colors = [
+            "#0b6cff",
+            "#10b981",
+            "#f59e0b",
+            "#ef4444",
+            "#a855f7",
+            "#14b8a6",
+          ];
+          for (let i = 0; i < count; i++) {
+            const piece = document.createElement("i");
+            const x = Math.floor(Math.random() * 100) + "vw";
+            const dx = (Math.random() * 40 - 20).toFixed(1) + "vw";
+            const r = Math.floor(Math.random() * 360) + "deg";
+            const d = (Math.random() * 1.2 + 1.3).toFixed(2) + "s";
+            piece.style.setProperty("--x", x);
+            piece.style.setProperty("--dx", dx);
+            piece.style.setProperty("--r", r);
+            piece.style.setProperty("--d", d);
+            piece.style.background =
+              colors[Math.floor(Math.random() * colors.length)];
+            if (Math.random() > 0.7) {
+              piece.style.width = "12px";
+              piece.style.height = "12px";
+              piece.style.borderRadius = "999px";
+            } else if (Math.random() > 0.7) {
+              piece.style.height = "20px";
+            }
+            confettiRoot.appendChild(piece);
+          }
+          window.setTimeout(() => {
+            confettiRoot.innerHTML = "";
+          }, 3200);
+        }
+        window.setTimeout(() => burst(42), 180);
+        if (partyBtn) partyBtn.addEventListener("click", () => burst(55));
+      })();
+    </script>
+  
+</head>

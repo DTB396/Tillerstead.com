@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     aria-hidden="true"
+     style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <style>
+      .logo-tile {
+        fill: var(--logo-fill, #078930);
+        stroke: var(--logo-stroke, #FCDD09);
+        stroke-width: 8;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+      }
+
+      .logo-word {
+        fill: #DA121A;
+        font: 800 46px 'Inter','Manrope',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+        letter-spacing: 1.4px;
+      }
+
+      .logo-sub {
+        fill: #078930;
+        font: 600 18px 'Inter','Manrope',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+        opacity: .9;
+      }
+
+      .logo-sub-small {
+        font-size: 16px;
+      }
+    </style>
+
+    <!-- Tighter tile mark shape - professional grout line spacing (3px) -->
+    <g id="ts-mark-shape" transform="translate(10 10)">
+      <!-- Top row: 3 tiles -->
+      <rect class="logo-tile" x="0"   y="0"   width="38" height="38" rx="5" />
+      <rect class="logo-tile" x="41"  y="0"   width="38" height="38" rx="5" />
+      <rect class="logo-tile" x="82"  y="0"   width="38" height="38" rx="5" />
+      <!-- Middle tile -->
+      <rect class="logo-tile" x="41"  y="41"  width="38" height="38" rx="5" />
+      <!-- Bottom tile -->
+      <rect class="logo-tile" x="41"  y="82"  width="38" height="38" rx="5" />
+    </g>
+  </defs>
+
+  <!-- MARK ONLY -->
+
+  <symbol id="logo-mark" viewBox="0 0 140 140">
+    <use href="#ts-mark-shape" />
+  </symbol>
+
+  <symbol id="logo-mark-mono" viewBox="0 0 140 140">
+    <use href="#ts-mark-shape"
+         style="--logo-fill: currentColor; --logo-stroke: currentColor;" />
+  </symbol>
+
+  <!-- HORIZONTAL FULL LOGO -->
+
+  <symbol id="logo-full" viewBox="0 0 760 220">
+    <use href="#ts-mark-shape" x="20" y="26" />
+    <text class="logo-word" x="220" y="90">TILLERSTEAD</text>
+    <text class="logo-sub" x="220" y="130">Tile • Remodeling • Property Maintenance</text>
+    <text class="logo-sub logo-sub-small" x="220" y="160">NJ Licensed HIC #13VH10808800</text>
+  </symbol>
+
+  <symbol id="logo-full-mono" viewBox="0 0 760 220">
+    <use href="#ts-mark-shape"
+         x="20" y="26"
+         style="--logo-fill: currentColor; --logo-stroke: currentColor;" />
+    <text fill="currentColor"
+          x="220" y="90"
+          font-size="46" font-weight="800"
+          font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+          letter-spacing="1.4">
+      TILLERSTEAD
+    </text>
+    <text fill="currentColor"
+          x="220" y="130"
+          font-size="18" font-weight="600"
+          font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+          opacity=".9">
+      Tile • Remodeling • Property Maintenance
+    </text>
+    <text fill="currentColor"
+          x="220" y="160"
+          font-size="16" font-weight="600"
+          font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+          opacity=".9">
+      NJ Licensed HIC #13VH10808800
+    </text>
+  </symbol>
+
+  <!-- STACKED LOGO -->
+
+  <symbol id="logo-stacked" viewBox="0 0 260 320">
+    <use href="#ts-mark-shape" x="60" y="24" />
+    <text x="130" y="210"
+          font-size="32" font-weight="800"
+          font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+          letter-spacing="1.2"
+          fill="#DA121A"
+          text-anchor="middle">
+      TILLERSTEAD
+    </text>
+    <text x="130" y="240"
+          font-size="14" font-weight="600"
+          font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+          fill="#078930"
+          opacity=".9"
+          text-anchor="middle">
+      Tile • Remodeling • Property Maintenance
+    </text>
+    <text x="130" y="265"
+          font-size="12" font-weight="600"
+          font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+          fill="#078930"
+          opacity=".9"
+          text-anchor="middle">
+      NJ Licensed HIC #13VH10808800
+    </text>
+  </symbol>
+
+  <symbol id="logo-stacked-mono" viewBox="0 0 260 320">
+    <use href="#ts-mark-shape"
+         x="60" y="24"
+         style="--logo-fill: currentColor; --logo-stroke: currentColor;" />
+    <text x="130" y="210"
+          font-size="32" font-weight="800"
+          font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+          letter-spacing="1.2"
+          fill="currentColor"
+          text-anchor="middle">
+      TILLERSTEAD
+    </text>
+    <text x="130" y="240"
+          font-size="14" font-weight="600"
+          font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+          fill="currentColor"
+          opacity=".9"
+          text-anchor="middle">
+      Tile • Remodeling • Property Maintenance
+    </text>
+    <text x="130" y="265"
+          font-size="12" font-weight="600"
+          font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+          fill="currentColor"
+          opacity=".9"
+          text-anchor="middle">
+      NJ Licensed HIC #13VH10808800
+    </text>
+  </symbol>
+</svg>
+    </text>
+    <text x="130" y="242"
+          font-size="14" font-weight="600"
+          font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+          opacity=".9"
+          fill="#078930"
+          text-anchor="middle">
+      Tile • Remodeling • Property Maintenance
+    </text>
+    <text x="130" y="268"
+          font-size="12" font-weight="600"
+          font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+          opacity=".9"
+          fill="#078930"
+          text-anchor="middle">
+      NJ Licensed HIC #13VH10808800
+    </text>
+  </symbol>
+
+  <symbol id="logo-stacked-mono" viewBox="0 0 260 320">
+    <use href="#ts-mark-shape"
+         x="58" y="24"
+         style="--logo-fill: currentColor; --logo-stroke: currentColor;" />
+    <text x="130" y="210"
+          font-size="32" font-weight="800"
+          font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+          letter-spacing="1.2"
+          fill="currentColor"
+          text-anchor="middle">
+      TILLERSTEAD
+    </text>
+    <text x="130" y="242"
+          font-size="14" font-weight="600"
+          font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+          opacity=".9"
+          fill="currentColor"
+          text-anchor="middle">
+      Tile • Remodeling • Property Maintenance
+    </text>
+    <text x="130" y="268"
+          font-size="12" font-weight="600"
+          font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+          opacity:.9
+          fill="currentColor"
+          text-anchor="middle">
+      NJ Licensed HIC #13VH10808800
+    </text>
+  </symbol>
+</svg>

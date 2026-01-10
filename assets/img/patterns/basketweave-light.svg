@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <defs>
+    <pattern id="basketweave-light" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+      <rect width="80" height="80" fill="#f7fafc" opacity="0.4"/>
+      <g opacity="0.1" stroke="#718096" stroke-width="0.5" fill="none">
+        <!-- Horizontal pairs -->
+        <rect x="0" y="0" width="40" height="10"/>
+        <rect x="0" y="10" width="40" height="10"/>
+        <!-- Vertical pairs -->
+        <rect x="40" y="0" width="10" height="40"/>
+        <rect x="50" y="0" width="10" height="40"/>
+        <!-- Bottom horizontal -->
+        <rect x="0" y="40" width="40" height="10"/>
+        <rect x="0" y="50" width="40" height="10"/>
+        <!-- Right vertical -->
+        <rect x="40" y="40" width="10" height="40"/>
+        <rect x="50" y="40" width="10" height="40"/>
+        <!-- Fill pattern -->
+        <rect x="60" y="0" width="10" height="40"/>
+        <rect x="70" y="0" width="10" height="40"/>
+        <rect x="0" y="60" width="40" height="10"/>
+        <rect x="0" y="70" width="40" height="10"/>
+        <rect x="60" y="40" width="10" height="40"/>
+        <rect x="70" y="40" width="10" height="40"/>
+        <rect x="40" y="60" width="40" height="10"/>
+        <rect x="40" y="70" width="40" height="10"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="80" height="80" fill="url(#basketweave-light)"/>
+</svg>

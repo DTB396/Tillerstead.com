@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 178" role="img" aria-label="Tillerstead full logo">
+  <style>
+    .logo-tile{fill:#078930;stroke:#FCDD09;stroke-width:8;stroke-linejoin:round;stroke-linecap:round}
+    .logo-word{fill:#DA121A;font:800 46px 'Inter','Manrope',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:1.4px}
+    .logo-sub{fill:#078930;font:600 18px 'Inter','Manrope',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;opacity:.9}
+    .logo-sub-small{font-size:16px}
+  </style>
+  <g class="logo-mark" transform="translate(20 26)">
+    <!-- Tighter professional tile spacing - 3px grout lines -->
+    <rect class="logo-tile" x="0"  y="0"  width="38" height="38" rx="5" />
+    <rect class="logo-tile" x="41" y="0"  width="38" height="38" rx="5" />
+    <rect class="logo-tile" x="82" y="0"  width="38" height="38" rx="5" />
+    <rect class="logo-tile" x="41" y="41" width="38" height="38" rx="5" />
+    <rect class="logo-tile" x="41" y="82" width="38" height="38" rx="5" />
+  </g>
+  <text class="logo-word" x="180" y="86">TILLERSTEAD</text>
+  <text class="logo-sub" x="180" y="120">Tile • Remodeling • Property Maintenance</text>
+  <text class="logo-sub logo-sub-small" x="180" y="148">NJ Licensed HIC #13VH10808800</text>
+</svg>

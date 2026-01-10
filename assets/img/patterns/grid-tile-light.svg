@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <pattern id="grid-tile-light" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+      <rect width="120" height="120" fill="#ffffff" opacity="0.3"/>
+      <!-- Large tiles with subtle grout lines -->
+      <rect x="1" y="1" width="58" height="58" fill="none" stroke="#cbd5e0" stroke-width="0.5" opacity="0.4"/>
+      <rect x="61" y="1" width="58" height="58" fill="none" stroke="#cbd5e0" stroke-width="0.5" opacity="0.4"/>
+      <rect x="1" y="61" width="58" height="58" fill="none" stroke="#cbd5e0" stroke-width="0.5" opacity="0.4"/>
+      <rect x="61" y="61" width="58" height="58" fill="none" stroke="#cbd5e0" stroke-width="0.5" opacity="0.4"/>
+      <!-- Accent lines -->
+      <line x1="30" y1="0" x2="30" y2="120" stroke="#2d3748" stroke-width="0.3" opacity="0.15"/>
+      <line x1="90" y1="0" x2="90" y2="120" stroke="#2d3748" stroke-width="0.3" opacity="0.15"/>
+      <line x1="0" y1="30" x2="120" y2="30" stroke="#2d3748" stroke-width="0.3" opacity="0.15"/>
+      <line x1="0" y1="90" x2="120" y2="90" stroke="#2d3748" stroke-width="0.3" opacity="0.15"/>
+    </pattern>
+  </defs>
+  <rect width="120" height="120" fill="url(#grid-tile-light)"/>
+</svg>

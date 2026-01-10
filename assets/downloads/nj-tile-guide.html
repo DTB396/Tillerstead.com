@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Jersey Homeowner's Guide to Tile Installation</title>
+    <style>
+      @media print {
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        .no-print {
+          display: none;
+        }
+        .page-break {
+          page-break-after: always;
+        }
+        h2 {
+          page-break-after: avoid;
+        }
+        p {
+          orphans: 3;
+          widows: 3;
+        }
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        line-height: 1.7;
+        color: #333;
+        background: #f5f5f5;
+      }
+
+      .document-wrapper {
+        max-width: 8.5in;
+        height: 11in;
+        background: white;
+        margin: 20px auto;
+        padding: 40px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .no-print.controls {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .no-print button {
+        padding: 10px 20px;
+        background: #0d9aaa;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .no-print button:hover {
+        background: #0b8a9a;
+      }
+
+      .cover {
+        text-align: center;
+        padding: 60px 0;
+        border-bottom: 2px solid #0d9aaa;
+        margin-bottom: 60px;
+      }
+
+      .cover h1 {
+        font-size: 36px;
+        color: #0d9aaa;
+        margin-bottom: 20px;
+        line-height: 1.3;
+      }
+
+      .cover p {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #666;
+      }
+
+      .cover .meta {
+        margin-top: 60px;
+        padding-top: 60px;
+        border-top: 1px solid #ddd;
+        font-size: 14px;
+        color: #999;
+      }
+
+      .toc {
+        margin-bottom: 60px;
+      }
+
+      .toc h2 {
+        font-size: 22px;
+        color: #0d9aaa;
+        margin-bottom: 20px;
+      }
+
+      .toc ol {
+        margin-left: 20px;
+      }
+
+      .toc li {
+        margin-bottom: 10px;
+        color: #666;
+      }
+
+      section {
+        margin-bottom: 40px;
+      }
+
+      section h2 {
+        font-size: 22px;
+        color: #0d9aaa;
+        margin-bottom: 15px;
+        margin-top: 40px;
+      }
+
+      section h3 {
+        font-size: 16px;
+        color: #0f172a;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      section p {
+        margin-bottom: 12px;
+        color: #444;
+      }
+
+      section ul,
+      section ol {
+        margin-left: 20px;
+        margin-bottom: 15px;
+      }
+
+      section li {
+        margin-bottom: 8px;
+        color: #444;
+      }
+
+      .highlight {
+        background: #f0f8f9;
+        border-left: 4px solid #0d9aaa;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 40px 0;
+        border-top: 2px solid #0d9aaa;
+        margin-top: 60px;
+        font-size: 12px;
+        color: #999;
+      }
+
+      .footer strong {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="no-print controls">
+      <button onclick="window.print()">📖 Print / Save as PDF</button>
+      <button onclick="downloadTxt()">📄 Download as Text</button>
+    </div>
+
+    <div class="document-wrapper">
+      <div class="cover">
+        <h1>The New Jersey Homeowner's Guide to Tile Installation</h1>
+        <p>Everything you need to know before starting a bathroom remodel</p>
+        <p style="font-size: 14px; margin-top: 30px">
+          From permits and codes to waterproofing and installation standards
+        </p>
+        <div class="meta">
+          <strong>Presented by Tillerstead LLC</strong>
+          <p>New Jersey HIC License #13VH10808800</p>
+          <p>Serving Atlantic, Ocean & Cape May Counties</p>
+        </div>
+      </div>
+
+      <div class="toc">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li>Understanding New Jersey Requirements</li>
+          <li>Waterproofing Essentials</li>
+          <li>TCNA Standards & Installation Methods</li>
+          <li>Substrate Preparation & Verification</li>
+          <li>Tile Selection & Materials</li>
+          <li>Contractor Selection Checklist</li>
+          <li>Red Flags to Avoid</li>
+          <li>Your Rights Under NJ Law</li>
+        </ol>
+      </div>
+
+      <section>
+        <h2>1. Understanding New Jersey Requirements</h2>
+        <p>
+          When you're planning a bathroom remodel or tile installation in New
+          Jersey, permits and codes matter more than you might think.
+          Understanding what's required—and why—protects your investment and
+          ensures your project is done right.
+        </p>
+
+        <h3>When Do You Need a Permit?</h3>
+        <p>Not all tile work requires a permit. Here's the general rule:</p>
+        <ul>
+          <li>
+            <strong>Permits Required:</strong> Bathroom remodels, structural
+            changes, work involving plumbing or electrical, changes to building
+            envelope, wet areas in kitchens
+          </li>
+          <li>
+            <strong>No Permit Needed:</strong> Cosmetic tile work on existing
+            surfaces (replacing a kitchen backsplash), repairs using identical
+            materials
+          </li>
+        </ul>
+
+        <h3>The Uniform Construction Code (UCC)</h3>
+        <p>
+          New Jersey follows the International Building Code (IBC) through the
+          Uniform Construction Code. This code covers everything from
+          waterproofing requirements to substrate flatness standards. Licensed
+          contractors follow these codes; unlicensed workers may not.
+        </p>
+
+        <div class="highlight">
+          <strong>Why Permits Protect You:</strong>
+          <ul>
+            <li>Creates inspection checkpoints that verify quality</li>
+            <li>Documents work for insurance and resale</li>
+            <li>Ensures electrical and plumbing meet code</li>
+            <li>Establishes a complaint process if work is substandard</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>2. Waterproofing Essentials</h2>
+        <p>
+          Here's a harsh truth:
+          <strong
+            >80% of shower failures trace back to waterproofing and substrate
+            issues—not the tile itself.</strong
+          >
+          The work you can't see matters more than the work you can see.
+        </p>
+
+        <h3>Why Waterproofing Fails</h3>
+        <p>Showers fail when water gets behind the tile. This happens when:</p>
+        <ul>
+          <li>No waterproofing membrane is used</li>
+          <li>Waterproofing is improperly installed or incomplete</li>
+          <li>Substrate moves or cracks, breaking the seal</li>
+          <li>Penetrations (drains, pipes) aren't properly detailed</li>
+          <li>Grout fails and allows water penetration</li>
+        </ul>
+
+        <h3>Types of Waterproofing Systems</h3>
+        <ul>
+          <li>
+            <strong>Sheet Membranes:</strong> Rolls applied directly to
+            substrate (Schluter KERDI, Laticrete Hydro Ban Board)
+          </li>
+          <li>
+            <strong>Liquid-Applied Membranes:</strong> Brush or spray applied
+            (RedGard, Custom products)
+          </li>
+          <li>
+            <strong>Bonded Systems:</strong> Engineered systems verified through
+            testing
+          </li>
+          <li>
+            <strong>Traditional Systems:</strong> Hot-mopped or CPE liners
+            (older installations)
+          </li>
+        </ul>
+
+        <h3>Flood Testing</h3>
+        <p>
+          The best way to verify waterproofing before tile is applied: fill the
+          shower pan and watch for leaks. Proper flood testing per ASTM D5957
+          prevents surprises after your bathroom is finished. When conditions
+          allow, this test should be documented with photos.
+        </p>
+      </section>
+
+      <section>
+        <h2>3. TCNA Standards & Installation Methods</h2>
+        <p>
+          The Tile Council of North America (TCNA) publishes the Handbook for
+          Ceramic, Glass, and Stone Tile Installation. It's the industry
+          standard for proper tile installation in North America.
+        </p>
+
+        <h3>What "TCNA-Compliant" Means</h3>
+        <p>
+          When a contractor says they follow TCNA standards, they mean they:
+        </p>
+        <ul>
+          <li>
+            Prepare substrates to specified flatness (typically 1/8" in 10')
+          </li>
+          <li>Use appropriate thinset mortars for the application</li>
+          <li>Apply full mortar coverage (no voids)</li>
+          <li>Use proper grouting techniques</li>
+          <li>Detail transitions, thresholds, and penetrations correctly</li>
+        </ul>
+
+        <h3>Substrate Flatness</h3>
+        <p>
+          TCNA specifies that substrates must be flat within 1/8" over any
+          10-foot span, and 1/16" over any 3-foot span. Large deviations cause
+          lippage (uneven tile surfaces), poor mortar coverage, and eventual
+          failures.
+        </p>
+
+        <h3>Mortar Coverage</h3>
+        <p>
+          TCNA requires 95% mortar coverage on the back of all tiles. This
+          means:
+        </p>
+        <ul>
+          <li>Full back-buttering for tiles over 8x8"</li>
+          <li>Trowel ridges must support the full tile weight</li>
+          <li>No voids or hollow spots</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>4. Substrate Preparation & Verification</h2>
+        <p>
+          Professional tile installation begins long before tile goes on the
+          wall. Substrate preparation is the foundation of every successful
+          project.
+        </p>
+
+        <h3>Substrate Types</h3>
+        <ul>
+          <li>
+            <strong>Drywall:</strong> In wet areas, use cement board or
+            waterproof drywall, never standard drywall
+          </li>
+          <li>
+            <strong>Concrete Board:</strong> Requires proper fastening and
+            appropriate mortar
+          </li>
+          <li>
+            <strong>Uncoupling Membranes:</strong> Systems like Schluter DITRA
+            that both waterproof and manage movement
+          </li>
+          <li>
+            <strong>Mortar Bed:</strong> Traditional sand/cement bed, requires
+            proper slope and perimeter waterproofing
+          </li>
+        </ul>
+
+        <h3>Verification Process</h3>
+        <p>A professional contractor will:</p>
+        <ul>
+          <li>
+            Evaluate existing structure for flatness, moisture, and integrity
+          </li>
+          <li>Test substrate with moisture meter before tile installation</li>
+          <li>Plan waterproofing strategy based on findings</li>
+          <li>Document substrate condition with photos</li>
+          <li>Verify flatness with straightedge before application</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>5. Tile Selection & Materials</h2>
+        <p>
+          Tile selection is about more than aesthetics. The right tile for your
+          application ensures durability and performance.
+        </p>
+
+        <h3>Tile Categories</h3>
+        <ul>
+          <li>
+            <strong>Ceramic:</strong> Fired clay, good for walls and floors,
+            affordable
+          </li>
+          <li>
+            <strong>Porcelain:</strong> Denser than ceramic, more durable,
+            water-resistant
+          </li>
+          <li>
+            <strong>Natural Stone:</strong> Marble, granite, slate—beautiful but
+            requires sealing and careful maintenance
+          </li>
+          <li>
+            <strong>Glass:</strong> Decorative, requires proper substrate and
+            installation method
+          </li>
+        </ul>
+
+        <h3>Slip Resistance</h3>
+        <p>
+          For bathroom floors and shower areas, choose tile with appropriate
+          slip resistance (typically COF 0.60 or higher). Glazed tile is
+          slippery when wet; textured or matte finishes are safer.
+        </p>
+
+        <h3>Large-Format Tile</h3>
+        <p>Tile larger than 15" on a side requires:</p>
+        <ul>
+          <li>Perfectly flat substrate (tighter tolerances)</li>
+          <li>Full back-buttering</li>
+          <li>Modified thinsets designed for large tile</li>
+          <li>Careful lippage control</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>6. Contractor Selection Checklist</h2>
+        <p>
+          Choosing the right contractor is the single most important decision in
+          your project. Use this checklist to evaluate candidates.
+        </p>
+
+        <h3>Verify Licensing</h3>
+        <ul>
+          <li>Ask for NJ HIC number and verify at nj.gov/oag/hic</li>
+          <li>Check for complaints or disciplinary history</li>
+          <li>Confirm insurance is current and adequate</li>
+        </ul>
+
+        <h3>Questions to Ask</h3>
+        <ul>
+          <li>How long have you been in business?</li>
+          <li>Can you provide references from recent projects?</li>
+          <li>Do you pull permits and handle inspections?</li>
+          <li>What waterproofing systems do you use?</li>
+          <li>Do you provide a written contract with detailed scope?</li>
+          <li>What is your warranty on workmanship?</li>
+          <li>How do you handle unexpected issues?</li>
+        </ul>
+
+        <h3>Request a Written Estimate</h3>
+        <p>Any estimate over $500 must include:</p>
+        <ul>
+          <li>Detailed scope of work</li>
+          <li>Specific materials and brands</li>
+          <li>Timeline and payment schedule</li>
+          <li>Warranty terms</li>
+          <li>Your 3-day right of rescission notice</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>7. Red Flags to Avoid</h2>
+        <p>Be cautious if a contractor:</p>
+        <ul>
+          <li>
+            <strong>Refuses to pull permits:</strong> Legal work requires
+            permits; refusal is a red flag
+          </li>
+          <li>
+            <strong>No written contract:</strong> Always get everything in
+            writing
+          </li>
+          <li>
+            <strong>Requests full payment upfront:</strong> Typical schedule is
+            30-50% deposit, balance on completion
+          </li>
+          <li>
+            <strong>Guarantees no waterproofing needed:</strong> Every wet area
+            needs waterproofing
+          </li>
+          <li>
+            <strong>Cannot provide references:</strong> Ask for recent,
+            verifiable projects
+          </li>
+          <li>
+            <strong>Pressures you to decide immediately:</strong> Good
+            contractors are busy; rushing is suspicious
+          </li>
+          <li>
+            <strong>No liability insurance:</strong> Always verify current
+            coverage
+          </li>
+          <li>
+            <strong>Vague about substrate prep:</strong> Proper prep should be
+            detailed in scope
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>8. Your Rights Under New Jersey Law</h2>
+
+        <h3>The 3-Day Right of Rescission</h3>
+        <p>
+          Under New Jersey Consumer Fraud Act, you have
+          <strong
+            >3 business days to cancel any home improvement contract over
+            $25.</strong
+          >
+          Your contractor must clearly disclose this right in your contract.
+          This is non-waivable—any clause trying to remove this right is void.
+        </p>
+
+        <h3>What Must Be in Your Contract</h3>
+        <ul>
+          <li>Contractor name, address, and license number</li>
+          <li>Detailed description of work</li>
+          <li>Materials to be used (brands, specifications)</li>
+          <li>Total cost breakdown</li>
+          <li>Payment schedule</li>
+          <li>Timeline for completion</li>
+          <li>Warranty information</li>
+          <li>3-day right of rescission notice</li>
+        </ul>
+
+        <h3>If Something Goes Wrong</h3>
+        <ul>
+          <li>Document everything with photos and written communication</li>
+          <li>Send written notice of defects within reasonable time</li>
+          <li>Request written response within 10 days</li>
+          <li>
+            File complaint with NJ Division of Consumer Affairs if unresolved
+          </li>
+          <li>Consult an attorney for significant disputes</li>
+        </ul>
+
+        <h3>Licensing Verification</h3>
+        <p>
+          Verify your contractor's license at:
+          <strong>www.nj.gov/oag/hic</strong>
+        </p>
+        <p>
+          You can check license status, complaints, and disciplinary history.
+          Never hire unlicensed contractors.
+        </p>
+      </section>
+
+      <div class="footer">
+        <strong>About Tillerstead LLC</strong>
+        <p>New Jersey HIC License #13VH10808800</p>
+        <p>Serving Atlantic, Ocean & Cape May Counties</p>
+        <p>(609) 862-8808 • www.tillerstead.com</p>
+        <p
+          style="
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+          "
+        >
+          This guide is educational material and does not constitute
+          professional advice.<br />
+          Always consult with licensed professionals for your specific project
+          needs.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      function downloadTxt() {
+        const text = document.body.innerText;
+        const blob = new Blob([text], { type: "text/plain" });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "NJ-Tile-Installation-Guide.txt";
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      }
+    </script>
+  </body>
+</html>

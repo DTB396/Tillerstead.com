@@ -1,0 +1,64 @@
+[
+  {
+    "name": "sync-repos",
+    "description": "Pull and push changes for the current repository.",
+    "tags": ["git", "repos"],
+    "commands": [
+      "git pull origin main",
+      "git push origin main"
+    ]
+  },
+  {
+    "name": "rebuild-site",
+    "description": "Clean and rebuild the Tillerstead.com Jekyll site.",
+    "tags": ["jekyll", "site"],
+    "commands": [
+      "bundle exec jekyll clean",
+      "bundle exec jekyll build"
+    ]
+  },
+  {
+    "name": "build-highend-site",
+    "description": "Scaffold the FaithFrontier.org site with Minimal Mistakes.",
+    "tags": ["jekyll", "scaffold"],
+    "commands": [
+      "jekyll new --force --template \"https://github.com/mmistakes/minimal-mistakes\""
+    ]
+  },
+  {
+    "name": "backup-all-websites",
+    "description": "Run backups for the primary website repositories.",
+    "tags": ["backup"],
+    "commands": [
+      "Backup-Repo -RepoName \"Tillerstead.com\"",
+      "Backup-Repo -RepoName \"FaithFrontier.org\""
+    ]
+  },
+  {
+    "name": "health-check",
+    "description": "Run quick health checks for disk usage and system uptime.",
+    "tags": ["monitoring"],
+    "commands": [
+      "Monitor-DiskSpace -DriveLetter C -WarningThresholdPercent 85",
+      "Show-SystemUptime"
+    ]
+  },
+  {
+    "name": "cleanup-temp",
+    "description": "Clean the local temp directory with confirmation.",
+    "tags": ["maintenance"],
+    "commands": [
+      "Clean-TempFiles -Confirm"
+    ]
+  },
+  {
+    "name": "daily-core-workflow",
+    "description": "Sync repos, rebuild the site, and run a quick health check.",
+    "tags": ["workflow"],
+    "includes": [
+      "sync-repos",
+      "rebuild-site",
+      "health-check"
+    ]
+  }
+]

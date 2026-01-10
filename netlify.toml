@@ -1,0 +1,17 @@
+# Netlify build configuration for Tillerstead LLC
+# Deployment standards: see /.ai/OUTPUT_RULES.md
+# NJ HIC License, TCNA compliance, and accessibility enforced per /.ai/COMPLIANCE.md and _data/compliance.yml
+
+[build]
+  command = "npm run build:site" # Runs Jekyll build with TCNA/NJ HIC-compliant config
+  publish = "_site"              # Output directory for static site, per OUTPUT_RULES.md
+
+[build.environment]
+  RUBY_VERSION = "3.2.2"         # Matches Gemfile.lock for Jekyll compatibility
+  NODE_VERSION = "20"            # Ensures ES6+ support and npm compatibility
+
+[context.production.environment]
+  JEKYLL_ENV = "production"      # Enables minification, accessibility, and compliance checks
+
+# All assets, images, and references must follow OUTPUT_RULES.md conventions.
+# For legal, accessibility, and NJ HIC requirements, see _data/compliance.yml.

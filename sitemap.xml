@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home: TCNA-compliant, NJ HIC-licensed contractor, transparent process -->
+  <url>
+    <loc>https://tillerstead.com/</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Services: Tile, bath, and remodeling per TCNA standards -->
+  <url>
+    <loc>https://tillerstead.com/services/</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Portfolio: Documented TCNA-compliant installations -->
+  <url>
+    <loc>https://tillerstead.com/portfolio/</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- General Contractors: B2B partnerships, NJ HIC compliance -->
+  <url>
+    <loc>https://tillerstead.com/for-general-contractors/</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Reviews: Verified client testimonials, NJ Consumer Fraud Act compliant -->
+  <url>
+    <loc>https://tillerstead.com/reviews/</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- About: Credentials, TCNA/NJ HIC license, technical expertise -->
+  <url>
+    <loc>https://tillerstead.com/about/</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Financing: Transparent, NJ-compliant financing options -->
+  <url>
+    <loc>https://tillerstead.com/financing/</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Plans: Pre-construction planning, TCNA detail drawings -->
+  <url>
+    <loc>https://tillerstead.com/plans/</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Process: Step-by-step, code-compliant workflow -->
+  <url>
+    <loc>https://tillerstead.com/process/</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Design Showcase: Accessible, standards-based design inspiration -->
+  <url>
+    <loc>https://tillerstead.com/design-showcase/</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Contact: Direct, accessible, NJ HIC-licensed communication -->
+  <url>
+    <loc>https://tillerstead.com/contact/</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog: Technical articles, TCNA/NJ code updates, consumer education -->
+  <url>
+    <loc>https://tillerstead.com/blog/</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Terms: NJ Consumer Fraud Act, contract transparency -->
+  <url>
+    <loc>https://tillerstead.com/terms/</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Privacy: Data protection, NJ legal compliance -->
+  <url>
+    <loc>https://tillerstead.com/privacy/</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- License & Compliance: NJ HIC #13VH10808800, TCNA standards -->
+  <url>
+    <loc>https://tillerstead.com/license-njhic-tcna-compliance/</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Accessibility Statement: WCAG 2.1 AA, ADA, NJ law compliance -->
+  <url>
+    <loc>https://tillerstead.com/accessibility/</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

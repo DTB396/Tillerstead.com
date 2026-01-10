@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+  <defs>
+    <pattern id="metatrons-cube" x="0" y="0" width="240" height="240" patternUnits="userSpaceOnUse">
+      <rect width="240" height="240" fill="#ffffff" opacity="0.2"/>
+      <g opacity="0.06" stroke="#2c5282" stroke-width="0.8" fill="none">
+        <!-- Outer hexagon vertices -->
+        <circle cx="120" cy="40" r="4"/>
+        <circle cx="184.64" cy="80" r="4"/>
+        <circle cx="184.64" cy="160" r="4"/>
+        <circle cx="120" cy="200" r="4"/>
+        <circle cx="55.36" cy="160" r="4"/>
+        <circle cx="55.36" cy="80" r="4"/>
+        <!-- Inner hexagon vertices -->
+        <circle cx="120" cy="80" r="4"/>
+        <circle cx="152.32" cy="100" r="4"/>
+        <circle cx="152.32" cy="140" r="4"/>
+        <circle cx="120" cy="160" r="4"/>
+        <circle cx="87.68" cy="140" r="4"/>
+        <circle cx="87.68" cy="100" r="4"/>
+        <!-- Center -->
+        <circle cx="120" cy="120" r="4"/>
+        <!-- Connecting lines - outer to center -->
+        <line x1="120" y1="40" x2="120" y2="120"/>
+        <line x1="184.64" y1="80" x2="120" y2="120"/>
+        <line x1="184.64" y1="160" x2="120" y2="120"/>
+        <line x1="120" y1="200" x2="120" y2="120"/>
+        <line x1="55.36" y1="160" x2="120" y2="120"/>
+        <line x1="55.36" y1="80" x2="120" y2="120"/>
+        <!-- Inner connections -->
+        <line x1="120" y1="80" x2="120" y2="120"/>
+        <line x1="152.32" y1="100" x2="120" y2="120"/>
+        <line x1="152.32" y1="140" x2="120" y2="120"/>
+        <line x1="120" y1="160" x2="120" y2="120"/>
+        <line x1="87.68" y1="140" x2="120" y2="120"/>
+        <line x1="87.68" y1="100" x2="120" y2="120"/>
+        <!-- Hexagon outlines -->
+        <polygon points="120,40 184.64,80 184.64,160 120,200 55.36,160 55.36,80"/>
+        <polygon points="120,80 152.32,100 152.32,140 120,160 87.68,140 87.68,100"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="240" height="240" fill="url(#metatrons-cube)"/>
+</svg>

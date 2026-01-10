@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <pattern id="flower-of-life" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+      <rect width="200" height="200" fill="#f8f9fa" opacity="0.3"/>
+      <g opacity="0.08" stroke="#1a365d" stroke-width="1" fill="none">
+        <!-- Center circle -->
+        <circle cx="100" cy="100" r="20"/>
+        <!-- First ring of 6 circles -->
+        <circle cx="100" cy="80" r="20"/>
+        <circle cx="117.32" cy="90" r="20"/>
+        <circle cx="117.32" cy="110" r="20"/>
+        <circle cx="100" cy="120" r="20"/>
+        <circle cx="82.68" cy="110" r="20"/>
+        <circle cx="82.68" cy="90" r="20"/>
+        <!-- Second ring partial -->
+        <circle cx="100" cy="60" r="20"/>
+        <circle cx="134.64" cy="80" r="20"/>
+        <circle cx="134.64" cy="120" r="20"/>
+        <circle cx="100" cy="140" r="20"/>
+        <circle cx="65.36" cy="120" r="20"/>
+        <circle cx="65.36" cy="80" r="20"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="200" height="200" fill="url(#flower-of-life)"/>
+</svg>

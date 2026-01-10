@@ -1,0 +1,96 @@
+{
+  "commands": [
+    {
+      "name": "sync-repos",
+      "description": "Pull and push the main branch for the current repository.",
+      "command": "git pull origin main; git push origin main"
+    },
+    {
+      "name": "jekyll-build",
+      "description": "Build the Jekyll site using Bundler.",
+      "command": "bundle exec jekyll build"
+    },
+    {
+      "name": "jekyll-clean",
+      "description": "Clean the Jekyll build artifacts.",
+      "command": "bundle exec jekyll clean"
+    },
+    {
+      "name": "jekyll-clean-build",
+      "description": "Clean and rebuild the Jekyll site using Bundler.",
+      "command": "bundle exec jekyll clean; bundle exec jekyll build"
+    },
+    {
+      "name": "rebuild-site",
+      "description": "Run the full PowerShell build pipeline for this site.",
+      "command": ".\\scripts\\build-site.ps1 -Production"
+    },
+    {
+      "name": "run-quality",
+      "description": "Run the repository quality checks.",
+      "command": ".\\scripts\\run-quality.ps1"
+    },
+    {
+      "name": "check-links",
+      "description": "Run the link checker (Node.js).",
+      "command": "node .\\scripts\\check-links.js"
+    },
+    {
+      "name": "audit-site",
+      "description": "Run the local audit script for the site.",
+      "command": ".\\scripts\\audit-site.ps1"
+    },
+    {
+      "name": "repo-status",
+      "description": "Show an abbreviated git status.",
+      "command": "git status -sb"
+    },
+    {
+      "name": "backup-repos",
+      "description": "Run backups for all repositories defined in the backup config.",
+      "command": ".\\tools\\backup-repo.ps1 -All -Incremental"
+    }
+  ],
+  "commandSets": [
+    {
+      "name": "sync-and-build",
+      "description": "Sync the repo, then rebuild the site and run the audit.",
+      "commands": [
+        "sync-repos",
+        "rebuild-site",
+        "audit-site"
+      ]
+    },
+    {
+      "name": "jekyll-build-only",
+      "description": "Clean and build the Jekyll site.",
+      "commands": [
+        "jekyll-clean-build"
+      ]
+    },
+    {
+      "name": "repo-maintenance",
+      "description": "Check status and sync the repository.",
+      "commands": [
+        "repo-status",
+        "sync-repos"
+      ]
+    },
+    {
+      "name": "quality-sweep",
+      "description": "Run quality checks and audits.",
+      "commands": [
+        "run-quality",
+        "check-links",
+        "audit-site"
+      ]
+    },
+    {
+      "name": "backup-all-repos",
+      "description": "Run the backup workflow for all configured repositories.",
+      "commands": [
+        "backup-repos"
+      ]
+    }
+  ]
+}

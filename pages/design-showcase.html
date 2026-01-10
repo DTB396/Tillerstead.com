@@ -1,0 +1,127 @@
+<!-- filepath: c:\web-dev\github-repos\Tillerstead.com\pages\design-showcase.html -->
+--- layout: default body_class: "page-design-showcase" description: "A visual
+guide to tile sizes, patterns, and layout options for residential and commercial
+projects. Custom tile selections, wet-area waterproofing assemblies built with
+published methods and documented for South Jersey homes. NJ HIC #13VH10808800."
+hero_eyebrow: "Design" hero_summary: "A guide to tile sizing, pattern options,
+and realistic layout planning. Includes notes on mortar coverage, grout widths,
+and substrate requirements for different installations." hero_title: "Tile
+Sizes, Patterns & Layouts" title: "Tile Design Showcase | Patterns, Layouts &
+Ideas | South Jersey" --- {% comment %} The default layout includes head.html,
+header.html, and page-hero.html. Design showcase content lives here. {%
+endcomment %}
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Design Showcase",
+    "description": "{{ page.description }}",
+    "url": "{{ site.url }}{{ page.url }}",
+    "mainEntity": {
+      "@type": "CreativeWork",
+      "name": "Signature Tile Layouts",
+      "description": "Tile layout concepts and pattern planning by Tillerstead LLC, executed with system-first preparation and documented installation steps.",
+      "creator": {
+        "@type": "Organization",
+        "name": "Tillerstead LLC"
+      }
+    }
+  }
+</script>
+
+<!-- Intro / Why This Page Exists -->
+<section class="ts-section section" aria-labelledby="intro-heading">
+  <div class="ts-section-inner container">
+    <header class="ts-section-header">
+      <p class="ts-eyebrow">{{ site.data.design_showcase.intro.eyebrow }}</p>
+      <h2 id="intro-heading" class="ts-section-title">
+        {{ site.data.design_showcase.intro.title }}
+      </h2>
+      <p class="ts-section-subtitle">
+        {{ site.data.design_showcase.intro.subtitle | markdownify }}
+      </p>
+    </header>
+    <div class="about-grid">
+      {% for feature in site.data.design_showcase.intro.features %}
+      <article class="about-card">
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.text }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Feature: Pattern Showcase -->
+{% include pattern-showcase.html %}
+
+<!-- Design Philosophy / How We Decide -->
+<section
+  class="ts-section ts-section--muted section"
+  aria-labelledby="philosophy-heading"
+>
+  <div class="ts-section-inner container">
+    <header class="ts-section-header">
+      <p class="ts-eyebrow">
+        {{ site.data.design_showcase.philosophy.eyebrow }}
+      </p>
+      <h2 id="philosophy-heading" class="ts-section-title">
+        {{ site.data.design_showcase.philosophy.title }}
+      </h2>
+      <p class="ts-section-subtitle">
+        {{ site.data.design_showcase.philosophy.subtitle | markdownify }}
+      </p>
+    </header>
+    <div class="why-grid">
+      {% for item in site.data.design_showcase.philosophy.items %}
+      <article class="why-item">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.text }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Craftsmanship Details: More Specific, Less Risky -->
+<section class="ts-section section" aria-labelledby="details-heading">
+  <div class="ts-section-inner container">
+    <header class="ts-section-header">
+      <p class="ts-eyebrow">{{ site.data.design_showcase.details.eyebrow }}</p>
+      <h2 id="details-heading" class="ts-section-title">
+        {{ site.data.design_showcase.details.title }}
+      </h2>
+      <p class="ts-section-subtitle">
+        {{ site.data.design_showcase.details.subtitle | markdownify }}
+      </p>
+    </header>
+    <div class="why-grid">
+      {% for item in site.data.design_showcase.details.items %}
+      <article class="why-item">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.text }}</p>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="highlight-box" role="note">
+      {{ site.data.design_showcase.details.standards_note | markdownify }}
+    </div>
+    <div class="scopes-cta-row">
+      <p class="section-intro">
+        {{ site.data.design_showcase.details.cta_intro }}
+      </p>
+      <p class="section-cta">
+        {% for btn in site.data.design_showcase.details.cta_buttons %}
+        <a
+          href="{{ btn.url | relative_url }}"
+          class="{{ btn.class }}"
+          aria-label="{{ btn.aria }}"
+        >
+          {{ btn.label }}
+        </a>
+        {% endfor %}
+      </p>
+    </div>
+  </div>
+</section>

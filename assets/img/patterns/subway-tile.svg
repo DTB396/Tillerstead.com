@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="120" viewBox="0 0 180 120">
+  <defs>
+    <!-- Classic subway tile pattern (3:2 ratio brick layout) -->
+    <pattern id="subway-tile" x="0" y="0" width="180" height="120" patternUnits="userSpaceOnUse">
+      <!-- Base -->
+      <rect width="180" height="120" fill="#f8f9fa" opacity="0.25"/>
+      
+      <!-- Row 1 tiles -->
+      <rect x="1" y="1" width="88" height="58" fill="none" stroke="#2c5282" stroke-width="0.8" opacity="0.12"/>
+      <rect x="91" y="1" width="88" height="58" fill="none" stroke="#2c5282" stroke-width="0.8" opacity="0.12"/>
+      
+      <!-- Row 2 tiles (offset) -->
+      <rect x="-44" y="61" width="88" height="58" fill="none" stroke="#2c5282" stroke-width="0.8" opacity="0.12"/>
+      <rect x="46" y="61" width="88" height="58" fill="none" stroke="#2c5282" stroke-width="0.8" opacity="0.12"/>
+      <rect x="136" y="61" width="88" height="58" fill="none" stroke="#2c5282" stroke-width="0.8" opacity="0.12"/>
+      
+      <!-- Subtle highlights on corners -->
+      <circle cx="1" cy="1" r="1" fill="#3182ce" opacity="0.08"/>
+      <circle cx="91" cy="1" r="1" fill="#3182ce" opacity="0.08"/>
+      <circle cx="46" cy="61" r="1" fill="#3182ce" opacity="0.08"/>
+      <circle cx="136" cy="61" r="1" fill="#3182ce" opacity="0.08"/>
+    </pattern>
+  </defs>
+  <rect width="180" height="120" fill="url(#subway-tile)"/>
+</svg>

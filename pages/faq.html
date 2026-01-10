@@ -1,0 +1,73 @@
+<!-- filepath: c:\web-dev\github-repos\Tillerstead.com\pages\faq.html -->
+--- layout: default title: "Frequently Asked Questions | Tillerstead"
+description: "Common questions about tile installation, waterproofing, bathroom
+remodeling, and working with Tillerstead in South Jersey. TCNA standards
+explained." permalink: /faq/ body_class: page-faq ---
+<main class="main-content">
+  <section class="ts-section ts-page-header">
+    <div class="container">
+      <header class="section-header text-center">
+        <span class="eyebrow eyebrow--dark">Questions & Answers</span>
+        <h1 class="heading-1">Frequently Asked Questions</h1>
+        <p class="lead">
+          Clear answers about tile installation, waterproofing systems, and
+          working with a licensed New Jersey contractor.
+        </p>
+      </header>
+    </div>
+  </section>
+
+  <!-- Peace of Mind Assurance -->
+  {% include ts-peace-of-mind.html %} {% for section in site.data.faq %}
+  <section
+    class="ts-section ts-faq{% if forloop.index0 % 2 == 1 %} bg-soft{% endif %}"
+    aria-labelledby="faq-{{ forloop.index }}"
+  >
+    <div class="container">
+      <header class="section-header">
+        <h2 id="faq-{{ forloop.index }}" class="heading-3">
+          {{ section.category }}
+        </h2>
+      </header>
+      <div class="faq">
+        {% for faq in section.items %}
+        <details
+          class="faq-item"
+          {%
+          if
+          forloop.first
+          and
+          forloop.parentloop.first
+          %}
+          open{%
+          endif
+          %}
+        >
+          <summary>{{ faq.question }}</summary>
+          <div class="faq-body">{{ faq.answer | markdownify }}</div>
+        </details>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endfor %}
+
+  <section
+    class="ts-section ts-cta-final bg-primary text-white"
+    aria-labelledby="faq-cta"
+  >
+    <div class="container text-center">
+      <h2 id="faq-cta" class="heading-2">Still Have Questions?</h2>
+      <p class="lead">
+        We're happy to discuss your project in detail. Request a free estimate
+        or give us a call.
+      </p>
+      <div class="cta-actions">
+        <a href="/contact/" class="btn btn--secondary">Request Free Estimate</a>
+        <a href="tel:+16098628808" class="btn btn--ghost-white"
+          >Call (609) 862-8808</a
+        >
+      </div>
+    </div>
+  </section>
+</main>
