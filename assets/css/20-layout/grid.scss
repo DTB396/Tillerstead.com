@@ -1,0 +1,13 @@
+// 20-layout/grid.scss
+.grid {
+  display: grid;
+  gap: $ts-spacing-md;
+}
+.grid-2col {
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 800px) {
+  .grid-2col {
+    grid-template-columns: 1fr;
+  }
+}

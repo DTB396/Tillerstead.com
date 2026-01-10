@@ -1,0 +1,11 @@
+// 10-base/typography.scss
+h1, h2, h3, h4, h5, h6 {
+  color: $ts-color-primary;
+  font-family: inherit;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}

@@ -1,0 +1,27 @@
+// 30-components/navbar.scss
+.navbar {
+  display: flex;
+  align-items: center;
+  background: var(--ts-color-surface);
+  box-shadow: var(--ts-shadow-soft);
+  padding: 1rem 2rem;
+}
+.navbar .nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--ts-color-primary);
+  text-decoration: none;
+}
+.navbar .nav-links {
+  display: flex;
+  gap: 2rem;
+  margin-left: auto;
+}
+.navbar .nav-links a {
+  color: var(--ts-color-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+.navbar .nav-links a:hover {
+  text-decoration: underline;
+}

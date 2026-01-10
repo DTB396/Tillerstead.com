@@ -1,0 +1,16 @@
+// 30-components/buttons.scss
+.cta-btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--ts-color-primary);
+  border-radius: 2rem;
+  text-decoration: none;
+  box-shadow: 0 2px 8px #0b6cff33;
+  transition: background 0.2s;
+}
+.cta-btn:hover {
+  background: #084b9a;
+}
