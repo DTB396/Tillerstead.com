@@ -1,7 +1,5 @@
+<!DOCTYPE html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PowerShell automation setup</title>
   <!DOCTYPE html>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,18 +12,12 @@
 
 <link rel="stylesheet" href="/assets/css/style.css?v=2025-11-23.1">
 
-
-  <!-- Core Styles -->
-  <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" href="/assets/css/root-vars.css">
   <link rel="stylesheet" href="/assets/css/tokens-hybrid.css">
-
   <!-- Page-specific JS -->
   
-
   <!-- Contact Schema -->
   
-
   <!-- Structured Data (HowTo/TechArticle) -->
   
   
@@ -40,10 +32,88 @@
 </script>
 
   
-
   <!-- FAQPage Structured Data -->
   
-
   <!-- Success Page Confetti Script -->
   
+
 </head>
+<body>
+  <h1 id="powershell-automation-setup">PowerShell automation setup</h1>
+
+<h2 id="version-pins">Version pins</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tool</th>
+      <th>Version pin</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GitHub CLI (gh)</td>
+      <td>2.63.1</td>
+      <td>Installed via <code class="language-plaintext highlighter-rouge">winget</code> in <code class="language-plaintext highlighter-rouge">tools/setup-github-cli.ps1</code>.</td>
+    </tr>
+    <tr>
+      <td>oh-my-posh</td>
+      <td>18.6.0</td>
+      <td>Installed via PowerShell module in <code class="language-plaintext highlighter-rouge">tools/setup-oh-my-posh.ps1</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="installation-steps-pinned">Installation steps (pinned)</h2>
+
+<ol>
+  <li>
+    <p>Install GitHub CLI at the pinned version.</p>
+
+    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="n">\tools\setup-github-cli.ps1</span><span class="w"> </span><span class="nt">-Version</span><span class="w"> </span><span class="nx">2.63.1</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Install oh-my-posh at the pinned version and stage the Tillerstead prompt theme.</p>
+
+    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="n">\tools\setup-oh-my-posh.ps1</span><span class="w"> </span><span class="nt">-Version</span><span class="w"> </span><span class="nx">18.6.0</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Initialize the CLI profile (prompt theme + GitHub CLI completion).</p>
+
+    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="n">\tools\setup-pwsh-profile.ps1</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="scheduled-daily-backup-task">Scheduled daily backup task</h2>
+
+<ol>
+  <li>
+    <p>Register the scheduled task (defaults to 2:00 AM daily).</p>
+
+    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="n">\tools\register-scheduled-task.ps1</span><span class="w"> </span><span class="nt">-TaskName</span><span class="w"> </span><span class="s2">"DailyBackup"</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Validate task creation with a test run and logging output.</p>
+
+    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="n">\tools\register-scheduled-task.ps1</span><span class="w"> </span><span class="nt">-TaskName</span><span class="w"> </span><span class="s2">"DailyBackup"</span><span class="w"> </span><span class="nt">-TestRun</span><span class="w">
+</span><span class="n">Get-Content</span><span class="w"> </span><span class="o">.</span><span class="nx">\tools\logs\daily-backup.log</span><span class="w"> </span><span class="nt">-Tail</span><span class="w"> </span><span class="nx">20</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="notes">Notes</h2>
+
+<ul>
+  <li>The prompt theme is stored at <code class="language-plaintext highlighter-rouge">tools/posh/tillerstead.omp.json</code> and copied to
+<code class="language-plaintext highlighter-rouge">$HOME\.config\oh-my-posh\tillerstead.omp.json</code> during setup.</li>
+  <li>The backup script stub lives at <code class="language-plaintext highlighter-rouge">tools/daily-backup.ps1</code> and writes to
+<code class="language-plaintext highlighter-rouge">tools/logs/daily-backup.log</code> by default. Replace its placeholder steps with the
+actual backup logic for your environment.</li>
+</ul>
+
+</body>

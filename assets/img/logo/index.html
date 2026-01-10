@@ -1,7 +1,5 @@
+<!DOCTYPE html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tillerstead Logo Assets</title>
   <!DOCTYPE html>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,18 +12,12 @@
 
 <link rel="stylesheet" href="/assets/css/style.css?v=2025-11-23.1">
 
-
-  <!-- Core Styles -->
-  <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" href="/assets/css/root-vars.css">
   <link rel="stylesheet" href="/assets/css/tokens-hybrid.css">
-
   <!-- Page-specific JS -->
   
-
   <!-- Contact Schema -->
   
-
   <!-- Structured Data (HowTo/TechArticle) -->
   
   
@@ -40,10 +32,216 @@
 </script>
 
   
-
   <!-- FAQPage Structured Data -->
   
-
   <!-- Success Page Confetti Script -->
   
+
 </head>
+<body>
+  <h1 id="tillerstead-logo-assets">Tillerstead Logo Assets</h1>
+
+<p>This directory contains all official Tillerstead LLC branding assets optimized for web use.</p>
+
+<hr />
+
+<h2 id="-sprite-system-recommended">🎨 Sprite System (Recommended)</h2>
+
+<p><strong>Primary Implementation</strong>: Use the SVG sprite system for all logo implementations.</p>
+
+<p><strong>File</strong>: <code class="language-plaintext highlighter-rouge">tillerstead-logo-sprite.svg</code><br />
+<strong>Documentation</strong>: <a href="/docs/LOGO_SYSTEM.md">/docs/LOGO_SYSTEM.md</a></p>
+
+<h3 id="quick-start">Quick Start</h3>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     
+
+&lt;a
+  href="/"
+  class="ts-logo-link"
+  data-logo-link
+  aria-label="Tillerstead LLC - Home"
+&gt;
+  &lt;svg
+    class="ts-logo"
+    role="img"
+    aria-label="Tillerstead LLC"
+  &gt;
+    &lt;use href="#logo-mark-mono"&gt;&lt;/use&gt;
+  &lt;/svg&gt;
+&lt;/a&gt;
+
+</code></pre></div></div>
+
+<p>Available symbols:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">logo-mark</code> / <code class="language-plaintext highlighter-rouge">logo-mark-mono</code> – Icon only</li>
+  <li><code class="language-plaintext highlighter-rouge">logo-full</code> / <code class="language-plaintext highlighter-rouge">logo-full-mono</code> – Full horizontal logo</li>
+  <li><code class="language-plaintext highlighter-rouge">logo-stacked</code> / <code class="language-plaintext highlighter-rouge">logo-stacked-mono</code> – Vertical stacked</li>
+</ul>
+
+<hr />
+
+<h2 id="-individual-logo-files">📁 Individual Logo Files</h2>
+
+<h3 id="header-logos">Header Logos</h3>
+
+<ul>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">tillerstead-logo-header.svg</code></strong><br />
+Primary horizontal logo for light backgrounds</p>
+  </li>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">tillerstead-logo-header-dark.svg</code></strong><br />
+Header logo optimized for dark backgrounds</p>
+  </li>
+</ul>
+
+<h3 id="full-logos">Full Logos</h3>
+
+<ul>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">tillerstead-logo-full.svg</code></strong><br />
+Complete logo with tagline and New Jersey HIC license<br />
+<em>Use: Marketing materials, hero sections</em></p>
+  </li>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">tillerstead-logo-stacked.svg</code></strong><br />
+Vertical/stacked version for narrow spaces<br />
+<em>Use: Sidebars, mobile layouts, vertical banners</em></p>
+  </li>
+</ul>
+
+<h3 id="iconmark-logos">Icon/Mark Logos</h3>
+
+<ul>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">tillerstead-logo-mark.svg</code></strong><br />
+Standalone tile “T” mark<br />
+<em>Use: Favicons, app icons, social media avatars</em></p>
+  </li>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">tillerstead-logo-mark-with-word.svg</code></strong><br />
+Compact lockup with wordmark<br />
+<em>Use: Inline contexts, compact headers</em></p>
+  </li>
+</ul>
+
+<h3 id="inversedark-theme">Inverse/Dark Theme</h3>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">tillerstead-inverse.svg</code></strong><br />
+Light-on-dark inverse logo<br />
+<em>Use: Dark backgrounds, footer, overlays</em></li>
+</ul>
+
+<h3 id="favicon">Favicon</h3>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">tillerstead-favicon.svg</code></strong><br />
+Optimized favicon base mark<br />
+<em>Use: Browser tabs, bookmarks</em></li>
+</ul>
+
+<hr />
+
+<h2 id="-sprite-system">🧩 Sprite System</h2>
+
+<p><strong><code class="language-plaintext highlighter-rouge">tillerstead-logo-sprite.svg</code></strong><br />
+Complete SVG symbol sprite with all logo variants.</p>
+
+<p><strong>Benefits:</strong></p>
+
+<ul>
+  <li>Single HTTP request (cached)</li>
+  <li>CSS variable theming</li>
+  <li>Consistent rendering</li>
+  <li>Performance optimized</li>
+</ul>
+
+<p><strong>Full documentation</strong>: <a href="/docs/LOGO_SYSTEM.md">/docs/LOGO_SYSTEM.md</a></p>
+
+<hr />
+
+<h2 id="-usage-guidelines">🎯 Usage Guidelines</h2>
+
+<h3 id="minimum-sizes">Minimum Sizes</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Logo Type</th>
+      <th>Minimum Width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Mark Only</td>
+      <td>48px</td>
+    </tr>
+    <tr>
+      <td>Full Logo</td>
+      <td>180px</td>
+    </tr>
+    <tr>
+      <td>Stacked Logo</td>
+      <td>120px</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="color-specifications">Color Specifications</h3>
+
+<ul>
+  <li><strong>Kelly Green</strong>: <code class="language-plaintext highlighter-rouge">#078930</code> (tile fill)</li>
+  <li><strong>Golden Yellow</strong>: <code class="language-plaintext highlighter-rouge">#FCDD09</code> (tile stroke)</li>
+  <li><strong>Tillerstead Red</strong>: <code class="language-plaintext highlighter-rouge">#DA121A</code> (wordmark)</li>
+  <li><strong>Monochrome</strong>: <code class="language-plaintext highlighter-rouge">currentColor</code> (inherits)</li>
+</ul>
+
+<h3 id="brand-compliance">Brand Compliance</h3>
+
+<p>See <a href="/.ai/STYLE.md">/.ai/STYLE.md</a> for official brand standards.</p>
+
+<hr />
+
+<h2 id="-performance">🚀 Performance</h2>
+
+<p>All SVG files are:</p>
+
+<ul>
+  <li>Optimized and minified</li>
+  <li>Accessible (ARIA labels included)</li>
+  <li>Responsive (viewBox-based scaling)</li>
+  <li>Cacheable (immutable URLs)</li>
+</ul>
+
+<p><strong>Sprite preload</strong> (in <code class="language-plaintext highlighter-rouge">_includes/head.html</code>):</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span>
+  <span class="na">rel=</span><span class="s">"preload"</span>
+  <span class="na">as=</span><span class="s">"image"</span>
+  <span class="na">href=</span><span class="s">"/assets/img/logo/tillerstead-logo-sprite.svg"</span>
+  <span class="na">type=</span><span class="s">"image/svg+xml"</span>
+  <span class="na">fetchpriority=</span><span class="s">"high"</span>
+<span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="-documentation">📚 Documentation</h2>
+
+<ul>
+  <li><strong>Implementation Guide</strong>: <a href="/docs/LOGO_SYSTEM.md">/docs/LOGO_SYSTEM.md</a></li>
+  <li><strong>Brand Standards</strong>: <a href="/.ai/STYLE.md">/.ai/STYLE.md</a></li>
+  <li><strong>Component Usage</strong>: <a href="/docs/LOGO_SYSTEM.md#usage">/docs/LOGO_SYSTEM.md#usage</a></li>
+</ul>
+
+<hr />
+
+<p><strong>New Jersey HIC</strong>: #13VH10808800<br />
+<strong>Last Updated</strong>: 2025-12-26</p>
+
+
+</body>

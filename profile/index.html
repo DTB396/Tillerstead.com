@@ -1,7 +1,5 @@
+<!DOCTYPE html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PowerShell profile setup</title>
   <!DOCTYPE html>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,18 +12,12 @@
 
 <link rel="stylesheet" href="/assets/css/style.css?v=2025-11-23.1">
 
-
-  <!-- Core Styles -->
-  <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" href="/assets/css/root-vars.css">
   <link rel="stylesheet" href="/assets/css/tokens-hybrid.css">
-
   <!-- Page-specific JS -->
   
-
   <!-- Contact Schema -->
   
-
   <!-- Structured Data (HowTo/TechArticle) -->
   
   
@@ -40,10 +32,47 @@
 </script>
 
   
-
   <!-- FAQPage Structured Data -->
   
-
   <!-- Success Page Confetti Script -->
   
+
 </head>
+<body>
+  <h1 id="powershell-profile-setup">PowerShell profile setup</h1>
+
+<ol>
+  <li>Copy <code class="language-plaintext highlighter-rouge">profile/Microsoft.PowerShell_profile.ps1</code> to your PowerShell profile path.
+    <ul>
+      <li>Find the path with <code class="language-plaintext highlighter-rouge">$PROFILE</code> (for the current user/current host) or <code class="language-plaintext highlighter-rouge">$PROFILE.CurrentUserAllHosts</code>.</li>
+    </ul>
+  </li>
+  <li>Keep <code class="language-plaintext highlighter-rouge">profile.ps1</code> and the <code class="language-plaintext highlighter-rouge">functions/</code> folder together in the same directory as the profile file.</li>
+  <li>Restart PowerShell to load the profile.</li>
+</ol>
+
+<p>The <code class="language-plaintext highlighter-rouge">Microsoft.PowerShell_profile.ps1</code> file loads <code class="language-plaintext highlighter-rouge">profile.ps1</code>, which imports all modular functions and
+runs startup helpers (like system info) on session start.</p>
+
+<h2 id="command-center">Command center</h2>
+
+<p>The command center reads its entries from <code class="language-plaintext highlighter-rouge">profile/command-database.json</code>. Each entry can contain:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">name</code>: the command set name.</li>
+  <li><code class="language-plaintext highlighter-rouge">description</code>: a short explanation shown in the menu.</li>
+  <li><code class="language-plaintext highlighter-rouge">tags</code>: optional labels used in the menu output.</li>
+  <li><code class="language-plaintext highlighter-rouge">commands</code>: PowerShell commands to run in order.</li>
+  <li><code class="language-plaintext highlighter-rouge">includes</code>: optional list of other command set names to expand.</li>
+</ul>
+
+<p>Run the command center with:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">command-center</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Or execute a specific set directly:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Invoke-CommandSet</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="s2">"daily-core-workflow"</span><span class="w">
+</span></code></pre></div></div>
+
+</body>

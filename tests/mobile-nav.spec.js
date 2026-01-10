@@ -7,7 +7,7 @@ import { expect, test } from '@playwright/test';
 
 test.describe('Mobile Navigation Drawer', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/'); // baseURL is set in Playwright config
     // Set mobile viewport
     await page.setViewportSize({ width: 390, height: 844 });
   });
