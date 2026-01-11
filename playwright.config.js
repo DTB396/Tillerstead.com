@@ -13,8 +13,8 @@ export default defineConfig({
 
   reporter: [
     ['list'],
-    ['html', { outputFolder: 'test-results/html' }],
-    ['json', { outputFile: 'test-results/results.json' }],
+    ['html', { outputFolder: 'playwright-report/html' }],
+    ['json', { outputFile: 'playwright-report/results.json' }],
   ],
 
   use: {

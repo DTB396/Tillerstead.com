@@ -57,6 +57,62 @@
         
           
           
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              href="/services/"
+              
+            >
+              Services
+              
+            </a>
+            
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              href="/portfolio/"
+              
+            >
+              Our Work
+              
+            </a>
+            
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              href="/products/"
+              
+            >
+              Products
+              
+            </a>
+            
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              href="/reviews/"
+              
+            >
+              Reviews
+              
+            </a>
+            
+          </li>
+        
+          
+          
           <li class="nav-item has-children">
             <a
               class="nav-link active"
@@ -167,157 +223,19 @@
         
           
           
-          <li class="nav-item">
-            <a
-              class="nav-link active"
-              href="/portfolio/"
-              
-            >
-              Portfolio
-              
-            </a>
-            
-          </li>
-        
-          
-          
-          <li class="nav-item">
-            <a
-              class="nav-link active"
-              href="/reviews/"
-              
-            >
-              Reviews
-              
-            </a>
-            
-          </li>
-        
-          
-          
           <li class="nav-item has-children">
             <a
               class="nav-link active"
               href=""
               data-dropdown-toggle aria-expanded="false"
             >
-              Learn
+              Company
               
                 <span class="nav-caret" aria-hidden="true">&#x25BE;</span>
               
             </a>
             
-              <ul class="nav-dropdown" aria-label="Learn submenu">
-                
-                  
-                  <li>
-                    <a
-                      class="nav-dropdown-link active"
-                      href="/faq/"
-                    >
-                      FAQ
-                    </a>
-                  </li>
-                
-                  
-                  <li>
-                    <a
-                      class="nav-dropdown-link active"
-                      href="/download/nj-tile-guide/"
-                    >
-                      Free Tile Guide
-                    </a>
-                  </li>
-                
-                  
-                  <li>
-                    <a
-                      class="nav-dropdown-link active"
-                      href="/blog/"
-                    >
-                      Articles
-                    </a>
-                  </li>
-                
-                  
-                  <li>
-                    <a
-                      class="nav-dropdown-link active"
-                      href="/recommended-products/"
-                    >
-                      Materials
-                    </a>
-                  </li>
-                
-              </ul>
-            
-          </li>
-        
-          
-          
-          <li class="nav-item has-children">
-            <a
-              class="nav-link active"
-              href=""
-              data-dropdown-toggle aria-expanded="false"
-            >
-              Service Areas
-              
-                <span class="nav-caret" aria-hidden="true">&#x25BE;</span>
-              
-            </a>
-            
-              <ul class="nav-dropdown" aria-label="Service Areas submenu">
-                
-                  
-                  <li>
-                    <a
-                      class="nav-dropdown-link active"
-                      href="/atlantic-county-nj/"
-                    >
-                      Atlantic County
-                    </a>
-                  </li>
-                
-                  
-                  <li>
-                    <a
-                      class="nav-dropdown-link active"
-                      href="/ocean-county-nj/"
-                    >
-                      Ocean County
-                    </a>
-                  </li>
-                
-                  
-                  <li>
-                    <a
-                      class="nav-dropdown-link active"
-                      href="/cape-may-county-nj/"
-                    >
-                      Cape May County
-                    </a>
-                  </li>
-                
-              </ul>
-            
-          </li>
-        
-          
-          
-          <li class="nav-item has-children">
-            <a
-              class="nav-link active"
-              href=""
-              data-dropdown-toggle aria-expanded="false"
-            >
-              About
-              
-                <span class="nav-caret" aria-hidden="true">&#x25BE;</span>
-              
-            </a>
-            
-              <ul class="nav-dropdown" aria-label="About submenu">
+              <ul class="nav-dropdown" aria-label="Company submenu">
                 
                   
                   <li>
@@ -325,7 +243,7 @@
                       class="nav-dropdown-link active"
                       href="/about/"
                     >
-                      About Tillerstead
+                      About
                     </a>
                   </li>
                 
@@ -353,6 +271,20 @@
             
           </li>
         
+          
+          
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              href="/contact/"
+              
+            >
+              Contact
+              
+            </a>
+            
+          </li>
+        
       </ul>
     </nav>
 
@@ -376,7 +308,7 @@
 
     </div>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu" aria-haspopup="true" aria-controls="mobile-nav" aria-pressed="false">
       <span class="nav-toggle-icon" aria-hidden="true">
         <span></span>
         <span></span>
@@ -389,51 +321,55 @@
   <div class="mobile-nav-shell" data-nav-container>
     <!-- TEST MARKER: If you see this, mobile nav shell is rendered -->
     <div id="test-nav-marker" style="background: #ff0; color: #000; font-weight: bold; padding: 4px;">TEST NAV MARKER</div>
-    <!-- E2E TEST OVERRIDE: Force mobile nav/backdrop visibility for Playwright -->
-    <style>
-      .mobile-nav-shell.is-open,
-      .mobile-nav.is-open,
-      .mobile-nav-backdrop.is-open {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        z-index: 9999 !important;
-        overflow: visible !important;
-        position: fixed !important;
-        left: 0 !important;
-        top: 0 !important;
-        width: 100vw !important;
-        height: 100vh !important;
-      }
-      .mobile-nav-backdrop.is-open {
-        background: rgba(0,0,0,0.5) !important;
-      }
-      .mobile-nav.is-open {
-        background: #fff !important;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.18) !important;
-      }
-    </style>
     <div class="mobile-nav-backdrop" data-nav-overlay></div>
     <nav class="mobile-nav" id="mobile-nav" aria-expanded="false" role="navigation">
-        <div class="mobile-nav-header" role="navigation">
+      <div class="mobile-nav-header" role="navigation">
         <span class="mobile-nav-title">Menu</span>
-        <button class="nav-close" type="button" data-nav-close aria-label="Close navigation">
-          ✕
-        </button>
+        <button class="nav-close" type="button" data-nav-close aria-label="Close navigation">✕</button>
       </div>
-
       <ul class="mobile-menu">
         
           
           
           
+            <li class="mobile-nav-item">
+              <a class="mobile-nav-link active" href="/services/">Services</a>
+            </li>
+          
+        
+          
+          
+          
+            <li class="mobile-nav-item">
+              <a class="mobile-nav-link active" href="/portfolio/">Our Work</a>
+            </li>
+          
+        
+          
+          
+          
+            <li class="mobile-nav-item">
+              <a class="mobile-nav-link active" href="/products/">Products</a>
+            </li>
+          
+        
+          
+          
+          
+            <li class="mobile-nav-item">
+              <a class="mobile-nav-link active" href="/reviews/">Reviews</a>
+            </li>
+          
+        
+          
+          
+          
             <li class="mobile-nav-item mobile-nav-item--section">
               <div class="mobile-nav-section-header">
-                <a class="mobile-nav-link mobile-nav-link--parent active" href="/build/">
-                  Build Guides
-                </a>
-                  <button class="mobile-subtoggle" type="button" data-mobile-subtoggle aria-expanded="false" aria-label="Toggle Build Guides menu">
+                
+                  <a class="mobile-nav-link mobile-nav-link--parent active" href="/build/">Build Guides</a>
+                
+                <button class="mobile-subtoggle" type="button" data-mobile-subtoggle aria-expanded="false" aria-label="Toggle Build Guides menu">
                   <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
                     <path d="M5 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
@@ -443,65 +379,82 @@
                 
                   
                   <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/build/">
-                      Build Phases (Compliance)
-                    </a>
+                    <a class="mobile-nav-link mobile-sublink active" href="/build/">Build Phases (Compliance)</a>
                   </li>
                 
                   
                   <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/build/nj-codes-permits/">
-                      Codes &amp; Permits
-                    </a>
+                    <a class="mobile-nav-link mobile-sublink active" href="/build/nj-codes-permits/">Codes &amp; Permits</a>
                   </li>
                 
                   
                   <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/build/shower-pans-slopes-drains/">
-                      Shower Pans &amp; Slopes
-                    </a>
+                    <a class="mobile-nav-link mobile-sublink active" href="/build/shower-pans-slopes-drains/">Shower Pans &amp; Slopes</a>
                   </li>
                 
                   
                   <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/build/waterproofing-systems/">
-                      Waterproofing
-                    </a>
+                    <a class="mobile-nav-link mobile-sublink active" href="/build/waterproofing-systems/">Waterproofing</a>
                   </li>
                 
                   
                   <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/build/curbs-curbless/">
-                      Thresholds &amp; Curbs
-                    </a>
+                    <a class="mobile-nav-link mobile-sublink active" href="/build/curbs-curbless/">Thresholds &amp; Curbs</a>
                   </li>
                 
                   
                   <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/build/framing-benches-niches/">
-                      Benches &amp; Niches
-                    </a>
+                    <a class="mobile-nav-link mobile-sublink active" href="/build/framing-benches-niches/">Benches &amp; Niches</a>
                   </li>
                 
                   
                   <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/build/tile-installation-standards/">
-                      Tile Installation
-                    </a>
+                    <a class="mobile-nav-link mobile-sublink active" href="/build/tile-installation-standards/">Tile Installation</a>
                   </li>
                 
                   
                   <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/build/flood-testing/">
-                      Verification &amp; Testing
-                    </a>
+                    <a class="mobile-nav-link mobile-sublink active" href="/build/flood-testing/">Verification &amp; Testing</a>
                   </li>
                 
                   
                   <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/build/common-build-failures/">
-                      Common Failures
-                    </a>
+                    <a class="mobile-nav-link mobile-sublink active" href="/build/common-build-failures/">Common Failures</a>
+                  </li>
+                
+              </ul>
+            </li>
+          
+        
+          
+          
+          
+            <li class="mobile-nav-item mobile-nav-item--section">
+              <div class="mobile-nav-section-header">
+                
+                  <span class="mobile-nav-link mobile-nav-link--parent">Company</span>
+                
+                <button class="mobile-subtoggle" type="button" data-mobile-subtoggle aria-expanded="false" aria-label="Toggle Company menu">
+                  <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <path d="M5 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+              </div>
+              <ul class="mobile-submenu" data-mobile-submenu>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/about/">About</a>
+                  </li>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/contact/">Get an Estimate</a>
+                  </li>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/for-general-contractors/">For Contractors</a>
                   </li>
                 
               </ul>
@@ -512,159 +465,39 @@
           
           
             <li class="mobile-nav-item">
-              <a class="mobile-nav-link active" href="/portfolio/">
-                Portfolio
-              </a>
-            </li>
-          
-        
-          
-          
-          
-            <li class="mobile-nav-item">
-              <a class="mobile-nav-link active" href="/reviews/">
-                Reviews
-              </a>
-            </li>
-          
-        
-          
-          
-          
-            <li class="mobile-nav-item mobile-nav-item--section">
-              <div class="mobile-nav-section-header">
-                <a class="mobile-nav-link mobile-nav-link--parent active" href="">
-                  Learn
-                </a>
-                  <button class="mobile-subtoggle" type="button" data-mobile-subtoggle aria-expanded="false" aria-label="Toggle Learn menu">
-                  <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
-                    <path d="M5 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </button>
-              </div>
-              <ul class="mobile-submenu" data-mobile-submenu>
-                
-                  
-                  <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/faq/">
-                      FAQ
-                    </a>
-                  </li>
-                
-                  
-                  <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/download/nj-tile-guide/">
-                      Free Tile Guide
-                    </a>
-                  </li>
-                
-                  
-                  <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/blog/">
-                      Articles
-                    </a>
-                  </li>
-                
-                  
-                  <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/recommended-products/">
-                      Materials
-                    </a>
-                  </li>
-                
-              </ul>
-            </li>
-          
-        
-          
-          
-          
-            <li class="mobile-nav-item mobile-nav-item--section">
-              <div class="mobile-nav-section-header">
-                <a class="mobile-nav-link mobile-nav-link--parent active" href="">
-                  Service Areas
-                </a>
-                  <button class="mobile-subtoggle" type="button" data-mobile-subtoggle aria-expanded="false" aria-label="Toggle Service Areas menu">
-                  <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
-                    <path d="M5 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </button>
-              </div>
-              <ul class="mobile-submenu" data-mobile-submenu>
-                
-                  
-                  <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/atlantic-county-nj/">
-                      Atlantic County
-                    </a>
-                  </li>
-                
-                  
-                  <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/ocean-county-nj/">
-                      Ocean County
-                    </a>
-                  </li>
-                
-                  
-                  <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/cape-may-county-nj/">
-                      Cape May County
-                    </a>
-                  </li>
-                
-              </ul>
-            </li>
-          
-        
-          
-          
-          
-            <li class="mobile-nav-item mobile-nav-item--section">
-              <div class="mobile-nav-section-header">
-                <a class="mobile-nav-link mobile-nav-link--parent active" href="">
-                  About
-                </a>
-                  <button class="mobile-subtoggle" type="button" data-mobile-subtoggle aria-expanded="false" aria-label="Toggle About menu">
-                  <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
-                    <path d="M5 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </button>
-              </div>
-              <ul class="mobile-submenu" data-mobile-submenu>
-                
-                  
-                  <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/about/">
-                      About Tillerstead
-                    </a>
-                  </li>
-                
-                  
-                  <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/contact/">
-                      Get an Estimate
-                    </a>
-                  </li>
-                
-                  
-                  <li>
-                    <a class="mobile-nav-link mobile-sublink active" href="/for-general-contractors/">
-                      For Contractors
-                    </a>
-                  </li>
-                
-              </ul>
+              <a class="mobile-nav-link active" href="/contact/">Contact</a>
             </li>
           
         
       </ul>
-
       <div class="mobile-nav-footer">
-        <a href="/estimate" class="mobile-nav-cta">Request Estimate</a>
-        <a href="tel:555-555-5555" class="mobile-nav-cta">Call</a>
+        <div class="mobile-nav-cta" role="group" aria-label="Contact actions" id="mobile-nav-cta">
+          <a class="mobile-nav-link" id="mobile-nav-estimate" href="/estimate">Request Estimate</a>
+          <a class="mobile-nav-link" id="mobile-nav-call" href="tel:555-555-5555">Call</a>
+        </div>
       </div>
     </nav>
+    <script>
+      // Lock body scroll when nav is open
+      document.addEventListener('DOMContentLoaded', function() {
+        const shell = document.querySelector('.mobile-nav-shell');
+        const nav = document.getElementById('mobile-nav');
+        const backdrop = document.querySelector('.mobile-nav-backdrop');
+        function setBodyLock(lock) {
+          document.body.classList.toggle('nav-open', lock);
+        }
+        function isOpen() {
+          return shell && shell.classList.contains('is-open');
+        }
+        // Observe nav open/close
+        const observer = new MutationObserver(() => {
+          setBodyLock(isOpen());
+        });
+        if (shell) {
+          observer.observe(shell, { attributes: true, attributeFilter: ['class'] });
+        }
+      });
+    </script>
   </div>
 </header>
 
@@ -779,6 +612,18 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
                     
                       
                     
@@ -794,6 +639,18 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
               
                 
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
                 
                   
                   
@@ -817,6 +674,18 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
                     
                       
                     
@@ -836,6 +705,18 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
               
                 
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
                 
                   
                   
@@ -870,6 +751,18 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
                     
                       
                     
@@ -894,28 +787,44 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
-                
-                  
-                  
-                
-                  
-                  
                     
                       
-                        
-                        
                     
+                      
+                    
+                      
+                    
+                    
+                  
+                
+                  
+                  
                 
                 
-                  <li>
-                    <a class="footer-link" href="/faq/">FAQ</a>
-                  </li>
+                  
+                    
+                  
+                    
+                  
+                
                 
               
                 
                 
                   
                   
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
                     
                       
                     
@@ -940,30 +849,44 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
-                
-                  
-                  
-                
-                  
-                  
                     
                       
                     
                       
-                        
-                        
                     
+                      
+                    
+                    
+                  
+                
+                  
+                  
                 
                 
-                  <li>
-                    <a class="footer-link" href="/download/nj-tile-guide/">Free Tile Guide</a>
-                  </li>
+                  
+                    
+                  
+                    
+                  
+                
                 
               
                 
                 
                   
                   
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
                     
                       
                     
@@ -988,77 +911,43 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
-                
-                  
-                  
-                
-                  
-                  
                     
                       
                     
                       
                     
                       
-                        
-                        
                     
+                    
+                  
+                
+                  
+                  
                 
                 
-                  <li>
-                    <a class="footer-link" href="/blog/">Articles</a>
-                  </li>
+                  
+                    
+                  
+                    
+                  
+                
                 
               
                 
                 
                   
                   
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    
-                  
                 
                   
                   
                 
                   
-                  
-                
-                  
-                  
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                        
-                        
                     
                 
                 
                   <li>
-                    <a class="footer-link" href="/recommended-products/">Materials</a>
+                    <a class="footer-link" href="/products/">Products</a>
                   </li>
                 
               
@@ -1108,6 +997,18 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
                     
                       
                     
@@ -1132,14 +1033,6 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
-                
-                  
-                  
-                
-                  
-                  
-                    
-                      
                     
                       
                     
@@ -1152,22 +1045,32 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
-                    
-                      
-                        
-                        
-                    
                 
                 
-                  <li>
-                    <a class="footer-link" href="/atlantic-county-nj/">Atlantic County</a>
-                  </li>
+                  
+                    
+                  
+                    
+                  
+                
                 
               
                 
                 
                   
                   
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
                     
                       
                     
@@ -1192,14 +1095,6 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
-                
-                  
-                  
-                
-                  
-                  
-                    
-                      
                     
                       
                     
@@ -1212,24 +1107,32 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
-                    
-                      
-                    
-                      
-                        
-                        
-                    
                 
                 
-                  <li>
-                    <a class="footer-link" href="/ocean-county-nj/">Ocean County</a>
-                  </li>
+                  
+                    
+                  
+                    
+                  
+                
                 
               
                 
                 
                   
                   
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
                     
                       
                     
@@ -1254,14 +1157,6 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
-                
-                  
-                  
-                
-                  
-                  
-                    
-                      
                     
                       
                     
@@ -1274,20 +1169,14 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
-                    
-                      
-                    
-                      
-                    
-                      
-                        
-                        
-                    
                 
                 
-                  <li>
-                    <a class="footer-link" href="/cape-may-county-nj/">Cape May County</a>
-                  </li>
+                  
+                    
+                  
+                    
+                  
+                
                 
               
             </ul>
@@ -1301,26 +1190,8 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    
+                
+                  
                   
                 
                   
@@ -1340,11 +1211,9 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                     
                       
                     
+                      
                     
-                  
-                
-                  
-                  
+                      
                     
                       
                     
@@ -1365,7 +1234,7 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                 
                   <li>
-                    <a class="footer-link" href="/about/">About Tillerstead</a>
+                    <a class="footer-link" href="/about/">About</a>
                   </li>
                 
               
@@ -1373,26 +1242,8 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    
+                
+                  
                   
                 
                   
@@ -1412,11 +1263,9 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                     
                       
                     
+                      
                     
-                  
-                
-                  
-                  
+                      
                     
                       
                     
@@ -1456,26 +1305,8 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    
+                
+                  
                   
                 
                   
@@ -1486,6 +1317,16 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
                     
                       
                     
@@ -1511,15 +1352,6 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                   
                 
                   
-                  
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    
                   
                 
                 
@@ -1538,26 +1370,8 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    
+                
+                  
                   
                 
                   
@@ -1568,6 +1382,16 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                 
                   
                   
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
                     
                       
                     
@@ -1593,15 +1417,6 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
                   
                 
                   
-                  
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    
                   
                 
                 
