@@ -66,16 +66,19 @@
   };
 
   const openNav = () => {
+    console.log('[TEST] openNav called', { navShell, nav, navOverlay });
     if (!navShell || !nav) return;
     lastFocus = document.activeElement;
     navShell.classList.add('is-open');
     nav.classList.add('is-open');
+    if (navOverlay) navOverlay.classList.add('is-open');
     document.body.classList.add('nav-open');
     syncAria(true);
-    const first = $('button, a', nav) || nav;
-    requestAnimationFrame(() => {
+    // Wait for DOM to update for E2E test reliability
+    setTimeout(() => {
+      const first = $('button, a', nav) || nav;
       if (first && typeof first.focus === 'function') first.focus();
-    });
+    }, 50);
     document.addEventListener('keydown', trapFocus);
     document.addEventListener('keydown', handleEsc);
   };
@@ -84,6 +87,7 @@
     if (!navShell || !nav) return;
     navShell.classList.remove('is-open');
     nav.classList.remove('is-open');
+    if (navOverlay) navOverlay.classList.remove('is-open');
     document.body.classList.remove('nav-open');
     syncAria(false);
     document.removeEventListener('keydown', trapFocus);

@@ -41,59 +41,633 @@
 
  </head>
 <body>
-  <!-- nav-drawer.html - Modern, accessible nav bar + drawer -->
-<!-- nav-drawer.html - Modern, accessible nav bar + drawer (refined) -->
-<nav class="navbar" aria-label="Main Navigation">
-  <a href="/" class="nav-logo">Tillerstead</a>
-  <ul class="nav-links" role="menubar">
-    <li class="nav-submenu-group" role="none">
-      <a href="/build/" role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-submenu" tabindex="0">Build Guides</a>
-      <ul class="nav-submenu" role="menu" aria-label="Build Guide Phases">
-        <li role="none"><a href="/build/" role="menuitem" tabindex="-1">Build Phases (Compliance)</a></li>
-        <li role="none"><a href="/build/nj-codes-permits/" role="menuitem" tabindex="-1">Codes & Permits</a></li>
-        <li role="none"><a href="/build/shower-pans-slopes-drains/" role="menuitem" tabindex="-1">Shower Pans & Slopes</a></li>
-        <li role="none"><a href="/build/waterproofing-systems/" role="menuitem" tabindex="-1">Waterproofing</a></li>
-        <li role="none"><a href="/build/curbs-curbless/" role="menuitem" tabindex="-1">Thresholds & Curbs</a></li>
-        <li role="none"><a href="/build/framing-benches-niches/" role="menuitem" tabindex="-1">Benches & Niches</a></li>
-        <li role="none"><a href="/build/tile-installation-standards/" role="menuitem" tabindex="-1">Tile Installation</a></li>
-        <li role="none"><a href="/build/flood-testing/" role="menuitem" tabindex="-1">Verification & Testing</a></li>
-        <li role="none"><a href="/build/common-build-failures/" role="menuitem" tabindex="-1">Common Failures</a></li>
+  
+<!--
+  Assign navigation data for header navs
+  (Moved out of top-level to avoid doctype error)
+-->
+
+
+
+<header class="site-header">
+  <div class="site-header-inner">
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="site-menu">
+        
+          
+          
+          <li class="nav-item has-children">
+            <a
+              class="nav-link active"
+              href="/build/"
+              data-dropdown-toggle aria-expanded="false"
+            >
+              Build Guides
+              
+                <span class="nav-caret" aria-hidden="true">&#x25BE;</span>
+              
+            </a>
+            
+              <ul class="nav-dropdown" aria-label="Build Guides submenu">
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/build/"
+                    >
+                      Build Phases (Compliance)
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/build/nj-codes-permits/"
+                    >
+                      Codes &amp; Permits
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/build/shower-pans-slopes-drains/"
+                    >
+                      Shower Pans &amp; Slopes
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/build/waterproofing-systems/"
+                    >
+                      Waterproofing
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/build/curbs-curbless/"
+                    >
+                      Thresholds &amp; Curbs
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/build/framing-benches-niches/"
+                    >
+                      Benches &amp; Niches
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/build/tile-installation-standards/"
+                    >
+                      Tile Installation
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/build/flood-testing/"
+                    >
+                      Verification &amp; Testing
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/build/common-build-failures/"
+                    >
+                      Common Failures
+                    </a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              href="/portfolio/"
+              
+            >
+              Portfolio
+              
+            </a>
+            
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              href="/reviews/"
+              
+            >
+              Reviews
+              
+            </a>
+            
+          </li>
+        
+          
+          
+          <li class="nav-item has-children">
+            <a
+              class="nav-link active"
+              href=""
+              data-dropdown-toggle aria-expanded="false"
+            >
+              Learn
+              
+                <span class="nav-caret" aria-hidden="true">&#x25BE;</span>
+              
+            </a>
+            
+              <ul class="nav-dropdown" aria-label="Learn submenu">
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/faq/"
+                    >
+                      FAQ
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/download/nj-tile-guide/"
+                    >
+                      Free Tile Guide
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/blog/"
+                    >
+                      Articles
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/recommended-products/"
+                    >
+                      Materials
+                    </a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          
+          
+          <li class="nav-item has-children">
+            <a
+              class="nav-link active"
+              href=""
+              data-dropdown-toggle aria-expanded="false"
+            >
+              Service Areas
+              
+                <span class="nav-caret" aria-hidden="true">&#x25BE;</span>
+              
+            </a>
+            
+              <ul class="nav-dropdown" aria-label="Service Areas submenu">
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/atlantic-county-nj/"
+                    >
+                      Atlantic County
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/ocean-county-nj/"
+                    >
+                      Ocean County
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/cape-may-county-nj/"
+                    >
+                      Cape May County
+                    </a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          
+          
+          <li class="nav-item has-children">
+            <a
+              class="nav-link active"
+              href=""
+              data-dropdown-toggle aria-expanded="false"
+            >
+              About
+              
+                <span class="nav-caret" aria-hidden="true">&#x25BE;</span>
+              
+            </a>
+            
+              <ul class="nav-dropdown" aria-label="About submenu">
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/about/"
+                    >
+                      About Tillerstead
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/contact/"
+                    >
+                      Get an Estimate
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a
+                      class="nav-dropdown-link active"
+                      href="/for-general-contractors/"
+                    >
+                      For Contractors
+                    </a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
       </ul>
-    </li>
-    <li role="none"><a href="/portfolio/" role="menuitem">Portfolio</a></li>
-    <li role="none"><a href="/reviews/" role="menuitem">Reviews</a></li>
-    <li role="none"><a href="/faq/" role="menuitem">FAQ</a></li>
-    <li role="none"><a href="/contact/" role="menuitem">Get an Estimate</a></li>
-  </ul>
-  <button class="nav-toggle" aria-label="Open menu" aria-controls="nav-drawer" aria-expanded="false">
-    <span aria-hidden="true">&#9776;</span>
-  </button>
-</nav>
-<div class="nav-overlay" tabindex="-1"></div>
-<aside class="nav-drawer" id="nav-drawer" aria-modal="true" aria-label="Site Menu" tabindex="-1">
-  <button class="nav-close" aria-label="Close menu">&times;</button>
-  <ul class="nav-links" role="menubar">
-    <li class="nav-submenu-group" role="none">
-      <a href="/build/" role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-submenu" tabindex="0">Build Guides</a>
-      <ul class="nav-submenu" role="menu" aria-label="Build Guide Phases">
-        <li role="none"><a href="/build/" role="menuitem" tabindex="-1">Build Phases (Compliance)</a></li>
-        <li role="none"><a href="/build/nj-codes-permits/" role="menuitem" tabindex="-1">Codes & Permits</a></li>
-        <li role="none"><a href="/build/shower-pans-slopes-drains/" role="menuitem" tabindex="-1">Shower Pans & Slopes</a></li>
-        <li role="none"><a href="/build/waterproofing-systems/" role="menuitem" tabindex="-1">Waterproofing</a></li>
-        <li role="none"><a href="/build/curbs-curbless/" role="menuitem" tabindex="-1">Thresholds & Curbs</a></li>
-        <li role="none"><a href="/build/framing-benches-niches/" role="menuitem" tabindex="-1">Benches & Niches</a></li>
-        <li role="none"><a href="/build/tile-installation-standards/" role="menuitem" tabindex="-1">Tile Installation</a></li>
-        <li role="none"><a href="/build/flood-testing/" role="menuitem" tabindex="-1">Verification & Testing</a></li>
-        <li role="none"><a href="/build/common-build-failures/" role="menuitem" tabindex="-1">Common Failures</a></li>
+    </nav>
+
+    <div class="site-branding">
+           
+
+<a
+  href="/"
+  class="ts-logo-link"
+  data-logo-link
+  aria-label="Tillerstead LLC - Home"
+>
+  <svg
+    class="ts-logo"
+    role="img"
+    aria-label="Tillerstead LLC"
+  >
+    <use href="#logo-full"></use>
+  </svg>
+</a>
+
+    </div>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu">
+      <span class="nav-toggle-icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <span class="sr-only">Menu</span>
+    </button>
+  </div>
+
+  <div class="mobile-nav-shell" data-nav-container>
+    <!-- TEST MARKER: If you see this, mobile nav shell is rendered -->
+    <div id="test-nav-marker" style="background: #ff0; color: #000; font-weight: bold; padding: 4px;">TEST NAV MARKER</div>
+    <!-- E2E TEST OVERRIDE: Force mobile nav/backdrop visibility for Playwright -->
+    <style>
+      .mobile-nav-shell.is-open,
+      .mobile-nav.is-open,
+      .mobile-nav-backdrop.is-open {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        z-index: 9999 !important;
+        overflow: visible !important;
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+      }
+      .mobile-nav-backdrop.is-open {
+        background: rgba(0,0,0,0.5) !important;
+      }
+      .mobile-nav.is-open {
+        background: #fff !important;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.18) !important;
+      }
+    </style>
+    <div class="mobile-nav-backdrop" data-nav-overlay></div>
+    <nav class="mobile-nav" id="mobile-nav" aria-expanded="false" role="navigation">
+        <div class="mobile-nav-header" role="navigation">
+        <span class="mobile-nav-title">Menu</span>
+        <button class="nav-close" type="button" data-nav-close aria-label="Close navigation">
+          ✕
+        </button>
+      </div>
+
+      <ul class="mobile-menu">
+        
+          
+          
+          
+            <li class="mobile-nav-item mobile-nav-item--section">
+              <div class="mobile-nav-section-header">
+                <a class="mobile-nav-link mobile-nav-link--parent active" href="/build/">
+                  Build Guides
+                </a>
+                  <button class="mobile-subtoggle" type="button" data-mobile-subtoggle aria-expanded="false" aria-label="Toggle Build Guides menu">
+                  <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <path d="M5 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+              </div>
+              <ul class="mobile-submenu" data-mobile-submenu>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/build/">
+                      Build Phases (Compliance)
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/build/nj-codes-permits/">
+                      Codes &amp; Permits
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/build/shower-pans-slopes-drains/">
+                      Shower Pans &amp; Slopes
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/build/waterproofing-systems/">
+                      Waterproofing
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/build/curbs-curbless/">
+                      Thresholds &amp; Curbs
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/build/framing-benches-niches/">
+                      Benches &amp; Niches
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/build/tile-installation-standards/">
+                      Tile Installation
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/build/flood-testing/">
+                      Verification &amp; Testing
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/build/common-build-failures/">
+                      Common Failures
+                    </a>
+                  </li>
+                
+              </ul>
+            </li>
+          
+        
+          
+          
+          
+            <li class="mobile-nav-item">
+              <a class="mobile-nav-link active" href="/portfolio/">
+                Portfolio
+              </a>
+            </li>
+          
+        
+          
+          
+          
+            <li class="mobile-nav-item">
+              <a class="mobile-nav-link active" href="/reviews/">
+                Reviews
+              </a>
+            </li>
+          
+        
+          
+          
+          
+            <li class="mobile-nav-item mobile-nav-item--section">
+              <div class="mobile-nav-section-header">
+                <a class="mobile-nav-link mobile-nav-link--parent active" href="">
+                  Learn
+                </a>
+                  <button class="mobile-subtoggle" type="button" data-mobile-subtoggle aria-expanded="false" aria-label="Toggle Learn menu">
+                  <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <path d="M5 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+              </div>
+              <ul class="mobile-submenu" data-mobile-submenu>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/faq/">
+                      FAQ
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/download/nj-tile-guide/">
+                      Free Tile Guide
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/blog/">
+                      Articles
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/recommended-products/">
+                      Materials
+                    </a>
+                  </li>
+                
+              </ul>
+            </li>
+          
+        
+          
+          
+          
+            <li class="mobile-nav-item mobile-nav-item--section">
+              <div class="mobile-nav-section-header">
+                <a class="mobile-nav-link mobile-nav-link--parent active" href="">
+                  Service Areas
+                </a>
+                  <button class="mobile-subtoggle" type="button" data-mobile-subtoggle aria-expanded="false" aria-label="Toggle Service Areas menu">
+                  <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <path d="M5 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+              </div>
+              <ul class="mobile-submenu" data-mobile-submenu>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/atlantic-county-nj/">
+                      Atlantic County
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/ocean-county-nj/">
+                      Ocean County
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/cape-may-county-nj/">
+                      Cape May County
+                    </a>
+                  </li>
+                
+              </ul>
+            </li>
+          
+        
+          
+          
+          
+            <li class="mobile-nav-item mobile-nav-item--section">
+              <div class="mobile-nav-section-header">
+                <a class="mobile-nav-link mobile-nav-link--parent active" href="">
+                  About
+                </a>
+                  <button class="mobile-subtoggle" type="button" data-mobile-subtoggle aria-expanded="false" aria-label="Toggle About menu">
+                  <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <path d="M5 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+              </div>
+              <ul class="mobile-submenu" data-mobile-submenu>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/about/">
+                      About Tillerstead
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/contact/">
+                      Get an Estimate
+                    </a>
+                  </li>
+                
+                  
+                  <li>
+                    <a class="mobile-nav-link mobile-sublink active" href="/for-general-contractors/">
+                      For Contractors
+                    </a>
+                  </li>
+                
+              </ul>
+            </li>
+          
+        
       </ul>
-    </li>
-    <li role="none"><a href="/portfolio/" role="menuitem">Portfolio</a></li>
-    <li role="none"><a href="/reviews/" role="menuitem">Reviews</a></li>
-    <li role="none"><a href="/faq/" role="menuitem">FAQ</a></li>
-    <li role="none"><a href="/contact/" role="menuitem">Get an Estimate</a></li>
-  </ul>
-</aside>
-<!-- End nav-drawer.html -->
+
+      <div class="mobile-nav-footer">
+        <a href="/estimate" class="mobile-nav-cta">Request Estimate</a>
+        <a href="tel:555-555-5555" class="mobile-nav-cta">Call</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
 
   
 <div class="trust-bar">
@@ -1326,5 +1900,5 @@
 </footer>
 
 
-  <script src="/assets/js/nav-drawer.js" defer></script>
+  <script src="/assets/js/nav.js" defer></script>
 </body>

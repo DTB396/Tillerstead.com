@@ -1,0 +1,325 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - navigation "Primary" [ref=e4]:
+        - list [ref=e5]:
+          - listitem [ref=e6]:
+            - link "Build Guides" [ref=e7]:
+              - /url: /build/
+              - text: Build Guides ▾
+            - list "Build Guides submenu" [ref=e8]:
+              - listitem [ref=e9]:
+                - link "Build Phases (Compliance)" [ref=e10]:
+                  - /url: /build/
+              - listitem [ref=e11]:
+                - link "Codes & Permits" [ref=e12]:
+                  - /url: /build/nj-codes-permits/
+              - listitem [ref=e13]:
+                - link "Shower Pans & Slopes" [ref=e14]:
+                  - /url: /build/shower-pans-slopes-drains/
+              - listitem [ref=e15]:
+                - link "Waterproofing" [ref=e16]:
+                  - /url: /build/waterproofing-systems/
+              - listitem [ref=e17]:
+                - link "Thresholds & Curbs" [ref=e18]:
+                  - /url: /build/curbs-curbless/
+              - listitem [ref=e19]:
+                - link "Benches & Niches" [ref=e20]:
+                  - /url: /build/framing-benches-niches/
+              - listitem [ref=e21]:
+                - link "Tile Installation" [ref=e22]:
+                  - /url: /build/tile-installation-standards/
+              - listitem [ref=e23]:
+                - link "Verification & Testing" [ref=e24]:
+                  - /url: /build/flood-testing/
+              - listitem [ref=e25]:
+                - link "Common Failures" [ref=e26]:
+                  - /url: /build/common-build-failures/
+          - listitem [ref=e27]:
+            - link "Portfolio" [ref=e28]:
+              - /url: /portfolio/
+          - listitem [ref=e29]:
+            - link "Reviews" [ref=e30]:
+              - /url: /reviews/
+          - listitem [ref=e31]:
+            - link "Learn" [ref=e32]:
+              - /url: ""
+              - text: Learn ▾
+            - list "Learn submenu" [ref=e33]:
+              - listitem [ref=e34]:
+                - link "FAQ" [ref=e35]:
+                  - /url: /faq/
+              - listitem [ref=e36]:
+                - link "Free Tile Guide" [ref=e37]:
+                  - /url: /download/nj-tile-guide/
+              - listitem [ref=e38]:
+                - link "Articles" [ref=e39]:
+                  - /url: /blog/
+              - listitem [ref=e40]:
+                - link "Materials" [ref=e41]:
+                  - /url: /recommended-products/
+          - listitem [ref=e42]:
+            - link "Service Areas" [ref=e43]:
+              - /url: ""
+              - text: Service Areas ▾
+            - list "Service Areas submenu" [ref=e44]:
+              - listitem [ref=e45]:
+                - link "Atlantic County" [ref=e46]:
+                  - /url: /atlantic-county-nj/
+              - listitem [ref=e47]:
+                - link "Ocean County" [ref=e48]:
+                  - /url: /ocean-county-nj/
+              - listitem [ref=e49]:
+                - link "Cape May County" [ref=e50]:
+                  - /url: /cape-may-county-nj/
+          - listitem [ref=e51]:
+            - link "About" [ref=e52]:
+              - /url: ""
+              - text: About ▾
+            - list "About submenu" [ref=e53]:
+              - listitem [ref=e54]:
+                - link "About Tillerstead" [ref=e55]:
+                  - /url: /about/
+              - listitem [ref=e56]:
+                - link "Get an Estimate" [ref=e57]:
+                  - /url: /contact/
+              - listitem [ref=e58]:
+                - link "For Contractors" [ref=e59]:
+                  - /url: /for-general-contractors/
+      - link "Tillerstead LLC - Home" [ref=e61]:
+        - /url: /
+        - img "Tillerstead LLC" [ref=e62]
+      - button "Open navigation menu" [ref=e63] [cursor=pointer]:
+        - generic [ref=e64]: Menu
+    - navigation [ref=e66]:
+      - navigation [ref=e67]:
+        - text: Menu
+        - button "Close navigation" [ref=e68] [cursor=pointer]: ✕
+      - list [ref=e69]:
+        - listitem [ref=e70]:
+          - generic [ref=e71]:
+            - link "Build Guides" [ref=e72]:
+              - /url: /build/
+            - button "Toggle Build Guides menu" [ref=e73] [cursor=pointer]:
+              - img [ref=e74]
+          - list [ref=e76]:
+            - listitem [ref=e77]:
+              - link "Build Phases (Compliance)" [ref=e78]:
+                - /url: /build/
+            - listitem [ref=e79]:
+              - link "Codes & Permits" [ref=e80]:
+                - /url: /build/nj-codes-permits/
+            - listitem [ref=e81]:
+              - link "Shower Pans & Slopes" [ref=e82]:
+                - /url: /build/shower-pans-slopes-drains/
+            - listitem [ref=e83]:
+              - link "Waterproofing" [ref=e84]:
+                - /url: /build/waterproofing-systems/
+            - listitem [ref=e85]:
+              - link "Thresholds & Curbs" [ref=e86]:
+                - /url: /build/curbs-curbless/
+            - listitem [ref=e87]:
+              - link "Benches & Niches" [ref=e88]:
+                - /url: /build/framing-benches-niches/
+            - listitem [ref=e89]:
+              - link "Tile Installation" [ref=e90]:
+                - /url: /build/tile-installation-standards/
+            - listitem [ref=e91]:
+              - link "Verification & Testing" [ref=e92]:
+                - /url: /build/flood-testing/
+            - listitem [ref=e93]:
+              - link "Common Failures" [ref=e94]:
+                - /url: /build/common-build-failures/
+        - listitem [ref=e95]:
+          - link "Portfolio" [ref=e96]:
+            - /url: /portfolio/
+        - listitem [ref=e97]:
+          - link "Reviews" [ref=e98]:
+            - /url: /reviews/
+        - listitem [ref=e99]:
+          - generic [ref=e100]:
+            - link "Learn" [ref=e101]:
+              - /url: ""
+            - button "Toggle Learn menu" [ref=e102] [cursor=pointer]:
+              - img [ref=e103]
+          - list [ref=e105]:
+            - listitem [ref=e106]:
+              - link "FAQ" [ref=e107]:
+                - /url: /faq/
+            - listitem [ref=e108]:
+              - link "Free Tile Guide" [ref=e109]:
+                - /url: /download/nj-tile-guide/
+            - listitem [ref=e110]:
+              - link "Articles" [ref=e111]:
+                - /url: /blog/
+            - listitem [ref=e112]:
+              - link "Materials" [ref=e113]:
+                - /url: /recommended-products/
+        - listitem [ref=e114]:
+          - generic [ref=e115]:
+            - link "Service Areas" [ref=e116]:
+              - /url: ""
+            - button "Toggle Service Areas menu" [ref=e117] [cursor=pointer]:
+              - img [ref=e118]
+          - list [ref=e120]:
+            - listitem [ref=e121]:
+              - link "Atlantic County" [ref=e122]:
+                - /url: /atlantic-county-nj/
+            - listitem [ref=e123]:
+              - link "Ocean County" [ref=e124]:
+                - /url: /ocean-county-nj/
+            - listitem [ref=e125]:
+              - link "Cape May County" [ref=e126]:
+                - /url: /cape-may-county-nj/
+        - listitem [ref=e127]:
+          - generic [ref=e128]:
+            - link "About" [ref=e129]:
+              - /url: ""
+            - button "Toggle About menu" [ref=e130] [cursor=pointer]:
+              - img [ref=e131]
+          - list [ref=e133]:
+            - listitem [ref=e134]:
+              - link "About Tillerstead" [ref=e135]:
+                - /url: /about/
+            - listitem [ref=e136]:
+              - link "Get an Estimate" [ref=e137]:
+                - /url: /contact/
+            - listitem [ref=e138]:
+              - link "For Contractors" [ref=e139]:
+                - /url: /for-general-contractors/
+      - generic [ref=e140]:
+        - link "Get Estimate" [ref=e141]:
+          - /url: /estimate
+        - link "Call" [ref=e142]:
+          - /url: tel:555-555-5555
+  - list [ref=e145]:
+    - listitem [ref=e146]:
+      - img [ref=e147]
+      - text: "New Jersey HIC #13VH10808800"
+    - listitem [ref=e148]:
+      - img [ref=e149]
+      - text: TCNA 2024 Compliant
+    - listitem [ref=e150]:
+      - img [ref=e151]
+      - text: Fully Insured
+  - generic [ref=e153]:
+    - heading "TCNA-Compliant Tile & Waterproofing Experts" [level=1] [ref=e154]
+    - paragraph [ref=e155]: Serving Atlantic, Ocean, and Cape May Counties, Tillerstead delivers code-compliant tile showers, waterproofing, and bathroom remodels—meticulously documented at every phase. We follow the TCNA Handbook and New Jersey HIC law, ensuring transparent pricing, technical precision, and results that stand the test of time.
+    - link "Request a Consultation" [ref=e156]:
+      - /url: /contact/
+  - generic [ref=e158]:
+    - generic [ref=e159]:
+      - heading "Custom Showers" [level=3] [ref=e160]
+      - paragraph [ref=e161]: TCNA-compliant, leakproof, and built to last. Every detail documented for your peace of mind.
+    - generic [ref=e162]:
+      - heading "Waterproofing" [level=3] [ref=e163]
+      - paragraph [ref=e164]: Certified waterproof assemblies using industry-leading materials and methods.
+    - generic [ref=e165]:
+      - heading "Bathroom Remodels" [level=3] [ref=e166]
+      - paragraph [ref=e167]: From design to finish, we deliver beautiful, code-compliant bathrooms with transparent pricing.
+  - generic [ref=e169]:
+    - heading "Why Choose Tillerstead?" [level=2] [ref=e170]
+    - list [ref=e171]:
+      - listitem [ref=e172]: "✔️ Licensed NJ HIC #13VH10808800"
+      - listitem [ref=e173]: ✔️ TCNA Handbook Standards
+      - listitem [ref=e174]: ✔️ Transparent, documented process
+      - listitem [ref=e175]: ✔️ Owner oversight on every project
+      - listitem [ref=e176]: ✔️ Serving Atlantic, Ocean, and Cape May Counties
+  - region "Bathrooms Built for South Jersey" [ref=e177]:
+    - generic [ref=e178]:
+      - generic [ref=e179]:
+        - generic [ref=e180]: Our Work
+        - heading "Bathrooms Built for South Jersey" [level=2] [ref=e181]
+        - paragraph [ref=e182]: See completed tile and bathroom projects in Atlantic, Ocean & Cape May Counties.
+      - link "See Completed Projects" [ref=e184] [cursor=pointer]:
+        - /url: /portfolio/
+  - contentinfo [ref=e185]:
+    - generic [ref=e187]:
+      - navigation "Footer navigation" [ref=e188]:
+        - generic [ref=e189]:
+          - paragraph [ref=e190]: Build Guides
+          - list [ref=e191]:
+            - listitem [ref=e192]:
+              - link "Codes & Permits" [ref=e193]:
+                - /url: /build/nj-codes-permits/
+            - listitem [ref=e194]:
+              - link "Shower Pans & Slopes" [ref=e195]:
+                - /url: /build/shower-pans-slopes-drains/
+            - listitem [ref=e196]:
+              - link "Waterproofing" [ref=e197]:
+                - /url: /build/waterproofing-systems/
+            - listitem [ref=e198]:
+              - link "Thresholds & Curbs" [ref=e199]:
+                - /url: /build/curbs-curbless/
+        - generic [ref=e200]:
+          - paragraph [ref=e201]: Learn
+          - list [ref=e202]:
+            - listitem [ref=e203]:
+              - link "FAQ" [ref=e204]:
+                - /url: /faq/
+            - listitem [ref=e205]:
+              - link "Free Tile Guide" [ref=e206]:
+                - /url: /download/nj-tile-guide/
+            - listitem [ref=e207]:
+              - link "Articles" [ref=e208]:
+                - /url: /blog/
+            - listitem [ref=e209]:
+              - link "Materials" [ref=e210]:
+                - /url: /recommended-products/
+      - generic [ref=e211]:
+        - link "Tillerstead LLC - Home" [ref=e212]:
+          - /url: /
+          - img "Tillerstead LLC" [ref=e213]
+        - paragraph [ref=e214]: Expert Tile & Stone Installation — South Jersey
+        - paragraph [ref=e215]: "NJ HIC #13VH10808800"
+        - generic [ref=e216]:
+          - text: 325 E. Jimmie Leeds Road, Suite 7-333
+          - text: Galloway, NJ 08205
+        - generic [ref=e217]:
+          - link "(609) 862-8808" [ref=e218]:
+            - /url: tel:+16098628808
+          - link "info@tillerstead.com" [ref=e219]:
+            - /url: mailto:info@tillerstead.com
+      - navigation "Footer navigation" [ref=e220]:
+        - generic [ref=e221]:
+          - paragraph [ref=e222]: Service Areas
+          - list [ref=e223]:
+            - listitem [ref=e224]:
+              - link "Atlantic County" [ref=e225]:
+                - /url: /atlantic-county-nj/
+            - listitem [ref=e226]:
+              - link "Ocean County" [ref=e227]:
+                - /url: /ocean-county-nj/
+            - listitem [ref=e228]:
+              - link "Cape May County" [ref=e229]:
+                - /url: /cape-may-county-nj/
+        - generic [ref=e230]:
+          - paragraph [ref=e231]: Company
+          - list [ref=e232]:
+            - listitem [ref=e233]:
+              - link "About Tillerstead" [ref=e234]:
+                - /url: /about/
+            - listitem [ref=e235]:
+              - link "For Contractors" [ref=e236]:
+                - /url: /for-general-contractors/
+        - generic [ref=e237]:
+          - paragraph [ref=e238]: Legal
+          - list [ref=e239]:
+            - listitem [ref=e240]:
+              - link "Privacy" [ref=e241]:
+                - /url: /privacy/
+            - listitem [ref=e242]:
+              - link "Terms" [ref=e243]:
+                - /url: /terms/
+    - generic [ref=e245]:
+      - paragraph [ref=e246]: © 2026 Tillerstead LLC. All rights reserved.
+      - generic [ref=e247]:
+        - link "Privacy" [ref=e248]:
+          - /url: /privacy/
+        - link "Terms" [ref=e249]:
+          - /url: /terms/
+        - generic [ref=e250]: "NJ HIC #13VH10808800"
+```

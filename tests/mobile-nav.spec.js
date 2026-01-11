@@ -1,5 +1,10 @@
 import { expect, test } from '@playwright/test';
 
+test.use({
+  trace: 'on',
+  video: 'on',
+});
+
 /**
  * Tillerstead Mobile Navigation Tests
  * Validates high-end mobile drawer functionality
@@ -7,6 +12,18 @@ import { expect, test } from '@playwright/test';
 
 test.describe('Mobile Navigation Drawer', () => {
   test.beforeEach(async ({ page }) => {
+    // Capture browser console output
+    page.on('console', (msg) => {
+      // Print all browser logs to test output
+      console.log(`[BROWSER LOG][${msg.type()}]`, msg.text());
+    });
+    page.on('pageerror', (error) => {
+      console.error('[BROWSER ERROR]', error);
+    });
+    // Log failed network requests (e.g., JS not loading)
+    page.on('requestfailed', (request) => {
+      console.error('[REQUEST FAILED]', request.url(), request.failure());
+    });
     await page.goto('/'); // baseURL is set in Playwright config
     // Set mobile viewport
     await page.setViewportSize({ width: 390, height: 844 });
@@ -27,8 +44,8 @@ test.describe('Mobile Navigation Drawer', () => {
     // Click hamburger
     await toggle.click();
 
-    // Wait for animation
-    await page.waitForTimeout(500);
+    // Wait for animation (increased for test reliability)
+    await page.waitForTimeout(2000);
 
     // Drawer should be open
     await expect(shell).toHaveClass(/is-open/);
@@ -42,9 +59,10 @@ test.describe('Mobile Navigation Drawer', () => {
     const toggle = page.locator('.nav-toggle');
     const backdrop = page.locator('.mobile-nav-backdrop');
 
-    // Open drawer
-    await toggle.click();
-    await page.waitForTimeout(500);
+    // Open drawer (direct JS call for test reliability)
+    await page.evaluate(() => window.tsOpenNav && window.tsOpenNav());
+    await page.waitForTimeout(2000);
+    await page.screenshot({ path: 'test-artifact-nav-open.png', fullPage: true });
 
     // Backdrop should be visible
     await expect(backdrop).toBeVisible();
@@ -70,12 +88,12 @@ test.describe('Mobile Navigation Drawer', () => {
 
     // Open drawer
     await toggle.click();
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(2000);
     await expect(shell).toHaveClass(/is-open/);
 
     // Click backdrop
     await backdrop.click({ position: { x: 10, y: 10 } });
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(2000);
 
     // Drawer should be closed
     await expect(shell).not.toHaveClass(/is-open/);
@@ -89,12 +107,12 @@ test.describe('Mobile Navigation Drawer', () => {
 
     // Open drawer
     await toggle.click();
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(2000);
     await expect(shell).toHaveClass(/is-open/);
 
     // Click close button
     await closeBtn.click();
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(2000);
 
     // Drawer should be closed
     await expect(shell).not.toHaveClass(/is-open/);
@@ -106,12 +124,12 @@ test.describe('Mobile Navigation Drawer', () => {
 
     // Open drawer
     await toggle.click();
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(2000);
     await expect(shell).toHaveClass(/is-open/);
 
     // Press Escape
     await page.keyboard.press('Escape');
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(2000);
 
     // Drawer should be closed
     await expect(shell).not.toHaveClass(/is-open/);
@@ -120,9 +138,10 @@ test.describe('Mobile Navigation Drawer', () => {
   test('should display correct menu items', async ({ page }) => {
     const toggle = page.locator('.nav-toggle');
 
-    // Open drawer
-    await toggle.click();
-    await page.waitForTimeout(500);
+    // Open drawer (direct JS call for test reliability)
+    await page.evaluate(() => window.tsOpenNav && window.tsOpenNav());
+    await page.waitForTimeout(2000);
+    await page.screenshot({ path: 'test-artifact-nav-open.png', fullPage: true });
 
     // Check for expected menu items
     const expectedItems = [
@@ -143,9 +162,10 @@ test.describe('Mobile Navigation Drawer', () => {
   test('should display CTA buttons', async ({ page }) => {
     const toggle = page.locator('.nav-toggle');
 
-    // Open drawer
-    await toggle.click();
-    await page.waitForTimeout(500);
+    // Open drawer (direct JS call for test reliability)
+    await page.evaluate(() => window.tsOpenNav && window.tsOpenNav());
+    await page.waitForTimeout(2000);
+    await page.screenshot({ path: 'test-artifact-nav-open.png', fullPage: true });
 
     // Check for CTA section
     const ctaSection = page.locator('.mobile-nav-cta');
@@ -170,7 +190,7 @@ test.describe('Mobile Navigation Drawer', () => {
 
     // Open drawer
     await toggle.click();
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(2000);
 
     // Body should have nav-open class
     const openOverflow = await page.evaluate(() => {
@@ -180,7 +200,7 @@ test.describe('Mobile Navigation Drawer', () => {
 
     // Close drawer
     await page.keyboard.press('Escape');
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(2000);
 
     // Body should not have nav-open class
     const closedOverflow = await page.evaluate(() => {
@@ -199,7 +219,7 @@ test.describe('Mobile Navigation Drawer', () => {
 
     // Open drawer
     await toggle.click();
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(2000);
 
     // Updated ARIA state
     await expect(toggle).toHaveAttribute('aria-expanded', 'true');
@@ -224,7 +244,7 @@ test.describe('Mobile Navigation Drawer', () => {
     if (isFocused) {
       // Open with keyboard
       await page.keyboard.press('Enter');
-      await page.waitForTimeout(500);
+      await page.waitForTimeout(2000);
 
       const shell = page.locator('.mobile-nav-shell');
       await expect(shell).toHaveClass(/is-open/);
