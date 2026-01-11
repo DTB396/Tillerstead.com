@@ -63,11 +63,11 @@
   &:hover:not([disabled]) {
     background-color: var(--color-primary-dark);
     border-color: var(--color-primary-dark);
-    box-shadow: 0 0 0 4px rgba(7, 137, 48, 0.1);
+    box-shadow: 0 0 0 4px rgb(7, 137, 48, 0.1);
   }
 
   &:active:not([disabled]) {
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 2px 4px rgb(0, 0, 0, 0.2);
   }
 }
 
@@ -93,7 +93,7 @@
   &:hover:not([disabled]) {
     background-color: var(--color-red-700);
     border-color: var(--color-red-700);
-    box-shadow: 0 0 0 4px rgba(218, 18, 26, 0.1);
+    box-shadow: 0 0 0 4px rgb(218, 18, 26, 0.1);
   }
 }
 
@@ -113,10 +113,10 @@
 .btn--ghost-white {
   background-color: transparent;
   color: var(--color-white);
-  border-color: rgba(255, 255, 255, 0.5);
+  border-color: rgb(255, 255, 255, 0.5);
 
   &:hover:not([disabled]) {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgb(255, 255, 255, 0.1);
     border-color: var(--color-white);
   }
 }
@@ -148,7 +148,7 @@
     display: inline-block;
     width: 1em;
     height: 1em;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgb(255, 255, 255, 0.3);
     border-top-color: currentcolor;
     border-radius: 50%;
     animation: rotate var(--duration-slow) linear infinite;

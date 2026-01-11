@@ -24,7 +24,7 @@
 .site-nav .submenu a:hover,
 .nav-menu .submenu a:hover,
 .dropdown-menu a:hover{
-  background: rgba(255,255,255,.06);
+  background: rgb(255,255,255,.06);
 }
 
 /* Fix common “transparent nest” issue where submenu inherits background */
@@ -37,7 +37,7 @@
 .nav-drawer-overlay{
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.55);
+  background: rgb(0,0,0,.55);
   backdrop-filter: blur(4px);
   opacity: 0;
   pointer-events: none;
@@ -80,7 +80,7 @@ body.nav-open{
 }
 
 .nav-drawer a:hover{
-  background: rgba(255,255,255,.06);
+  background: rgb(255,255,255,.06);
 }
 
 /* Optional: make tap targets bigger on mobile */

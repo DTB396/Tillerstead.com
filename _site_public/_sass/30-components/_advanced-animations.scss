@@ -150,7 +150,7 @@
   width: 400px;
   max-width: 80vw;
   background: white;
-  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.1);
+  box-shadow: -4px 0 16px rgb(0, 0, 0, 0.1);
   transform: translateX(100%);
   transition: transform var(--duration-base) var(--easing-in-out);
   z-index: 1000;
@@ -166,13 +166,13 @@
 [data-overlay] {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0);
+  background: rgb(0, 0, 0, 0);
   transition: background var(--duration-base) var(--easing-in-out);
   z-index: 999;
   pointer-events: none;
 
   &.is-active {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgb(0, 0, 0, 0.3);
     pointer-events: auto;
   }
 }
@@ -252,7 +252,7 @@
 .loader-spinner {
   width: 40px;
   height: 40px;
-  border: 3px solid rgba(7, 137, 48, 0.1);
+  border: 3px solid rgb(7, 137, 48, 0.1);
   border-top-color: var(--color-primary);
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -446,7 +446,7 @@
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgb(255, 255, 255, 0.5);
     transform: translate(-50%, -50%);
     pointer-events: none;
   }
@@ -596,7 +596,7 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &.is-scrolled {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgb(0, 0, 0, 0.1);
     padding-block: 0.5rem;
   }
 }
@@ -646,17 +646,17 @@
 @keyframes attentionSeq {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(7, 137, 48, 0.4);
+    box-shadow: 0 0 0 0 rgb(7, 137, 48, 0.4);
   }
 
   50% {
     transform: scale(1.02);
-    box-shadow: 0 0 0 10px rgba(7, 137, 48, 0);
+    box-shadow: 0 0 0 10px rgb(7, 137, 48, 0);
   }
 
   100% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(7, 137, 48, 0);
+    box-shadow: 0 0 0 0 rgb(7, 137, 48, 0);
   }
 }
 
@@ -807,19 +807,19 @@
 @media (prefers-color-scheme: dark) {
   [data-overlay] {
     &.is-active {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgb(255, 255, 255, 0.1);
     }
   }
 
   [data-slide-panel] {
     background: var(--color-charcoal-800);
-    box-shadow: -4px 0 16px rgba(0, 0, 0, 0.3);
+    box-shadow: -4px 0 16px rgb(0, 0, 0, 0.3);
   }
 
   .skeleton-loader {
     background: linear-gradient(90deg,
-        rgba(255, 255, 255, 0.05) 0%,
-        rgba(255, 255, 255, 0.1) 50%,
-        rgba(255, 255, 255, 0.05) 100%);
+        rgb(255, 255, 255, 0.05) 0%,
+        rgb(255, 255, 255, 0.1) 50%,
+        rgb(255, 255, 255, 0.05) 100%);
   }
 }

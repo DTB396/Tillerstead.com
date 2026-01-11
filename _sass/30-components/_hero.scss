@@ -36,7 +36,7 @@
     inset: 0;
     background: radial-gradient(
       ellipse at 50% 20%,
-      rgba(13, 154, 170, 0.08) 0%,
+      rgb(13, 154, 170, 0.08) 0%,
       transparent 60%
     );
     pointer-events: none;
@@ -110,7 +110,7 @@
   letter-spacing: var(--tiller-tracking-wider);
   text-transform: uppercase;
   color: var(--ts-color-primary);
-  background: rgba(13, 154, 170, 0.06);
+  background: rgb(13, 154, 170, 0.06);
   border: var(--color-border-width-thin) solid var(--color-border-color-teal);
   border-radius: 100px;
   width: fit-content;
@@ -118,7 +118,7 @@
   transition: all var(--tiller-duration-base) var(--tiller-ease-standard);
 
   &:hover {
-    background: rgba(13, 154, 170, 0.1);
+    background: rgb(13, 154, 170, 0.1);
     transform: translateY(-1px);
   }
 }
@@ -201,11 +201,10 @@
 .ts-hero__fact:hover,
 .hero__feature:hover {
   transform: translateY(-4px);
-  border-color: rgba(13, 154, 170, 0.3);
-    border-color: rgba(13, 154, 170, 0.3);
+    border-color: rgb(13, 154, 170, 0.3);
   box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.08),
-    0 12px 32px rgba(0, 0, 0, 0.04);
+    0 8px 20px rgb(0, 0, 0, 0.08),
+    0 12px 32px rgb(0, 0, 0, 0.04);
 }
 
 .ts-hero__fact-icon,
@@ -223,8 +222,7 @@
   );
   color: var(--ts-white);
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(13, 154, 170, 0.25);
-    box-shadow: 0 4px 12px rgba(13, 154, 170, 0.25);
+    box-shadow: 0 4px 12px rgb(13, 154, 170, 0.25);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -261,8 +259,8 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.1),
-    0 20px 60px rgba(0, 0, 0, 0.05);
+    0 10px 40px rgb(0, 0, 0, 0.1),
+    0 20px 60px rgb(0, 0, 0, 0.05);
   animation: fade-in 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s backwards;
 }
 
@@ -304,7 +302,7 @@
   &::after {
     background: radial-gradient(
       ellipse at 50% 20%,
-      rgba(255, 255, 255, 0.08) 0%,
+      rgb(255, 255, 255, 0.08) 0%,
       transparent 60%
     );
   }
@@ -318,7 +316,7 @@
   background: linear-gradient(
     135deg,
     var(--ts-white) 0%,
-    rgba(255, 255, 255, 0.9) 100%
+    rgb(255, 255, 255, 0.9) 100%
   );
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -326,13 +324,13 @@
 
 .hero--dark .hero__lead,
 .ts-hero--dark .ts-hero__lead {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgb(255, 255, 255, 0.85);
 }
 
 .hero--dark .ts-hero__fact,
 .ts-hero--dark .ts-hero__fact {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
+  background: rgb(255, 255, 255, 0.08);
+  border-color: rgb(255, 255, 255, 0.15);
 }
 
 .hero--dark .ts-hero__fact-label,
@@ -342,7 +340,7 @@
 
 .hero--dark .ts-hero__fact-text,
 .ts-hero--dark .ts-hero__fact-text {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255, 255, 255, 0.8);
 }
 
 /* ========== Responsive ========== */

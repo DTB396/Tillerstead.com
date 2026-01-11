@@ -45,7 +45,7 @@
   height: 4rem;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--ts-color-primary) 0%, var(--ts-color-primary-strong) 100%);
-  box-shadow: 0 4px 12px rgba(13, 154, 170, 0.25);
+  box-shadow: 0 4px 12px rgb(13, 154, 170, 0.25);
   flex-shrink: 0;
   
   .ts-icon {
@@ -56,7 +56,7 @@
   
   .ts-process__step:hover & {
     transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 6px 16px rgba(13, 154, 170, 0.35);
+    box-shadow: 0 6px 16px rgb(13, 154, 170, 0.35);
   }
 }
 

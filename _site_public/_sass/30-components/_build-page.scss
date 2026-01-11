@@ -22,7 +22,7 @@ $gold: #c9b037;
   position: sticky;
   top: calc(var(--ts-spacing-lg, 2rem) + 60px);
   z-index: 2;
-  box-shadow: 0 4px 24px rgba(0, 155, 107, 0.08);
+  box-shadow: 0 4px 24px rgb(0, 155, 107, 0.08);
   border-radius: var(--ts-radius-lg, 0.75rem);
   border: 2px solid $emerald;
   background: linear-gradient(120deg, #ffffff, #f6fff9 80%);
@@ -46,7 +46,7 @@ $gold: #c9b037;
   gap: 0.25rem;
   padding: 0.75rem 1rem;
   border-radius: var(--ts-radius-md, 0.5rem);
-  border: 1px solid rgba(0, 155, 107, 0.2);
+  border: 1px solid rgb(0, 155, 107, 0.2);
   background: #ffffff;
   color: inherit;
   text-decoration: none;
@@ -57,13 +57,13 @@ $gold: #c9b037;
 .build-sidenav__link:focus {
   transform: translateY(-1px);
   border-color: $emerald;
-  box-shadow: 0 4px 12px rgba(0, 155, 107, 0.12);
+  box-shadow: 0 4px 12px rgb(0, 155, 107, 0.12);
 }
 
 .build-sidenav__link.is-active {
   font-weight: 700;
   border-color: $gold;
-  box-shadow: 0 6px 18px rgba(201, 176, 55, 0.18);
+  box-shadow: 0 6px 18px rgb(201, 176, 55, 0.18);
 }
 
 .build-sidenav__step {
@@ -80,7 +80,7 @@ $gold: #c9b037;
 
 .build-content-sidebar:focus-within,
 .build-content-sidebar:hover {
-  box-shadow: 0 8px 32px rgba(201, 176, 55, 0.18);
+  box-shadow: 0 8px 32px rgb(201, 176, 55, 0.18);
   border-color: $gold;
 }
 
@@ -88,7 +88,7 @@ $gold: #c9b037;
   min-width: 0;
   background: #ffffff;
   border-radius: var(--ts-radius-lg, 0.75rem);
-  box-shadow: 0 2px 12px rgba(0, 155, 107, 0.04);
+  box-shadow: 0 2px 12px rgb(0, 155, 107, 0.04);
   border: 1.5px solid #e0e7ed;
   padding: clamp(2rem, 5vw, 3.5rem);
 }
@@ -133,7 +133,7 @@ $gold: #c9b037;
 }
 
 .prose h2 {
-  border-bottom: 2px solid rgba(201, 176, 55, 0.4);
+  border-bottom: 2px solid rgb(201, 176, 55, 0.4);
   padding-bottom: 0.35rem;
 }
 
@@ -153,7 +153,7 @@ $gold: #c9b037;
   border-radius: var(--ts-radius-md, 0.5rem);
   background: #f4fff9;
   color: var(--ts-color-text, #1f2933);
-  box-shadow: 0 8px 20px rgba(0, 155, 107, 0.08);
+  box-shadow: 0 8px 20px rgb(0, 155, 107, 0.08);
 }
 
 .prose blockquote p {
@@ -163,7 +163,7 @@ $gold: #c9b037;
 .prose code {
   padding: 0.15rem 0.35rem;
   border-radius: 0.35rem;
-  background: rgba(0, 155, 107, 0.12);
+  background: rgb(0, 155, 107, 0.12);
   color: $emerald;
   font-size: 0.95em;
 }
@@ -174,7 +174,7 @@ $gold: #c9b037;
   background: #0f172a;
   color: #e2e8f0;
   overflow-x: auto;
-  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.4);
+  box-shadow: inset 0 0 0 1px rgb(148, 163, 184, 0.4);
 }
 
 .prose pre code {
@@ -188,14 +188,14 @@ $gold: #c9b037;
   width: 100%;
   border-radius: var(--ts-radius-md, 0.5rem);
   overflow: hidden;
-  border: 1px solid rgba(0, 155, 107, 0.2);
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgb(0, 155, 107, 0.2);
+  box-shadow: 0 4px 16px rgb(15, 23, 42, 0.06);
 }
 
 .prose th,
 .prose td {
   padding: 0.75rem 0.85rem;
-  border-bottom: 1px solid rgba(0, 155, 107, 0.15);
+  border-bottom: 1px solid rgb(0, 155, 107, 0.15);
   text-align: left;
 }
 
@@ -211,7 +211,7 @@ $gold: #c9b037;
 
 .prose hr {
   border: 0;
-  border-top: 1px solid rgba(0, 155, 107, 0.25);
+  border-top: 1px solid rgb(0, 155, 107, 0.25);
   margin: 2rem 0;
 }
 
@@ -219,7 +219,7 @@ $gold: #c9b037;
   margin-bottom: var(--ts-spacing-xl, 2.5rem);
   padding: 1rem 1.25rem;
   border-radius: var(--ts-radius-md, 0.5rem);
-  border: 1px solid rgba(0, 155, 107, 0.2);
+  border: 1px solid rgb(0, 155, 107, 0.2);
   background: #f7fffb;
 }
 
@@ -270,7 +270,7 @@ $gold: #c9b037;
   gap: 0.35rem;
   padding: 1rem 1.25rem;
   border-radius: var(--ts-radius-md, 0.5rem);
-  border: 1px solid rgba(0, 155, 107, 0.2);
+  border: 1px solid rgb(0, 155, 107, 0.2);
   background: #ffffff;
   text-decoration: none;
   color: inherit;
@@ -286,7 +286,7 @@ $gold: #c9b037;
 .build-prev-next__card:hover,
 .build-prev-next__card:focus {
   border-color: $emerald;
-  box-shadow: 0 6px 18px rgba(0, 155, 107, 0.15);
+  box-shadow: 0 6px 18px rgb(0, 155, 107, 0.15);
 }
 
 .build-prev-next__eyebrow {

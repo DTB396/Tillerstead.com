@@ -29,8 +29,8 @@
   --color-emerald-700: var(--color-brand-teal-800); /* Emerald hover */
 
   /* Shadow colors for depth and accessibility */
-   --color-shadow-soft: rgba(28, 35, 31, 0.12);
-   --color-shadow-deep: rgba(28, 35, 31, 0.18);
+   --color-shadow-soft: rgb(28, 35, 31, 0.12);
+   --color-shadow-deep: rgb(28, 35, 31, 0.18);
 
   /* Layout & Rhythm — Responsive, accessible spacing */
   --spacing-container: 1400px;
@@ -74,17 +74,17 @@
     --color-brand-teal-900
   ); /* Primary action (emerald, AA+) */
   --ts-color-primary-strong: var(--color-brand-teal-950); /* Primary hover */
-   --ts-color-primary-soft: rgba(11, 107, 92, 0.08);
+   --ts-color-primary-soft: rgb(11, 107, 92, 0.08);
   --ts-color-primary-bg: var(--color-brand-teal-700);
   --ts-color-primary-bg-hover: var(--color-brand-teal-800);
 
   --ts-color-accent: var(--color-brand-teal-900);
   --ts-color-accent-strong: var(--color-brand-teal-950);
-   --ts-color-accent-soft: rgba(11, 107, 92, 0.06);
+   --ts-color-accent-soft: rgb(11, 107, 92, 0.06);
 
-   --ts-color-border: rgba(58, 65, 60, 0.18);
-   --ts-color-border-strong: rgba(58, 65, 60, 0.35);
-   --ts-color-divider: rgba(58, 65, 60, 0.22);
+   --ts-color-border: rgb(58, 65, 60, 0.18);
+   --ts-color-border-strong: rgb(58, 65, 60, 0.35);
+   --ts-color-divider: rgb(58, 65, 60, 0.22);
 
   /* ===========================
      Semantic States (WCAG 2.1 AA)
@@ -107,7 +107,7 @@
   --tiller-footer-text-muted: #9fb4a5;
   --tiller-footer-link: var(--color-brand-teal-400);
   --tiller-footer-link-hover: #84d1b8;
-   --tiller-footer-border: rgba(22, 163, 132, 0.2);
+   --tiller-footer-border: rgb(22, 163, 132, 0.2);
   --ts-footer-link: #84d1b8;
   --ts-footer-link-hover: #a8e0cd;
   --ts-footer-success: #d0f5e8;
@@ -117,7 +117,7 @@
      =========================== */
   --tiller-hero-bg: linear-gradient(180deg, #1c231f 0%, #0f1713 100%);
   --tiller-hero-text: var(--ts-white);
-   --tiller-hero-text-muted: rgba(255, 255, 255, 0.85);
+   --tiller-hero-text-muted: rgb(255, 255, 255, 0.85);
 
   /* ===========================
      Gradients & Patterns (Designer: update for new scheme)
@@ -129,7 +129,7 @@
   --ts-bg-pattern: none;
   --ts-bg-pattern-size: 220px 220px;
   --ts-bg-pattern-opacity: 0;
-   --ts-color-overlay: rgba(28, 35, 31, 0.75);
+   --ts-color-overlay: rgb(28, 35, 31, 0.75);
 
   /* ===========================
      Typography (Accessible, system fallback)
@@ -199,10 +199,10 @@
   --ts-shadow-lift: 0 14px 34px var(--color-shadow-soft);
   --ts-shadow-header: 0 10px 28px var(--color-shadow-soft);
   --ts-shadow-header-scrolled:
-   0 12px 24px rgba(0, 0, 0, 0.12), -8px 0 24px rgba(0, 0, 0, 0.08);
-   --ts-shadow-glow: 0 0 0 3px rgba(11, 107, 92, 0.25);
-   --ts-shadow-glow-accent: 0 0 0 3px rgba(11, 107, 92, 0.3);
-   --tiller-focus-ring: 0 0 0 3px rgba(11, 107, 92, 0.35);
+   0 12px 24px rgb(0, 0, 0, 0.12), -8px 0 24px rgb(0, 0, 0, 0.08);
+   --ts-shadow-glow: 0 0 0 3px rgb(11, 107, 92, 0.25);
+   --ts-shadow-glow-accent: 0 0 0 3px rgb(11, 107, 92, 0.3);
+   --tiller-focus-ring: 0 0 0 3px rgb(11, 107, 92, 0.35);
   --tiller-transition-fast: 160ms ease;
   --tiller-transition-med: 240ms ease;
 
@@ -222,8 +222,8 @@
   /* ===========================
      Header/Footer (No duplicate keys, AA+ contrast)
      =========================== */
-   --tiller-header-bg: rgba(249, 245, 235, 0.95);
-   --tiller-header-border: rgba(11, 107, 92, 0.18);
+   --tiller-header-bg: rgb(249, 245, 235, 0.95);
+   --tiller-header-border: rgb(11, 107, 92, 0.18);
 
   /* ===========================
      Legacy Alias Support (for utility classes)

@@ -147,11 +147,11 @@
 @keyframes glow {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(7, 137, 48, 0.4);
+    box-shadow: 0 0 0 0 rgb(7, 137, 48, 0.4);
   }
 
   50% {
-    box-shadow: 0 0 0 10px rgba(7, 137, 48, 0);
+    box-shadow: 0 0 0 10px rgb(7, 137, 48, 0);
   }
 }
 
@@ -364,18 +364,18 @@ a,
 /* Primary button with accent glow */
 .btn--primary {
   &:hover {
-    box-shadow: 0 0 0 4px rgba(7, 137, 48, 0.1);
+    box-shadow: 0 0 0 4px rgb(7, 137, 48, 0.1);
   }
 
   &:active {
-    box-shadow: 0 0 0 2px rgba(7, 137, 48, 0.05);
+    box-shadow: 0 0 0 2px rgb(7, 137, 48, 0.05);
   }
 }
 
 /* Accent button with red glow */
 .btn--accent {
   &:hover {
-    box-shadow: 0 0 0 4px rgba(218, 18, 26, 0.1);
+    box-shadow: 0 0 0 4px rgb(218, 18, 26, 0.1);
   }
 }
 

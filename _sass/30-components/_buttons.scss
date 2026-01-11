@@ -95,7 +95,7 @@
 .btn--color-primary:focus-visible {
   background: var(--ts-color-accent);
   color: var(--hex-charcoal);
-  box-shadow: 0 8px 20px rgba(252, 221, 9, 0.3);
+  box-shadow: 0 8px 20px rgb(252, 221, 9, 0.3);
 }
 
 /* Secondary — outlined, for less prominent actions */
@@ -309,7 +309,7 @@
   50% {
     box-shadow:
       0 10px 24px var(--color-shadow-soft),
-      0 0 0 4px rgba(13, 154, 170, 0.15);
+      0 0 0 4px rgb(13, 154, 170, 0.15);
   }
 }
 
@@ -336,7 +336,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.3),
+    rgb(255, 255, 255, 0.3),
     transparent
   );
   background-size: 200% 100%;

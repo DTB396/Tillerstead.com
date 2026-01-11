@@ -37,9 +37,9 @@
   --ts-color-surface-elevated-solid: #1b221c;
 
   /* Tinted surfaces */
-  --ts-color-surface-tinted-teal: rgba(0, 179, 111, 0.12);
-  --ts-color-surface-tinted-warm: rgba(212, 175, 55, 0.08);
-  --ts-color-surface-tinted-gold: rgba(212, 175, 55, 0.08);
+  --ts-color-surface-tinted-teal: rgb(0, 179, 111, 0.12);
+  --ts-color-surface-tinted-warm: rgb(212, 175, 55, 0.08);
+  --ts-color-surface-tinted-gold: rgb(212, 175, 55, 0.08);
 
   /* Text colors */
   --ts-color-text: #f3f5f3;
@@ -51,45 +51,45 @@
   --ts-color-primary: #00b36f;
   --ts-color-primary-hover: #00cc7f;
   --ts-color-primary-light: #37e59a;
-  --ts-color-primary-soft: rgba(0, 179, 111, 0.18);
+  --ts-color-primary-soft: rgb(0, 179, 111, 0.18);
 
   --ts-color-accent: #d4af37;
   --ts-color-accent-hover: #e2c158;
   --ts-color-accent-strong: #b6891f;
 
   --ts-color-secondary: #1b1f1c;
-  --ts-color-secondary-soft: rgba(0, 0, 0, 0.2);
+  --ts-color-secondary-soft: rgb(0, 0, 0, 0.2);
 
   /* Borders */
-  --ts-color-border: rgba(255, 255, 255, 0.12);
-  --ts-color-border-strong: rgba(255, 255, 255, 0.2);
-  --ts-color-divider: rgba(255, 255, 255, 0.08);
+  --ts-color-border: rgb(255, 255, 255, 0.12);
+  --ts-color-border-strong: rgb(255, 255, 255, 0.2);
+  --ts-color-divider: rgb(255, 255, 255, 0.08);
 
-  --ts-border-thin: 1px solid rgba(255, 255, 255, 0.08);
-  --ts-border-medium: 2px solid rgba(255, 255, 255, 0.15);
-  --ts-border-thick: 3px solid rgba(255, 255, 255, 0.25);
+  --ts-border-thin: 1px solid rgb(255, 255, 255, 0.08);
+  --ts-border-medium: 2px solid rgb(255, 255, 255, 0.15);
+  --ts-border-thick: 3px solid rgb(255, 255, 255, 0.25);
 
   /* Shadows */
   --ts-shadow-soft:
-    0 4px 12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    0 4px 12px rgb(0, 0, 0, 0.6), 0 0 0 1px rgb(255, 255, 255, 0.04),
+    inset 0 1px 0 rgb(255, 255, 255, 0.03);
   --ts-shadow-lift:
-    0 8px 24px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  --ts-shadow-header: 0 2px 8px rgba(0, 0, 0, 0.5);
-  --ts-shadow-header-scrolled: 0 4px 16px rgba(0, 0, 0, 0.6);
+    0 8px 24px rgb(0, 0, 0, 0.7), 0 0 0 1px rgb(255, 255, 255, 0.06),
+    inset 0 1px 0 rgb(255, 255, 255, 0.05);
+  --ts-shadow-header: 0 2px 8px rgb(0, 0, 0, 0.5);
+  --ts-shadow-header-scrolled: 0 4px 16px rgb(0, 0, 0, 0.6);
 
   /* State colors */
   --ts-color-success: #00b36f;
-  --ts-color-success-bg: rgba(0, 179, 111, 0.18);
+  --ts-color-success-bg: rgb(0, 179, 111, 0.18);
   --ts-color-success-text: #7ff0c1;
 
   --ts-color-warning: #d4af37;
-  --ts-color-warning-bg: rgba(212, 175, 55, 0.18);
+  --ts-color-warning-bg: rgb(212, 175, 55, 0.18);
   --ts-color-warning-text: #f5df9b;
 
   --ts-color-error: #ff6b6b;
-  --ts-color-error-bg: rgba(255, 107, 107, 0.18);
+  --ts-color-error-bg: rgb(255, 107, 107, 0.18);
   --ts-color-error-text: #ff9f9f;
 
   /* Text on colored backgrounds */
@@ -116,10 +116,10 @@
   /* Header - darker stone with blend */
   --tiller-header-bg: linear-gradient(
     180deg,
-    rgba(15, 15, 15, 0.98) 0%,
-    rgba(20, 20, 20, 0.95) 100%
+    rgb(15, 15, 15, 0.98) 0%,
+    rgb(20, 20, 20, 0.95) 100%
   );
-  --tiller-header-border: rgba(255, 255, 255, 0.08);
+  --tiller-header-border: rgb(255, 255, 255, 0.08);
 
   /* Footer - blend to dark green */
   --tiller-footer-bg: linear-gradient(180deg, #0a0a0a 0%, #065a24 100%);

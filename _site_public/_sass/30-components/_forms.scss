@@ -104,7 +104,7 @@ input[type="password"]:focus,
 textarea:focus,
 select:focus {
   border-color: var(--ts-color-primary);
-  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.25);
+  box-shadow: 0 0 0 3px rgb(14, 165, 233, 0.25);
   outline: 2px solid var(--ts-color-primary);
   outline-offset: 1px;
   background: var(--ts-color-surface-elevated);
@@ -114,7 +114,7 @@ select:focus {
 .form-textarea:focus,
 .form-select:focus {
   border-color: var(--ts-color-primary);
-  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.25);
+  box-shadow: 0 0 0 3px rgb(14, 165, 233, 0.25);
   outline: 2px solid var(--ts-color-primary);
   outline-offset: 1px;
   background: var(--ts-color-surface-elevated);
@@ -150,7 +150,7 @@ select:disabled {
 .form-group.has-error select {
   border-color: var(--ts-color-error);
   border-width: 2px;
-  background-color: rgba(255, 245, 245, 0.5);
+  background-color: rgb(255, 245, 245, 0.5);
 }
 
 .form-field.has-error label,
@@ -167,7 +167,7 @@ select:disabled {
 .form-group.has-success textarea,
 .form-group.has-success select {
   border-color: var(--ts-color-success);
-  background-color: rgba(236, 253, 245, 0.5);
+  background-color: rgb(236, 253, 245, 0.5);
 }
 
 /* Helper text — clear, accessible, and compliant */
@@ -192,14 +192,14 @@ select:disabled {
 
 .form-status.is-success {
   color: var(--ts-color-success);
-  background: rgba(16, 185, 129, 0.12);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: rgb(16, 185, 129, 0.12);
+  border: 1px solid rgb(16, 185, 129, 0.3);
 }
 
 .form-status.is-error {
   color: var(--ts-color-error);
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: rgb(239, 68, 68, 0.1);
+  border: 1px solid rgb(239, 68, 68, 0.3);
 }
 
 /* Action row — clear separation, mobile-friendly */

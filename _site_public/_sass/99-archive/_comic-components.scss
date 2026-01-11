@@ -136,9 +136,11 @@
 .comic-burst.pow {
   background: var(--tiller-pow-yellow);
 }
+
 .comic-burst.boom {
   background: var(--tiller-boom-orange);
 }
+
 .comic-burst.zap {
   background: var(--tiller-zap-purple);
 }
@@ -308,12 +310,12 @@
   background-image:
     radial-gradient(
       circle at 20% 20%,
-      rgba(255, 255, 255, 0.1) 2px,
+      rgb(255, 255, 255, 0.1) 2px,
       transparent 2px
     ),
     radial-gradient(
       circle at 80% 80%,
-      rgba(255, 255, 255, 0.1) 2px,
+      rgb(255, 255, 255, 0.1) 2px,
       transparent 2px
     );
   background-size: 30px 30px;
@@ -333,7 +335,7 @@
   line-height: 1.1;
   text-shadow:
     3px 3px 0 var(--color-cool-gray-900),
-    6px 6px 0 rgba(0, 0, 0, 0.2);
+    6px 6px 0 rgb(0, 0, 0, 0.2);
   margin-bottom: var(--spacing-space-6);
 }
 
@@ -369,15 +371,19 @@
 .badge-comic-teal {
   background: var(--color-neon-teal-400);
 }
+
 .badge-comic-orange {
   background: var(--color-sunset-orange-400);
 }
+
 .badge-comic-pink {
   background: var(--color-hot-pink-400);
 }
+
 .badge-comic-green {
   background: var(--color-lime-green-400);
 }
+
 .badge-comic-purple {
   background: var(--color-electric-purple-400);
 }
@@ -516,9 +522,11 @@
   100% {
     transform: rotate(0deg);
   }
+
   25% {
     transform: rotate(-3deg);
   }
+
   75% {
     transform: rotate(3deg);
   }
@@ -544,6 +552,7 @@
 .rotate-left {
   transform: rotate(-2deg);
 }
+
 .rotate-right {
   transform: rotate(2deg);
 }

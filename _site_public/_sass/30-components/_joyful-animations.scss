@@ -219,7 +219,7 @@
   border-radius: var(--pg-radius);
   overflow: hidden;
   position: relative;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 2px rgb(0, 0, 0, 0.05);
 }
 
 /* Standard progress fill */
@@ -230,7 +230,7 @@
   width: 0%;
   transition: width var(--pg-duration) cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  box-shadow: 0 0 0 0 rgba(7, 137, 48, 0.2);
+  box-shadow: 0 0 0 0 rgb(7, 137, 48, 0.2);
 }
 
 /* Animated shimmer effect on progress */
@@ -238,7 +238,7 @@
   background: linear-gradient(
     90deg,
     var(--pg-color) 0%,
-    rgba(7, 137, 48, 0.8) 50%,
+    rgb(7, 137, 48, 0.8) 50%,
     var(--pg-color) 100%
   );
   background-size: 200% 100%;
@@ -316,7 +316,7 @@
     background: linear-gradient(
       90deg,
       var(--pg-color) 0%,
-      rgba(7, 137, 48, 0.7) 100%
+      rgb(7, 137, 48, 0.7) 100%
     );
     background-size: 200% 100%;
     animation: shimmerWave 1.2s infinite;
@@ -430,7 +430,7 @@
     content: "";
     width: 100%;
     height: 100%;
-    border: 2px solid rgba(7, 137, 48, 0.2);
+    border: 2px solid rgb(7, 137, 48, 0.2);
     border-top-color: var(--color-primary);
     border-radius: 50%;
     animation: spinSmooth 0.8s linear infinite;
@@ -486,7 +486,7 @@
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgb(255, 255, 255, 0.3);
     transform: translate(-50%, -50%);
     pointer-events: none;
     transition:

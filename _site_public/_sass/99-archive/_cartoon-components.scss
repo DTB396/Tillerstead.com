@@ -103,12 +103,15 @@
   background: var(--tiller-cartoon-yellow);
   color: var(--color-cartoon-black);
 }
+
 .action-word.wham {
   background: var(--tiller-cartoon-red);
 }
+
 .action-word.boom {
   background: var(--tiller-retro-orange);
 }
+
 .action-word.zap {
   background: var(--tiller-cartoon-blue);
 }
@@ -297,7 +300,7 @@
     3px -3px 0 var(--color-cartoon-black),
     -3px 3px 0 var(--color-cartoon-black),
     3px 3px 0 var(--color-cartoon-black),
-    0 6px 0 rgba(0, 0, 0, 0.3);
+    0 6px 0 rgb(0, 0, 0, 0.3);
 }
 
 .hero-cartoon-subtitle {
@@ -466,12 +469,15 @@
   100% {
     transform: rotate(0deg);
   }
+
   25% {
     transform: rotate(-5deg);
   }
+
   50% {
     transform: rotate(5deg);
   }
+
   75% {
     transform: rotate(-5deg);
   }

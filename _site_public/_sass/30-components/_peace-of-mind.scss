@@ -8,8 +8,8 @@
   padding: clamp(1rem, 4vw, 2rem);
   background: linear-gradient(
     135deg,
-    rgba(7, 137, 48, 0.08) 0%,
-    rgba(7, 137, 48, 0.04) 100%
+    rgb(7, 137, 48, 0.08) 0%,
+    rgb(7, 137, 48, 0.04) 100%
   );
   border-left: 4px solid var(--ts-color-primary);
   border-radius: var(--ts-radius-md);
@@ -36,11 +36,11 @@
 .ts-peace-of-mind:hover {
   background: linear-gradient(
     135deg,
-    rgba(7, 137, 48, 0.12) 0%,
-    rgba(7, 137, 48, 0.06) 100%
+    rgb(7, 137, 48, 0.12) 0%,
+    rgb(7, 137, 48, 0.06) 100%
   );
   border-left-color: var(--ts-color-primary-strong);
-  box-shadow: 0 4px 12px rgba(7, 137, 48, 0.1);
+  box-shadow: 0 4px 12px rgb(7, 137, 48, 0.1);
 }
 
 /* Responsive adjustments */

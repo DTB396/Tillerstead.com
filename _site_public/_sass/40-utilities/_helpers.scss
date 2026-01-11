@@ -169,7 +169,7 @@
     var(--color-brand-teal-950) 100%
   ) !important;
   color: var(--tiller-hero-text);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgb(255, 255, 255, 0.08);
 }
 
 .bg-gradient .section-header {
@@ -198,7 +198,7 @@
   background: var(--ts-white);
   color: var(--ts-color-primary-bg);
   border: none;
-  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 18px 34px rgb(0, 0, 0, 0.22);
 }
 
 .bg-gradient .btn--color-primary:hover,

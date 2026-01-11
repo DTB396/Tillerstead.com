@@ -13,7 +13,7 @@
   }
 
   p {
-    color: rgba(255, 255, 255, 0.95);
+    color: rgb(255, 255, 255, 0.95);
   }
 }
 
@@ -55,8 +55,8 @@
     border-radius: 1rem;
     padding: 1.5rem 1.25rem;
     box-shadow:
-      0 4px 12px rgba(0, 0, 0, 0.2),
-      0 8px 24px rgba(0, 0, 0, 0.15);
+      0 4px 12px rgb(0, 0, 0, 0.2),
+      0 8px 24px rgb(0, 0, 0, 0.15);
 
     h3 {
       color: var(--ts-color-primary);
@@ -68,7 +68,7 @@
     }
 
     p {
-      color: rgba(255, 255, 255, 0.92);
+      color: rgb(255, 255, 255, 0.92);
       font-size: 0.9375rem;
       line-height: 1.6;
       margin: 0;

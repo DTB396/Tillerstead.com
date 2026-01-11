@@ -60,7 +60,7 @@
       border: 1px solid var(--ts-color-border);
       border-radius: 16px;
       padding: 2rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgb(0, 0, 0, 0.08);
       position: sticky;
       top: 120px;
   }
@@ -121,7 +121,7 @@
   .download-form .form-input:focus {
       outline: none;
       border-color: var(--ts-color-primary);
-    box-shadow: 0 0 0 3px rgba(13, 154, 170, 0.1);
+    box-shadow: 0 0 0 3px rgb(13, 154, 170, 0.1);
   }
 
   .form-group--checkbox {

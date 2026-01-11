@@ -322,9 +322,9 @@
   text-align: center;
   max-width: 65ch;
   padding: var(--ts-spacing-md);
-  background: rgba(13, 154, 170, 0.04);
+  background: rgb(13, 154, 170, 0.04);
   border-radius: var(--ts-radius-lg);
-  border: 1px solid rgba(13, 154, 170, 0.12);
+  border: 1px solid rgb(13, 154, 170, 0.12);
 }
 
 /* Testimonials */
@@ -553,7 +553,7 @@
 
   &:hover {
     border-color: var(--ts-color-primary);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 32px rgb(0, 0, 0, 0.08);
     transform: translateY(-4px);
   }
 
@@ -592,7 +592,7 @@
 
   &:hover {
     border-color: var(--ts-color-primary);
-    box-shadow: 0 4px 16px rgba(13, 154, 170, 0.12);
+    box-shadow: 0 4px 16px rgb(13, 154, 170, 0.12);
     transform: translateY(-2px);
   }
 }
@@ -654,10 +654,10 @@
 .btn--ghost-white {
   background: transparent;
   color: var(--ts-white);
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  border: 2px solid rgb(255, 255, 255, 0.4);
 
   &:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgb(255, 255, 255, 0.15);
     border-color: var(--ts-white);
   }
 }

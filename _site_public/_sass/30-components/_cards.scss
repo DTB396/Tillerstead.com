@@ -62,7 +62,7 @@
     background: linear-gradient(
       135deg,
       transparent 0%,
-      rgba(13, 154, 170, 0.02) 100%
+      rgb(13, 154, 170, 0.02) 100%
     );
     opacity: 0;
     transition: opacity var(--tiller-duration-smooth)
@@ -79,10 +79,10 @@
     &:hover {
       transform: translateY(-4px) scale(1.01);
       box-shadow:
-        0 8px 12px rgba(0, 0, 0, 0.1),
-        0 20px 40px rgba(0, 0, 0, 0.15),
+        0 8px 12px rgb(0, 0, 0, 0.1),
+        0 20px 40px rgb(0, 0, 0, 0.15),
         0 1px 3px color-mix(in srgb, var(--ts-color-primary) 30%, transparent),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        inset 0 1px 0 rgb(255, 255, 255, 0.15);
       border-color: color-mix(
         in srgb,
         var(--ts-color-primary) 70%,
@@ -409,7 +409,7 @@
       color-mix(in srgb, var(--ts-color-primary) 20%, transparent);
     box-shadow:
       0 4px 12px color-mix(in srgb, var(--ts-color-primary) 10%, transparent),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      inset 0 1px 0 rgb(255, 255, 255, 0.2);
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
@@ -432,7 +432,7 @@
     transform: scale(1.08) rotate(2deg);
     box-shadow:
       0 6px 16px color-mix(in srgb, var(--ts-color-primary) 18%, transparent),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      inset 0 1px 0 rgb(255, 255, 255, 0.3);
   }
 
   .ts-service-card__tagline {
