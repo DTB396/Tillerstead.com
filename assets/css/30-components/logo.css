@@ -1,0 +1,39 @@
+/* Modern, professional logo styles for Tillerstead */
+.ts-logo {
+  display: block;
+  height: 48px;
+  width: auto;
+  max-width: 100%;
+  transition: filter 0.2s;
+}
+.ts-logo--header {
+  height: 48px;
+}
+.ts-logo--footer {
+  height: 40px;
+  opacity: 0.85;
+  margin-bottom: 1rem;
+}
+.ts-logo--hero {
+  height: 96px;
+  margin-bottom: 2rem;
+}
+@media (max-width: 600px) {
+  .ts-logo--header { height: 36px; }
+  .ts-logo--footer { height: 28px; }
+  .ts-logo--hero { height: 64px; }
+}
+.hero__logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.site-branding {
+  display: flex;
+  align-items: center;
+}
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
