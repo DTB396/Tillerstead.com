@@ -6,10 +6,10 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>Terms &amp; Conditions | Tillerstead LLC | Tillerstead LLC</title>
+<title>Includes Refactor Changelog (2026-01-12) | Tillerstead LLC</title>
 
 
-	<meta name="description" content="Binding legal terms for all Tillerstead LLC estimates, proposals, workmanship, payments, warranties, and New Jersey Home Improvement Contractor disclosures." />
+	<meta name="description" content="TCNA-compliant tile and stone installation: custom showers, heated floors, waterproof assemblies, and natural stone surfaces. New Jersey HIC #13VH10808800. Serving Atlantic, Ocean, and Cape May Counties with precision, transparency, and owner oversight." />
 
 
 <!-- Core stylesheets -->
@@ -33,9 +33,9 @@
 {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  "name": "Terms & Conditions | Tillerstead LLC",
-  "description": "Binding legal terms for all Tillerstead LLC estimates, proposals, workmanship, payments, warranties, and New Jersey Home Improvement Contractor disclosures.",
-  "url": "https://tillerstead.com/legal/terms/"
+  "name": "Includes Refactor Changelog (2026-01-12)",
+  "description": null,
+  "url": "https://tillerstead.com/CHANGELOG-includes/"
 }
 </script>
 
@@ -171,109 +171,57 @@
   </div>
 </div>
 
-    <h2 id="terms--conditions">Terms &amp; Conditions</h2>
+    
+<h1 id="includes-refactor-changelog-2026-01-12">Includes Refactor Changelog (2026-01-12)</h1>
 
-<p><strong>Last updated:</strong> December 2025</p>
-
-<h2 id="1-licensed--insured-new-jersey-contractor">1. Licensed &amp; Insured New Jersey Contractor</h2>
-
-<p>Tillerstead LLC (“we,” “our,” “us”) is a New Jersey–licensed and insured Home Improvement Contractor (New Jersey HIC License #13VH10808800). All services strictly adhere to the New Jersey Consumer Fraud Act, Home Improvement Practices (N.J.A.C. 13:45A-16), and TCNA 2024 standards for tile and remodeling.</p>
-
-<h2 id="2-estimates-proposals--written-agreements">2. Estimates, Proposals &amp; Written Agreements</h2>
+<h2 id="major-changes">Major Changes</h2>
 
 <ul>
-  <li>Initial estimates are non-binding and based on site conditions and client-supplied information.</li>
-  <li>Formal proposals specify scope, materials, start dates, pricing, and payment schedules per N.J.A.C. 13:45A-16.2.</li>
-  <li>No work begins until written acceptance (including email) and deposit are received.</li>
-  <li>Proposals remain valid for 30 days unless otherwise stated.</li>
+  <li>All major section and component includes moved to organized subfolders:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">components/ts-services.html</code></li>
+      <li><code class="language-plaintext highlighter-rouge">components/ts-plans.html</code></li>
+      <li><code class="language-plaintext highlighter-rouge">components/ts-portfolio.html</code></li>
+      <li><code class="language-plaintext highlighter-rouge">components/ts-peace-of-mind.html</code></li>
+      <li><code class="language-plaintext highlighter-rouge">components/ts-icon.html</code></li>
+      <li><code class="language-plaintext highlighter-rouge">components/ts-service-card.html</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>All references in layouts, pages, and other includes updated to use new paths.</p>
+  </li>
+  <li>Duplicates and legacy versions removed from:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">_includes/</code> root</li>
+      <li><code class="language-plaintext highlighter-rouge">_includes/content/</code></li>
+    </ul>
+  </li>
 </ul>
 
-<h2 id="3-mandatory-new-jersey-disclosures">3. Mandatory New Jersey Disclosures</h2>
-
-<p>All agreements, as required by N.J.A.C. 13:45A-16, include:</p>
+<h2 id="files-removed">Files Removed</h2>
 
 <ul>
-  <li>Contractor’s legal name, address, phone, and HIC license number.</li>
-  <li>Detailed work description and material specifications.</li>
-  <li>Total price or transparent pricing formula.</li>
-  <li>Start and completion dates or estimated timeline.</li>
-  <li>Statement of the customer’s right to cancel (see below).</li>
+  <li><code class="language-plaintext highlighter-rouge">_includes/ts-services.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">_includes/ts-plans.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">_includes/ts-portfolio.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">_includes/ts-peace-of-mind.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">_includes/ts-icon.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">_includes/ts-service-card.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">_includes/content/ts-services.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">_includes/content/ts-plans.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">_includes/content/ts-portfolio.html</code></li>
 </ul>
 
-<h3 id="right-to-cancel-three-day-rule">Right to Cancel (Three-Day Rule)</h3>
-
-<p>For eligible in-home sales, clients may cancel within three business days of contract signing. Written cancellation instructions are provided with every formal agreement.</p>
-
-<h2 id="4-scheduling--project-timeline">4. Scheduling &amp; Project Timeline</h2>
+<h2 id="structure-now">Structure Now</h2>
 
 <ul>
-  <li>Scheduling is confirmed only after written acceptance and deposit.</li>
-  <li>Timelines may be affected by weather, permitting, material lead times, or unforeseen site conditions.</li>
-  <li>All schedule changes are communicated promptly and transparently.</li>
+  <li>Canonical, reusable includes are in <code class="language-plaintext highlighter-rouge">components/</code>.</li>
+  <li>No legacy or duplicate includes remain in root or content/.</li>
+  <li>All references are up to date.</li>
 </ul>
 
-<h2 id="5-deposits--payment-terms">5. Deposits &amp; Payment Terms</h2>
-
-<ul>
-  <li>Deposits secure scheduling and material procurement.</li>
-  <li>Payment schedules are defined in the written agreement and comply with N.J.A.C. standards.</li>
-  <li>Payments may be milestone-based, progress-based, or tied to material orders.</li>
-  <li>Non-payment may result in work suspension until resolved.</li>
-</ul>
-
-<h2 id="6-change-orders-njac-1345a-162-requirement">6. Change Orders (N.J.A.C. 13:45A-16.2 Requirement)</h2>
-
-<p>Any change to scope, materials, pricing, or timeline requires a written, mutually signed change order. This ensures transparency and protects both client and contractor from misunderstandings.</p>
-
-<h2 id="7-workmanship--materials-standards">7. Workmanship &amp; Materials Standards</h2>
-
-<ul>
-  <li>All work is performed to TCNA 2024 standards and manufacturer specifications.</li>
-  <li>Material variations may occur due to manufacturing tolerances.</li>
-  <li>Client-supplied materials must meet project requirements and are installed at client’s risk.</li>
-</ul>
-
-<h2 id="8-permits-site-access--hidden-conditions">8. Permits, Site Access &amp; Hidden Conditions</h2>
-
-<ul>
-  <li>Clients must provide safe, unobstructed access to the work area.</li>
-  <li>Permit responsibility is defined in the agreement; Tillerstead can obtain permits as required.</li>
-  <li>Discovery of hidden defects (e.g., rot, mold, structural issues, prior improper work) may require additional repairs not included in the initial estimate.</li>
-</ul>
-
-<h2 id="9-warranties">9. Warranties</h2>
-
-<ul>
-  <li>Tillerstead LLC warrants its workmanship per written agreement; warranty applies only to labor performed by Tillerstead.</li>
-  <li>Product warranties are provided by manufacturers and governed by their terms.</li>
-  <li>Damage from misuse, neglect, third-party alterations, or pre-existing conditions is excluded.</li>
-</ul>
-
-<h2 id="10-cancellations--refunds">10. Cancellations &amp; Refunds</h2>
-
-<ul>
-  <li>Clients may cancel in writing as outlined in the agreement.</li>
-  <li>Deposits may be non-refundable if materials have been ordered or work has commenced, in accordance with N.J.A.C. and contract terms.</li>
-</ul>
-
-<h2 id="11-limitation-of-liability">11. Limitation of Liability</h2>
-
-<p>To the fullest extent permitted by New Jersey law, Tillerstead’s liability is limited to the cost of services rendered. We are not liable for consequential or incidental damages.</p>
-
-<h2 id="12-governing-law--dispute-resolution">12. Governing Law &amp; Dispute Resolution</h2>
-
-<p>These Terms are governed by New Jersey law. Disputes are resolved in the appropriate New Jersey court with jurisdiction over the project location.</p>
-
-<h2 id="13-contact--regulatory-information">13. Contact &amp; Regulatory Information</h2>
-
-<p><strong>Tillerstead LLC</strong><br />
-325 E. Jimmie Leeds Road, Suite 7-333<br />
-, NJ 08205<br />
-<a href="mailto:info@tillerstead.com">info@tillerstead.com</a> • <a href="tel:+16098628808">(609) 862-8808</a></p>
-
-<p>New Jersey HIC License #: 13VH10808800<br />
-For full compliance details, see <a href="https://www.tcnatile.com/">TCNA 2024 Standards</a> and <a href="https://www.njconsumeraffairs.gov/">NJ Division of Consumer Affairs</a>.</p>
-
+<hr />
+<p>This changelog documents the full audit, refactor, and cleanup of the <code class="language-plaintext highlighter-rouge">_includes/</code> directory for maintainability and best practices.</p>
 
     
     
