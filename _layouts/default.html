@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<head>
-  {% include head.html %}
-  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/root-vars.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/tokens-hybrid.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/nav-drawer.css' | relative_url }}">
-  <!-- Page-specific JS -->
-  {% if page.url == "/portfolio/" %}
-    <script src="{{ '/assets/js/portfolio.js' | relative_url }}"></script>
-  {% endif %}
-  <!-- Contact Schema -->
-  {% if page.url == "/contact/" %}
-    {% include contact-page.html %}
-  {% endif %}
-  <!-- Structured Data (HowTo/TechArticle) -->
-  {% assign schema_kind = page.schema_type | default: "HowTo" %}
-  {% if schema_kind == "HowTo" %}
-    {% include schema-howto.html %}
-  {% else %}
+<html lang="en">
+  <head>
+    {% include head.html %}
+    <!-- Page-specific JS -->
+    {% if page.url == "/portfolio/" %}
+      <script src="{{ '/assets/js/portfolio.js' | relative_url }}"></script>
+    {% endif %}
+    <!-- Contact Schema -->
+    {% if page.url == "/contact/" %}
+      {% include contact-page.html %}
+    {% endif %}
+    <!-- Structured Data (HowTo/TechArticle) -->
+    {% assign schema_kind = page.schema_type | default: "HowTo" %}
+    {% if schema_kind == "HowTo" %}
+      {% include schema-howto.html %}
+    {% else %}
     {% include schema-techarticle.html %}
   {% endif %}
   <!-- FAQPage Structured Data -->
@@ -96,14 +93,15 @@
     </script>
   {% endif %}
 
- </head>
-<body>
-  {% include header.html %}
-  {% include trust-bar.html %}
-  {{ content }}
-  {% if page.url == '/' %}
-    {% include home-portfolio-preview.html %}
-  {% endif %}
-  {% include footer.html %}
-  <script src="{{ '/assets/js/nav.js' | relative_url }}" defer></script>
-</body>
+  </head>
+  <body>
+    {% include header.html %}
+    {% include trust-bar.html %}
+    {{ content }}
+    {% if page.url == '/' %}
+      {% include home-portfolio-preview.html %}
+    {% endif %}
+    {% include footer.html %}
+    <script src="{{ '/assets/js/nav.js' | relative_url }}" defer></script>
+  </body>
+</html>

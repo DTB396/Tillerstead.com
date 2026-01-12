@@ -1,20 +1,18 @@
-
-<!--
-  Assign navigation data for header navs
-  (Moved out of top-level to avoid doctype error)
--->
+<!-- Header include: navigation, branding, menu toggle -->
 {% assign primary_nav = site.data.navigation.primary %}
 {% assign current_url = page.url | default: '' %}
 
 <header class="site-header">
   <div class="site-header-inner">
-
+    <!-- Navigation drawer -->
     {% include nav-drawer.html %}
 
+    <!-- Branding/logo -->
     <div class="site-branding">
       {% include logo-header.html symbol="logo-full" svg_class="ts-logo ts-logo--header" %}
     </div>
 
+    <!-- Mobile nav toggle -->
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu" aria-haspopup="true" aria-pressed="false">
       <span class="nav-toggle-icon" aria-hidden="true">
         <span></span>
@@ -24,7 +22,7 @@
       <span class="sr-only">Menu</span>
     </button>
   </div>
+</header>
 
 
 </header>
-

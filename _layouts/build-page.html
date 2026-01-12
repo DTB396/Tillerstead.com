@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  {% include head.html %}
-</head>
-<body class="ts-build-page">
-  {% include header.html %}
-  <main class="ts-section ts-build-content" aria-labelledby="build-guide-heading">
-    <div class="container container-wide">
-      <div class="build-content-grid">
-        <aside class="build-content-sidebar" aria-label="Build phase navigation">
-          {% include build-sidenav.html %}
-        </aside>
-        <div class="build-content-main">
-          {% if page.build_title or page.description %}
-            <header class="section-header" id="build-guide-heading">
-              {% if page.build_title %}
-                <p class="eyebrow">{{ page.build_title }}</p>
-              {% endif %}
-              {% if page.description %}
-                <p class="lead">{{ page.description }}</p>
-              {% endif %}
-            </header>
-          {% endif %}
-          {% include toc.html %}
-          <article class="prose">
-            {{ content }}
-          </article>
-          {% include build-prev-next.html %}
+  <head>
+    {% include head.html %}
+  </head>
+  <body class="ts-build-page">
+    {% include header.html %}
+    <main class="ts-section ts-build-content" aria-labelledby="build-guide-heading">
+      <div class="container container-wide">
+        <div class="build-content-grid">
+          <aside class="build-content-sidebar" aria-label="Build phase navigation">
+            {% include build-sidenav.html %}
+          </aside>
+          <div class="build-content-main">
+            {% if page.build_title or page.description %}
+              <header class="section-header" id="build-guide-heading">
+                {% if page.build_title %}
+                  <p class="eyebrow">{{ page.build_title }}</p>
+                {% endif %}
+                {% if page.description %}
+                  <p class="lead">{{ page.description }}</p>
+                {% endif %}
+              </header>
+            {% endif %}
+            {% include toc.html %}
+            <article class="prose">
+              {{ content }}
+            </article>
+            {% include build-prev-next.html %}
+          </div>
         </div>
       </div>
-    </div>
-  </main>
-  {% include footer.html %}
-</body>
+    </main>
+    {% include footer.html %}
+  </body>
 </html>

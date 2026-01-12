@@ -18,7 +18,7 @@ permalink: /portfolio/
 
 
 
-{% include content/ts-portfolio.html %} {% assign projects =
+{% include components/ts-portfolio.html %} {% assign projects =
 site.data.portfolio.projects %} {% if projects == nil %}{% assign projects = ""
 | split: "," %}{% endif %} {%- assign total_projects = projects | size | plus: 0
 -%} {%- assign fallback_src =
@@ -32,7 +32,7 @@ installation, code-compliant waterproofing, and built for durability.' -%}
 <section class="ts-section ts-surface portfolio-page">
   <div class="container">
     <!-- Peace of Mind Assurance -->
-    {% include ts-peace-of-mind.html %}
+    {% include components/ts-peace-of-mind.html %}
 
     <!-- Filters -->
     <div class="filters" role="tablist" aria-label="Portfolio filters">

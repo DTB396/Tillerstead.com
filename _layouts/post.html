@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-{% include breadcrumbs.html %}
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+    {% include header.html %}
+    {% include breadcrumbs.html %}
 <article class="ts-section ts-surface section blog-post" itemscope itemtype="https://schema.org/BlogPosting" tabindex="-1">
   <!-- SEO & Schema.org metadata -->
   <meta itemprop="headline" content="{{ page.title }}" />
@@ -112,4 +117,6 @@
   </div>
 </section>
 {% endif %}
+    {% include footer.html %}
+  </body>
 </html>

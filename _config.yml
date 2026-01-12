@@ -19,8 +19,6 @@ timezone: "America/New_York"
 # Build settings
 # ----------------------------
 permalink: pretty
-sass:
-  style: compressed
 
 # ----------------------------
 # Plugins

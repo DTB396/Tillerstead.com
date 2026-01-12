@@ -49,69 +49,20 @@ section_id | append: '-title' %}
             <img
               src="{{ portfolio_image | relative_url }}"
               alt="{{ portfolio_alt }}"
-              width="800"
-              height="600"
               loading="lazy"
-              decoding="async"
-              style="object-fit: cover; width: 100%; height: auto"
+              width="480"
+              height="320"
             />
           </picture>
         </figure>
         {% endif %}
-
-        <div class="ts-portfolio__content">
-          {% if item.title %}
-          <h3 class="heading-4 text-primary">{{ item.title }}</h3>
-          {% endif %} {% if item.description %}
-          <p>{{ item.description }}</p>
-          {% endif %} {% if item.specs or item.details %}
-          <ul class="ts-portfolio__specs" role="list">
-            {% assign specs = item.specs | default: item.details %} {% for spec
-            in specs limit:3 %}
-            <li><small>{{ spec }}</small></li>
-            {% endfor %}
-          </ul>
-          {% endif %} {% if item.url %}
-          <a
-            href="{{ item.url | relative_url }}"
-            class="btn btn--sm btn--ghost"
-          >
-            View Project Details
-          </a>
-          {% endif %}
+        <div class="ts-portfolio__body">
+          <h3 class="ts-portfolio__title">{{ item.title }}</h3>
+          <p class="ts-portfolio__desc">{{ item.description }}</p>
         </div>
       </article>
       {% endfor %}
     </div>
-    {% else %}
-    <div class="ts-portfolio__placeholder">
-      <p class="lead text-center">
-        Portfolio items coming soon. Contact us to see recent work examples.
-      </p>
-      <div class="btn-row center">
-        <a href="{{ '/contact/' | relative_url }}" class="btn btn--primary"
-          >Request Project Photos</a
-        >
-      </div>
-    </div>
     {% endif %}
-
-    <nav class="ts-portfolio__actions" aria-label="Portfolio actions">
-      <a href="{{ '/contact/' | relative_url }}" class="btn btn--primary">
-        Request TCNA-Compliant Estimate
-      </a>
-      <a href="{{ '/services/' | relative_url }}" class="btn btn--ghost">
-        View All Services
-      </a>
-    </nav>
-
-    <p class="ts-portfolio__note">
-      <small>
-        All work performed to TCNA 2024 standards with full New Jersey HIC
-        compliance. Documentation includes substrate prep photos, waterproofing
-        flood tests, and final inspection records.
-      </small>
-    </p>
   </div>
 </section>
-<!-- Moved to components/ts-portfolio.html -->

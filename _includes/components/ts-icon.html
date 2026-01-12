@@ -1,0 +1,9 @@
+{% comment %} Icon include - renders SVG icons inline Usage: {% include ts-icon.html name="icon-name" size="24" class="custom-class" %} {% endcomment %}
+<svg
+  class="ts-icon {{ include.class }}"
+  width="{{ include.size | default: 24 }}"
+  height="{{ include.size | default: 24 }}"
+  aria-hidden="true"
+>
+  <use href="#{{ include.name }}"></use>
+</svg>

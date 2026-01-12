@@ -1,4 +1,3 @@
-<!-- filepath: c:\web-dev\github-repos\Tillerstead.com\pages\faq.html -->
 ---
 layout: default
 title: "Frequently Asked Questions | Tillerstead"
@@ -21,7 +20,7 @@ body_class: page-faq
   </section>
 
   <!-- Peace of Mind Assurance -->
-  {% include ts-peace-of-mind.html %} {% for section in site.data.faq %}
+  {% include components/ts-peace-of-mind.html %} {% for section in site.data.faq %}
   <section
     class="ts-section ts-faq{% if forloop.index0 % 2 == 1 %} bg-soft{% endif %}"
     aria-labelledby="faq-{{ forloop.index }}"
@@ -36,15 +35,8 @@ body_class: page-faq
         {% for faq in section.items %}
         <details
           class="faq-item"
-          {%
-          if
-          forloop.first
-          and
-          forloop.parentloop.first
-          %}
-          open{%
-          endif
-          %}
+          {% if forloop.first and forloop.parentloop.first %}
+          open{% endif %}
         >
           <summary>{{ faq.question }}</summary>
           <div class="faq-body">{{ faq.answer | markdownify }}</div>

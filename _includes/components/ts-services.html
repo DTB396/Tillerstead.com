@@ -1,0 +1,78 @@
+{% assign summary = include.summary | default: page.services_summary | default:
+'Every project begins with precise layout, flood-tested waterproofing, and photo
+documentation suitable for lenders, tenants, or GCs. No shortcuts. No sliver
+tiles unless the plan leaves no alternative. TCNA-compliant, New Jersey
+HIC-licensed.' %} {% assign services = include.services | default: page.services
+| default: site.data.services.services %} {% assign services_gallery =
+include.gallery | default: page.services_gallery %} {% assign section_id =
+include.section_id | default: 'ts-services' %} {% assign heading_id =
+include.heading_id | default: section_id | append: '-title' %} {%- comment -%}
+CORE CAPABILITIES section for Tillerstead homepage. Supports: - String format:
+"paint|Title|Description|/url|Tagline|Details" - Object format: { "icon": "...",
+"title": "...", "description": "...", "url": "...", "tagline": "...", "details":
+"..." } {%- endcomment -%}
+
+<section
+  class="ts-services ts-section"
+  id="{{ section_id }}"
+  aria-labelledby="{{ heading_id }}"
+  style="
+    background-image: url(&quot;/assets/img/patterns/grid-tile-light.svg&quot;);
+    background-size: 240px 240px;
+    background-position: center;
+    background-attachment: fixed;
+  "
+>
+  <div class="container">
+    <header class="ts-services__header">
+      <p class="eyebrow text-accent">
+        TCNA-compliant layouts &amp; waterproof tile assemblies
+      </p>
+      <h2 id="{{ heading_id }}" class="heading-2 text-primary">
+        Tile installations engineered for longevity, compliance, and visual
+        precision.
+      </h2>
+      <p class="lead">{{ summary }}</p>
+    </header>
+
+    {% if services and services != empty %}
+    <ul class="ts-services__grid" role="list">
+      {% for raw in services %} {%- assign service_tagline = raw.tagline -%} {%-
+      assign service_details = raw.details | default: raw.points -%} {%- if raw
+      contains '|' -%} {%- assign parts = raw | split: '|' -%} {%- assign
+      service_icon_key = parts[0] | strip -%} {%- assign service_title =
+      parts[1] | strip -%} {%- assign service_description= parts[2] | strip -%}
+      {%- assign service_url = parts[3] | strip -%} {%- if parts.size > 4 -%}
+      {%- assign service_tagline = parts[4] | strip -%} {%- endif -%} {%- if
+      parts.size > 5 -%} {%- assign service_details = parts[5] | strip -%}
+      {%- endif -%} {%- else -%} {%- assign service_icon_key = raw.icon -%} {%-
+      assign service_title = raw.title -%} {%- assign service_description=
+      raw.description -%} {%- assign service_url = raw.url -%} {%- endif -%} {%-
+      comment -%} Render service card {%- endcomment -%}
+      <li class="ts-services__item">
+        <div class="ts-service-card">
+          {% if service_icon_key %}
+            {% include components/ts-icon.html icon=service_icon_key %}
+          {% endif %}
+          <h3 class="ts-service-card__title">{{ service_title }}</h3>
+          <p class="ts-service-card__desc">{{ service_description }}</p>
+          {% if service_tagline %}
+            <p class="ts-service-card__tagline">{{ service_tagline }}</p>
+          {% endif %}
+          {% if service_details %}
+            <ul class="ts-service-card__details">
+              {% for detail in service_details %}
+                <li>{{ detail }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          {% if service_url %}
+            <a href="{{ service_url }}" class="ts-service-card__link">Learn more</a>
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</section>
