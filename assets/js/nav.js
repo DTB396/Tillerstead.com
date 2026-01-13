@@ -21,12 +21,25 @@
   let lastFocus = null;
 
   // State helpers
-  const isMobileView = () => window.innerWidth < BP_DESKTOP;
+  const isMobileView = () => {
+    const mobile = window.innerWidth < BP_DESKTOP;
+    console.log(`[DEBUG] isMobileView: ${mobile}`);
+    return mobile;
+  };
   const isNavOpen = () => navShell?.classList.contains('is-open');
 
   // ========== ARIA Sync ==========
+  // Add logging to debug aria and mobile view
+  console.log('[DEBUG] Adding aria and mobile view logging');
+
   const syncAria = (open) => {
     const state = open ? 'true' : 'false';
+    console.log(`[DEBUG] syncAria called with state: ${state}`);
+    console.log('[DEBUG] navToggle:', navToggle);
+    console.log('[DEBUG] nav:', nav);
+    console.log('[DEBUG] navShell:', navShell);
+    console.log('[DEBUG] navOverlay:', navOverlay);
+
     navToggle?.setAttribute('aria-expanded', state);
     navToggle?.setAttribute(
       'aria-label',
@@ -108,20 +121,30 @@
     });
   };
 
+  // Add logging to debug event listeners
+  console.log('[DEBUG] Attaching event listeners');
+
   // Mobile nav toggle
-  navToggle?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    isNavOpen() ? closeNav() : openNav();
-  });
+  if (navToggle) {
+    console.log('[DEBUG] navToggle event listener attached');
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      isNavOpen() ? closeNav() : openNav();
+    });
+  }
 
   // Close button
-  navClose?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    closeNav();
-  });
+  if (navClose) {
+    console.log('[DEBUG] navClose event listener attached');
+    navClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeNav();
+    });
+  }
 
   // Overlay click
   if (navOverlay) {
+    console.log('[DEBUG] navOverlay event listeners attached');
     const closeViaEvent = (e) => {
       e.stopPropagation();
       closeNav();
@@ -131,11 +154,14 @@
   }
 
   // Close on link click (mobile)
-  nav?.addEventListener('click', (e) => {
-    const link = e.target.closest('a');
-    if (!link) return;
-    if (isMobileView() && isNavOpen()) closeNav();
-  });
+  if (nav) {
+    console.log('[DEBUG] nav link click listener attached');
+    nav.addEventListener('click', (e) => {
+      const link = e.target.closest('a');
+      if (!link) return;
+      if (isMobileView() && isNavOpen()) closeNav();
+    });
+  }
 
   // ========== Mobile Submenus ==========
   const mobileSubtoggles = $$('[data-mobile-subtoggle]');

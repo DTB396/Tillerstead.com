@@ -19,6 +19,221 @@
 <link rel="stylesheet" href="/assets/css/tokens-hybrid.css">
 <link rel="stylesheet" href="/assets/css/nav-drawer.css">
 
+<!-- Logo sprite -->
+<!-- SVG Logo Sprite - Tillerstead brand marks -->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  style="position: absolute; width: 0; height: 0; overflow: hidden"
+>
+  <defs>
+    <style>
+      .logo-tile {
+        fill: var(--logo-fill, #078930);
+        stroke: var(--logo-stroke, #fcdd09);
+        stroke-width: 10;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+      }
+
+      .logo-word {
+        fill: #da121a;
+        font:
+          800 46px "Inter",
+          "Manrope",
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        letter-spacing: 1.4px;
+      }
+
+      .logo-sub {
+        fill: #078930;
+        font:
+          600 18px "Inter",
+          "Manrope",
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        opacity: 0.9;
+      }
+
+      .logo-sub-small {
+        font-size: 16px;
+      }
+    </style>
+
+    <!-- Base tile mark shape, padded so stroke is not clipped -->
+    <g id="ts-mark-shape" transform="translate(10 10)">
+      <rect class="logo-tile" x="0" y="0" width="42" height="42" rx="6" />
+      <rect class="logo-tile" x="60" y="0" width="42" height="42" rx="6" />
+      <rect class="logo-tile" x="120" y="0" width="42" height="42" rx="6" />
+      <rect class="logo-tile" x="60" y="60" width="42" height="42" rx="6" />
+      <rect class="logo-tile" x="60" y="120" width="42" height="42" rx="6" />
+    </g>
+  </defs>
+
+  <!-- MARK ONLY -->
+
+  <symbol id="logo-mark" viewBox="0 0 190 190">
+    <use href="#ts-mark-shape" />
+  </symbol>
+
+  <symbol id="logo-mark-mono" viewBox="0 0 190 190">
+    <use
+      href="#ts-mark-shape"
+      style="--logo-fill: currentColor; --logo-stroke: currentColor"
+    />
+  </symbol>
+
+  <!-- HORIZONTAL FULL LOGO -->
+
+  <symbol id="logo-full" viewBox="0 0 760 220">
+    <use href="#ts-mark-shape" x="20" y="26" />
+    <text class="logo-word" x="220" y="90">TILLERSTEAD</text>
+    <text class="logo-sub" x="220" y="130">
+      Tile • Remodeling • Property Maintenance
+    </text>
+    <text class="logo-sub logo-sub-small" x="220" y="160">
+      New Jersey licensed HIC #13VH10808800
+    </text>
+  </symbol>
+
+  <symbol id="logo-full-mono" viewBox="0 0 760 220">
+    <use
+      href="#ts-mark-shape"
+      x="20"
+      y="26"
+      style="--logo-fill: currentColor; --logo-stroke: currentColor"
+    />
+    <text
+      fill="currentColor"
+      x="220"
+      y="90"
+      font-size="46"
+      font-weight="800"
+      font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+      letter-spacing="1.4"
+    >
+      TILLERSTEAD
+    </text>
+    <text
+      fill="currentColor"
+      x="220"
+      y="130"
+      font-size="18"
+      font-weight="600"
+      font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+      opacity=".9"
+    >
+      Tile • Remodeling • Property Maintenance
+    </text>
+    <text
+      fill="currentColor"
+      x="220"
+      y="160"
+      font-size="16"
+      font-weight="600"
+      font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+      opacity=".9"
+    >
+      New Jersey licensed HIC #13VH10808800
+    </text>
+  </symbol>
+
+  <!-- STACKED LOGO -->
+
+  <symbol id="logo-stacked" viewBox="0 0 260 320">
+    <use href="#ts-mark-shape" x="58" y="24" />
+    <text
+      x="130"
+      y="210"
+      font-size="32"
+      font-weight="800"
+      font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+      letter-spacing="1.2"
+      fill="#DA121A"
+      text-anchor="middle"
+    >
+      TILLERSTEAD
+    </text>
+    <text
+      x="130"
+      y="242"
+      font-size="14"
+      font-weight="600"
+      font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+      opacity=".9"
+      fill="#078930"
+      text-anchor="middle"
+    >
+      Tile • Remodeling • Property Maintenance
+    </text>
+    <text
+      x="130"
+      y="268"
+      font-size="12"
+      font-weight="600"
+      font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+      opacity=".9"
+      fill="#078930"
+      text-anchor="middle"
+    >
+      New Jersey licensed HIC #13VH10808800
+    </text>
+  </symbol>
+
+  <symbol id="logo-stacked-mono" viewBox="0 0 260 320">
+    <use
+      href="#ts-mark-shape"
+      x="58"
+      y="24"
+      style="--logo-fill: currentColor; --logo-stroke: currentColor"
+    />
+    <text
+      x="130"
+      y="210"
+      font-size="32"
+      font-weight="800"
+      font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+      letter-spacing="1.2"
+      fill="currentColor"
+      text-anchor="middle"
+    >
+      TILLERSTEAD
+    </text>
+    <text
+      x="130"
+      y="242"
+      font-size="14"
+      font-weight="600"
+      font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+      opacity=".9"
+      fill="currentColor"
+      text-anchor="middle"
+    >
+      Tile • Remodeling • Property Maintenance
+    </text>
+    <text
+      x="130"
+      y="268"
+      font-size="12"
+      font-weight="600"
+      font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+      opacity=".9"
+      fill="currentColor"
+      text-anchor="middle"
+    >
+      New Jersey licensed HIC #13VH10808800
+    </text>
+  </symbol>
+</svg>
+
+
 <!-- Page-specific styles/scripts can be added below -->
 
 
@@ -80,98 +295,24 @@
 
 
 
-<header class="site-header">
-  <div class="site-header-inner">
-    <!-- Navigation drawer -->
-    <!-- nav-drawer.html - Modern, accessible nav bar + drawer -->
-<!-- nav-drawer.html - Modern, accessible nav bar + drawer (refined) -->
-<nav class="navbar" aria-label="Main Navigation">
-  <a href="/" class="nav-logo">Tillerstead</a>
-  <ul class="nav-links" role="menubar">
-    <li class="nav-submenu-group" role="none">
-      <a href="/build/" role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-submenu" tabindex="0">Build Guides</a>
-      <ul class="nav-submenu" role="menu" aria-label="Build Guide Phases">
-        <li role="none"><a href="/build/" role="menuitem" tabindex="-1">Build Phases (Compliance)</a></li>
-        <li role="none"><a href="/build/nj-codes-permits/" role="menuitem" tabindex="-1">Codes & Permits</a></li>
-        <li role="none"><a href="/build/shower-pans-slopes-drains/" role="menuitem" tabindex="-1">Shower Pans & Slopes</a></li>
-        <li role="none"><a href="/build/waterproofing-systems/" role="menuitem" tabindex="-1">Waterproofing</a></li>
-        <li role="none"><a href="/build/curbs-curbless/" role="menuitem" tabindex="-1">Thresholds & Curbs</a></li>
-        <li role="none"><a href="/build/framing-benches-niches/" role="menuitem" tabindex="-1">Benches & Niches</a></li>
-        <li role="none"><a href="/build/tile-installation-standards/" role="menuitem" tabindex="-1">Tile Installation</a></li>
-        <li role="none"><a href="/build/flood-testing/" role="menuitem" tabindex="-1">Verification & Testing</a></li>
-        <li role="none"><a href="/build/common-build-failures/" role="menuitem" tabindex="-1">Common Failures</a></li>
-      </ul>
-    </li>
-    <li role="none"><a href="/portfolio/" role="menuitem">Portfolio</a></li>
-    <li role="none"><a href="/reviews/" role="menuitem">Reviews</a></li>
-    <li role="none"><a href="/faq/" role="menuitem">FAQ</a></li>
-    <li role="none"><a href="/contact/" role="menuitem">Get an Estimate</a></li>
-  </ul>
-  <button class="nav-toggle" aria-label="Open menu" aria-controls="nav-drawer" aria-expanded="false">
-    <span aria-hidden="true">&#9776;</span>
-  </button>
-</nav>
-<div class="nav-overlay" tabindex="-1"></div>
-<aside class="nav-drawer" id="nav-drawer" aria-modal="true" aria-label="Site Menu" tabindex="-1">
-  <button class="nav-close" aria-label="Close menu">&times;</button>
-  <ul class="nav-links" role="menubar">
-    <li class="nav-submenu-group" role="none">
-      <a href="/build/" role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-submenu" tabindex="0">Build Guides</a>
-      <ul class="nav-submenu" role="menu" aria-label="Build Guide Phases">
-        <li role="none"><a href="/build/" role="menuitem" tabindex="-1">Build Phases (Compliance)</a></li>
-        <li role="none"><a href="/build/nj-codes-permits/" role="menuitem" tabindex="-1">Codes & Permits</a></li>
-        <li role="none"><a href="/build/shower-pans-slopes-drains/" role="menuitem" tabindex="-1">Shower Pans & Slopes</a></li>
-        <li role="none"><a href="/build/waterproofing-systems/" role="menuitem" tabindex="-1">Waterproofing</a></li>
-        <li role="none"><a href="/build/curbs-curbless/" role="menuitem" tabindex="-1">Thresholds & Curbs</a></li>
-        <li role="none"><a href="/build/framing-benches-niches/" role="menuitem" tabindex="-1">Benches & Niches</a></li>
-        <li role="none"><a href="/build/tile-installation-standards/" role="menuitem" tabindex="-1">Tile Installation</a></li>
-        <li role="none"><a href="/build/flood-testing/" role="menuitem" tabindex="-1">Verification & Testing</a></li>
-        <li role="none"><a href="/build/common-build-failures/" role="menuitem" tabindex="-1">Common Failures</a></li>
-      </ul>
-    </li>
-    <li role="none"><a href="/portfolio/" role="menuitem">Portfolio</a></li>
-    <li role="none"><a href="/reviews/" role="menuitem">Reviews</a></li>
-    <li role="none"><a href="/faq/" role="menuitem">FAQ</a></li>
-    <li role="none"><a href="/contact/" role="menuitem">Get an Estimate</a></li>
-  </ul>
-</aside>
-<!-- End nav-drawer.html -->
-
-
-    <!-- Branding/logo -->
-    <div class="site-branding">
-           
-
-<a
-  href="/"
-  class="ts-logo-link"
-  data-logo-link
-  aria-label="Tillerstead LLC - Home"
->
-  <svg
-    class="ts-logo ts-logo--header"
-    role="img"
-    aria-label="Tillerstead LLC"
-  >
-    <use href="#logo-full"></use>
-  </svg>
-</a>
-
-    </div>
-
-    <!-- Mobile nav toggle -->
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu" aria-haspopup="true" aria-pressed="false">
-      <span class="nav-toggle-icon" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-      </span>
-      <span class="sr-only">Menu</span>
-    </button>
-  </div>
-</header>
-
-
+<!-- Updated header with new navigation system -->
+<header class="nav-container">
+  <img src="/assets/images/main-logo.svg" alt="Tillerstead Logo" class="nav-logo">
+  <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+  <nav class="nav-menu mobile">
+    <a href="/">Home</a>
+    <a href="/about.html">About</a>
+    <a href="/services.html">Services</a>
+    <a href="/portfolio.html">Portfolio</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+  <nav class="nav-menu desktop">
+    <a href="/">Home</a>
+    <a href="/about.html">About</a>
+    <a href="/services.html">Services</a>
+    <a href="/portfolio.html">Portfolio</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
 </header>
 
     
@@ -594,23 +735,7 @@
       </nav>
 
       <div class="footer-brand">
-             
-
-<a
-  href="/"
-  class="ts-logo-link ts-logo-link--footer"
-  data-logo-link
-  aria-label="Tillerstead LLC - Home"
->
-  <svg
-    class="ts-logo ts-logo--footer"
-    role="img"
-    aria-label="Tillerstead LLC"
-  >
-    <use href="#logo-stacked-mono"></use>
-  </svg>
-</a>
-
+        <img src="/assets/images/main-logo.svg" alt="Tillerstead Logo" class="footer-logo">
         <p class="footer-tagline">Expert Tile & Stone Installation — South Jersey</p>
         <p class="footer-license">NJ HIC #13VH10808800</p>
         <address class="footer-address">

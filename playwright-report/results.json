@@ -10,7 +10,9 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {},
+    "metadata": {
+      "actualWorkers": 4
+    },
     "preserveOutput": "always",
     "reporter": [
       [
@@ -40,7 +42,9 @@
         "outputDir": "C:/web-dev/github-repos/Tillerstead.com/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 4
+        },
         "id": "chromium-desktop",
         "name": "chromium-desktop",
         "testDir": "C:/web-dev/github-repos/Tillerstead.com/tests",
@@ -54,7 +58,9 @@
         "outputDir": "C:/web-dev/github-repos/Tillerstead.com/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 4
+        },
         "id": "chromium-mobile",
         "name": "chromium-mobile",
         "testDir": "C:/web-dev/github-repos/Tillerstead.com/tests",
@@ -68,7 +74,9 @@
         "outputDir": "C:/web-dev/github-repos/Tillerstead.com/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 4
+        },
         "id": "chromium-tablet",
         "name": "chromium-tablet",
         "testDir": "C:/web-dev/github-repos/Tillerstead.com/tests",
@@ -92,19 +100,2500 @@
       "timeout": 60000
     }
   },
-  "suites": [],
-  "errors": [
+  "suites": [
     {
-      "message": "Error: No tests found",
-      "stack": "Error: No tests found"
+      "title": "basic.spec.js",
+      "file": "basic.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "homepage has correct title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-desktop",
+              "projectName": "chromium-desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1893,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-13T04:42:41.622Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "39a4afdb91042e108afb-1f8b4a05dcf159081d06",
+          "file": "basic.spec.js",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "homepage has correct title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-mobile",
+              "projectName": "chromium-mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1415,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-13T04:42:41.623Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "39a4afdb91042e108afb-a59bf45d77f52b0580cc",
+          "file": "basic.spec.js",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "homepage has correct title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-tablet",
+              "projectName": "chromium-tablet",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1432,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-13T04:42:46.174Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "39a4afdb91042e108afb-b33cb28382fc2055b4ff",
+          "file": "basic.spec.js",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "basic.spec.ts",
+      "file": "basic.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "homepage has correct title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-desktop",
+              "projectName": "chromium-desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1939,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-13T04:42:41.660Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8946741c555a0c4515d8-0a4ac6a74f381eab6704",
+          "file": "basic.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "homepage has correct title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-mobile",
+              "projectName": "chromium-mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1491,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-13T04:42:43.317Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8946741c555a0c4515d8-2316c1794fd240232a38",
+          "file": "basic.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "homepage has correct title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-tablet",
+              "projectName": "chromium-tablet",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1456,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-13T04:42:46.125Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8946741c555a0c4515d8-4c3d6ee01bbd8929901c",
+          "file": "basic.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "mobile-nav.spec.js",
+      "file": "mobile-nav.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Mobile Navigation Drawer",
+          "file": "mobile-nav.spec.js",
+          "line": 13,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should open drawer when hamburger clicked",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 7529,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.nav-toggle')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    8 × locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-label=\"Open menu\" aria-controls=\"nav-drawer\">…</button>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.nav-toggle')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    8 × locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-label=\"Open menu\" aria-controls=\"nav-drawer\">…</button>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:38:26",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                          "column": 26,
+                          "line": 38
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 36 |\u001b[39m\n \u001b[90m 37 |\u001b[39m     \u001b[90m// Hamburger should be visible on mobile\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 38 |\u001b[39m     \u001b[36mawait\u001b[39m expect(toggle)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 39 |\u001b[39m\n \u001b[90m 40 |\u001b[39m     \u001b[90m// Drawer should be closed initially\u001b[39m\n \u001b[90m 41 |\u001b[39m     \u001b[36mawait\u001b[39m expect(shell)\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoHaveClass(\u001b[35m/is-open/\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 26,
+                            "line": 38
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.nav-toggle')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    8 × locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-label=\"Open menu\" aria-controls=\"nav-drawer\">…</button>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 36 |\u001b[39m\n \u001b[90m 37 |\u001b[39m     \u001b[90m// Hamburger should be visible on mobile\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 38 |\u001b[39m     \u001b[36mawait\u001b[39m expect(toggle)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 39 |\u001b[39m\n \u001b[90m 40 |\u001b[39m     \u001b[90m// Drawer should be closed initially\u001b[39m\n \u001b[90m 41 |\u001b[39m     \u001b[36mawait\u001b[39m expect(shell)\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoHaveClass(\u001b[35m/is-open/\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:38:26\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:42:41.583Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-315f4-awer-when-hamburger-clicked-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-315f4-awer-when-hamburger-clicked-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-315f4-awer-when-hamburger-clicked-chromium-desktop\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-315f4-awer-when-hamburger-clicked-chromium-desktop\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                        "column": 26,
+                        "line": 38
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-8c784fe1d01e13b2633f",
+              "file": "mobile-nav.spec.js",
+              "line": 32,
+              "column": 3
+            },
+            {
+              "title": "should show backdrop when drawer opens",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 9065,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-backdrop')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-backdrop')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-backdrop')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-backdrop')\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:68:28",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                          "column": 28,
+                          "line": 68
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 66 |\u001b[39m\n \u001b[90m 67 |\u001b[39m     \u001b[90m// Backdrop should be visible\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 68 |\u001b[39m     \u001b[36mawait\u001b[39m expect(backdrop)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 69 |\u001b[39m\n \u001b[90m 70 |\u001b[39m     \u001b[90m// Backdrop should have dark background\u001b[39m\n \u001b[90m 71 |\u001b[39m     \u001b[36mconst\u001b[39m backdropStyles \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m backdrop\u001b[33m.\u001b[39mevaluate((el) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 28,
+                            "line": 68
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-backdrop')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-backdrop')\u001b[22m\n\n\n\u001b[0m \u001b[90m 66 |\u001b[39m\n \u001b[90m 67 |\u001b[39m     \u001b[90m// Backdrop should be visible\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 68 |\u001b[39m     \u001b[36mawait\u001b[39m expect(backdrop)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 69 |\u001b[39m\n \u001b[90m 70 |\u001b[39m     \u001b[90m// Backdrop should have dark background\u001b[39m\n \u001b[90m 71 |\u001b[39m     \u001b[36mconst\u001b[39m backdropStyles \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m backdrop\u001b[33m.\u001b[39mevaluate((el) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:68:28\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[BROWSER LOG][log] [TEST] openNav called {navShell: null, nav: null, navOverlay: null}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:42:51.803Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-9c928--backdrop-when-drawer-opens-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-9c928--backdrop-when-drawer-opens-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-9c928--backdrop-when-drawer-opens-chromium-desktop\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-9c928--backdrop-when-drawer-opens-chromium-desktop\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                        "column": 28,
+                        "line": 68
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-0b04e191f9cac4e05b23",
+              "file": "mobile-nav.spec.js",
+              "line": 58,
+              "column": 3
+            },
+            {
+              "title": "should close drawer when backdrop clicked",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 1,
+                      "status": "timedOut",
+                      "duration": 65317,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 18,
+                            "line": 90
+                          },
+                          "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-label=\"Open menu\" aria-controls=\"nav-drawer\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    114 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is not visible\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\n\n\u001b[0m \u001b[90m 88 |\u001b[39m\n \u001b[90m 89 |\u001b[39m     \u001b[90m// Open drawer\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 90 |\u001b[39m     \u001b[36mawait\u001b[39m toggle\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 91 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 92 |\u001b[39m     \u001b[36mawait\u001b[39m expect(shell)\u001b[33m.\u001b[39mtoHaveClass(\u001b[35m/is-open/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 93 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:90:18\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:43:02.255Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-desktop\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-desktop\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-296b8795eb8dc5d70e77",
+              "file": "mobile-nav.spec.js",
+              "line": 83,
+              "column": 3
+            },
+            {
+              "title": "should close drawer when X button clicked",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 1,
+                      "status": "timedOut",
+                      "duration": 70569,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 18,
+                            "line": 109
+                          },
+                          "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-label=\"Open menu\" aria-controls=\"nav-drawer\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    112 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is not visible\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\n\n\u001b[0m \u001b[90m 107 |\u001b[39m\n \u001b[90m 108 |\u001b[39m     \u001b[90m// Open drawer\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 109 |\u001b[39m     \u001b[36mawait\u001b[39m toggle\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 110 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 111 |\u001b[39m     \u001b[36mawait\u001b[39m expect(shell)\u001b[33m.\u001b[39mtoHaveClass(\u001b[35m/is-open/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 112 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:109:18\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:44:10.512Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-effbb-rawer-when-X-button-clicked-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-effbb-rawer-when-X-button-clicked-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-effbb-rawer-when-X-button-clicked-chromium-desktop\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-effbb-rawer-when-X-button-clicked-chromium-desktop\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-907c5e71bfe9fecfe042",
+              "file": "mobile-nav.spec.js",
+              "line": 103,
+              "column": 3
+            },
+            {
+              "title": "should close drawer when ESC key pressed",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 1,
+                      "status": "timedOut",
+                      "duration": 67030,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 18,
+                            "line": 126
+                          },
+                          "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-controls=\"mobile-nav\" aria-label=\"Open navigation menu\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    113 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is not visible\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\n\n\u001b[0m \u001b[90m 124 |\u001b[39m\n \u001b[90m 125 |\u001b[39m     \u001b[90m// Open drawer\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 126 |\u001b[39m     \u001b[36mawait\u001b[39m toggle\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 127 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 128 |\u001b[39m     \u001b[36mawait\u001b[39m expect(shell)\u001b[33m.\u001b[39mtoHaveClass(\u001b[35m/is-open/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 129 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:126:18\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:45:25.085Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-ea17d-drawer-when-ESC-key-pressed-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-ea17d-drawer-when-ESC-key-pressed-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-ea17d-drawer-when-ESC-key-pressed-chromium-desktop\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-ea17d-drawer-when-ESC-key-pressed-chromium-desktop\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-6c31528c5c867bf75799",
+              "file": "mobile-nav.spec.js",
+              "line": 121,
+              "column": 3
+            },
+            {
+              "title": "should display correct menu items",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 22,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 9827,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-link').filter({ hasText: 'Services' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-link').filter({ hasText: 'Services' })\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-link').filter({ hasText: 'Services' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-link').filter({ hasText: 'Services' })\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:158:26",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                          "column": 26,
+                          "line": 158
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 156 |\u001b[39m     \u001b[36mfor\u001b[39m (\u001b[36mconst\u001b[39m item \u001b[36mof\u001b[39m expectedItems) {\n \u001b[90m 157 |\u001b[39m       \u001b[36mconst\u001b[39m link \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.mobile-nav-link'\u001b[39m\u001b[33m,\u001b[39m { hasText\u001b[33m:\u001b[39m item })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 158 |\u001b[39m       \u001b[36mawait\u001b[39m expect(link)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 159 |\u001b[39m     }\n \u001b[90m 160 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 161 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 26,
+                            "line": 158
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-link').filter({ hasText: 'Services' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-link').filter({ hasText: 'Services' })\u001b[22m\n\n\n\u001b[0m \u001b[90m 156 |\u001b[39m     \u001b[36mfor\u001b[39m (\u001b[36mconst\u001b[39m item \u001b[36mof\u001b[39m expectedItems) {\n \u001b[90m 157 |\u001b[39m       \u001b[36mconst\u001b[39m link \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.mobile-nav-link'\u001b[39m\u001b[33m,\u001b[39m { hasText\u001b[33m:\u001b[39m item })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 158 |\u001b[39m       \u001b[36mawait\u001b[39m expect(link)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 159 |\u001b[39m     }\n \u001b[90m 160 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 161 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:158:26\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[BROWSER LOG][log] [TEST] openNav called {navShell: aside#mobile-nav.nav-drawer, nav: aside#mobile-nav.nav-drawer, navOverlay: div.nav-overlay}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:46:34.397Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-d87b9--display-correct-menu-items-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-d87b9--display-correct-menu-items-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-d87b9--display-correct-menu-items-chromium-desktop\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-d87b9--display-correct-menu-items-chromium-desktop\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                        "column": 26,
+                        "line": 158
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-77cbefec894cd1064cae",
+              "file": "mobile-nav.spec.js",
+              "line": 138,
+              "column": 3
+            },
+            {
+              "title": "should display CTA buttons",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 24,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 9402,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-cta')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-cta')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-cta')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-cta')\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:172:30",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                          "column": 30,
+                          "line": 172
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 170 |\u001b[39m     \u001b[90m// Check for CTA section\u001b[39m\n \u001b[90m 171 |\u001b[39m     \u001b[36mconst\u001b[39m ctaSection \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.mobile-nav-cta'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 172 |\u001b[39m     \u001b[36mawait\u001b[39m expect(ctaSection)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 173 |\u001b[39m\n \u001b[90m 174 |\u001b[39m     \u001b[90m// Check for buttons\u001b[39m\n \u001b[90m 175 |\u001b[39m     \u001b[36mconst\u001b[39m estimateBtn \u001b[33m=\u001b[39m ctaSection\u001b[33m.\u001b[39mlocator(\u001b[32m'text=Request Estimate'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 30,
+                            "line": 172
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-cta')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-cta')\u001b[22m\n\n\n\u001b[0m \u001b[90m 170 |\u001b[39m     \u001b[90m// Check for CTA section\u001b[39m\n \u001b[90m 171 |\u001b[39m     \u001b[36mconst\u001b[39m ctaSection \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.mobile-nav-cta'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 172 |\u001b[39m     \u001b[36mawait\u001b[39m expect(ctaSection)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 173 |\u001b[39m\n \u001b[90m 174 |\u001b[39m     \u001b[90m// Check for buttons\u001b[39m\n \u001b[90m 175 |\u001b[39m     \u001b[36mconst\u001b[39m estimateBtn \u001b[33m=\u001b[39m ctaSection\u001b[33m.\u001b[39mlocator(\u001b[32m'text=Request Estimate'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:172:30\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[BROWSER LOG][log] [TEST] openNav called {navShell: aside#mobile-nav.nav-drawer, nav: aside#mobile-nav.nav-drawer, navOverlay: div.nav-overlay}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:46:47.293Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-0ca5f--should-display-CTA-buttons-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-0ca5f--should-display-CTA-buttons-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-0ca5f--should-display-CTA-buttons-chromium-desktop\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-0ca5f--should-display-CTA-buttons-chromium-desktop\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                        "column": 30,
+                        "line": 172
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-121b6fd49a0b42f736f3",
+              "file": "mobile-nav.spec.js",
+              "line": 162,
+              "column": 3
+            },
+            {
+              "title": "should lock body scroll when drawer is open",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 26,
+                      "parallelIndex": 1,
+                      "status": "timedOut",
+                      "duration": 67847,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 18,
+                            "line": 192
+                          },
+                          "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-controls=\"mobile-nav\" aria-label=\"Open navigation menu\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    113 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is not visible\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\n\n\u001b[0m \u001b[90m 190 |\u001b[39m\n \u001b[90m 191 |\u001b[39m     \u001b[90m// Open drawer\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 192 |\u001b[39m     \u001b[36mawait\u001b[39m toggle\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 193 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 194 |\u001b[39m\n \u001b[90m 195 |\u001b[39m     \u001b[90m// Body should have nav-open class\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:192:18\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:46:58.951Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-a14ae--scroll-when-drawer-is-open-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-a14ae--scroll-when-drawer-is-open-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-a14ae--scroll-when-drawer-is-open-chromium-desktop\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-a14ae--scroll-when-drawer-is-open-chromium-desktop\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-672f0a1fa102aed108e4",
+              "file": "mobile-nav.spec.js",
+              "line": 182,
+              "column": 3
+            },
+            {
+              "title": "should have proper ARIA attributes",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 30,
+                      "parallelIndex": 1,
+                      "status": "timedOut",
+                      "duration": 66937,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 18,
+                            "line": 221
+                          },
+                          "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-controls=\"mobile-nav\" aria-label=\"Open navigation menu\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    114 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is not visible\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\n\n\u001b[0m \u001b[90m 219 |\u001b[39m\n \u001b[90m 220 |\u001b[39m     \u001b[90m// Open drawer\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 221 |\u001b[39m     \u001b[36mawait\u001b[39m toggle\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 222 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 223 |\u001b[39m\n \u001b[90m 224 |\u001b[39m     \u001b[90m// Updated ARIA state\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:221:18\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:48:09.122Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-80be4-have-proper-ARIA-attributes-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-80be4-have-proper-ARIA-attributes-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-80be4-have-proper-ARIA-attributes-chromium-desktop\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-80be4-have-proper-ARIA-attributes-chromium-desktop\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-3a2d3f921d5c99bddcac",
+              "file": "mobile-nav.spec.js",
+              "line": 212,
+              "column": 3
+            },
+            {
+              "title": "should be keyboard navigable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 33,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1943,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] Attaching event listeners\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] navToggle event listener attached\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] navOverlay event listeners attached\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] nav link click listener attached\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:49:17.978Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-99ae0-hould-be-keyboard-navigable-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-99ae0-hould-be-keyboard-navigable-chromium-desktop\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-b7fe38d5ec143f576112",
+              "file": "mobile-nav.spec.js",
+              "line": 232,
+              "column": 3
+            },
+            {
+              "title": "should open drawer when hamburger clicked",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6751,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.nav-toggle')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    8 × locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-label=\"Open menu\" aria-controls=\"nav-drawer\">…</button>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.nav-toggle')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    8 × locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-label=\"Open menu\" aria-controls=\"nav-drawer\">…</button>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:38:26",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                          "column": 26,
+                          "line": 38
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 36 |\u001b[39m\n \u001b[90m 37 |\u001b[39m     \u001b[90m// Hamburger should be visible on mobile\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 38 |\u001b[39m     \u001b[36mawait\u001b[39m expect(toggle)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 39 |\u001b[39m\n \u001b[90m 40 |\u001b[39m     \u001b[90m// Drawer should be closed initially\u001b[39m\n \u001b[90m 41 |\u001b[39m     \u001b[36mawait\u001b[39m expect(shell)\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoHaveClass(\u001b[35m/is-open/\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 26,
+                            "line": 38
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.nav-toggle')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    8 × locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-label=\"Open menu\" aria-controls=\"nav-drawer\">…</button>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 36 |\u001b[39m\n \u001b[90m 37 |\u001b[39m     \u001b[90m// Hamburger should be visible on mobile\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 38 |\u001b[39m     \u001b[36mawait\u001b[39m expect(toggle)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 39 |\u001b[39m\n \u001b[90m 40 |\u001b[39m     \u001b[90m// Drawer should be closed initially\u001b[39m\n \u001b[90m 41 |\u001b[39m     \u001b[36mawait\u001b[39m expect(shell)\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoHaveClass(\u001b[35m/is-open/\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:38:26\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:42:46.262Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-315f4-awer-when-hamburger-clicked-chromium-mobile\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-315f4-awer-when-hamburger-clicked-chromium-mobile\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-315f4-awer-when-hamburger-clicked-chromium-mobile\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-315f4-awer-when-hamburger-clicked-chromium-mobile\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                        "column": 26,
+                        "line": 38
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-444cb4474c1a21420386",
+              "file": "mobile-nav.spec.js",
+              "line": 32,
+              "column": 3
+            },
+            {
+              "title": "should show backdrop when drawer opens",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 9412,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-backdrop')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-backdrop')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-backdrop')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-backdrop')\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:68:28",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                          "column": 28,
+                          "line": 68
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 66 |\u001b[39m\n \u001b[90m 67 |\u001b[39m     \u001b[90m// Backdrop should be visible\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 68 |\u001b[39m     \u001b[36mawait\u001b[39m expect(backdrop)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 69 |\u001b[39m\n \u001b[90m 70 |\u001b[39m     \u001b[90m// Backdrop should have dark background\u001b[39m\n \u001b[90m 71 |\u001b[39m     \u001b[36mconst\u001b[39m backdropStyles \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m backdrop\u001b[33m.\u001b[39mevaluate((el) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 28,
+                            "line": 68
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-backdrop')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-backdrop')\u001b[22m\n\n\n\u001b[0m \u001b[90m 66 |\u001b[39m\n \u001b[90m 67 |\u001b[39m     \u001b[90m// Backdrop should be visible\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 68 |\u001b[39m     \u001b[36mawait\u001b[39m expect(backdrop)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 69 |\u001b[39m\n \u001b[90m 70 |\u001b[39m     \u001b[90m// Backdrop should have dark background\u001b[39m\n \u001b[90m 71 |\u001b[39m     \u001b[36mconst\u001b[39m backdropStyles \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m backdrop\u001b[33m.\u001b[39mevaluate((el) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:68:28\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[BROWSER LOG][log] [TEST] openNav called {navShell: null, nav: null, navOverlay: null}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:42:54.330Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-9c928--backdrop-when-drawer-opens-chromium-mobile\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-9c928--backdrop-when-drawer-opens-chromium-mobile\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-9c928--backdrop-when-drawer-opens-chromium-mobile\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-9c928--backdrop-when-drawer-opens-chromium-mobile\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                        "column": 28,
+                        "line": 68
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-bedcee948df68afca0a5",
+              "file": "mobile-nav.spec.js",
+              "line": 58,
+              "column": 3
+            },
+            {
+              "title": "should close drawer when backdrop clicked",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 60440,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 18,
+                            "line": 90
+                          },
+                          "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-label=\"Open menu\" aria-controls=\"nav-drawer\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    84 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n\u001b[0m \u001b[90m 88 |\u001b[39m\n \u001b[90m 89 |\u001b[39m     \u001b[90m// Open drawer\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 90 |\u001b[39m     \u001b[36mawait\u001b[39m toggle\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 91 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 92 |\u001b[39m     \u001b[36mawait\u001b[39m expect(shell)\u001b[33m.\u001b[39mtoHaveClass(\u001b[35m/is-open/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 93 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:90:18\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:43:04.924Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-mobile\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-mobile\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-mobile\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-mobile\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-3403f2e01448b2e3c574",
+              "file": "mobile-nav.spec.js",
+              "line": 83,
+              "column": 3
+            },
+            {
+              "title": "should close drawer when X button clicked",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 60602,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 18,
+                            "line": 109
+                          },
+                          "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-label=\"Open menu\" aria-controls=\"nav-drawer\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    81 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n\u001b[0m \u001b[90m 107 |\u001b[39m\n \u001b[90m 108 |\u001b[39m     \u001b[90m// Open drawer\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 109 |\u001b[39m     \u001b[36mawait\u001b[39m toggle\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 110 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 111 |\u001b[39m     \u001b[36mawait\u001b[39m expect(shell)\u001b[33m.\u001b[39mtoHaveClass(\u001b[35m/is-open/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 112 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:109:18\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:44:07.460Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-effbb-rawer-when-X-button-clicked-chromium-mobile\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-effbb-rawer-when-X-button-clicked-chromium-mobile\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-effbb-rawer-when-X-button-clicked-chromium-mobile\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-effbb-rawer-when-X-button-clicked-chromium-mobile\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-2f51bd71a49206190bc9",
+              "file": "mobile-nav.spec.js",
+              "line": 103,
+              "column": 3
+            },
+            {
+              "title": "should close drawer when ESC key pressed",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 60493,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 18,
+                            "line": 126
+                          },
+                          "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-controls=\"mobile-nav\" aria-label=\"Open navigation menu\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    79 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n\u001b[0m \u001b[90m 124 |\u001b[39m\n \u001b[90m 125 |\u001b[39m     \u001b[90m// Open drawer\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 126 |\u001b[39m     \u001b[36mawait\u001b[39m toggle\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 127 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 128 |\u001b[39m     \u001b[36mawait\u001b[39m expect(shell)\u001b[33m.\u001b[39mtoHaveClass(\u001b[35m/is-open/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 129 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:126:18\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:45:10.677Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-ea17d-drawer-when-ESC-key-pressed-chromium-mobile\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-ea17d-drawer-when-ESC-key-pressed-chromium-mobile\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-ea17d-drawer-when-ESC-key-pressed-chromium-mobile\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-ea17d-drawer-when-ESC-key-pressed-chromium-mobile\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-6c19e9dd7749c3455ce7",
+              "file": "mobile-nav.spec.js",
+              "line": 121,
+              "column": 3
+            },
+            {
+              "title": "should display correct menu items",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 20,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 9860,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-link').filter({ hasText: 'Services' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-link').filter({ hasText: 'Services' })\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-link').filter({ hasText: 'Services' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-link').filter({ hasText: 'Services' })\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:158:26",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                          "column": 26,
+                          "line": 158
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 156 |\u001b[39m     \u001b[36mfor\u001b[39m (\u001b[36mconst\u001b[39m item \u001b[36mof\u001b[39m expectedItems) {\n \u001b[90m 157 |\u001b[39m       \u001b[36mconst\u001b[39m link \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.mobile-nav-link'\u001b[39m\u001b[33m,\u001b[39m { hasText\u001b[33m:\u001b[39m item })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 158 |\u001b[39m       \u001b[36mawait\u001b[39m expect(link)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 159 |\u001b[39m     }\n \u001b[90m 160 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 161 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 26,
+                            "line": 158
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-link').filter({ hasText: 'Services' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-link').filter({ hasText: 'Services' })\u001b[22m\n\n\n\u001b[0m \u001b[90m 156 |\u001b[39m     \u001b[36mfor\u001b[39m (\u001b[36mconst\u001b[39m item \u001b[36mof\u001b[39m expectedItems) {\n \u001b[90m 157 |\u001b[39m       \u001b[36mconst\u001b[39m link \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.mobile-nav-link'\u001b[39m\u001b[33m,\u001b[39m { hasText\u001b[33m:\u001b[39m item })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 158 |\u001b[39m       \u001b[36mawait\u001b[39m expect(link)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 159 |\u001b[39m     }\n \u001b[90m 160 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 161 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:158:26\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[BROWSER LOG][log] [TEST] openNav called {navShell: <aside id=\"mobile-nav\">, nav: <aside id=\"mobile-nav\">, navOverlay: <div class=\"nav-overlay\">}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:46:13.363Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-d87b9--display-correct-menu-items-chromium-mobile\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-d87b9--display-correct-menu-items-chromium-mobile\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-d87b9--display-correct-menu-items-chromium-mobile\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-d87b9--display-correct-menu-items-chromium-mobile\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                        "column": 26,
+                        "line": 158
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-bc0369bb819bc61e2412",
+              "file": "mobile-nav.spec.js",
+              "line": 138,
+              "column": 3
+            },
+            {
+              "title": "should display CTA buttons",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 21,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 10887,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-cta')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-cta')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-cta')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-cta')\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:172:30",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                          "column": 30,
+                          "line": 172
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 170 |\u001b[39m     \u001b[90m// Check for CTA section\u001b[39m\n \u001b[90m 171 |\u001b[39m     \u001b[36mconst\u001b[39m ctaSection \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.mobile-nav-cta'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 172 |\u001b[39m     \u001b[36mawait\u001b[39m expect(ctaSection)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 173 |\u001b[39m\n \u001b[90m 174 |\u001b[39m     \u001b[90m// Check for buttons\u001b[39m\n \u001b[90m 175 |\u001b[39m     \u001b[36mconst\u001b[39m estimateBtn \u001b[33m=\u001b[39m ctaSection\u001b[33m.\u001b[39mlocator(\u001b[32m'text=Request Estimate'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 30,
+                            "line": 172
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-cta')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-cta')\u001b[22m\n\n\n\u001b[0m \u001b[90m 170 |\u001b[39m     \u001b[90m// Check for CTA section\u001b[39m\n \u001b[90m 171 |\u001b[39m     \u001b[36mconst\u001b[39m ctaSection \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.mobile-nav-cta'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 172 |\u001b[39m     \u001b[36mawait\u001b[39m expect(ctaSection)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 173 |\u001b[39m\n \u001b[90m 174 |\u001b[39m     \u001b[90m// Check for buttons\u001b[39m\n \u001b[90m 175 |\u001b[39m     \u001b[36mconst\u001b[39m estimateBtn \u001b[33m=\u001b[39m ctaSection\u001b[33m.\u001b[39mlocator(\u001b[32m'text=Request Estimate'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:172:30\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[BROWSER LOG][log] [TEST] openNav called {navShell: <aside id=\"mobile-nav\">, nav: <aside id=\"mobile-nav\">, navOverlay: <div class=\"nav-overlay\">}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:46:25.276Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-0ca5f--should-display-CTA-buttons-chromium-mobile\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-0ca5f--should-display-CTA-buttons-chromium-mobile\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-0ca5f--should-display-CTA-buttons-chromium-mobile\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-0ca5f--should-display-CTA-buttons-chromium-mobile\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                        "column": 30,
+                        "line": 172
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-10fbf528a9347d619a84",
+              "file": "mobile-nav.spec.js",
+              "line": 162,
+              "column": 3
+            },
+            {
+              "title": "should lock body scroll when drawer is open",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 23,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 60627,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 18,
+                            "line": 192
+                          },
+                          "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-controls=\"mobile-nav\" aria-label=\"Open navigation menu\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    79 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n\u001b[0m \u001b[90m 190 |\u001b[39m\n \u001b[90m 191 |\u001b[39m     \u001b[90m// Open drawer\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 192 |\u001b[39m     \u001b[36mawait\u001b[39m toggle\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 193 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 194 |\u001b[39m\n \u001b[90m 195 |\u001b[39m     \u001b[90m// Body should have nav-open class\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:192:18\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:46:38.024Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-a14ae--scroll-when-drawer-is-open-chromium-mobile\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-a14ae--scroll-when-drawer-is-open-chromium-mobile\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-a14ae--scroll-when-drawer-is-open-chromium-mobile\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-a14ae--scroll-when-drawer-is-open-chromium-mobile\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-8e38452c92c1ef3d9eac",
+              "file": "mobile-nav.spec.js",
+              "line": 182,
+              "column": 3
+            },
+            {
+              "title": "should have proper ARIA attributes",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 29,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 60384,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 18,
+                            "line": 221
+                          },
+                          "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-controls=\"mobile-nav\" aria-label=\"Open navigation menu\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    82 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n\u001b[0m \u001b[90m 219 |\u001b[39m\n \u001b[90m 220 |\u001b[39m     \u001b[90m// Open drawer\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 221 |\u001b[39m     \u001b[36mawait\u001b[39m toggle\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 222 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 223 |\u001b[39m\n \u001b[90m 224 |\u001b[39m     \u001b[90m// Updated ARIA state\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:221:18\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:47:40.549Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-80be4-have-proper-ARIA-attributes-chromium-mobile\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-80be4-have-proper-ARIA-attributes-chromium-mobile\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-80be4-have-proper-ARIA-attributes-chromium-mobile\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-80be4-have-proper-ARIA-attributes-chromium-mobile\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-3df4268af7f10094e230",
+              "file": "mobile-nav.spec.js",
+              "line": 212,
+              "column": 3
+            },
+            {
+              "title": "should be keyboard navigable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 32,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1682,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] Attaching event listeners\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] navToggle event listener attached\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] navOverlay event listeners attached\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] nav link click listener attached\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:48:42.431Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-99ae0-hould-be-keyboard-navigable-chromium-mobile\\video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-99ae0-hould-be-keyboard-navigable-chromium-mobile\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-fcfa9b6e684bbc35b4f5",
+              "file": "mobile-nav.spec.js",
+              "line": 232,
+              "column": 3
+            },
+            {
+              "title": "should open drawer when hamburger clicked",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet",
+                  "projectName": "chromium-tablet",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 6928,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.nav-toggle')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    9 × locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-label=\"Open menu\" aria-controls=\"nav-drawer\">…</button>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.nav-toggle')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    9 × locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-label=\"Open menu\" aria-controls=\"nav-drawer\">…</button>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:38:26",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                          "column": 26,
+                          "line": 38
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 36 |\u001b[39m\n \u001b[90m 37 |\u001b[39m     \u001b[90m// Hamburger should be visible on mobile\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 38 |\u001b[39m     \u001b[36mawait\u001b[39m expect(toggle)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 39 |\u001b[39m\n \u001b[90m 40 |\u001b[39m     \u001b[90m// Drawer should be closed initially\u001b[39m\n \u001b[90m 41 |\u001b[39m     \u001b[36mawait\u001b[39m expect(shell)\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoHaveClass(\u001b[35m/is-open/\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 26,
+                            "line": 38
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.nav-toggle')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    9 × locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-label=\"Open menu\" aria-controls=\"nav-drawer\">…</button>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 36 |\u001b[39m\n \u001b[90m 37 |\u001b[39m     \u001b[90m// Hamburger should be visible on mobile\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 38 |\u001b[39m     \u001b[36mawait\u001b[39m expect(toggle)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 39 |\u001b[39m\n \u001b[90m 40 |\u001b[39m     \u001b[90m// Drawer should be closed initially\u001b[39m\n \u001b[90m 41 |\u001b[39m     \u001b[36mawait\u001b[39m expect(shell)\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoHaveClass(\u001b[35m/is-open/\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:38:26\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:42:48.928Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-315f4-awer-when-hamburger-clicked-chromium-tablet\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-315f4-awer-when-hamburger-clicked-chromium-tablet\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-315f4-awer-when-hamburger-clicked-chromium-tablet\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-315f4-awer-when-hamburger-clicked-chromium-tablet\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                        "column": 26,
+                        "line": 38
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-6864dc9cf47a711fedaf",
+              "file": "mobile-nav.spec.js",
+              "line": 32,
+              "column": 3
+            },
+            {
+              "title": "should show backdrop when drawer opens",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet",
+                  "projectName": "chromium-tablet",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 9285,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-backdrop')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-backdrop')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-backdrop')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-backdrop')\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:68:28",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                          "column": 28,
+                          "line": 68
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 66 |\u001b[39m\n \u001b[90m 67 |\u001b[39m     \u001b[90m// Backdrop should be visible\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 68 |\u001b[39m     \u001b[36mawait\u001b[39m expect(backdrop)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 69 |\u001b[39m\n \u001b[90m 70 |\u001b[39m     \u001b[90m// Backdrop should have dark background\u001b[39m\n \u001b[90m 71 |\u001b[39m     \u001b[36mconst\u001b[39m backdropStyles \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m backdrop\u001b[33m.\u001b[39mevaluate((el) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 28,
+                            "line": 68
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-backdrop')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-backdrop')\u001b[22m\n\n\n\u001b[0m \u001b[90m 66 |\u001b[39m\n \u001b[90m 67 |\u001b[39m     \u001b[90m// Backdrop should be visible\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 68 |\u001b[39m     \u001b[36mawait\u001b[39m expect(backdrop)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 69 |\u001b[39m\n \u001b[90m 70 |\u001b[39m     \u001b[90m// Backdrop should have dark background\u001b[39m\n \u001b[90m 71 |\u001b[39m     \u001b[36mconst\u001b[39m backdropStyles \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m backdrop\u001b[33m.\u001b[39mevaluate((el) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:68:28\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[BROWSER LOG][log] [TEST] openNav called {navShell: null, nav: null, navOverlay: null}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:42:57.143Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-9c928--backdrop-when-drawer-opens-chromium-tablet\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-9c928--backdrop-when-drawer-opens-chromium-tablet\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-9c928--backdrop-when-drawer-opens-chromium-tablet\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-9c928--backdrop-when-drawer-opens-chromium-tablet\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                        "column": 28,
+                        "line": 68
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-ba399f4cef0a29ac1c14",
+              "file": "mobile-nav.spec.js",
+              "line": 58,
+              "column": 3
+            },
+            {
+              "title": "should close drawer when backdrop clicked",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet",
+                  "projectName": "chromium-tablet",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 2,
+                      "status": "timedOut",
+                      "duration": 69518,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 18,
+                            "line": 90
+                          },
+                          "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-label=\"Open menu\" aria-controls=\"nav-drawer\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    115 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is not visible\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\n\n\u001b[0m \u001b[90m 88 |\u001b[39m\n \u001b[90m 89 |\u001b[39m     \u001b[90m// Open drawer\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 90 |\u001b[39m     \u001b[36mawait\u001b[39m toggle\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 91 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 92 |\u001b[39m     \u001b[36mawait\u001b[39m expect(shell)\u001b[33m.\u001b[39mtoHaveClass(\u001b[35m/is-open/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 93 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:90:18\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:43:07.747Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-tablet\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-tablet\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-tablet\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-tablet\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-383c82018c018b15a1cb",
+              "file": "mobile-nav.spec.js",
+              "line": 83,
+              "column": 3
+            },
+            {
+              "title": "should close drawer when X button clicked",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet",
+                  "projectName": "chromium-tablet",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 2,
+                      "status": "timedOut",
+                      "duration": 74088,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 18,
+                            "line": 109
+                          },
+                          "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-label=\"Open menu\" aria-controls=\"nav-drawer\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    114 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is not visible\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\n\n\u001b[0m \u001b[90m 107 |\u001b[39m\n \u001b[90m 108 |\u001b[39m     \u001b[90m// Open drawer\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 109 |\u001b[39m     \u001b[36mawait\u001b[39m toggle\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 110 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 111 |\u001b[39m     \u001b[36mawait\u001b[39m expect(shell)\u001b[33m.\u001b[39mtoHaveClass(\u001b[35m/is-open/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 112 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:109:18\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:44:19.821Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-effbb-rawer-when-X-button-clicked-chromium-tablet\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-effbb-rawer-when-X-button-clicked-chromium-tablet\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-effbb-rawer-when-X-button-clicked-chromium-tablet\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-effbb-rawer-when-X-button-clicked-chromium-tablet\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-b65e733d2b34841fa662",
+              "file": "mobile-nav.spec.js",
+              "line": 103,
+              "column": 3
+            },
+            {
+              "title": "should close drawer when ESC key pressed",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet",
+                  "projectName": "chromium-tablet",
+                  "results": [
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 2,
+                      "status": "timedOut",
+                      "duration": 71421,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 18,
+                            "line": 126
+                          },
+                          "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-controls=\"mobile-nav\" aria-label=\"Open navigation menu\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    114 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is not visible\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\n\n\u001b[0m \u001b[90m 124 |\u001b[39m\n \u001b[90m 125 |\u001b[39m     \u001b[90m// Open drawer\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 126 |\u001b[39m     \u001b[36mawait\u001b[39m toggle\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 127 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 128 |\u001b[39m     \u001b[36mawait\u001b[39m expect(shell)\u001b[33m.\u001b[39mtoHaveClass(\u001b[35m/is-open/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 129 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:126:18\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:45:37.760Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-ea17d-drawer-when-ESC-key-pressed-chromium-tablet\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-ea17d-drawer-when-ESC-key-pressed-chromium-tablet\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-ea17d-drawer-when-ESC-key-pressed-chromium-tablet\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-ea17d-drawer-when-ESC-key-pressed-chromium-tablet\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-864a1bafa945d6036916",
+              "file": "mobile-nav.spec.js",
+              "line": 121,
+              "column": 3
+            },
+            {
+              "title": "should display correct menu items",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet",
+                  "projectName": "chromium-tablet",
+                  "results": [
+                    {
+                      "workerIndex": 25,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 10316,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-link').filter({ hasText: 'Services' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-link').filter({ hasText: 'Services' })\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-link').filter({ hasText: 'Services' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-link').filter({ hasText: 'Services' })\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:158:26",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                          "column": 26,
+                          "line": 158
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 156 |\u001b[39m     \u001b[36mfor\u001b[39m (\u001b[36mconst\u001b[39m item \u001b[36mof\u001b[39m expectedItems) {\n \u001b[90m 157 |\u001b[39m       \u001b[36mconst\u001b[39m link \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.mobile-nav-link'\u001b[39m\u001b[33m,\u001b[39m { hasText\u001b[33m:\u001b[39m item })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 158 |\u001b[39m       \u001b[36mawait\u001b[39m expect(link)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 159 |\u001b[39m     }\n \u001b[90m 160 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 161 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 26,
+                            "line": 158
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-link').filter({ hasText: 'Services' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-link').filter({ hasText: 'Services' })\u001b[22m\n\n\n\u001b[0m \u001b[90m 156 |\u001b[39m     \u001b[36mfor\u001b[39m (\u001b[36mconst\u001b[39m item \u001b[36mof\u001b[39m expectedItems) {\n \u001b[90m 157 |\u001b[39m       \u001b[36mconst\u001b[39m link \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.mobile-nav-link'\u001b[39m\u001b[33m,\u001b[39m { hasText\u001b[33m:\u001b[39m item })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 158 |\u001b[39m       \u001b[36mawait\u001b[39m expect(link)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 159 |\u001b[39m     }\n \u001b[90m 160 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 161 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:158:26\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[BROWSER LOG][log] [TEST] openNav called {navShell: aside#mobile-nav.nav-drawer, nav: aside#mobile-nav.nav-drawer, navOverlay: div.nav-overlay}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:46:51.966Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-d87b9--display-correct-menu-items-chromium-tablet\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-d87b9--display-correct-menu-items-chromium-tablet\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-d87b9--display-correct-menu-items-chromium-tablet\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-d87b9--display-correct-menu-items-chromium-tablet\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                        "column": 26,
+                        "line": 158
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-3eddfe91cc0ce4d82010",
+              "file": "mobile-nav.spec.js",
+              "line": 138,
+              "column": 3
+            },
+            {
+              "title": "should display CTA buttons",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet",
+                  "projectName": "chromium-tablet",
+                  "results": [
+                    {
+                      "workerIndex": 27,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 9598,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-cta')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-cta')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-cta')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-cta')\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:172:30",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                          "column": 30,
+                          "line": 172
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 170 |\u001b[39m     \u001b[90m// Check for CTA section\u001b[39m\n \u001b[90m 171 |\u001b[39m     \u001b[36mconst\u001b[39m ctaSection \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.mobile-nav-cta'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 172 |\u001b[39m     \u001b[36mawait\u001b[39m expect(ctaSection)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 173 |\u001b[39m\n \u001b[90m 174 |\u001b[39m     \u001b[90m// Check for buttons\u001b[39m\n \u001b[90m 175 |\u001b[39m     \u001b[36mconst\u001b[39m estimateBtn \u001b[33m=\u001b[39m ctaSection\u001b[33m.\u001b[39mlocator(\u001b[32m'text=Request Estimate'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 30,
+                            "line": 172
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.mobile-nav-cta')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.mobile-nav-cta')\u001b[22m\n\n\n\u001b[0m \u001b[90m 170 |\u001b[39m     \u001b[90m// Check for CTA section\u001b[39m\n \u001b[90m 171 |\u001b[39m     \u001b[36mconst\u001b[39m ctaSection \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.mobile-nav-cta'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 172 |\u001b[39m     \u001b[36mawait\u001b[39m expect(ctaSection)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 173 |\u001b[39m\n \u001b[90m 174 |\u001b[39m     \u001b[90m// Check for buttons\u001b[39m\n \u001b[90m 175 |\u001b[39m     \u001b[36mconst\u001b[39m estimateBtn \u001b[33m=\u001b[39m ctaSection\u001b[33m.\u001b[39mlocator(\u001b[32m'text=Request Estimate'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:172:30\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[BROWSER LOG][log] [TEST] openNav called {navShell: aside#mobile-nav.nav-drawer, nav: aside#mobile-nav.nav-drawer, navOverlay: div.nav-overlay}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:47:04.376Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-0ca5f--should-display-CTA-buttons-chromium-tablet\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-0ca5f--should-display-CTA-buttons-chromium-tablet\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-0ca5f--should-display-CTA-buttons-chromium-tablet\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-0ca5f--should-display-CTA-buttons-chromium-tablet\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                        "column": 30,
+                        "line": 172
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-552201c96c1cfae0f5f2",
+              "file": "mobile-nav.spec.js",
+              "line": 162,
+              "column": 3
+            },
+            {
+              "title": "should lock body scroll when drawer is open",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet",
+                  "projectName": "chromium-tablet",
+                  "results": [
+                    {
+                      "workerIndex": 28,
+                      "parallelIndex": 2,
+                      "status": "timedOut",
+                      "duration": 68845,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 18,
+                            "line": 192
+                          },
+                          "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-controls=\"mobile-nav\" aria-label=\"Open navigation menu\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    113 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is not visible\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\n\n\u001b[0m \u001b[90m 190 |\u001b[39m\n \u001b[90m 191 |\u001b[39m     \u001b[90m// Open drawer\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 192 |\u001b[39m     \u001b[36mawait\u001b[39m toggle\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 193 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 194 |\u001b[39m\n \u001b[90m 195 |\u001b[39m     \u001b[90m// Body should have nav-open class\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:192:18\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:47:15.938Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-a14ae--scroll-when-drawer-is-open-chromium-tablet\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-a14ae--scroll-when-drawer-is-open-chromium-tablet\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-a14ae--scroll-when-drawer-is-open-chromium-tablet\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-a14ae--scroll-when-drawer-is-open-chromium-tablet\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-d0b47aa4e4e5e1de2dd6",
+              "file": "mobile-nav.spec.js",
+              "line": 182,
+              "column": 3
+            },
+            {
+              "title": "should have proper ARIA attributes",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet",
+                  "projectName": "chromium-tablet",
+                  "results": [
+                    {
+                      "workerIndex": 31,
+                      "parallelIndex": 2,
+                      "status": "timedOut",
+                      "duration": 67112,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 18,
+                            "line": 221
+                          },
+                          "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.nav-toggle')\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"nav-toggle\" aria-expanded=\"false\" aria-controls=\"mobile-nav\" aria-label=\"Open navigation menu\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    114 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is not visible\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\n\n\u001b[0m \u001b[90m 219 |\u001b[39m\n \u001b[90m 220 |\u001b[39m     \u001b[90m// Open drawer\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 221 |\u001b[39m     \u001b[36mawait\u001b[39m toggle\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 222 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 223 |\u001b[39m\n \u001b[90m 224 |\u001b[39m     \u001b[90m// Updated ARIA state\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:221:18\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] Attaching event listeners\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] navToggle event listener attached\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] navOverlay event listeners attached\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] nav link click listener attached\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:48:26.680Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-80be4-have-proper-ARIA-attributes-chromium-tablet\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-80be4-have-proper-ARIA-attributes-chromium-tablet\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-80be4-have-proper-ARIA-attributes-chromium-tablet\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-80be4-have-proper-ARIA-attributes-chromium-tablet\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-5ab93d3c89b2510823ab",
+              "file": "mobile-nav.spec.js",
+              "line": 212,
+              "column": 3
+            },
+            {
+              "title": "should be keyboard navigable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet",
+                  "projectName": "chromium-tablet",
+                  "results": [
+                    {
+                      "workerIndex": 34,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1428,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] Adding aria and mobile view logging\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] Attaching event listeners\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] navToggle event listener attached\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] navOverlay event listeners attached\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] nav link click listener attached\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] syncAria called with state: false\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] isMobileView: true\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [DEBUG] isMobileView: true\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-13T04:49:35.121Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-99ae0-hould-be-keyboard-navigable-chromium-tablet\\video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-99ae0-hould-be-keyboard-navigable-chromium-tablet\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-fa795ebba6bb21b6a1e0",
+              "file": "mobile-nav.spec.js",
+              "line": 232,
+              "column": 3
+            }
+          ]
+        }
+      ]
     }
   ],
+  "errors": [],
   "stats": {
-    "startTime": "2026-01-11T21:39:48.002Z",
-    "duration": 1026.127,
-    "expected": 0,
+    "startTime": "2026-01-13T04:42:39.461Z",
+    "duration": 417436.07399999996,
+    "expected": 9,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 27,
     "flaky": 0
   }
 }

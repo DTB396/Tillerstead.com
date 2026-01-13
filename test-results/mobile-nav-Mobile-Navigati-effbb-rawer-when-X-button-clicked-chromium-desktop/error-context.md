@@ -1,0 +1,157 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - navigation "Main Navigation" [ref=e4]:
+        - link "Tillerstead" [ref=e5] [cursor=pointer]:
+          - /url: /
+        - menubar [ref=e6]:
+          - menuitem "Build Guides" [ref=e7] [cursor=pointer]
+          - menu "Build Guide Phases" [ref=e8]:
+            - menuitem "Build Phases (Compliance)" [ref=e9] [cursor=pointer]
+            - menuitem "Codes & Permits" [ref=e10] [cursor=pointer]
+            - menuitem "Shower Pans & Slopes" [ref=e11] [cursor=pointer]
+            - menuitem "Waterproofing" [ref=e12] [cursor=pointer]
+            - menuitem "Thresholds & Curbs" [ref=e13] [cursor=pointer]
+            - menuitem "Benches & Niches" [ref=e14] [cursor=pointer]
+            - menuitem "Tile Installation" [ref=e15] [cursor=pointer]
+            - menuitem "Verification & Testing" [ref=e16] [cursor=pointer]
+            - menuitem "Common Failures" [ref=e17] [cursor=pointer]
+          - menuitem "Portfolio" [ref=e18] [cursor=pointer]
+          - menuitem "Reviews" [ref=e19] [cursor=pointer]
+          - menuitem "FAQ" [ref=e20] [cursor=pointer]
+          - menuitem "Get an Estimate" [ref=e21] [cursor=pointer]
+      - complementary "Site Menu" [ref=e22]:
+        - button "Close menu" [ref=e23] [cursor=pointer]: ×
+        - menubar [ref=e24]:
+          - menuitem "Build Guides" [ref=e25] [cursor=pointer]
+          - menu "Build Guide Phases" [ref=e26]:
+            - menuitem "Build Phases (Compliance)" [ref=e27] [cursor=pointer]
+            - menuitem "Codes & Permits" [ref=e28] [cursor=pointer]
+            - menuitem "Shower Pans & Slopes" [ref=e29] [cursor=pointer]
+            - menuitem "Waterproofing" [ref=e30] [cursor=pointer]
+            - menuitem "Thresholds & Curbs" [ref=e31] [cursor=pointer]
+            - menuitem "Benches & Niches" [ref=e32] [cursor=pointer]
+            - menuitem "Tile Installation" [ref=e33] [cursor=pointer]
+            - menuitem "Verification & Testing" [ref=e34] [cursor=pointer]
+            - menuitem "Common Failures" [ref=e35] [cursor=pointer]
+          - menuitem "Portfolio" [ref=e36] [cursor=pointer]
+          - menuitem "Reviews" [ref=e37] [cursor=pointer]
+          - menuitem "FAQ" [ref=e38] [cursor=pointer]
+          - menuitem "Get an Estimate" [ref=e39] [cursor=pointer]
+      - link "Tillerstead LLC - Home" [ref=e41] [cursor=pointer]:
+        - /url: /
+        - img "Tillerstead LLC" [ref=e42]
+  - list [ref=e46]:
+    - listitem [ref=e47]:
+      - img [ref=e48]
+      - text: "New Jersey HIC #13VH10808800"
+    - listitem [ref=e49]:
+      - img [ref=e50]
+      - text: TCNA 2024 Compliant
+    - listitem [ref=e51]:
+      - img [ref=e52]
+      - text: Fully Insured
+  - generic [ref=e54]:
+    - heading "TCNA-Compliant Tile & Waterproofing Experts" [level=1] [ref=e55]
+    - paragraph [ref=e56]: Serving Atlantic, Ocean, and Cape May Counties, Tillerstead delivers code-compliant tile showers, waterproofing, and bathroom remodels—meticulously documented at every phase. We follow the TCNA Handbook and New Jersey HIC law, ensuring transparent pricing, technical precision, and results that stand the test of time.
+    - link "Request a Consultation" [ref=e57] [cursor=pointer]:
+      - /url: /contact/
+  - generic [ref=e59]:
+    - generic [ref=e60]:
+      - heading "Custom Showers" [level=3] [ref=e61]
+      - paragraph [ref=e62]: TCNA-compliant, leakproof, and built to last. Every detail documented for your peace of mind.
+    - generic [ref=e63]:
+      - heading "Waterproofing" [level=3] [ref=e64]
+      - paragraph [ref=e65]: Certified waterproof assemblies using industry-leading materials and methods.
+    - generic [ref=e66]:
+      - heading "Bathroom Remodels" [level=3] [ref=e67]
+      - paragraph [ref=e68]: From design to finish, we deliver beautiful, code-compliant bathrooms with transparent pricing.
+  - generic [ref=e70]:
+    - heading "Why Choose Tillerstead?" [level=2] [ref=e71]
+    - list [ref=e72]:
+      - listitem [ref=e73]: "✔️ Licensed NJ HIC #13VH10808800"
+      - listitem [ref=e74]: ✔️ TCNA Handbook Standards
+      - listitem [ref=e75]: ✔️ Transparent, documented process
+      - listitem [ref=e76]: ✔️ Owner oversight on every project
+      - listitem [ref=e77]: ✔️ Serving Atlantic, Ocean, and Cape May Counties
+  - region "Bathrooms Built for South Jersey" [ref=e78]:
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - text: Our Work
+        - heading "Bathrooms Built for South Jersey" [level=2] [ref=e81]
+        - paragraph [ref=e82]: See completed tile and bathroom projects in Atlantic, Ocean & Cape May Counties.
+      - link "See Completed Projects" [ref=e84] [cursor=pointer]:
+        - /url: /portfolio/
+  - contentinfo [ref=e85]:
+    - generic [ref=e87]:
+      - navigation "Footer navigation" [ref=e88]:
+        - generic [ref=e89]:
+          - paragraph [ref=e90]: Build Guides
+          - list [ref=e91]:
+            - listitem [ref=e92]:
+              - link "Codes & Permits" [ref=e93] [cursor=pointer]:
+                - /url: /build/nj-codes-permits/
+            - listitem [ref=e94]:
+              - link "Shower Pans & Slopes" [ref=e95] [cursor=pointer]:
+                - /url: /build/shower-pans-slopes-drains/
+            - listitem [ref=e96]:
+              - link "Waterproofing" [ref=e97] [cursor=pointer]:
+                - /url: /build/waterproofing-systems/
+            - listitem [ref=e98]:
+              - link "Thresholds & Curbs" [ref=e99] [cursor=pointer]:
+                - /url: /build/curbs-curbless/
+        - generic [ref=e100]:
+          - paragraph [ref=e101]: Learn
+          - list [ref=e102]:
+            - listitem [ref=e103]:
+              - link "Products" [ref=e104] [cursor=pointer]:
+                - /url: /products/
+      - generic [ref=e105]:
+        - link "Tillerstead LLC - Home" [ref=e106] [cursor=pointer]:
+          - /url: /
+          - img "Tillerstead LLC" [ref=e107]
+        - paragraph [ref=e109]: Expert Tile & Stone Installation — South Jersey
+        - paragraph [ref=e110]: "NJ HIC #13VH10808800"
+        - generic [ref=e111]:
+          - text: 325 E. Jimmie Leeds Road, Suite 7-333
+          - text: Galloway, NJ 08205
+        - generic [ref=e112]:
+          - link "(609) 862-8808" [ref=e113] [cursor=pointer]:
+            - /url: tel:+16098628808
+          - text: •
+          - link "info@tillerstead.com" [ref=e114] [cursor=pointer]:
+            - /url: mailto:info@tillerstead.com
+      - navigation "Footer navigation" [ref=e115]:
+        - generic [ref=e116]:
+          - paragraph [ref=e117]: Service Areas
+          - list
+        - generic [ref=e118]:
+          - paragraph [ref=e119]: Company
+          - list [ref=e120]:
+            - listitem [ref=e121]:
+              - link "About" [ref=e122] [cursor=pointer]:
+                - /url: /about/
+            - listitem [ref=e123]:
+              - link "For Contractors" [ref=e124] [cursor=pointer]:
+                - /url: /for-general-contractors/
+        - generic [ref=e125]:
+          - paragraph [ref=e126]: Legal
+          - list [ref=e127]:
+            - listitem [ref=e128]:
+              - link "Privacy" [ref=e129] [cursor=pointer]:
+                - /url: /privacy/
+            - listitem [ref=e130]:
+              - link "Terms" [ref=e131] [cursor=pointer]:
+                - /url: /terms/
+    - generic [ref=e133]:
+      - paragraph [ref=e134]: © 2026 Tillerstead LLC. All rights reserved.
+      - generic [ref=e135]:
+        - link "Privacy" [ref=e136] [cursor=pointer]:
+          - /url: /privacy/
+        - link "Terms" [ref=e137] [cursor=pointer]:
+          - /url: /terms/
+        - text: "NJ HIC #13VH10808800"
+```
