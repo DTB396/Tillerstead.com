@@ -23,7 +23,6 @@
   // State helpers
   const isMobileView = () => {
     const mobile = window.innerWidth < BP_DESKTOP;
-    console.log(`[DEBUG] isMobileView: ${mobile}`);
     return mobile;
   };
   const isNavOpen = () => navShell?.classList.contains('is-open');
