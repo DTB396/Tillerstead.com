@@ -1,7 +1,7 @@
 <!-- nav-drawer.html - Modern, accessible nav bar + drawer -->
 <!-- nav-drawer.html - Modern, accessible nav bar + drawer (refined) -->
-<nav class="navbar" aria-label="Main Navigation">
-  <a href="/" class="nav-logo">Tillerstead</a>
+<nav class="navbar" aria-label="Main Navigation" role="navigation">
+  <a href="/" class="nav-logo" tabindex="0" aria-label="Tillerstead Home">Tillerstead</a>
   <ul class="nav-links" role="menubar">
     <li class="nav-submenu-group" role="none">
       <a href="/build/" role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-submenu" tabindex="0">Build Guides</a>
@@ -17,18 +17,18 @@
         <li role="none"><a href="/build/common-build-failures/" role="menuitem" tabindex="-1">Common Failures</a></li>
       </ul>
     </li>
-    <li role="none"><a href="/portfolio/" role="menuitem">Portfolio</a></li>
-    <li role="none"><a href="/reviews/" role="menuitem">Reviews</a></li>
-    <li role="none"><a href="/faq/" role="menuitem">FAQ</a></li>
-    <li role="none"><a href="/contact/" role="menuitem">Get an Estimate</a></li>
+    <li role="none"><a href="/portfolio/" role="menuitem" tabindex="0">Portfolio</a></li>
+    <li role="none"><a href="/reviews/" role="menuitem" tabindex="0">Reviews</a></li>
+    <li role="none"><a href="/faq/" role="menuitem" tabindex="0">FAQ</a></li>
+    <li role="none"><a href="/contact/" role="menuitem" tabindex="0">Get an Estimate</a></li>
   </ul>
-  <button class="nav-toggle" aria-label="Open menu" aria-controls="mobile-nav" aria-expanded="false">
+  <button class="nav-toggle" aria-label="Open menu" aria-controls="mobile-nav" aria-expanded="false" tabindex="0" role="button">
     <span aria-hidden="true">&#9776;</span>
   </button>
 </nav>
-<div class="nav-overlay" data-nav-overlay tabindex="-1"></div>
-<aside class="nav-drawer" id="mobile-nav" data-nav-container aria-modal="true" aria-label="Site Menu" tabindex="-1">
-  <button class="nav-close" aria-label="Close menu">&times;</button>
+<div class="nav-overlay" data-nav-overlay tabindex="-1" aria-hidden="true"></div>
+<aside class="nav-drawer" id="mobile-nav" data-nav-container aria-modal="true" aria-label="Site Menu" tabindex="-1" role="dialog">
+  <button class="nav-close" aria-label="Close menu" tabindex="0" role="button">&times;</button>
   <ul class="nav-links" role="menubar">
     <li class="nav-submenu-group" role="none">
       <a href="/build/" role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-submenu" tabindex="0">Build Guides</a>
@@ -44,10 +44,10 @@
         <li role="none"><a href="/build/common-build-failures/" role="menuitem" tabindex="-1">Common Failures</a></li>
       </ul>
     </li>
-    <li role="none"><a href="/portfolio/" role="menuitem">Portfolio</a></li>
-    <li role="none"><a href="/reviews/" role="menuitem">Reviews</a></li>
-    <li role="none"><a href="/faq/" role="menuitem">FAQ</a></li>
-    <li role="none"><a href="/contact/" role="menuitem">Get an Estimate</a></li>
+    <li role="none"><a href="/portfolio/" role="menuitem" tabindex="0">Portfolio</a></li>
+    <li role="none"><a href="/reviews/" role="menuitem" tabindex="0">Reviews</a></li>
+    <li role="none"><a href="/faq/" role="menuitem" tabindex="0">FAQ</a></li>
+    <li role="none"><a href="/contact/" role="menuitem" tabindex="0">Get an Estimate</a></li>
   </ul>
 </aside>
 <!-- End nav-drawer.html -->
