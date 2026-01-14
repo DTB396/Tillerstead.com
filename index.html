@@ -268,16 +268,50 @@
 
 <!-- Updated header with new theme -->
 <header>
-  <img src="/assets/img/logo/4k-logo.png" alt="Tillerstead Logo" class="nav-logo">
-  <nav>
-    <ul>
+  <img src="/assets/img/logo/optimized-logo.png" alt="Tillerstead Logo" class="nav-logo">
+  <!-- Main Navigation Component -->
+<nav class="main-nav" aria-label="Main Navigation">
+  <ul class="nav-list">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/portfolio.html">Portfolio</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav">
+  <button class="nav-toggle" aria-label="Open navigation menu">☰</button>
+  <div id="mobile-nav" class="mobile-nav-shell">
+    <button class="nav-close" aria-label="Close navigation menu">✖</button>
+    <ul class="mobile-nav-list">
       <li><a href="/">Home</a></li>
       <li><a href="/about.html">About</a></li>
       <li><a href="/services.html">Services</a></li>
       <li><a href="/portfolio.html">Portfolio</a></li>
       <li><a href="/contact.html">Contact</a></li>
     </ul>
-  </nav>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.nav-toggle');
+    const closeBtn = document.querySelector('.nav-close');
+    const mobileNav = document.querySelector('#mobile-nav');
+
+    toggle.addEventListener('click', () => {
+      document.body.classList.add('nav-open');
+      mobileNav.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      document.body.classList.remove('nav-open');
+      mobileNav.style.display = 'none';
+    });
+  });
+</script>
 </header>
 
     
@@ -306,7 +340,16 @@
   </div>
 </div>
 
-    
+    <p>&lt;!DOCTYPE html&gt;</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TCNA-Compliant Tile &amp; Waterproofing Experts</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
 <section class="hero-section" style="padding:4rem 0 2rem 0; background:linear-gradient(120deg,#f8fafc 60%,#e0e7ef 100%); text-align:center;">
   <div class="container" style="max-width:900px;margin:0 auto;">
     <h1 style="font-size:2.5rem;font-weight:700;margin-bottom:1rem;">TCNA-Compliant Tile &amp; Waterproofing Experts</h1>
@@ -347,6 +390,9 @@
   </div>
 </section>
 
+</body>
+</html>
+
     
       <section
   class="ts-section ts-portfolio-preview bg-soft"
@@ -378,13 +424,56 @@ bathroom projects in Atlantic, Ocean & Cape May Counties.</p>
 
 
 <footer>
-  <img src="/assets/img/logo/4k-logo.png" alt="Tillerstead Logo" class="footer-logo">
+  <img src="/assets/img/logo/optimized-logo.png" alt="Tillerstead Logo" class="footer-logo">
   <p class="footer-tagline">Expert Tile & Stone Installation — South Jersey</p>
   <p class="footer-license">NJ HIC #13VH10808800</p>
   <address class="footer-address">
     325 E. Jimmie Leeds Road, Suite 7-333<br />
     Galloway, NJ 08205
   </address>
+  <!-- Main Navigation Component -->
+<nav class="main-nav" aria-label="Main Navigation">
+  <ul class="nav-list">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/portfolio.html">Portfolio</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav">
+  <button class="nav-toggle" aria-label="Open navigation menu">☰</button>
+  <div id="mobile-nav" class="mobile-nav-shell">
+    <button class="nav-close" aria-label="Close navigation menu">✖</button>
+    <ul class="mobile-nav-list">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.nav-toggle');
+    const closeBtn = document.querySelector('.nav-close');
+    const mobileNav = document.querySelector('#mobile-nav');
+
+    toggle.addEventListener('click', () => {
+      document.body.classList.add('nav-open');
+      mobileNav.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      document.body.classList.remove('nav-open');
+      mobileNav.style.display = 'none';
+    });
+  });
+</script>
 </footer>
 
 

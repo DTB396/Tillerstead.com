@@ -245,16 +245,50 @@
 
 <!-- Updated header with new theme -->
 <header>
-  <img src="/assets/img/logo/4k-logo.png" alt="Tillerstead Logo" class="nav-logo">
-  <nav>
-    <ul>
+  <img src="/assets/img/logo/optimized-logo.png" alt="Tillerstead Logo" class="nav-logo">
+  <!-- Main Navigation Component -->
+<nav class="main-nav" aria-label="Main Navigation">
+  <ul class="nav-list">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/portfolio.html">Portfolio</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav">
+  <button class="nav-toggle" aria-label="Open navigation menu">☰</button>
+  <div id="mobile-nav" class="mobile-nav-shell">
+    <button class="nav-close" aria-label="Close navigation menu">✖</button>
+    <ul class="mobile-nav-list">
       <li><a href="/">Home</a></li>
       <li><a href="/about.html">About</a></li>
       <li><a href="/services.html">Services</a></li>
       <li><a href="/portfolio.html">Portfolio</a></li>
       <li><a href="/contact.html">Contact</a></li>
     </ul>
-  </nav>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.nav-toggle');
+    const closeBtn = document.querySelector('.nav-close');
+    const mobileNav = document.querySelector('#mobile-nav');
+
+    toggle.addEventListener('click', () => {
+      document.body.classList.add('nav-open');
+      mobileNav.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      document.body.classList.remove('nav-open');
+      mobileNav.style.display = 'none';
+    });
+  });
+</script>
 </header>
 
     <nav class="breadcrumbs" aria-label="Breadcrumb">
@@ -423,13 +457,56 @@ Send your shower photos and goals to <strong><a href="mailto:info@tillerstead.co
 
 
 <footer>
-  <img src="/assets/img/logo/4k-logo.png" alt="Tillerstead Logo" class="footer-logo">
+  <img src="/assets/img/logo/optimized-logo.png" alt="Tillerstead Logo" class="footer-logo">
   <p class="footer-tagline">Expert Tile & Stone Installation — South Jersey</p>
   <p class="footer-license">NJ HIC #13VH10808800</p>
   <address class="footer-address">
     325 E. Jimmie Leeds Road, Suite 7-333<br />
     Galloway, NJ 08205
   </address>
+  <!-- Main Navigation Component -->
+<nav class="main-nav" aria-label="Main Navigation">
+  <ul class="nav-list">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/portfolio.html">Portfolio</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav">
+  <button class="nav-toggle" aria-label="Open navigation menu">☰</button>
+  <div id="mobile-nav" class="mobile-nav-shell">
+    <button class="nav-close" aria-label="Close navigation menu">✖</button>
+    <ul class="mobile-nav-list">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.nav-toggle');
+    const closeBtn = document.querySelector('.nav-close');
+    const mobileNav = document.querySelector('#mobile-nav');
+
+    toggle.addEventListener('click', () => {
+      document.body.classList.add('nav-open');
+      mobileNav.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      document.body.classList.remove('nav-open');
+      mobileNav.style.display = 'none';
+    });
+  });
+</script>
 </footer>
 
 
