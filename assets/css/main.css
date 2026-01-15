@@ -1,13 +1,11 @@
 @charset "UTF-8";
 /* ============================================
-   Tillerstead Main Stylesheet
-   TCNA-Compliant, Modular CSS Architecture
-   Modern + Professional + Dynamic
-   ============================================ */
+  Tillerstead Main Stylesheet
+  TCNA-Compliant, Modular CSS Architecture
+  Modern + Professional + Dynamic
+  ============================================ */
 /* 00 - Settings: Design Tokens & Variables */
-/* ⭐ GLOBAL THEME - Edit here to change all colors/spacing */
 @import "00-settings/entry.css";
-/* Legacy settings (being consolidated into theme-globals) */
 /* 10 - Base: Accessibility, Typography, Performance */
 @import "10-base/animations.css";
 @import "10-base/reset.css";
@@ -48,7 +46,5 @@
 /* 40 - Utilities: Helpers for Compliance & Accessibility */
 @import "40-utilities/helpers.css";
 @import "mobile-overrides.css";
-body {
-  outline: 5px solid red !important; }
 
-/*# sourceMappingURL=main.css.map */
+/* Use only variables from root-vars.css and tokens-hybrid.css. No variable redefinitions here. */

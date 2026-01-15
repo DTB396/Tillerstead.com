@@ -1,6 +1,0 @@
-.card-media-ar {
-  aspect-ratio: var(--ar, 4 / 3);
-}
-[data-ar] {
-  --ar: attr(data-ar);
-}
