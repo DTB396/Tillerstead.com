@@ -1,0 +1,42 @@
+{% assign icon = include.icon | default: 'tile' %}
+{% assign card_id = include.id | default: include.title | slugify %}
+{% assign aria_label = include.title | prepend: 'Service card: ' %}
+{% capture icon_svg %}
+{% case icon %}
+{% when 'tile' %}
+<svg class="ts-service-card__icon-mark ts-icon ts-icon--tile" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+  <rect x="4" y="4" width="16" height="16" rx="2" class="ts-icon__stroke"></rect>
+  <rect x="28" y="4" width="16" height="16" rx="2" class="ts-icon__stroke"></rect>
+  <rect x="4" y="28" width="16" height="16" rx="2" class="ts-icon__stroke"></rect>
+  <rect x="28" y="28" width="16" height="16" rx="2" class="ts-icon__stroke"></rect>
+</svg>
+{% else %}
+<svg class="ts-service-card__icon-mark ts-icon ts-icon--default" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+  <path d="M10 34 19.5 24.5" class="ts-icon__stroke"></path>
+  <path d="M22 12a8 8 0 0 1 11.3 11.3L26 30.5 17.5 22l5.3-5.3A4 4 0 0 0 22 12Z" class="ts-icon__stroke"></path>
+</svg>
+{% endcase %}
+{% endcapture %}
+
+<article class="ts-service-card" id="{{ card_id }}" aria-label="{{ aria_label }}">
+  <div class="ts-service-card__icon">{{ icon_svg | strip }}</div>
+  <div class="ts-service-card__body">
+    <h3 class="ts-service-card__title">{{ include.title }}</h3>
+    <p class="ts-service-card__desc">{{ include.description }}</p>
+    {% if include.tagline %}
+      <p class="ts-service-card__tagline">{{ include.tagline }}</p>
+    {% endif %}
+    {% if include.details %}
+      <ul class="ts-service-card__details">
+        {% for detail in include.details %}
+          <li>{{ detail }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if include.url %}
+      <a class="btn btn--secondary" href="{{ include.url | relative_url }}">Learn more</a>
+    {% else %}
+      <a class="btn btn--secondary" href="/contact/">Request a consultation</a>
+    {% endif %}
+  </div>
+</article>

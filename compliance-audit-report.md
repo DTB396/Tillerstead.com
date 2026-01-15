@@ -66,3 +66,4 @@
 - **WARNING**: Meets WCAG AA (4.5:1) but not AAA (7:1) — Red on White [5.14:1]
 - **ERROR**: Does not meet WCAG AA minimum (4.5:1) — Gold on White [1.36:1]
 - **WARNING**: Meets WCAG AA (4.5:1) but not AAA (7:1) — White on Teal [4.54:1]
+

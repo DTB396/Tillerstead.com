@@ -49,3 +49,4 @@ This guide outlines drain assemblies and waterproofing systems commonly used for
 - **Maintenance expectations:** Provide clean-out access, removable grates, and inspectable weep channels to support long-term service.
 - **Sequencing and access:** Confirm that slab recesses, blocking, and plumbing rough-ins are complete before membranes arrive on site; schedule flood testing before enclosure glass or finishes limit visibility.
 - **Verify locally:** Local code officials may require listed drains, specific test durations, or inspector presence during flood tests; document approvals in the project file.
+

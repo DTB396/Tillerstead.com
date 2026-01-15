@@ -254,3 +254,4 @@ npm run scan:contrast   # CSS files
 ---
 
 _This audit ensures Tillerstead.com maintains the highest standards of accessibility, providing a superior user experience for all visitors regardless of visual ability._
+

@@ -281,3 +281,4 @@ If a rule fails, the enforcement system **must output**:
 **Intent**: Enforce quality **without sabotaging velocity**
 
 ---
+

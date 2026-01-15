@@ -42,3 +42,4 @@ Use this reference to coordinate inspections, reduce liability, and document per
 6. Final finished floor showing flush transition and installed fixtures.
 
 Label all photos with date, location, and reference number tied to daily reports or inspection logs.
+

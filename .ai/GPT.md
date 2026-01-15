@@ -171,3 +171,4 @@ Before outputting code, content, or advice, GPT must verify:
 **Authority:** Inherits from system.md (master) + all domain files  
 **Key Limitation:** No direct repository access—relies on user-provided context
 
+

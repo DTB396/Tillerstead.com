@@ -17,3 +17,4 @@ This folder provides the stewardship-focused guidance Tillerstead uses to plan a
 All equations, tables, and templates herein are planning aids intended for calculators, estimators, and education widgets. Every measurement, structural modification, and inspection item must be verified in the field against manufacturer instructions and local jurisdiction requirements before work proceeds.
 
 Tillerstead’s stewardship approach prioritizes craftsmanship, measured communication, and community confidence—document each step, verify locally, and build for lasting performance.
+

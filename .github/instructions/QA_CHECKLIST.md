@@ -99,3 +99,4 @@ bundle exec jekyll build
 
 **Log all issues with: page, URL, browser, viewport, and reproduction steps.**  
 **Reference `.ai/OUTPUT_RULES.md` and `.ai/COMPLIANCE.md` for all technical or legal questions.**
+

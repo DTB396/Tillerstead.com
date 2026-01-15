@@ -128,3 +128,4 @@
 8. SRI for external scripts
 9. aria-label for icon buttons
 10. hreflang optimization
+

@@ -44,3 +44,4 @@
 - **AAA Large Text:** 4.5:1 minimum
 
 **Compliance:** TCNA 2024, New Jersey HIC, WCAG 2.1
+

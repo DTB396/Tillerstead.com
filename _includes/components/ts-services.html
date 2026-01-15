@@ -1,43 +1,6 @@
-{% assign summary = include.summary | default: page.services_summary | default:
-'Every project begins with precise layout, flood-tested waterproofing, and photo
-documentation suitable for lenders, tenants, or GCs. No shortcuts. No sliver
-tiles unless the plan leaves no alternative. TCNA-compliant, New Jersey
-HIC-licensed.' %} {% assign services = include.services | default: page.services
-| default: site.data.services.services %} {% assign services_gallery =
-include.gallery | default: page.services_gallery %} {% assign section_id =
-include.section_id | default: 'ts-services' %} {% assign heading_id =
-include.heading_id | default: section_id | append: '-title' %} {%- comment -%}
-CORE CAPABILITIES section for Tillerstead homepage. Supports: - String format:
-"paint|Title|Description|/url|Tagline|Details" - Object format: { "icon": "...",
-"title": "...", "description": "...", "url": "...", "tagline": "...", "details":
-"..." } {%- endcomment -%}
-
-<section
-  class="ts-services ts-section"
-  id="{{ section_id }}"
-  aria-labelledby="{{ heading_id }}"
-  style="
-    background-image: url(&quot;/assets/img/patterns/grid-tile-light.svg&quot;);
-    background-size: 240px 240px;
-    background-position: center;
-    background-attachment: fixed;
-  "
->
-  <div class="container">
-    <header class="ts-services__header">
-      <p class="eyebrow text-accent">
-        TCNA-compliant layouts &amp; waterproof tile assemblies
-      </p>
-      <h2 id="{{ heading_id }}" class="heading-2 text-primary">
-        Tile installations engineered for longevity, compliance, and visual
-        precision.
-      </h2>
-      <p class="lead">{{ summary }}</p>
-    </header>
-
-    {% if services and services != empty %}
-    <ul class="ts-services__grid" role="list">
-      {% for raw in services %} {%- assign service_tagline = raw.tagline -%} {%-
+{% comment %} Wrapper for canonical ts-services.html include. {% endcomment %}
+{% include ts-services.html %}
+{% include ts-services.html %}
       assign service_details = raw.details | default: raw.points -%} {%- if raw
       contains '|' -%} {%- assign parts = raw | split: '|' -%} {%- assign
       service_icon_key = parts[0] | strip -%} {%- assign service_title =
@@ -76,3 +39,4 @@ CORE CAPABILITIES section for Tillerstead homepage. Supports: - String format:
     {% endif %}
   </div>
 </section>
+

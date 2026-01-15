@@ -118,3 +118,4 @@ This document historically provided technical and regulatory guidance for AI age
 **For current, authoritative instructions, see [/.ai/DOMAIN.md](../../.ai/DOMAIN.md) and the centralized `.ai/` directory. All AI outputs must comply with the latest standards, file naming, accessibility, and legal requirements as defined in `/.ai/OUTPUT_RULES.md` and `/.ai/STYLE.md`.**
 
 _Last updated: December 2024. Source: TCNA Handbook 2024, ANSI A108/A118/A137, New Jersey HIC Regulations._
+

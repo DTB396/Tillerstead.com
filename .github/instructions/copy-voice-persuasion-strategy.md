@@ -250,3 +250,4 @@ Defines the Tillerstead LLC voice, tone, and persuasion strategy for all website
 ---
 
 **For authoritative guidance, see [/.ai/STYLE.md](../../.ai/STYLE.md) and [/.ai/SYSTEM.md](../../.ai/SYSTEM.md). All content must comply with [/.ai/OUTPUT_RULES.md](../../.ai/OUTPUT_RULES.md) for naming, accessibility, and technical standards.**
+

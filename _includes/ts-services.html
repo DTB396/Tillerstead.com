@@ -13,15 +13,9 @@ CORE CAPABILITIES section for Tillerstead homepage. Supports: - String format:
 "..." } {%- endcomment -%}
 
 <section
-  class="ts-services ts-section"
+  class="ts-services ts-section ts-services-bg"
   id="{{ section_id }}"
   aria-labelledby="{{ heading_id }}"
-  style="
-    background-image: url(&quot;/assets/img/patterns/grid-tile-light.svg&quot;);
-    background-size: 240px 240px;
-    background-position: center;
-    background-attachment: fixed;
-  "
 >
   <div class="container">
     <header class="ts-services__header">
@@ -57,7 +51,7 @@ CORE CAPABILITIES section for Tillerstead homepage. Supports: - String format:
       service_details_list = service_details_list | split: ',' -%} {%- endif -%}
 
       <li class="fade-in-scroll">
-        {% include content/ts-service-card.html icon=service_icon_key
+        {% include components/ts-service-card.html icon=service_icon_key
         title=service_title description=service_description
         tagline=service_tagline details=service_details_list url=service_url %}
       </li>
@@ -186,3 +180,4 @@ CORE CAPABILITIES section for Tillerstead homepage. Supports: - String format:
     {% endif %}
   </div>
 </section>
+

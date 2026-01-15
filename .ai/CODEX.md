@@ -208,3 +208,4 @@ Lighthouse: 92 Performance, 100 Accessibility.
 **Authority**: SYSTEM.md + all domain files  
 **Key Capability**: Repository access, command execution, autonomous operation, TCNA/New Jersey HIC compliance
 
+

@@ -25,3 +25,4 @@
 - "Natural stone bathroom floor with herringbone pattern and sealed substrate"
 - "Backsplash detail showing grout joint and mortar bed for kitchen installation"
 - "Before and after: bathroom remodeling with heated tile flooring system"
+

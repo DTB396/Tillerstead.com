@@ -4,14 +4,65 @@
 {% assign primary_nav = site.data.navigation.primary %}
 {% assign secondary_nav = site.data.navigation.secondary %}
 
-<footer>
-  <img src="/assets/img/logo/optimized-logo.png" alt="Tillerstead Logo" class="footer-logo">
-  <p class="footer-tagline">{{ site.tagline }}</p>
-  <p class="footer-license">NJ HIC #{{ site.company.hic }}</p>
-  <address class="footer-address">
-    {{ site.company.address_line }}<br />
-    {{ site.company.address_city }}, {{ site.company.address_region }} {{ site.company.address_postal_code }}
-  </address>
-  {% include navigation/main-nav.html %}
+
+<footer class="ts-footer" aria-label="Site Footer">
+  <div class="footer-main">
+    <div class="footer-logo-section">
+      <a href="/" aria-label="Tillerstead Home">
+        <img src="/assets/img/logo/optimized-logo.png" alt="Tillerstead Logo" class="footer-logo logo-footer mx-auto mb-footer">
+      </a>
+      <p class="footer-tagline bright-blue fw-bold text-center">{{ site.tagline }}</p>
+    </div>
+    <div class="footer-sections flex-wrap gap-footer justify-center">
+      <section class="footer-group" aria-label="Build Guides">
+        <h3 class="footer-group-title">Build Guides</h3>
+        <ul class="footer-list">
+          <li><a href="/build/nj-codes-permits/">Codes, Permits & Inspections</a></li>
+          <li><a href="/build/shower-pans-slopes-drains/">Shower Pans, Slopes & Drains</a></li>
+          <li><a href="/build/waterproofing-systems/">Waterproofing Systems</a></li>
+          <li><a href="/build/curbs-curbless/">Curbs & Curbless Showers</a></li>
+        </ul>
+      </section>
+      <section class="footer-group" aria-label="Learn">
+        <h3 class="footer-group-title">Learn</h3>
+        <ul class="footer-list">
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/products.html">Products</a></li>
+        </ul>
+      </section>
+      <section class="footer-group" aria-label="Service Areas">
+        <h3 class="footer-group-title">Service Areas</h3>
+        <ul class="footer-list">
+          <li><a href="/atlantic-county-nj.html">Atlantic County</a></li>
+          <li><a href="/ocean-county-nj.html">Ocean County</a></li>
+          <li><a href="/cape-may-county-nj.html">Cape May County</a></li>
+        </ul>
+      </section>
+      <section class="footer-group" aria-label="Company">
+        <h3 class="footer-group-title">Company</h3>
+        <ul class="footer-list">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/for-general-contractors.html">For Contractors</a></li>
+        </ul>
+      </section>
+      <section class="footer-group" aria-label="Legal">
+        <h3 class="footer-group-title">Legal</h3>
+        <ul class="footer-list">
+          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="/terms.html">Terms</a></li>
+        </ul>
+      </section>
+    </div>
+    <div class="footer-contact mt-footer-contact text-center">
+      <p class="footer-license bright-blue fs-footer fw-medium">NJ HIC #{{ site.company.hic }}</p>
+      <address class="footer-address normal-font dark-text fs-footer-address">
+        {{ site.company.address_line }}<br />
+        {{ site.company.address_city }}, {{ site.company.address_region }} {{ site.company.address_postal_code }}
+      </address>
+      <p class="footer-contact-email mt-footer-email fs-footer-address"><a href="mailto:{{ site.company.email }}" class="bright-blue">{{ site.company.email }}</a></p>
+    </div>
+  </div>
 </footer>
+
 

@@ -73,7 +73,7 @@ default: page.hero_actions -%} {%- unless actions -%} {%- assign actions =
           src.hero_image_position
           or
           page.hero_image_position
-          %}style="object-position: {{ src.hero_image_position | default: page.hero_image_position }}; object-fit: cover;"
+          %}class="hero-img-cover {{ src.hero_image_position | default: page.hero_image_position | prepend: 'object-pos-' }}"
           {%
           endif
           %}
@@ -100,10 +100,7 @@ default: page.hero_actions -%} {%- unless actions -%} {%- assign actions =
           </p>
         </li>
       </ul>
-      <div
-        class="ts-hero__review-link"
-        style="margin-top: 1.5rem; text-align: center"
-      >
+      <div class="ts-hero__review-link mt-hero-review text-center">
         <!-- TODO: Replace with 4K upscaled/optimized image when available -->
         <a
           class="btn btn--ghost"
@@ -114,10 +111,7 @@ default: page.hero_actions -%} {%- unless actions -%} {%- assign actions =
         >
           View Ahmed’s Verified Review & Photo on Thumbtack
         </a>
-        <p
-          class="microcopy"
-          style="margin-top: 0.5rem; color: var(--color-muted, #888)"
-        >
+        <p class="microcopy mt-microcopy muted-text">
           Photo: Actual Tillerstead project, as reviewed by Ahmed (Thumbtack
           Verified)
         </p>
@@ -126,3 +120,4 @@ default: page.hero_actions -%} {%- unless actions -%} {%- assign actions =
     {% endif %}
   </div>
 </section>
+

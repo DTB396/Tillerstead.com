@@ -1,7 +1,7 @@
 <!-- Jekyll include: no DOCTYPE needed -->
-<header class="ts-header">
+<header class="ts-header" id="site-header">
   <div class="ts-header__branding">
-    <img src="/assets/img/logo/optimized-logo.png" alt="Tillerstead Logo" class="nav-logo ts-logo--header">
+    <img src="/assets/img/logo/optimized-logo.png" alt="Tillerstead Logo" class="nav-logo ts-logo--header" id="header-logo">
     <div class="ts-header__info">
       <span class="ts-header__company">Tillerstead LLC</span>
       <span class="ts-header__tagline">Expert Tile & Stone Installation — South Jersey</span>
@@ -10,3 +10,24 @@
   </div>
   {% include navigation/main-nav.html %}
 </header>
+<script>
+  // Sticky header logo bounce/resize on scroll
+  (function() {
+    var header = document.getElementById('site-header');
+    var logo = document.getElementById('header-logo');
+    var lastScroll = 0;
+    function onScroll() {
+      var scrollY = window.scrollY || window.pageYOffset;
+      if (scrollY > 60) {
+        header.classList.add('ts-header--minimized');
+      } else {
+        header.classList.remove('ts-header--minimized');
+      }
+      lastScroll = scrollY;
+    }
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('resize', onScroll);
+    document.addEventListener('DOMContentLoaded', onScroll);
+  })();
+</script>
+

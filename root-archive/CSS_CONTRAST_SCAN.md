@@ -93,3 +93,4 @@ color: rgb(255, 255, 255, 0.5); /* WCAG 2.1 compliant - increased from 0.3 */
 ---
 
 **Compliance:** TCNA 2024, NJ HIC, WCAG 2.1
+

@@ -25,7 +25,7 @@ Usage: {% include content/portfolio-highlights.html %}
         {% for item in preview_items %}
           <li>
             <article class="card card--portfolio" aria-labelledby="portfolio-{{ forloop.index }}-title">
-              <figure class="card-media" style="--ar: {{ item.ar | default: '4 / 3' }}">
+              <figure class="card-media card-media-ar" data-ar="{{ item.ar | default: '4 / 3' }}">
                 <img src="{{ item.file | relative_url }}"
                      alt="{{ item.alt | default: 'Photo of ' | append: item.title | escape }}"
                      loading="lazy"
@@ -62,4 +62,5 @@ Usage: {% include content/portfolio-highlights.html %}
 
     <div class="section-action">
       <a href="{{ include.cta_url |
+
 

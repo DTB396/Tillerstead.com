@@ -162,3 +162,4 @@ MIT License. See [`LICENSE`](LICENSE) for details.
 
 > **For all technical, legal, and compliance questions, consult the `.ai/` directory and `_data/compliance.yml`.**  
 > **All site changes are subject to automated linting, accessibility, and regulatory review.**
+

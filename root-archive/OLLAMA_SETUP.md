@@ -349,3 +349,4 @@ ollama run qwen2.5:7b < prompts/tillerstead-guide.txt
 ---
 
 **Questions?** Check Ollama documentation or this guide's troubleshooting section.
+

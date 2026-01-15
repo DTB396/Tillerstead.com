@@ -1,5 +1,4 @@
----
-layout: default
+layout: home
 title: Home
 permalink: /
 meta_title: "Tile & Waterproofing Experts in South Jersey | Tillerstead"
@@ -17,3 +16,13 @@ hero_image_position: top
 ---
 
 {% include sections/home-simple.html %}
+
+{% include reviews-highlights.html %}
+
+{% include home-trust-stats.html %}
+
+{% include home-portfolio-preview.html %}
+
+{% include home-faq.html %}
+
+{% include cta-estimate.html %}
