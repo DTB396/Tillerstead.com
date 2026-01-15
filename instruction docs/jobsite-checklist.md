@@ -26,3 +26,4 @@ Use this checklist alongside daily reports. Verify all measurements on site and 
 - [ ] Any leaks corrected and re-tested prior to tile installation.
 - [ ] Tile set with compatible thinset; movement joints at perimeters and transitions maintained.
 - [ ] Final inspection completed: slope readings recorded, drain cleared, photos filed.
+

@@ -5,10 +5,10 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>Home | Tillerstead LLC</title>
+<title>Tillerstead LLC</title>
 
 
-  <meta name="description" content="Tillerstead, a licensed NJ HIC contractor, specializes in TCNA-compliant tile showers, waterproofing, and bathroom remodeling. Serving Atlantic, Ocean, and Cape May Counties, we adhere to TCNA Handbook and New Jersey HIC law, providing transparent pricing, technical precision, and results that stand the test of time." />
+  <meta name="description" content="TCNA-compliant tile and stone installation: custom showers, heated floors, waterproof assemblies, and natural stone surfaces. New Jersey HIC #13VH10808800. Serving Atlantic, Ocean, and Cape May Counties with precision, transparency, and owner oversight." />
 
 
 <!-- Core stylesheets -->
@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="/assets/css/root-vars.css">
 <link rel="stylesheet" href="/assets/css/tokens-hybrid.css">
 <link rel="stylesheet" href="/assets/css/nav-drawer.css">
+<link rel="stylesheet" href="/assets/css/30-components/header-sticky.css">
 
 <!-- Logo sprite -->
 <!-- SVG Logo Sprite - Tillerstead brand marks -->
@@ -28,36 +29,22 @@
   <defs>
     <style>
       .logo-tile {
-        fill: var(--logo-fill, #078930);
-        stroke: var(--logo-stroke, #fcdd09);
+        fill: var(--logo-fill, #10b981);
+        stroke: var(--logo-stroke, #0b6cff);
         stroke-width: 10;
         stroke-linejoin: round;
         stroke-linecap: round;
       }
 
       .logo-word {
-        fill: #da121a;
-        font:
-          800 46px "Inter",
-          "Manrope",
-          system-ui,
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          sans-serif;
+        fill: #0b6cff;
+        font: 800 46px 'Inter', 'Segoe UI', Arial, sans-serif;
         letter-spacing: 1.4px;
       }
 
       .logo-sub {
-        fill: #078930;
-        font:
-          600 18px "Inter",
-          "Manrope",
-          system-ui,
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          sans-serif;
+        fill: #10b981;
+        font: 600 18px 'Inter', 'Segoe UI', Arial, sans-serif;
         opacity: 0.9;
       }
 
@@ -115,7 +102,7 @@
       y="90"
       font-size="46"
       font-weight="800"
-      font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+      font-family="Inter, 'Segoe UI', Arial, sans-serif"
       letter-spacing="1.4"
     >
       TILLERSTEAD
@@ -153,9 +140,9 @@
       y="210"
       font-size="32"
       font-weight="800"
-      font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+      font-family="Inter, 'Segoe UI', Arial, sans-serif"
       letter-spacing="1.2"
-      fill="#DA121A"
+      fill="#0b6cff"
       text-anchor="middle"
     >
       TILLERSTEAD
@@ -165,9 +152,9 @@
       y="242"
       font-size="14"
       font-weight="600"
-      font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+      font-family="Inter, 'Segoe UI', Arial, sans-serif"
       opacity=".9"
-      fill="#078930"
+      fill="#10b981"
       text-anchor="middle"
     >
       Tile • Remodeling • Property Maintenance
@@ -177,9 +164,9 @@
       y="268"
       font-size="12"
       font-weight="600"
-      font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+      font-family="Inter, 'Segoe UI', Arial, sans-serif"
       opacity=".9"
-      fill="#078930"
+      fill="#10b981"
       text-anchor="middle"
     >
       New Jersey licensed HIC #13VH10808800
@@ -233,39 +220,18 @@
 </svg>
 
 
+
 <!-- Page-specific styles/scripts can be added below -->
 
 
-    <!-- Page-specific JS -->
-    
-    <!-- Contact Schema -->
-    
-    <!-- Structured Data (HowTo/TechArticle) -->
-    
-    
-      <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "Home",
-  "description": "Tillerstead, a licensed NJ HIC contractor, specializes in TCNA-compliant tile showers, waterproofing, and bathroom remodeling. Serving Atlantic, Ocean, and Cape May Counties, we adhere to TCNA Handbook and New Jersey HIC law, providing transparent pricing, technical precision, and results that stand the test of time.",
-  "url": "https://tillerstead.com/"
-}
-</script>
 
-    
-  <!-- FAQPage Structured Data -->
-  
-  <!-- Success Page Confetti Script -->
-  
-  <!-- Modern, clean contractor/tiler layout -->
-  <meta name="theme-color" content="#1a5c3a">
+    <meta name="theme-color" content="#1a5c3a">
   </head>
   <body class="ts-body">
     <!-- Jekyll include: no DOCTYPE needed -->
-<header class="ts-header">
+<header class="ts-header" id="site-header">
   <div class="ts-header__branding">
-    <img src="/assets/img/logo/optimized-logo.png" alt="Tillerstead Logo" class="nav-logo ts-logo--header">
+    <img src="/assets/img/logo/optimized-logo.png" alt="Tillerstead Logo" class="nav-logo ts-logo--header" id="header-logo">
     <div class="ts-header__info">
       <span class="ts-header__company">Tillerstead LLC</span>
       <span class="ts-header__tagline">Expert Tile & Stone Installation — South Jersey</span>
@@ -398,51 +364,359 @@
     });
   });
 </script>
+
 </header>
+<script>
+  // Sticky header logo bounce/resize on scroll
+  (function() {
+    var header = document.getElementById('site-header');
+    var logo = document.getElementById('header-logo');
+    var lastScroll = 0;
+    function onScroll() {
+      var scrollY = window.scrollY || window.pageYOffset;
+      if (scrollY > 60) {
+        header.classList.add('ts-header--minimized');
+      } else {
+        header.classList.remove('ts-header--minimized');
+      }
+      lastScroll = scrollY;
+    }
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('resize', onScroll);
+    document.addEventListener('DOMContentLoaded', onScroll);
+  })();
+</script>
+
 
     <main class="ts-section ts-main-content" role="main">
       <div class="container container-wide">
-        <section class="hero-section ts-hero" aria-label="Tillerstead Tile &amp; Waterproofing" style="background:linear-gradient(120deg,#f8fafc 60%,#e0e7ef 100%); text-align:center; padding:4rem 0 2rem 0;">
-  <div class="container" style="max-width:900px;margin:0 auto;">
-    <h1 class="ts-hero__title" style="font-size:2.7rem;font-weight:800;margin-bottom:1rem;color:#1a5c3a;">Pro Contractor. Community-Focused. Built for Legacy.</h1>
-    <p class="ts-hero__summary" style="font-size:1.25rem;max-width:700px;margin:0 auto 2rem auto;line-height:1.6;color:#222;">
+        <p>layout: home
+title: Home
+permalink: /
+meta_title: “Tile &amp; Waterproofing Experts in South Jersey | Tillerstead”
+meta_description: “Tillerstead, a licensed NJ HIC contractor, offers TCNA-compliant tile showers, waterproofing, and bathroom remodeling services in Atlantic, Ocean, and Cape May Counties. We prioritize technical excellence over shortcuts, ensuring transparent pricing and long-lasting results.”
+description: “Tillerstead, a licensed NJ HIC contractor, specializes in TCNA-compliant tile showers, waterproofing, and bathroom remodeling. Serving Atlantic, Ocean, and Cape May Counties, we adhere to TCNA Handbook and New Jersey HIC law, providing transparent pricing, technical precision, and results that stand the test of time.”
+body_class: page-home
+is_home: true
+show_breadcrumbs: false
+hide_hero: true
+hero_title: “Tile &amp; Waterproofing—TCNA Standards. No Shortcuts.”
+hero_summary: “Tillerstead delivers code-compliant tile showers, waterproofing, and bathroom remodels, meticulously documented at every phase. By following the TCNA Handbook and New Jersey HIC law, we ensure transparent pricing, technical precision, and enduring results, eliminating guesswork and corner-cutting.”
+hero_eyebrow: “NJ HIC #13VH10808800”
+hero_image: /assets/img/tillerstead-work/bathrooms/after-entry-shot.jpg
+hero_image_position: top
+—</p>
+
+<section class="hero-section ts-hero dark-bg text-center py-hero">
+  <div class="container container-hero">
+    <h1 class="ts-hero__title high-contrast-text bright-blue mb-hero">Pro Contractor. Community-Focused. Built for Legacy.</h1>
+    <p class="ts-hero__summary hero-summary">Tillerstead is more than a tile contractor—we’re your neighbor, invested in the long-term growth and well-being of our community. Every project is built to last, documented for transparency, and delivered with care. We follow TCNA Handbook and NJ HIC law, ensuring technical excellence and honest pricing. Our goal: create spaces that serve families for generations.</p>
       Tillerstead is more than a tile contractor—we’re your neighbor, invested in the long-term growth and well-being of our community. Every project is built to last, documented for transparency, and delivered with care. We follow TCNA Handbook and NJ HIC law, ensuring technical excellence and honest pricing. Our goal: create spaces that serve families for generations.
-    </p>
-    <a href="/contact/" class="cta-btn ts-hero__cta" style="display:inline-block;padding:1rem 2.5rem;font-size:1.1rem;font-weight:600;color:#fff;background:#0b6cff;border-radius:2rem;text-decoration:none;box-shadow:0 2px 8px #0b6cff33;transition:background 0.2s;" aria-label="Request a Consultation">Request a Consultation</a>
+    &lt;/p&gt;
+    <a href="/contact/" class="btn btn--primary" aria-label="Request a Consultation">Request a Consultation</a>
   </div>
 </section>
 
-<section class="service-highlights ts-services" aria-label="Service Highlights" style="padding:3rem 0 2rem 0;background:#fff;">
-  <div class="container" style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;">
-    <div class="ts-service-card" style="flex:1 1 260px;min-width:260px;background:#f1f5f9;padding:2rem;border-radius:1rem;box-shadow:0 2px 8px #0001;">
-      <h3 style="font-size:1.3rem;font-weight:600;margin-bottom:0.5rem;color:#1a5c3a;">Custom Showers</h3>
-      <p style="font-size:1rem;color:#222;">TCNA-compliant, leakproof, and built to last. Every detail documented for your peace of mind and future resale value.</p>
+<section class="service-highlights ts-services py-services bg-white">
+  <div class="container container-services flex-wrap gap-services justify-center">
+    <div class="ts-service-card card-service">
+      <h3 class="service-title bright-blue mb-service">Custom Showers</h3>
+      <p class="service-desc">TCNA-compliant, leakproof, and built to last. Every detail documented for your peace of mind and future resale value.</p>
     </div>
-    <div class="ts-service-card" style="flex:1 1 260px;min-width:260px;background:#f1f5f9;padding:2rem;border-radius:1rem;box-shadow:0 2px 8px #0001;">
-      <h3 style="font-size:1.3rem;font-weight:600;margin-bottom:0.5rem;color:#1a5c3a;">Waterproofing</h3>
-      <p style="font-size:1rem;color:#222;">Certified waterproof assemblies using industry-leading materials and methods. Protecting homes for the next generation.</p>
+    <div class="ts-service-card card-service">
+      <h3 class="service-title bright-blue mb-service">Waterproofing</h3>
+      <p class="service-desc">Certified waterproof assemblies using industry-leading materials and methods. Protecting homes for the next generation.</p>
     </div>
-    <div class="ts-service-card" style="flex:1 1 260px;min-width:260px;background:#f1f5f9;padding:2rem;border-radius:1rem;box-shadow:0 2px 8px #0001;">
-      <h3 style="font-size:1.3rem;font-weight:600;margin-bottom:0.5rem;color:#1a5c3a;">Bathroom Remodels</h3>
-      <p style="font-size:1rem;color:#222;">From design to finish, we deliver beautiful, code-compliant bathrooms with transparent pricing and a focus on lasting value for your family.</p>
+    <div class="ts-service-card card-service">
+      <h3 class="service-title bright-blue mb-service">Bathroom Remodels</h3>
+      <p class="service-desc">From design to finish, we deliver beautiful, code-compliant bathrooms with transparent pricing and a focus on lasting value for your family.</p>
     </div>
   </div>
 </section>
 
-<section class="trust-section ts-trust" aria-label="Trust &amp; Credentials" style="padding:2rem 0 3rem 0;background:#f8fafc;text-align:center;">
-  <div class="container" style="max-width:800px;margin:0 auto;">
-    <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;color:#1a5c3a;">Why Choose Tillerstead?</h2>
-    <ul style="list-style:none;padding:0;margin:0 auto;max-width:600px;text-align:left;">
-      <li style="margin-bottom:0.75rem;font-size:1.1rem;color:#222;">✔️ Licensed NJ HIC #13VH10808800</li>
-      <li style="margin-bottom:0.75rem;font-size:1.1rem;color:#222;">✔️ TCNA Handbook Standards</li>
-      <li style="margin-bottom:0.75rem;font-size:1.1rem;color:#222;">✔️ Transparent, documented process</li>
-      <li style="margin-bottom:0.75rem;font-size:1.1rem;color:#222;">✔️ Owner oversight on every project</li>
-      <li style="margin-bottom:0.75rem;font-size:1.1rem;color:#222;">✔️ Serving Atlantic, Ocean, and Cape May Counties</li>
-      <li style="margin-bottom:0.75rem;font-size:1.1rem;color:#222;">✔️ Committed to community growth and lasting relationships</li>
-      <li style="margin-bottom:0.75rem;font-size:1.1rem;color:#222;">✔️ Focused on legacy, not just quick results</li>
+<section class="trust-section ts-trust py-trust bg-light text-center">
+  <div class="container container-trust">
+    <h2 class="trust-title bright-blue mb-trust">Why Choose Tillerstead?</h2>
+    <ul class="trust-list">
+      <li class="trust-item">✔️ Licensed NJ HIC #13VH10808800</li>
+      <li class="trust-item">✔️ TCNA Handbook Standards</li>
+      <li class="trust-item">✔️ Transparent, documented process</li>
+      <li class="trust-item">✔️ Owner oversight on every project</li>
+      <li class="trust-item">✔️ Serving Atlantic, Ocean, and Cape May Counties</li>
+      <li class="trust-item">✔️ Committed to community growth and lasting relationships</li>
+      <li class="trust-item">✔️ Focused on legacy, not just quick results</li>
     </ul>
   </div>
 </section>
+
+<section class="ts-section section reviews" aria-labelledby="home-reviews-title">
+  <div class="container">
+    <header class="section-header text-center">
+      <span class="eyebrow eyebrow--dark">Verified Client Feedback</span>
+      <h2 id="home-reviews-title" class="heading-2">
+        South Jersey Tile &amp; Bath Reviews
+      </h2>
+      <p class="lead">
+        Clients consistently point to disciplined
+        workmanship, clear communication, and well-managed job sites. Tile and
+        bath projects are executed using TCNA-recognized methods and ANSI A108
+        installation practices, including appropriate surface preparation,
+        trowel selection, coverage checks during installation, and
+        professionally designed waterproofing assemblies where required—fully
+        aligned with New Jersey HIC standards.
+      </p>
+    </header>
+
+    
+    <ul class="cards cards--3col" role="list" aria-label="Highlighted client reviews">
+       
+      <li>
+        <article class="card card--review" itemscope="" itemtype="https://schema.org/Review" aria-label="Review from Maria J.">
+          <div class="card-rating" aria-label="5 out of 5 stars" role="img">
+            
+            <span class="star star--filled" aria-hidden="true">★</span>
+            
+            <span class="star star--filled" aria-hidden="true">★</span>
+            
+            <span class="star star--filled" aria-hidden="true">★</span>
+            
+            <span class="star star--filled" aria-hidden="true">★</span>
+            
+            <span class="star star--filled" aria-hidden="true">★</span>
+            
+          </div>
+          <meta itemprop="reviewRating" content="5" />
+          
+          <div class="card-quote" itemprop="reviewBody"><p>I hired Devon Tyler for tile work in my home and was impressed by his patience, precision, and professionalism. He took his time to get every cut right and made sure the job was solid and clean. I’d absolutely recommend him to anyone looking for quality tile work done with care.</p></div>
+          
+          <p class="card-author">
+            
+            <strong id="review--name-1" itemprop="author">Maria J.</strong>
+             
+            <span class="card-role"> · Tile Installation and Replacement</span>
+             
+            <span class="card-date"> · May 2025</span>
+            
+          </p>
+        </article>
+      </li>
+       
+      <li>
+        <article class="card card--review" itemscope="" itemtype="https://schema.org/Review" aria-label="Review from Ahmed A.">
+          <div class="card-rating" aria-label="5 out of 5 stars" role="img">
+            
+            <span class="star star--filled" aria-hidden="true">★</span>
+            
+            <span class="star star--filled" aria-hidden="true">★</span>
+            
+            <span class="star star--filled" aria-hidden="true">★</span>
+            
+            <span class="star star--filled" aria-hidden="true">★</span>
+            
+            <span class="star star--filled" aria-hidden="true">★</span>
+            
+          </div>
+          <meta itemprop="reviewRating" content="5" />
+          
+          <div class="card-quote" itemprop="reviewBody"><p>I recently hired Devon for a bathroom remodel, and my wife and I couldn’t be happier with the results. From start to finish, Devon was professional, punctual, and detail-oriented. He took the time to listen to what we wanted, offered helpful suggestions, and executed everything with precision.</p>
+<p>Devon kept the work area tidy throughout the project and completed the job on time without cutting corners.</p>
+<p>It’s rare to find someone who truly takes pride in their work the way Devon does. I’d highly recommend him.</p>
+</div>
+          
+          <p class="card-author">
+            
+            <strong id="review--name-2" itemprop="author">Ahmed A.</strong>
+             
+            <span class="card-role"> · Bathroom Remodel</span>
+             
+            <span class="card-date"> · Jul 2025</span>
+            
+          </p>
+        </article>
+      </li>
+       
+      <li>
+        <article class="card card--review" itemscope="" itemtype="https://schema.org/Review" aria-label="Review from Alexandra S.">
+          <div class="card-rating" aria-label="5 out of 5 stars" role="img">
+            
+            <span class="star star--filled" aria-hidden="true">★</span>
+            
+            <span class="star star--filled" aria-hidden="true">★</span>
+            
+            <span class="star star--filled" aria-hidden="true">★</span>
+            
+            <span class="star star--filled" aria-hidden="true">★</span>
+            
+            <span class="star star--filled" aria-hidden="true">★</span>
+            
+          </div>
+          <meta itemprop="reviewRating" content="5" />
+          
+          <div class="card-quote" itemprop="reviewBody"><p>It was a pleasure working with Devon to repair our ceiling in our closet. We chose to repair it rather than replace. Devon walked us through what that would look like offering the most cost effective option. He was very professional. I recommend working with him!!</p></div>
+          
+          <p class="card-author">
+            
+            <strong id="review--name-3" itemprop="author">Alexandra S.</strong>
+             
+            <span class="card-role"> · Drywall Repair and Texturing</span>
+             
+            <span class="card-date"> · Aug 2025</span>
+            
+          </p>
+        </article>
+      </li>
+      
+    </ul>
+    
+
+    <div class="section-action text-center">
+      <a href="/reviews/" class="btn btn--ghost" aria-label="Read more client reviews">
+        Read More Client Reviews →
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="ts-section ts-local-trust" aria-labelledby="local-trust-title">
+  <div class="container">
+    <header class="section-header text-center">
+      <span class="eyebrow">Southern New Jersey</span>
+      <h2 id="local-trust-title" class="heading-2">Licensed, Insured &amp; Local</h2>
+      <p class="lead">Clear scope, clean execution, and
+standards-referenced installation—explained in plain English.</p>
+    </header>
+
+    <div class="cards cards--4col">
+      <div class="card card--stat text-center">
+        <p class="stat-number text-primary">TCNA</p>
+        <p class="stat-label">Referenced Methods</p>
+      </div>
+
+      <div class="card card--stat text-center">
+        <p class="stat-number text-primary">2-Year</p>
+        <p class="stat-label">Workmanship Warranty</p>
+      </div>
+
+      <div class="card card--stat text-center">
+        <p class="stat-number text-primary">Insured</p>
+        <p class="stat-label">Full Liability Coverage</p>
+      </div>
+
+      <div class="card card--stat text-center">
+        <p class="stat-number text-primary">NJ HIC</p>
+        <p class="stat-label">#13VH10808800</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ts-section ts-portfolio-preview bg-soft" aria-labelledby="portfolio-preview-title">
+  <div class="container">
+    <header class="section-header text-center">
+      <span class="eyebrow">Our Work</span>
+      <h2 id="portfolio-preview-title" class="heading-2">Bathrooms Built for South Jersey</h2>
+      
+      <p class="lead">See completed tile and
+bathroom projects in Atlantic, Ocean &amp; Cape May Counties.</p>
+      
+    </header>
+
+    <div class="section-action text-center">
+      <a href="/portfolio/" class="btn btn--primary">See Completed Projects</a>
+    </div>
+  </div>
+</section>
+
+<section class="ts-section ts-faq bg-soft" aria-labelledby="faq-title">
+  <div class="container">
+    <header class="section-header text-center">
+      <span class="eyebrow">Questions Answered</span>
+      <h2 id="faq-title" class="heading-2">Why Our Methods Work Best for NJ Homes</h2>
+      <p class="lead">Our approach is tailored for New Jersey:
+we use TCNA and ANSI standards because they deliver lasting results in our
+climate and building types.</p>
+    </header>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>
+          Do you build full shower waterproofing systems or just tile?
+        </summary>
+        <div class="faq-body">
+          <p>
+            We build complete wet-area assemblies—prep, waterproofing,
+            drains/transitions, then tile—so performance isn't dependent on
+            "surface fixes."
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you do flood testing?</summary>
+        <div class="faq-body">
+          <p>
+            When the project scope and site conditions allow, flood testing is
+            used to verify the pan/assembly before tile goes in.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What areas do you serve?</summary>
+        <div class="faq-body">
+          <p>
+            We proudly serve homeowners throughout Atlantic, Ocean, and Cape May
+            Counties—right here in southern New Jersey.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Are you licensed and insured?</summary>
+        <div class="faq-body">
+          <p>
+            Yes. We are a licensed New Jersey Home Improvement Contractor (HIC
+            #13VH10808800) with full liability insurance coverage.
+          </p>
+        </div>
+      </details>
+    </div>
+
+    <div class="section-action text-center">
+      <a href="/faq/" class="btn btn--ghost">View All FAQs</a>
+    </div>
+  </div>
+</section>
+
+<section class="ts-section ts-surface section section-cta center" aria-labelledby="cta-estimate-title">
+  <div class="container">
+    <h2 id="cta-estimate-title" class="cta-title heading-2">
+      Request a Written Estimate for TCNA-Compliant Installation
+    </h2>
+    <p class="lead">
+      Submit your project details and site photos. Receive a detailed, line-item
+      proposal with scope, ANSI A108/TCNA methods, materials, timeline, and
+      transparent pricing—no surprises, no obligation.
+    </p>
+
+    <div class="flex flex-row flex-center gap-cta-btns" role="group" aria-label="Estimate and Contact Options">
+      <a class="btn btn--primary" href="/contact/" aria-label="Request an estimate from Tillerstead, licensed New Jersey HIC contractor">
+        Request an Estimate
+      </a>
+      <a class="btn btn--ghost" href="tel:+16098628808" aria-label="Call Tillerstead at (609) 862-8808">
+        Call (609) 862-8808
+      </a>
+    </div>
+
+    <p class="meta">
+      <small>
+        Licensed &amp; Insured · New Jersey HIC #13VH10808800 · TCNA 2024
+        Compliant · Serving Atlantic, Ocean &amp; Cape May Counties
+      </small>
+    </p>
+  </div>
+</section>
+
 
       </div>
     </main>
@@ -452,141 +726,67 @@
 
 
 
-<footer>
-  <img src="/assets/img/logo/optimized-logo.png" alt="Tillerstead Logo" class="footer-logo">
-  <p class="footer-tagline">Expert Tile & Stone Installation — South Jersey</p>
-  <p class="footer-license">NJ HIC #13VH10808800</p>
-  <address class="footer-address">
-    325 E. Jimmie Leeds Road, Suite 7-333<br />
-    Galloway, NJ 08205
-  </address>
-  <!-- Main Navigation Component -->
-<nav class="main-nav" aria-label="Main Navigation">
-  <ul class="nav-list">
-    
-      <li class="nav-item">
-        <a href="/services/">Services</a>
-        
-      </li>
-    
-      <li class="nav-item">
-        <a href="/portfolio/">Our Work</a>
-        
-      </li>
-    
-      <li class="nav-item">
-        <a href="/products/">Products</a>
-        
-      </li>
-    
-      <li class="nav-item">
-        <a href="/reviews/">Reviews</a>
-        
-      </li>
-    
-      <li class="nav-item">
-        <a href="/build/">Build Guides</a>
-        
-          <ul class="sub-nav-list">
-            
-              <li class="sub-nav-item">
-                <a href="/build/nj-codes-permits/">Codes, Permits & Inspections</a>
-              </li>
-            
-              <li class="sub-nav-item">
-                <a href="/build/shower-pans-slopes-drains/">Shower Pans, Slopes & Drains</a>
-              </li>
-            
-              <li class="sub-nav-item">
-                <a href="/build/waterproofing-systems/">Waterproofing Systems</a>
-              </li>
-            
-              <li class="sub-nav-item">
-                <a href="/build/curbs-curbless/">Curbs & Curbless Showers</a>
-              </li>
-            
-              <li class="sub-nav-item">
-                <a href="/build/framing-benches-niches/">Benches, Seats & Niches</a>
-              </li>
-            
-              <li class="sub-nav-item">
-                <a href="/build/tile-installation-standards/">Tile Installation Standards</a>
-              </li>
-            
-              <li class="sub-nav-item">
-                <a href="/build/flood-testing/">Flood Testing & Verification</a>
-              </li>
-            
-              <li class="sub-nav-item">
-                <a href="/build/common-build-failures/">Common Failures & Red Flags</a>
-              </li>
-            
-          </ul>
-        
-      </li>
-    
-      <li class="nav-item">
-        <a href="">Company</a>
-        
-          <ul class="sub-nav-list">
-            
-              <li class="sub-nav-item">
-                <a href="/about/">About</a>
-              </li>
-            
-              <li class="sub-nav-item">
-                <a href="/contact/">Get an Estimate</a>
-              </li>
-            
-              <li class="sub-nav-item">
-                <a href="/for-general-contractors/">For Contractors</a>
-              </li>
-            
-          </ul>
-        
-      </li>
-    
-      <li class="nav-item">
-        <a href="/contact/">Contact</a>
-        
-      </li>
-    
-  </ul>
-</nav>
 
-<!-- Mobile Navigation -->
-<div class="mobile-nav">
-  <button class="nav-toggle" aria-label="Open navigation menu">☰</button>
-  <div id="mobile-nav" class="mobile-nav-shell">
-    <button class="nav-close" aria-label="Close navigation menu">✖</button>
-    <ul class="mobile-nav-list">
-      <li><a href="/">Home</a></li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/services.html">Services</a></li>
-      <li><a href="/portfolio.html">Portfolio</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-    </ul>
+<footer class="ts-footer" aria-label="Site Footer">
+  <div class="footer-main">
+    <div class="footer-logo-section">
+      <a href="/" aria-label="Tillerstead Home">
+        <img src="/assets/img/logo/optimized-logo.png" alt="Tillerstead Logo" class="footer-logo logo-footer mx-auto mb-footer">
+      </a>
+      <p class="footer-tagline bright-blue fw-bold text-center">Expert Tile & Stone Installation — South Jersey</p>
+    </div>
+    <div class="footer-sections flex-wrap gap-footer justify-center">
+      <section class="footer-group" aria-label="Build Guides">
+        <h3 class="footer-group-title">Build Guides</h3>
+        <ul class="footer-list">
+          <li><a href="/build/nj-codes-permits/">Codes, Permits & Inspections</a></li>
+          <li><a href="/build/shower-pans-slopes-drains/">Shower Pans, Slopes & Drains</a></li>
+          <li><a href="/build/waterproofing-systems/">Waterproofing Systems</a></li>
+          <li><a href="/build/curbs-curbless/">Curbs & Curbless Showers</a></li>
+        </ul>
+      </section>
+      <section class="footer-group" aria-label="Learn">
+        <h3 class="footer-group-title">Learn</h3>
+        <ul class="footer-list">
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/products.html">Products</a></li>
+        </ul>
+      </section>
+      <section class="footer-group" aria-label="Service Areas">
+        <h3 class="footer-group-title">Service Areas</h3>
+        <ul class="footer-list">
+          <li><a href="/atlantic-county-nj.html">Atlantic County</a></li>
+          <li><a href="/ocean-county-nj.html">Ocean County</a></li>
+          <li><a href="/cape-may-county-nj.html">Cape May County</a></li>
+        </ul>
+      </section>
+      <section class="footer-group" aria-label="Company">
+        <h3 class="footer-group-title">Company</h3>
+        <ul class="footer-list">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/for-general-contractors.html">For Contractors</a></li>
+        </ul>
+      </section>
+      <section class="footer-group" aria-label="Legal">
+        <h3 class="footer-group-title">Legal</h3>
+        <ul class="footer-list">
+          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="/terms.html">Terms</a></li>
+        </ul>
+      </section>
+    </div>
+    <div class="footer-contact mt-footer-contact text-center">
+      <p class="footer-license bright-blue fs-footer fw-medium">NJ HIC #13VH10808800</p>
+      <address class="footer-address normal-font dark-text fs-footer-address">
+        325 E. Jimmie Leeds Road, Suite 7-333<br />
+        Galloway, NJ 08205
+      </address>
+      <p class="footer-contact-email mt-footer-email fs-footer-address"><a href="mailto:info@tillerstead.com" class="bright-blue">info@tillerstead.com</a></p>
+    </div>
   </div>
-</div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.querySelector('.nav-toggle');
-    const closeBtn = document.querySelector('.nav-close');
-    const mobileNav = document.querySelector('#mobile-nav');
-
-    toggle.addEventListener('click', () => {
-      document.body.classList.add('nav-open');
-      mobileNav.style.display = 'block';
-    });
-
-    closeBtn.addEventListener('click', () => {
-      document.body.classList.remove('nav-open');
-      mobileNav.style.display = 'none';
-    });
-  });
-</script>
 </footer>
+
 
 
   </body>

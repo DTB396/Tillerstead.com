@@ -10,3 +10,4 @@ The consistent slope keeps water moving to the drain, and the waterproofing unde
 By combining the right drain, waterproofing, and tile installation as one system, we protect framing, prevent mold-friendly moisture pockets, and make maintenance easier over the life of the bathroom.
 
 All measurements are verified on site, and planning calculators are used only as guidance—final decisions come from field conditions and local inspectors.
+

@@ -1,4 +1,5 @@
 /* build-sidenav.css - Handsome sidebar for 8-phase build guide */
+
 .build-sidenav {
   background: #f8fafc;
   border-radius: 1.2rem;
@@ -7,16 +8,19 @@
   margin-bottom: 2rem;
   min-width: 260px;
   max-width: 320px;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
+
 .build-sidenav__list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 .build-sidenav__item {
   margin-bottom: 1.2rem;
 }
+
 .build-sidenav__link {
   display: flex;
   align-items: center;
@@ -31,12 +35,14 @@
   transition: background 0.18s, color 0.18s, box-shadow 0.18s;
   box-shadow: 0 2px 8px #1a5c3a11;
 }
+
 .build-sidenav__link:hover,
 .build-sidenav__link.is-active {
   background: #0b6cff;
-  color: #fff;
+  color: #ffffff;
   box-shadow: 0 4px 16px #0b6cff33;
 }
+
 .build-sidenav__step {
   font-size: 0.98rem;
   font-weight: 500;
@@ -46,16 +52,19 @@
   padding: 0.2rem 0.7rem;
   margin-right: 0.3rem;
 }
+
 .build-sidenav__link.is-active .build-sidenav__step {
-  background: #fff;
+  background: #ffffff;
   color: #1a5c3a;
 }
+
 .build-sidenav__title {
   flex: 1;
   font-size: 1.08rem;
   font-weight: 600;
   color: inherit;
 }
+
 @media (max-width: 900px) {
   .build-sidenav {
     min-width: 100%;

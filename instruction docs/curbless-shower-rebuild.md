@@ -63,3 +63,4 @@ This document provides a field-ready sequence for constructing a true curbless (
 - Mixing drains and membranes that are not designed to work together, resulting in delamination or clogged weep channels.
 
 Always verify structural allowances, plumbing approvals, and inspection criteria with the local authority before work proceeds.
+

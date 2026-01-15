@@ -49,3 +49,4 @@
 - The backup script stub lives at `tools/daily-backup.ps1` and writes to
   `tools/logs/daily-backup.log` by default. Replace its placeholder steps with the
   actual backup logic for your environment.
+
