@@ -2,10 +2,13 @@
 <html lang="en">
   <head>
     {% include head.html %}
+    <title>{% if page.title %}{{ page.title }} | {% endif %}Tillerstead Build Guide</title>
+    <link rel="stylesheet" href="/assets/css/30-components/build-sidenav.css">
+    <meta name="theme-color" content="#1a5c3a">
   </head>
-  <body class="ts-build-page">
+  <body class="ts-build-page ts-body">
     {% include header.html %}
-    <main class="ts-section ts-build-content" aria-labelledby="build-guide-heading">
+    <main class="ts-section ts-build-content" aria-labelledby="build-guide-heading" role="main">
       <div class="container container-wide">
         <div class="build-content-grid">
           <aside class="build-content-sidebar" aria-label="Build phase navigation">

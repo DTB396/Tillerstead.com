@@ -1,7 +1,7 @@
 <!-- Main Navigation Component -->
 <nav class="main-nav" aria-label="Main Navigation">
   <ul class="nav-list">
-    {% for item in site.data.navigation %}
+    {% for item in site.data.navigation.primary %}
       <li class="nav-item">
         <a href="{{ item.url }}">{{ item.title }}</a>
         {% if item.children %}

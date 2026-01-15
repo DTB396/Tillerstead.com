@@ -92,16 +92,16 @@
       })();
     </script>
   {% endif %}
-
+  <!-- Modern, clean contractor/tiler layout -->
+  <meta name="theme-color" content="#1a5c3a">
   </head>
-  <body>
+  <body class="ts-body">
     {% include header.html %}
-    {% include trust-bar.html %}
-    {{ content }}
-    {% if page.url == '/' %}
-      {% include home-portfolio-preview.html %}
-    {% endif %}
+    <main class="ts-section ts-main-content" role="main">
+      <div class="container container-wide">
+        {{ content }}
+      </div>
+    </main>
     {% include footer.html %}
-    <script src="{{ '/assets/js/nav.js' | relative_url }}" defer></script>
   </body>
 </html>

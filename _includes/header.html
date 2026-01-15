@@ -1,9 +1,12 @@
-<!-- Header include: navigation, branding, menu toggle -->
-{% assign primary_nav = site.data.navigation.primary %}
-{% assign current_url = page.url | default: '' %}
-
-<!-- Updated header with new theme -->
-<header>
-  <img src="/assets/img/logo/optimized-logo.png" alt="Tillerstead Logo" class="nav-logo">
+<!-- Jekyll include: no DOCTYPE needed -->
+<header class="ts-header">
+  <div class="ts-header__branding">
+    <img src="/assets/img/logo/optimized-logo.png" alt="Tillerstead Logo" class="nav-logo ts-logo--header">
+    <div class="ts-header__info">
+      <span class="ts-header__company">Tillerstead LLC</span>
+      <span class="ts-header__tagline">Expert Tile & Stone Installation — South Jersey</span>
+      <span class="ts-header__license">NJ HIC #13VH10808800</span>
+    </div>
+  </div>
   {% include navigation/main-nav.html %}
 </header>

@@ -1,0 +1,70 @@
+/* build-sidenav.css - Handsome sidebar for 8-phase build guide */
+.build-sidenav {
+  background: #f8fafc;
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 24px #1a5c3a22;
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+  min-width: 260px;
+  max-width: 320px;
+  font-family: 'Inter', Arial, sans-serif;
+}
+.build-sidenav__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.build-sidenav__item {
+  margin-bottom: 1.2rem;
+}
+.build-sidenav__link {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #1a5c3a;
+  background: #e0e7ef;
+  border-radius: 0.7rem;
+  padding: 0.7rem 1.1rem;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+  box-shadow: 0 2px 8px #1a5c3a11;
+}
+.build-sidenav__link:hover,
+.build-sidenav__link.is-active {
+  background: #0b6cff;
+  color: #fff;
+  box-shadow: 0 4px 16px #0b6cff33;
+}
+.build-sidenav__step {
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: #0b6cff;
+  background: #e0e7ef;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.7rem;
+  margin-right: 0.3rem;
+}
+.build-sidenav__link.is-active .build-sidenav__step {
+  background: #fff;
+  color: #1a5c3a;
+}
+.build-sidenav__title {
+  flex: 1;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: inherit;
+}
+@media (max-width: 900px) {
+  .build-sidenav {
+    min-width: 100%;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+    padding: 1.2rem 0.7rem;
+  }
+  .build-sidenav__link {
+    font-size: 1rem;
+    padding: 0.6rem 0.7rem;
+  }
+}

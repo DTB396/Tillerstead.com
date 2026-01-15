@@ -10,3 +10,6 @@ gem "tzinfo-data", "~> 1.2024", platforms: %i[mingw mswin x64_mingw jruby]
 group :development do
   gem "jekyll-watch", "~> 2.2"
 end
+gem "bigdecimal", "~> 4.0"
+
+gem "faraday-retry", "~> 2.4"

@@ -1,13 +1,13 @@
-<!-- Head include: meta, title, stylesheets -->
+<!-- Jekyll include: no DOCTYPE needed, ensure space indentation -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <title>{% if page.title %}{{ page.title | strip | escape }} | {% endif %}{{ site.title | strip | escape }}</title>
 
 {% if page.description %}
-	<meta name="description" content="{{ page.description | strip_html | strip_newlines | escape }}" />
+  <meta name="description" content="{{ page.description | strip_html | strip_newlines | escape }}" />
 {% elsif site.description %}
-	<meta name="description" content="{{ site.description | strip_html | strip_newlines | escape }}" />
+  <meta name="description" content="{{ site.description | strip_html | strip_newlines | escape }}" />
 {% endif %}
 
 <!-- Core stylesheets -->

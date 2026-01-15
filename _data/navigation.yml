@@ -25,50 +25,37 @@ primary:
     match: "^/build(/|$)"
     external: false
     children:
-      - id: build-phases
-        title: "Build Phases (Compliance)"
-        url: "/build/"
-        match: "^/build(/|$)"
-        external: false
-      - id: nj-codes-permits
-        title: "Codes & Permits"
+      - id: codes-permits
+        title: "Codes, Permits & Inspections"
         url: "/build/nj-codes-permits/"
-        match: "^/build/nj-codes-permits(/|$)"
         external: false
       - id: shower-pans-slopes
-        title: "Shower Pans & Slopes"
+        title: "Shower Pans, Slopes & Drains"
         url: "/build/shower-pans-slopes-drains/"
-        match: "^/build/shower-pans-slopes-drains(/|$)"
         external: false
       - id: waterproofing-systems
-        title: "Waterproofing"
+        title: "Waterproofing Systems"
         url: "/build/waterproofing-systems/"
-        match: "^/build/waterproofing-systems(/|$)"
         external: false
       - id: curbs-curbless
-        title: "Thresholds & Curbs"
+        title: "Curbs & Curbless Showers"
         url: "/build/curbs-curbless/"
-        match: "^/build/curbs-curbless(/|$)"
         external: false
-      - id: framing-benches
-        title: "Benches & Niches"
+      - id: benches-niches
+        title: "Benches, Seats & Niches"
         url: "/build/framing-benches-niches/"
-        match: "^/build/framing-benches-niches(/|$)"
         external: false
-      - id: tile-installation
-        title: "Tile Installation"
+      - id: tile-standards
+        title: "Tile Installation Standards"
         url: "/build/tile-installation-standards/"
-        match: "^/build/tile-installation-standards(/|$)"
         external: false
       - id: flood-testing
-        title: "Verification & Testing"
+        title: "Flood Testing & Verification"
         url: "/build/flood-testing/"
-        match: "^/build/flood-testing(/|$)"
         external: false
-      - id: common-failures
-        title: "Common Failures"
+      - id: build-failures
+        title: "Common Failures & Red Flags"
         url: "/build/common-build-failures/"
-        match: "^/build/common-build-failures(/|$)"
         external: false
   - id: company
     title: "Company"

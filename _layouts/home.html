@@ -2,10 +2,15 @@
 <html lang="en">
   <head>
     {% include head.html %}
+    <meta name="theme-color" content="#1a5c3a">
   </head>
-  <body>
+  <body class="ts-body">
     {% include header.html %}
-    {{ content }}
+    <main class="ts-section ts-main-content" role="main">
+      <div class="container container-wide">
+        {{ content }}
+      </div>
+    </main>
     {% include footer.html %}
   </body>
 </html>
