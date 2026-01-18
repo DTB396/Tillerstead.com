@@ -59,6 +59,7 @@
 <link rel="stylesheet" href="/assets/css/retro-enhancements.css" />
 <link rel="stylesheet" href="/assets/css/logo-wolf-crest.css" />
 <link rel="stylesheet" href="/assets/css/main.css" />
+<link rel="stylesheet" href="/assets/css/accessibility.css" />
 <link rel="stylesheet" href="/assets/css/nav-drawer.css" />
 <link rel="stylesheet" href="/assets/css/navigation.css" />
 
@@ -299,12 +300,14 @@
   <meta property="og:description" content="Get in touch with Tillerstead LLC for TCNA-compliant tile and bathroom remodeling services in South Jersey. Licensed, insured, and owner-supervised." />
   <meta property="og:image" content="" />
   <meta property="og:url" content="https://tillerstead.com/contact/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tillerstead LLC" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contact | Tillerstead | NJ Tile & Bathroom Remodeling" />
   <meta name="twitter:description" content="Get in touch with Tillerstead LLC for TCNA-compliant tile and bathroom remodeling services in South Jersey. Licensed, insured, and owner-supervised." />
   <meta name="twitter:image" content="" />
+  <link rel="canonical" href="https://tillerstead.com/contact/" />
   <title>Contact | Tillerstead | NJ Tile & Bathroom Remodeling | Tillerstead NJ HIC</title>
-  <meta name="theme-color" content="#1a3d2e">
   
 
   <script type="application/ld+json">
@@ -342,8 +345,11 @@
   </head>
 
 <body class="ts-body">
-  <!-- Skip Link for Accessibility -->
-  <a href="#main-content" class="skip-link">Skip to content</a>
+  <!-- Skip Links for Accessibility - Multiple Targets -->
+  <nav class="skip-links" aria-label="Skip navigation">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#footer-contact-heading" class="skip-link">Skip to contact</a>
+  </nav>
 
   <!-- =========================================================
      Site Header - 2026 Contractor UX
@@ -1068,7 +1074,7 @@
 
   
 
-  <main class="ts-main-content" role="main" id="main-content">
+  <main class="ts-main-content" role="main" id="main-content" aria-label="Main content">
     <main class="ts-section ts-surface contact" aria-labelledby="contact-heading" role="main" tabindex="-1">
   <header class="contact-intro">
     <h1 id="contact-heading">Contact Tillerstead LLC</h1>
@@ -1085,51 +1091,152 @@
   <section aria-labelledby="form-heading">
     <h2 id="form-heading">Request an Estimate or Consultation</h2>
     <p>Contact us today to schedule a consultation or request a free estimate for your tile or bathroom remodeling project. We look forward to working with you to create a space that is both beautiful and functional.</p>
-    <!-- _includes/forms/contact.html -->
+    <!-- 
+  _includes/forms/contact.html
+  WCAG 2.1 AA/AAA Compliant Contact Form
+  - Proper labels with for/id relationships
+  - aria-required and aria-describedby for validation
+  - Error messaging linked to fields
+  - Focus management for errors
+  - Screen reader announcements via aria-live
+-->
 <form
   class="ts-form contact-form"
   name="contact"
+  id="contact-form"
   method="POST"
   data-netlify="true"
   netlify-honeypot="bot-field"
   action="/success/"
+  aria-label="Contact request form"
+  novalidate
 >
   <!-- Hidden field required for Netlify Forms -->
   <input type="hidden" name="form-name" value="contact" />
 
-  <!-- Honeypot field for spam protection -->
-  <p class="visually-hidden" aria-hidden="true">
-    <label
-      >Don't fill this out if you're human:
-      <input name="bot-field" tabindex="-1" autocomplete="off"
-    /></label>
+  <!-- Honeypot field for spam protection - hidden from all users -->
+  <div class="visually-hidden" aria-hidden="true">
+    <label for="bot-field">
+      Don't fill this out if you're human:
+      <input id="bot-field" name="bot-field" tabindex="-1" autocomplete="off" />
+    </label>
+  </div>
+
+  <!-- Form error summary - populated by JS on validation errors -->
+  <div 
+    id="form-errors" 
+    class="error-summary" 
+    role="alert" 
+    aria-live="assertive"
+    aria-atomic="true"
+    hidden
+  ></div>
+
+  <!-- Name Field -->
+  <div class="field">
+    <label for="name" class="form-label">
+      Name
+      <span class="required-indicator" aria-hidden="true">*</span>
+    </label>
+    <input 
+      id="name" 
+      name="name" 
+      type="text"
+      autocomplete="name" 
+      required 
+      aria-required="true"
+      aria-describedby="name-hint name-error"
+      placeholder="Your full name"
+    />
+    <span id="name-hint" class="form-hint">Enter your first and last name</span>
+    <span id="name-error" class="field-error-message" role="alert" aria-live="polite"></span>
+  </div>
+
+  <!-- Email Field -->
+  <div class="field">
+    <label for="email" class="form-label">
+      Email
+      <span class="required-indicator" aria-hidden="true">*</span>
+    </label>
+    <input 
+      id="email" 
+      name="email" 
+      type="email" 
+      autocomplete="email" 
+      required 
+      aria-required="true"
+      aria-describedby="email-hint email-error"
+      placeholder="your.email@example.com"
+    />
+    <span id="email-hint" class="form-hint">We'll use this to respond to your request</span>
+    <span id="email-error" class="field-error-message" role="alert" aria-live="polite"></span>
+  </div>
+
+  <!-- Phone Field (Optional) -->
+  <div class="field">
+    <label for="phone" class="form-label">
+      Phone
+      <span class="optional-indicator">(optional)</span>
+    </label>
+    <input 
+      id="phone" 
+      name="phone" 
+      type="tel" 
+      autocomplete="tel"
+      aria-describedby="phone-hint phone-error"
+      placeholder="(555) 123-4567"
+    />
+    <span id="phone-hint" class="form-hint">For faster response, include your phone number</span>
+    <span id="phone-error" class="field-error-message" role="alert" aria-live="polite"></span>
+  </div>
+
+  <!-- Message Field -->
+  <div class="field">
+    <label for="message" class="form-label">
+      Project details
+      <span class="required-indicator" aria-hidden="true">*</span>
+    </label>
+    <textarea 
+      id="message" 
+      name="message" 
+      rows="5" 
+      required 
+      aria-required="true"
+      aria-describedby="message-hint message-error"
+      placeholder="Tell us about your tile or stone project..."
+    ></textarea>
+    <span id="message-hint" class="form-hint">
+      Include details like room type, approximate size, and timeline
+    </span>
+    <span id="message-error" class="field-error-message" role="alert" aria-live="polite"></span>
+  </div>
+
+  <!-- Submit Button -->
+  <button 
+    class="btn btn-primary" 
+    type="submit"
+    aria-describedby="submit-hint"
+  >
+    Request an estimate
+  </button>
+
+  <!-- Form notes and privacy info -->
+  <p class="form-note" id="submit-hint">
+    <small>
+      By submitting, you agree we may contact you about your request. 
+      We respect your privacy — no spam, ever. 
+      <a href="/privacy/">View our privacy policy</a>.
+    </small>
   </p>
 
-  <div class="field">
-    <label for="name">Name</label>
-    <input id="name" name="name" autocomplete="name" required />
-  </div>
-
-  <div class="field">
-    <label for="email">Email</label>
-    <input id="email" name="email" type="email" autocomplete="email" required />
-  </div>
-
-  <div class="field">
-    <label for="phone">Phone (optional)</label>
-    <input id="phone" name="phone" type="tel" autocomplete="tel" />
-  </div>
-
-  <div class="field">
-    <label for="message">Project details</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
-  </div>
-
-  <button class="btn btn-primary" type="submit">Request an estimate</button>
-
-  <p class="form-note">
-    By submitting, you agree we may contact you about your request. No spam.
-  </p>
+  <!-- Screen reader status announcements -->
+  <div 
+    id="form-status" 
+    class="sr-only" 
+    role="status" 
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
 </form>
 
 
@@ -1140,22 +1247,22 @@
   </main>
 
   
-<footer class="ts-footer" aria-label="Site Footer">
+<footer class="ts-footer" aria-label="Site Footer" role="contentinfo">
   <div class="footer-main">
     <!-- Logo Section -->
     <div class="footer-logo-section">
       <a href="/" aria-label="Tillerstead Home">
-        <img src="/assets/img/logo/4k-logo.png" alt="Tillerstead Logo" class="footer-logo" width="200" height="200" loading="lazy">
+        <img src="/assets/img/logo/4k-logo.png" alt="Tillerstead LLC - Professional Tile and Stone Installation" class="footer-logo" width="200" height="200" loading="lazy">
       </a>
       <p class="footer-tagline">Expert Tile & Stone Installation — South Jersey</p>
     </div>
 
     <!-- Footer Navigation Sections (skip Legal - it's in footer-bottom) -->
-    <div class="footer-sections">
+    <nav class="footer-sections" aria-label="Footer navigation">
       
-      <section class="footer-group" aria-label="Build Guides">
-        <h3 class="footer-group-title">Build Guides</h3>
-        <ul class="footer-list">
+      <section class="footer-group" aria-labelledby="footer-group-1">
+        <h3 class="footer-group-title" id="footer-group-1">Build Guides</h3>
+        <ul class="footer-list" role="list">
           <li><a href="/build/nj-codes-permits/">Codes & Permits</a></li>
           <li><a href="/build/shower-pans-slopes-drains/">Shower Pans & Slopes</a></li>
           <li><a href="/build/waterproofing-systems/">Waterproofing Systems</a></li>
@@ -1167,74 +1274,93 @@
         </ul>
       </section>
       
-      <section class="footer-group" aria-label="Learn">
-        <h3 class="footer-group-title">Learn</h3>
-        <ul class="footer-list">
+      <section class="footer-group" aria-labelledby="footer-group-2">
+        <h3 class="footer-group-title" id="footer-group-2">Learn</h3>
+        <ul class="footer-list" role="list">
           <li><a href="/faq/">FAQ</a></li>
           <li><a href="/products/">Products</a></li>
           <li><a href="/blog/">Blog</a></li>
         </ul>
       </section>
       
-      <section class="footer-group" aria-label="Service Areas">
-        <h3 class="footer-group-title">Service Areas</h3>
-        <ul class="footer-list">
+      <section class="footer-group" aria-labelledby="footer-group-3">
+        <h3 class="footer-group-title" id="footer-group-3">Service Areas</h3>
+        <ul class="footer-list" role="list">
           <li><a href="/atlantic-county-nj/">Atlantic County</a></li>
           <li><a href="/ocean-county-nj/">Ocean County</a></li>
           <li><a href="/cape-may-county-nj/">Cape May County</a></li>
         </ul>
       </section>
       
-      <section class="footer-group" aria-label="Company">
-        <h3 class="footer-group-title">Company</h3>
-        <ul class="footer-list">
+      <section class="footer-group" aria-labelledby="footer-group-4">
+        <h3 class="footer-group-title" id="footer-group-4">Company</h3>
+        <ul class="footer-list" role="list">
           <li><a href="/about/">About</a></li>
           <li><a href="/for-general-contractors/">For Contractors</a></li>
           <li><a href="/contact/">Contact</a></li>
         </ul>
       </section>
       
-    </div>
+    </nav>
 
     <!-- Contact Section -->
-    <div class="footer-contact">
-      <h3 class="footer-group-title">Contact</h3>
-      <p class="footer-license">NJ HIC #13VH10808800</p>
+    <section class="footer-contact" aria-labelledby="footer-contact-heading">
+      <h3 class="footer-group-title" id="footer-contact-heading">Contact</h3>
+      <p class="footer-license">
+        <abbr title="New Jersey Home Improvement Contractor">NJ HIC</abbr> #13VH10808800
+      </p>
       <address class="footer-address">
         325 E. Jimmie Leeds Road, Suite 7-333<br>
         Galloway, NJ 08205
       </address>
       <p class="footer-contact-phone">
-        <a href="tel:+16098628808">(609) 862-8808</a>
+        <a href="tel:+16098628808" aria-label="Call us at (609) 862-8808">
+          <span aria-hidden="true">📞</span> (609) 862-8808
+        </a>
       </p>
       <p class="footer-contact-email">
-        <a href="mailto:info@tillerstead.com">info@tillerstead.com</a>
+        <a href="mailto:info@tillerstead.com" aria-label="Email us at info@tillerstead.com">
+          <span aria-hidden="true">✉️</span> info@tillerstead.com
+        </a>
       </p>
-    </div>
+    </section>
 
     <!-- Bottom Bar: Social + Legal -->
     <div class="footer-bottom">
-      <div class="footer-social">
-        <a href="https://www.facebook.com/people/Tillerstead-LLC/61580414460056/" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      <nav class="footer-social" aria-label="Social media links">
+        <a href="https://www.facebook.com/people/Tillerstead-LLC/61580414460056/" target="_blank" rel="noopener noreferrer" aria-label="Visit Tillerstead on Facebook (opens in new window)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </a>
-        <a href="https://www.thumbtack.com/nj/galloway/tile-installation/tillerstead-llc/service/517596655270674461" target="_blank" rel="noopener" aria-label="Thumbtack">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+        <a href="https://www.thumbtack.com/nj/galloway/tile-installation/tillerstead-llc/service/517596655270674461" target="_blank" rel="noopener noreferrer" aria-label="View Tillerstead on Thumbtack (opens in new window)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
         </a>
-      </div>
-      <div class="footer-legal">
-        <a href="/privacy/">Privacy</a>
-        <span class="footer-divider">|</span>
-        <a href="/terms/">Terms</a>
-        <span class="footer-divider">|</span>
-        <span class="footer-copyright">&copy; 2026 Tillerstead LLC</span>
-      </div>
+      </nav>
+      <nav class="footer-legal" aria-label="Legal links">
+        <a href="/privacy/">Privacy Policy</a>
+        <span class="footer-divider" aria-hidden="true">|</span>
+        <a href="/terms/">Terms of Service</a>
+        <span class="footer-divider" aria-hidden="true">|</span>
+        <span class="footer-copyright">&copy; 2026 Tillerstead LLC. All rights reserved.</span>
+      </nav>
     </div>
   </div>
 </footer>
 
+<!-- Accessibility JavaScript -->
+<script src="/assets/js/accessibility.js" defer></script>
 
 
+
+  <!-- Service Worker Registration for Offline Support -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('[SW] Registered:', reg.scope))
+          .catch(err => console.warn('[SW] Registration failed:', err));
+      });
+    }
+  </script>
 </body>
 
 </html>

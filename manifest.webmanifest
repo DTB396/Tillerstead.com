@@ -1,11 +1,19 @@
 {
+  "id": "/",
   "name": "Tillerstead LLC - Professional Tile Installation",
   "short_name": "Tillerstead",
   "description": "Where Craft Meets Accountability - TCNA-compliant tile installation in South Jersey",
-  "start_url": "/",
+  "start_url": "/?source=pwa",
+  "scope": "/",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "browser"],
+  "orientation": "any",
   "theme_color": "#10b981",
   "background_color": "#1f2937",
+  "categories": ["business", "home improvement"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "/assets/icons/android-chrome-192x192.png",
@@ -39,6 +47,35 @@
       "src": "/assets/icons/favicon-16x16.png",
       "sizes": "16x16",
       "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "View Portfolio",
+      "short_name": "Portfolio",
+      "url": "/portfolio/",
+      "description": "See our tile installation work"
+    },
+    {
+      "name": "Get a Quote",
+      "short_name": "Quote",
+      "url": "/contact/",
+      "description": "Request a free estimate"
+    },
+    {
+      "name": "Our Services",
+      "short_name": "Services",
+      "url": "/services/",
+      "description": "View tile installation services"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/img/tillerstead-work/bathrooms/IMG_7989-800.webp",
+      "sizes": "800x600",
+      "type": "image/webp",
+      "form_factor": "wide",
+      "label": "TCNA-compliant bathroom tile installation"
     }
   ]
 }
