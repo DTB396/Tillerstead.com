@@ -65,6 +65,36 @@
   --tiller-color-error: #f87171;
   --tiller-color-info: #38bdf8;
   
+  /* ===== 90s RETRO PALETTE - Nostalgic accents ===== */
+  /* Inspired by Windows 95, Memphis design, and 90s bathroom tile */
+  --retro-teal: #008080;
+  --retro-teal-light: #5dbdbd;
+  --retro-teal-dark: #005757;
+  --retro-purple: #9370db;
+  --retro-purple-light: #b89ee0;
+  --retro-purple-dark: #6a4db8;
+  --retro-salmon: #fa8072;
+  --retro-salmon-light: #ffb3a7;
+  --retro-salmon-dark: #e55b47;
+  --retro-mint: #98ff98;
+  --retro-mint-light: #c4ffc4;
+  --retro-mint-dark: #6ecc6e;
+  --retro-hotpink: #ff69b4;
+  --retro-cyan: #00ffff;
+  --retro-yellow: #ffff00;
+  
+  /* 90s Gradients - Subtle, professional versions */
+  --retro-gradient-teal-purple: linear-gradient(135deg, var(--retro-teal) 0%, var(--retro-purple) 100%);
+  --retro-gradient-salmon-mint: linear-gradient(135deg, var(--retro-salmon) 0%, var(--retro-mint) 100%);
+  --retro-gradient-teal-cyan: linear-gradient(90deg, var(--retro-teal-dark) 0%, var(--retro-cyan) 100%);
+  --retro-gradient-purple-pink: linear-gradient(135deg, var(--retro-purple) 0%, var(--retro-hotpink) 100%);
+  
+  /* 90s Tile Colors (classic bathroom tiles) */
+  --retro-tile-salmon: #ffb3a7;
+  --retro-tile-mint: #c4ffc4;
+  --retro-tile-teal: #5dbdbd;
+  --retro-tile-purple: #b89ee0;
+  
   /* ===== Buttons - Dark Theme ===== */
   --tiller-btn-primary-bg: var(--tiller-color-emerald);
   --tiller-btn-primary-text: #ffffff;
@@ -89,12 +119,26 @@
   --tiller-shadow-glow-emerald: 0 0 20px var(--tiller-color-emerald-glow);
   --tiller-shadow-glow-gold: 0 0 15px rgba(201, 162, 39, 0.4);
   --tiller-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  
+  /* 90s-style offset shadows (no blur, hard edges) */
+  --retro-shadow-offset-sm: 3px 3px 0 rgba(0, 0, 0, 0.3);
+  --retro-shadow-offset-md: 5px 5px 0 rgba(0, 0, 0, 0.3);
+  --retro-shadow-offset-lg: 8px 8px 0 rgba(0, 0, 0, 0.3);
+  --retro-shadow-teal: 4px 4px 0 var(--retro-teal-dark);
+  --retro-shadow-purple: 4px 4px 0 var(--retro-purple-dark);
+  --retro-shadow-salmon: 4px 4px 0 var(--retro-salmon-dark);
 
   /* Border Radius */
   --tiller-border-radius-sm: 4px;
   --tiller-border-radius-md: 8px;
   --tiller-border-radius-lg: 12px;
   --tiller-border-radius-xl: 16px;
+  
+  /* 90s Border Widths (chunky!) */
+  --retro-border-thin: 2px;
+  --retro-border-medium: 3px;
+  --retro-border-thick: 4px;
+  --retro-border-chunky: 5px;
 
   /* Border Colors - Gold Grout */
   --tiller-border-color: rgba(201, 162, 39, 0.2);
