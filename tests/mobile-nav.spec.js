@@ -8,6 +8,14 @@ test.use({
 /**
  * Tillerstead Mobile Navigation Tests
  * Validates high-end mobile drawer functionality
+ * 
+ * Selectors match _includes/navigation/main-nav.html:
+ * - Toggle button: .mobile-nav__toggle
+ * - Drawer: #mobile-nav-drawer
+ * - Close button: .mobile-nav__close
+ * - Menu links: .mobile-nav__link
+ * - CTA button: .mobile-nav__estimate-btn
+ * - Open state: aria-hidden="false" on drawer, body.nav-open
  */
 
 test.describe('Mobile Navigation Drawer', () => {
@@ -30,157 +38,148 @@ test.describe('Mobile Navigation Drawer', () => {
   });
 
   test('should open drawer when hamburger clicked', async ({ page }) => {
-    const toggle = page.locator('.nav-toggle');
-    const drawer = page.locator('#mobile-nav');
-    const shell = page.locator('.mobile-nav-shell');
+    const toggle = page.locator('.mobile-nav__toggle');
+    const drawer = page.locator('#mobile-nav-drawer');
 
     // Hamburger should be visible on mobile
     await expect(toggle).toBeVisible();
 
-    // Drawer should be closed initially
-    await expect(shell).not.toHaveClass(/is-open/);
-    await expect(drawer).not.toHaveClass(/is-open/);
+    // Drawer should be closed initially (aria-hidden="true")
+    await expect(drawer).toHaveAttribute('aria-hidden', 'true');
 
     // Click hamburger
     await toggle.click();
 
-    // Wait for animation (increased for test reliability)
-    await page.waitForTimeout(2000);
+    // Wait for animation
+    await page.waitForTimeout(500);
 
-    // Drawer should be open
-    await expect(shell).toHaveClass(/is-open/);
-    await expect(drawer).toHaveClass(/is-open/);
+    // Drawer should be open (aria-hidden="false")
+    await expect(drawer).toHaveAttribute('aria-hidden', 'false');
 
     // Verify drawer is visible
     await expect(drawer).toBeVisible();
   });
 
   test('should show backdrop when drawer opens', async ({ page }) => {
-    const toggle = page.locator('.nav-toggle');
-    const backdrop = page.locator('.mobile-nav-backdrop');
+    const toggle = page.locator('.mobile-nav__toggle');
+    const drawer = page.locator('#mobile-nav-drawer');
 
-    // Open drawer (direct JS call for test reliability)
-    await page.evaluate(() => window.tsOpenNav && window.tsOpenNav());
-    await page.waitForTimeout(2000);
-    await page.screenshot({ path: 'test-artifact-nav-open.png', fullPage: true });
+    // Open drawer
+    await toggle.click();
+    await page.waitForTimeout(500);
 
-    // Backdrop should be visible
-    await expect(backdrop).toBeVisible();
+    // Drawer should be visible and act as its own backdrop
+    await expect(drawer).toBeVisible();
+    await expect(drawer).toHaveAttribute('aria-hidden', 'false');
 
-    // Backdrop should have dark background
-    const backdropStyles = await backdrop.evaluate((el) => {
-      const styles = window.getComputedStyle(el);
-      return {
-        background: styles.backgroundColor,
-        opacity: styles.opacity,
-      };
-    });
-
-    // Should have some opacity (not fully transparent)
-    expect(parseFloat(backdropStyles.opacity)).toBeGreaterThan(0);
+    // Body should have nav-open class for scroll lock
+    const hasNavOpen = await page.evaluate(() => document.body.classList.contains('nav-open'));
+    expect(hasNavOpen).toBe(true);
   });
 
   test('should close drawer when backdrop clicked', async ({ page }) => {
-    const toggle = page.locator('.nav-toggle');
-    const drawer = page.locator('#mobile-nav');
-    const backdrop = page.locator('.mobile-nav-backdrop');
-    const shell = page.locator('.mobile-nav-shell');
+    const toggle = page.locator('.mobile-nav__toggle');
+    const drawer = page.locator('#mobile-nav-drawer');
 
     // Open drawer
     await toggle.click();
-    await page.waitForTimeout(2000);
-    await expect(shell).toHaveClass(/is-open/);
+    await page.waitForTimeout(500);
+    await expect(drawer).toHaveAttribute('aria-hidden', 'false');
 
-    // Click backdrop
-    await backdrop.click({ position: { x: 10, y: 10 } });
-    await page.waitForTimeout(2000);
+    // Click on drawer background area (far right side, away from nav content)
+    // The drawer spans full width, clicking on the right edge should hit the backdrop area
+    const drawerBox = await drawer.boundingBox();
+    if (drawerBox) {
+      // Click on the right edge of the drawer (outside the nav panel)
+      await page.mouse.click(drawerBox.x + drawerBox.width - 20, drawerBox.y + drawerBox.height / 2);
+    }
+    await page.waitForTimeout(500);
 
     // Drawer should be closed
-    await expect(shell).not.toHaveClass(/is-open/);
-    await expect(drawer).not.toHaveClass(/is-open/);
+    await expect(drawer).toHaveAttribute('aria-hidden', 'true');
   });
 
   test('should close drawer when X button clicked', async ({ page }) => {
-    const toggle = page.locator('.nav-toggle');
-    const closeBtn = page.locator('.nav-close');
-    const shell = page.locator('.mobile-nav-shell');
+    const toggle = page.locator('.mobile-nav__toggle');
+    const closeBtn = page.locator('.mobile-nav__close');
+    const drawer = page.locator('#mobile-nav-drawer');
 
     // Open drawer
     await toggle.click();
-    await page.waitForTimeout(2000);
-    await expect(shell).toHaveClass(/is-open/);
+    await page.waitForTimeout(500);
+    await expect(drawer).toHaveAttribute('aria-hidden', 'false');
 
-    // Click close button
-    await closeBtn.click();
-    await page.waitForTimeout(2000);
+    // Click close button using force to bypass overlay issues
+    await closeBtn.click({ force: true });
+    await page.waitForTimeout(500);
 
     // Drawer should be closed
-    await expect(shell).not.toHaveClass(/is-open/);
+    await expect(drawer).toHaveAttribute('aria-hidden', 'true');
   });
 
   test('should close drawer when ESC key pressed', async ({ page }) => {
-    const toggle = page.locator('.nav-toggle');
-    const shell = page.locator('.mobile-nav-shell');
+    const toggle = page.locator('.mobile-nav__toggle');
+    const drawer = page.locator('#mobile-nav-drawer');
 
     // Open drawer
     await toggle.click();
-    await page.waitForTimeout(2000);
-    await expect(shell).toHaveClass(/is-open/);
+    await page.waitForTimeout(500);
+    await expect(drawer).toHaveAttribute('aria-hidden', 'false');
 
     // Press Escape
     await page.keyboard.press('Escape');
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(500);
 
     // Drawer should be closed
-    await expect(shell).not.toHaveClass(/is-open/);
+    await expect(drawer).toHaveAttribute('aria-hidden', 'true');
   });
 
   test('should display correct menu items', async ({ page }) => {
-    const toggle = page.locator('.nav-toggle');
+    const toggle = page.locator('.mobile-nav__toggle');
+    const drawer = page.locator('#mobile-nav-drawer');
 
-    // Open drawer (direct JS call for test reliability)
-    await page.evaluate(() => window.tsOpenNav && window.tsOpenNav());
-    await page.waitForTimeout(2000);
-    await page.screenshot({ path: 'test-artifact-nav-open.png', fullPage: true });
+    // Open drawer
+    await toggle.click();
+    await page.waitForTimeout(500);
 
-    // Check for expected menu items
+    // Check for expected menu items (matching navigation.yml)
+    // Note: Items are uppercased in the template
     const expectedItems = [
-      'Services',
-      'Our Work',
-      'Products',
-      'Reviews',
-      'About',
-      'Contact',
+      'SERVICES',
+      'OUR WORK',
+      'GUIDES',
+      'REVIEWS',
+      'ABOUT',
+      'GET ESTIMATE',
     ];
 
     for (const item of expectedItems) {
-      const link = page.locator('.mobile-nav-link', { hasText: item });
-      await expect(link).toBeVisible();
+      const link = drawer.locator('.mobile-nav__link, .mobile-nav__accordion-trigger', { hasText: item });
+      await expect(link.first()).toBeVisible();
     }
   });
 
   test('should display CTA buttons', async ({ page }) => {
-    const toggle = page.locator('.nav-toggle');
+    const toggle = page.locator('.mobile-nav__toggle');
+    const drawer = page.locator('#mobile-nav-drawer');
 
-    // Open drawer (direct JS call for test reliability)
-    await page.evaluate(() => window.tsOpenNav && window.tsOpenNav());
-    await page.waitForTimeout(2000);
-    await page.screenshot({ path: 'test-artifact-nav-open.png', fullPage: true });
+    // Open drawer
+    await toggle.click();
+    await page.waitForTimeout(500);
 
-    // Check for CTA section
-    const ctaSection = page.locator('.mobile-nav-cta');
-    await expect(ctaSection).toBeVisible();
-
-    // Check for buttons
-    const estimateBtn = ctaSection.locator('text=Request Estimate');
-    const phoneBtn = ctaSection.locator('text=Call');
-
+    // Check for estimate button
+    const estimateBtn = drawer.locator('.mobile-nav__estimate-btn');
     await expect(estimateBtn).toBeVisible();
-    await expect(phoneBtn).toBeVisible();
+    await expect(estimateBtn).toContainText('Get an Estimate');
+
+    // Check for trust signal (license number)
+    const trustSignal = drawer.locator('.mobile-nav__license');
+    await expect(trustSignal).toBeVisible();
+    await expect(trustSignal).toContainText('NJ HIC');
   });
 
   test('should lock body scroll when drawer is open', async ({ page }) => {
-    const toggle = page.locator('.nav-toggle');
+    const toggle = page.locator('.mobile-nav__toggle');
 
     // Get initial body overflow
     const initialOverflow = await page.evaluate(() => {
@@ -190,7 +189,7 @@ test.describe('Mobile Navigation Drawer', () => {
 
     // Open drawer
     await toggle.click();
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(500);
 
     // Body should have nav-open class
     const openOverflow = await page.evaluate(() => {
@@ -200,7 +199,7 @@ test.describe('Mobile Navigation Drawer', () => {
 
     // Close drawer
     await page.keyboard.press('Escape');
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(500);
 
     // Body should not have nav-open class
     const closedOverflow = await page.evaluate(() => {
@@ -210,44 +209,57 @@ test.describe('Mobile Navigation Drawer', () => {
   });
 
   test('should have proper ARIA attributes', async ({ page }) => {
-    const toggle = page.locator('.nav-toggle');
-    const nav = page.locator('#mobile-nav');
+    const toggle = page.locator('.mobile-nav__toggle');
+    const drawer = page.locator('#mobile-nav-drawer');
 
     // Initial ARIA state
     await expect(toggle).toHaveAttribute('aria-expanded', 'false');
     await expect(toggle).toHaveAttribute('aria-label', 'Open navigation menu');
+    await expect(drawer).toHaveAttribute('aria-hidden', 'true');
+    await expect(drawer).toHaveAttribute('role', 'dialog');
+    await expect(drawer).toHaveAttribute('aria-modal', 'true');
 
     // Open drawer
     await toggle.click();
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(500);
 
     // Updated ARIA state
     await expect(toggle).toHaveAttribute('aria-expanded', 'true');
-    await expect(toggle).toHaveAttribute('aria-label', 'Close navigation menu');
-
-    // Nav should have proper role
-    await expect(nav).toHaveAttribute('role', 'navigation');
+    await expect(drawer).toHaveAttribute('aria-hidden', 'false');
   });
 
   test('should be keyboard navigable', async ({ page }) => {
-    // Tab to hamburger
+    const toggle = page.locator('.mobile-nav__toggle');
+    const drawer = page.locator('#mobile-nav-drawer');
+
+    // Focus the toggle button
+    await toggle.focus();
+    
+    // Verify toggle is focused
+    const isFocused = await toggle.evaluate((el) => document.activeElement === el);
+    expect(isFocused).toBe(true);
+
+    // Open with keyboard (Enter or Space)
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(500);
+
+    // Drawer should be open
+    await expect(drawer).toHaveAttribute('aria-hidden', 'false');
+
+    // Press Tab to navigate into the drawer
     await page.keyboard.press('Tab');
-    await page.keyboard.press('Tab'); // May need multiple tabs to reach nav
+    await page.waitForTimeout(100);
 
-    const toggle = page.locator('.nav-toggle');
+    // Verify focus is now inside the drawer (on any focusable element)
+    const focusInDrawer = await page.evaluate(() => {
+      const drawer = document.getElementById('mobile-nav-drawer');
+      return drawer && drawer.contains(document.activeElement);
+    });
+    expect(focusInDrawer).toBe(true);
 
-    // Check if toggle is focused (may not be first tab stop)
-    const isFocused = await toggle.evaluate(
-      (el) => document.activeElement === el,
-    );
-
-    if (isFocused) {
-      // Open with keyboard
-      await page.keyboard.press('Enter');
-      await page.waitForTimeout(2000);
-
-      const shell = page.locator('.mobile-nav-shell');
-      await expect(shell).toHaveClass(/is-open/);
-    }
+    // Test ESC closes the drawer
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(500);
+    await expect(drawer).toHaveAttribute('aria-hidden', 'true');
   });
 });

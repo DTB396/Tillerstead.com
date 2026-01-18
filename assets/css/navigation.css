@@ -38,7 +38,7 @@
 .ts-header {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 900;
   background: var(--tiller-bg-color, #faf8f2);
   border-bottom: 1px solid rgb(0 0 0 / 0.06);
   backdrop-filter: blur(12px);
@@ -81,8 +81,8 @@
 }
 
 .ts-header__logo {
-  width: 56px;
-  height: 56px;
+  width: 72px;
+  height: 72px;
   border-radius: 0.5rem;
   object-fit: contain;
   background: #fff;
@@ -126,8 +126,8 @@
 }
 
 .ts-header--minimized .ts-header__logo {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
 }
 
 .ts-header--minimized .ts-header__tagline,
@@ -241,7 +241,7 @@
   padding: 0.5rem;
   list-style: none;
   margin: 0;
-  z-index: 1100;
+  z-index: 950;
   
   /* Hidden by default */
   opacity: 0;
@@ -287,10 +287,16 @@
   display: none;
   background: transparent;
   border: none;
-  padding: 0.5rem;
+  padding: 0.75rem;
   cursor: pointer;
   border-radius: 0.5rem;
   transition: background 0.15s;
+  min-width: 48px;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  z-index: 901;
+  position: relative;
 }
 
 .mobile-nav__toggle:hover {
@@ -338,42 +344,47 @@
 .mobile-nav {
   position: fixed;
   inset: 0;
-  z-index: 9999;
-  background: rgb(0 0 0 / 0.5);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  z-index: 10000;
+  background: rgb(0 0 0 / 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   
   /* Hidden by default */
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: opacity 0.3s ease, visibility 0.3s;
 }
 
 .mobile-nav[aria-hidden="false"] {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .mobile-nav__header {
   display: flex;
   justify-content: flex-end;
-  padding: 1rem 1.25rem;
+  padding: 1.25rem 1.5rem;
   border-bottom: 1px solid rgb(0 0 0 / 0.08);
+  background: var(--tiller-bg-color, #faf8f2);
 }
 
 .mobile-nav__close {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.625rem;
   background: transparent;
   border: none;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  font-weight: 500;
+  padding: 0.875rem 1.25rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
   color: var(--tiller-text-primary, #2d2d2d);
   cursor: pointer;
   border-radius: 0.5rem;
-  transition: background 0.15s;
+  transition: background 0.15s, color 0.15s;
+  min-width: 48px;
+  min-height: 48px;
 }
 
 .mobile-nav__close:hover {
@@ -389,17 +400,20 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: min(85vw, 360px);
+  width: min(85vw, 380px);
   height: 100%;
   background: var(--tiller-bg-color, #faf8f2);
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+  box-shadow: -8px 0 32px rgb(0 0 0 / 0.3);
+  z-index: 10001;
   
   /* Slide in animation */
   transform: translateX(100%);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mobile-nav[aria-hidden="false"] .mobile-nav__body {
@@ -423,18 +437,19 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 1rem 1.5rem;
-  font-size: 1rem;
+  padding: 1.125rem 1.75rem;
+  font-size: 1.0625rem;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   color: var(--tiller-text-primary, #2d2d2d);
   text-decoration: none;
   background: transparent;
   border: none;
   cursor: pointer;
-  min-height: 48px;
-  transition: background 0.15s, color 0.15s;
+  min-height: 54px;
+  transition: background 0.2s, color 0.2s;
   text-align: left;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .mobile-nav__link:hover,
@@ -472,16 +487,16 @@
 }
 
 .mobile-nav__accordion-item a {
-  display: block;
-  padding: 0.875rem 1.5rem 0.875rem 2.25rem;
-  font-size: 0.9375rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.75rem 1rem 2.5rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--tiller-text-secondary, #555);
   text-decoration: none;
-  min-height: 48px;
-  display: flex;
-  align-items: center;
-  transition: background 0.15s, color 0.15s;
+  min-height: 52px;
+  transition: background 0.2s, color 0.2s;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .mobile-nav__accordion-item a::before {
@@ -503,21 +518,22 @@
 
 /* ===== Mobile CTA Button ===== */
 .mobile-nav__estimate-btn {
-  display: block;
-  margin: 1rem 1.5rem;
-  padding: 1rem;
-  background: var(--tiller-color-green, #1a3d2e);
-  color: #fff;
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 700;
-  text-decoration: none;
-  border-radius: 0.5rem;
-  transition: background 0.2s, transform 0.2s;
-  min-height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 1.5rem 1.75rem;
+  padding: 1.125rem 1.5rem;
+  background: var(--tiller-color-green, #1a3d2e);
+  color: #fff;
+  text-align: center;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 0.625rem;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  min-height: 56px;
+  box-shadow: 0 4px 12px rgb(26 61 46 / 0.3);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .mobile-nav__estimate-btn:hover {
@@ -638,12 +654,12 @@
 /* Small tablets / large phones */
 @media (max-width: 768px) {
   .ts-header__container {
-    padding: 0.5rem 1rem;
+    padding: 0.625rem 1.25rem;
   }
   
   .ts-header__logo {
-    width: 44px;
-    height: 44px;
+    width: 56px;
+    height: 56px;
   }
   
   .ts-header__company {
@@ -655,21 +671,25 @@
   }
   
   .mobile-nav__body {
-    width: min(380px, 90vw);
-    padding: 1rem;
+    width: min(420px, 92vw);
   }
   
   .mobile-nav__link {
-    padding: 0.875rem 1rem;
+    padding: 1rem 1.5rem;
     font-size: 1rem;
-    min-height: 48px;
+    min-height: 52px;
+  }
+  
+  .mobile-nav__accordion-item a {
+    padding: 0.875rem 1.5rem 0.875rem 2.25rem;
+    min-height: 50px;
   }
 }
 
 /* Small phones */
 @media (max-width: 480px) {
   .ts-header__container {
-    padding: 0.5rem 0.75rem;
+    padding: 0.625rem 1rem;
   }
   
   .ts-header__region {
@@ -677,8 +697,8 @@
   }
   
   .ts-header__logo {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
   }
   
   .ts-header__company {
@@ -690,14 +710,20 @@
   }
   
   .mobile-nav__link {
-    padding: 0.75rem 1rem;
-    font-size: 0.9375rem;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    min-height: 54px;
+  }
+  
+  .mobile-nav__accordion-item a {
+    padding: 0.875rem 1.25rem 0.875rem 2rem;
+    min-height: 50px;
   }
   
   .mobile-nav__toggle {
-    padding: 0.5rem;
-    min-width: 44px;
-    min-height: 44px;
+    padding: 0.625rem;
+    min-width: 48px;
+    min-height: 48px;
   }
 }
 

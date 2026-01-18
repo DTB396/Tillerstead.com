@@ -25,7 +25,7 @@
   width: var(--mobile-nav-width);
   background: #ffffff;
   box-shadow: var(--drawer-shadow);
-  z-index: 1060;
+  z-index: 10001;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -49,6 +49,7 @@ body.nav-open {
   touch-action: none;
   position: fixed;
   width: 100%;
+  height: 100vh;
 }
 
 /* Drawer Content */
@@ -85,14 +86,15 @@ body.nav-open {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 1rem 1.5rem;
+  padding: 1.125rem 1.75rem;
   font-size: clamp(1rem, 4vw, 1.125rem);
   font-weight: 600;
   color: var(--tiller-text-primary, #1a2018);
   text-decoration: none;
   border-left: 4px solid transparent;
   transition: all 0.2s ease;
-  min-height: 54px; /* Touch-friendly target size */
+  min-height: 56px; /* Touch-friendly target size */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .mobile-nav-list a:hover,
@@ -132,7 +134,7 @@ body.nav-open {
   background-color: var(--tiller-background-main);
   box-shadow: var(--tiller-shadow-small);
   padding: 1rem;
-  z-index: 10;
+  z-index: 950;
 }
 
 .nav-menu li:hover .submenu {
@@ -155,11 +157,11 @@ body.nav-open {
 
 .site-header {
   position: relative;
-  z-index: 1100;
+  z-index: 900;
 }
 
 .site-branding {
-  z-index: 1101;
+  z-index: 901;
 }
 
 /* =========================================================
@@ -183,6 +185,7 @@ body.nav-open {
 .nav-toggle:hover,
 .nav-toggle:focus {
   background: rgba(184, 160, 64, 0.15);
+  color: var(--tiller-color-green, #1a3d2e);
 }
 
 .nav-toggle:focus-visible {
@@ -227,7 +230,7 @@ body.nav-open {
 /* Mobile Large */
 @media (max-width: 600px) {
   :root {
-    --mobile-nav-width: min(320px, 88vw);
+    --mobile-nav-width: min(360px, 92vw);
   }
   
   .nav-logo {
@@ -255,9 +258,9 @@ body.nav-open {
   }
   
   .mobile-nav-list a {
-    padding: 0.875rem 1rem;
-    font-size: 0.9375rem;
-    min-height: 48px;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    min-height: 54px;
   }
   
   .mobile-nav-shell {
@@ -277,6 +280,6 @@ body.nav-open {
   }
   
   .mobile-nav-list a {
-    padding: 0.75rem 1rem;
+    padding: 0.875rem 1.25rem;
   }
 }

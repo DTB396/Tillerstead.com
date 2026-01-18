@@ -1,0 +1,355 @@
+/* =========================================================
+   Build Guide Styles - Tillerstead
+   Styles for the 8-phase build guide pages
+   ========================================================= */
+
+/* Hero Section */
+.build-guide-hero {
+  background: linear-gradient(135deg, var(--tiller-color-green, #1a3d2e) 0%, #2a5d4e 100%);
+  color: #fff;
+  padding: 3rem 0 2.5rem;
+}
+
+.build-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  opacity: 0.85;
+}
+
+.build-breadcrumb a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.build-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.phase-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.375rem 0.875rem;
+  border-radius: 2rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.build-guide-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+.build-guide-description {
+  font-size: 1.125rem;
+  max-width: 720px;
+  opacity: 0.9;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Content Section */
+.build-guide-content {
+  padding: 3rem 0;
+}
+
+.guide-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .guide-layout {
+    grid-template-columns: 220px 1fr;
+    gap: 3rem;
+  }
+}
+
+/* Table of Contents */
+.guide-toc {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+.toc-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--tiller-text-muted, #777);
+  margin: 0 0 1rem;
+}
+
+.toc-nav a {
+  display: block;
+  padding: 0.375rem 0;
+  font-size: 0.875rem;
+  color: var(--tiller-text-secondary, #555);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  padding-left: 0.75rem;
+  margin-left: -0.75rem;
+  transition: all 0.2s ease;
+}
+
+.toc-nav a:hover,
+.toc-nav a.active {
+  color: var(--tiller-color-green, #1a3d2e);
+  border-left-color: var(--tiller-color-green, #1a3d2e);
+}
+
+/* Article Content (Prose) */
+.guide-article {
+  max-width: 780px;
+}
+
+.guide-article h1 {
+  display: none; /* Hidden since we show it in the hero */
+}
+
+.guide-article h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--tiller-color-green, #1a3d2e);
+  margin: 2.5rem 0 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e5e5;
+}
+
+.guide-article h2:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.guide-article h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--tiller-text-primary, #222);
+  margin: 2rem 0 0.75rem;
+}
+
+.guide-article h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.guide-article p {
+  line-height: 1.7;
+  margin: 0 0 1rem;
+  color: var(--tiller-text-secondary, #444);
+}
+
+.guide-article ul,
+.guide-article ol {
+  margin: 0 0 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.guide-article li {
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  color: var(--tiller-text-secondary, #444);
+}
+
+.guide-article blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  background: #f8f9fa;
+  border-left: 4px solid var(--tiller-color-green, #1a3d2e);
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-style: normal;
+}
+
+.guide-article blockquote p {
+  margin: 0;
+  font-weight: 500;
+  color: var(--tiller-text-primary, #222);
+}
+
+.guide-article hr {
+  border: none;
+  border-top: 1px solid #e5e5e5;
+  margin: 2rem 0;
+}
+
+.guide-article strong {
+  font-weight: 600;
+  color: var(--tiller-text-primary, #222);
+}
+
+.guide-article a {
+  color: var(--tiller-color-green, #1a3d2e);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.guide-article a:hover {
+  color: #2a5d4e;
+}
+
+/* Tables */
+.guide-article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9375rem;
+}
+
+.guide-article th,
+.guide-article td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.guide-article th {
+  font-weight: 600;
+  background: #f8f9fa;
+  color: var(--tiller-text-primary, #222);
+}
+
+.guide-article tr:hover td {
+  background: #fafafa;
+}
+
+/* Phase Navigation */
+.phase-navigation {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e5e5;
+}
+
+.phase-nav-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.phase-nav-link {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.phase-nav-link:hover {
+  background: #f0f2f4;
+  transform: translateY(-2px);
+}
+
+.phase-nav-link.disabled {
+  visibility: hidden;
+}
+
+.phase-nav-prev {
+  text-align: left;
+}
+
+.phase-nav-next {
+  text-align: right;
+}
+
+.phase-nav-label {
+  font-size: 0.8125rem;
+  color: var(--tiller-text-muted, #777);
+  margin-bottom: 0.25rem;
+}
+
+.phase-nav-title {
+  font-weight: 600;
+  color: var(--tiller-color-green, #1a3d2e);
+  font-size: 0.9375rem;
+}
+
+/* CTA Section */
+.build-guide-cta {
+  background: #f8f9fa;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.build-guide-cta h2 {
+  font-size: 1.5rem;
+  margin: 0 0 0.75rem;
+  color: var(--tiller-text-primary, #222);
+}
+
+.build-guide-cta p {
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  color: var(--tiller-text-secondary, #555);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-buttons .btn {
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cta-buttons .btn-primary {
+  background: var(--tiller-color-green, #1a3d2e);
+  color: #fff;
+}
+
+.cta-buttons .btn-primary:hover {
+  background: #2a5d4e;
+}
+
+.cta-buttons .btn-secondary {
+  background: #fff;
+  color: var(--tiller-color-green, #1a3d2e);
+  border: 2px solid var(--tiller-color-green, #1a3d2e);
+}
+
+.cta-buttons .btn-secondary:hover {
+  background: var(--tiller-color-green, #1a3d2e);
+  color: #fff;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .build-guide-hero {
+    padding: 2rem 0;
+  }
+  
+  .guide-toc {
+    position: static;
+    border: 1px solid #e5e5e5;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background: #f8f9fa;
+  }
+  
+  .phase-nav-links {
+    grid-template-columns: 1fr;
+  }
+  
+  .phase-nav-prev,
+  .phase-nav-next {
+    text-align: left;
+  }
+}
