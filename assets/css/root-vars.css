@@ -1,0 +1,315 @@
+/* =========================================================
+   Tillerstead Design System - Root Variables
+   TCNA/New Jersey HIC Compliant Styling
+   ========================================================= */
+
+:root {
+  /* ===== Core Brand Colors ===== */
+  --tiller-color-brown: #5d3a2b;
+  --tiller-color-brown-dark: #4a2e22;
+  --tiller-color-brown-light: #755140;
+  --tiller-color-gold: #d4af37;
+  --tiller-color-gold-light: #e6c866;
+  --tiller-color-grey: #b0b0b0;
+  --tiller-color-beige: #f1e0c6;
+  --tiller-color-green: #2a5d4e;
+  --tiller-color-green-dark: #1f4839;
+  --tiller-color-green-light: #3a7260;
+  --tiller-color-coral: #ff6b6b;
+  --tiller-color-highlight: #0b6cff;
+  
+  /* ===== Text Colors ===== */
+  --tiller-text-primary: #2d2d2d;
+  --tiller-text-secondary: #5a5a5a;
+  --tiller-text-tertiary: #808080;
+  --tiller-text-light: #fdf7ea;
+  --tiller-text-white: #fff;
+  
+  /* ===== Backgrounds ===== */
+  --tiller-bg-main: #fdf7ea;
+  --tiller-bg-alt: #fff;
+  --tiller-bg-dark: #1a1a1a;
+  --tiller-header-bg: #ffffff;
+  --tiller-bg-overlay: rgba(0, 0, 0, 0.5);
+  
+  /* ===== Buttons ===== */
+  --tiller-btn-primary-bg: var(--tiller-color-brown);
+  --tiller-btn-primary-text: #fff;
+  --tiller-btn-accent-bg: var(--tiller-color-coral);
+  --tiller-btn-hover-bg: var(--tiller-color-gold);
+  
+  /* ===== Navigation ===== */
+  --tiller-nav-bg: var(--tiller-color-green);
+  --tiller-nav-text: #fff;
+  --tiller-nav-accent: var(--tiller-color-gold);
+  --tiller-nav-height: 64px;
+  
+  /* ===== Shadows ===== */
+  --tiller-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --tiller-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --tiller-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+  --tiller-shadow-xl: 0 15px 25px rgba(0, 0, 0, 0.2);
+  --tiller-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+  /* Border Radius */
+  --tiller-border-radius-sm: 4px;
+  --tiller-border-radius-md: 8px;
+  --tiller-border-radius-lg: 12px;
+  --tiller-border-radius-xl: 16px;
+
+  /* Border Color */
+  --tiller-border-color-light: #f1f1f1;
+  --tiller-border-color-dark: #222222;
+  --tiller-border-color-accent: var(--tiller-color-coral);
+
+  /* ===== Spacing System (Fluid) ===== */
+  --tiller-spacing-xs: clamp(0.25rem, 0.5vw, 0.5rem);
+  --tiller-spacing-sm: clamp(0.5rem, 1vw, 0.75rem);
+  --tiller-spacing-md: clamp(1rem, 2vw, 1.5rem);
+  --tiller-spacing-lg: clamp(1.5rem, 3vw, 2.5rem);
+  --tiller-spacing-xl: clamp(2rem, 4vw, 4rem);
+  --tiller-spacing-2xl: clamp(3rem, 6vw, 6rem);
+  
+  /* ===== Typography Scale (Fluid) ===== */
+  --tiller-font-size-xs: clamp(0.75rem, 1vw, 0.875rem);
+  --tiller-font-size-sm: clamp(0.875rem, 1.2vw, 1rem);
+  --tiller-font-size-base: clamp(1rem, 1.5vw, 1.125rem);
+  --tiller-font-size-lg: clamp(1.125rem, 2vw, 1.25rem);
+  --tiller-font-size-xl: clamp(1.25rem, 2.5vw, 1.5rem);
+  --tiller-font-size-2xl: clamp(1.5rem, 3vw, 2rem);
+  --tiller-font-size-3xl: clamp(2rem, 4vw, 3rem);
+  --tiller-font-size-4xl: clamp(2.5rem, 5vw, 4rem);
+  
+  /* ===== Line Heights ===== */
+  --tiller-line-height-tight: 1.2;
+  --tiller-line-height-normal: 1.5;
+  --tiller-line-height-relaxed: 1.75;
+  
+  /* Transition Durations */
+  --tiller-transition-fast: 0.15s;
+  --tiller-transition-normal: 0.25s;
+  --tiller-transition-slow: 0.4s;
+
+  /* Transition Easing */
+  --tiller-ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --tiller-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --tiller-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --tiller-ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+  /* Grid System */
+  --tiller-grid-columns: 12;
+  --tiller-grid-gutter-width: 1.5rem;
+  --tiller-grid-max-width: 1200px;
+
+  /* Container Widths */
+  --tiller-container-sm: 100%;
+  --tiller-container-md: 80%;
+  --tiller-container-lg: 70%;
+  --tiller-container-xl: 60%;
+
+  /* Form Inputs */
+  --tiller-input-border-radius: 4px;
+  --tiller-input-border-color: #ccc;
+  --tiller-input-background: #fff;
+  --tiller-input-focus-border: var(--tiller-color-primary);
+
+  /* Form Labels */
+  --tiller-label-font-size: 16px;
+  --tiller-label-font-weight: bold;
+
+  /* Custom Font Weights */
+  --tiller-font-weight-light: 300;
+  --tiller-font-weight-regular: 400;
+  --tiller-font-weight-bold: 700;
+  --tiller-font-weight-black: 900;
+
+  /* Background Gradients */
+  --tiller-bg-gradient-main: linear-gradient(135deg, var(--tiller-color-primary), var(--tiller-color-accent));
+  --tiller-bg-gradient-light: linear-gradient(135deg, #ffffff, #f1f1f1);
+}
+
+/* ===== Global Resets & Base Styles ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+               'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+               sans-serif;
+  background-color: var(--tiller-bg-main, #fdf7ea);
+  color: var(--tiller-text-primary, #2d2d2d);
+  margin: 0;
+  padding: 0;
+  font-size: var(--tiller-font-size-base, 1rem);
+  line-height: var(--tiller-line-height-normal, 1.5);
+  overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: 2px solid var(--tiller-color-highlight, #0b6cff);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Links */
+a {
+  color: var(--tiller-color-coral);
+  text-decoration: none;
+  transition: color var(--tiller-transition-fast);
+}
+
+a:hover {
+  color: var(--tiller-color-brown);
+}
+
+/* ===== Button Styling ===== */
+button {
+  background-color: var(--tiller-btn-primary-bg, #5d3a2b);
+  color: var(--tiller-btn-primary-text, #fff);
+  border-radius: var(--tiller-border-radius-md, 0.5rem);
+  padding: 0.75rem 1.75rem;
+  font-weight: var(--tiller-font-weight-bold, 600);
+  font-size: var(--tiller-font-size-base, 1rem);
+  border: none;
+  cursor: pointer;
+  transition: all var(--tiller-transition-fast, 0.15s) var(--tiller-ease-smooth, ease);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+button:hover {
+  background-color: var(--tiller-color-brown-dark, #4a2e22);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(93, 58, 43, 0.3);
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(93, 58, 43, 0.2);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--tiller-color-highlight, #0b6cff);
+  outline-offset: 3px;
+}
+
+/* Shadows for Elements */
+.shadow-small {
+  box-shadow: var(--tiller-shadow-small);
+}
+
+.shadow-medium {
+  box-shadow: var(--tiller-shadow-medium);
+}
+
+.shadow-large {
+  box-shadow: var(--tiller-shadow-large);
+}
+
+.shadow-xl {
+  box-shadow: var(--tiller-shadow-xl);
+}
+
+/* Navigation Bar */
+.navbar {
+  background-color: var(--tiller-nav-bg);
+  color: var(--tiller-nav-fg);
+  padding: 1rem;
+  box-shadow: var(--tiller-shadow-small);
+}
+
+.navbar a {
+  margin: 0 1rem;
+  color: var(--tiller-nav-fg);
+  text-decoration: none;
+}
+
+/* Layout */
+.container {
+  max-width: var(--tiller-grid-max-width);
+  margin: 0 auto;
+  padding: var(--tiller-spacing-md);
+}
+
+.container-sm {
+  width: var(--tiller-container-sm);
+}
+
+.container-md {
+  width: var(--tiller-container-md);
+}
+
+.container-lg {
+  width: var(--tiller-container-lg);
+}
+
+.container-xl {
+  width: var(--tiller-container-xl);
+}
+
+/* Form Styling */
+input, select, textarea {
+  padding: 0.5rem;
+  border-radius: var(--tiller-input-border-radius);
+  border: 1px solid var(--tiller-input-border-color);
+  width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--tiller-input-focus-border);
+}
+
+/* Labels */
+label {
+  font-size: var(--tiller-label-font-size);
+  font-weight: var(--tiller-label-font-weight);
+}
+
+/* Gradient Background */
+.gradient-background {
+  background: var(--tiller-bg-gradient-main);
+}

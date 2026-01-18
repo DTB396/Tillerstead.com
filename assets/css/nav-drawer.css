@@ -1,0 +1,206 @@
+/* =========================================================
+   Mobile Navigation Drawer - Tillerstead
+   Uses variables from root-vars.css
+   ========================================================= */
+
+:root {
+  /* Drawer-specific variables */
+  --mobile-nav-width: min(400px, 85vw);
+  --drawer-shadow: -10px 0 60px rgba(0, 0, 0, 0.12);
+  --drawer-transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================================================
+   Mobile Navigation Drawer
+   ========================================================= */
+
+/* Drawer base */
+.mobile-nav,
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(400px, var(--mobile-nav-width));
+  background: #ffffff;
+  box-shadow: var(--drawer-shadow);
+  z-index: 1060;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: var(--drawer-transition);
+  pointer-events: none;
+}
+
+/* Open state */
+body.nav-open .mobile-nav,
+.nav-drawer.is-open {
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* Prevent background scroll */
+body.nav-open {
+  overflow: hidden !important;
+  touch-action: none;
+}
+
+/* Drawer Content */
+.mobile-nav-shell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: var(--tiller-spacing-lg, 2rem) 0;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--tiller-spacing-lg, 2rem);
+  align-items: center;
+}
+
+.mobile-nav-list li {
+  width: 100%;
+}
+
+/* Links in Mobile Menu */
+.mobile-nav-list a {
+  display: block;
+  width: 100%;
+  padding: var(--tiller-spacing-md, 1rem) var(--tiller-spacing-xl, 4rem);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--tiller-nav-fg, #222222);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  text-align: left;
+}
+
+.mobile-nav-list a:hover,
+.mobile-nav-list a.active {
+  background: var(--tiller-color-gold);
+  border-left-color: var(--tiller-nav-accent);
+  color: var(--tiller-nav-accent);
+}
+
+/* =========================================================
+   Desktop Navigation
+   ========================================================= */
+
+/* Main menu links */
+.nav-menu a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: var(--tiller-color-gold);
+}
+
+/* Nested menus in desktop navigation */
+.nav-menu .submenu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: var(--tiller-background-main);
+  box-shadow: var(--tiller-shadow-small);
+  padding: 1rem;
+  z-index: 10;
+}
+
+.nav-menu li:hover .submenu {
+  display: block;
+}
+
+.submenu li {
+  margin: 0;
+}
+
+/* Submenus for deeper levels */
+.nav-menu .submenu .submenu {
+  left: 100%;
+  top: 0;
+}
+
+/* =========================================================
+   Header & Branding
+   ========================================================= */
+
+.site-header {
+  position: relative;
+  z-index: 1100;
+}
+
+.site-branding {
+  z-index: 1101;
+}
+
+/* =========================================================
+   Hamburger Button
+   ========================================================= */
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--tiller-nav-fg);
+  cursor: pointer;
+  padding: var(--tiller-spacing-xs, 0.5rem) var(--tiller-spacing-sm, 0.75rem);
+  border-radius: 4px;
+}
+
+.nav-toggle:hover,
+.nav-toggle:focus {
+  background: var(--tiller-color-gold);
+  outline: 2px solid var(--tiller-nav-accent);
+}
+
+/* Mobile Media Queries */
+@media (max-width: 900px) {
+  .nav-logo {
+    max-width: 90px;
+    max-height: 32px;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: var(--tiller-spacing-sm, 0.5rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-logo {
+    max-width: 64px;
+    max-height: 24px;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: var(--tiller-spacing-sm, 0.5rem);
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+}
