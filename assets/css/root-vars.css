@@ -765,6 +765,315 @@ label {
   filter: drop-shadow(0 0 8px rgba(201, 162, 39, 0.3));
 }
 
+/* =========================================================
+   CONTRACTOR GRID & TILE PATTERNS
+   Subtle background patterns for professional appeal
+   ========================================================= */
+
+/* ===== NOTEBOOK GRID LINES - Blueprint Style ===== */
+.pattern-grid {
+  background-image: 
+    linear-gradient(rgba(13, 42, 31, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 42, 31, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.pattern-grid-fine {
+  background-image: 
+    linear-gradient(rgba(13, 42, 31, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 42, 31, 0.025) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.pattern-grid-wide {
+  background-image: 
+    linear-gradient(rgba(13, 42, 31, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 42, 31, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Blueprint grid with major/minor lines */
+.pattern-blueprint {
+  background-image: 
+    linear-gradient(rgba(13, 42, 31, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 42, 31, 0.06) 1px, transparent 1px),
+    linear-gradient(rgba(13, 42, 31, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 42, 31, 0.025) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+}
+
+/* Dark grid for dark sections */
+.pattern-grid-dark {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.pattern-grid-gold {
+  background-image: 
+    linear-gradient(rgba(201, 162, 39, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 162, 39, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ===== SUBWAY TILE PATTERNS ===== */
+.pattern-subway {
+  background-color: var(--tiller-bg-main, #fffcf5);
+  background-image: 
+    linear-gradient(90deg, rgba(13, 42, 31, 0.04) 1px, transparent 1px),
+    linear-gradient(rgba(13, 42, 31, 0.04) 1px, transparent 1px);
+  background-size: 60px 30px;
+  background-position: 0 0, 30px 15px;
+}
+
+.pattern-subway-offset {
+  background-color: var(--tiller-bg-main, #fffcf5);
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 29px,
+      rgba(13, 42, 31, 0.04) 29px,
+      rgba(13, 42, 31, 0.04) 30px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 59px,
+      rgba(13, 42, 31, 0.04) 59px,
+      rgba(13, 42, 31, 0.04) 60px
+    );
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+}
+
+/* Classic brick/subway pattern */
+.pattern-brick {
+  background-color: var(--tiller-bg-soft, #f8f6f1);
+  background-image: 
+    linear-gradient(
+      335deg,
+      rgba(13, 42, 31, 0.02) 23px,
+      transparent 23px
+    ),
+    linear-gradient(
+      155deg,
+      rgba(13, 42, 31, 0.02) 23px,
+      transparent 23px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(13, 42, 31, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      rgba(13, 42, 31, 0.03) 1px,
+      transparent 1px
+    );
+  background-size: 58px 30px;
+  background-position: 0 0, 4px 0, 29px 15px, 29px 15px;
+}
+
+/* Herringbone tile pattern */
+.pattern-herringbone {
+  background-color: var(--tiller-bg-main, #fffcf5);
+  background-image: 
+    linear-gradient(
+      45deg,
+      rgba(13, 42, 31, 0.03) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(13, 42, 31, 0.03) 75%
+    ),
+    linear-gradient(
+      -45deg,
+      rgba(13, 42, 31, 0.03) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(13, 42, 31, 0.03) 75%
+    );
+  background-size: 20px 20px;
+}
+
+/* ===== DIAGONAL TILE PATTERNS ===== */
+.pattern-diagonal {
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(13, 42, 31, 0.02) 10px,
+      rgba(13, 42, 31, 0.02) 11px
+    );
+}
+
+.pattern-crosshatch {
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(13, 42, 31, 0.02) 10px,
+      rgba(13, 42, 31, 0.02) 11px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      rgba(13, 42, 31, 0.02) 10px,
+      rgba(13, 42, 31, 0.02) 11px
+    );
+}
+
+/* ===== MOSAIC & FLOOR PATTERNS ===== */
+.pattern-mosaic {
+  background-color: var(--tiller-bg-main, #fffcf5);
+  background-image: 
+    linear-gradient(rgba(13, 42, 31, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 42, 31, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(201, 162, 39, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 162, 39, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+}
+
+/* Checkerboard floor pattern */
+.pattern-checker {
+  background-color: var(--tiller-bg-main, #fffcf5);
+  background-image: 
+    linear-gradient(45deg, rgba(13, 42, 31, 0.03) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(13, 42, 31, 0.03) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(13, 42, 31, 0.03) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(13, 42, 31, 0.03) 75%);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0;
+}
+
+/* Hex tile pattern */
+.pattern-hex {
+  background-color: var(--tiller-bg-main, #fffcf5);
+  background-image: 
+    radial-gradient(
+      circle farthest-side at 0% 50%,
+      rgba(13, 42, 31, 0.025) 23.5%,
+      transparent 24%
+    ),
+    radial-gradient(
+      circle farthest-side at 100% 50%,
+      rgba(13, 42, 31, 0.025) 23.5%,
+      transparent 24%
+    );
+  background-size: 24px 40px;
+}
+
+/* ===== DOTTED PATTERNS ===== */
+.pattern-dots {
+  background-image: radial-gradient(
+    rgba(13, 42, 31, 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 16px 16px;
+}
+
+.pattern-dots-gold {
+  background-image: radial-gradient(
+    rgba(201, 162, 39, 0.08) 1px,
+    transparent 1px
+  );
+  background-size: 16px 16px;
+}
+
+.pattern-dots-wide {
+  background-image: radial-gradient(
+    rgba(13, 42, 31, 0.05) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 32px 32px;
+}
+
+/* ===== DARK SECTION PATTERNS ===== */
+.pattern-subway-dark {
+  background-image: 
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 30px;
+  background-position: 0 0, 30px 15px;
+}
+
+.pattern-dots-dark {
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+}
+
+.pattern-blueprint-dark {
+  background-image: 
+    linear-gradient(rgba(15, 122, 90, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 122, 90, 0.1) 1px, transparent 1px),
+    linear-gradient(rgba(15, 122, 90, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 122, 90, 0.04) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+}
+
+/* ===== COMBINED PATTERN HELPERS ===== */
+/* Add pattern on top of existing gradient */
+.with-grid::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(13, 42, 31, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 42, 31, 0.025) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.with-subway::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(90deg, rgba(13, 42, 31, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(13, 42, 31, 0.03) 1px, transparent 1px);
+  background-size: 60px 30px;
+  background-position: 0 0, 30px 15px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.with-dots::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+    rgba(13, 42, 31, 0.04) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure content stays above pattern overlay */
+.with-grid > *,
+.with-subway > *,
+.with-dots > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* ===== Dark Section Styling ===== */
 .section-dark {
   background: var(--tiller-gradient-dark-rich);
