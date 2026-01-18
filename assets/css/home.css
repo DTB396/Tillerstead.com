@@ -1,15 +1,16 @@
 /* =========================================================
    Home Page Layout Optimization
    Tillerstead.com - 2026 Modern Contractor Design
+   UPGRADED: Vibrant gradients + high visibility text
    ========================================================= */
 
 /* ===== Hero Section ===== */
 .home-hero {
   padding: clamp(3rem, 8vw, 6rem) 0 clamp(2rem, 5vw, 4rem);
-  background: linear-gradient(135deg, 
-    var(--tiller-bg-main, #faf8f2) 0%, 
-    var(--tiller-bg-soft, #f4ece0) 50%,
-    rgb(184, 160, 64, 0.08) 100%);
+  background: var(--tiller-gradient-warm, linear-gradient(135deg, 
+    #fffcf5 0%, 
+    #f5f0e8 50%,
+    rgba(201, 162, 39, 0.12) 100%));
   position: relative;
   overflow: hidden;
 }
@@ -21,7 +22,19 @@
   right: -10%;
   width: 60%;
   height: 200%;
-  background: radial-gradient(circle, rgb(26, 61, 46, 0.04) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(13, 42, 31, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Subtle animated gradient overlay */
+.home-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(to top, rgba(255, 252, 245, 0.8), transparent);
   pointer-events: none;
 }
 
@@ -45,40 +58,43 @@
 
 .hero-eyebrow {
   font-size: var(--tiller-font-size-sm, 0.875rem);
-  font-weight: 600;
-  color: var(--tiller-color-gold-dark, #8a7830);
+  font-weight: 700;
+  color: var(--tiller-color-gold, #c9a227);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.15em;
   margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .hero-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  line-height: var(--tiller-line-height-tight, 1.2);
-  font-weight: 800;
-  color: var(--tiller-text-primary, #1a2018);
+  font-size: clamp(2.25rem, 5.5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 900;
   margin: 0;
-  background: linear-gradient(135deg, 
-    var(--tiller-color-green, #1a3d2e) 0%, 
-    var(--tiller-color-green-light, #2a5d4e) 50%,
-    var(--tiller-color-gold-dark, #8a7830) 100%);
-  -webkit-text-fill-color: transparent;
+  background: var(--tiller-gradient-text, linear-gradient(135deg, 
+    #0d2a1f 0%, 
+    #1a4a38 40%,
+    #c9a227 100%));
+  -webkit-background-clip: text;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
 }
 
 .hero-subtitle {
   font-size: var(--tiller-font-size-xl, 1.5rem);
-  font-weight: 600;
-  color: var(--tiller-color-gold, #b8a040);
+  font-weight: 700;
+  color: var(--tiller-color-green-light, #1a4a38);
   margin: 0;
   font-style: italic;
 }
 
 .hero-summary {
   font-size: var(--tiller-font-size-lg, 1.125rem);
-  line-height: var(--tiller-line-height-relaxed, 1.75);
-  color: var(--tiller-text-secondary, #5a5a5a);
+  line-height: 1.7;
+  color: var(--tiller-text-body, #1f2937);
   margin: 0;
+  max-width: 540px;
 }
 
 .hero-actions {
@@ -91,12 +107,14 @@
 .btn--large {
   padding: 1rem 2rem;
   font-size: var(--tiller-font-size-lg, 1.125rem);
+  font-weight: 700;
 }
 
 .btn--secondary-outline {
   background: transparent;
-  color: var(--tiller-color-green, #1a3d2e);
-  border: 2px solid var(--tiller-color-green, #1a3d2e);
+  color: var(--tiller-color-green, #0d2a1f);
+  border: 2px solid var(--tiller-color-green, #0d2a1f);
+  font-weight: 600;
 }
 
 .btn--secondary-outline:hover {
@@ -215,18 +233,18 @@
 
 .section-eyebrow {
   font-size: var(--tiller-font-size-sm, 0.875rem);
-  font-weight: 700;
-  color: var(--tiller-color-coral, #e85a50);
+  font-weight: 800;
+  color: var(--tiller-color-coral, #ff5a4d);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin: 0 0 0.5rem;
+  letter-spacing: 0.15em;
+  margin: 0 0 0.75rem;
 }
 
 .section-title {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  line-height: var(--tiller-line-height-tight, 1.2);
-  font-weight: 700;
-  color: var(--tiller-text-primary, #2d2d2d);
+  font-size: clamp(1.875rem, 4.5vw, 2.75rem);
+  line-height: 1.15;
+  font-weight: 800;
+  color: var(--tiller-text-heading, #0d2a1f);
   margin: 0 0 1rem;
 }
 

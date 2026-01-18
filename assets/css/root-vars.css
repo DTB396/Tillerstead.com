@@ -2,75 +2,102 @@
    Tillerstead Design System - Root Variables
    TCNA/New Jersey HIC Compliant Styling
    Colors extracted from 4k-logo.png brand identity
+   UPGRADED: High contrast + vibrant gradients
    ========================================================= */
 
 :root {
-  /* ===== Core Brand Colors (from 4k logo palette) ===== */
+  /* ===== Core Brand Colors (UPGRADED for impact) ===== */
 
-  /* Primary: Deep Forest Green - dominant logo color */
-  --tiller-color-green: #1a3d2e;
-  --tiller-color-green-dark: #102010;
-  --tiller-color-green-light: #2a5d4e;
-  --tiller-color-green-muted: #304030;
+  /* Primary: Deep Forest Green - rich and commanding */
+  --tiller-color-green: #0d2a1f;
+  --tiller-color-green-dark: #061510;
+  --tiller-color-green-light: #1a4a38;
+  --tiller-color-green-muted: #254035;
+  --tiller-color-green-vibrant: #0f7a5a;
   
-  /* Secondary: Rich Olive Gold - accent from logo */
-  --tiller-color-gold: #b8a040;
-  --tiller-color-gold-dark: #8a7830;
-  --tiller-color-gold-light: #d4c060;
-  --tiller-color-gold-muted: #707030;
+  /* Secondary: Rich Gold - luxurious accent */
+  --tiller-color-gold: #c9a227;
+  --tiller-color-gold-dark: #9a7a1a;
+  --tiller-color-gold-light: #e8c848;
+  --tiller-color-gold-muted: #8a7830;
+  --tiller-color-gold-vibrant: #ffd700;
   
-  /* Tertiary: Earthy Browns - warmth and trust */
-  --tiller-color-brown: #4a3828;
-  --tiller-color-brown-dark: #3a2818;
-  --tiller-color-brown-light: #6a5848;
+  /* Tertiary: Warm Copper - premium feel */
+  --tiller-color-brown: #8b4513;
+  --tiller-color-brown-dark: #5c2e0c;
+  --tiller-color-brown-light: #cd853f;
+  --tiller-color-copper: #b87333;
   
-  /* Accent: Warm Coral - calls to action */
-  --tiller-color-coral: #e85a50;
-  --tiller-color-coral-dark: #c84a40;
-  --tiller-color-coral-light: #ff7a70;
+  /* Accent: Electric Coral - bold CTAs */
+  --tiller-color-coral: #ff5a4d;
+  --tiller-color-coral-dark: #e84339;
+  --tiller-color-coral-light: #ff7e73;
+  --tiller-color-coral-glow: #ff6b5b;
   
   /* Neutral: Sophisticated Greys */
-  --tiller-color-grey: #808060;
-  --tiller-color-grey-dark: #505040;
-  --tiller-color-grey-light: #a0a080;
+  --tiller-color-grey: #6b7280;
+  --tiller-color-grey-dark: #374151;
+  --tiller-color-grey-light: #9ca3af;
+  --tiller-color-slate: #475569;
   
-  /* Warm Neutrals */
-  --tiller-color-beige: #f4ece0;
+  /* Warm Neutrals - Clean & Premium */
+  --tiller-color-beige: #f5f0e8;
   --tiller-color-beige-dark: #e8dcc8;
-  --tiller-color-cream: #faf8f2;
+  --tiller-color-cream: #fffcf5;
+  --tiller-color-ivory: #fefef9;
   
-  /* Utility Colors */
-  --tiller-color-highlight: #2a7fff;
-  --tiller-color-success: #2a8050;
-  --tiller-color-warning: #d4a030;
-  --tiller-color-error: #c84040;
+  /* Utility Colors - High Visibility */
+  --tiller-color-highlight: #3b82f6;
+  --tiller-color-success: #10b981;
+  --tiller-color-warning: #f59e0b;
+  --tiller-color-error: #ef4444;
+  --tiller-color-info: #06b6d4;
   
-  /* ===== Text Colors ===== */
-  --tiller-text-primary: #1a2018;
-  --tiller-text-secondary: #4a5048;
-  --tiller-text-tertiary: #707868;
-  --tiller-text-light: #faf8f2;
+  /* ===== High Visibility Text Colors ===== */
+  --tiller-text-primary: #0f1419;
+  --tiller-text-secondary: #374151;
+  --tiller-text-tertiary: #6b7280;
+  --tiller-text-muted: #9ca3af;
+  --tiller-text-light: #ffffff;
   --tiller-text-white: #ffffff;
-  --tiller-text-on-dark: #e8e8e0;
+  --tiller-text-on-dark: #f3f4f6;
+  --tiller-text-on-green: #ffffff;
+  --tiller-text-on-gold: #0f1419;
+  --tiller-text-heading: #0d2a1f;
+  --tiller-text-body: #1f2937;
   
-  /* ===== Backgrounds ===== */
-  --tiller-bg-main: #faf8f2;
+  /* ===== Premium Backgrounds ===== */
+  --tiller-bg-main: #fffcf5;
   --tiller-bg-alt: #ffffff;
-  --tiller-bg-soft: #f4ece0;
-  --tiller-bg-dark: #102010;
-  --tiller-bg-darker: #0a1408;
+  --tiller-bg-soft: #f8f6f1;
+  --tiller-bg-warm: #faf7f0;
+  --tiller-bg-card: #ffffff;
+  --tiller-bg-dark: #0d2a1f;
+  --tiller-bg-darker: #061510;
+  --tiller-bg-gradient-dark: #0a1f16;
   --tiller-header-bg: #ffffff;
-  --tiller-bg-overlay: rgb(16, 32, 16, 0.85);
-  --tiller-bg-overlay-light: rgb(250, 248, 242, 0.95);
+  --tiller-bg-overlay: rgba(13, 42, 31, 0.92);
+  --tiller-bg-overlay-light: rgba(255, 252, 245, 0.97);
   
-  /* ===== Buttons ===== */
+  /* ===== Vibrant Gradient Presets ===== */
+  --tiller-gradient-hero: linear-gradient(135deg, #0d2a1f 0%, #1a4a38 40%, #0f7a5a 100%);
+  --tiller-gradient-gold: linear-gradient(135deg, #9a7a1a 0%, #c9a227 50%, #e8c848 100%);
+  --tiller-gradient-warm: linear-gradient(135deg, #fffcf5 0%, #f5f0e8 50%, rgba(201, 162, 39, 0.08) 100%);
+  --tiller-gradient-cta: linear-gradient(135deg, #ff5a4d 0%, #ff7e73 100%);
+  --tiller-gradient-premium: linear-gradient(135deg, #0d2a1f 0%, #8b4513 50%, #c9a227 100%);
+  --tiller-gradient-subtle: linear-gradient(180deg, #ffffff 0%, #f8f6f1 100%);
+  --tiller-gradient-dark-rich: linear-gradient(160deg, #061510 0%, #0d2a1f 30%, #1a4a38 70%, #0f7a5a 100%);
+  --tiller-gradient-text: linear-gradient(135deg, #0d2a1f 0%, #1a4a38 50%, #c9a227 100%);
+  
+  /* ===== Buttons - High Impact ===== */
   --tiller-btn-primary-bg: var(--tiller-color-green);
   --tiller-btn-primary-text: #ffffff;
-  --tiller-btn-primary-hover: var(--tiller-color-green-dark);
+  --tiller-btn-primary-hover: var(--tiller-color-green-light);
   --tiller-btn-secondary-bg: var(--tiller-color-gold);
-  --tiller-btn-secondary-text: var(--tiller-text-primary);
+  --tiller-btn-secondary-text: #0f1419;
   --tiller-btn-accent-bg: var(--tiller-color-coral);
-  --tiller-btn-hover-bg: var(--tiller-color-gold);
+  --tiller-btn-accent-text: #ffffff;
+  --tiller-btn-hover-bg: var(--tiller-color-gold-light);
   
   /* ===== Navigation ===== */
   --tiller-nav-bg: var(--tiller-color-green);
@@ -169,9 +196,11 @@
   --tiller-font-weight-bold: 700;
   --tiller-font-weight-black: 900;
 
-  /* Background Gradients */
-  --tiller-bg-gradient-main: linear-gradient(135deg, var(--tiller-color-primary), var(--tiller-color-accent));
-  --tiller-bg-gradient-light: linear-gradient(135deg, #ffffff, #f1f1f1);
+  /* Background Gradients - Premium & Vibrant */
+  --tiller-bg-gradient-main: var(--tiller-gradient-hero);
+  --tiller-bg-gradient-light: var(--tiller-gradient-warm);
+  --tiller-bg-gradient-cta: var(--tiller-gradient-cta);
+  --tiller-bg-gradient-gold: var(--tiller-gradient-gold);
 }
 
 /* ===== Global Resets & Base Styles ===== */
@@ -372,20 +401,128 @@ label {
   font-weight: var(--tiller-label-font-weight);
 }
 
-/* Gradient Background */
+/* Gradient Backgrounds */
 .gradient-background {
   background: var(--tiller-bg-gradient-main);
 }
 
+.gradient-hero {
+  background: var(--tiller-gradient-hero);
+}
+
+.gradient-warm {
+  background: var(--tiller-gradient-warm);
+}
+
+.gradient-gold {
+  background: var(--tiller-gradient-gold);
+}
+
+.gradient-cta {
+  background: var(--tiller-gradient-cta);
+}
+
+.gradient-premium {
+  background: var(--tiller-gradient-premium);
+}
+
+.gradient-dark {
+  background: var(--tiller-gradient-dark-rich);
+}
+
+/* ===== High Visibility Text Utilities ===== */
+.text-gradient {
+  background: var(--tiller-gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-on-dark {
+  color: var(--tiller-text-on-dark, #f3f4f6) !important;
+}
+
+.text-on-green {
+  color: var(--tiller-text-on-green, #ffffff) !important;
+}
+
+.text-on-gold {
+  color: var(--tiller-text-on-gold, #0f1419) !important;
+}
+
+.text-high-contrast {
+  color: var(--tiller-text-primary, #0f1419);
+  font-weight: 700;
+}
+
+.text-accent {
+  color: var(--tiller-color-coral, #ff5a4d);
+}
+
+.text-gold {
+  color: var(--tiller-color-gold, #c9a227);
+}
+
+.text-green {
+  color: var(--tiller-color-green, #0d2a1f);
+}
+
+/* ===== Dark Section Styling ===== */
+.section-dark {
+  background: var(--tiller-gradient-dark-rich);
+  color: var(--tiller-text-on-dark);
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 {
+  color: #ffffff;
+}
+
+.section-dark p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.section-dark .section-eyebrow {
+  color: var(--tiller-color-gold-light, #e8c848);
+}
+
+/* ===== Premium Card Styling ===== */
+.card-elevated {
+  background: var(--tiller-bg-card, #ffffff);
+  border-radius: var(--tiller-border-radius-lg);
+  box-shadow: var(--tiller-shadow-lg);
+  border: 1px solid rgba(13, 42, 31, 0.06);
+  transition: all 0.3s var(--tiller-ease-smooth);
+}
+
+.card-elevated:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--tiller-shadow-xl), 0 0 30px rgba(201, 162, 39, 0.15);
+}
+
 /* =========================================================
    Footer Styles - Professional Design
+   UPGRADED: Rich gradient + high visibility
    ========================================================= */
 
 .ts-footer {
-  background: var(--tiller-color-green);
+  background: var(--tiller-gradient-dark-rich, linear-gradient(160deg, #061510 0%, #0d2a1f 30%, #1a4a38 70%, #0f7a5a 100%));
   color: var(--tiller-text-light);
   padding: var(--tiller-spacing-2xl) 0 0 0;
   margin-top: var(--tiller-spacing-2xl);
+  position: relative;
+}
+
+.ts-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--tiller-gradient-gold, linear-gradient(90deg, #9a7a1a, #c9a227, #e8c848));
 }
 
 .footer-main {
