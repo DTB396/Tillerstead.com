@@ -186,18 +186,18 @@
   --tiller-grid-max-width: 1800px;
 
   /* Container Widths - 2026 Ultra-Wide Desktop Standard */
-  --tiller-container-max-width: min(96%, 2200px);
-  --tiller-container-content-width: min(94%, 2000px);
+  --tiller-container-max-width: min(98%, 2400px);
+  --tiller-container-content-width: min(96%, 2200px);
   --tiller-container-text-width: min(90%, 900px);
-  --tiller-container-wide: min(98%, 2400px);
+  --tiller-container-wide: min(100%, 2600px);
   --tiller-container-full: 100%;
   
   /* Breakpoint-specific containers - Progressive Enhancement */
-  --tiller-container-sm: min(100%, 600px);
-  --tiller-container-md: min(96%, 1600px);
-  --tiller-container-lg: min(94%, 1800px);
-  --tiller-container-xl: min(92%, 2000px);
-  --tiller-container-2xl: min(90%, 2200px);
+  --tiller-container-sm: min(100%, 640px);
+  --tiller-container-md: min(98%, 1800px);
+  --tiller-container-lg: min(96%, 2000px);
+  --tiller-container-xl: min(94%, 2200px);
+  --tiller-container-2xl: min(92%, 2400px);
   --tiller-container-xxl: min(88%, 2400px);
   --tiller-container-3xl: min(86%, 2600px);
 
@@ -419,16 +419,16 @@ button:focus-visible {
 
 /* Layout - 2026 Wide Desktop Standard */
 .container {
-  max-width: var(--tiller-container-max-width, 2200px);
+  max-width: var(--tiller-container-max-width, 2400px);
   margin: 0 auto;
-  padding: 0 clamp(1rem, 4vw, 4rem);
+  padding: 0 clamp(1rem, 3vw, 3rem);
   width: 100%;
 }
 
 .container-wide {
-  max-width: var(--tiller-container-wide, 2400px);
+  max-width: var(--tiller-container-wide, 2600px);
   margin: 0 auto;
-  padding: 0 clamp(1rem, 4vw, 4rem);
+  padding: 0 clamp(1rem, 3vw, 3rem);
   width: 100%;
 }
 
