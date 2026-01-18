@@ -51,7 +51,7 @@
 
 /* === SUBWAY TILE PATTERN (Classic 1/3 offset) === */
 .ts-pattern-subway {
-  background-color: var(--tiller-bg-main, #faf8f2);
+  background-color: var(--tiller-bg-main, #1a1c1a);
   background-image: 
     /* Horizontal grout lines */
     repeating-linear-gradient(
@@ -84,7 +84,7 @@
 
 /* Subway with offset (brick pattern) */
 .ts-pattern-subway-offset {
-  background-color: var(--tiller-bg-main, #faf8f2);
+  background-color: var(--tiller-bg-main, #1a1c1a);
   background-image: 
     repeating-linear-gradient(
       0deg,
@@ -102,7 +102,7 @@
 
 /* === HERRINGBONE PATTERN (Sophisticated diagonal) === */
 .ts-pattern-herringbone {
-  background-color: var(--tiller-bg-soft, #f4ece0);
+  background-color: var(--tiller-bg-soft, #222524);
   background-image: 
     /* Create subtle angular pattern suggesting herringbone */
     linear-gradient(45deg, transparent 48%, var(--tiller-grout-light) 48%, var(--tiller-grout-light) 52%, transparent 52%),
@@ -122,7 +122,7 @@
 
 /* === GRID PATTERN (Modern large format) === */
 .ts-pattern-grid {
-  background-color: var(--tiller-bg-main, #faf8f2);
+  background-color: var(--tiller-bg-main, #1a1c1a);
   background-image: 
     /* Vertical grout lines */
     repeating-linear-gradient(
@@ -151,7 +151,7 @@
 
 /* === STACKED GRID (Modern running bond) === */
 .ts-pattern-stacked {
-  background-color: var(--tiller-bg-alt, #ffffff);
+  background-color: var(--tiller-bg-slate, #2a2d2c);
   background-image: 
     repeating-linear-gradient(
       0deg,
@@ -170,7 +170,7 @@
 
 /* === WOOD-LOOK PLANK (Popular porcelain trend) === */
 .ts-pattern-plank {
-  background-color: var(--tiller-bg-soft, #f4ece0);
+  background-color: var(--tiller-bg-soft, #222524);
   background-image: 
     repeating-linear-gradient(
       0deg,
@@ -234,7 +234,7 @@
 
 /* Hero section with subtle grid pattern */
 .ts-hero-tiled {
-  background-color: var(--tiller-bg-main, #faf8f2);
+  background-color: var(--tiller-bg-main, #1a1c1a);
   background-image: 
     repeating-linear-gradient(
       90deg,
@@ -251,8 +251,8 @@
       var(--tiller-grout-white) 300px
     ),
     linear-gradient(135deg, 
-      var(--tiller-bg-main, #faf8f2) 0%, 
-      var(--tiller-bg-soft, #f4ece0) 100%);
+      var(--tiller-bg-main, #1a1c1a) 0%, 
+      var(--tiller-bg-soft, #222524) 100%);
   background-size: 
     300px 100%,
     100% 300px,
@@ -262,7 +262,7 @@
 
 /* Card backgrounds with tile texture */
 .ts-card-subway {
-  background-color: var(--tiller-bg-alt, #ffffff);
+  background-color: var(--tiller-bg-slate, #2a2d2c);
   background-image: var(--tiller-texture-ceramic);
   border: var(--tiller-grout-width-thin) solid var(--tiller-grout-light);
   position: relative;
@@ -368,7 +368,7 @@
 }
 
 .ts-gallery-grid > * {
-  background: var(--tiller-bg-alt, #ffffff);
+  background: var(--tiller-bg-slate, #2a2d2c);
   border-radius: var(--tiller-border-radius-sm, 4px);
 }
 
