@@ -11,48 +11,43 @@ is_home: true
 
 {%- comment -%}
   ============================================================
-  OPTIMIZED HOMEPAGE - Uses Organized Includes
+  OPTIMIZED HOMEPAGE - Tillerstead.com
   ============================================================
   
-  This is the NEW optimized homepage that leverages our 
-  organized _includes directory structure.
+  Architecture:
+  - Data-driven content from _data/home.yml
+  - Modular section includes from _includes/sections/
+  - External CSS in assets/css/pages/home.css
+  - Clean, maintainable, scalable structure
   
-  Benefits:
-  - Clean, maintainable code (was 848 lines, now <100)
-  - Reusable components across all pages
-  - Centralized content management via _data/home.yml
-  - Easy to update and test individual sections
-  - Follows Tillerstead taxonomy standards
-  
-  Structure:
-  1. Hero Section (hero/)
-  2. Services Preview (sections/)
-  3. Process Overview (sections/)
-  4. Materials/Compliance (sections/)
-  5. Social Proof/Testimonials (sections/)
-  6. Final CTA (sections/)
-  
-  All content is managed in _data/home.yml for easy updates.
+  Sections:
+  1. Hero - Primary value proposition with CTAs
+  2. Services - Core offerings grid
+  3. Process - How we work
+  4. Materials - Standards & compliance
+  5. Testimonials - Social proof
+  6. CTA - Final conversion section
 {%- endcomment -%}
 
-{%- assign data = site.data.home -%}
+{% assign data = site.data.home %}
 
-<!-- 1. Hero Section -->
+<!-- Hero Section -->
 {% include hero/hero.html data=data.hero %}
 
-<!-- 2. Services Preview Section -->
+<!-- Services Section -->
 {% include sections/section-services.html data=data.services %}
 
-<!-- 3. Process Section -->
+<!-- Process Section -->
 {% include sections/section-process.html data=data.process %}
 
-<!-- 4. Materials & Standards Section -->
+<!-- Materials Section -->
 {% include sections/section-materials.html data=data.materials %}
 
-<!-- 5. Testimonials Section -->
+<!-- Testimonials Section -->
 {% include sections/section-testimonials.html data=data.testimonials %}
 
-<!-- 6. Final CTA Section -->
+<!-- Final CTA Section -->
 {% include sections/section-cta.html data=data.cta %}
 
+<!-- Page-specific styles -->
 <link rel="stylesheet" href="/assets/css/pages/home.css">
