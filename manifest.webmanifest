@@ -1,30 +1,43 @@
 {
-  "name": "Tillerstead LLC",
+  "name": "Tillerstead LLC - Professional Tile Installation",
   "short_name": "Tillerstead",
-  "description": "TCNA-compliant tile, waterproofing, and bath remodeling in South Jersey.",
+  "description": "Where Craft Meets Accountability - TCNA-compliant tile installation in South Jersey",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f8f9fa",
-  "theme_color": "#0b1f33",
+  "theme_color": "#10b981",
+  "background_color": "#1f2937",
   "icons": [
     {
-      "src": "/assets/img/logo/tillerstead-icon-180.png",
+      "src": "/assets/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/android-chrome-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/icons/apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png"
     },
     {
-      "src": "/assets/img/logo/tillerstead-favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
-    },
-    {
-      "src": "/assets/img/logo/tillerstead-icon-32.png",
+      "src": "/assets/icons/favicon-32x32.png",
       "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "/assets/img/logo/tillerstead-icon-48.png",
-      "sizes": "48x48",
+      "src": "/assets/icons/favicon-16x16.png",
+      "sizes": "16x16",
       "type": "image/png"
     }
   ]
