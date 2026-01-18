@@ -467,6 +467,203 @@ label {
   color: var(--tiller-color-green, #0d2a1f);
 }
 
+/* ===== METALLIC GOLD EFFECTS ===== */
+.gold-metallic {
+  background: linear-gradient(
+    135deg,
+    #9a7a1a 0%,
+    #c9a227 15%,
+    #f0d860 30%,
+    #fff8dc 45%,
+    #f0d860 55%,
+    #c9a227 70%,
+    #9a7a1a 85%,
+    #725b13 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.3));
+}
+
+.gold-metallic-bg {
+  background: linear-gradient(
+    135deg,
+    #725b13 0%,
+    #9a7a1a 10%,
+    #c9a227 25%,
+    #f0d860 40%,
+    #fff8dc 50%,
+    #f0d860 60%,
+    #c9a227 75%,
+    #9a7a1a 90%,
+    #725b13 100%
+  );
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 248, 220, 0.6),
+    inset 0 -1px 0 rgba(114, 91, 19, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gold-metallic-border {
+  border: 2px solid;
+  border-image: linear-gradient(
+    135deg,
+    #9a7a1a, #c9a227, #f0d860, #fff8dc, #f0d860, #c9a227, #9a7a1a
+  ) 1;
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #c9a227 0%,
+    #f0d860 25%,
+    #fff8dc 50%,
+    #f0d860 75%,
+    #c9a227 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 3s ease-in-out infinite;
+}
+
+@keyframes goldShimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* Gold button with metallic effect */
+.btn-gold-metallic {
+  background: linear-gradient(
+    160deg,
+    #725b13 0%,
+    #9a7a1a 15%,
+    #c9a227 35%,
+    #e8c848 50%,
+    #c9a227 65%,
+    #9a7a1a 85%,
+    #725b13 100%
+  );
+  color: #0f1419;
+  font-weight: 700;
+  border: none;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 248, 220, 0.5),
+    inset 0 -1px 0 rgba(114, 91, 19, 0.3),
+    0 4px 15px rgba(201, 162, 39, 0.4);
+  text-shadow: 0 1px 0 rgba(255, 248, 220, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-gold-metallic:hover {
+  background: linear-gradient(
+    160deg,
+    #9a7a1a 0%,
+    #c9a227 20%,
+    #e8c848 40%,
+    #fff8dc 50%,
+    #e8c848 60%,
+    #c9a227 80%,
+    #9a7a1a 100%
+  );
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 248, 220, 0.7),
+    inset 0 -1px 0 rgba(114, 91, 19, 0.2),
+    0 6px 25px rgba(201, 162, 39, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ===== EMERALD GLOW EFFECTS ===== */
+.emerald-glow {
+  color: var(--tiller-color-green-vibrant, #0f7a5a);
+  text-shadow: 
+    0 0 10px rgba(15, 122, 90, 0.5),
+    0 0 20px rgba(15, 122, 90, 0.3),
+    0 0 40px rgba(15, 122, 90, 0.2);
+}
+
+.emerald-glow-intense {
+  color: #10b981;
+  text-shadow: 
+    0 0 5px rgba(16, 185, 129, 0.8),
+    0 0 15px rgba(16, 185, 129, 0.6),
+    0 0 30px rgba(16, 185, 129, 0.4),
+    0 0 50px rgba(16, 185, 129, 0.2);
+}
+
+.emerald-glow-bg {
+  background: var(--tiller-color-green, #0d2a1f);
+  box-shadow: 
+    0 0 15px rgba(15, 122, 90, 0.4),
+    0 0 30px rgba(15, 122, 90, 0.2),
+    inset 0 0 20px rgba(15, 122, 90, 0.1);
+}
+
+.emerald-glow-border {
+  border: 2px solid var(--tiller-color-green-vibrant, #0f7a5a);
+  box-shadow: 
+    0 0 10px rgba(15, 122, 90, 0.4),
+    inset 0 0 10px rgba(15, 122, 90, 0.1);
+}
+
+.emerald-pulse {
+  animation: emeraldPulse 2s ease-in-out infinite;
+}
+
+@keyframes emeraldPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 10px rgba(15, 122, 90, 0.4),
+      0 0 20px rgba(15, 122, 90, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 0 20px rgba(15, 122, 90, 0.6),
+      0 0 40px rgba(15, 122, 90, 0.4),
+      0 0 60px rgba(15, 122, 90, 0.2);
+  }
+}
+
+/* Emerald button with glow */
+.btn-emerald-glow {
+  background: var(--tiller-color-green, #0d2a1f);
+  color: #ffffff;
+  font-weight: 700;
+  border: none;
+  box-shadow: 
+    0 0 15px rgba(15, 122, 90, 0.4),
+    0 4px 15px rgba(13, 42, 31, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-emerald-glow:hover {
+  background: var(--tiller-color-green-light, #1a4a38);
+  box-shadow: 
+    0 0 25px rgba(15, 122, 90, 0.6),
+    0 0 50px rgba(15, 122, 90, 0.3),
+    0 6px 20px rgba(13, 42, 31, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ===== COMBINED EFFECTS - Gold & Emerald ===== */
+.gold-emerald-accent {
+  background: linear-gradient(135deg, #0d2a1f 0%, #1a4a38 50%, #c9a227 100%);
+  box-shadow: 
+    0 0 20px rgba(15, 122, 90, 0.3),
+    0 0 40px rgba(201, 162, 39, 0.2);
+}
+
+.text-gold-emerald {
+  background: linear-gradient(135deg, #0f7a5a 0%, #c9a227 50%, #e8c848 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px rgba(201, 162, 39, 0.3));
+}
+
 /* ===== Dark Section Styling ===== */
 .section-dark {
   background: var(--tiller-gradient-dark-rich);
