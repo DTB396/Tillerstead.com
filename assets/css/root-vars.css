@@ -89,6 +89,107 @@
   --tiller-gradient-dark-rich: linear-gradient(160deg, #061510 0%, #0d2a1f 30%, #1a4a38 70%, #0f7a5a 100%);
   --tiller-gradient-text: linear-gradient(135deg, #0d2a1f 0%, #1a4a38 50%, #c9a227 100%);
   
+  /* ===== HIGH-END GLASS & TRANSPARENCY GRADIENTS ===== */
+  
+  /* Glass Morphism - Frosted Effects */
+  --tiller-glass-light: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.9) 0%, 
+    rgba(255, 252, 245, 0.85) 50%, 
+    rgba(248, 246, 241, 0.8) 100%);
+  --tiller-glass-dark: linear-gradient(135deg, 
+    rgba(13, 42, 31, 0.95) 0%, 
+    rgba(26, 74, 56, 0.9) 50%, 
+    rgba(15, 122, 90, 0.85) 100%);
+  --tiller-glass-gold: linear-gradient(135deg, 
+    rgba(201, 162, 39, 0.15) 0%, 
+    rgba(232, 200, 72, 0.1) 50%, 
+    rgba(255, 248, 220, 0.08) 100%);
+  
+  /* Mesh Gradients - Premium Web Effect */
+  --tiller-mesh-emerald: radial-gradient(at 40% 20%, rgba(15, 122, 90, 0.25) 0%, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(26, 74, 56, 0.2) 0%, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(13, 42, 31, 0.3) 0%, transparent 50%),
+    radial-gradient(at 80% 50%, rgba(201, 162, 39, 0.15) 0%, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(15, 122, 90, 0.2) 0%, transparent 50%);
+  --tiller-mesh-gold: radial-gradient(at 0% 0%, rgba(232, 200, 72, 0.3) 0%, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(201, 162, 39, 0.25) 0%, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(154, 122, 26, 0.2) 0%, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(255, 248, 220, 0.15) 0%, transparent 50%);
+  
+  /* Card Gradients - Subtle Premium */
+  --tiller-card-gradient: linear-gradient(160deg, 
+    rgba(255, 255, 255, 1) 0%, 
+    rgba(255, 252, 245, 0.98) 40%,
+    rgba(248, 246, 241, 0.95) 100%);
+  --tiller-card-hover: linear-gradient(160deg, 
+    rgba(255, 255, 255, 1) 0%, 
+    rgba(255, 252, 245, 1) 30%,
+    rgba(201, 162, 39, 0.08) 100%);
+  --tiller-card-dark: linear-gradient(160deg, 
+    rgba(13, 42, 31, 0.98) 0%, 
+    rgba(26, 74, 56, 0.95) 50%,
+    rgba(15, 122, 90, 0.9) 100%);
+  
+  /* Nav & Dropdown Gradients */
+  --tiller-nav-glass: linear-gradient(180deg, 
+    rgba(255, 252, 245, 0.98) 0%, 
+    rgba(255, 252, 245, 0.95) 100%);
+  --tiller-dropdown-gradient: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.99) 0%, 
+    rgba(248, 246, 241, 0.97) 100%);
+  --tiller-dropdown-item-hover: linear-gradient(90deg, 
+    rgba(13, 42, 31, 0.08) 0%, 
+    rgba(13, 42, 31, 0.04) 50%,
+    transparent 100%);
+  
+  /* Footer Gradients - Rich Depth */
+  --tiller-footer-gradient: linear-gradient(180deg, 
+    rgba(6, 21, 16, 1) 0%, 
+    rgba(13, 42, 31, 0.98) 30%,
+    rgba(26, 74, 56, 0.95) 70%,
+    rgba(15, 122, 90, 0.9) 100%);
+  --tiller-footer-glass: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.05) 0%, 
+    rgba(255, 255, 255, 0.02) 100%);
+  
+  /* Section Gradients - Context Aware */
+  --tiller-section-light: linear-gradient(180deg, 
+    rgba(255, 255, 255, 1) 0%, 
+    rgba(255, 252, 245, 0.98) 50%,
+    rgba(248, 246, 241, 0.95) 100%);
+  --tiller-section-warm: linear-gradient(180deg, 
+    rgba(250, 247, 240, 1) 0%, 
+    rgba(245, 240, 232, 0.98) 50%,
+    rgba(201, 162, 39, 0.06) 100%);
+  --tiller-section-dark: linear-gradient(180deg, 
+    rgba(6, 21, 16, 1) 0%, 
+    rgba(13, 42, 31, 1) 50%,
+    rgba(26, 74, 56, 0.98) 100%);
+  
+  /* Overlay Gradients - For Images & Backgrounds */
+  --tiller-overlay-dark: linear-gradient(180deg, 
+    rgba(6, 21, 16, 0.9) 0%, 
+    rgba(13, 42, 31, 0.85) 50%,
+    rgba(13, 42, 31, 0.95) 100%);
+  --tiller-overlay-light: linear-gradient(180deg, 
+    rgba(255, 252, 245, 0.95) 0%, 
+    rgba(255, 252, 245, 0.9) 50%,
+    rgba(255, 252, 245, 0.98) 100%);
+  --tiller-overlay-gold: linear-gradient(135deg, 
+    rgba(201, 162, 39, 0.1) 0%, 
+    rgba(232, 200, 72, 0.05) 50%,
+    transparent 100%);
+  
+  /* Border Gradients */
+  --tiller-border-gradient: linear-gradient(135deg, 
+    rgba(201, 162, 39, 0.4) 0%, 
+    rgba(201, 162, 39, 0.2) 50%,
+    rgba(201, 162, 39, 0.4) 100%);
+  --tiller-border-emerald: linear-gradient(135deg, 
+    rgba(15, 122, 90, 0.4) 0%, 
+    rgba(26, 74, 56, 0.3) 50%,
+    rgba(15, 122, 90, 0.4) 100%);
+  
   /* ===== Buttons - High Impact ===== */
   --tiller-btn-primary-bg: var(--tiller-color-green);
   --tiller-btn-primary-text: #ffffff;
@@ -699,17 +800,192 @@ label {
   box-shadow: var(--tiller-shadow-xl), 0 0 30px rgba(201, 162, 39, 0.15);
 }
 
+/* ===== HIGH-END GLASS CARD SYSTEM ===== */
+.card-glass {
+  background: var(--tiller-card-gradient);
+  border-radius: var(--tiller-border-radius-lg, 12px);
+  border: 1px solid rgba(201, 162, 39, 0.15);
+  box-shadow: 
+    0 4px 24px rgba(13, 42, 31, 0.08),
+    0 1px 3px rgba(13, 42, 31, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(201, 162, 39, 0.3) 20%,
+    rgba(255, 248, 220, 0.5) 50%,
+    rgba(201, 162, 39, 0.3) 80%,
+    transparent 100%);
+}
+
+.card-glass:hover {
+  background: var(--tiller-card-hover);
+  transform: translateY(-6px);
+  box-shadow: 
+    0 12px 40px rgba(13, 42, 31, 0.12),
+    0 4px 12px rgba(201, 162, 39, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-color: rgba(201, 162, 39, 0.25);
+}
+
+/* High contrast text in cards */
+.card-glass h2,
+.card-glass h3,
+.card-glass h4 {
+  color: var(--tiller-color-green, #0d2a1f);
+  font-weight: 700;
+}
+
+.card-glass p {
+  color: var(--tiller-text-body, #1f2937);
+}
+
+/* Dark Glass Card */
+.card-glass-dark {
+  background: var(--tiller-card-dark);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.card-glass-dark::before {
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(201, 162, 39, 0.4) 20%,
+    rgba(232, 200, 72, 0.6) 50%,
+    rgba(201, 162, 39, 0.4) 80%,
+    transparent 100%);
+}
+
+.card-glass-dark:hover {
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(15, 122, 90, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* High contrast text on dark cards */
+.card-glass-dark h2,
+.card-glass-dark h3,
+.card-glass-dark h4 {
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.card-glass-dark p {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.card-glass-dark .card-meta,
+.card-glass-dark .card-label {
+  color: var(--tiller-color-gold-light, #e8c848);
+}
+
+/* ===== SECTION GLASS EFFECTS ===== */
+.section-glass {
+  background: var(--tiller-section-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--tiller-mesh-gold);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.section-glass-dark {
+  background: var(--tiller-section-dark);
+  position: relative;
+}
+
+.section-glass-dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--tiller-mesh-emerald);
+  pointer-events: none;
+}
+
+/* High contrast text on dark sections */
+.section-glass-dark h1,
+.section-glass-dark h2,
+.section-glass-dark h3 {
+  color: #ffffff;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.section-glass-dark p {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.section-glass-dark .section-eyebrow {
+  color: var(--tiller-color-gold-light, #e8c848);
+  font-weight: 700;
+}
+
 /* =========================================================
    Footer Styles - Professional Design
-   UPGRADED: Rich gradient + high visibility
+   UPGRADED: Glass morphism + high visibility
    ========================================================= */
 
 .ts-footer {
-  background: var(--tiller-gradient-dark-rich, linear-gradient(160deg, #061510 0%, #0d2a1f 30%, #1a4a38 70%, #0f7a5a 100%));
+  background: var(--tiller-footer-gradient, linear-gradient(180deg, 
+    rgba(6, 21, 16, 1) 0%, 
+    rgba(13, 42, 31, 0.98) 30%,
+    rgba(26, 74, 56, 0.95) 70%,
+    rgba(15, 122, 90, 0.9) 100%));
   color: var(--tiller-text-light);
   padding: var(--tiller-spacing-2xl) 0 0 0;
   margin-top: var(--tiller-spacing-2xl);
   position: relative;
+  overflow: hidden;
+}
+
+/* Mesh gradient overlay for depth */
+.ts-footer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--tiller-mesh-emerald);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.ts-footer > * {
+  position: relative;
+  z-index: 1;
 }
 
 .ts-footer::before {
@@ -719,7 +995,15 @@ label {
   left: 0;
   right: 0;
   height: 4px;
-  background: var(--tiller-gradient-gold, linear-gradient(90deg, #9a7a1a, #c9a227, #e8c848));
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    rgba(154, 122, 26, 0.6) 10%,
+    rgba(201, 162, 39, 1) 30%,
+    rgba(232, 200, 72, 1) 50%,
+    rgba(201, 162, 39, 1) 70%,
+    rgba(154, 122, 26, 0.6) 90%,
+    transparent 100%);
+  z-index: 2;
 }
 
 .footer-main {
@@ -756,33 +1040,54 @@ label {
   font-style: italic;
 }
 
-/* Navigation Sections - Better block layout */
+/* Navigation Sections - Glass morphism block layout */
 .footer-sections {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--tiller-spacing-2xl);
+  gap: var(--tiller-spacing-xl);
   margin-bottom: var(--tiller-spacing-xl);
   padding: var(--tiller-spacing-xl) 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(201, 162, 39, 0.2);
 }
 
 .footer-group {
   min-width: 0;
-  padding: var(--tiller-spacing-md);
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: var(--tiller-border-radius-md);
+  padding: var(--tiller-spacing-lg);
+  background: linear-gradient(160deg, 
+    rgba(255, 255, 255, 0.08) 0%, 
+    rgba(255, 255, 255, 0.04) 50%,
+    rgba(255, 255, 255, 0.02) 100%);
+  border-radius: var(--tiller-border-radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.footer-group:hover {
+  background: linear-gradient(160deg, 
+    rgba(255, 255, 255, 0.12) 0%, 
+    rgba(255, 255, 255, 0.06) 50%,
+    rgba(201, 162, 39, 0.04) 100%);
+  border-color: rgba(201, 162, 39, 0.2);
+  transform: translateY(-2px);
 }
 
 .footer-group-title {
-  color: var(--tiller-color-gold);
-  font-size: 0.9rem;
+  color: var(--tiller-color-gold-light, #e8c848);
+  font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: var(--tiller-spacing-md);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   padding-bottom: var(--tiller-spacing-sm);
-  border-bottom: 2px solid var(--tiller-color-gold);
+  border-bottom: 2px solid;
+  border-image: linear-gradient(90deg, 
+    rgba(201, 162, 39, 0.8) 0%, 
+    rgba(232, 200, 72, 1) 50%,
+    rgba(201, 162, 39, 0.8) 100%) 1;
   display: inline-block;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .footer-list {
@@ -796,18 +1101,38 @@ label {
 }
 
 .footer-list a {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-size: 0.95rem;
-  transition: all 0.2s ease;
+  font-weight: 500;
+  transition: all 0.25s ease;
   display: inline-block;
-  padding: 2px 0;
+  padding: 4px 0;
+  position: relative;
+}
+
+.footer-list a::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(232, 200, 72, 1) 0%, 
+    rgba(201, 162, 39, 0.6) 100%);
+  transition: width 0.25s ease;
 }
 
 .footer-list a:hover,
 .footer-list a:focus {
-  color: var(--tiller-color-gold);
-  transform: translateX(4px);
+  color: var(--tiller-color-gold-light, #e8c848);
+  transform: translateX(6px);
+  text-shadow: 0 0 12px rgba(232, 200, 72, 0.3);
+}
+
+.footer-list a:hover::after {
+  width: 100%;
 }
 
 /* Contact Section - Refined layout */
