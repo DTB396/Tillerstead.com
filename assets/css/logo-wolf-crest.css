@@ -64,28 +64,32 @@
   width: auto;
 }
 
-/* Header Logo */
+/* Header Logo - Visible on dark header background
+   NOTE: navigation.css controls the primary header logo sizing.
+   These rules provide fallback/override only if needed. */
 .ts-header__logo .logo-image {
   width: auto;
-  height: 90px; /* Prominent on desktop */
-  max-width: 100%;
+  height: 48px;
+  max-width: 200px;
   object-fit: contain;
+  /* Visibility on dark backgrounds */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 /* Minimized header state */
 .ts-header--minimized .ts-header__logo .logo-image {
-  height: 65px;
+  height: 36px;
   transition: height 0.3s ease;
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .ts-header__logo .logo-image {
-    height: 65px;
+    height: 40px;
   }
   
   .ts-header--minimized .ts-header__logo .logo-image {
-    height: 55px;
+    height: 32px;
   }
   
   .hero-logo .logo-image {

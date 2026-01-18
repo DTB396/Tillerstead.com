@@ -1,15 +1,12 @@
 /* ============================================
    Homepage Styles - Tillerstead.com
    DARK THEME - Uses variables from root-vars.css
+   
+   Note: Container system is defined in root-vars.css.
+   Homepage sections use .container from the global system.
    ============================================ */
 
-/* Layout Utilities */
-.container {
-  max-width: min(96%, 2000px);
-  margin: 0 auto;
-  padding: 0 clamp(1rem, 3vw, 2rem);
-}
-
+/* Background Utilities */
 .bg-soft {
   background: var(--tiller-bg-dark, #1a1c1a);
 }

@@ -13,5 +13,102 @@
 [context.production.environment]
   JEKYLL_ENV = "production"      # Enables minification, accessibility, and compliance checks
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# HTTP Headers - 2026 Web Standards Compliance
+# Security, Performance, and Caching headers for optimal delivery
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Global security headers for all pages
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Resource-Policy = "same-origin"
+
+# Immutable assets - Long cache with immutable flag (CSS, JS, fonts)
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "text/css; charset=utf-8"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Images - Long cache (1 year) with stale-while-revalidate
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/assets/icons/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# WebP images
+[[headers]]
+  for = "*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, stale-while-revalidate=86400"
+    Content-Type = "image/webp"
+
+# SVG files
+[[headers]]
+  for = "*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "image/svg+xml"
+
+# HTML pages - Short cache with revalidation
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+
+# Web manifest and service worker - Frequent revalidation
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "application/manifest+json"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+    Content-Type = "application/javascript"
+
+# Sitemap and robots - Daily revalidation
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "application/xml"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# PDF downloads
+[[headers]]
+  for = "/assets/downloads/*.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+    Content-Type = "application/pdf"
+
 # All assets, images, and references must follow OUTPUT_RULES.md conventions.
 # For legal, accessibility, and NJ HIC requirements, see _data/compliance.yml.

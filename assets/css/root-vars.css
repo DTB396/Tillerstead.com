@@ -242,6 +242,8 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizelegibility;
+  /* Eliminate white gutters on wide screens */
+  background-color: var(--tiller-bg-darkest, #0a0c0a);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -269,6 +271,19 @@ body {
   font-size: var(--tiller-font-size-base, 1rem);
   line-height: var(--tiller-line-height-normal, 1.5);
   overflow-x: hidden;
+  /* Full-bleed: no horizontal restrictions */
+  min-width: 100%;
+}
+
+/* Full-bleed body wrapper */
+.ts-body {
+  background-color: var(--tiller-bg-main);
+  min-height: 100vh;
+}
+
+/* Main content area - full-bleed sections */
+.ts-main-content {
+  background-color: var(--tiller-bg-main);
 }
 
 :focus-visible {
@@ -457,23 +472,43 @@ button:focus-visible {
   text-decoration: none;
 }
 
-/* Layout - 2026 Wide Desktop Standard */
+/* ===== UNIFIED CONTAINER SYSTEM =====
+   Full-bleed sections with bounded content.
+   Use .container for standard content width.
+   Use .container--wide or .container-wide for wider layouts.
+   Use .container--content for text-optimized (narrow) content.
+   ===================================== */
 .container {
-  max-width: var(--tiller-container-max-width, 2400px);
-  margin: 0 auto;
-  padding: 0 clamp(1rem, 3vw, 3rem);
-  width: 100%;
+  --container-max: 72rem; /* 1152px - readable content width */
+  width: min(100% - 2rem, var(--container-max));
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 2rem);
 }
 
+/* Wide container variant - BEM style (preferred) */
+.container--wide {
+  --container-max: 96rem; /* 1536px - wide layouts */
+}
+
+/* Wide container variant - backward compatible alias */
 .container-wide {
-  max-width: var(--tiller-container-wide, 2600px);
-  margin: 0 auto;
-  padding: 0 clamp(1rem, 3vw, 3rem);
-  width: 100%;
+  --container-max: 96rem; /* Same as --wide */
 }
 
+/* Content container - text-optimized narrow */
+.container--content {
+  --container-max: 52rem; /* 832px - optimal for reading */
+}
+
+/* Full-width container - edge to edge with padding */
+.container--full {
+  --container-max: 100%;
+  padding-inline: clamp(1rem, 4vw, 3rem);
+}
+
+/* Legacy container sizes for compatibility */
 .container-sm {
-  max-width: var(--tiller-container-sm);
+  --container-max: 40rem; /* 640px */
 }
 
 .container-md {

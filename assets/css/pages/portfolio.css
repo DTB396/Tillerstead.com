@@ -1,10 +1,6 @@
-/* Portfolio Page Styles - DARK THEME */
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
+/* Portfolio Page Styles - DARK THEME
+   Note: Container system is defined in root-vars.css.
+   Portfolio uses .container--wide for gallery layouts. */
 
 .portfolio-hero {
   padding: 4rem 0;

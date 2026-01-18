@@ -5,6 +5,9 @@
   <!-- Jekyll include: no DOCTYPE needed, ensure space indentation -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#10b981" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#059669" media="(prefers-color-scheme: dark)" />
 
 <title>Privacy Policy | Tillerstead | Tillerstead LLC</title>
 
@@ -12,6 +15,10 @@
 <meta name="description" content="Read our privacy policy to understand how Tillerstead handles your data and ensures your privacy." />
 
 
+<!-- DNS Prefetch & Preconnect for external resources -->
+<link rel="dns-prefetch" href="//www.google-analytics.com" />
+<link rel="dns-prefetch" href="//formsubmit.co" />
+<link rel="preconnect" href="https://www.thumbtack.com" crossorigin />
 
 <!-- Favicons & App Icons -->
 <!-- Favicons & App Icons -->
@@ -37,21 +44,32 @@
 <meta name="theme-color" content="#10b981">
 
 
+<!-- Resource Hints: Preload critical CSS (render-blocking) -->
+<link rel="preload" href="/assets/css/root-vars.css" as="style" />
+<link rel="preload" href="/assets/css/main.css" as="style" />
+
+
+<!-- Module Preload for critical JS -->
+<link rel="modulepreload" href="/assets/js/main.js" />
+
 <!-- Core & Utility CSS: Load variables first, then base, then layout, then components, then page/utilities -->
-<link rel="stylesheet" href="/assets/css/root-vars.css">
-<link rel="stylesheet" href="/assets/css/tile-patterns.css">
-<link rel="stylesheet" href="/assets/css/tile-integrations.css">
-<link rel="stylesheet" href="/assets/css/retro-enhancements.css">
-<link rel="stylesheet" href="/assets/css/logo-wolf-crest.css">
-<link rel="stylesheet" href="/assets/css/main.css">
-<link rel="stylesheet" href="/assets/css/nav-drawer.css">
-<link rel="stylesheet" href="/assets/css/navigation.css">
+<link rel="stylesheet" href="/assets/css/root-vars.css" />
+<link rel="stylesheet" href="/assets/css/tile-patterns.css" />
+<link rel="stylesheet" href="/assets/css/tile-integrations.css" />
+<link rel="stylesheet" href="/assets/css/retro-enhancements.css" />
+<link rel="stylesheet" href="/assets/css/logo-wolf-crest.css" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+<link rel="stylesheet" href="/assets/css/nav-drawer.css" />
+<link rel="stylesheet" href="/assets/css/navigation.css" />
 
 
 <!-- Page-specific stylesheets -->
 
 
 <!-- Page-specific scripts -->
+
+
+<!-- Prefetch secondary pages for instant navigation -->
 
 
 <!-- Page-specific styles/scripts can be added below -->
@@ -1019,9 +1037,8 @@
 
   
 
-  <main class="ts-section ts-main-content" role="main" id="main-content">
-    <div class="container container-wide">
-      <section class="hero-section">
+  <main class="ts-main-content" role="main" id="main-content">
+    <section class="hero-section">
   <div class="container">
     <h1 class="hero-title">Privacy Policy</h1>
     <p class="hero-summary">Read our privacy policy to understand how Tillerstead handles your data and ensures your privacy.</p>
@@ -1131,7 +1148,6 @@
 
 
 
-    </div>
   </main>
 
   

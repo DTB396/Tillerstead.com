@@ -87,7 +87,8 @@
 
 .ts-header__logo-link {
   display: flex;
-  border-radius: 50%;
+  align-items: center;
+  border-radius: 6px;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -100,31 +101,32 @@
   outline-offset: 3px;
 }
 
-/* Logo - Compact but prominent */
+/* Logo - Accommodate picture element with responsive img inside */
 .ts-header__logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: contain;
-  background: transparent;
-  box-shadow: 
-    0 2px 10px rgba(16, 185, 129, 0.3),
-    0 0 0 1px rgba(201, 162, 39, 0.35);
+  display: block;
+  border-radius: 6px;
+  overflow: visible;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  animation: logo-glow 3s ease-in-out infinite;
+}
+
+/* Logo image inside picture element */
+.ts-header__logo .logo-image {
+  display: block;
+  width: auto;
+  height: 48px;
+  max-height: 48px;
+  object-fit: contain;
+  /* Drop shadow for visibility on dark header background */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  transition: all 0.3s ease;
 }
 
 @keyframes logo-glow {
   0%, 100% {
-    box-shadow: 
-      0 4px 20px rgba(16, 185, 129, 0.3),
-      0 0 0 2px rgba(201, 162, 39, 0.4);
+    filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.3));
   }
   50% {
-    box-shadow: 
-      0 4px 30px rgba(16, 185, 129, 0.5),
-      0 0 0 3px rgba(201, 162, 39, 0.6),
-      0 0 40px rgba(16, 185, 129, 0.2);
+    filter: drop-shadow(0 2px 16px rgba(16, 185, 129, 0.5));
   }
 }
 
@@ -185,12 +187,9 @@
   gap: 0.5rem;
 }
 
-.ts-header--minimized .ts-header__logo {
-  width: 32px;
-  height: 32px;
-  box-shadow: 
-    0 2px 6px rgba(16, 185, 129, 0.2),
-    0 0 0 1px rgba(201, 162, 39, 0.25);
+.ts-header--minimized .ts-header__logo .logo-image {
+  height: 36px;
+  max-height: 36px;
 }
 
 .ts-header--minimized .ts-header__branding {
@@ -844,16 +843,16 @@
     padding: 0.375rem 1rem;
   }
   
-  /* Keep compact logo on tablets */
-  .ts-header__logo {
-    width: 48px;
-    height: 48px;
+  /* Tablet logo sizing */
+  .ts-header__logo .logo-image {
+    height: 40px;
+    max-height: 40px;
   }
   
-  /* Even more compact minimized state */
-  .ts-header--minimized .ts-header__logo {
-    width: 32px;
+  /* Minimized state on tablets */
+  .ts-header--minimized .ts-header__logo .logo-image {
     height: 32px;
+    max-height: 32px;
   }
   
   .ts-header--minimized .ts-header__company {
@@ -911,16 +910,16 @@
     display: none;
   }
   
-  /* Compact logo on small phones */
-  .ts-header__logo {
-    width: 44px;
-    height: 44px;
+  /* Small phone logo sizing */
+  .ts-header__logo .logo-image {
+    height: 36px;
+    max-height: 36px;
   }
   
   /* Very compact minimized on small phones */
-  .ts-header--minimized .ts-header__logo {
-    width: 28px;
+  .ts-header--minimized .ts-header__logo .logo-image {
     height: 28px;
+    max-height: 28px;
   }
   
   .ts-header--minimized .ts-header__company {
@@ -967,14 +966,14 @@
 
 /* Very small phones */
 @media (max-width: 360px) {
-  .ts-header__logo {
-    width: 40px;
-    height: 40px;
+  .ts-header__logo .logo-image {
+    height: 32px;
+    max-height: 32px;
   }
   
-  .ts-header--minimized .ts-header__logo {
-    width: 24px;
+  .ts-header--minimized .ts-header__logo .logo-image {
     height: 24px;
+    max-height: 24px;
   }
   
   .ts-header__company {
