@@ -1,109 +1,98 @@
-- category: "General Questions"
   items:
-    - question: "What areas do you serve?"
+    - question: "What areas do you cover?"
       answer: |
-        We serve homeowners throughout <strong>Atlantic, Ocean, and Cape May Counties</strong> in South Jersey. This includes towns like Egg Harbor Township, Galloway, Toms River, Brick, Ocean City, Sea Isle City, and the surrounding areas.
+        We serve <strong>Atlantic, Ocean, and Cape May Counties</strong> in South Jersey, including Egg Harbor Township, Galloway, Toms River, Brick, Ocean City, Sea Isle City, and nearby towns.
     - question: "Are you licensed and insured?"
       answer: |
-        Yes. Tillerstead LLC is a <strong>New Jersey licensed Home Improvement Contractor (HIC #13VH10808800)</strong>. We carry full liability insurance and can provide certificates upon request. Per New Jersey law, all bathroom and tile work requiring permits must be performed by licensed contractors.
-    - question: "What is your warranty?"
+        Yes. Tillerstead LLC is a <strong>New Jersey licensed Home Improvement Contractor (HIC #13VH10808800)</strong> with full liability insurance. Certificates are available on request. All permitted bathroom and tile work is performed by licensed professionals as required by law.
+    - question: "What warranty do you offer?"
       answer: |
-        We provide a <strong>2-year workmanship warranty</strong> on all installations. This covers defects in our work—not normal wear, homeowner damage, or issues caused by settling or structural movement. Manufacturer warranties on materials (tile, membranes, grout) are separate and typically longer.
-    - question: "Do I get a written contract?"
+        We provide a <strong>2-year workmanship warranty</strong> covering defects in our installation. Manufacturer warranties on materials are separate and often longer. Normal wear, homeowner damage, or structural movement are not covered.
+    - question: "Will I get a written contract?"
       answer: |
-        Absolutely. Per New Jersey Consumer Fraud Act requirements, every project over $500 includes a written contract detailing scope of work, materials, timeline, payment schedule, and your 3-day right of rescission. You'll never be surprised by what's included—or not included.
+        Yes. Every project over $500 includes a detailed written contract per New Jersey law, outlining scope, materials, timeline, payment schedule, and your 3-day right to cancel. No surprises—everything is clearly documented.
 
-- category: "Project Process"
   items:
-    - question: "How do I get an estimate?"
+    - question: "How do I request an estimate?"
       answer: |
-        Contact us through our <a href="/contact/">estimate request form</a> or call <a href="tel:+16098628808">(609) 862-8808</a>. We'll schedule a site visit to assess your space, discuss your goals, and provide a detailed written estimate. There's no charge and no obligation.
-    - question: "Do you pull permits?"
+        Use our <a href="/contact/">estimate request form</a> or call <a href="tel:+16098628808">(609) 862-8808</a>. We'll visit your site, discuss your goals, and provide a free, detailed written estimate.
+    - question: "Do you handle permits?"
       answer: |
-        When permits are required, yes. Bathroom remodels involving plumbing, structural changes, or electrical work typically need permits. We handle the permit process and coordinate inspections. Some cosmetic-only work may be exempt—we'll clarify this during the estimate. <a href="/build/nj-codes-permits/">Learn more about NJ codes and permits →</a>
-    - question: "How long does a bathroom remodel take?"
+        Yes, when required. We manage the permit process and inspections for projects needing plumbing, structural, or electrical work. Cosmetic-only jobs may not need permits—we'll clarify during your estimate. <a href="/build/nj-codes-permits/">Learn more about NJ codes and permits →</a>
+    - question: "How long will my project take?"
       answer: |
-        Timelines vary by scope:
+        Typical timelines:
         <ul>
-          <li><strong>Tile-only projects:</strong> 3-7 days</li>
-          <li><strong>Shower rebuild with waterproofing:</strong> 1-2 weeks</li>
-          <li><strong>Full bathroom remodel:</strong> 2-4 weeks</li>
+          <li><strong>Tile-only:</strong> 3–7 days</li>
+          <li><strong>Shower rebuild:</strong> 1–2 weeks</li>
+          <li><strong>Full remodel:</strong> 2–4 weeks</li>
         </ul>
-        We provide a specific timeline in your contract. Delays can occur due to permit scheduling, material lead times, or discovery of hidden issues—we communicate proactively if anything changes.
-    - question: "What is your payment schedule?"
+        You'll get a specific schedule in your contract. We communicate proactively about any delays.
+    - question: "How does payment work?"
       answer: |
-        Typical structure for larger projects:
+        For larger projects:
         <ul>
-          <li><strong>Deposit:</strong> 30-50% at contract signing (covers materials)</li>
-          <li><strong>Progress payment:</strong> At defined milestones</li>
-          <li><strong>Final payment:</strong> Upon completion and walkthrough</li>
+          <li><strong>Deposit:</strong> 30–50% at contract signing (covers materials)</li>
+          <li><strong>Progress payments:</strong> At milestones</li>
+          <li><strong>Final payment:</strong> After completion and walkthrough</li>
         </ul>
-        Smaller projects may use a simpler 50/50 structure. All payment terms are documented in your contract.
+        Smaller jobs may use a 50/50 split. All terms are in your contract.
 
-- category: "Technical Questions"
   items:
-    - question: "What is TCNA and why does it matter?"
+    - question: "What is TCNA compliance?"
       answer: |
-        The <strong>Tile Council of North America (TCNA)</strong> publishes the industry-standard Handbook for Ceramic, Glass, and Stone Tile Installation. It defines tested methods for substrate prep, waterproofing, and tile installation that prevent failures. When we say "TCNA-compliant," we mean we follow these proven methods—not shortcuts or guesswork. This matters because most tile failures trace back to skipped steps in the TCNA sequence. <a href="/build/">Explore our Build Phase guides →</a>
-    - question: "Do you do flood testing?"
+        The <strong>Tile Council of North America (TCNA)</strong> sets industry standards for tile installation. We follow TCNA methods for prep, waterproofing, and installation—no shortcuts. Most tile failures result from skipping these steps. <a href="/build/">Explore our Build Phase guides →</a>
+    - question: "Do you perform flood testing?"
       answer: |
-        When project scope and site conditions allow, yes. Flood testing per ASTM D5957 verifies that the shower pan holds water <em>before</em> tile conceals the assembly. It's the only way to confirm waterproofing integrity. Not all projects require or allow flood testing (some modern bonded systems are verified differently), but when applicable, we document results with photos. <a href="/build/flood-testing/">Learn about flood testing →</a>
-    - question: "What waterproofing systems do you use?"
+        Yes, when the project allows. Flood testing (ASTM D5957) checks shower pan waterproofing before tile is installed. Not all systems require it, but when done, we document results with photos. <a href="/build/flood-testing/">Learn about flood testing →</a>
+    - question: "Which waterproofing systems do you use?"
       answer: |
-        We use <strong>ANSI A118.10 compliant</strong> waterproofing systems appropriate to each project:
+        We use <strong>ANSI A118.10-compliant</strong> systems:
         <ul>
           <li><strong>Sheet membranes:</strong> Schluter DITRA/KERDI, Laticrete Hydro Ban Board</li>
-          <li><strong>Liquid-applied membranes:</strong> Laticrete Hydro Ban, Custom RedGard</li>
-          <li><strong>Traditional systems:</strong> Hot-mopped or CPE liners (for specific applications)</li>
+          <li><strong>Liquid membranes:</strong> Laticrete Hydro Ban, Custom RedGard</li>
+          <li><strong>Traditional:</strong> Hot-mop or CPE liners (as needed)</li>
         </ul>
-        System selection depends on substrate, drain type, and project requirements. We never mix incompatible systems. <a href="/blog/waterproofing-redgard-vs-kerdi-vs-hydroban/">See our detailed comparison of RedGard, KERDI, and HYDRO BAN systems.</a> <a href="/build/waterproofing-systems/">Learn about waterproofing →</a>
+        We select the right system for your project and never mix incompatible products. <a href="/blog/waterproofing-redgard-vs-kerdi-vs-hydroban/">See our comparison of RedGard, KERDI, and HYDRO BAN.</a> <a href="/build/waterproofing-systems/">Learn about waterproofing →</a>
     - question: "Can you install large-format tile?"
       answer: |
-        Yes. Large-format tile (any side over 15") requires specific techniques:
+        Yes. Large-format tile (over 15") needs:
         <ul>
-          <li>Substrate flatness to ANSI standards (1/8" in 10')</li>
-          <li>Full coverage back-buttering</li>
-          <li>Appropriate lippage control systems</li>
-          <li>Medium-bed mortars for irregular substrates</li>
+          <li>Substrate flatness to ANSI specs (1/8" in 10')</li>
+          <li>Full back-buttering</li>
+          <li>Lippage control systems</li>
+          <li>Medium-bed mortars if needed</li>
         </ul>
-        We assess substrate conditions during the estimate and include any necessary prep work in the scope. <a href="/build/tile-installation-standards/">Learn about tile installation →</a>
-    - question: "What about heated floors?"
+        We assess and prep as needed. <a href="/build/tile-installation-standards/">Learn about tile installation →</a>
+    - question: "Do you install heated floors?"
       answer: |
-        We install electric radiant floor heating systems under tile. This requires:
-        <ul>
-          <li>Proper subfloor evaluation</li>
-          <li>Uncoupling membrane compatibility</li>
-          <li>Coordination with electrician for thermostat/circuit</li>
-          <li>Modified thinset for heat-system compatibility</li>
-        </ul>
-        Heated floors add comfort and can be installed in bathrooms, entryways, or any tiled space.
+        Yes, we install electric radiant floor heating under tile. This includes subfloor evaluation, uncoupling membrane, electrician coordination, and compatible thinset. Heated floors add comfort to any tiled space.
 
-- category: "Materials & Selection"
   items:
-    - question: "Do you supply tile, or do I buy it myself?"
+    - question: "Do you supply tile, or should I?"
       answer: |
-        Either approach works:
+        Either works:
         <ul>
-          <li><strong>We supply:</strong> We source tile through trade accounts, often at better pricing than retail. We handle ordering, delivery, and overage calculations.</li>
-          <li><strong>You supply:</strong> You choose and purchase tile yourself. We'll advise on quantity (including 10-15% overage) and verify suitability for your application.</li>
+          <li><strong>We supply:</strong> We source tile at trade pricing, handle ordering, delivery, and overage.</li>
+          <li><strong>You supply:</strong> You choose and buy tile/grout; we advise on quantity and suitability.</li>
         </ul>
-        Installation materials (thinset, grout, waterproofing) are typically included in our scope regardless of who supplies tile.
-    - question: "What grout do you recommend?"
+        We always include installation materials (thinset, waterproofing) in our scope.
+    - question: "Which grout do you recommend?"
       answer: |
-        For most applications, we recommend <strong>epoxy or urethane grouts</strong>:
+        We recommend <strong>epoxy or urethane grout</strong> for most jobs:
         <ul>
-          <li>Stain-resistant without sealing</li>
-          <li>Color-consistent over time</li>
-          <li>More durable in wet areas</li>
+          <li>No sealing needed</li>
+          <li>Consistent color</li>
+          <li>Superior durability in wet areas</li>
         </ul>
-        Traditional cement grouts are still appropriate for some applications. We'll discuss options and their maintenance requirements during planning.
-    - question: "Can I use natural stone in a shower?"
+        Cement grout is an option for some projects. We'll review choices and maintenance with you.
+    - question: "Can I use natural stone in my shower?"
       answer: |
-        Yes, with proper planning. Natural stone requires:
+        Yes, with proper planning. Natural stone needs:
         <ul>
-          <li>Sealing (initial and periodic maintenance)</li>
-          <li>Appropriate slope for drainage</li>
+          <li>Sealing (initial and ongoing)</li>
+          <li>Proper slope for drainage</li>
           <li>Compatible setting materials</li>
-          <li>Understanding of maintenance requirements</li>
+          <li>Realistic maintenance expectations</li>
         </ul>
-        Some stones (marble, limestone) are more porous and require more attention than others (granite, slate). We'll discuss realistic expectations during consultation.
+        Some stones (like marble) are more porous and require more care. We'll discuss details during your consultation.

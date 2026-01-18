@@ -85,17 +85,8 @@ CORE CAPABILITIES section for Tillerstead homepage. Supports: - String format:
           {% endif %}
           <img
             src="{{ photo.src | relative_url }}"
-            alt="{{ photo.alt | default: 'Detail of TCNA-compliant tile installation in New Jersey' }}"
-            {%
-            if
-            photo.width
-            and
-            photo.height
-            %}width="{{ photo.width }}"
-            height="{{ photo.height }}"
-            {%
-            endif
-            %}
+            alt="{{ photo.alt | default: 'Detail of TCNA-compliant tile installation by NJ licensed HIC contractor' }}"
+            {% if photo.width and photo.height %}width="{{ photo.width }}" height="{{ photo.height }}"{% endif %}
             loading="lazy"
             decoding="async"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

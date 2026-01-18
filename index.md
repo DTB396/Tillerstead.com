@@ -11,42 +11,58 @@ is_home: true
 
 {%- comment -%}
   ============================================================
-  OPTIMIZED HOMEPAGE - Tillerstead.com
+  TILLERSTEAD HOMEPAGE - Professional Yet Personable
   ============================================================
   
-  Architecture:
-  - Data-driven content from _data/home.yml
-  - Modular section includes from _includes/sections/
-  - External CSS in assets/css/pages/home.css
-  - Clean, maintainable, scalable structure
+  Brand Personality: Serious craftsmanship + approachable attitude
+  - Lead with trust signals (credentials, standards, experience)
+  - Balance professionalism with personality
+  - Clear path to conversion without being pushy
   
-  Sections:
-  1. Hero - Primary value proposition with CTAs
-  2. Services - Core offerings grid
-  3. Process - How we work
-  4. Materials - Standards & compliance
-  5. Testimonials - Social proof
-  6. CTA - Final conversion section
+  Optimized Flow:
+  1. Hero - Bold intro with personality + immediate trust
+  2. Trust Bar - Quick credibility boost (license, reviews, certifications)
+  3. Services - What we do best
+  4. Why Choose Us - Differentiators with character
+  5. Process - Transparent, no-surprises workflow
+  6. Portfolio/Gallery - Show don't tell
+  7. Testimonials - Real people, real results
+  8. CTA - Friendly, low-pressure next step
 {%- endcomment -%}
 
 {% assign data = site.data.home %}
 
-<!-- Hero Section -->
+<!-- Hero Section - First Impression Matters -->
 {% include hero/hero.html data=data.hero %}
 
-<!-- Services Section -->
+<!-- Trust Bar - Quick Credibility -->
+{% if data.trust_bar %}
+{% include sections/section-trust-bar.html data=data.trust_bar %}
+{% endif %}
+
+<!-- Services Section - Core Offerings -->
 {% include sections/section-services.html data=data.services %}
 
-<!-- Process Section -->
+<!-- Why Choose Us - Stand Out From Competition -->
+{% if data.why_us %}
+{% include sections/section-why-us.html data=data.why_us %}
+{% endif %}
+
+<!-- Process Section - Transparency Builds Trust -->
 {% include sections/section-process.html data=data.process %}
 
-<!-- Materials Section -->
+<!-- Portfolio/Gallery - Proof of Quality -->
+{% if data.portfolio %}
+{% include sections/section-portfolio.html data=data.portfolio %}
+{% endif %}
+
+<!-- Materials Section - Standards & Compliance -->
 {% include sections/section-materials.html data=data.materials %}
 
-<!-- Testimonials Section -->
+<!-- Testimonials Section - Social Proof -->
 {% include sections/section-testimonials.html data=data.testimonials %}
 
-<!-- Final CTA Section -->
+<!-- Final CTA Section - Friendly Conversion -->
 {% include sections/section-cta.html data=data.cta %}
 
 <!-- Page-specific styles -->

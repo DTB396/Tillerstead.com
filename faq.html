@@ -20,11 +20,11 @@ body_class: page-faq
   </section>
 
   <!-- Peace of Mind Assurance -->
-  {% include components/ts-peace-of-mind.html %} {% for section in site.data.faq %}
+  {% include components/ts-peace-of-mind.html %}
+  {% for section in site.data.faq %}
   <section
-    class="ts-section ts-faq{% if forloop.index0.odd? %} bg-soft{% endif %}"
-    aria-labelledby="faq-{{ forloop.index }}"
-  >
+    class="ts-section ts-faq{% if forloop.index | modulo: 2 == 0 %} bg-soft{% endif %}"
+    aria-labelledby="faq-{{ forloop.index }}">
     <div class="container">
       <header class="section-header">
         <h2 id="faq-{{ forloop.index }}" class="heading-3">
@@ -35,8 +35,7 @@ body_class: page-faq
         {% for faq in section.items %}
         <details
           class="faq-item"
-          {% if forloop.first and forloop.parentloop.first %}
-          open{% endif %}
+          {% if forloop.first and forloop.parentloop.first %}open{% endif %}
         >
           <summary>{{ faq.question }}</summary>
           <div class="faq-body">{{ faq.answer | markdownify }}</div>
@@ -61,6 +60,9 @@ body_class: page-faq
         <a href="/contact/" class="btn btn--secondary">Request Free Estimate</a>
         <a href="tel:+16098628808" class="btn btn--ghost-white"
           >Call (609) 862-8808</a
+        >
+        <a href="mailto:info@tillerstead.com" class="btn btn--ghost-white"
+          >Email info@tillerstead.com</a
         >
       </div>
     </div>
