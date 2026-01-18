@@ -13,218 +13,40 @@
 
 
 
+<!-- Favicons & App Icons -->
+<!-- Favicons & App Icons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+<!-- Apple Touch Icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/assets/icons/apple-touch-icon-precomposed.png">
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.webmanifest">
+
+<!-- Safari Pinned Tab -->
+<!-- <link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg" color="#10b981"> -->
+
+<!-- Microsoft Tiles -->
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#10b981">
+
+<!-- Theme Color -->
+<meta name="theme-color" content="#10b981">
+
+
 <!-- Core & Utility CSS: Load variables first, then base, then layout, then components, then page/utilities -->
 <link rel="stylesheet" href="/assets/css/root-vars.css">
 <link rel="stylesheet" href="/assets/css/tile-patterns.css">
 <link rel="stylesheet" href="/assets/css/tile-integrations.css">
 <link rel="stylesheet" href="/assets/css/retro-enhancements.css">
+<link rel="stylesheet" href="/assets/css/logo-wolf-crest.css">
 <link rel="stylesheet" href="/assets/css/main.css">
 <link rel="stylesheet" href="/assets/css/nav-drawer.css">
 <link rel="stylesheet" href="/assets/css/navigation.css">
 <link rel="stylesheet" href="/assets/css/home.css">
-
-
-
-<!-- Logo sprite -->
-<!-- SVG Logo Sprite - Tillerstead brand marks -->
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  aria-hidden="true"
-  style="position: absolute; width: 0; height: 0; overflow: hidden"
->
-  <defs>
-    <style>
-      .logo-tile {
-        fill: var(--logo-fill, #10b981);
-        stroke: var(--logo-stroke, #0b6cff);
-        stroke-width: 10;
-        stroke-linejoin: round;
-        stroke-linecap: round;
-      }
-
-      .logo-word {
-        fill: #0b6cff;
-        font: 800 46px 'Inter', 'Segoe UI', Arial, sans-serif;
-        letter-spacing: 1.4px;
-      }
-
-      .logo-sub {
-        fill: #10b981;
-        font: 600 18px 'Inter', 'Segoe UI', Arial, sans-serif;
-        opacity: 0.9;
-      }
-
-      .logo-sub-small {
-        font-size: 16px;
-      }
-    </style>
-
-    <!-- Base tile mark shape, padded so stroke is not clipped -->
-    <g id="ts-mark-shape" transform="translate(10 10)">
-      <rect class="logo-tile" x="0" y="0" width="42" height="42" rx="6" />
-      <rect class="logo-tile" x="60" y="0" width="42" height="42" rx="6" />
-      <rect class="logo-tile" x="120" y="0" width="42" height="42" rx="6" />
-      <rect class="logo-tile" x="60" y="60" width="42" height="42" rx="6" />
-      <rect class="logo-tile" x="60" y="120" width="42" height="42" rx="6" />
-    </g>
-  </defs>
-
-  <!-- MARK ONLY -->
-
-  <symbol id="logo-mark" viewBox="0 0 190 190">
-    <use href="#ts-mark-shape" />
-  </symbol>
-
-  <symbol id="logo-mark-mono" viewBox="0 0 190 190">
-    <use
-      href="#ts-mark-shape"
-      style="--logo-fill: currentColor; --logo-stroke: currentColor"
-    />
-  </symbol>
-
-  <!-- HORIZONTAL FULL LOGO -->
-
-  <symbol id="logo-full" viewBox="0 0 760 220">
-    <use href="#ts-mark-shape" x="20" y="26" />
-    <text class="logo-word" x="220" y="90">TILLERSTEAD</text>
-    <text class="logo-sub" x="220" y="130">
-      Tile • Remodeling • Property Maintenance
-    </text>
-    <text class="logo-sub logo-sub-small" x="220" y="160">
-      New Jersey licensed HIC #13VH10808800
-    </text>
-  </symbol>
-
-  <symbol id="logo-full-mono" viewBox="0 0 760 220">
-    <use
-      href="#ts-mark-shape"
-      x="20"
-      y="26"
-      style="--logo-fill: currentColor; --logo-stroke: currentColor"
-    />
-    <text
-      fill="currentColor"
-      x="220"
-      y="90"
-      font-size="46"
-      font-weight="800"
-      font-family="Inter, 'Segoe UI', Arial, sans-serif"
-      letter-spacing="1.4"
-    >
-      TILLERSTEAD
-    </text>
-    <text
-      fill="currentColor"
-      x="220"
-      y="130"
-      font-size="18"
-      font-weight="600"
-      font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
-      opacity=".9"
-    >
-      Tile • Remodeling • Property Maintenance
-    </text>
-    <text
-      fill="currentColor"
-      x="220"
-      y="160"
-      font-size="16"
-      font-weight="600"
-      font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
-      opacity=".9"
-    >
-      New Jersey licensed HIC #13VH10808800
-    </text>
-  </symbol>
-
-  <!-- STACKED LOGO -->
-
-  <symbol id="logo-stacked" viewBox="0 0 260 320">
-    <use href="#ts-mark-shape" x="58" y="24" />
-    <text
-      x="130"
-      y="210"
-      font-size="32"
-      font-weight="800"
-      font-family="Inter, 'Segoe UI', Arial, sans-serif"
-      letter-spacing="1.2"
-      fill="#0b6cff"
-      text-anchor="middle"
-    >
-      TILLERSTEAD
-    </text>
-    <text
-      x="130"
-      y="242"
-      font-size="14"
-      font-weight="600"
-      font-family="Inter, 'Segoe UI', Arial, sans-serif"
-      opacity=".9"
-      fill="#10b981"
-      text-anchor="middle"
-    >
-      Tile • Remodeling • Property Maintenance
-    </text>
-    <text
-      x="130"
-      y="268"
-      font-size="12"
-      font-weight="600"
-      font-family="Inter, 'Segoe UI', Arial, sans-serif"
-      opacity=".9"
-      fill="#10b981"
-      text-anchor="middle"
-    >
-      New Jersey licensed HIC #13VH10808800
-    </text>
-  </symbol>
-
-  <symbol id="logo-stacked-mono" viewBox="0 0 260 320">
-    <use
-      href="#ts-mark-shape"
-      x="58"
-      y="24"
-      style="--logo-fill: currentColor; --logo-stroke: currentColor"
-    />
-    <text
-      x="130"
-      y="210"
-      font-size="32"
-      font-weight="800"
-      font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
-      letter-spacing="1.2"
-      fill="currentColor"
-      text-anchor="middle"
-    >
-      TILLERSTEAD
-    </text>
-    <text
-      x="130"
-      y="242"
-      font-size="14"
-      font-weight="600"
-      font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
-      opacity=".9"
-      fill="currentColor"
-      text-anchor="middle"
-    >
-      Tile • Remodeling • Property Maintenance
-    </text>
-    <text
-      x="130"
-      y="268"
-      font-size="12"
-      font-weight="600"
-      font-family="Inter,Manrope,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
-      opacity=".9"
-      fill="currentColor"
-      text-anchor="middle"
-    >
-      New Jersey licensed HIC #13VH10808800
-    </text>
-  </symbol>
-</svg>
-
 
 
 <!-- Page-specific stylesheets -->
@@ -483,21 +305,48 @@
   <div class="ts-header__container">
     <!-- Branding Section -->
     <div class="ts-header__branding">
-      <!-- Logo with link to home -->
-      <a href="/" class="ts-header__logo-link" aria-label="Tillerstead LLC - Go to homepage">
-        <img 
-          src="/assets/img/logo/4k-logo.png" 
-          alt="Tillerstead Logo" 
-          class="ts-header__logo"
-          id="header-logo"
-          width="72"
-          height="72"
-          loading="eager"
-        />
+      <!-- Wolf Crest Logo with link to home -->
+      <a href="/" class="ts-header__logo-link" aria-label="Tillerstead LLC - Where Craft Meets Accountability - Go to homepage">
+        <!-- 
+  Wolf Crest Logo Component
+  Responsive, optimized logo with WebP support and retina displays
+  
+  Usage: { % include components/logo-wolf-crest.html class="custom-class" % }
+-->
+
+
+
+<picture class="ts-header__logo">
+  <!-- Mobile: compact version -->
+  <source media="(max-width: 640px)" 
+          srcset="/assets/img/logo/logo-wolf-crest-compact.webp 1x,
+                  /assets/img/logo/logo-wolf-crest-compact@2x.webp 2x"
+          type="image/webp">
+  <source media="(max-width: 640px)" 
+          srcset="/assets/img/logo/logo-wolf-crest-compact.png 1x,
+                  /assets/img/logo/logo-wolf-crest-compact@2x.png 2x"
+          type="image/png">
+  
+  <!-- Desktop: full logo -->
+  <source srcset="/assets/img/logo/logo-wolf-crest-header.webp 1x,
+                  /assets/img/logo/logo-wolf-crest-header@2x.webp 2x"
+          type="image/webp">
+  <source srcset="/assets/img/logo/logo-wolf-crest-header.png 1x,
+                  /assets/img/logo/logo-wolf-crest-header@2x.png 2x"
+          type="image/png">
+  
+  <img src="/assets/img/logo/logo-wolf-crest-header.png"
+       alt="Tillerstead LLC - Where Craft Meets Accountability"
+       width="400"
+       height="120"
+       class="logo-image"
+       loading="eager">
+</picture>
+
       </a>
       <div class="ts-header__info">
         <span class="ts-header__company">Tillerstead LLC</span>
-        <span class="ts-header__tagline">Expert Tile &amp; Stone</span>
+        <span class="ts-header__tagline">Where Craft Meets Accountability</span>
         <span class="ts-header__region">South Jersey • <abbr title="New Jersey Home Improvement Contractor">NJ HIC</abbr> #13VH10808800</span>
       </div>
     </div>
@@ -1767,8 +1616,43 @@
   <div class="footer-main">
     <!-- Logo Section -->
     <div class="footer-logo-section">
-      <a href="/" aria-label="Tillerstead Home">
-        <img src="/assets/img/logo/optimized-logo.png" alt="Tillerstead Logo" class="footer-logo">
+      <a href="/" aria-label="Tillerstead Home - Where Craft Meets Accountability" class="site-footer__logo">
+        <!-- 
+  Wolf Crest Logo Component
+  Responsive, optimized logo with WebP support and retina displays
+  
+  Usage: { % include components/logo-wolf-crest.html class="custom-class" % }
+-->
+
+
+
+<picture class="site-logo">
+  <!-- Mobile: compact version -->
+  <source media="(max-width: 640px)" 
+          srcset="/assets/img/logo/logo-wolf-crest-compact.webp 1x,
+                  /assets/img/logo/logo-wolf-crest-compact@2x.webp 2x"
+          type="image/webp">
+  <source media="(max-width: 640px)" 
+          srcset="/assets/img/logo/logo-wolf-crest-compact.png 1x,
+                  /assets/img/logo/logo-wolf-crest-compact@2x.png 2x"
+          type="image/png">
+  
+  <!-- Desktop: full logo -->
+  <source srcset="/assets/img/logo/logo-wolf-crest-header.webp 1x,
+                  /assets/img/logo/logo-wolf-crest-header@2x.webp 2x"
+          type="image/webp">
+  <source srcset="/assets/img/logo/logo-wolf-crest-header.png 1x,
+                  /assets/img/logo/logo-wolf-crest-header@2x.png 2x"
+          type="image/png">
+  
+  <img src="/assets/img/logo/logo-wolf-crest-header.png"
+       alt="Tillerstead LLC - Where Craft Meets Accountability"
+       width="400"
+       height="120"
+       class="logo-image"
+       loading="eager">
+</picture>
+
       </a>
       <p class="footer-tagline">Expert Tile & Stone Installation — South Jersey</p>
     </div>

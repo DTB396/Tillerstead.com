@@ -1,0 +1,124 @@
+/* =========================================================
+   Wolf Crest Logo Styles - Enhanced & Prominent Display
+   Premium heritage brand positioning
+   ========================================================= */
+
+/* Header Logo - Make it prominent */
+.ts-header__logo-link {
+  display: block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.ts-header__logo-link:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.ts-header__logo {
+  display: block;
+}
+
+.ts-header__logo .logo-image {
+  width: auto;
+  height: 80px; /* Larger on desktop */
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Minimized header state */
+.ts-header--minimized .ts-header__logo .logo-image {
+  height: 60px;
+  transition: height 0.3s ease;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .ts-header__logo .logo-image {
+    height: 60px;
+  }
+  
+  .ts-header--minimized .ts-header__logo .logo-image {
+    height: 50px;
+  }
+}
+
+/* Footer Logo - Also prominent */
+.site-footer__logo {
+  margin-bottom: var(--spacing-lg);
+}
+
+.site-footer__logo .logo-image {
+  width: auto;
+  height: 100px; /* Even larger in footer */
+  max-width: 280px;
+  object-fit: contain;
+}
+
+/* Homepage Hero Logo - Extra large */
+.hero-logo {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.hero-logo .logo-image {
+  width: auto;
+  height: 150px; /* Extra large for hero */
+  max-width: 500px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .hero-logo .logo-image {
+    height: 100px;
+    max-width: 320px;
+  }
+}
+
+/* About/Premium Pages - Showcase logo */
+.page-logo-showcase {
+  text-align: center;
+  padding: var(--spacing-2xl) 0;
+  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-stone) 100%);
+}
+
+.page-logo-showcase .logo-image {
+  width: auto;
+  height: 180px; /* Very large for showcase */
+  max-width: 600px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+}
+
+/* Logo in cards/components */
+.logo-compact .logo-image {
+  height: 40px;
+  width: auto;
+}
+
+/* Print styles */
+@media print {
+  .ts-header__logo .logo-image,
+  .site-footer__logo .logo-image {
+    height: 60px;
+    filter: grayscale(100%);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .ts-header__logo .logo-image,
+  .site-footer__logo .logo-image {
+    filter: contrast(1.2);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ts-header__logo-link {
+    transition: none;
+  }
+  
+  .ts-header__logo-link:hover {
+    transform: none;
+  }
+}
