@@ -6,10 +6,10 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>Portfolio | Tillerstead | Tillerstead LLC</title>
+<title>Our Work | Tillerstead Portfolio | Tillerstead LLC</title>
 
 
-<meta name="description" content="See completed tile and bathroom projects by Tillerstead in South Jersey. TCNA-compliant, code-compliant, and built to last." />
+<meta name="description" content="Real projects, real results. TCNA-compliant tile installations and bathroom remodels in Atlantic, Ocean, and Cape May Counties." />
 
 
 
@@ -425,8 +425,8 @@
   },
   "schemaOrg": {
     "@type": "TechArticle",
-    "headline": "Portfolio | Tillerstead",
-    "description": "See completed tile and bathroom projects by Tillerstead in South Jersey. TCNA-compliant, code-compliant, and built to last.",
+    "headline": "Our Work | Tillerstead Portfolio",
+    "description": "Real projects, real results. TCNA-compliant tile installations and bathroom remodels in Atlantic, Ocean, and Cape May Counties.",
     "url": "https://tillerstead.com/portfolio/",
     "inLanguage": "en-US",
     "isPartOf": {
@@ -445,15 +445,15 @@
 }
 </script>
 
-  <meta property="og:title" content="Portfolio | Tillerstead" />
-  <meta property="og:description" content="See completed tile and bathroom projects by Tillerstead in South Jersey. TCNA-compliant, code-compliant, and built to last." />
+  <meta property="og:title" content="Our Work | Tillerstead Portfolio" />
+  <meta property="og:description" content="Real projects, real results. TCNA-compliant tile installations and bathroom remodels in Atlantic, Ocean, and Cape May Counties." />
   <meta property="og:image" content="" />
   <meta property="og:url" content="https://tillerstead.com/portfolio/" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Portfolio | Tillerstead" />
-  <meta name="twitter:description" content="See completed tile and bathroom projects by Tillerstead in South Jersey. TCNA-compliant, code-compliant, and built to last." />
+  <meta name="twitter:title" content="Our Work | Tillerstead Portfolio" />
+  <meta name="twitter:description" content="Real projects, real results. TCNA-compliant tile installations and bathroom remodels in Atlantic, Ocean, and Cape May Counties." />
   <meta name="twitter:image" content="" />
-  <title>Portfolio | Tillerstead | Tillerstead NJ HIC</title>
+  <title>Our Work | Tillerstead Portfolio | Tillerstead NJ HIC</title>
   <meta name="theme-color" content="#2a5d4e">
   
   <script src="/assets/js/portfolio.js"></script>
@@ -704,13 +704,15 @@
 
     // Function to toggle mobile navigation
     const toggleMobileNav = () => {
-      const isOpen = mobileNav.style.display === 'block';
+      const isOpen = mobileNav.classList.contains('open');
       if (isOpen) {
         body.classList.remove('nav-open');
-        mobileNav.style.display = 'none';
+        mobileNav.classList.remove('open');
+        mobileNav.setAttribute('aria-hidden', 'true');
       } else {
         body.classList.add('nav-open');
-        mobileNav.style.display = 'block';
+        mobileNav.classList.add('open');
+        mobileNav.setAttribute('aria-hidden', 'false');
       }
     };
 
@@ -755,7 +757,518 @@
 
   <main class="ts-section ts-main-content" role="main" id="main-content">
     <div class="container container-wide">
+      <!-- Hero Section -->
+<section class="portfolio-hero">
+  <div class="container">
+    <header class="section-header">
+      <h1 class="section-title">Our Work</h1>
+      <p class="section-summary">
+        Real projects built to TCNA standards. Every project documented, every detail verified, 
+        every homeowner protected with licensed, insured workmanship.
+      </p>
+      <p class="hero-badge">Licensed NJ HIC #13VH10808800</p>
+    </header>
+  </div>
+</section>
+
+<!-- Portfolio Gallery -->
+<section class="portfolio-gallery">
+  <div class="container">
+    <!-- Filter Buttons -->
+    <div class="portfolio-filters">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="showers">Showers</button>
+      <button class="filter-btn" data-filter="floors">Floors</button>
+      <button class="filter-btn" data-filter="large-format">Large-Format Tile</button>
+      <button class="filter-btn" data-filter="prep">Prep & Waterproofing</button>
+    </div>
+
+    <!-- Project Grid -->
+    <div class="project-grid">
       
+      
+      <article class="project-card" data-tags="showers floors">
+        <div class="project-image">
+          <img 
+            src="/assets/img/tillerstead-work/bathrooms/after-entry-shot.jpg" 
+            alt="Completed bathroom tile installation by Tillerstead LLC in South Jersey"
+            loading="lazy"
+          />
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Full Bathroom Tile Installation</h3>
+          <p class="project-caption">Finished bathroom system with documented prep, clean lines, and wet-area detailing consistent with TCNA methods and applicable ANSI standards.
+</p>
+          
+          <div class="project-tags">
+            
+            <span class="tag">showers</span>
+            
+            <span class="tag">floors</span>
+            
+          </div>
+          
+        </div>
+      </article>
+      
+      <article class="project-card" data-tags="showers large-format">
+        <div class="project-image">
+          <img 
+            src="/assets/img/tillerstead-work/bathrooms/after-lft-vanity-wall.jpg" 
+            alt="Large-format tile vanity wall with aligned layout and finished edges"
+            loading="lazy"
+          />
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Large-Format Vanity Wall</h3>
+          <p class="project-caption">Large-format tile layout with straight lines, finished edges, and substrate preparation verified for the tile format.
+</p>
+          
+          <div class="project-tags">
+            
+            <span class="tag">showers</span>
+            
+            <span class="tag">large-format</span>
+            
+          </div>
+          
+        </div>
+      </article>
+      
+      <article class="project-card" data-tags="showers details">
+        <div class="project-image">
+          <img 
+            src="/assets/img/tillerstead-work/bathrooms/bathroom-wall-tile-detail-pre-grout.jpg" 
+            alt="Bathroom wall tile detail before grout showing consistent joint spacing"
+            loading="lazy"
+          />
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Wall Tile Detail (Pre-Grout)</h3>
+          <p class="project-caption">Pre-grout detail: consistent spacing, clean cuts, and readiness checks completed before grout and final seal-up.
+</p>
+          
+          <div class="project-tags">
+            
+            <span class="tag">showers</span>
+            
+            <span class="tag">details</span>
+            
+          </div>
+          
+        </div>
+      </article>
+      
+      <article class="project-card" data-tags="floors large-format in-progress">
+        <div class="project-image">
+          <img 
+            src="/assets/img/tillerstead-work/bathrooms/large-format-tile-installation.jpg" 
+            alt="Large-format tile installation in progress with clip system for lippage control"
+            loading="lazy"
+          />
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Large-Format Tile Installation (In Progress)</h3>
+          <p class="project-caption">In-progress install: clip system used to manage lippage, mortar and trowel selection matched to the tile, and coverage verified during setting.
+</p>
+          
+          <div class="project-tags">
+            
+            <span class="tag">floors</span>
+            
+            <span class="tag">large-format</span>
+            
+            <span class="tag">in-progress</span>
+            
+          </div>
+          
+        </div>
+      </article>
+      
+      <article class="project-card" data-tags="floors showers prep">
+        <div class="project-image">
+          <img 
+            src="/assets/img/tillerstead-work/bathrooms/lft-decoupling-membrane-sealed.jpeg" 
+            alt="Uncoupling or waterproofing membrane installed over a prepared substrate for tile assembly"
+            loading="lazy"
+          />
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Membrane + Substrate Prep</h3>
+          <p class="project-caption">Prep phase: membrane installed over a prepared substrate to support the tile assembly. Details and transitions completed per the selected system specifications.
+</p>
+          
+          <div class="project-tags">
+            
+            <span class="tag">floors</span>
+            
+            <span class="tag">showers</span>
+            
+            <span class="tag">prep</span>
+            
+          </div>
+          
+        </div>
+      </article>
+      
+      <article class="project-card" data-tags="floors remodeling">
+        <div class="project-image">
+          <img 
+            src="/assets/img/tillerstead-work/floors/hardwood-room.jpg" 
+            alt="Hardwood flooring installation showing clean lines and transitions"
+            loading="lazy"
+          />
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Hardwood Flooring (Scope Diversity)</h3>
+          <p class="project-caption">Hardwood installation with clean transitions and substrate preparation consistent with manufacturer requirements.
+</p>
+          
+          <div class="project-tags">
+            
+            <span class="tag">floors</span>
+            
+            <span class="tag">remodeling</span>
+            
+          </div>
+          
+        </div>
+      </article>
+      
+    </div>
+
+    <!-- Compliance Note -->
+    <div class="portfolio-note">
+      <p>NJ HIC #13VH10808800 · Tile assemblies follow TCNA 2024 methods and applicable ANSI A108/A118 standards.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="portfolio-cta bg-primary">
+  <div class="container">
+    <div class="cta-content">
+      <h2 class="cta-title">Ready to Start Your Project?</h2>
+      <p class="cta-summary">
+        Get a written estimate with clear scope, transparent pricing, and no surprises.
+      </p>
+      <div class="cta-actions">
+        <a href="/contact/" class="btn btn--white btn--large">Request Estimate</a>
+        <a href="/services/" class="btn btn--outline-white btn--large">View Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Portfolio Page Styles */
+:root {
+  --color-primary: #2a5d4e;
+  --color-text: #222;
+  --color-text-secondary: #555;
+  --color-border: #e0e0e0;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.portfolio-hero {
+  padding: var(--spacing-xl) 0;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8f0ed 100%);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md);
+}
+
+.section-summary {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: var(--color-primary);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.portfolio-gallery {
+  padding: var(--spacing-xl) 0;
+}
+
+.portfolio-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+.filter-btn {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: white;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.filter-btn.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.project-card {
+  background: white;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.project-card.hidden {
+  display: none;
+}
+
+.project-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-content {
+  padding: var(--spacing-lg);
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm);
+}
+
+.project-caption {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: #f5f5f5;
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 999px;
+}
+
+.portfolio-note {
+  text-align: center;
+  padding: var(--spacing-lg);
+  background: #f9f9f9;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-primary);
+}
+
+.portfolio-note p {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.portfolio-cta {
+  padding: var(--spacing-xl) 0;
+}
+
+.bg-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.cta-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: var(--spacing-md);
+}
+
+.cta-summary {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--spacing-lg);
+}
+
+.cta-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.btn--large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+.btn--white {
+  background: white;
+  color: var(--color-primary);
+}
+
+.btn--white:hover {
+  background: #f5f5f5;
+  transform: translateY(-1px);
+}
+
+.btn--outline-white {
+  background: transparent;
+  color: white;
+  border-color: white;
+}
+
+.btn--outline-white:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-actions {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}
+</style>
+
+<script>
+// Simple filtering without dependencies
+document.addEventListener('DOMContentLoaded', function() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+  
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const filter = this.getAttribute('data-filter');
+      
+      // Update active button
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Filter projects
+      projectCards.forEach(card => {
+        const tags = card.getAttribute('data-tags');
+        
+        if (filter === 'all' || tags.includes(filter)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+});
+</script>
+
+
+
     </div>
   </main>
 
@@ -768,60 +1281,80 @@
 
 <footer class="ts-footer" aria-label="Site Footer">
   <div class="footer-main">
+    <!-- Logo Section -->
     <div class="footer-logo-section">
       <a href="/" aria-label="Tillerstead Home">
         <img src="/assets/img/logo/optimized-logo.png" alt="Tillerstead Logo" class="footer-logo logo-footer mx-auto mb-footer">
       </a>
       <p class="footer-tagline bright-blue fw-bold text-center">Expert Tile & Stone Installation — South Jersey</p>
     </div>
-    <div class="footer-sections flex-wrap gap-footer justify-center">
-      <section class="footer-group" aria-label="Build Guides">
-        <h3 class="footer-group-title">Build Guides</h3>
-        <ul class="footer-list">
-          <li><a href="/build/nj-codes-permits/">Codes, Permits & Inspections</a></li>
-          <li><a href="/build/shower-pans-slopes-drains/">Shower Pans, Slopes & Drains</a></li>
-          <li><a href="/build/waterproofing-systems/">Waterproofing Systems</a></li>
-          <li><a href="/build/curbs-curbless/">Curbs & Curbless Showers</a></li>
-        </ul>
-      </section>
-      <section class="footer-group" aria-label="Learn">
-        <h3 class="footer-group-title">Learn</h3>
-        <ul class="footer-list">
-          <li><a href="/faq.html">FAQ</a></li>
-          <li><a href="/blog.html">Blog</a></li>
-          <li><a href="/products.html">Products</a></li>
-        </ul>
-      </section>
-      <section class="footer-group" aria-label="Service Areas">
-        <h3 class="footer-group-title">Service Areas</h3>
-        <ul class="footer-list">
-          <li><a href="/atlantic-county-nj.html">Atlantic County</a></li>
-          <li><a href="/ocean-county-nj.html">Ocean County</a></li>
-          <li><a href="/cape-may-county-nj.html">Cape May County</a></li>
-        </ul>
-      </section>
-      <section class="footer-group" aria-label="Company">
-        <h3 class="footer-group-title">Company</h3>
-        <ul class="footer-list">
-          <li><a href="/about.html">About</a></li>
 
-        </ul>
-      </section>
-      <section class="footer-group" aria-label="Legal">
-        <h3 class="footer-group-title">Legal</h3>
+    <!-- Footer Navigation Sections -->
+    <div class="footer-sections flex-wrap gap-footer justify-center">
+      
+      <section class="footer-group" aria-label="">
+        <h3 class="footer-group-title"></h3>
         <ul class="footer-list">
-          <li><a href="/privacy.html">Privacy</a></li>
-          <li><a href="/terms.html">Terms</a></li>
+          
         </ul>
       </section>
+      
+      <section class="footer-group" aria-label="">
+        <h3 class="footer-group-title"></h3>
+        <ul class="footer-list">
+          
+        </ul>
+      </section>
+      
+      <section class="footer-group" aria-label="">
+        <h3 class="footer-group-title"></h3>
+        <ul class="footer-list">
+          
+        </ul>
+      </section>
+      
+      <section class="footer-group" aria-label="">
+        <h3 class="footer-group-title"></h3>
+        <ul class="footer-list">
+          
+        </ul>
+      </section>
+      
+      <section class="footer-group" aria-label="">
+        <h3 class="footer-group-title"></h3>
+        <ul class="footer-list">
+          
+        </ul>
+      </section>
+      
+      <section class="footer-group" aria-label="">
+        <h3 class="footer-group-title"></h3>
+        <ul class="footer-list">
+          
+        </ul>
+      </section>
+      
     </div>
+
+    <!-- Contact Section -->
     <div class="footer-contact mt-footer-contact text-center">
       <p class="footer-license bright-blue fs-footer fw-medium">NJ HIC #13VH10808800</p>
       <address class="footer-address normal-font dark-text fs-footer-address">
         325 E. Jimmie Leeds Road, Suite 7-333<br />
         Galloway, NJ 08205
       </address>
-      <p class="footer-contact-email mt-footer-email fs-footer-address"><a href="mailto:info@tillerstead.com" class="bright-blue">info@tillerstead.com</a></p>
+      <p class="footer-contact-email mt-footer-email fs-footer-address">
+        <a href="mailto:info@tillerstead.com" class="bright-blue">info@tillerstead.com</a>
+      </p>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="footer-social text-center mt-footer-social">
+      <ul class="social-links">
+        <li><a href="" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+        <li><a href="" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+      </ul>
     </div>
   </div>
 </footer>

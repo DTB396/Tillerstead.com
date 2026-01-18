@@ -9,7 +9,7 @@
 <title>Home | Tillerstead LLC</title>
 
 
-<meta name="description" content="Tillerstead, a licensed NJ HIC contractor, specializes in TCNA-compliant tile showers, waterproofing, and bathroom remodeling. Serving Atlantic, Ocean, and Cape May Counties, we adhere to TCNA Handbook and New Jersey HIC law, providing transparent pricing, technical precision, and results that stand the test of time." />
+<meta name="description" content="Standards-based tile installation and waterproofing for South Jersey homeowners. Licensed NJ HIC #13VH10808800." />
 
 
 
@@ -426,7 +426,7 @@
   "schemaOrg": {
     "@type": "TechArticle",
     "headline": "Home",
-    "description": "Tillerstead, a licensed NJ HIC contractor, specializes in TCNA-compliant tile showers, waterproofing, and bathroom remodeling. Serving Atlantic, Ocean, and Cape May Counties, we adhere to TCNA Handbook and New Jersey HIC law, providing transparent pricing, technical precision, and results that stand the test of time.",
+    "description": "Standards-based tile installation and waterproofing for South Jersey homeowners. Licensed NJ HIC #13VH10808800.",
     "url": "https://tillerstead.com/",
     "inLanguage": "en-US",
     "isPartOf": {
@@ -446,12 +446,12 @@
 </script>
 
   <meta property="og:title" content="Home" />
-  <meta property="og:description" content="Tillerstead, a licensed NJ HIC contractor, specializes in TCNA-compliant tile showers, waterproofing, and bathroom remodeling. Serving Atlantic, Ocean, and Cape May Counties, we adhere to TCNA Handbook and New Jersey HIC law, providing transparent pricing, technical precision, and results that stand the test of time." />
+  <meta property="og:description" content="Standards-based tile installation and waterproofing for South Jersey homeowners. Licensed NJ HIC #13VH10808800." />
   <meta property="og:image" content="" />
   <meta property="og:url" content="https://tillerstead.com/" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Home" />
-  <meta name="twitter:description" content="Tillerstead, a licensed NJ HIC contractor, specializes in TCNA-compliant tile showers, waterproofing, and bathroom remodeling. Serving Atlantic, Ocean, and Cape May Counties, we adhere to TCNA Handbook and New Jersey HIC law, providing transparent pricing, technical precision, and results that stand the test of time." />
+  <meta name="twitter:description" content="Standards-based tile installation and waterproofing for South Jersey homeowners. Licensed NJ HIC #13VH10808800." />
   <meta name="twitter:image" content="" />
   <title>Home | Tillerstead NJ HIC</title>
   <meta name="theme-color" content="#2a5d4e">
@@ -702,13 +702,15 @@
 
     // Function to toggle mobile navigation
     const toggleMobileNav = () => {
-      const isOpen = mobileNav.style.display === 'block';
+      const isOpen = mobileNav.classList.contains('open');
       if (isOpen) {
         body.classList.remove('nav-open');
-        mobileNav.style.display = 'none';
+        mobileNav.classList.remove('open');
+        mobileNav.setAttribute('aria-hidden', 'true');
       } else {
         body.classList.add('nav-open');
-        mobileNav.style.display = 'block';
+        mobileNav.classList.add('open');
+        mobileNav.setAttribute('aria-hidden', 'false');
       }
     };
 
@@ -753,438 +755,1016 @@
 
   <main class="ts-section ts-main-content" role="main" id="main-content">
     <div class="container container-wide">
-      <section class="ts-section ts-local-trust" aria-labelledby="local-trust-title">
+      
+<!-- Hero Section -->
+<section class="home-hero">
   <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Licensed New Jersey HIC #13VH10808800 · Standards-Driven Work</p>
+        <h1 class="hero-title">Tile, Waterproofing &amp; Bathroom Remodeling Built the Right Way</h1>
+        <p class="hero-subtitle">Measured. Verified. Documented.</p>
+        <p class="hero-summary">Beautiful finishes start with the invisible work: flat substrates, correct materials, and a waterproofing system built as a complete assembly. We follow published tile industry methods and manufacturer requirements—so your bathroom performs long after the final photo.
+</p>
+        
+        <div class="hero-actions">
+          <a href="/contact/" class="btn btn--primary btn--large">
+            Request a Written Estimate
+          </a>
+          <a href="/portfolio/" class="btn btn--secondary-outline btn--large">
+            View Portfolio
+          </a>
+        </div>
 
-    <!-- Section Header -->
-    <header class="section-header text-center">
-      <span class="eyebrow">Southern New Jersey</span>
-      <h2 id="local-trust-title" class="heading-2">Licensed, Insured &amp; Local</h2>
-      <p class="lead">Clear scope, clean execution, and standards-referenced
-installation—explained in plain English.</p>
-    </header>
-
-    <!-- Trust Stats Cards -->
-    <div class="cards cards--4col">
-
-      <div class="card card--stat text-center">
-        <p class="stat-number text-primary">TCNA</p>
-        <p class="stat-label">Referenced Methods</p>
+        <!-- Trust Facts -->
+        <div class="hero-facts">
+          
+          <div class="fact-item">
+            <strong class="fact-label">NJ HIC Licensed</strong>
+            <span class="fact-text">#13VH10808800</span>
+          </div>
+          
+          <div class="fact-item">
+            <strong class="fact-label">System-Based Builds</strong>
+            <span class="fact-text">Prep · Waterproof · Verify</span>
+          </div>
+          
+          <div class="fact-item">
+            <strong class="fact-label">Service Area</strong>
+            <span class="fact-text">Atlantic · Ocean · Cape May</span>
+          </div>
+          
+        </div>
       </div>
 
-      <div class="card card--stat text-center">
-        <p class="stat-number text-primary">2-Year</p>
-        <p class="stat-label">Workmanship Warranty</p>
+      <div class="hero-image">
+        <img src="/assets/img/tillerstead-work/bathrooms/after-entry-shot.jpg" alt="TCNA-compliant bathroom tile installation by Tillerstead LLC" loading="eager" />
       </div>
+    </div>
 
-      <div class="card card--stat text-center">
-        <p class="stat-number text-primary">Insured</p>
-        <p class="stat-label">Full Liability Coverage</p>
+    <!-- Key Highlights -->
+    <div class="hero-highlights">
+      
+      <div class="highlight-item">
+        <span class="highlight-icon">✓</span>
+        <span class="highlight-text">Substrate flatness verified for the tile size and layout plan</span>
       </div>
-
-      <div class="card card--stat text-center">
-        <p class="stat-number text-primary">NJ HIC</p>
-        <p class="stat-label">#13VH10808800</p>
+      
+      <div class="highlight-item">
+        <span class="highlight-icon">✓</span>
+        <span class="highlight-text">Waterproofing assemblies installed as complete systems, per manufacturer specs</span>
       </div>
-
+      
+      <div class="highlight-item">
+        <span class="highlight-icon">✓</span>
+        <span class="highlight-text">Flood testing performed where required or method-appropriate (documented)</span>
+      </div>
+      
+      <div class="highlight-item">
+        <span class="highlight-icon">✓</span>
+        <span class="highlight-text">Photo documentation available for owner records and closeout</span>
+      </div>
+      
     </div>
   </div>
 </section>
 
-<!-- Reviews and Trust Stats -->
-
-<section class="ts-section section reviews" aria-labelledby="home-reviews-title">
+<!-- Services Section -->
+<section class="home-services">
   <div class="container">
-
-    <!-- Section Header -->
-    <header class="section-header text-center">
-      
-      <span class="eyebrow eyebrow--dark">Verified Client Feedback</span>
-      
-
-      <h2 id="home-reviews-title" class="heading-2">
-        South Jersey Tile &amp; Bath Reviews
-      </h2>
-
-      <p class="lead">
-        Clients consistently highlight disciplined workmanship, clear communication, and
-        well-managed job sites. Tile and bath projects follow TCNA-recognized methods and ANSI A108 installation
-        practices, including proper surface prep, trowel selection, coverage checks, and professionally designed
-        waterproofing assemblies aligned with NJ HIC standards.
-      </p>
+    <header class="section-header">
+      <p class="section-eyebrow">Built for Durability, Not Just Day-One Looks</p>
+      <h2 class="section-title">Tile &amp; Waterproofing Services That Hold Up</h2>
+      <p class="section-summary">Tile performs when the assembly is built correctly: proper substrate preparation, compatible mortars, verified coverage, movement accommodation, and waterproofing where the application demands it. We build to published industry methods and product specifications—not guesswork.
+</p>
+      <p class="section-note">You don’t need to speak “construction” to hire well. We explain the plan in plain language, provide a written scope, and document critical steps so you know what’s behind the finish.
+</p>
     </header>
 
-    
-    <!-- Reviews Cards -->
-    <ul class="cards cards--3col" role="list" aria-label="Highlighted client reviews">
+    <div class="services-grid">
       
-      
-      <li>
-        <article class="card card--review" itemscope="" itemtype="https://schema.org/Review" aria-label="Review from Maria J.">
-
-          <!-- Rating Stars -->
-          <div class="card-rating" role="img" aria-label="5 out of 5 stars">
-            
-            <span class="star star--filled" aria-hidden="true">★</span>
-                
-            <span class="star star--filled" aria-hidden="true">★</span>
-                
-            <span class="star star--filled" aria-hidden="true">★</span>
-                
-            <span class="star star--filled" aria-hidden="true">★</span>
-                
-            <span class="star star--filled" aria-hidden="true">★</span>
-                
-          </div>
-          <meta itemprop="reviewRating" content="5" />
-
-          <!-- Quote -->
+      <article class="service-card">
+        <h3 class="service-title">Tile Installation (Ceramic &amp; Porcelain)</h3>
+        <p class="service-description">Floors and walls installed with correct prep, layout planning, and compatible materials— designed for clean lines and long-term performance.
+</p>
+        
+        
+        <ul class="service-details">
           
-          <div class="card-quote" itemprop="reviewBody"><p>I hired Devon Tyler for tile work in my home and was impressed by his patience, precision, and professionalism. He took his time to get every cut right and made sure the job was solid and clean. I’d absolutely recommend him to anyone looking for quality tile work done with care.</p></div>
+          <li>Substrate evaluated and corrected for the tile format</li>
           
+          <li>Mortar and grout selected for the tile, substrate, and exposure</li>
+          
+          <li>Coverage verified during installation, especially in wet areas</li>
+          
+          <li>Movement accommodation at perimeters and changes of plane</li>
+          
+          <li>Layout planned to reduce awkward cuts and narrow slivers</li>
+          
+        </ul>
+        
+        
+        <a href="/services/#tile" class="service-link">Learn more →</a>
+      </article>
+      
+      <article class="service-card">
+        <h3 class="service-title">Natural Stone &amp; Large-Format Tile</h3>
+        <p class="service-description">Stone and large-format tile require tighter tolerances, stronger support, and careful planning. We build the substrate and setting system to match the material—not the other way around.
+</p>
+        
+        
+        <ul class="service-details">
+          
+          <li>Flatness and substrate readiness addressed for large-format requirements</li>
+          
+          <li>Setting methods selected to support full contact and long-term stability</li>
+          
+          <li>Materials matched to stone type and manufacturer specifications</li>
+          
+          <li>Sealers used where appropriate, based on product data and application</li>
+          
+          <li>Heat, sunlight, and transitions considered in the plan</li>
+          
+        </ul>
+        
+        
+        <a href="/services/#stone" class="service-link">Learn more →</a>
+      </article>
+      
+      <article class="service-card">
+        <h3 class="service-title">Shower Waterproofing Systems</h3>
+        <p class="service-description">Wet areas are built as waterproofing assemblies first—then tiled. We use membranes and system components appropriate to the application, detailed at corners, penetrations, and drains, and verified before finishes.
+</p>
+        
+        
+        <ul class="service-details">
+          
+          <li>Membrane and drain integration planned as one coherent system</li>
+          
+          <li>Corners, seams, niches, curbs, and penetrations detailed per system requirements</li>
+          
+          <li>Slope and drainage confirmed before tile installation</li>
+          
+          <li>Flood testing performed where required or method-appropriate (documented)</li>
+          
+          <li>Closeout guidance provided for care and long-term maintenance</li>
+          
+        </ul>
+        
+        
+        <a href="/services/#waterproofing" class="service-link">Learn more →</a>
+      </article>
+      
+    </div>
 
-          <!-- Author Info -->
-          <p class="card-author">
-            
-            <strong id="review--name-1" itemprop="author">Maria J.</strong>
-            
+    <div class="services-actions">
+      <a href="/contact/" class="btn btn--primary">
+        Request a Written Estimate
+      </a>
+      <a href="/portfolio/" class="btn btn--secondary-outline">
+        Explore the Portfolio
+      </a>
+    </div>
 
-            
-            <span class="card-role"> · Tile Installation and Replacement</span>
-            
+    <p class="services-note">Work is performed using published tile industry methods and applicable product standards, with written scope, change orders (if needed), and warranty terms provided before work begins.
+</p>
+  </div>
+</section>
 
-            
-            <span class="card-date"> · May 2025</span>
-            
-          </p>
+<!-- Process Section -->
+<section class="home-process bg-soft">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-eyebrow">A Clear Sequence You Can Understand</p>
+      <h2 class="section-title">Transparent Workflow, Written Scope, Verified Steps</h2>
+      <p class="section-summary">A bathroom remodel runs smoothly when decisions are made early and the build follows a defined order. We keep scope clear, document key phases, and confirm readiness before moving forward.
+</p>
+    </header>
 
-        </article>
-      </li>
+    <div class="process-steps">
+      
+      <div class="process-step">
+        <div class="step-number">1</div>
+        <h3 class="step-title">Site Assessment &amp; Scope Definition</h3>
+        <p class="step-description">We review the space, identify constraints, and define scope boundaries—so the estimate matches reality.
+</p>
+      </div>
+      
+      <div class="process-step">
+        <div class="step-number">2</div>
+        <h3 class="step-title">Written Estimate &amp; Approval</h3>
+        <p class="step-description">You receive a written proposal outlining scope, materials, sequencing, and warranty terms. Work begins after approval.
+</p>
+      </div>
+      
+      <div class="process-step">
+        <div class="step-number">3</div>
+        <h3 class="step-title">Build, Verify, Document</h3>
+        <p class="step-description">We prepare surfaces, construct waterproofing assemblies where needed, and verify readiness before tile goes in. Key phases are documented.
+</p>
+      </div>
+      
+      <div class="process-step">
+        <div class="step-number">4</div>
+        <h3 class="step-title">Closeout &amp; Owner Packet</h3>
+        <p class="step-description">Walkthrough, care guidance, warranty paperwork, and a photo record of critical stages suitable for owner records.
+</p>
+      </div>
+      
+    </div>
+
+    <p class="process-fun-fact">
+      <strong>Why this matters:</strong> Many failures originate before the first tile is installed. That’s why we focus on substrate readiness, water management, and verification before finishes conceal the work.
+
+    </p>
+  </div>
+</section>
+
+<!-- Materials Section -->
+<section class="home-materials">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-eyebrow">Materials Selected for the Application</p>
+      <h2 class="section-title">The Right Components for Wet Areas and High-Traffic Spaces</h2>
+      <p class="section-summary">Materials are selected based on substrate, exposure, and performance requirements—not convenience. Mortars, membranes, and grouts are specified in writing and matched to the installation system.
+</p>
+    </header>
+
+    <div class="materials-callout">
+      <p>We don’t substitute “one-size-fits-all” products for system components without written approval. Product selection follows published data sheets and the requirements of the method used.
+</p>
+    </div>
+
+    <div class="materials-grid">
+      
+      <div class="material-card">
+        <h3 class="material-title">Mortars &amp; Grouts</h3>
+        <p class="material-description">Mortars and grouts are selected based on tile type, size, substrate, and service conditions.
+</p>
+        <ul class="material-points">
+          
+          <li>Compatible mortars selected for performance and environment</li>
+          
+          <li>Grout selected for joint width, cleaning needs, and exposure</li>
+          
+          <li>Higher-performance options used when the application demands it</li>
+          
+        </ul>
+      </div>
+      
+      <div class="material-card">
+        <h3 class="material-title">Waterproofing Components</h3>
+        <p class="material-description">Waterproofing systems are chosen by application and integrated as complete assemblies, including drain connection and detailing.
+</p>
+        <ul class="material-points">
+          
+          <li>Membranes and accessories selected as a matched system</li>
+          
+          <li>Seams and penetrations detailed per manufacturer requirements</li>
+          
+          <li>Verification performed before finishes conceal the work</li>
+          
+        </ul>
+      </div>
+      
+      <div class="material-card">
+        <h3 class="material-title">Natural Stone &amp; Specialty Materials</h3>
+        <p class="material-description">Stone installations are planned around support, compatibility, and maintenance expectations.
+</p>
+        <ul class="material-points">
+          
+          <li>Stone-appropriate prep and setting materials</li>
+          
+          <li>Sealers used where appropriate per product data</li>
+          
+          <li>Finish and maintenance guidance provided at closeout</li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <p class="materials-note">Every installation is built as an assembly and documented for owner records.</p>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="home-testimonials bg-light">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-eyebrow">Verified Client Feedback</p>
+      <h2 class="section-title">Real Reviews from Real South Jersey Homeowners</h2>
+    </header>
+
+    <div class="testimonials-grid">
       
       
-      <li>
-        <article class="card card--review" itemscope="" itemtype="https://schema.org/Review" aria-label="Review from Ahmed A.">
-
-          <!-- Rating Stars -->
-          <div class="card-rating" role="img" aria-label="5 out of 5 stars">
-            
-            <span class="star star--filled" aria-hidden="true">★</span>
-                
-            <span class="star star--filled" aria-hidden="true">★</span>
-                
-            <span class="star star--filled" aria-hidden="true">★</span>
-                
-            <span class="star star--filled" aria-hidden="true">★</span>
-                
-            <span class="star star--filled" aria-hidden="true">★</span>
-                
-          </div>
-          <meta itemprop="reviewRating" content="5" />
-
-          <!-- Quote -->
-          
-          <div class="card-quote" itemprop="reviewBody"><p>I recently hired Devon for a bathroom remodel, and my wife and I couldn’t be happier with the results. From start to finish, Devon was professional, punctual, and detail-oriented. He took the time to listen to what we wanted, offered helpful suggestions, and executed everything with precision.</p>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-rating">
+          ★★★★★
+        </div>
+        <div class="testimonial-quote">
+          <p>I hired Devon Tyler for tile work in my home and was impressed by his patience, precision, and professionalism. He took his time to get every cut right and made sure the job was solid and clean. I’d absolutely recommend him to anyone looking for quality tile work done with care.</p>
+        </div>
+        <div class="testimonial-author">
+          <strong>Maria J.</strong>
+          <span class="job-type">Tile Installation and Replacement</span>
+        </div>
+        
+        <div class="testimonial-source">
+          <small>via Thumbtack</small>
+        </div>
+        
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-rating">
+          ★★★★★
+        </div>
+        <div class="testimonial-quote">
+          <p>I recently hired Devon for a bathroom remodel, and my wife and I couldn’t be happier with the results. From start to finish, Devon was professional, punctual, and detail-oriented. He took the time to listen to what we wanted, offered helpful suggestions, and executed everything with precision.</p>
 <p>Devon kept the work area tidy throughout the project and completed the job on time without cutting corners.</p>
 <p>It’s rare to find someone who truly takes pride in their work the way Devon does. I’d highly recommend him.</p>
-</div>
-          
 
-          <!-- Author Info -->
-          <p class="card-author">
-            
-            <strong id="review--name-2" itemprop="author">Ahmed A.</strong>
-            
-
-            
-            <span class="card-role"> · Bathroom Remodel</span>
-            
-
-            
-            <span class="card-date"> · Jul 2025</span>
-            
-          </p>
-
-        </article>
-      </li>
-      
-      
-      <li>
-        <article class="card card--review" itemscope="" itemtype="https://schema.org/Review" aria-label="Review from Alexandra S.">
-
-          <!-- Rating Stars -->
-          <div class="card-rating" role="img" aria-label="5 out of 5 stars">
-            
-            <span class="star star--filled" aria-hidden="true">★</span>
-                
-            <span class="star star--filled" aria-hidden="true">★</span>
-                
-            <span class="star star--filled" aria-hidden="true">★</span>
-                
-            <span class="star star--filled" aria-hidden="true">★</span>
-                
-            <span class="star star--filled" aria-hidden="true">★</span>
-                
-          </div>
-          <meta itemprop="reviewRating" content="5" />
-
-          <!-- Quote -->
-          
-          <div class="card-quote" itemprop="reviewBody"><p>It was a pleasure working with Devon to repair our ceiling in our closet. We chose to repair it rather than replace. Devon walked us through what that would look like offering the most cost effective option. He was very professional. I recommend working with him!!</p></div>
-          
-
-          <!-- Author Info -->
-          <p class="card-author">
-            
-            <strong id="review--name-3" itemprop="author">Alexandra S.</strong>
-            
-
-            
-            <span class="card-role"> · Drywall Repair and Texturing</span>
-            
-
-            
-            <span class="card-date"> · Aug 2025</span>
-            
-          </p>
-
-        </article>
-      </li>
-      
-    </ul>
-    
-
-    <!-- Call to Action -->
-    <div class="section-action text-center mt-4">
-      <a href="/reviews/" class="btn btn--ghost" aria-label="Read more client reviews">
-        Read More Client Reviews →
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<section class="ts-section ts-local-trust" aria-labelledby="local-trust-title">
-  <div class="container">
-
-    <!-- Section Header -->
-    <header class="section-header text-center">
-      <span class="eyebrow">Southern New Jersey</span>
-      <h2 id="local-trust-title" class="heading-2">Licensed, Insured &amp; Local</h2>
-      <p class="lead">Clear scope, clean execution, and standards-referenced
-installation—explained in plain English.</p>
-    </header>
-
-    <!-- Trust Stats Cards -->
-    <div class="cards cards--4col">
-
-      <div class="card card--stat text-center">
-        <p class="stat-number text-primary">TCNA</p>
-        <p class="stat-label">Referenced Methods</p>
-      </div>
-
-      <div class="card card--stat text-center">
-        <p class="stat-number text-primary">2-Year</p>
-        <p class="stat-label">Workmanship Warranty</p>
-      </div>
-
-      <div class="card card--stat text-center">
-        <p class="stat-number text-primary">Insured</p>
-        <p class="stat-label">Full Liability Coverage</p>
-      </div>
-
-      <div class="card card--stat text-center">
-        <p class="stat-number text-primary">NJ HIC</p>
-        <p class="stat-label">#13VH10808800</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Service Highlights: Display Core Services -->
-<section class="service-highlights ts-services py-services bg-white">
-  <div class="container container-services flex-wrap gap-services justify-center">
-    <div class="ts-service-card card-service">
-      <h3 class="service-title bright-blue mb-service">Custom Showers</h3>
-      <p class="service-desc">TCNA-compliant, leakproof, and built to last. Every detail documented for your peace of mind and future resale value.</p>
-    </div>
-    <div class="ts-service-card card-service">
-      <h3 class="service-title bright-blue mb-service">Waterproofing</h3>
-      <p class="service-desc">Certified waterproof assemblies using industry-leading materials and methods. Protecting homes for the next generation. <a href="/blog/waterproofing-redgard-vs-kerdi-vs-hydroban/" class="blog-link">Learn more</a></p>
-    </div>
-    <div class="ts-service-card card-service">
-      <h3 class="service-title bright-blue mb-service">Bathroom Remodels</h3>
-      <p class="service-desc">From design to finish, we deliver beautiful, code-compliant bathrooms with transparent pricing and a focus on lasting value for your family. <a href="/blog/nj-tile-bath-consultation-guide/" class="blog-link">What to expect</a></p>
-    </div>
-  </div>
-</section>
-
-<!-- Trust Section: Show Reasons to Choose Tillerstead -->
-<section class="trust-section ts-trust py-trust bg-light text-center">
-  <div class="container container-trust">
-    <h2 class="trust-title bright-blue mb-trust">Why Choose Tillerstead?</h2>
-    <ul class="trust-list">
-      <li class="trust-item">✔️ Licensed NJ HIC #13VH10808800</li>
-      <li class="trust-item">✔️ TCNA Handbook Standards</li>
-      <li class="trust-item">✔️ Transparent, documented process</li>
-      <li class="trust-item">✔️ Owner oversight on every project</li>
-      <li class="trust-item">✔️ Serving Atlantic, Ocean, and Cape May Counties</li>
-      <li class="trust-item">✔️ Committed to community growth and lasting relationships</li>
-      <li class="trust-item">✔️ Focused on legacy, not just quick results</li>
-    </ul>
-  </div>
-</section>
-<!-- Moved to components/ts-peace-of-mind.html -->
-
-<!-- Call to Action Section -->
-<section class="ts-section ts-surface section section-cta center" aria-labelledby="cta-estimate-title">
-  <div class="container">
-    <h2 id="cta-estimate-title" class="cta-title heading-2">
-      Request a Written Estimate for TCNA-Compliant Installation
-    </h2>
-    <p class="lead">
-      Submit your project details and site photos. Receive a detailed, line-item
-      proposal with scope, ANSI A108/TCNA methods, materials, timeline, and
-      transparent pricing—no surprises, no obligation.
-    </p>
-
-    <div class="flex flex-row flex-center gap-cta-btns" role="group" aria-label="Estimate and Contact Options">
-      <a class="btn btn--primary" href="/contact/" aria-label="Request an estimate from Tillerstead, licensed New Jersey HIC contractor">
-        Request an Estimate
-      </a>
-      <a class="btn btn--ghost" href="tel:+16098628808" aria-label="Call Tillerstead at (609) 862-8808">
-        Call (609) 862-8808
-      </a>
-    </div>
-
-    <p class="meta">
-      <small>
-        Licensed &amp; Insured · New Jersey HIC #13VH10808800 · TCNA 2024
-        Compliant · Serving Atlantic, Ocean &amp; Cape May Counties
-      </small>
-    </p>
-  </div>
-</section>
-
-<!-- Unified Maintenance Plans Section (Owner-Operated, Flexible) -->
-
-<section class="ts-plans ts-section" id="ts-plans" aria-labelledby="ts-plans-title">
-  <div class="container">
-    <header class="ts-plans__header">
-      <span class="eyebrow text-accent">Property Maintenance</span>
-      <h2 id="ts-plans-title" class="heading-2 text-primary">
-        Owner-Operated Maintenance Plans for South Jersey Homes
-      </h2>
-      <p class="lead">
-        I’m a one-man contractor. That means you get the same person every
-        visit—consistent eyes on your home, honest prioritization, and
-        documented service notes you can keep. Plans are flexible: monthly,
-        seasonal, or tailored to your property and budget.
-      </p>
-      <p class="muted">
-        Maintenance plans focus on inspection, prevention, and small repairs.
-        Larger repairs or remodel scopes are quoted separately with a written
-        proposal.
-      </p>
-    </header>
-
-    <div class="ts-plans__grid" role="list">
-      <!-- Plan 1 -->
-      <article class="ts-card ts-plan-card" role="listitem">
-        <div class="ts-plan-card__body">
-          <h3 class="heading-3 text-primary">
-            <span aria-hidden="true" class="icon-inline"><!-- Moved to components/ts-icon.html -->
-
-
-</span>
-            Core Visit Plan
-          </h3>
-          <p class="ts-plan-card__summary">
-            Recurring checkups and small fixes to keep the home
-            stable—especially helpful for busy homeowners, rentals, and seasonal
-            properties.
-          </p>
-          <ul>
-            <li>
-              Visual checks for leaks, staining, ventilation issues, and
-              seasonal wear
-            </li>
-            <li>
-              Basic touch-ups and minor repairs when feasible during the visit
-            </li>
-            <li>
-              Clear “now vs. later” recommendations to prevent surprise expenses
-            </li>
-          </ul>
         </div>
-      </article>
-
-      <!-- Plan 2 -->
-      <article class="ts-card ts-plan-card" role="listitem">
-        <div class="ts-plan-card__body">
-          <h3 class="heading-3 text-primary">
-            <span aria-hidden="true" class="icon-inline"><!-- Moved to components/ts-icon.html -->
-
-
-</span>
-            Seasonal / Shore Add-Ons
-          </h3>
-          <p class="ts-plan-card__summary">
-            Optional support for storm prep, arrivals, and property
-            readiness—built around your checklist and how you use the home.
-          </p>
-          <ul>
-            <li>Storm prep and post-weather checks (photos provided)</li>
-            <li>Key coordination and access notes (by agreement)</li>
-            <li>
-              Basic readiness tasks: supplies, minor hardware, small punch items
-            </li>
-          </ul>
+        <div class="testimonial-author">
+          <strong>Ahmed A.</strong>
+          <span class="job-type">Bathroom Remodel</span>
         </div>
-      </article>
-
-      <!-- Plan 3 -->
-      <article class="ts-card ts-plan-card ts-plan-card--accent" role="listitem">
-        <div class="ts-plan-card__body">
-          <h3 class="heading-3 text-primary">
-            <span aria-hidden="true" class="icon-inline"><!-- Moved to components/ts-icon.html -->
-
-
-</span>
-            Documentation &amp; Communication
-          </h3>
-          <p class="ts-plan-card__summary">
-            Every visit includes notes and time-stamped photos with clear next
-            steps. If something needs a larger repair, you’ll receive a written
-            scope before work expands.
-          </p>
-
-          <dl class="ts-plan-stats">
-            <div>
-              <dt class="heading-4 text-primary">Photo log</dt>
-              <dd>Key areas + any findings documented</dd>
-            </div>
-            <div>
-              <dt class="heading-4 text-primary">Written notes</dt>
-              <dd>What was done + what’s recommended next</dd>
-            </div>
-          </dl>
+        
+        <div class="testimonial-source">
+          <small>via Thumbtack</small>
         </div>
-      </article>
+        
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-rating">
+          ★★★★★
+        </div>
+        <div class="testimonial-quote">
+          <p>It was a pleasure working with Devon to repair our ceiling in our closet. We chose to repair it rather than replace. Devon walked us through what that would look like offering the most cost effective option. He was very professional. I recommend working with him!!</p>
+        </div>
+        <div class="testimonial-author">
+          <strong>Alexandra S.</strong>
+          <span class="job-type">Drywall Repair and Texturing</span>
+        </div>
+        
+        <div class="testimonial-source">
+          <small>via Thumbtack</small>
+        </div>
+        
+      </div>
+      
     </div>
-
-    <nav class="ts-plans__actions" aria-label="Maintenance plan actions">
-      <a class="btn btn--primary" href="/contact/">Request a Plan Walkthrough</a>
-      <a class="btn btn--ghost" href="/services/#maintenance">See Typical Coverage</a>
-    </nav>
-
-    <p class="microcopy center mt-2">
-      Plans are written and scoped. Scheduling depends on season and workload.
-      Emergency plumbing/electrical hazards should be handled by the appropriate
-      licensed trade first.
-    </p>
   </div>
 </section>
+
+<!-- CTA Section -->
+<section class="home-cta bg-primary">
+  <div class="container">
+    <div class="cta-content">
+      <p class="cta-eyebrow">Start with a Written Scope</p>
+      <h2 class="cta-title">Request a Written Estimate You Can Trust</h2>
+      <p class="cta-summary">Clear scope, transparent pricing, and documentation you can keep. Licensed New Jersey HIC #13VH10808800—serving Atlantic, Ocean &amp; Cape May Counties.
+</p>
+      
+      <div class="cta-actions">
+        <a href="/contact/" class="btn btn--white btn--large">
+          Request a Written Estimate
+        </a>
+        <a href="tel:+16098628808" class="btn btn--outline-white btn--large">
+          Call/Text
+        </a>
+      </div>
+
+      <p class="cta-note">NJ HIC #13VH10808800 · Serving Atlantic, Ocean &amp; Cape May</p>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Homepage Styles */
+:root {
+  --color-primary: #2a5d4e;
+  --color-text: #222;
+  --color-text-secondary: #555;
+  --color-border: #e0e0e0;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Hero Section */
+.home-hero {
+  padding: var(--spacing-xl) 0;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8f0ed 100%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.hero-eyebrow {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--spacing-sm);
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md);
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.hero-summary {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.hero-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+  padding-top: var(--spacing-lg);
+  border-top: 2px solid var(--color-border);
+}
+
+.fact-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.fact-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.fact-text {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.hero-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+}
+
+.highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: white;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.highlight-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.highlight-text {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  text-align: center;
+  border: 2px solid transparent;
+}
+
+.btn--large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn--primary:hover {
+  background: #1f4539;
+  transform: translateY(-1px);
+}
+
+.btn--secondary-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn--secondary-outline:hover {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn--white {
+  background: white;
+  color: var(--color-primary);
+}
+
+.btn--white:hover {
+  background: #f5f5f5;
+  transform: translateY(-1px);
+}
+
+.btn--outline-white {
+  background: transparent;
+  color: white;
+  border-color: white;
+}
+
+.btn--outline-white:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--spacing-xl);
+}
+
+.section-eyebrow {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--spacing-sm);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+}
+
+.section-summary {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.section-note {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+/* Services Section */
+.home-services {
+  padding: var(--spacing-xl) 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.service-card {
+  padding: var(--spacing-lg);
+  background: white;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+}
+
+.service-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.service-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.service-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.service-details {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.service-details li {
+  padding-left: 1.5rem;
+  margin-bottom: var(--spacing-xs);
+  position: relative;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+.service-details li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.service-link {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.service-link:hover {
+  text-decoration: underline;
+}
+
+.services-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.services-note {
+  text-align: center;
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Process Section */
+.home-process {
+  padding: var(--spacing-xl) 0;
+}
+
+.bg-soft {
+  background: #f9f9f9;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.process-step {
+  padding: var(--spacing-lg);
+  background: white;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
+}
+
+.step-number {
+  width: 48px;
+  height: 48px;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+}
+
+.step-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm);
+}
+
+.step-description {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.process-fun-fact {
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  background: white;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-primary);
+}
+
+/* Materials Section */
+.home-materials {
+  padding: var(--spacing-xl) 0;
+}
+
+.materials-callout {
+  padding: var(--spacing-lg);
+  background: #fff8e1;
+  border-left: 4px solid #ffc107;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.materials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+.material-card {
+  padding: var(--spacing-lg);
+  background: white;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.material-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.material-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.material-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.material-points li {
+  padding-left: 1.5rem;
+  margin-bottom: var(--spacing-xs);
+  position: relative;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+.material-points li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.materials-note {
+  text-align: center;
+  font-size: 0.9375rem;
+  font-style: italic;
+  color: var(--color-text-secondary);
+}
+
+/* Testimonials Section */
+.home-testimonials {
+  padding: var(--spacing-xl) 0;
+}
+
+.bg-light {
+  background: #f5f5f5;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.testimonial-card {
+  padding: var(--spacing-lg);
+  background: white;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
+}
+
+.testimonial-rating {
+  color: #ffc107;
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.testimonial-quote {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.testimonial-quote p {
+  margin-bottom: var(--spacing-sm);
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+}
+
+.job-type {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.testimonial-source {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+/* CTA Section */
+.home-cta {
+  padding: var(--spacing-xl) 0;
+}
+
+.bg-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.cta-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-eyebrow {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--spacing-sm);
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+}
+
+.cta-summary {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--spacing-lg);
+}
+
+.cta-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.cta-note {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .hero-facts {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
+  .hero-highlights {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .cta-title {
+    font-size: 2rem;
+  }
+  
+  .services-actions,
+  .cta-actions {
+    flex-direction: column;
+  }
+}
+</style>
 
 
     </div>
@@ -1199,60 +1779,80 @@ installation—explained in plain English.</p>
 
 <footer class="ts-footer" aria-label="Site Footer">
   <div class="footer-main">
+    <!-- Logo Section -->
     <div class="footer-logo-section">
       <a href="/" aria-label="Tillerstead Home">
         <img src="/assets/img/logo/optimized-logo.png" alt="Tillerstead Logo" class="footer-logo logo-footer mx-auto mb-footer">
       </a>
       <p class="footer-tagline bright-blue fw-bold text-center">Expert Tile & Stone Installation — South Jersey</p>
     </div>
-    <div class="footer-sections flex-wrap gap-footer justify-center">
-      <section class="footer-group" aria-label="Build Guides">
-        <h3 class="footer-group-title">Build Guides</h3>
-        <ul class="footer-list">
-          <li><a href="/build/nj-codes-permits/">Codes, Permits & Inspections</a></li>
-          <li><a href="/build/shower-pans-slopes-drains/">Shower Pans, Slopes & Drains</a></li>
-          <li><a href="/build/waterproofing-systems/">Waterproofing Systems</a></li>
-          <li><a href="/build/curbs-curbless/">Curbs & Curbless Showers</a></li>
-        </ul>
-      </section>
-      <section class="footer-group" aria-label="Learn">
-        <h3 class="footer-group-title">Learn</h3>
-        <ul class="footer-list">
-          <li><a href="/faq.html">FAQ</a></li>
-          <li><a href="/blog.html">Blog</a></li>
-          <li><a href="/products.html">Products</a></li>
-        </ul>
-      </section>
-      <section class="footer-group" aria-label="Service Areas">
-        <h3 class="footer-group-title">Service Areas</h3>
-        <ul class="footer-list">
-          <li><a href="/atlantic-county-nj.html">Atlantic County</a></li>
-          <li><a href="/ocean-county-nj.html">Ocean County</a></li>
-          <li><a href="/cape-may-county-nj.html">Cape May County</a></li>
-        </ul>
-      </section>
-      <section class="footer-group" aria-label="Company">
-        <h3 class="footer-group-title">Company</h3>
-        <ul class="footer-list">
-          <li><a href="/about.html">About</a></li>
 
-        </ul>
-      </section>
-      <section class="footer-group" aria-label="Legal">
-        <h3 class="footer-group-title">Legal</h3>
+    <!-- Footer Navigation Sections -->
+    <div class="footer-sections flex-wrap gap-footer justify-center">
+      
+      <section class="footer-group" aria-label="">
+        <h3 class="footer-group-title"></h3>
         <ul class="footer-list">
-          <li><a href="/privacy.html">Privacy</a></li>
-          <li><a href="/terms.html">Terms</a></li>
+          
         </ul>
       </section>
+      
+      <section class="footer-group" aria-label="">
+        <h3 class="footer-group-title"></h3>
+        <ul class="footer-list">
+          
+        </ul>
+      </section>
+      
+      <section class="footer-group" aria-label="">
+        <h3 class="footer-group-title"></h3>
+        <ul class="footer-list">
+          
+        </ul>
+      </section>
+      
+      <section class="footer-group" aria-label="">
+        <h3 class="footer-group-title"></h3>
+        <ul class="footer-list">
+          
+        </ul>
+      </section>
+      
+      <section class="footer-group" aria-label="">
+        <h3 class="footer-group-title"></h3>
+        <ul class="footer-list">
+          
+        </ul>
+      </section>
+      
+      <section class="footer-group" aria-label="">
+        <h3 class="footer-group-title"></h3>
+        <ul class="footer-list">
+          
+        </ul>
+      </section>
+      
     </div>
+
+    <!-- Contact Section -->
     <div class="footer-contact mt-footer-contact text-center">
       <p class="footer-license bright-blue fs-footer fw-medium">NJ HIC #13VH10808800</p>
       <address class="footer-address normal-font dark-text fs-footer-address">
         325 E. Jimmie Leeds Road, Suite 7-333<br />
         Galloway, NJ 08205
       </address>
-      <p class="footer-contact-email mt-footer-email fs-footer-address"><a href="mailto:info@tillerstead.com" class="bright-blue">info@tillerstead.com</a></p>
+      <p class="footer-contact-email mt-footer-email fs-footer-address">
+        <a href="mailto:info@tillerstead.com" class="bright-blue">info@tillerstead.com</a>
+      </p>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="footer-social text-center mt-footer-social">
+      <ul class="social-links">
+        <li><a href="" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+        <li><a href="" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+      </ul>
     </div>
   </div>
 </footer>

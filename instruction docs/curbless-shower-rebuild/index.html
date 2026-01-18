@@ -702,13 +702,15 @@
 
     // Function to toggle mobile navigation
     const toggleMobileNav = () => {
-      const isOpen = mobileNav.style.display === 'block';
+      const isOpen = mobileNav.classList.contains('open');
       if (isOpen) {
         body.classList.remove('nav-open');
-        mobileNav.style.display = 'none';
+        mobileNav.classList.remove('open');
+        mobileNav.setAttribute('aria-hidden', 'true');
       } else {
         body.classList.add('nav-open');
-        mobileNav.style.display = 'block';
+        mobileNav.classList.add('open');
+        mobileNav.setAttribute('aria-hidden', 'false');
       }
     };
 
@@ -867,60 +869,80 @@ Confirm slope with digital level readings, verify flush entry, document drain op
 
 <footer class="ts-footer" aria-label="Site Footer">
   <div class="footer-main">
+    <!-- Logo Section -->
     <div class="footer-logo-section">
       <a href="/" aria-label="Tillerstead Home">
         <img src="/assets/img/logo/optimized-logo.png" alt="Tillerstead Logo" class="footer-logo logo-footer mx-auto mb-footer">
       </a>
       <p class="footer-tagline bright-blue fw-bold text-center">Expert Tile & Stone Installation — South Jersey</p>
     </div>
-    <div class="footer-sections flex-wrap gap-footer justify-center">
-      <section class="footer-group" aria-label="Build Guides">
-        <h3 class="footer-group-title">Build Guides</h3>
-        <ul class="footer-list">
-          <li><a href="/build/nj-codes-permits/">Codes, Permits & Inspections</a></li>
-          <li><a href="/build/shower-pans-slopes-drains/">Shower Pans, Slopes & Drains</a></li>
-          <li><a href="/build/waterproofing-systems/">Waterproofing Systems</a></li>
-          <li><a href="/build/curbs-curbless/">Curbs & Curbless Showers</a></li>
-        </ul>
-      </section>
-      <section class="footer-group" aria-label="Learn">
-        <h3 class="footer-group-title">Learn</h3>
-        <ul class="footer-list">
-          <li><a href="/faq.html">FAQ</a></li>
-          <li><a href="/blog.html">Blog</a></li>
-          <li><a href="/products.html">Products</a></li>
-        </ul>
-      </section>
-      <section class="footer-group" aria-label="Service Areas">
-        <h3 class="footer-group-title">Service Areas</h3>
-        <ul class="footer-list">
-          <li><a href="/atlantic-county-nj.html">Atlantic County</a></li>
-          <li><a href="/ocean-county-nj.html">Ocean County</a></li>
-          <li><a href="/cape-may-county-nj.html">Cape May County</a></li>
-        </ul>
-      </section>
-      <section class="footer-group" aria-label="Company">
-        <h3 class="footer-group-title">Company</h3>
-        <ul class="footer-list">
-          <li><a href="/about.html">About</a></li>
 
-        </ul>
-      </section>
-      <section class="footer-group" aria-label="Legal">
-        <h3 class="footer-group-title">Legal</h3>
+    <!-- Footer Navigation Sections -->
+    <div class="footer-sections flex-wrap gap-footer justify-center">
+      
+      <section class="footer-group" aria-label="">
+        <h3 class="footer-group-title"></h3>
         <ul class="footer-list">
-          <li><a href="/privacy.html">Privacy</a></li>
-          <li><a href="/terms.html">Terms</a></li>
+          
         </ul>
       </section>
+      
+      <section class="footer-group" aria-label="">
+        <h3 class="footer-group-title"></h3>
+        <ul class="footer-list">
+          
+        </ul>
+      </section>
+      
+      <section class="footer-group" aria-label="">
+        <h3 class="footer-group-title"></h3>
+        <ul class="footer-list">
+          
+        </ul>
+      </section>
+      
+      <section class="footer-group" aria-label="">
+        <h3 class="footer-group-title"></h3>
+        <ul class="footer-list">
+          
+        </ul>
+      </section>
+      
+      <section class="footer-group" aria-label="">
+        <h3 class="footer-group-title"></h3>
+        <ul class="footer-list">
+          
+        </ul>
+      </section>
+      
+      <section class="footer-group" aria-label="">
+        <h3 class="footer-group-title"></h3>
+        <ul class="footer-list">
+          
+        </ul>
+      </section>
+      
     </div>
+
+    <!-- Contact Section -->
     <div class="footer-contact mt-footer-contact text-center">
       <p class="footer-license bright-blue fs-footer fw-medium">NJ HIC #13VH10808800</p>
       <address class="footer-address normal-font dark-text fs-footer-address">
         325 E. Jimmie Leeds Road, Suite 7-333<br />
         Galloway, NJ 08205
       </address>
-      <p class="footer-contact-email mt-footer-email fs-footer-address"><a href="mailto:info@tillerstead.com" class="bright-blue">info@tillerstead.com</a></p>
+      <p class="footer-contact-email mt-footer-email fs-footer-address">
+        <a href="mailto:info@tillerstead.com" class="bright-blue">info@tillerstead.com</a>
+      </p>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="footer-social text-center mt-footer-social">
+      <ul class="social-links">
+        <li><a href="" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+        <li><a href="" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+      </ul>
     </div>
   </div>
 </footer>
