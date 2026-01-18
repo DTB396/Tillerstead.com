@@ -455,7 +455,7 @@
   <meta name="twitter:description" content="" />
   <meta name="twitter:image" content="" />
   <title>Curbless Shower Documentation Set | Tillerstead NJ HIC</title>
-  <meta name="theme-color" content="#2a5d4e">
+  <meta name="theme-color" content="#1a3d2e">
   
   
 
@@ -466,272 +466,680 @@
   <!-- Skip Link for Accessibility -->
   <a href="#main-content" class="skip-link">Skip to content</a>
 
-  <header class="ts-header" id="site-header" aria-label="Main Header">
-  <div class="ts-header__branding">
-    <!-- Logo with alt text for accessibility -->
-    <img src="/assets/img/logo/4k-logo.png" alt="Tillerstead Logo" class="nav-logo ts-logo--header"
-      id="header-logo" />
-    <div class="ts-header__info">
-      <!-- Company name, tagline, and license -->
-      <span class="ts-header__company">Tillerstead LLC</span>
-      <span class="ts-header__tagline">Expert Tile & Stone Installation — South Jersey</span>
-      <span class="ts-header__license">NJ HIC #13VH10808800</span>
+  <!-- =========================================================
+     Site Header - 2026 Contractor UX
+     Sticky header with branding + navigation
+     ========================================================= -->
+<header class="ts-header" id="site-header" aria-label="Main Header">
+  <div class="ts-header__container">
+    <!-- Branding Section -->
+    <div class="ts-header__branding">
+      <!-- Logo with link to home -->
+      <a href="/" class="ts-header__logo-link" aria-label="Tillerstead LLC - Go to homepage">
+        <img 
+          src="/assets/img/logo/4k-logo.png" 
+          alt="Tillerstead Logo" 
+          class="ts-header__logo"
+          id="header-logo"
+          width="60"
+          height="60"
+          loading="eager"
+        />
+      </a>
+      <div class="ts-header__info">
+        <span class="ts-header__company">Tillerstead LLC</span>
+        <span class="ts-header__tagline">Expert Tile &amp; Stone</span>
+        <span class="ts-header__region">South Jersey • <abbr title="New Jersey Home Improvement Contractor">NJ HIC</abbr> #13VH10808800</span>
+      </div>
     </div>
-  </div>
 
-  <!-- Main Navigation -->
-  <!-- Main Navigation Component -->
-<nav class="main-nav" aria-label="Main Navigation">
-  <ul class="nav-list">
+    <!-- Main Navigation -->
+    <!-- =========================================================
+     Main Navigation - 2026 Contractor UX
+     Desktop: Hover dropdowns | Mobile: Full-screen drawer
+     Data source: _data/navigation.yml
+     Accessibility: WCAG 2.1 AA compliant
+     ========================================================= -->
+
+<!-- Skip Link (Accessibility) -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Desktop Navigation (≥1024px) -->
+<nav class="desktop-nav" aria-label="Primary Navigation">
+  <ul class="desktop-nav__list" role="menubar">
     
-    <li class="nav-item ">
-      <a href="/services/" aria-haspopup="false" aria-expanded="false">
-        Services
-      </a>
-
+    <li class="desktop-nav__item" role="none">
+      
+      
+        <!-- Regular link -->
+        <a 
+          href="/services/" 
+          class="desktop-nav__link"
+          role="menuitem"
+          
+        >
+          Services
+        </a>
+      
       
     </li>
     
-    <li class="nav-item ">
-      <a href="/portfolio/" aria-haspopup="false" aria-expanded="false">
-        Our Work
-      </a>
-
+    <li class="desktop-nav__item" role="none">
+      
+      
+        <!-- Regular link -->
+        <a 
+          href="/portfolio/" 
+          class="desktop-nav__link"
+          role="menuitem"
+          
+        >
+          Our Work
+        </a>
+      
       
     </li>
     
-    <li class="nav-item ">
-      <a href="/products/" aria-haspopup="false" aria-expanded="false">
-        Products
-      </a>
-
+    <li class="desktop-nav__item has-dropdown" role="none">
+      
+      
+        <!-- Dropdown trigger (button for accessibility) -->
+        <button 
+          type="button"
+          class="desktop-nav__link desktop-nav__trigger"
+          aria-expanded="false"
+          aria-controls="dropdown-build"
+          aria-haspopup="menu"
+          
+        >
+          Guides
+          <svg class="dropdown-icon" aria-hidden="true" width="12" height="12" viewBox="0 0 12 12">
+            <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </button>
+        
+        <!-- Dropdown menu -->
+        <ul 
+          id="dropdown-build"
+          class="desktop-nav__dropdown"
+          role="menu"
+          aria-label="Guides submenu"
+        >
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/build/nj-codes-permits/" role="menuitem">Codes & Permits</a>
+          </li>
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/build/shower-pans-slopes-drains/" role="menuitem">Shower Pans & Slopes</a>
+          </li>
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/build/waterproofing-systems/" role="menuitem">Waterproofing Systems</a>
+          </li>
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/build/curbs-curbless/" role="menuitem">Curbless Showers</a>
+          </li>
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/build/framing-benches-niches/" role="menuitem">Benches & Niches</a>
+          </li>
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/build/tile-installation-standards/" role="menuitem">Tile Standards (TCNA)</a>
+          </li>
+          
+        </ul>
+      
+      
       
     </li>
     
-    <li class="nav-item ">
-      <a href="/reviews/" aria-haspopup="false" aria-expanded="false">
-        Reviews
-      </a>
-
+    <li class="desktop-nav__item" role="none">
+      
+      
+        <!-- Regular link -->
+        <a 
+          href="/reviews/" 
+          class="desktop-nav__link"
+          role="menuitem"
+          
+        >
+          Reviews
+        </a>
+      
       
     </li>
     
-    <li class="nav-item  has-children ">
-      <a href="/build/" aria-haspopup="true" aria-expanded="false">
-        Build Guides
-      </a>
-
+    <li class="desktop-nav__item has-dropdown" role="none">
       
-      <ul class="sub-nav-list" aria-label="Submenu for Build Guides">
-        
-        <li class="sub-nav-item">
-          <a href="/build/nj-codes-permits/">Codes, Permits & Inspections</a>
-        </li>
-        
-        <li class="sub-nav-item">
-          <a href="/build/shower-pans-slopes-drains/">Shower Pans, Slopes & Drains</a>
-        </li>
-        
-        <li class="sub-nav-item">
-          <a href="/build/waterproofing-systems/">Waterproofing Systems</a>
-        </li>
-        
-        <li class="sub-nav-item">
-          <a href="/build/curbs-curbless/">Curbs & Curbless Showers</a>
-        </li>
-        
-        <li class="sub-nav-item">
-          <a href="/build/framing-benches-niches/">Benches, Seats & Niches</a>
-        </li>
-        
-        <li class="sub-nav-item">
-          <a href="/build/tile-installation-standards/">Tile Installation Standards</a>
-        </li>
-        
-      </ul>
       
-    </li>
-    
-    <li class="nav-item  has-children ">
-      <a href="/about/" aria-haspopup="true" aria-expanded="false">
-        Company
-      </a>
-
+        <!-- Dropdown trigger (button for accessibility) -->
+        <button 
+          type="button"
+          class="desktop-nav__link desktop-nav__trigger"
+          aria-expanded="false"
+          aria-controls="dropdown-about"
+          aria-haspopup="menu"
+          aria-label="About Tillerstead"
+        >
+          About
+          <svg class="dropdown-icon" aria-hidden="true" width="12" height="12" viewBox="0 0 12 12">
+            <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </button>
+        
+        <!-- Dropdown menu -->
+        <ul 
+          id="dropdown-about"
+          class="desktop-nav__dropdown"
+          role="menu"
+          aria-label="About submenu"
+        >
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/about/" role="menuitem">Our Story</a>
+          </li>
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/for-general-contractors/" role="menuitem">For Contractors</a>
+          </li>
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/faq/" role="menuitem">FAQ</a>
+          </li>
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/products/" role="menuitem">Products We Use</a>
+          </li>
+          
+        </ul>
       
-      <ul class="sub-nav-list" aria-label="Submenu for Company">
-        
-        <li class="sub-nav-item">
-          <a href="/about/">About</a>
-        </li>
-        
-        <li class="sub-nav-item">
-          <a href="/contact/">Get an Estimate</a>
-        </li>
-        
-        <li class="sub-nav-item">
-          <a href="/for-general-contractors/">For Contractors</a>
-        </li>
-        
-      </ul>
+      
       
     </li>
     
-    <li class="nav-item ">
-      <a href="/contact/" aria-haspopup="false" aria-expanded="false">
-        Contact
-      </a>
-
+    <li class="desktop-nav__item is-cta" role="none">
+      
+      
+        <!-- Regular link -->
+        <a 
+          href="/contact/" 
+          class="desktop-nav__link desktop-nav__cta"
+          role="menuitem"
+          
+        >
+          Get Estimate
+        </a>
+      
       
     </li>
     
   </ul>
 </nav>
 
-<!-- Mobile Navigation -->
-<div class="mobile-nav">
-  <button class="nav-toggle" aria-label="Open navigation menu">☰</button>
-  <div id="mobile-nav" class="mobile-nav-shell" aria-hidden="true">
-    <button class="nav-close" aria-label="Close navigation menu">✖</button>
-    <ul class="mobile-nav-list">
+<!-- Mobile Navigation Toggle (≤1023px) -->
+<button 
+  type="button"
+  class="mobile-nav__toggle"
+  aria-expanded="false"
+  aria-controls="mobile-nav-drawer"
+  aria-label="Open navigation menu"
+>
+  <span class="hamburger-icon" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+</button>
+
+<!-- Mobile Navigation Drawer -->
+<div 
+  id="mobile-nav-drawer"
+  class="mobile-nav"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Navigation menu"
+  aria-hidden="true"
+>
+  <!-- Drawer Header -->
+  <div class="mobile-nav__header">
+    <button 
+      type="button"
+      class="mobile-nav__close"
+      aria-label="Close navigation menu"
+    >
+      <span aria-hidden="true">✕</span> Close
+    </button>
+  </div>
+  
+  <!-- Drawer Body -->
+  <nav class="mobile-nav__body" aria-label="Mobile Navigation">
+    <ul class="mobile-nav__list">
       
-      <li class="mobile-nav-item">
-        <a href="/services/">Services</a>
+      <li class="mobile-nav__item">
+        
+        
+          <!-- Regular link -->
+          <a 
+            href="/services/" 
+            class="mobile-nav__link"
+            
+          >
+            
+              SERVICES
+            
+          </a>
+        
         
       </li>
       
-      <li class="mobile-nav-item">
-        <a href="/portfolio/">Our Work</a>
+      <li class="mobile-nav__item">
+        
+        
+          <!-- Regular link -->
+          <a 
+            href="/portfolio/" 
+            class="mobile-nav__link"
+            
+          >
+            
+              OUR WORK
+            
+          </a>
+        
         
       </li>
       
-      <li class="mobile-nav-item">
-        <a href="/products/">Products</a>
+      <li class="mobile-nav__item has-accordion">
+        
+        
+          <!-- Accordion trigger -->
+          <button 
+            type="button"
+            class="mobile-nav__link mobile-nav__accordion-trigger"
+            aria-expanded="false"
+            aria-controls="mobile-accordion-build"
+          >
+            GUIDES
+            <span class="accordion-arrow" aria-hidden="true">▸</span>
+          </button>
+          
+          <!-- Accordion panel -->
+          <ul 
+            id="mobile-accordion-build"
+            class="mobile-nav__accordion"
+            role="region"
+            aria-label="Guides submenu"
+            hidden
+          >
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/build/nj-codes-permits/">Codes & Permits</a>
+            </li>
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/build/shower-pans-slopes-drains/">Shower Pans & Slopes</a>
+            </li>
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/build/waterproofing-systems/">Waterproofing Systems</a>
+            </li>
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/build/curbs-curbless/">Curbless Showers</a>
+            </li>
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/build/framing-benches-niches/">Benches & Niches</a>
+            </li>
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/build/tile-installation-standards/">Tile Standards (TCNA)</a>
+            </li>
+            
+          </ul>
+        
+        
         
       </li>
       
-      <li class="mobile-nav-item">
-        <a href="/reviews/">Reviews</a>
+      <li class="mobile-nav__item">
+        
+        
+          <!-- Regular link -->
+          <a 
+            href="/reviews/" 
+            class="mobile-nav__link"
+            
+          >
+            
+              REVIEWS
+            
+          </a>
+        
         
       </li>
       
-      <li class="mobile-nav-item">
-        <a href="/build/">Build Guides</a>
+      <li class="mobile-nav__item has-accordion">
         
-        <ul class="mobile-sub-nav-list">
-          
-          <li class="mobile-sub-nav-item">
-            <a href="/build/nj-codes-permits/">Codes, Permits & Inspections</a>
-          </li>
-          
-          <li class="mobile-sub-nav-item">
-            <a href="/build/shower-pans-slopes-drains/">Shower Pans, Slopes & Drains</a>
-          </li>
-          
-          <li class="mobile-sub-nav-item">
-            <a href="/build/waterproofing-systems/">Waterproofing Systems</a>
-          </li>
-          
-          <li class="mobile-sub-nav-item">
-            <a href="/build/curbs-curbless/">Curbs & Curbless Showers</a>
-          </li>
-          
-          <li class="mobile-sub-nav-item">
-            <a href="/build/framing-benches-niches/">Benches, Seats & Niches</a>
-          </li>
-          
-          <li class="mobile-sub-nav-item">
-            <a href="/build/tile-installation-standards/">Tile Installation Standards</a>
-          </li>
-          
-        </ul>
         
-      </li>
-      
-      <li class="mobile-nav-item">
-        <a href="/about/">Company</a>
+          <!-- Accordion trigger -->
+          <button 
+            type="button"
+            class="mobile-nav__link mobile-nav__accordion-trigger"
+            aria-expanded="false"
+            aria-controls="mobile-accordion-about"
+          >
+            ABOUT
+            <span class="accordion-arrow" aria-hidden="true">▸</span>
+          </button>
+          
+          <!-- Accordion panel -->
+          <ul 
+            id="mobile-accordion-about"
+            class="mobile-nav__accordion"
+            role="region"
+            aria-label="About submenu"
+            hidden
+          >
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/about/">Our Story</a>
+            </li>
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/for-general-contractors/">For Contractors</a>
+            </li>
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/faq/">FAQ</a>
+            </li>
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/products/">Products We Use</a>
+            </li>
+            
+          </ul>
         
-        <ul class="mobile-sub-nav-list">
-          
-          <li class="mobile-sub-nav-item">
-            <a href="/about/">About</a>
-          </li>
-          
-          <li class="mobile-sub-nav-item">
-            <a href="/contact/">Get an Estimate</a>
-          </li>
-          
-          <li class="mobile-sub-nav-item">
-            <a href="/for-general-contractors/">For Contractors</a>
-          </li>
-          
-        </ul>
+        
         
       </li>
       
-      <li class="mobile-nav-item">
-        <a href="/contact/">Contact</a>
+      <li class="mobile-nav__item">
+        
+        
+          <!-- Regular link -->
+          <a 
+            href="/contact/" 
+            class="mobile-nav__link mobile-nav__cta"
+            
+          >
+            
+              GET ESTIMATE
+            
+          </a>
+        
         
       </li>
       
     </ul>
-  </div>
+    
+    <!-- Mobile CTA -->
+    <a href="/contact/" class="mobile-nav__estimate-btn">
+      Get an Estimate
+    </a>
+    
+    <!-- Trust signal -->
+    <div class="mobile-nav__trust">
+      <span class="mobile-nav__license">NJ HIC #13VH10808800</span>
+    </div>
+  </nav>
 </div>
 
-<!-- JavaScript for Mobile Navigation Toggle -->
+<!-- Navigation JavaScript (Progressive Enhancement) -->
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggleButton = document.querySelector('.nav-toggle');
-    const closeButton = document.querySelector('.nav-close');
-    const mobileNav = document.querySelector('#mobile-nav');
-    const body = document.body;
-
-    // Function to toggle mobile navigation
-    const toggleMobileNav = () => {
-      const isOpen = mobileNav.classList.contains('open');
-      if (isOpen) {
-        body.classList.remove('nav-open');
-        mobileNav.classList.remove('open');
-        mobileNav.setAttribute('aria-hidden', 'true');
+(function() {
+  'use strict';
+  
+  // ===== Desktop Dropdowns =====
+  const dropdownTriggers = document.querySelectorAll('.desktop-nav__trigger');
+  
+  dropdownTriggers.forEach(trigger => {
+    const dropdown = document.getElementById(trigger.getAttribute('aria-controls'));
+    let closeTimeout;
+    
+    // Hover open (mouse)
+    trigger.parentElement.addEventListener('mouseenter', () => {
+      clearTimeout(closeTimeout);
+      openDropdown(trigger, dropdown);
+    });
+    
+    trigger.parentElement.addEventListener('mouseleave', () => {
+      closeTimeout = setTimeout(() => {
+        closeDropdown(trigger, dropdown);
+      }, 150);
+    });
+    
+    // Keyboard support (focus)
+    trigger.addEventListener('focus', () => {
+      openDropdown(trigger, dropdown);
+    });
+    
+    // Click toggle (for touch devices detecting as desktop)
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        closeDropdown(trigger, dropdown);
       } else {
-        body.classList.add('nav-open');
-        mobileNav.classList.add('open');
-        mobileNav.setAttribute('aria-hidden', 'false');
+        closeAllDropdowns();
+        openDropdown(trigger, dropdown);
       }
-    };
-
-    // Event listener for opening mobile menu
-    toggleButton.addEventListener('click', toggleMobileNav);
-
-    // Event listener for closing mobile menu
-    closeButton.addEventListener('click', toggleMobileNav);
+    });
+    
+    // Keyboard navigation
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeDropdown(trigger, dropdown);
+        trigger.focus();
+      }
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        openDropdown(trigger, dropdown);
+        const firstItem = dropdown.querySelector('a');
+        if (firstItem) firstItem.focus();
+      }
+    });
+    
+    // Dropdown keyboard nav
+    dropdown.addEventListener('keydown', (e) => {
+      const items = dropdown.querySelectorAll('a');
+      const currentIndex = Array.from(items).indexOf(document.activeElement);
+      
+      if (e.key === 'Escape') {
+        closeDropdown(trigger, dropdown);
+        trigger.focus();
+      }
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        const nextIndex = (currentIndex + 1) % items.length;
+        items[nextIndex].focus();
+      }
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        const prevIndex = currentIndex <= 0 ? items.length - 1 : currentIndex - 1;
+        items[prevIndex].focus();
+      }
+      if (e.key === 'Tab' && !e.shiftKey && currentIndex === items.length - 1) {
+        closeDropdown(trigger, dropdown);
+      }
+    });
   });
+  
+  function openDropdown(trigger, dropdown) {
+    trigger.setAttribute('aria-expanded', 'true');
+    trigger.parentElement.classList.add('is-open');
+  }
+  
+  function closeDropdown(trigger, dropdown) {
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.parentElement.classList.remove('is-open');
+  }
+  
+  function closeAllDropdowns() {
+    dropdownTriggers.forEach(t => {
+      const d = document.getElementById(t.getAttribute('aria-controls'));
+      closeDropdown(t, d);
+    });
+  }
+  
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.has-dropdown')) {
+      closeAllDropdowns();
+    }
+  });
+  
+  // ===== Mobile Navigation =====
+  const mobileToggle = document.querySelector('.mobile-nav__toggle');
+  const mobileClose = document.querySelector('.mobile-nav__close');
+  const mobileDrawer = document.getElementById('mobile-nav-drawer');
+  const body = document.body;
+  
+  if (mobileToggle && mobileDrawer) {
+    // Open drawer
+    mobileToggle.addEventListener('click', () => {
+      openMobileNav();
+    });
+    
+    // Close drawer
+    mobileClose.addEventListener('click', () => {
+      closeMobileNav();
+    });
+    
+    // Close on escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileDrawer.getAttribute('aria-hidden') === 'false') {
+        closeMobileNav();
+      }
+    });
+    
+    // Close on backdrop click
+    mobileDrawer.addEventListener('click', (e) => {
+      if (e.target === mobileDrawer) {
+        closeMobileNav();
+      }
+    });
+  }
+  
+  function openMobileNav() {
+    mobileDrawer.setAttribute('aria-hidden', 'false');
+    mobileToggle.setAttribute('aria-expanded', 'true');
+    body.classList.add('nav-open');
+    body.style.overflow = 'hidden';
+    mobileClose.focus();
+    trapFocus(mobileDrawer);
+  }
+  
+  function closeMobileNav() {
+    mobileDrawer.setAttribute('aria-hidden', 'true');
+    mobileToggle.setAttribute('aria-expanded', 'false');
+    body.classList.remove('nav-open');
+    body.style.overflow = '';
+    mobileToggle.focus();
+  }
+  
+  // Focus trap for modal
+  function trapFocus(element) {
+    const focusable = element.querySelectorAll('button, a, input, [tabindex]:not([tabindex="-1"])');
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    
+    element.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab') return;
+      
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
+  }
+  
+  // ===== Mobile Accordions =====
+  const accordionTriggers = document.querySelectorAll('.mobile-nav__accordion-trigger');
+  
+  accordionTriggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+      
+      // Close other accordions (only one open at a time)
+      accordionTriggers.forEach(t => {
+        if (t !== trigger) {
+          t.setAttribute('aria-expanded', 'false');
+          t.classList.remove('is-expanded');
+          const otherPanel = document.getElementById(t.getAttribute('aria-controls'));
+          if (otherPanel) {
+            otherPanel.hidden = true;
+          }
+        }
+      });
+      
+      // Toggle current
+      if (isExpanded) {
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.classList.remove('is-expanded');
+        panel.hidden = true;
+      } else {
+        trigger.setAttribute('aria-expanded', 'true');
+        trigger.classList.add('is-expanded');
+        panel.hidden = false;
+      }
+    });
+  });
+  
+})();
 </script>
+  </div>
 </header>
 
 <script>
   (function () {
     var header = document.getElementById('site-header');
-    var logo = document.getElementById('header-logo');
     var lastScroll = 0;
+    var scrollThreshold = 60;
 
-    // Sticky header and logo resize on scroll
     function onScroll() {
       var scrollY = window.scrollY || window.pageYOffset;
 
       // Minimize header after scroll threshold
-      if (scrollY > 60) {
+      if (scrollY > scrollThreshold) {
         header.classList.add('ts-header--minimized');
       } else {
         header.classList.remove('ts-header--minimized');
       }
 
-      // Update last scroll position
       lastScroll = scrollY;
     }
 
-    // Event listeners for scroll, resize, and page load
-    window.addEventListener('scroll', onScroll);
-    window.addEventListener('resize', onScroll);
+    // Throttled scroll handler
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          onScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Initial state
     document.addEventListener('DOMContentLoaded', onScroll);
   })();
 </script>
@@ -788,13 +1196,6 @@
 
     <!-- Footer Navigation Sections -->
     <div class="footer-sections flex-wrap gap-footer justify-center">
-      
-      <section class="footer-group" aria-label="">
-        <h3 class="footer-group-title"></h3>
-        <ul class="footer-list">
-          
-        </ul>
-      </section>
       
       <section class="footer-group" aria-label="">
         <h3 class="footer-group-title"></h3>

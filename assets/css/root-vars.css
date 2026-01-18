@@ -1,55 +1,91 @@
 /* =========================================================
    Tillerstead Design System - Root Variables
    TCNA/New Jersey HIC Compliant Styling
+   Colors extracted from 4k-logo.png brand identity
    ========================================================= */
 
 :root {
-  /* ===== Core Brand Colors ===== */
-  --tiller-color-brown: #5d3a2b;
-  --tiller-color-brown-dark: #4a2e22;
-  --tiller-color-brown-light: #755140;
-  --tiller-color-gold: #d4af37;
-  --tiller-color-gold-light: #e6c866;
-  --tiller-color-grey: #b0b0b0;
-  --tiller-color-beige: #f1e0c6;
-  --tiller-color-green: #2a5d4e;
-  --tiller-color-green-dark: #1f4839;
-  --tiller-color-green-light: #3a7260;
-  --tiller-color-coral: #ff6b6b;
-  --tiller-color-highlight: #0b6cff;
+  /* ===== Core Brand Colors (from 4k logo palette) ===== */
+
+  /* Primary: Deep Forest Green - dominant logo color */
+  --tiller-color-green: #1a3d2e;
+  --tiller-color-green-dark: #102010;
+  --tiller-color-green-light: #2a5d4e;
+  --tiller-color-green-muted: #304030;
+  
+  /* Secondary: Rich Olive Gold - accent from logo */
+  --tiller-color-gold: #b8a040;
+  --tiller-color-gold-dark: #8a7830;
+  --tiller-color-gold-light: #d4c060;
+  --tiller-color-gold-muted: #707030;
+  
+  /* Tertiary: Earthy Browns - warmth and trust */
+  --tiller-color-brown: #4a3828;
+  --tiller-color-brown-dark: #3a2818;
+  --tiller-color-brown-light: #6a5848;
+  
+  /* Accent: Warm Coral - calls to action */
+  --tiller-color-coral: #e85a50;
+  --tiller-color-coral-dark: #c84a40;
+  --tiller-color-coral-light: #ff7a70;
+  
+  /* Neutral: Sophisticated Greys */
+  --tiller-color-grey: #808060;
+  --tiller-color-grey-dark: #505040;
+  --tiller-color-grey-light: #a0a080;
+  
+  /* Warm Neutrals */
+  --tiller-color-beige: #f4ece0;
+  --tiller-color-beige-dark: #e8dcc8;
+  --tiller-color-cream: #faf8f2;
+  
+  /* Utility Colors */
+  --tiller-color-highlight: #2a7fff;
+  --tiller-color-success: #2a8050;
+  --tiller-color-warning: #d4a030;
+  --tiller-color-error: #c84040;
   
   /* ===== Text Colors ===== */
-  --tiller-text-primary: #2d2d2d;
-  --tiller-text-secondary: #5a5a5a;
-  --tiller-text-tertiary: #808080;
-  --tiller-text-light: #fdf7ea;
-  --tiller-text-white: #fff;
+  --tiller-text-primary: #1a2018;
+  --tiller-text-secondary: #4a5048;
+  --tiller-text-tertiary: #707868;
+  --tiller-text-light: #faf8f2;
+  --tiller-text-white: #ffffff;
+  --tiller-text-on-dark: #e8e8e0;
   
   /* ===== Backgrounds ===== */
-  --tiller-bg-main: #fdf7ea;
-  --tiller-bg-alt: #fff;
-  --tiller-bg-dark: #1a1a1a;
+  --tiller-bg-main: #faf8f2;
+  --tiller-bg-alt: #ffffff;
+  --tiller-bg-soft: #f4ece0;
+  --tiller-bg-dark: #102010;
+  --tiller-bg-darker: #0a1408;
   --tiller-header-bg: #ffffff;
-  --tiller-bg-overlay: rgba(0, 0, 0, 0.5);
+  --tiller-bg-overlay: rgb(16, 32, 16, 0.85);
+  --tiller-bg-overlay-light: rgb(250, 248, 242, 0.95);
   
   /* ===== Buttons ===== */
-  --tiller-btn-primary-bg: var(--tiller-color-brown);
-  --tiller-btn-primary-text: #fff;
+  --tiller-btn-primary-bg: var(--tiller-color-green);
+  --tiller-btn-primary-text: #ffffff;
+  --tiller-btn-primary-hover: var(--tiller-color-green-dark);
+  --tiller-btn-secondary-bg: var(--tiller-color-gold);
+  --tiller-btn-secondary-text: var(--tiller-text-primary);
   --tiller-btn-accent-bg: var(--tiller-color-coral);
   --tiller-btn-hover-bg: var(--tiller-color-gold);
   
   /* ===== Navigation ===== */
   --tiller-nav-bg: var(--tiller-color-green);
-  --tiller-nav-text: #fff;
+  --tiller-nav-text: #ffffff;
   --tiller-nav-accent: var(--tiller-color-gold);
-  --tiller-nav-height: 64px;
+  --tiller-nav-hover: var(--tiller-color-green-light);
+  --tiller-nav-height: 72px;
   
-  /* ===== Shadows ===== */
-  --tiller-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --tiller-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --tiller-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
-  --tiller-shadow-xl: 0 15px 25px rgba(0, 0, 0, 0.2);
-  --tiller-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  /* ===== Shadows (warmer tones) ===== */
+  --tiller-shadow-sm: 0 1px 3px rgb(16, 32, 16, 0.08);
+  --tiller-shadow-md: 0 4px 8px rgb(16, 32, 16, 0.1);
+  --tiller-shadow-lg: 0 10px 20px rgb(16, 32, 16, 0.12);
+  --tiller-shadow-xl: 0 20px 40px rgb(16, 32, 16, 0.15);
+  --tiller-shadow-glow: 0 0 20px rgb(184, 160, 64, 0.3);
+  --tiller-box-shadow: 0 2px 8px rgb(16, 32, 16, 0.06);
 
   /* Border Radius */
   --tiller-border-radius-sm: 4px;
@@ -98,19 +134,29 @@
 
   /* Grid System */
   --tiller-grid-columns: 12;
-  --tiller-grid-gutter-width: 1.5rem;
-  --tiller-grid-max-width: 1200px;
+  --tiller-grid-gutter-width: clamp(1rem, 2vw, 2rem);
+  --tiller-grid-max-width: 1800px;
 
-  /* Container Widths */
-  --tiller-container-sm: 100%;
-  --tiller-container-md: 80%;
-  --tiller-container-lg: 70%;
-  --tiller-container-xl: 60%;
+  /* Container Widths - 2026 Ultra-Wide Desktop Standard */
+  --tiller-container-max-width: min(96%, 2200px);
+  --tiller-container-content-width: min(94%, 2000px);
+  --tiller-container-text-width: min(90%, 900px);
+  --tiller-container-wide: min(98%, 2400px);
+  --tiller-container-full: 100%;
+  
+  /* Breakpoint-specific containers - Progressive Enhancement */
+  --tiller-container-sm: min(100%, 600px);
+  --tiller-container-md: min(96%, 1600px);
+  --tiller-container-lg: min(94%, 1800px);
+  --tiller-container-xl: min(92%, 2000px);
+  --tiller-container-2xl: min(90%, 2200px);
+  --tiller-container-xxl: min(88%, 2400px);
+  --tiller-container-3xl: min(86%, 2600px);
 
   /* Form Inputs */
   --tiller-input-border-radius: 4px;
-  --tiller-input-border-color: #ccc;
-  --tiller-input-background: #fff;
+  --tiller-input-border-color: #cccccc;
+  --tiller-input-background: #ffffff;
   --tiller-input-focus-border: var(--tiller-color-primary);
 
   /* Form Labels */
@@ -139,13 +185,14 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+
   *,
   *::before,
   *::after {
@@ -156,8 +203,8 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-               'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+               Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
                sans-serif;
   background-color: var(--tiller-bg-main, #fdf7ea);
   color: var(--tiller-text-primary, #2d2d2d);
@@ -188,7 +235,7 @@ a:hover {
 /* ===== Button Styling ===== */
 button {
   background-color: var(--tiller-btn-primary-bg, #5d3a2b);
-  color: var(--tiller-btn-primary-text, #fff);
+  color: var(--tiller-btn-primary-text, #ffffff);
   border-radius: var(--tiller-border-radius-md, 0.5rem);
   padding: 0.75rem 1.75rem;
   font-weight: var(--tiller-font-weight-bold, 600);
@@ -213,14 +260,14 @@ button::before {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgb(255, 255, 255, 0.2), transparent);
   transition: left 0.5s;
 }
 
 button:hover {
   background-color: var(--tiller-color-brown-dark, #4a2e22);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(93, 58, 43, 0.3);
+  box-shadow: 0 4px 12px rgb(93, 58, 43, 0.3);
 }
 
 button:hover::before {
@@ -229,7 +276,7 @@ button:hover::before {
 
 button:active {
   transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(93, 58, 43, 0.2);
+  box-shadow: 0 2px 4px rgb(93, 58, 43, 0.2);
 }
 
 button:focus-visible {
@@ -268,27 +315,43 @@ button:focus-visible {
   text-decoration: none;
 }
 
-/* Layout */
+/* Layout - 2026 Wide Desktop Standard */
 .container {
-  max-width: var(--tiller-grid-max-width);
+  max-width: var(--tiller-container-max-width, 2200px);
   margin: 0 auto;
-  padding: var(--tiller-spacing-md);
+  padding: 0 clamp(1rem, 4vw, 4rem);
+  width: 100%;
+}
+
+.container-wide {
+  max-width: var(--tiller-container-wide, 2400px);
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 4rem);
+  width: 100%;
 }
 
 .container-sm {
-  width: var(--tiller-container-sm);
+  max-width: var(--tiller-container-sm);
 }
 
 .container-md {
-  width: var(--tiller-container-md);
+  max-width: var(--tiller-container-md);
 }
 
 .container-lg {
-  width: var(--tiller-container-lg);
+  max-width: var(--tiller-container-lg);
 }
 
 .container-xl {
-  width: var(--tiller-container-xl);
+  max-width: var(--tiller-container-xl);
+}
+
+.container-2xl {
+  max-width: var(--tiller-container-2xl);
+}
+
+.container-xxl {
+  max-width: var(--tiller-container-xxl);
 }
 
 /* Form Styling */
