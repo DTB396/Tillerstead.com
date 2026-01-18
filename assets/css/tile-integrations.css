@@ -121,11 +121,23 @@
 /* Apply to portfolio sections */
 .ts-portfolio-tiled {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 3px; /* Grout-line gap */
   background-color: var(--tiller-grout-medium, #d4cfc5);
   padding: 3px;
   border-radius: var(--tiller-border-radius-md, 8px);
+}
+
+@media (max-width: 1024px) {
+  .ts-portfolio-tiled {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .ts-portfolio-tiled {
+    grid-template-columns: 1fr;
+  }
 }
 
 .ts-portfolio-tiled > * {
@@ -329,12 +341,24 @@
 
 .ts-image-gallery-tiled {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2px;
   background: var(--tiller-grout-medium, #d4cfc5);
   padding: 2px;
   border-radius: var(--tiller-border-radius-lg, 12px);
   overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .ts-image-gallery-tiled {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .ts-image-gallery-tiled {
+    grid-template-columns: 1fr;
+  }
 }
 
 .ts-image-gallery-tiled img {

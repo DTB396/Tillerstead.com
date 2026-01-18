@@ -5,9 +5,9 @@
 
 /* Layout Utilities */
 .container {
-  max-width: 1200px;
+  max-width: min(96%, 2000px);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 clamp(1rem, 3vw, 2rem);
 }
 
 .bg-soft {
@@ -276,9 +276,21 @@
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-bottom: 4rem;
+}
+
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .service-card {
@@ -370,9 +382,21 @@
 
 .process-steps {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   margin-bottom: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
 }
 
 .process-step {
@@ -445,9 +469,15 @@
 
 .materials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .materials-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .material-card {
