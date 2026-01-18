@@ -20,7 +20,7 @@
   --tiller-bg-alt: var(--tiller-bg-stone);
   --tiller-bg-soft: var(--tiller-bg-slate);
   --tiller-header-bg: var(--tiller-bg-darker);
-  --tiller-bg-overlay: rgba(10, 12, 10, 0.95);
+  --tiller-bg-overlay: rgb(10 12 10 / 0.95);
   
   /* ===== GOLD - Grout Lines & Accents ===== */
   --tiller-color-gold: #c9a227;
@@ -29,15 +29,15 @@
   --tiller-color-gold-muted: #8a7830;
   --tiller-color-gold-bright: #ffd700;
   --tiller-grout: var(--tiller-color-gold);
-  --tiller-grout-subtle: rgba(201, 162, 39, 0.15);
-  --tiller-grout-faint: rgba(201, 162, 39, 0.08);
+  --tiller-grout-subtle: rgb(201 162 39 / 0.15);
+  --tiller-grout-faint: rgb(201 162 39 / 0.08);
   
   /* ===== EMERALD - Glowing Headers ===== */
   --tiller-color-emerald: #10b981;
   --tiller-color-emerald-dark: #059669;
   --tiller-color-emerald-light: #34d399;
   --tiller-color-emerald-bright: #4ade80;
-  --tiller-color-emerald-glow: rgba(16, 185, 129, 0.5);
+  --tiller-color-emerald-glow: rgb(16 185 129 / 0.5);
   
   /* Brand greens (deep forest) */
   --tiller-color-green: #0d2a1f;
@@ -64,7 +64,14 @@
   --tiller-color-warning: var(--tiller-color-gold);
   --tiller-color-error: #f87171;
   --tiller-color-info: #38bdf8;
-  
+
+  /* ===== METALLIC SILVER - Buttons & Accents ===== */
+  --tiller-color-silver: #c0c0c0;
+  --tiller-color-silver-dark: #8a8a8a;
+  --tiller-color-silver-light: #e8e8e8;
+  --tiller-color-silver-bright: #f5f5f5;
+  --tiller-color-silver-glow: rgb(192 192 192 / 0.5);
+
   /* ===== 90s RETRO PALETTE - Nostalgic accents ===== */
   /* Inspired by Windows 95, Memphis design, and 90s bathroom tile */
   --retro-teal: #008080;
@@ -105,18 +112,19 @@
   --tiller-btn-hover-bg: var(--tiller-color-gold-light);
   
   /* ===== Navigation - Dark ===== */
-  --tiller-nav-bg: var(--tiller-bg-darker);
-  --tiller-nav-text: #ffffff;
-  --tiller-nav-accent: var(--tiller-color-gold);
-  --tiller-nav-hover: var(--tiller-bg-slate);
-  --tiller-nav-height: 72px;
-  
-  /* ===== Shadows - Dark Theme ===== */
-  --tiller-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-  --tiller-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.5);
-  --tiller-shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.6);
-  --tiller-shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.7);
+  --tiller-nav-bg: var(--tiller-bg-(0 0 0 / 0.4);
+  --tiller-shadow-md: 0 4px 8px rgb(0 0 0 / 0.5);
+  --tiller-shadow-lg: 0 10px 20px rgb(0 0 0 / 0.6);
+  --tiller-shadow-xl: 0 20px 40px rgb(0 0 0 / 0.7);
   --tiller-shadow-glow-emerald: 0 0 20px var(--tiller-color-emerald-glow);
+  --tiller-shadow-glow-gold: 0 0 15px rgb(201 162 39 / 0.4);
+  --tiller-shadow-glow-silver: 0 0 15px rgb(192 192 192 / 0.4);
+  --tiller-box-shadow: 0 2px 8px rgb(0 0 0 / 0.3);
+
+  /* 90s-style offset shadows (no blur, hard edges) */
+  --retro-shadow-offset-sm: 3px 3px 0 rgb(0 0 0 / 0.3);
+  --retro-shadow-offset-md: 5px 5px 0 rgb(0 0 0 / 0.3);
+  --retro-shadow-offset-lg: 8px 8px 0 rgb(0 0 0 /er-color-emerald-glow);
   --tiller-shadow-glow-gold: 0 0 15px rgba(201, 162, 39, 0.4);
   --tiller-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   
@@ -140,9 +148,9 @@
   --retro-border-thick: 4px;
   --retro-border-chunky: 5px;
 
-  /* Border Colors - Gold Grout */
-  --tiller-border-color: rgba(201, 162, 39, 0.2);
-  --tiller-border-color-light: rgba(201, 162, 39, 0.1);
+  /* Border Colors - Gold Gr(201 162 39 / 0.2);
+  --tiller-border-color-light: rgb(201 162 39 / 0.1);
+  --tiller-border-color-strong: rgb(201 162 39 /0.1);
   --tiller-border-color-strong: rgba(201, 162, 39, 0.4);
   --tiller-border-grout: var(--tiller-grout-subtle);
 
@@ -290,7 +298,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   text-shadow: 
     0 0 10px var(--tiller-color-emerald-glow),
-    0 0 30px var(--tiller-color-emerald-glow),
+    0 0 30px var(16 185 129 /-emerald-glow),
     0 0 50px rgba(16, 185, 129, 0.3);
 }
 
@@ -345,7 +353,7 @@ button::before {
   top: 0;
   left: -100%;
   width: 100%;
-  height: 100%;
+  height: 100%;(255 255 255 /
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: left 0.5s;
 }
@@ -355,7 +363,7 @@ button:hover {
   transform: translateY(-2px);
   box-shadow: 
     var(--tiller-shadow-glow-emerald),
-    0 4px 20px rgba(16, 185, 129, 0.4);
+    0 4px 20px rgb(16 185 129 / 0.4);
 }
 
 button:hover::before {
@@ -383,7 +391,39 @@ button:focus-visible {
   background: var(--tiller-color-gold-light);
   box-shadow: 
     var(--tiller-shadow-glow-gold),
-    0 4px 20px rgba(201, 162, 39, 0.5);
+    0 4px 20px rgb(201 162 39 / 0.5);
+}
+
+/* Metallic Silver Button Variant */
+.btn-silver {
+  background: linear-gradient(180deg, var(--tiller-color-silver-light) 0%, var(--tiller-color-silver) 50%, var(--tiller-color-silver-dark) 100%);
+  color: #0a0c0a;
+  box-shadow: var(--tiller-shadow-glow-silver);
+  border: 1px solid var(--tiller-color-silver-bright);
+  font-weight: var(--tiller-font-weight-bold);
+}
+
+.btn-silver:hover {
+  background: linear-gradient(180deg, var(--tiller-color-silver-bright) 0%, var(--tiller-color-silver-light) 50%, var(--tiller-color-silver) 100%);
+  box-shadow: 
+    var(--tiller-shadow-glow-silver),
+    0 4px 20px rgb(192 192 192 / 0.5);
+}
+
+/* Metallic Gold Button Variant (enhanced) */
+.btn-metallic-gold {
+  background: linear-gradient(180deg, var(--tiller-color-gold-light) 0%, var(--tiller-color-gold) 50%, var(--tiller-color-gold-dark) 100%);
+  color: #0a0c0a;
+  box-shadow: var(--tiller-shadow-glow-gold);
+  border: 1px solid var(--tiller-color-gold-bright);
+  font-weight: var(--tiller-font-weight-bold);
+}
+
+.btn-metallic-gold:hover {
+  background: linear-gradient(180deg, var(--tiller-color-gold-bright) 0%, var(--tiller-color-gold-light) 50%, var(--tiller-color-gold) 100%);
+  box-shadow: 
+    var(--tiller-shadow-glow-gold),
+    0 4px 20px rgb(201 162 39 / 0.6);
 }
 
 /* Shadows for Elements */
@@ -459,7 +499,16 @@ button:focus-visible {
 /* Form Styling */
 input, select, textarea {
   padding: 0.5rem;
-  border-radius: var(--tiller-input-border-radius);
+ 
+
+/* Metallic gold grout line effect */
+.ts-footer::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: linear-gradient(90deg, var(--tiller-color-gold-dark), var(--tiller-color-gold-bright), var(--tiller-color-gold-dark));
+  box-shadow: 0 0 10px var(--tiller-color-gold);
+} border-radius: var(--tiller-input-border-radius);
   border: 1px solid var(--tiller-input-border-color);
   width: 100%;
 }
@@ -492,13 +541,13 @@ label {
   border-top: 2px solid var(--tiller-color-gold);
   position: relative;
 }
+(16 185 129 / 0.3));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
 
-/* Gold grout pattern overlay */
-.ts-footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+.footer-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 20px rgb(16 185 129 /
   right: 0;
   bottom: 0;
   background-image: 
@@ -570,7 +619,7 @@ label {
   margin-bottom: var(--tiller-spacing-sm);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  text-shadow: 0 0 8px var(--tiller-color-emerald-glow);
+  text-shadow: 0 0 8px var((16 185 129 /emerald-glow);
 }
 
 .footer-list {
@@ -594,7 +643,7 @@ label {
 .footer-list a:focus {
   color: var(--tiller-color-gold);
   text-shadow: 0 0 8px var(--tiller-shadow-glow-gold);
-}
+}(201 162 39 /
 
 .footer-contact {
   text-align: center;
