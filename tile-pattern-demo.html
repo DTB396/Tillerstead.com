@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tile Pattern Demo - Tillerstead.com</title>
+  
+  <!-- Core Design System -->
+  <link rel="stylesheet" href="/assets/css/root-vars.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/home.css">
+  
+  <!-- Tile Design System -->
+  <link rel="stylesheet" href="/assets/css/tile-patterns.css">
+  <link rel="stylesheet" href="/assets/css/tile-integrations.css">
+  
+  <style>
+    /* Demo-specific styles */
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    
+    .demo-section {
+      margin: var(--tiller-spacing-xl, 4rem) 0;
+      padding: var(--tiller-spacing-xl, 4rem) 0;
+    }
+    
+    .demo-label {
+      text-align: center;
+      font-size: var(--tiller-font-size-sm);
+      color: var(--tiller-text-tertiary);
+      margin-bottom: var(--tiller-spacing-md);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+    
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--tiller-spacing-lg);
+      padding: 0 var(--tiller-spacing-lg);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .pattern-demo {
+      height: 300px;
+      border-radius: var(--tiller-border-radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--tiller-text-primary);
+      text-shadow: 0 1px 2px rgb(255, 255, 255, 0.8);
+      box-shadow: var(--tiller-shadow-md);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HERO SECTION WITH TILE PATTERN ========== -->
+  <section class="home-hero ts-tiled-hero">
+    <div class="demo-label">Hero Section with Subtle Grid Pattern</div>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="hero-eyebrow">TCNA-Certified Excellence</p>
+        <h1 class="hero-title">Professional Tile Installation</h1>
+        <p class="hero-subtitle">Precision. Craftsmanship. Beauty.</p>
+        <p class="hero-summary">
+          Transform your space with expert tile installation from South Jersey's most trusted tile contractor. 
+          Serving Atlantic, Cape May, and Ocean Counties since 1997.
+        </p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn--large btn--primary">Get Free Quote</a>
+          <a href="#" class="btn btn--large btn--secondary-outline">View Portfolio</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="/assets/images/hero-placeholder.jpg" 
+             alt="Professional tile installation" 
+             style="width: 100%; height: auto; border-radius: 1rem;">
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PATTERN SHOWCASE ========== -->
+  <section class="demo-section">
+    <div class="container">
+      <div class="section-header ts-tiled-header">
+        <p class="section-eyebrow">Design System</p>
+        <h2 class="section-title">Tile-Inspired Background Patterns</h2>
+        <p class="section-summary">Subtle geometric patterns that showcase professional tile layouts</p>
+      </div>
+      
+      <div class="demo-grid">
+        <div class="pattern-demo ts-pattern-subway">
+          Subway Tile Pattern
+        </div>
+        
+        <div class="pattern-demo ts-pattern-grid">
+          Modern Grid Pattern
+        </div>
+        
+        <div class="pattern-demo ts-pattern-stacked">
+          Stacked Bond Pattern
+        </div>
+        
+        <div class="pattern-demo ts-pattern-herringbone">
+          Herringbone Pattern
+        </div>
+        
+        <div class="pattern-demo ts-pattern-plank">
+          Plank Pattern
+        </div>
+        
+        <div class="pattern-demo" style="background: var(--tiller-bg-main);">
+          No Pattern (Baseline)
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GROUT LINE DIVIDER ========== -->
+  <hr class="ts-section-separator">
+
+  <!-- ========== SERVICE CARDS WITH CERAMIC TEXTURE ========== -->
+  <section class="home-services demo-section">
+    <div class="container">
+      <div class="demo-label">Service Cards with Ceramic Tile Texture</div>
+      <div class="section-header ts-tiled-header">
+        <p class="section-eyebrow">What We Do</p>
+        <h2 class="section-title">Professional Tile Services</h2>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card ts-ceramic-card">
+          <h3 class="service-title">Bathroom Tile Installation</h3>
+          <p class="service-description">
+            Expert installation of ceramic, porcelain, and natural stone tiles for showers, 
+            tub surrounds, floors, and walls.
+          </p>
+          <ul class="service-details">
+            <li>Custom shower tile work</li>
+            <li>Floor and wall installation</li>
+            <li>Waterproofing systems</li>
+          </ul>
+          <a href="#" class="service-link">Learn More →</a>
+        </div>
+        
+        <div class="service-card ts-ceramic-card">
+          <h3 class="service-title">Kitchen Backsplashes</h3>
+          <p class="service-description">
+            Create stunning focal points with custom tile backsplashes. From classic subway 
+            to intricate mosaics.
+          </p>
+          <ul class="service-details">
+            <li>Subway tile patterns</li>
+            <li>Mosaic designs</li>
+            <li>Custom layouts</li>
+          </ul>
+          <a href="#" class="service-link">Learn More →</a>
+        </div>
+        
+        <div class="service-card ts-ceramic-card">
+          <h3 class="service-title">Floor Tile Installation</h3>
+          <p class="service-description">
+            Durable, beautiful floors that stand the test of time. Porcelain, ceramic, 
+            and natural stone options.
+          </p>
+          <ul class="service-details">
+            <li>Large format tile</li>
+            <li>Wood-look porcelain</li>
+            <li>Heated floor systems</li>
+          </ul>
+          <a href="#" class="service-link">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MATERIAL CARDS WITH STONE TEXTURE ========== -->
+  <section class="home-materials demo-section bg-soft">
+    <div class="container">
+      <div class="demo-label">Material Cards with Natural Stone Texture</div>
+      <div class="section-header">
+        <p class="section-eyebrow">Premium Materials</p>
+        <h2 class="section-title">Quality Tile Products</h2>
+      </div>
+      
+      <div class="materials-grid">
+        <div class="material-card ts-stone-card">
+          <h3 class="material-title">Ceramic Tile</h3>
+          <p class="material-description">
+            Classic beauty and versatility for walls, backsplashes, and light-duty floors.
+          </p>
+          <ul class="material-points">
+            <li>Wide variety of colors and patterns</li>
+            <li>Easy to maintain</li>
+            <li>Budget-friendly option</li>
+          </ul>
+        </div>
+        
+        <div class="material-card ts-stone-card">
+          <h3 class="material-title">Porcelain Tile</h3>
+          <p class="material-description">
+            Dense, durable, and water-resistant. Perfect for high-traffic areas and wet spaces.
+          </p>
+          <ul class="material-points">
+            <li>Extremely durable</li>
+            <li>Low water absorption</li>
+            <li>Indoor and outdoor use</li>
+          </ul>
+        </div>
+        
+        <div class="material-card ts-stone-card">
+          <h3 class="material-title">Natural Stone</h3>
+          <p class="material-description">
+            Timeless elegance with unique character. Marble, granite, travertine, and slate.
+          </p>
+          <ul class="material-points">
+            <li>One-of-a-kind beauty</li>
+            <li>Increases home value</li>
+            <li>Lasts generations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PORTFOLIO GALLERY WITH GROUT LINES ========== -->
+  <section class="demo-section">
+    <div class="container">
+      <div class="demo-label">Portfolio Gallery with Grout-Line Gaps</div>
+      <h2 class="section-title" style="text-align: center; margin-bottom: var(--tiller-spacing-lg);">
+        Recent Projects
+      </h2>
+      
+      <div class="ts-image-gallery-tiled">
+        <div style="background: linear-gradient(135deg, #1a3d2e, #2a5d4e); aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+          Bathroom Marble
+        </div>
+        <div style="background: linear-gradient(135deg, #b8a040, #d4c060); aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+          Kitchen Subway
+        </div>
+        <div style="background: linear-gradient(135deg, #4a3828, #6a5848); aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+          Floor Wood-Look
+        </div>
+        <div style="background: linear-gradient(135deg, #e85a50, #ff7a70); aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+          Shower Mosaic
+        </div>
+        <div style="background: linear-gradient(135deg, #2a5d4e, #1a3d2e); aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+          Entry Porcelain
+        </div>
+        <div style="background: linear-gradient(135deg, #8a7830, #b8a040); aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+          Outdoor Patio
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== REVIEW CARDS WITH TILE FRAMES ========== -->
+  <section class="demo-section bg-soft">
+    <div class="container">
+      <div class="demo-label">Review Cards with Tile Frame Effect</div>
+      <h2 class="section-title" style="text-align: center; margin-bottom: var(--tiller-spacing-lg);">
+        What Our Clients Say
+      </h2>
+      
+      <div class="cards--3col">
+        <div class="card--review ts-tile-framed">
+          <div class="card-rating">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+          <p style="flex: 1;">
+            "Exceptional tile work! The precision and attention to detail were outstanding. 
+            Our bathroom looks like a luxury spa."
+          </p>
+          <cite style="font-style: italic; color: var(--tiller-text-tertiary);">
+            — Sarah M., Ocean County
+          </cite>
+        </div>
+        
+        <div class="card--review ts-tile-framed">
+          <div class="card-rating">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+          <p style="flex: 1;">
+            "Professional from start to finish. The herringbone pattern in our kitchen 
+            is absolutely stunning. Highly recommend!"
+          </p>
+          <cite style="font-style: italic; color: var(--tiller-text-tertiary);">
+            — Michael R., Cape May County
+          </cite>
+        </div>
+        
+        <div class="card--review ts-tile-framed">
+          <div class="card-rating">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+          <p style="flex: 1;">
+            "The team was knowledgeable, clean, and efficient. Our new floor tile 
+            exceeded our expectations. Worth every penny."
+          </p>
+          <cite style="font-style: italic; color: var(--tiller-text-tertiary);">
+            — Jennifer L., Atlantic County
+          </cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA SECTION WITH TILE PATTERN ========== -->
+  <section class="section-cta ts-tiled-cta">
+    <div class="demo-label" style="color: var(--tiller-color-gold);">
+      CTA Section with Dark Grid Pattern
+    </div>
+    <div class="container" style="text-align: center;">
+      <h2 class="cta-title">Ready to Transform Your Space?</h2>
+      <p style="font-size: var(--tiller-font-size-lg); margin-bottom: var(--tiller-spacing-lg); color: var(--tiller-text-light);">
+        Get a free quote from South Jersey's premier tile contractor
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="#" class="btn btn--primary btn--large">Schedule Consultation</a>
+        <a href="#" class="btn btn--ghost btn--large">Call (609) 555-TILE</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== UTILITY CLASS DEMOS ========== -->
+  <section class="demo-section">
+    <div class="container">
+      <div class="demo-label">Utility Classes & Accent Borders</div>
+      <h2 class="section-title" style="text-align: center; margin-bottom: var(--tiller-spacing-xl);">
+        Design System Utilities
+      </h2>
+      
+      <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--tiller-spacing-lg);">
+        
+        <div class="ts-grout-left" style="background: var(--tiller-bg-alt); padding: var(--tiller-spacing-lg); border-radius: var(--tiller-border-radius-md);">
+          <strong>Left Grout Accent</strong><br>
+          This element has a grout-line style left border, perfect for quotes or callouts.
+        </div>
+        
+        <div class="ts-grout-bottom" style="background: var(--tiller-bg-alt); padding: var(--tiller-spacing-lg); border-radius: var(--tiller-border-radius-md);">
+          <strong>Bottom Grout Accent</strong><br>
+          This element has a grout-line style bottom border, great for section divisions.
+        </div>
+        
+        <div class="ts-tile-frame" style="padding: var(--tiller-spacing-lg); border-radius: var(--tiller-border-radius-md);">
+          <strong>Tile Frame</strong><br>
+          This element is framed like an installed tile, with subtle shadow and inset highlight.
+        </div>
+        
+        <div class="ts-texture-ceramic" style="background: var(--tiller-bg-alt); padding: var(--tiller-spacing-lg); border-radius: var(--tiller-border-radius-md); border: 1px solid var(--tiller-border-grout-light);">
+          <strong>Ceramic Texture</strong><br>
+          This element has a subtle ceramic tile texture overlay.
+        </div>
+        
+        <div class="ts-texture-natural" style="background: var(--tiller-bg-alt); padding: var(--tiller-spacing-lg); border-radius: var(--tiller-border-radius-md); border: 1px solid var(--tiller-border-grout-medium);">
+          <strong>Natural Stone Texture</strong><br>
+          This element has a subtle natural stone texture overlay.
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FINAL DIVIDER ========== -->
+  <hr class="ts-section-separator">
+
+  <!-- ========== IMPLEMENTATION NOTES ========== -->
+  <section class="demo-section" style="background: var(--tiller-bg-soft); padding: var(--tiller-spacing-2xl) 0;">
+    <div class="container" style="max-width: 900px; margin: 0 auto;">
+      <h2 style="text-align: center; margin-bottom: var(--tiller-spacing-lg);">Implementation Guide</h2>
+      
+      <div style="background: var(--tiller-bg-alt); padding: var(--tiller-spacing-xl); border-radius: var(--tiller-border-radius-lg); border: 1px solid var(--tiller-border-grout-light);">
+        <h3 style="margin-top: 0; color: var(--tiller-color-green);">Quick Start</h3>
+        <ol style="line-height: 1.8;">
+          <li>Link CSS files in HTML head (root-vars.css → tile-patterns.css → tile-integrations.css)</li>
+          <li>Add tile pattern classes to hero sections, cards, or backgrounds</li>
+          <li>Use utility classes for accents and borders</li>
+          <li>Test across devices and browsers</li>
+          <li>Verify accessibility with keyboard navigation and screen readers</li>
+        </ol>
+        
+        <h3 style="color: var(--tiller-color-green); margin-top: var(--tiller-spacing-lg);">Design Principles</h3>
+        <ul style="line-height: 1.8;">
+          <li><strong>Subtlety First:</strong> Patterns enhance, never distract</li>
+          <li><strong>Industry Authentic:</strong> Grout widths and tile sizes match real installations</li>
+          <li><strong>Performance-Optimized:</strong> Pure CSS, no images, minimal file size</li>
+          <li><strong>Accessible:</strong> WCAG AA compliant, respects user preferences</li>
+          <li><strong>Responsive:</strong> Patterns scale appropriately on all devices</li>
+        </ul>
+        
+        <h3 style="color: var(--tiller-color-green); margin-top: var(--tiller-spacing-lg);">Documentation</h3>
+        <p>
+          For complete documentation, examples, and customization options, 
+          see <code style="background: var(--tiller-bg-soft); padding: 0.25em 0.5em; border-radius: 3px;">TILE-DESIGN-SYSTEM.md</code>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

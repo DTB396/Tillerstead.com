@@ -1,219 +1,94 @@
 /* =========================================================
    Tillerstead Design System - Root Variables
-   TCNA/New Jersey HIC Compliant Styling
-   Colors extracted from 4k-logo.png brand identity
-   UPGRADED: High contrast + vibrant gradients
+   DARK THEME - Stone, Gold Grout, Emerald Glow
+   High contrast for accessibility
    ========================================================= */
 
 :root {
-  /* ===== Core Brand Colors (UPGRADED for impact) ===== */
-
-  /* Primary: Deep Forest Green - rich and commanding */
-  --tiller-color-green: #0d2a1f;
-  --tiller-color-green-dark: #061510;
-  --tiller-color-green-light: #1a4a38;
-  --tiller-color-green-muted: #254035;
-  --tiller-color-green-vibrant: #0f7a5a;
+  /* ===== DARK THEME - Stone & Slate Backgrounds ===== */
+  --tiller-bg-darkest: #0a0c0a;
+  --tiller-bg-darker: #121414;
+  --tiller-bg-dark: #1a1c1a;
+  --tiller-bg-stone: #222524;
+  --tiller-bg-slate: #2a2d2c;
+  --tiller-bg-elevated: #323534;
+  --tiller-bg-card: #2a2d2c;
+  --tiller-bg-hover: #3a3d3c;
   
-  /* Secondary: Rich Gold - luxurious accent */
+  /* Main backgrounds - dark theme */
+  --tiller-bg-main: var(--tiller-bg-dark);
+  --tiller-bg-alt: var(--tiller-bg-stone);
+  --tiller-bg-soft: var(--tiller-bg-slate);
+  --tiller-header-bg: var(--tiller-bg-darker);
+  --tiller-bg-overlay: rgba(10, 12, 10, 0.95);
+  
+  /* ===== GOLD - Grout Lines & Accents ===== */
   --tiller-color-gold: #c9a227;
   --tiller-color-gold-dark: #9a7a1a;
   --tiller-color-gold-light: #e8c848;
   --tiller-color-gold-muted: #8a7830;
-  --tiller-color-gold-vibrant: #ffd700;
+  --tiller-color-gold-bright: #ffd700;
+  --tiller-grout: var(--tiller-color-gold);
+  --tiller-grout-subtle: rgba(201, 162, 39, 0.15);
+  --tiller-grout-faint: rgba(201, 162, 39, 0.08);
   
-  /* Tertiary: Warm Copper - premium feel */
-  --tiller-color-brown: #8b4513;
-  --tiller-color-brown-dark: #5c2e0c;
-  --tiller-color-brown-light: #cd853f;
-  --tiller-color-copper: #b87333;
+  /* ===== EMERALD - Glowing Headers ===== */
+  --tiller-color-emerald: #10b981;
+  --tiller-color-emerald-dark: #059669;
+  --tiller-color-emerald-light: #34d399;
+  --tiller-color-emerald-bright: #4ade80;
+  --tiller-color-emerald-glow: rgba(16, 185, 129, 0.5);
   
-  /* Accent: Electric Coral - bold CTAs */
-  --tiller-color-coral: #ff5a4d;
-  --tiller-color-coral-dark: #e84339;
-  --tiller-color-coral-light: #ff7e73;
-  --tiller-color-coral-glow: #ff6b5b;
+  /* Brand greens (deep forest) */
+  --tiller-color-green: #0d2a1f;
+  --tiller-color-green-dark: #061510;
+  --tiller-color-green-light: #1a4a38;
   
-  /* Neutral: Sophisticated Greys */
-  --tiller-color-grey: #6b7280;
-  --tiller-color-grey-dark: #374151;
-  --tiller-color-grey-light: #9ca3af;
-  --tiller-color-slate: #475569;
-  
-  /* Warm Neutrals - Clean & Premium */
-  --tiller-color-beige: #f5f0e8;
-  --tiller-color-beige-dark: #e8dcc8;
-  --tiller-color-cream: #fffcf5;
-  --tiller-color-ivory: #fefef9;
-  
-  /* Utility Colors - High Visibility */
-  --tiller-color-highlight: #3b82f6;
-  --tiller-color-success: #10b981;
-  --tiller-color-warning: #f59e0b;
-  --tiller-color-error: #ef4444;
-  --tiller-color-info: #06b6d4;
-  
-  /* ===== High Visibility Text Colors ===== */
-  --tiller-text-primary: #0f1419;
-  --tiller-text-secondary: #374151;
-  --tiller-text-tertiary: #6b7280;
-  --tiller-text-muted: #9ca3af;
-  --tiller-text-light: #ffffff;
+  /* ===== HIGH CONTRAST TEXT - White on Dark ===== */
+  --tiller-text-primary: #ffffff;
+  --tiller-text-secondary: #e5e7eb;
+  --tiller-text-tertiary: #9ca3af;
+  --tiller-text-muted: #6b7280;
   --tiller-text-white: #ffffff;
-  --tiller-text-on-dark: #f3f4f6;
-  --tiller-text-on-green: #ffffff;
-  --tiller-text-on-gold: #0f1419;
-  --tiller-text-heading: #0d2a1f;
-  --tiller-text-body: #1f2937;
+  --tiller-text-light: #f9fafb;
+  --tiller-text-on-dark: #ffffff;
   
-  /* ===== Premium Backgrounds ===== */
-  --tiller-bg-main: #fffcf5;
-  --tiller-bg-alt: #ffffff;
-  --tiller-bg-soft: #f8f6f1;
-  --tiller-bg-warm: #faf7f0;
-  --tiller-bg-card: #ffffff;
-  --tiller-bg-dark: #0d2a1f;
-  --tiller-bg-darker: #061510;
-  --tiller-bg-gradient-dark: #0a1f16;
-  --tiller-header-bg: #ffffff;
-  --tiller-bg-overlay: rgba(13, 42, 31, 0.92);
-  --tiller-bg-overlay-light: rgba(255, 252, 245, 0.97);
+  /* ===== Supporting Colors ===== */
+  --tiller-color-coral: #f87171;
+  --tiller-color-coral-dark: #ef4444;
+  --tiller-color-coral-light: #fca5a5;
   
-  /* ===== Vibrant Gradient Presets ===== */
-  --tiller-gradient-hero: linear-gradient(135deg, #0d2a1f 0%, #1a4a38 40%, #0f7a5a 100%);
-  --tiller-gradient-gold: linear-gradient(135deg, #9a7a1a 0%, #c9a227 50%, #e8c848 100%);
-  --tiller-gradient-warm: linear-gradient(135deg, #fffcf5 0%, #f5f0e8 50%, rgba(201, 162, 39, 0.08) 100%);
-  --tiller-gradient-cta: linear-gradient(135deg, #ff5a4d 0%, #ff7e73 100%);
-  --tiller-gradient-premium: linear-gradient(135deg, #0d2a1f 0%, #8b4513 50%, #c9a227 100%);
-  --tiller-gradient-subtle: linear-gradient(180deg, #ffffff 0%, #f8f6f1 100%);
-  --tiller-gradient-dark-rich: linear-gradient(160deg, #061510 0%, #0d2a1f 30%, #1a4a38 70%, #0f7a5a 100%);
-  --tiller-gradient-text: linear-gradient(135deg, #0d2a1f 0%, #1a4a38 50%, #c9a227 100%);
+  /* Utility Colors */
+  --tiller-color-highlight: #60a5fa;
+  --tiller-color-success: var(--tiller-color-emerald);
+  --tiller-color-warning: var(--tiller-color-gold);
+  --tiller-color-error: #f87171;
+  --tiller-color-info: #38bdf8;
   
-  /* ===== HIGH-END GLASS & TRANSPARENCY GRADIENTS ===== */
-  
-  /* Glass Morphism - Frosted Effects */
-  --tiller-glass-light: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.9) 0%, 
-    rgba(255, 252, 245, 0.85) 50%, 
-    rgba(248, 246, 241, 0.8) 100%);
-  --tiller-glass-dark: linear-gradient(135deg, 
-    rgba(13, 42, 31, 0.95) 0%, 
-    rgba(26, 74, 56, 0.9) 50%, 
-    rgba(15, 122, 90, 0.85) 100%);
-  --tiller-glass-gold: linear-gradient(135deg, 
-    rgba(201, 162, 39, 0.15) 0%, 
-    rgba(232, 200, 72, 0.1) 50%, 
-    rgba(255, 248, 220, 0.08) 100%);
-  
-  /* Mesh Gradients - Premium Web Effect */
-  --tiller-mesh-emerald: radial-gradient(at 40% 20%, rgba(15, 122, 90, 0.25) 0%, transparent 50%),
-    radial-gradient(at 80% 0%, rgba(26, 74, 56, 0.2) 0%, transparent 50%),
-    radial-gradient(at 0% 50%, rgba(13, 42, 31, 0.3) 0%, transparent 50%),
-    radial-gradient(at 80% 50%, rgba(201, 162, 39, 0.15) 0%, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(15, 122, 90, 0.2) 0%, transparent 50%);
-  --tiller-mesh-gold: radial-gradient(at 0% 0%, rgba(232, 200, 72, 0.3) 0%, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(201, 162, 39, 0.25) 0%, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(154, 122, 26, 0.2) 0%, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(255, 248, 220, 0.15) 0%, transparent 50%);
-  
-  /* Card Gradients - Subtle Premium */
-  --tiller-card-gradient: linear-gradient(160deg, 
-    rgba(255, 255, 255, 1) 0%, 
-    rgba(255, 252, 245, 0.98) 40%,
-    rgba(248, 246, 241, 0.95) 100%);
-  --tiller-card-hover: linear-gradient(160deg, 
-    rgba(255, 255, 255, 1) 0%, 
-    rgba(255, 252, 245, 1) 30%,
-    rgba(201, 162, 39, 0.08) 100%);
-  --tiller-card-dark: linear-gradient(160deg, 
-    rgba(13, 42, 31, 0.98) 0%, 
-    rgba(26, 74, 56, 0.95) 50%,
-    rgba(15, 122, 90, 0.9) 100%);
-  
-  /* Nav & Dropdown Gradients */
-  --tiller-nav-glass: linear-gradient(180deg, 
-    rgba(255, 252, 245, 0.98) 0%, 
-    rgba(255, 252, 245, 0.95) 100%);
-  --tiller-dropdown-gradient: linear-gradient(180deg, 
-    rgba(255, 255, 255, 0.99) 0%, 
-    rgba(248, 246, 241, 0.97) 100%);
-  --tiller-dropdown-item-hover: linear-gradient(90deg, 
-    rgba(13, 42, 31, 0.08) 0%, 
-    rgba(13, 42, 31, 0.04) 50%,
-    transparent 100%);
-  
-  /* Footer Gradients - Rich Depth */
-  --tiller-footer-gradient: linear-gradient(180deg, 
-    rgba(6, 21, 16, 1) 0%, 
-    rgba(13, 42, 31, 0.98) 30%,
-    rgba(26, 74, 56, 0.95) 70%,
-    rgba(15, 122, 90, 0.9) 100%);
-  --tiller-footer-glass: linear-gradient(180deg, 
-    rgba(255, 255, 255, 0.05) 0%, 
-    rgba(255, 255, 255, 0.02) 100%);
-  
-  /* Section Gradients - Context Aware */
-  --tiller-section-light: linear-gradient(180deg, 
-    rgba(255, 255, 255, 1) 0%, 
-    rgba(255, 252, 245, 0.98) 50%,
-    rgba(248, 246, 241, 0.95) 100%);
-  --tiller-section-warm: linear-gradient(180deg, 
-    rgba(250, 247, 240, 1) 0%, 
-    rgba(245, 240, 232, 0.98) 50%,
-    rgba(201, 162, 39, 0.06) 100%);
-  --tiller-section-dark: linear-gradient(180deg, 
-    rgba(6, 21, 16, 1) 0%, 
-    rgba(13, 42, 31, 1) 50%,
-    rgba(26, 74, 56, 0.98) 100%);
-  
-  /* Overlay Gradients - For Images & Backgrounds */
-  --tiller-overlay-dark: linear-gradient(180deg, 
-    rgba(6, 21, 16, 0.9) 0%, 
-    rgba(13, 42, 31, 0.85) 50%,
-    rgba(13, 42, 31, 0.95) 100%);
-  --tiller-overlay-light: linear-gradient(180deg, 
-    rgba(255, 252, 245, 0.95) 0%, 
-    rgba(255, 252, 245, 0.9) 50%,
-    rgba(255, 252, 245, 0.98) 100%);
-  --tiller-overlay-gold: linear-gradient(135deg, 
-    rgba(201, 162, 39, 0.1) 0%, 
-    rgba(232, 200, 72, 0.05) 50%,
-    transparent 100%);
-  
-  /* Border Gradients */
-  --tiller-border-gradient: linear-gradient(135deg, 
-    rgba(201, 162, 39, 0.4) 0%, 
-    rgba(201, 162, 39, 0.2) 50%,
-    rgba(201, 162, 39, 0.4) 100%);
-  --tiller-border-emerald: linear-gradient(135deg, 
-    rgba(15, 122, 90, 0.4) 0%, 
-    rgba(26, 74, 56, 0.3) 50%,
-    rgba(15, 122, 90, 0.4) 100%);
-  
-  /* ===== Buttons - High Impact ===== */
-  --tiller-btn-primary-bg: var(--tiller-color-green);
+  /* ===== Buttons - Dark Theme ===== */
+  --tiller-btn-primary-bg: var(--tiller-color-emerald);
   --tiller-btn-primary-text: #ffffff;
-  --tiller-btn-primary-hover: var(--tiller-color-green-light);
+  --tiller-btn-primary-hover: var(--tiller-color-emerald-light);
   --tiller-btn-secondary-bg: var(--tiller-color-gold);
-  --tiller-btn-secondary-text: #0f1419;
+  --tiller-btn-secondary-text: #0a0c0a;
   --tiller-btn-accent-bg: var(--tiller-color-coral);
-  --tiller-btn-accent-text: #ffffff;
   --tiller-btn-hover-bg: var(--tiller-color-gold-light);
   
-  /* ===== Navigation ===== */
-  --tiller-nav-bg: var(--tiller-color-green);
+  /* ===== Navigation - Dark ===== */
+  --tiller-nav-bg: var(--tiller-bg-darker);
   --tiller-nav-text: #ffffff;
   --tiller-nav-accent: var(--tiller-color-gold);
-  --tiller-nav-hover: var(--tiller-color-green-light);
+  --tiller-nav-hover: var(--tiller-bg-slate);
   --tiller-nav-height: 72px;
   
-  /* ===== Shadows (warmer tones) ===== */
-  --tiller-shadow-sm: 0 1px 3px rgb(16, 32, 16, 0.08);
-  --tiller-shadow-md: 0 4px 8px rgb(16, 32, 16, 0.1);
-  --tiller-shadow-lg: 0 10px 20px rgb(16, 32, 16, 0.12);
-  --tiller-shadow-xl: 0 20px 40px rgb(16, 32, 16, 0.15);
-  --tiller-shadow-glow: 0 0 20px rgb(184, 160, 64, 0.3);
-  --tiller-box-shadow: 0 2px 8px rgb(16, 32, 16, 0.06);
+  /* ===== Shadows - Dark Theme ===== */
+  --tiller-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --tiller-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.5);
+  --tiller-shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.6);
+  --tiller-shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.7);
+  --tiller-shadow-glow-emerald: 0 0 20px var(--tiller-color-emerald-glow);
+  --tiller-shadow-glow-gold: 0 0 15px rgba(201, 162, 39, 0.4);
+  --tiller-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 
   /* Border Radius */
   --tiller-border-radius-sm: 4px;
@@ -221,10 +96,11 @@
   --tiller-border-radius-lg: 12px;
   --tiller-border-radius-xl: 16px;
 
-  /* Border Color */
-  --tiller-border-color-light: #f1f1f1;
-  --tiller-border-color-dark: #222222;
-  --tiller-border-color-accent: var(--tiller-color-coral);
+  /* Border Colors - Gold Grout */
+  --tiller-border-color: rgba(201, 162, 39, 0.2);
+  --tiller-border-color-light: rgba(201, 162, 39, 0.1);
+  --tiller-border-color-strong: rgba(201, 162, 39, 0.4);
+  --tiller-border-grout: var(--tiller-grout-subtle);
 
   /* ===== Spacing System (Fluid) ===== */
   --tiller-spacing-xs: clamp(0.25rem, 0.5vw, 0.5rem);
@@ -297,11 +173,9 @@
   --tiller-font-weight-bold: 700;
   --tiller-font-weight-black: 900;
 
-  /* Background Gradients - Premium & Vibrant */
-  --tiller-bg-gradient-main: var(--tiller-gradient-hero);
-  --tiller-bg-gradient-light: var(--tiller-gradient-warm);
-  --tiller-bg-gradient-cta: var(--tiller-gradient-cta);
-  --tiller-bg-gradient-gold: var(--tiller-gradient-gold);
+  /* Background Gradients */
+  --tiller-bg-gradient-main: linear-gradient(135deg, var(--tiller-color-primary), var(--tiller-color-accent));
+  --tiller-bg-gradient-light: linear-gradient(135deg, #ffffff, #f1f1f1);
 }
 
 /* ===== Global Resets & Base Styles ===== */
@@ -336,8 +210,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
                Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
                sans-serif;
-  background-color: var(--tiller-bg-main, #fdf7ea);
-  color: var(--tiller-text-primary, #2d2d2d);
+  background-color: var(--tiller-bg-main);
+  color: var(--tiller-text-primary);
   margin: 0;
   padding: 0;
   font-size: var(--tiller-font-size-base, 1rem);
@@ -346,26 +220,63 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--tiller-color-highlight, #0b6cff);
+  outline: 2px solid var(--tiller-color-emerald);
   outline-offset: 3px;
   border-radius: 2px;
 }
 
-/* Links */
+/* Links - Emerald glow on hover */
 a {
-  color: var(--tiller-color-coral);
+  color: var(--tiller-color-emerald-light);
   text-decoration: none;
-  transition: color var(--tiller-transition-fast);
+  transition: all var(--tiller-transition-fast);
 }
 
 a:hover {
-  color: var(--tiller-color-brown);
+  color: var(--tiller-color-emerald-bright);
+  text-shadow: 0 0 8px var(--tiller-color-emerald-glow);
 }
 
-/* ===== Button Styling ===== */
+/* ===== EMERALD GLOW HEADERS ===== */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--tiller-color-emerald);
+  text-shadow: 0 0 20px var(--tiller-color-emerald-glow);
+}
+
+h1 {
+  text-shadow: 
+    0 0 10px var(--tiller-color-emerald-glow),
+    0 0 30px var(--tiller-color-emerald-glow),
+    0 0 50px rgba(16, 185, 129, 0.3);
+}
+
+/* ===== GOLD GROUT GRID PATTERN ===== */
+.grout-grid {
+  background-image: 
+    linear-gradient(var(--tiller-grout-subtle) 1px, transparent 1px),
+    linear-gradient(90deg, var(--tiller-grout-subtle) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.grout-grid-fine {
+  background-image: 
+    linear-gradient(var(--tiller-grout-faint) 1px, transparent 1px),
+    linear-gradient(90deg, var(--tiller-grout-faint) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.grout-subway {
+  background-image: 
+    linear-gradient(90deg, var(--tiller-grout-subtle) 1px, transparent 1px),
+    linear-gradient(var(--tiller-grout-subtle) 1px, transparent 1px);
+  background-size: 60px 30px;
+  background-position: 0 0, 30px 15px;
+}
+
+/* ===== Button Styling - Dark Theme ===== */
 button {
-  background-color: var(--tiller-btn-primary-bg, #5d3a2b);
-  color: var(--tiller-btn-primary-text, #ffffff);
+  background-color: var(--tiller-color-emerald);
+  color: #ffffff;
   border-radius: var(--tiller-border-radius-md, 0.5rem);
   padding: 0.75rem 1.75rem;
   font-weight: var(--tiller-font-weight-bold, 600);
@@ -381,6 +292,7 @@ button {
   justify-content: center;
   gap: 0.5rem;
   min-height: 44px;
+  box-shadow: var(--tiller-shadow-glow-emerald);
 }
 
 button::before {
@@ -390,14 +302,16 @@ button::before {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgb(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: left 0.5s;
 }
 
 button:hover {
-  background-color: var(--tiller-color-brown-dark, #4a2e22);
+  background-color: var(--tiller-color-emerald-light);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgb(93, 58, 43, 0.3);
+  box-shadow: 
+    var(--tiller-shadow-glow-emerald),
+    0 4px 20px rgba(16, 185, 129, 0.4);
 }
 
 button:hover::before {
@@ -406,12 +320,26 @@ button:hover::before {
 
 button:active {
   transform: translateY(0);
-  box-shadow: 0 2px 4px rgb(93, 58, 43, 0.2);
+  box-shadow: var(--tiller-shadow-glow-emerald);
 }
 
 button:focus-visible {
-  outline: 2px solid var(--tiller-color-highlight, #0b6cff);
+  outline: 2px solid var(--tiller-color-gold);
   outline-offset: 3px;
+}
+
+/* Gold Button Variant */
+.btn-gold {
+  background: var(--tiller-color-gold);
+  color: #0a0c0a;
+  box-shadow: var(--tiller-shadow-glow-gold);
+}
+
+.btn-gold:hover {
+  background: var(--tiller-color-gold-light);
+  box-shadow: 
+    var(--tiller-shadow-glow-gold),
+    0 4px 20px rgba(201, 162, 39, 0.5);
 }
 
 /* Shadows for Elements */
@@ -502,794 +430,39 @@ label {
   font-weight: var(--tiller-label-font-weight);
 }
 
-/* Gradient Backgrounds */
+/* Gradient Background */
 .gradient-background {
   background: var(--tiller-bg-gradient-main);
 }
 
-.gradient-hero {
-  background: var(--tiller-gradient-hero);
-}
-
-.gradient-warm {
-  background: var(--tiller-gradient-warm);
-}
-
-.gradient-gold {
-  background: var(--tiller-gradient-gold);
-}
-
-.gradient-cta {
-  background: var(--tiller-gradient-cta);
-}
-
-.gradient-premium {
-  background: var(--tiller-gradient-premium);
-}
-
-.gradient-dark {
-  background: var(--tiller-gradient-dark-rich);
-}
-
-/* ===== High Visibility Text Utilities ===== */
-.text-gradient {
-  background: var(--tiller-gradient-text);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-on-dark {
-  color: var(--tiller-text-on-dark, #f3f4f6) !important;
-}
-
-.text-on-green {
-  color: var(--tiller-text-on-green, #ffffff) !important;
-}
-
-.text-on-gold {
-  color: var(--tiller-text-on-gold, #0f1419) !important;
-}
-
-.text-high-contrast {
-  color: var(--tiller-text-primary, #0f1419);
-  font-weight: 700;
-}
-
-.text-accent {
-  color: var(--tiller-color-coral, #ff5a4d);
-}
-
-.text-gold {
-  color: var(--tiller-color-gold, #c9a227);
-}
-
-.text-green {
-  color: var(--tiller-color-green, #0d2a1f);
-}
-
-/* ===== METALLIC GOLD EFFECTS ===== */
-.gold-metallic {
-  background: linear-gradient(
-    135deg,
-    #9a7a1a 0%,
-    #c9a227 15%,
-    #f0d860 30%,
-    #fff8dc 45%,
-    #f0d860 55%,
-    #c9a227 70%,
-    #9a7a1a 85%,
-    #725b13 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: none;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.3));
-}
-
-.gold-metallic-bg {
-  background: linear-gradient(
-    135deg,
-    #725b13 0%,
-    #9a7a1a 10%,
-    #c9a227 25%,
-    #f0d860 40%,
-    #fff8dc 50%,
-    #f0d860 60%,
-    #c9a227 75%,
-    #9a7a1a 90%,
-    #725b13 100%
-  );
-  box-shadow: 
-    inset 0 1px 0 rgba(255, 248, 220, 0.6),
-    inset 0 -1px 0 rgba(114, 91, 19, 0.4),
-    0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.gold-metallic-border {
-  border: 2px solid;
-  border-image: linear-gradient(
-    135deg,
-    #9a7a1a, #c9a227, #f0d860, #fff8dc, #f0d860, #c9a227, #9a7a1a
-  ) 1;
-}
-
-.gold-shimmer {
-  background: linear-gradient(
-    90deg,
-    #c9a227 0%,
-    #f0d860 25%,
-    #fff8dc 50%,
-    #f0d860 75%,
-    #c9a227 100%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: goldShimmer 3s ease-in-out infinite;
-}
-
-@keyframes goldShimmer {
-  0% { background-position: 200% center; }
-  100% { background-position: -200% center; }
-}
-
-/* Gold button with metallic effect */
-.btn-gold-metallic {
-  background: linear-gradient(
-    160deg,
-    #725b13 0%,
-    #9a7a1a 15%,
-    #c9a227 35%,
-    #e8c848 50%,
-    #c9a227 65%,
-    #9a7a1a 85%,
-    #725b13 100%
-  );
-  color: #0f1419;
-  font-weight: 700;
-  border: none;
-  box-shadow: 
-    inset 0 1px 0 rgba(255, 248, 220, 0.5),
-    inset 0 -1px 0 rgba(114, 91, 19, 0.3),
-    0 4px 15px rgba(201, 162, 39, 0.4);
-  text-shadow: 0 1px 0 rgba(255, 248, 220, 0.4);
-  transition: all 0.3s ease;
-}
-
-.btn-gold-metallic:hover {
-  background: linear-gradient(
-    160deg,
-    #9a7a1a 0%,
-    #c9a227 20%,
-    #e8c848 40%,
-    #fff8dc 50%,
-    #e8c848 60%,
-    #c9a227 80%,
-    #9a7a1a 100%
-  );
-  box-shadow: 
-    inset 0 1px 0 rgba(255, 248, 220, 0.7),
-    inset 0 -1px 0 rgba(114, 91, 19, 0.2),
-    0 6px 25px rgba(201, 162, 39, 0.5);
-  transform: translateY(-2px);
-}
-
-/* ===== EMERALD GLOW EFFECTS ===== */
-.emerald-glow {
-  color: var(--tiller-color-green-vibrant, #0f7a5a);
-  text-shadow: 
-    0 0 10px rgba(15, 122, 90, 0.5),
-    0 0 20px rgba(15, 122, 90, 0.3),
-    0 0 40px rgba(15, 122, 90, 0.2);
-}
-
-.emerald-glow-intense {
-  color: #10b981;
-  text-shadow: 
-    0 0 5px rgba(16, 185, 129, 0.8),
-    0 0 15px rgba(16, 185, 129, 0.6),
-    0 0 30px rgba(16, 185, 129, 0.4),
-    0 0 50px rgba(16, 185, 129, 0.2);
-}
-
-.emerald-glow-bg {
-  background: var(--tiller-color-green, #0d2a1f);
-  box-shadow: 
-    0 0 15px rgba(15, 122, 90, 0.4),
-    0 0 30px rgba(15, 122, 90, 0.2),
-    inset 0 0 20px rgba(15, 122, 90, 0.1);
-}
-
-.emerald-glow-border {
-  border: 2px solid var(--tiller-color-green-vibrant, #0f7a5a);
-  box-shadow: 
-    0 0 10px rgba(15, 122, 90, 0.4),
-    inset 0 0 10px rgba(15, 122, 90, 0.1);
-}
-
-.emerald-pulse {
-  animation: emeraldPulse 2s ease-in-out infinite;
-}
-
-@keyframes emeraldPulse {
-  0%, 100% {
-    box-shadow: 
-      0 0 10px rgba(15, 122, 90, 0.4),
-      0 0 20px rgba(15, 122, 90, 0.2);
-  }
-  50% {
-    box-shadow: 
-      0 0 20px rgba(15, 122, 90, 0.6),
-      0 0 40px rgba(15, 122, 90, 0.4),
-      0 0 60px rgba(15, 122, 90, 0.2);
-  }
-}
-
-/* Emerald button with glow */
-.btn-emerald-glow {
-  background: var(--tiller-color-green, #0d2a1f);
-  color: #ffffff;
-  font-weight: 700;
-  border: none;
-  box-shadow: 
-    0 0 15px rgba(15, 122, 90, 0.4),
-    0 4px 15px rgba(13, 42, 31, 0.3);
-  transition: all 0.3s ease;
-}
-
-.btn-emerald-glow:hover {
-  background: var(--tiller-color-green-light, #1a4a38);
-  box-shadow: 
-    0 0 25px rgba(15, 122, 90, 0.6),
-    0 0 50px rgba(15, 122, 90, 0.3),
-    0 6px 20px rgba(13, 42, 31, 0.4);
-  transform: translateY(-2px);
-}
-
-/* ===== COMBINED EFFECTS - Gold & Emerald ===== */
-.gold-emerald-accent {
-  background: linear-gradient(135deg, #0d2a1f 0%, #1a4a38 50%, #c9a227 100%);
-  box-shadow: 
-    0 0 20px rgba(15, 122, 90, 0.3),
-    0 0 40px rgba(201, 162, 39, 0.2);
-}
-
-.text-gold-emerald {
-  background: linear-gradient(135deg, #0f7a5a 0%, #c9a227 50%, #e8c848 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 8px rgba(201, 162, 39, 0.3));
-}
-
 /* =========================================================
-   CONTRACTOR GRID & TILE PATTERNS
-   Subtle background patterns for professional appeal
-   ========================================================= */
-
-/* ===== NOTEBOOK GRID LINES - Blueprint Style ===== */
-.pattern-grid {
-  background-image: 
-    linear-gradient(rgba(13, 42, 31, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(13, 42, 31, 0.03) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-.pattern-grid-fine {
-  background-image: 
-    linear-gradient(rgba(13, 42, 31, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(13, 42, 31, 0.025) 1px, transparent 1px);
-  background-size: 16px 16px;
-}
-
-.pattern-grid-wide {
-  background-image: 
-    linear-gradient(rgba(13, 42, 31, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(13, 42, 31, 0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
-}
-
-/* Blueprint grid with major/minor lines */
-.pattern-blueprint {
-  background-image: 
-    linear-gradient(rgba(13, 42, 31, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(13, 42, 31, 0.06) 1px, transparent 1px),
-    linear-gradient(rgba(13, 42, 31, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(13, 42, 31, 0.025) 1px, transparent 1px);
-  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-}
-
-/* Dark grid for dark sections */
-.pattern-grid-dark {
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-.pattern-grid-gold {
-  background-image: 
-    linear-gradient(rgba(201, 162, 39, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201, 162, 39, 0.04) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-/* ===== SUBWAY TILE PATTERNS ===== */
-.pattern-subway {
-  background-color: var(--tiller-bg-main, #fffcf5);
-  background-image: 
-    linear-gradient(90deg, rgba(13, 42, 31, 0.04) 1px, transparent 1px),
-    linear-gradient(rgba(13, 42, 31, 0.04) 1px, transparent 1px);
-  background-size: 60px 30px;
-  background-position: 0 0, 30px 15px;
-}
-
-.pattern-subway-offset {
-  background-color: var(--tiller-bg-main, #fffcf5);
-  background-image: 
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 29px,
-      rgba(13, 42, 31, 0.04) 29px,
-      rgba(13, 42, 31, 0.04) 30px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 59px,
-      rgba(13, 42, 31, 0.04) 59px,
-      rgba(13, 42, 31, 0.04) 60px
-    );
-  background-size: 60px 60px;
-  background-position: 0 0, 30px 30px;
-}
-
-/* Classic brick/subway pattern */
-.pattern-brick {
-  background-color: var(--tiller-bg-soft, #f8f6f1);
-  background-image: 
-    linear-gradient(
-      335deg,
-      rgba(13, 42, 31, 0.02) 23px,
-      transparent 23px
-    ),
-    linear-gradient(
-      155deg,
-      rgba(13, 42, 31, 0.02) 23px,
-      transparent 23px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(13, 42, 31, 0.03) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      rgba(13, 42, 31, 0.03) 1px,
-      transparent 1px
-    );
-  background-size: 58px 30px;
-  background-position: 0 0, 4px 0, 29px 15px, 29px 15px;
-}
-
-/* Herringbone tile pattern */
-.pattern-herringbone {
-  background-color: var(--tiller-bg-main, #fffcf5);
-  background-image: 
-    linear-gradient(
-      45deg,
-      rgba(13, 42, 31, 0.03) 25%,
-      transparent 25%,
-      transparent 75%,
-      rgba(13, 42, 31, 0.03) 75%
-    ),
-    linear-gradient(
-      -45deg,
-      rgba(13, 42, 31, 0.03) 25%,
-      transparent 25%,
-      transparent 75%,
-      rgba(13, 42, 31, 0.03) 75%
-    );
-  background-size: 20px 20px;
-}
-
-/* ===== DIAGONAL TILE PATTERNS ===== */
-.pattern-diagonal {
-  background-image: 
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 10px,
-      rgba(13, 42, 31, 0.02) 10px,
-      rgba(13, 42, 31, 0.02) 11px
-    );
-}
-
-.pattern-crosshatch {
-  background-image: 
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 10px,
-      rgba(13, 42, 31, 0.02) 10px,
-      rgba(13, 42, 31, 0.02) 11px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 10px,
-      rgba(13, 42, 31, 0.02) 10px,
-      rgba(13, 42, 31, 0.02) 11px
-    );
-}
-
-/* ===== MOSAIC & FLOOR PATTERNS ===== */
-.pattern-mosaic {
-  background-color: var(--tiller-bg-main, #fffcf5);
-  background-image: 
-    linear-gradient(rgba(13, 42, 31, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(13, 42, 31, 0.03) 1px, transparent 1px),
-    linear-gradient(rgba(201, 162, 39, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201, 162, 39, 0.02) 1px, transparent 1px);
-  background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
-}
-
-/* Checkerboard floor pattern */
-.pattern-checker {
-  background-color: var(--tiller-bg-main, #fffcf5);
-  background-image: 
-    linear-gradient(45deg, rgba(13, 42, 31, 0.03) 25%, transparent 25%),
-    linear-gradient(-45deg, rgba(13, 42, 31, 0.03) 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, rgba(13, 42, 31, 0.03) 75%),
-    linear-gradient(-45deg, transparent 75%, rgba(13, 42, 31, 0.03) 75%);
-  background-size: 40px 40px;
-  background-position: 0 0, 0 20px, 20px -20px, -20px 0;
-}
-
-/* Hex tile pattern */
-.pattern-hex {
-  background-color: var(--tiller-bg-main, #fffcf5);
-  background-image: 
-    radial-gradient(
-      circle farthest-side at 0% 50%,
-      rgba(13, 42, 31, 0.025) 23.5%,
-      transparent 24%
-    ),
-    radial-gradient(
-      circle farthest-side at 100% 50%,
-      rgba(13, 42, 31, 0.025) 23.5%,
-      transparent 24%
-    );
-  background-size: 24px 40px;
-}
-
-/* ===== DOTTED PATTERNS ===== */
-.pattern-dots {
-  background-image: radial-gradient(
-    rgba(13, 42, 31, 0.06) 1px,
-    transparent 1px
-  );
-  background-size: 16px 16px;
-}
-
-.pattern-dots-gold {
-  background-image: radial-gradient(
-    rgba(201, 162, 39, 0.08) 1px,
-    transparent 1px
-  );
-  background-size: 16px 16px;
-}
-
-.pattern-dots-wide {
-  background-image: radial-gradient(
-    rgba(13, 42, 31, 0.05) 1.5px,
-    transparent 1.5px
-  );
-  background-size: 32px 32px;
-}
-
-/* ===== DARK SECTION PATTERNS ===== */
-.pattern-subway-dark {
-  background-image: 
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 60px 30px;
-  background-position: 0 0, 30px 15px;
-}
-
-.pattern-dots-dark {
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.04) 1px,
-    transparent 1px
-  );
-  background-size: 20px 20px;
-}
-
-.pattern-blueprint-dark {
-  background-image: 
-    linear-gradient(rgba(15, 122, 90, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 122, 90, 0.1) 1px, transparent 1px),
-    linear-gradient(rgba(15, 122, 90, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 122, 90, 0.04) 1px, transparent 1px);
-  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-}
-
-/* ===== COMBINED PATTERN HELPERS ===== */
-/* Add pattern on top of existing gradient */
-.with-grid::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    linear-gradient(rgba(13, 42, 31, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(13, 42, 31, 0.025) 1px, transparent 1px);
-  background-size: 24px 24px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.with-subway::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    linear-gradient(90deg, rgba(13, 42, 31, 0.03) 1px, transparent 1px),
-    linear-gradient(rgba(13, 42, 31, 0.03) 1px, transparent 1px);
-  background-size: 60px 30px;
-  background-position: 0 0, 30px 15px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.with-dots::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: radial-gradient(
-    rgba(13, 42, 31, 0.04) 1px,
-    transparent 1px
-  );
-  background-size: 20px 20px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Ensure content stays above pattern overlay */
-.with-grid > *,
-.with-subway > *,
-.with-dots > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* ===== Dark Section Styling ===== */
-.section-dark {
-  background: var(--tiller-gradient-dark-rich);
-  color: var(--tiller-text-on-dark);
-}
-
-.section-dark h1,
-.section-dark h2,
-.section-dark h3,
-.section-dark h4 {
-  color: #ffffff;
-}
-
-.section-dark p {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.section-dark .section-eyebrow {
-  color: var(--tiller-color-gold-light, #e8c848);
-}
-
-/* ===== Premium Card Styling ===== */
-.card-elevated {
-  background: var(--tiller-bg-card, #ffffff);
-  border-radius: var(--tiller-border-radius-lg);
-  box-shadow: var(--tiller-shadow-lg);
-  border: 1px solid rgba(13, 42, 31, 0.06);
-  transition: all 0.3s var(--tiller-ease-smooth);
-}
-
-.card-elevated:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--tiller-shadow-xl), 0 0 30px rgba(201, 162, 39, 0.15);
-}
-
-/* ===== HIGH-END GLASS CARD SYSTEM ===== */
-.card-glass {
-  background: var(--tiller-card-gradient);
-  border-radius: var(--tiller-border-radius-lg, 12px);
-  border: 1px solid rgba(201, 162, 39, 0.15);
-  box-shadow: 
-    0 4px 24px rgba(13, 42, 31, 0.08),
-    0 1px 3px rgba(13, 42, 31, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.card-glass::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(201, 162, 39, 0.3) 20%,
-    rgba(255, 248, 220, 0.5) 50%,
-    rgba(201, 162, 39, 0.3) 80%,
-    transparent 100%);
-}
-
-.card-glass:hover {
-  background: var(--tiller-card-hover);
-  transform: translateY(-6px);
-  box-shadow: 
-    0 12px 40px rgba(13, 42, 31, 0.12),
-    0 4px 12px rgba(201, 162, 39, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  border-color: rgba(201, 162, 39, 0.25);
-}
-
-/* High contrast text in cards */
-.card-glass h2,
-.card-glass h3,
-.card-glass h4 {
-  color: var(--tiller-color-green, #0d2a1f);
-  font-weight: 700;
-}
-
-.card-glass p {
-  color: var(--tiller-text-body, #1f2937);
-}
-
-/* Dark Glass Card */
-.card-glass-dark {
-  background: var(--tiller-card-dark);
-  border: 1px solid rgba(201, 162, 39, 0.2);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    0 2px 8px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-}
-
-.card-glass-dark::before {
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(201, 162, 39, 0.4) 20%,
-    rgba(232, 200, 72, 0.6) 50%,
-    rgba(201, 162, 39, 0.4) 80%,
-    transparent 100%);
-}
-
-.card-glass-dark:hover {
-  box-shadow: 
-    0 16px 48px rgba(0, 0, 0, 0.4),
-    0 0 30px rgba(15, 122, 90, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-/* High contrast text on dark cards */
-.card-glass-dark h2,
-.card-glass-dark h3,
-.card-glass-dark h4 {
-  color: #ffffff;
-  font-weight: 700;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.card-glass-dark p {
-  color: rgba(255, 255, 255, 0.92);
-}
-
-.card-glass-dark .card-meta,
-.card-glass-dark .card-label {
-  color: var(--tiller-color-gold-light, #e8c848);
-}
-
-/* ===== SECTION GLASS EFFECTS ===== */
-.section-glass {
-  background: var(--tiller-section-light);
-  position: relative;
-  overflow: hidden;
-}
-
-.section-glass::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--tiller-mesh-gold);
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-.section-glass-dark {
-  background: var(--tiller-section-dark);
-  position: relative;
-}
-
-.section-glass-dark::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--tiller-mesh-emerald);
-  pointer-events: none;
-}
-
-/* High contrast text on dark sections */
-.section-glass-dark h1,
-.section-glass-dark h2,
-.section-glass-dark h3 {
-  color: #ffffff;
-  font-weight: 800;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-}
-
-.section-glass-dark p {
-  color: rgba(255, 255, 255, 0.92);
-}
-
-.section-glass-dark .section-eyebrow {
-  color: var(--tiller-color-gold-light, #e8c848);
-  font-weight: 700;
-}
-
-/* =========================================================
-   Footer Styles - Professional Design
-   UPGRADED: Glass morphism + high visibility
+   Footer Styles - Dark Theme
+   Stone background, gold accents, emerald glow
    ========================================================= */
 
 .ts-footer {
-  background: var(--tiller-footer-gradient, linear-gradient(180deg, 
-    rgba(6, 21, 16, 1) 0%, 
-    rgba(13, 42, 31, 0.98) 30%,
-    rgba(26, 74, 56, 0.95) 70%,
-    rgba(15, 122, 90, 0.9) 100%));
-  color: var(--tiller-text-light);
-  padding: var(--tiller-spacing-2xl) 0 0 0;
-  margin-top: var(--tiller-spacing-2xl);
+  background: var(--tiller-bg-darker);
+  color: var(--tiller-text-white);
+  padding: var(--tiller-spacing-xl) 0 0 0;
+  margin-top: var(--tiller-spacing-xl);
+  border-top: 2px solid var(--tiller-color-gold);
   position: relative;
-  overflow: hidden;
 }
 
-/* Mesh gradient overlay for depth */
-.ts-footer::after {
+/* Gold grout pattern overlay */
+.ts-footer::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--tiller-mesh-emerald);
+  background-image: 
+    linear-gradient(var(--tiller-grout-faint) 1px, transparent 1px),
+    linear-gradient(90deg, var(--tiller-grout-faint) 1px, transparent 1px);
+  background-size: 24px 24px;
   pointer-events: none;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .ts-footer > * {
@@ -1297,106 +470,57 @@ label {
   z-index: 1;
 }
 
-.ts-footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, 
-    transparent 0%,
-    rgba(154, 122, 26, 0.6) 10%,
-    rgba(201, 162, 39, 1) 30%,
-    rgba(232, 200, 72, 1) 50%,
-    rgba(201, 162, 39, 1) 70%,
-    rgba(154, 122, 26, 0.6) 90%,
-    transparent 100%);
-  z-index: 2;
-}
-
 .footer-main {
-  max-width: min(94%, 1600px);
+  max-width: min(96%, 1400px);
   margin: 0 auto;
-  padding: 0 var(--tiller-spacing-xl);
+  padding: 0 var(--tiller-spacing-lg);
 }
 
-/* Logo Section - Prominent branding */
 .footer-logo-section {
   text-align: center;
-  margin-bottom: var(--tiller-spacing-xl);
-  padding-bottom: var(--tiller-spacing-lg);
+  margin-bottom: var(--tiller-spacing-lg);
 }
 
 .footer-logo {
-  max-width: 180px;
+  max-width: 100px;
   height: auto;
-  margin: 0 auto var(--tiller-spacing-md);
+  margin: 0 auto var(--tiller-spacing-sm);
   display: block;
-  border-radius: var(--tiller-border-radius-lg);
-  background: var(--tiller-bg-alt);
-  padding: var(--tiller-spacing-sm);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: var(--tiller-border-radius-md);
+  background: var(--tiller-bg-stone);
+  padding: var(--tiller-spacing-xs);
+  border: 1px solid var(--tiller-border-color);
 }
 
 .footer-tagline {
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 400;
-  font-size: 1rem;
+  color: var(--tiller-color-emerald);
+  font-weight: 600;
+  font-size: 1.1rem;
   margin: 0;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-style: italic;
+  text-shadow: 0 0 10px var(--tiller-color-emerald-glow);
 }
 
-/* Navigation Sections - Glass morphism block layout */
 .footer-sections {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--tiller-spacing-xl);
-  margin-bottom: var(--tiller-spacing-xl);
-  padding: var(--tiller-spacing-xl) 0;
-  border-top: 1px solid rgba(201, 162, 39, 0.2);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--tiller-spacing-lg);
+  margin-bottom: var(--tiller-spacing-lg);
+  padding-top: var(--tiller-spacing-md);
+  border-top: 1px solid var(--tiller-border-color);
 }
 
 .footer-group {
   min-width: 0;
-  padding: var(--tiller-spacing-lg);
-  background: linear-gradient(160deg, 
-    rgba(255, 255, 255, 0.08) 0%, 
-    rgba(255, 255, 255, 0.04) 50%,
-    rgba(255, 255, 255, 0.02) 100%);
-  border-radius: var(--tiller-border-radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
-}
-
-.footer-group:hover {
-  background: linear-gradient(160deg, 
-    rgba(255, 255, 255, 0.12) 0%, 
-    rgba(255, 255, 255, 0.06) 50%,
-    rgba(201, 162, 39, 0.04) 100%);
-  border-color: rgba(201, 162, 39, 0.2);
-  transform: translateY(-2px);
 }
 
 .footer-group-title {
-  color: var(--tiller-color-gold-light, #e8c848);
-  font-size: 0.95rem;
+  color: var(--tiller-color-emerald);
+  font-size: 1rem;
   font-weight: 700;
-  margin-bottom: var(--tiller-spacing-md);
+  margin-bottom: var(--tiller-spacing-sm);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  padding-bottom: var(--tiller-spacing-sm);
-  border-bottom: 2px solid;
-  border-image: linear-gradient(90deg, 
-    rgba(201, 162, 39, 0.8) 0%, 
-    rgba(232, 200, 72, 1) 50%,
-    rgba(201, 162, 39, 0.8) 100%) 1;
-  display: inline-block;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 8px var(--tiller-color-emerald-glow);
 }
 
 .footer-list {
@@ -1406,75 +530,44 @@ label {
 }
 
 .footer-list li {
-  margin-bottom: var(--tiller-spacing-sm);
+  margin-bottom: var(--tiller-spacing-xs);
 }
 
 .footer-list a {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--tiller-text-secondary);
   text-decoration: none;
   font-size: 0.95rem;
-  font-weight: 500;
-  transition: all 0.25s ease;
-  display: inline-block;
-  padding: 4px 0;
-  position: relative;
-}
-
-.footer-list a::after {
-  content: '';
-  position: absolute;
-  bottom: 2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: linear-gradient(90deg, 
-    rgba(232, 200, 72, 1) 0%, 
-    rgba(201, 162, 39, 0.6) 100%);
-  transition: width 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 .footer-list a:hover,
 .footer-list a:focus {
-  color: var(--tiller-color-gold-light, #e8c848);
-  transform: translateX(6px);
-  text-shadow: 0 0 12px rgba(232, 200, 72, 0.3);
+  color: var(--tiller-color-gold);
+  text-shadow: 0 0 8px var(--tiller-shadow-glow-gold);
 }
 
-.footer-list a:hover::after {
-  width: 100%;
-}
-
-/* Contact Section - Refined layout */
 .footer-contact {
   text-align: center;
-  padding: var(--tiller-spacing-xl) 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(0, 0, 0, 0.1);
-  margin: 0 calc(-1 * var(--tiller-spacing-xl));
-  padding-left: var(--tiller-spacing-xl);
-  padding-right: var(--tiller-spacing-xl);
+  padding: var(--tiller-spacing-md) 0;
+  border-top: 1px solid var(--tiller-border-color);
 }
 
 .footer-contact .footer-group-title {
-  margin-bottom: var(--tiller-spacing-md);
-  border-bottom: none;
-  display: block;
+  margin-bottom: var(--tiller-spacing-sm);
 }
 
 .footer-license {
   color: var(--tiller-color-gold);
   font-weight: 600;
-  font-size: 1rem;
-  margin: 0 0 var(--tiller-spacing-sm);
-  letter-spacing: 0.02em;
+  font-size: 0.95rem;
+  margin: 0 0 var(--tiller-spacing-xs);
 }
 
 .footer-address {
   font-style: normal;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.95rem;
-  margin-bottom: var(--tiller-spacing-sm);
-  line-height: 1.6;
+  color: var(--tiller-text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: var(--tiller-spacing-xs);
 }
 
 .footer-contact-phone,
@@ -1484,30 +577,29 @@ label {
 
 .footer-contact-phone a,
 .footer-contact-email a {
-  color: var(--tiller-text-light);
+  color: var(--tiller-text-white);
   text-decoration: none;
   font-weight: 500;
-  font-size: 1.05rem;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .footer-contact-phone a:hover,
 .footer-contact-phone a:focus,
 .footer-contact-email a:hover,
 .footer-contact-email a:focus {
-  color: var(--tiller-color-gold);
+  color: var(--tiller-color-emerald);
+  text-shadow: 0 0 8px var(--tiller-color-emerald-glow);
 }
 
-/* Bottom Bar - Social + Legal */
 .footer-bottom {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: var(--tiller-spacing-lg);
-  padding: var(--tiller-spacing-lg) 0;
-  margin-top: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  gap: var(--tiller-spacing-md);
+  padding: var(--tiller-spacing-md) 0;
+  margin-top: var(--tiller-spacing-md);
+  border-top: 1px solid var(--tiller-border-color);
 }
 
 .footer-social {
@@ -1519,93 +611,61 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  color: var(--tiller-text-light);
-  background: rgba(255, 255, 255, 0.08);
+  width: 40px;
+  height: 40px;
+  color: var(--tiller-text-white);
+  background: var(--tiller-bg-slate);
   border-radius: 50%;
-  transition: all 0.25s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--tiller-border-color);
+  transition: all 0.2s ease;
 }
 
 .footer-social a:hover,
 .footer-social a:focus {
-  color: var(--tiller-color-green);
+  color: var(--tiller-bg-darkest);
   background: var(--tiller-color-gold);
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  box-shadow: var(--tiller-shadow-glow-gold);
 }
 
 .footer-social svg {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
 }
 
 .footer-legal {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--tiller-spacing-md);
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.65);
+  gap: var(--tiller-spacing-sm);
+  font-size: 0.85rem;
+  color: var(--tiller-text-tertiary);
 }
 
 .footer-legal a {
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--tiller-text-tertiary);
   text-decoration: none;
   transition: color 0.2s ease;
-  padding: 4px 0;
 }
 
 .footer-legal a:hover,
 .footer-legal a:focus {
-  color: var(--tiller-color-gold);
+  color: var(--tiller-color-emerald);
 }
 
 .footer-divider {
-  opacity: 0.3;
+  opacity: 0.4;
 }
 
 .footer-copyright {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--tiller-text-muted);
 }
 
 /* Footer Responsive */
-@media (max-width: 1024px) {
-  .footer-sections {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--tiller-spacing-lg);
-  }
-}
-
 @media (max-width: 768px) {
-  .footer-main {
-    padding: 0 var(--tiller-spacing-md);
-  }
-  
-  .footer-logo {
-    max-width: 140px;
-  }
-  
   .footer-sections {
     grid-template-columns: repeat(2, 1fr);
     text-align: center;
-    gap: var(--tiller-spacing-md);
-  }
-  
-  .footer-group {
-    padding: var(--tiller-spacing-sm);
-  }
-  
-  .footer-group-title {
-    display: block;
-    text-align: center;
-  }
-  
-  .footer-contact {
-    margin: 0 calc(-1 * var(--tiller-spacing-md));
-    padding-left: var(--tiller-spacing-md);
-    padding-right: var(--tiller-spacing-md);
   }
   
   .footer-bottom {
@@ -1621,9 +681,5 @@ label {
 @media (max-width: 480px) {
   .footer-sections {
     grid-template-columns: 1fr;
-  }
-  
-  .footer-logo {
-    max-width: 120px;
   }
 }

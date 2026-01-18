@@ -1,0 +1,519 @@
+/* =========================================================
+   Tillerstead Tile-Inspired Design System
+   Subtle geometric patterns mimicking professional tile layouts
+   Performance-optimized, WCAG AA compliant
+   ========================================================= */
+
+:root {
+  /* ===== Grout Line Colors (Subtle, Professional) ===== */
+  /* Inspired by real grout: light neutrals that define without dominating */
+  --tiller-grout-light: #e8e4dc;        /* Light warm grey grout */
+  --tiller-grout-medium: #d4cfc5;       /* Medium neutral grout */
+  --tiller-grout-dark: #b8b3a8;         /* Darker grout for contrast */
+  --tiller-grout-white: #f4f0e8;        /* Off-white grout */
+  --tiller-grout-charcoal: #6a675f;     /* Charcoal grout accent */
+  
+  /* ===== Tile Texture Variables ===== */
+  /* Subtle overlays that suggest ceramic, porcelain, natural stone */
+  --tiller-texture-ceramic: linear-gradient(135deg, rgb(255,255,255,0.03) 0%, transparent 100%);
+  --tiller-texture-porcelain: linear-gradient(180deg, rgb(255,255,255,0.02) 0%, rgb(0,0,0,0.01) 100%);
+  --tiller-texture-natural-stone: radial-gradient(circle at 30% 40%, rgb(0,0,0,0.02) 0%, transparent 60%);
+  --tiller-texture-matte: linear-gradient(90deg, transparent 48%, rgb(255,255,255,0.015) 50%, transparent 52%);
+  
+  /* ===== Grout Line Widths ===== */
+  /* Industry-standard grout joint sizes */
+  --tiller-grout-width-thin: 1px;      /* 1/16" - rectified tile */
+  --tiller-grout-width-standard: 2px;  /* 1/8" - standard */
+  --tiller-grout-width-wide: 3px;      /* 3/16" - rustic/handmade */
+  
+  /* ===== Tile Dimensions ===== */
+  /* Common tile sizes for pattern generation */
+  --tiller-tile-subway-width: 150px;   /* 6" subway tile */
+  --tiller-tile-subway-height: 75px;   /* 3" subway tile */
+  --tiller-tile-square-sm: 100px;      /* 4x4" */
+  --tiller-tile-square-md: 200px;      /* 8x8" */
+  --tiller-tile-square-lg: 300px;      /* 12x12" */
+  --tiller-tile-plank-width: 225px;    /* 9" wood-look plank */
+  --tiller-tile-plank-height: 900px;   /* 36" wood-look plank */
+  
+  /* ===== Pattern Opacity Controls ===== */
+  /* Subtlety is key - patterns enhance, not distract */
+  --tiller-pattern-opacity-subtle: 0.03;
+  --tiller-pattern-opacity-light: 0.05;
+  --tiller-pattern-opacity-medium: 0.08;
+  --tiller-pattern-opacity-visible: 0.12;
+}
+
+/* =========================================================
+   SVG Pattern Definitions
+   Lightweight, scalable tile patterns using CSS
+   ========================================================= */
+
+/* === SUBWAY TILE PATTERN (Classic 1/3 offset) === */
+.ts-pattern-subway {
+  background-color: var(--tiller-bg-main, #faf8f2);
+  background-image: 
+    /* Horizontal grout lines */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent calc(var(--tiller-tile-subway-height) - var(--tiller-grout-width-standard)),
+      var(--tiller-grout-light) calc(var(--tiller-tile-subway-height) - var(--tiller-grout-width-standard)),
+      var(--tiller-grout-light) var(--tiller-tile-subway-height)
+    ),
+    /* Vertical grout lines - offset pattern */
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent calc(var(--tiller-tile-subway-width) - var(--tiller-grout-width-standard)),
+      var(--tiller-grout-light) calc(var(--tiller-tile-subway-width) - var(--tiller-grout-width-standard)),
+      var(--tiller-grout-light) var(--tiller-tile-subway-width)
+    ),
+    /* Subtle ceramic texture overlay */
+    var(--tiller-texture-ceramic);
+  background-size: 
+    100% var(--tiller-tile-subway-height),
+    var(--tiller-tile-subway-width) 100%,
+    100% 100%;
+  background-position: 
+    0 0,
+    0 0,
+    0 0;
+  position: relative;
+}
+
+/* Subway with offset (brick pattern) */
+.ts-pattern-subway-offset {
+  background-color: var(--tiller-bg-main, #faf8f2);
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent calc(var(--tiller-tile-subway-height) - var(--tiller-grout-width-standard)),
+      var(--tiller-grout-medium) calc(var(--tiller-tile-subway-height) - var(--tiller-grout-width-standard)),
+      var(--tiller-grout-medium) var(--tiller-tile-subway-height)
+    ),
+    var(--tiller-texture-porcelain);
+  background-size: 
+    100% var(--tiller-tile-subway-height),
+    100% 100%;
+  position: relative;
+}
+
+/* === HERRINGBONE PATTERN (Sophisticated diagonal) === */
+.ts-pattern-herringbone {
+  background-color: var(--tiller-bg-soft, #f4ece0);
+  background-image: 
+    /* Create subtle angular pattern suggesting herringbone */
+    linear-gradient(45deg, transparent 48%, var(--tiller-grout-light) 48%, var(--tiller-grout-light) 52%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, var(--tiller-grout-light) 48%, var(--tiller-grout-light) 52%, transparent 52%),
+    var(--tiller-texture-natural-stone);
+  background-size: 
+    40px 40px,
+    40px 40px,
+    100% 100%;
+  background-position: 
+    0 0,
+    20px 20px,
+    0 0;
+  opacity: var(--tiller-pattern-opacity-subtle);
+  position: relative;
+}
+
+/* === GRID PATTERN (Modern large format) === */
+.ts-pattern-grid {
+  background-color: var(--tiller-bg-main, #faf8f2);
+  background-image: 
+    /* Vertical grout lines */
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent calc(var(--tiller-tile-square-md) - var(--tiller-grout-width-thin)),
+      var(--tiller-grout-white) calc(var(--tiller-tile-square-md) - var(--tiller-grout-width-thin)),
+      var(--tiller-grout-white) var(--tiller-tile-square-md)
+    ),
+    /* Horizontal grout lines */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent calc(var(--tiller-tile-square-md) - var(--tiller-grout-width-thin)),
+      var(--tiller-grout-white) calc(var(--tiller-tile-square-md) - var(--tiller-grout-width-thin)),
+      var(--tiller-grout-white) var(--tiller-tile-square-md)
+    ),
+    var(--tiller-texture-matte);
+  background-size: 
+    var(--tiller-tile-square-md) 100%,
+    100% var(--tiller-tile-square-md),
+    100% 100%;
+  opacity: var(--tiller-pattern-opacity-light);
+  position: relative;
+}
+
+/* === STACKED GRID (Modern running bond) === */
+.ts-pattern-stacked {
+  background-color: var(--tiller-bg-alt, #ffffff);
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent calc(var(--tiller-tile-square-sm) - var(--tiller-grout-width-standard)),
+      var(--tiller-grout-light) calc(var(--tiller-tile-square-sm) - var(--tiller-grout-width-standard)),
+      var(--tiller-grout-light) var(--tiller-tile-square-sm)
+    ),
+    var(--tiller-texture-ceramic);
+  background-size: 
+    100% var(--tiller-tile-square-sm),
+    100% 100%;
+  opacity: var(--tiller-pattern-opacity-subtle);
+  position: relative;
+}
+
+/* === WOOD-LOOK PLANK (Popular porcelain trend) === */
+.ts-pattern-plank {
+  background-color: var(--tiller-bg-soft, #f4ece0);
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent calc(150px - var(--tiller-grout-width-thin)),
+      var(--tiller-grout-medium) calc(150px - var(--tiller-grout-width-thin)),
+      var(--tiller-grout-medium) 150px
+    ),
+    var(--tiller-texture-natural-stone);
+  background-size: 
+    100% 150px,
+    100% 100%;
+  opacity: var(--tiller-pattern-opacity-light);
+  position: relative;
+}
+
+/* =========================================================
+   Grout Line Effect Utilities
+   Apply to borders, dividers, section separators
+   ========================================================= */
+
+/* Horizontal grout line divider */
+.ts-grout-divider {
+  height: var(--tiller-grout-width-standard);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--tiller-grout-light) 10%,
+    var(--tiller-grout-medium) 50%,
+    var(--tiller-grout-light) 90%,
+    transparent 100%
+  );
+  margin: var(--tiller-spacing-lg, 2rem) 0;
+  opacity: 0.6;
+}
+
+/* Vertical grout line accent */
+.ts-grout-accent-left {
+  border-left: var(--tiller-grout-width-wide) solid var(--tiller-grout-dark);
+  padding-left: var(--tiller-spacing-md, 1rem);
+}
+
+.ts-grout-accent-right {
+  border-right: var(--tiller-grout-width-wide) solid var(--tiller-grout-dark);
+  padding-right: var(--tiller-spacing-md, 1rem);
+}
+
+/* Grout-framed element (like tile border) */
+.ts-grout-frame {
+  border: var(--tiller-grout-width-standard) solid var(--tiller-grout-light);
+  box-shadow: 
+    inset 0 0 0 var(--tiller-grout-width-thin) var(--tiller-grout-white),
+    var(--tiller-shadow-sm);
+  position: relative;
+}
+
+/* =========================================================
+   Pattern Application Classes
+   Apply tile patterns to specific elements
+   ========================================================= */
+
+/* Hero section with subtle grid pattern */
+.ts-hero-tiled {
+  background-color: var(--tiller-bg-main, #faf8f2);
+  background-image: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 299px,
+      var(--tiller-grout-white) 299px,
+      var(--tiller-grout-white) 300px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 299px,
+      var(--tiller-grout-white) 299px,
+      var(--tiller-grout-white) 300px
+    ),
+    linear-gradient(135deg, 
+      var(--tiller-bg-main, #faf8f2) 0%, 
+      var(--tiller-bg-soft, #f4ece0) 100%);
+  background-size: 
+    300px 100%,
+    100% 300px,
+    100% 100%;
+  position: relative;
+}
+
+/* Card backgrounds with tile texture */
+.ts-card-subway {
+  background-color: var(--tiller-bg-alt, #ffffff);
+  background-image: var(--tiller-texture-ceramic);
+  border: var(--tiller-grout-width-thin) solid var(--tiller-grout-light);
+  position: relative;
+}
+
+.ts-card-subway::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 74px,
+      var(--tiller-grout-white) 74px,
+      var(--tiller-grout-white) 75px
+    );
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ts-card-subway > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section divider with grout line effect */
+.ts-section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--tiller-grout-light) 5%,
+    var(--tiller-grout-medium) 25%,
+    var(--tiller-grout-dark) 50%,
+    var(--tiller-grout-medium) 75%,
+    var(--tiller-grout-light) 95%,
+    transparent 100%
+  );
+  margin: var(--tiller-spacing-xl, 4rem) auto;
+  max-width: 80%;
+  opacity: 0.5;
+  position: relative;
+}
+
+/* Tile pattern overlay (for backgrounds) */
+.ts-overlay-grid::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 199px,
+      rgb(255, 255, 255, 0.02) 199px,
+      rgb(255, 255, 255, 0.02) 200px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 199px,
+      rgb(255, 255, 255, 0.02) 199px,
+      rgb(255, 255, 255, 0.02) 200px
+    );
+  background-size: 200px 100%, 100% 200px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================================================
+   Portfolio & Image Tile Frames
+   Professional presentation inspired by tile installations
+   ========================================================= */
+
+/* Image with tile border effect */
+.ts-image-tiled {
+  border: var(--tiller-grout-width-wide) solid var(--tiller-grout-medium);
+  box-shadow: 
+    inset 0 0 0 var(--tiller-grout-width-thin) var(--tiller-grout-white),
+    0 4px 12px rgb(0, 0, 0, 0.08),
+    0 1px 3px rgb(0, 0, 0, 0.12);
+  border-radius: var(--tiller-border-radius-sm, 4px);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Gallery grid with grout-line gaps */
+.ts-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--tiller-grout-width-wide);
+  background-color: var(--tiller-grout-medium);
+  padding: var(--tiller-grout-width-wide);
+  border-radius: var(--tiller-border-radius-md, 8px);
+}
+
+.ts-gallery-grid > * {
+  background: var(--tiller-bg-alt, #ffffff);
+  border-radius: var(--tiller-border-radius-sm, 4px);
+}
+
+/* =========================================================
+   Responsive Pattern Scaling
+   Patterns scale appropriately on different screen sizes
+   ========================================================= */
+
+@media (max-width: 900px) {
+  :root {
+    /* Reduce tile dimensions for mobile */
+    --tiller-tile-subway-width: 120px;
+    --tiller-tile-subway-height: 60px;
+    --tiller-tile-square-sm: 80px;
+    --tiller-tile-square-md: 150px;
+    --tiller-tile-square-lg: 200px;
+  }
+  
+  .ts-hero-tiled {
+    background-size: 
+      200px 100%,
+      100% 200px,
+      100% 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    /* Further reduce for small mobile */
+    --tiller-tile-subway-width: 100px;
+    --tiller-tile-subway-height: 50px;
+    --tiller-tile-square-sm: 60px;
+    --tiller-tile-square-md: 120px;
+  }
+  
+  .ts-hero-tiled {
+    background-size: 
+      150px 100%,
+      100% 150px,
+      100% 100%;
+  }
+  
+  /* Reduce pattern visibility on small screens for performance */
+  .ts-pattern-subway,
+  .ts-pattern-grid,
+  .ts-pattern-stacked {
+    opacity: calc(var(--tiller-pattern-opacity-subtle) * 0.7);
+  }
+}
+
+/* =========================================================
+   Performance & Accessibility
+   ========================================================= */
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .ts-pattern-subway,
+  .ts-pattern-herringbone,
+  .ts-pattern-grid,
+  .ts-pattern-stacked,
+  .ts-pattern-plank {
+    background-image: none;
+    opacity: 1;
+  }
+}
+
+/* Ensure patterns don't interfere with text contrast */
+.ts-pattern-subway,
+.ts-pattern-herringbone,
+.ts-pattern-grid,
+.ts-pattern-stacked,
+.ts-pattern-plank {
+  /* Patterns are backgrounds only - maintain WCAG AA contrast */
+  color: var(--tiller-text-primary, #1a2018);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .ts-pattern-subway,
+  .ts-pattern-herringbone,
+  .ts-pattern-grid,
+  .ts-pattern-stacked,
+  .ts-pattern-plank,
+  .ts-overlay-grid::after {
+    background-image: none;
+    opacity: 1;
+  }
+  
+  .ts-grout-divider,
+  .ts-section-divider {
+    background: currentColor;
+    opacity: 0.3;
+  }
+}
+
+/* =========================================================
+   Usage Examples & Documentation
+   ========================================================= */
+
+/*
+USAGE GUIDE:
+
+1. HERO SECTIONS:
+   <section class="home-hero ts-hero-tiled">
+     <!-- Subtle grid pattern in background -->
+   </section>
+
+2. CARDS WITH TILE TEXTURE:
+   <div class="service-card ts-card-subway">
+     <!-- Card with ceramic texture and subtle grout lines -->
+   </div>
+
+3. SECTION DIVIDERS:
+   <hr class="ts-section-divider">
+   <!-- Grout-line inspired divider -->
+
+4. PATTERN BACKGROUNDS:
+   <section class="ts-pattern-grid">
+     <!-- Modern large-format tile grid -->
+   </section>
+
+5. IMAGE GALLERY:
+   <div class="ts-gallery-grid">
+     <img class="ts-image-tiled" src="..." alt="...">
+     <!-- Images framed like tile installation -->
+   </div>
+
+6. ACCENT BORDERS:
+   <blockquote class="ts-grout-accent-left">
+     <!-- Left border like grout line -->
+   </blockquote>
+
+DESIGN PHILOSOPHY:
+- Patterns are SUBTLE - they enhance, never distract
+- Grout lines suggest precision and craftsmanship
+- Textures add depth without compromising readability
+- All patterns maintain WCAG AA contrast requirements
+- Performance-optimized using CSS gradients (no images)
+- Responsive scaling for all screen sizes
+- Respects user accessibility preferences
+
+TILE INDUSTRY STANDARDS REFLECTED:
+- Grout widths match industry standards (1/16", 1/8", 3/16")
+- Tile dimensions based on popular formats
+- Patterns reflect actual installation techniques
+- Colors inspired by real grout products
+
+*/
