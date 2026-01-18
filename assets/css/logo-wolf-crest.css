@@ -11,7 +11,7 @@
 
 .ts-header__logo-link:hover {
   transform: scale(1.05);
-  opacity: 0.9;
+  opacity: 90%;
 }
 
 .ts-header__logo {
@@ -55,7 +55,7 @@
   height: 200px; /* Very large for showcase */
   max-width: 640px;
   object-fit: contain;
-  filter: drop-shadow(0 8px 16px rgb(0 0 0 / 0.3));
+  filter: drop-shadow(0 8px 16px rgb(0 0 0 / 30%));
 }
 
 /* Logo in cards/components */
@@ -72,8 +72,9 @@
   height: 48px;
   max-width: 200px;
   object-fit: contain;
+
   /* Visibility on dark backgrounds */
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 2px 4px rgb(0 0 0 / 50%));
 }
 
 /* Minimized header state */

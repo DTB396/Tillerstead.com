@@ -20,7 +20,7 @@
   --tiller-bg-alt: var(--tiller-bg-stone);
   --tiller-bg-soft: var(--tiller-bg-slate);
   --tiller-header-bg: var(--tiller-bg-darker);
-  --tiller-bg-overlay: rgb(10 12 10 / 0.95);
+  --tiller-bg-overlay: rgb(10 12 10 / 95%);
   
   /* ===== GOLD - Grout Lines & Accents ===== */
   --tiller-color-gold: #c9a227;
@@ -29,15 +29,15 @@
   --tiller-color-gold-muted: #8a7830;
   --tiller-color-gold-bright: #ffd700;
   --tiller-grout: var(--tiller-color-gold);
-  --tiller-grout-subtle: rgb(201 162 39 / 0.15);
-  --tiller-grout-faint: rgb(201 162 39 / 0.08);
+  --tiller-grout-subtle: rgb(201 162 39 / 15%);
+  --tiller-grout-faint: rgb(201 162 39 / 8%);
   
   /* ===== EMERALD - Glowing Headers ===== */
   --tiller-color-emerald: #10b981;
   --tiller-color-emerald-dark: #059669;
   --tiller-color-emerald-light: #34d399;
   --tiller-color-emerald-bright: #4ade80;
-  --tiller-color-emerald-glow: rgb(16 185 129 / 0.5);
+  --tiller-color-emerald-glow: rgb(16 185 129 / 50%);
   
   /* Brand greens (deep forest) */
   --tiller-color-green: #0d2a1f;
@@ -70,9 +70,10 @@
   --tiller-color-silver-dark: #8a8a8a;
   --tiller-color-silver-light: #e8e8e8;
   --tiller-color-silver-bright: #f5f5f5;
-  --tiller-color-silver-glow: rgb(192 192 192 / 0.5);
+  --tiller-color-silver-glow: rgb(192 192 192 / 50%);
 
   /* ===== 90s RETRO PALETTE - Nostalgic accents ===== */
+
   /* Inspired by Windows 95, Memphis design, and 90s bathroom tile */
   --retro-teal: #008080;
   --retro-teal-light: #5dbdbd;
@@ -112,26 +113,19 @@
   --tiller-btn-hover-bg: var(--tiller-color-gold-light);
   
   /* ===== Navigation - Dark ===== */
-  --tiller-nav-bg: var(--tiller-bg-(0 0 0 / 0.4);
-  --tiller-shadow-md: 0 4px 8px rgb(0 0 0 / 0.5);
-  --tiller-shadow-lg: 0 10px 20px rgb(0 0 0 / 0.6);
-  --tiller-shadow-xl: 0 20px 40px rgb(0 0 0 / 0.7);
+  --tiller-nav-bg: rgb(0 0 0 / 40%);
+  --tiller-shadow-md: 0 4px 8px rgb(0 0 0 / 50%);
+  --tiller-shadow-lg: 0 10px 20px rgb(0 0 0 / 60%);
+  --tiller-shadow-xl: 0 20px 40px rgb(0 0 0 / 70%);
   --tiller-shadow-glow-emerald: 0 0 20px var(--tiller-color-emerald-glow);
-  --tiller-shadow-glow-gold: 0 0 15px rgb(201 162 39 / 0.4);
-  --tiller-shadow-glow-silver: 0 0 15px rgb(192 192 192 / 0.4);
-  --tiller-box-shadow: 0 2px 8px rgb(0 0 0 / 0.3);
+  --tiller-shadow-glow-gold: 0 0 15px rgb(201 162 39 / 40%);
+  --tiller-shadow-glow-silver: 0 0 15px rgb(192 192 192 / 40%);
+  --tiller-box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
 
   /* 90s-style offset shadows (no blur, hard edges) */
-  --retro-shadow-offset-sm: 3px 3px 0 rgb(0 0 0 / 0.3);
-  --retro-shadow-offset-md: 5px 5px 0 rgb(0 0 0 / 0.3);
-  --retro-shadow-offset-lg: 8px 8px 0 rgb(0 0 0 /er-color-emerald-glow);
-  --tiller-shadow-glow-gold: 0 0 15px rgba(201, 162, 39, 0.4);
-  --tiller-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  
-  /* 90s-style offset shadows (no blur, hard edges) */
-  --retro-shadow-offset-sm: 3px 3px 0 rgba(0, 0, 0, 0.3);
-  --retro-shadow-offset-md: 5px 5px 0 rgba(0, 0, 0, 0.3);
-  --retro-shadow-offset-lg: 8px 8px 0 rgba(0, 0, 0, 0.3);
+  --retro-shadow-offset-sm: 3px 3px 0 rgb(0 0 0 / 30%);
+  --retro-shadow-offset-md: 5px 5px 0 rgb(0 0 0 / 30%);
+  --retro-shadow-offset-lg: 8px 8px 0 rgb(0 0 0 / 30%);
   --retro-shadow-teal: 4px 4px 0 var(--retro-teal-dark);
   --retro-shadow-purple: 4px 4px 0 var(--retro-purple-dark);
   --retro-shadow-salmon: 4px 4px 0 var(--retro-salmon-dark);
@@ -242,6 +236,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizelegibility;
+
   /* Eliminate white gutters on wide screens */
   background-color: var(--tiller-bg-darkest, #0a0c0a);
 }
@@ -271,6 +266,7 @@ body {
   font-size: var(--tiller-font-size-base, 1rem);
   line-height: var(--tiller-line-height-normal, 1.5);
   overflow-x: hidden;
+
   /* Full-bleed: no horizontal restrictions */
   min-width: 100%;
 }
@@ -314,7 +310,7 @@ h1 {
   text-shadow: 
     0 0 10px var(--tiller-color-emerald-glow),
     0 0 30px var(16 185 129 /-emerald-glow),
-    0 0 50px rgba(16, 185, 129, 0.3);
+    0 0 50px rgb(16 185 129 / 30%);
 }
 
 /* ===== GOLD GROUT GRID PATTERN ===== */
@@ -368,8 +364,8 @@ button::before {
   top: 0;
   left: -100%;
   width: 100%;
-  height: 100%;(255 255 255 /
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 20%), transparent);
   transition: left 0.5s;
 }
 
@@ -378,7 +374,7 @@ button:hover {
   transform: translateY(-2px);
   box-shadow: 
     var(--tiller-shadow-glow-emerald),
-    0 4px 20px rgb(16 185 129 / 0.4);
+    0 4px 20px rgb(16 185 129 / 40%);
 }
 
 button:hover::before {
@@ -406,7 +402,7 @@ button:focus-visible {
   background: var(--tiller-color-gold-light);
   box-shadow: 
     var(--tiller-shadow-glow-gold),
-    0 4px 20px rgb(201 162 39 / 0.5);
+    0 4px 20px rgb(201 162 39 / 50%);
 }
 
 /* Metallic Silver Button Variant */
@@ -422,7 +418,7 @@ button:focus-visible {
   background: linear-gradient(180deg, var(--tiller-color-silver-bright) 0%, var(--tiller-color-silver-light) 50%, var(--tiller-color-silver) 100%);
   box-shadow: 
     var(--tiller-shadow-glow-silver),
-    0 4px 20px rgb(192 192 192 / 0.5);
+    0 4px 20px rgb(192 192 192 / 50%);
 }
 
 /* Metallic Gold Button Variant (enhanced) */
@@ -438,7 +434,7 @@ button:focus-visible {
   background: linear-gradient(180deg, var(--tiller-color-gold-bright) 0%, var(--tiller-color-gold-light) 50%, var(--tiller-color-gold) 100%);
   box-shadow: 
     var(--tiller-shadow-glow-gold),
-    0 4px 20px rgb(201 162 39 / 0.6);
+    0 4px 20px rgb(201 162 39 / 60%);
 }
 
 /* Shadows for Elements */
@@ -480,6 +476,7 @@ button:focus-visible {
    ===================================== */
 .container {
   --container-max: 72rem; /* 1152px - readable content width */
+
   width: min(100% - 2rem, var(--container-max));
   margin-inline: auto;
   padding-inline: clamp(1rem, 3vw, 2rem);
@@ -503,6 +500,7 @@ button:focus-visible {
 /* Full-width container - edge to edge with padding */
 .container--full {
   --container-max: 100%;
+
   padding-inline: clamp(1rem, 4vw, 3rem);
 }
 
@@ -543,7 +541,9 @@ input, select, textarea {
   inset: 2px;
   background: linear-gradient(90deg, var(--tiller-color-gold-dark), var(--tiller-color-gold-bright), var(--tiller-color-gold-dark));
   box-shadow: 0 0 10px var(--tiller-color-gold);
-} border-radius: var(--tiller-input-border-radius);
+}
+
+ border-radius: var(--tiller-input-border-radius);
   border: 1px solid var(--tiller-input-border-color);
   width: 100%;
 }
@@ -576,21 +576,17 @@ label {
   border-top: 2px solid var(--tiller-color-gold);
   position: relative;
 }
-(16 185 129 / 0.3));
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
 
-.footer-logo:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 6px 20px rgb(16 185 129 /
-  right: 0;
-  bottom: 0;
+.ts-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   background-image: 
     linear-gradient(var(--tiller-grout-faint) 1px, transparent 1px),
     linear-gradient(90deg, var(--tiller-grout-faint) 1px, transparent 1px);
   background-size: 24px 24px;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 50%;
 }
 
 .ts-footer > * {
@@ -617,13 +613,13 @@ label {
   background: transparent;
   padding: 0;
   border: none;
-  filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.3));
+  filter: drop-shadow(0 4px 12px rgb(16 185 129 / 30%));
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .footer-logo:hover {
   transform: scale(1.05);
-  filter: drop-shadow(0 6px 20px rgba(16, 185, 129, 0.5));
+  filter: drop-shadow(0 6px 20px rgb(16 185 129 / 50%));
 }
 
 .footer-tagline {
@@ -654,7 +650,7 @@ label {
   margin-bottom: var(--tiller-spacing-sm);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  text-shadow: 0 0 8px var((16 185 129 /emerald-glow);
+  text-shadow: 0 0 8px var(--tiller-shadow-glow-emerald);
 }
 
 .footer-list {
@@ -678,7 +674,7 @@ label {
 .footer-list a:focus {
   color: var(--tiller-color-gold);
   text-shadow: 0 0 8px var(--tiller-shadow-glow-gold);
-}(201 162 39 /
+}
 
 .footer-contact {
   text-align: center;
@@ -695,7 +691,7 @@ label {
   font-weight: 700;
   font-size: 1.05rem;
   margin: 0 0 var(--tiller-spacing-sm);
-  text-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+  text-shadow: 0 0 12px rgb(16 185 129 / 40%);
 }
 
 .footer-address {
@@ -719,7 +715,7 @@ label {
   font-weight: 600;
   font-size: 1.1rem;
   transition: all 0.2s ease;
-  text-shadow: 0 0 10px rgba(201, 162, 39, 0.3);
+  text-shadow: 0 0 10px rgb(201 162 39 / 30%);
 }
 
 .footer-contact-phone a:hover,
@@ -793,7 +789,7 @@ label {
 }
 
 .footer-divider {
-  opacity: 0.4;
+  opacity: 40%;
 }
 
 .footer-copyright {

@@ -6,6 +6,7 @@
 
 :root {
   /* ===== Grout Line Colors (Subtle, Professional) ===== */
+
   /* Inspired by real grout: light neutrals that define without dominating */
   --tiller-grout-light: #e8e4dc;        /* Light warm grey grout */
   --tiller-grout-medium: #d4cfc5;       /* Medium neutral grout */
@@ -14,19 +15,22 @@
   --tiller-grout-charcoal: #6a675f;     /* Charcoal grout accent */
   
   /* ===== Tile Texture Variables ===== */
+
   /* Subtle overlays that suggest ceramic, porcelain, natural stone */
-  --tiller-texture-ceramic: linear-gradient(135deg, rgb(255,255,255,0.03) 0%, transparent 100%);
-  --tiller-texture-porcelain: linear-gradient(180deg, rgb(255,255,255,0.02) 0%, rgb(0,0,0,0.01) 100%);
-  --tiller-texture-natural-stone: radial-gradient(circle at 30% 40%, rgb(0,0,0,0.02) 0%, transparent 60%);
-  --tiller-texture-matte: linear-gradient(90deg, transparent 48%, rgb(255,255,255,0.015) 50%, transparent 52%);
+  --tiller-texture-ceramic: linear-gradient(135deg, rgb(255 255 255 / 3%) 0%, transparent 100%);
+  --tiller-texture-porcelain: linear-gradient(180deg, rgb(255 255 255 / 2%) 0%, rgb(0 0 0 / 1%) 100%);
+  --tiller-texture-natural-stone: radial-gradient(circle at 30% 40%, rgb(0 0 0 / 2%) 0%, transparent 60%);
+  --tiller-texture-matte: linear-gradient(90deg, transparent 48%, rgb(255 255 255 / 1.5%) 50%, transparent 52%);
   
   /* ===== Grout Line Widths ===== */
+
   /* Industry-standard grout joint sizes */
   --tiller-grout-width-thin: 1px;      /* 1/16" - rectified tile */
   --tiller-grout-width-standard: 2px;  /* 1/8" - standard */
   --tiller-grout-width-wide: 3px;      /* 3/16" - rustic/handmade */
   
   /* ===== Tile Dimensions ===== */
+
   /* Common tile sizes for pattern generation */
   --tiller-tile-subway-width: 150px;   /* 6" subway tile */
   --tiller-tile-subway-height: 75px;   /* 3" subway tile */
@@ -37,6 +41,7 @@
   --tiller-tile-plank-height: 900px;   /* 36" wood-look plank */
   
   /* ===== Pattern Opacity Controls ===== */
+
   /* Subtlety is key - patterns enhance, not distract */
   --tiller-pattern-opacity-subtle: 0.03;
   --tiller-pattern-opacity-light: 0.05;
@@ -204,7 +209,7 @@
     transparent 100%
   );
   margin: var(--tiller-spacing-lg, 2rem) 0;
-  opacity: 0.6;
+  opacity: 60%;
 }
 
 /* Vertical grout line accent */
@@ -271,10 +276,7 @@
 .ts-card-subway::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background-image: 
     repeating-linear-gradient(
       0deg,
@@ -283,7 +285,7 @@
       var(--tiller-grout-white) 74px,
       var(--tiller-grout-white) 75px
     );
-  opacity: 0.15;
+  opacity: 15%;
   pointer-events: none;
   z-index: 0;
 }
@@ -308,7 +310,7 @@
   );
   margin: var(--tiller-spacing-xl, 4rem) auto;
   max-width: 80%;
-  opacity: 0.5;
+  opacity: 50%;
   position: relative;
 }
 
@@ -316,24 +318,21 @@
 .ts-overlay-grid::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background-image: 
     repeating-linear-gradient(
       90deg,
       transparent,
       transparent 199px,
-      rgb(255, 255, 255, 0.02) 199px,
-      rgb(255, 255, 255, 0.02) 200px
+      rgb(255 255 255 / 2%) 199px,
+      rgb(255 255 255 / 2%) 200px
     ),
     repeating-linear-gradient(
       0deg,
       transparent,
       transparent 199px,
-      rgb(255, 255, 255, 0.02) 199px,
-      rgb(255, 255, 255, 0.02) 200px
+      rgb(255 255 255 / 2%) 199px,
+      rgb(255 255 255 / 2%) 200px
     );
   background-size: 200px 100%, 100% 200px;
   pointer-events: none;
@@ -350,8 +349,8 @@
   border: var(--tiller-grout-width-wide) solid var(--tiller-grout-medium);
   box-shadow: 
     inset 0 0 0 var(--tiller-grout-width-thin) var(--tiller-grout-white),
-    0 4px 12px rgb(0, 0, 0, 0.08),
-    0 1px 3px rgb(0, 0, 0, 0.12);
+    0 4px 12px rgb(0 0 0 / 8%),
+    0 1px 3px rgb(0 0 0 / 12%);
   border-radius: var(--tiller-border-radius-sm, 4px);
   overflow: hidden;
   position: relative;
@@ -427,7 +426,7 @@
   .ts-pattern-subway,
   .ts-pattern-grid,
   .ts-pattern-stacked {
-    opacity: calc(var(--tiller-pattern-opacity-subtle) * 0.7);
+    opacity: calc(var(--tiller-pattern-opacity-subtle) * 70%);
   }
 }
 
@@ -443,7 +442,7 @@
   .ts-pattern-stacked,
   .ts-pattern-plank {
     background-image: none;
-    opacity: 1;
+    opacity: 100%;
   }
 }
 
@@ -466,13 +465,13 @@
   .ts-pattern-plank,
   .ts-overlay-grid::after {
     background-image: none;
-    opacity: 1;
+    opacity: 100%;
   }
   
   .ts-grout-divider,
   .ts-section-divider {
-    background: currentColor;
-    opacity: 0.3;
+    background: currentcolor;
+    opacity: 30%;
   }
 }
 
@@ -554,7 +553,7 @@ TILE INDUSTRY STANDARDS REFLECTED:
       var(--retro-tile-salmon) 100px
     );
   background-size: 100% 100px, 100px 100%;
-  opacity: 0.08;
+  opacity: 8%;
   position: relative;
 }
 
@@ -577,7 +576,7 @@ TILE INDUSTRY STANDARDS REFLECTED:
       var(--retro-tile-mint) 100px
     );
   background-size: 100% 100px, 100px 100%;
-  opacity: 0.08;
+  opacity: 8%;
   position: relative;
 }
 
@@ -600,7 +599,7 @@ TILE INDUSTRY STANDARDS REFLECTED:
       var(--retro-tile-teal) 100px
     );
   background-size: 100% 100px, 100px 100%;
-  opacity: 0.1;
+  opacity: 10%;
   position: relative;
 }
 
@@ -613,8 +612,8 @@ TILE INDUSTRY STANDARDS REFLECTED:
     linear-gradient(45deg, transparent 75%, var(--retro-tile-teal) 75%),
     linear-gradient(-45deg, transparent 75%, var(--retro-tile-teal) 75%);
   background-size: 40px 40px;
-  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
-  opacity: 0.06;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0;
+  opacity: 6%;
   position: relative;
 }
 
@@ -628,7 +627,7 @@ TILE INDUSTRY STANDARDS REFLECTED:
     linear-gradient(315deg, var(--retro-tile-teal) 25%, transparent 25%);
   background-size: 60px 60px;
   background-position: 30px 0, 30px 0, 0 0, 0 0;
-  opacity: 0.05;
+  opacity: 5%;
   position: relative;
 }
 
@@ -647,22 +646,22 @@ TILE INDUSTRY STANDARDS REFLECTED:
       var(--retro-tile-teal) 40px,
       var(--retro-tile-teal) 42px
     );
-  opacity: 0.08;
+  opacity: 8%;
   position: relative;
 }
 
 /* ===== 90S GROUT COLOR VARIANTS ===== */
 .grout-retro-teal {
   background-image: 
-    linear-gradient(rgba(0, 128, 128, 0.2) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 128, 128, 0.2) 1px, transparent 1px);
+    linear-gradient(rgb(0 128 128 / 20%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(0 128 128 / 20%) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 .grout-retro-salmon {
   background-image: 
-    linear-gradient(rgba(250, 128, 114, 0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(250, 128, 114, 0.15) 1px, transparent 1px);
+    linear-gradient(rgb(250 128 114 / 15%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(250 128 114 / 15%) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -672,7 +671,7 @@ TILE INDUSTRY STANDARDS REFLECTED:
   border: 3px solid var(--retro-salmon);
   box-shadow: 
     inset 0 0 0 1px var(--retro-salmon-light),
-    5px 5px 0 rgba(0, 0, 0, 0.2);
+    5px 5px 0 rgb(0 0 0 / 20%);
   position: relative;
   border-radius: var(--tiller-border-radius-sm);
 }
@@ -696,7 +695,7 @@ TILE INDUSTRY STANDARDS REFLECTED:
   border: 3px solid var(--retro-teal);
   box-shadow: 
     inset 0 0 0 1px var(--retro-teal-light),
-    5px 5px 0 rgba(0, 0, 0, 0.2);
+    5px 5px 0 rgb(0 0 0 / 20%);
   position: relative;
   border-radius: var(--tiller-border-radius-sm);
 }
@@ -726,6 +725,6 @@ TILE INDUSTRY STANDARDS REFLECTED:
   margin: var(--tiller-spacing-xl, 4rem) auto;
   max-width: 60%;
   border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
 

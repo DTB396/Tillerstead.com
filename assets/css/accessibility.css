@@ -28,7 +28,7 @@
   padding: 0 !important;
   margin: -1px !important;
   overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
   white-space: nowrap !important;
   border: 0 !important;
 }
@@ -46,7 +46,7 @@
   padding: inherit !important;
   margin: inherit !important;
   overflow: visible !important;
-  clip: auto !important;
+  clip-path: none !important;
   white-space: normal !important;
 }
 
@@ -73,12 +73,12 @@
   z-index: 100000;
   padding: 1rem 2rem;
   background: var(--tiller-color-primary, #1a2a3a);
-  color: #fff;
+  color: #ffffff;
   font-weight: 700;
   font-size: 1rem;
   text-decoration: none;
   border-radius: 0 0 8px 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
   transition: top 0.2s ease-out;
 }
 
@@ -119,7 +119,7 @@
 }
 
 .skip-links a:focus {
-  outline: 3px solid #fff;
+  outline: 3px solid #ffffff;
   outline-offset: 2px;
 }
 
@@ -157,7 +157,7 @@ textarea:focus-visible,
 [tabindex]:focus-visible {
   outline: 3px solid var(--tiller-color-gold, #c9a227);
   outline-offset: 3px;
-  box-shadow: 0 0 0 6px rgba(201, 162, 39, 0.25);
+  box-shadow: 0 0 0 6px rgb(201 162 39 / 25%);
 }
 
 /**
@@ -177,8 +177,8 @@ textarea:focus-visible,
 .dark-bg button:focus-visible,
 [data-theme="dark"] a:focus-visible,
 [data-theme="dark"] button:focus-visible {
-  outline-color: #fff;
-  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.3);
+  outline-color: #ffffff;
+  box-shadow: 0 0 0 6px rgb(255 255 255 / 30%);
 }
 
 /* ==========================================================================
@@ -207,7 +207,7 @@ textarea:focus-visible,
   .fade-in,
   .slide-in {
     animation: none !important;
-    opacity: 1 !important;
+    opacity: 100% !important;
     transform: none !important;
   }
 
@@ -241,7 +241,7 @@ textarea:focus-visible,
   *,
   *::before,
   *::after {
-    border-color: currentColor !important;
+    border-color: currentcolor !important;
   }
 
   /* Make focus indicators visible */
@@ -257,7 +257,7 @@ textarea:focus-visible,
   [role="button"],
   input[type="submit"],
   input[type="button"] {
-    border: 2px solid currentColor !important;
+    border: 2px solid currentcolor !important;
   }
 
   /* Links need underlines */
@@ -269,13 +269,13 @@ textarea:focus-visible,
   input,
   textarea,
   select {
-    border: 2px solid currentColor !important;
+    border: 2px solid currentcolor !important;
   }
 
   /* SVG icons need currentColor */
   svg {
-    fill: currentColor !important;
-    stroke: currentColor !important;
+    fill: currentcolor !important;
+    stroke: currentcolor !important;
   }
 
   /* Disable background images */
@@ -290,16 +290,16 @@ textarea:focus-visible,
  */
 [data-high-contrast="true"],
 .high-contrast {
-  --tiller-bg-color: #000;
-  --tiller-text-primary: #fff;
-  --tiller-text-secondary: #fff;
+  --tiller-bg-color: #000000;
+  --tiller-text-primary: #ffffff;
+  --tiller-text-secondary: #ffffff;
   --tiller-color-gold: #ffff00;
-  --tiller-color-primary: #fff;
+  --tiller-color-primary: #ffffff;
   --link-color: #ffff00;
   --focus-color: #00ffff;
 
-  background: #000 !important;
-  color: #fff !important;
+  background: #000000 !important;
+  color: #ffffff !important;
 }
 
 [data-high-contrast="true"] a,
@@ -312,9 +312,224 @@ textarea:focus-visible,
 [data-high-contrast="true"] .btn,
 .high-contrast button,
 .high-contrast .btn {
-  background: #fff !important;
-  color: #000 !important;
-  border: 2px solid #fff !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #ffffff !important;
+}
+
+/* ==========================================================================
+   5b. AUTO-DETECTED SYSTEM PREFERENCES
+   ========================================================================== */
+
+/**
+ * Inverted colors support (iOS/macOS accessibility setting)
+ */
+@media (inverted-colors: inverted) {
+  img,
+  video,
+  picture {
+    filter: invert(100%);
+  }
+}
+
+[data-inverted-colors="true"] img,
+[data-inverted-colors="true"] video {
+  filter: invert(100%);
+}
+
+/**
+ * Reduced transparency support (macOS accessibility setting)
+ */
+@media (prefers-reduced-transparency: reduce) {
+  *,
+  *::before,
+  *::after {
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  .glass,
+  .frosted,
+  .backdrop-blur {
+    background: var(--tiller-bg-color, #ffffff) !important;
+    backdrop-filter: none !important;
+  }
+}
+
+[data-reduced-transparency="true"] .glass,
+[data-reduced-transparency="true"] .frosted,
+[data-reduced-transparency="true"] .backdrop-blur {
+  background: var(--tiller-bg-color, #ffffff) !important;
+  backdrop-filter: none !important;
+}
+
+/**
+ * Touch device enhancements (auto-detected via pointer: coarse)
+ */
+@media (pointer: coarse) {
+  /* Larger touch targets */
+  button,
+  .btn,
+  [role="button"],
+  a,
+  input[type="submit"],
+  input[type="button"],
+  input[type="checkbox"],
+  input[type="radio"] {
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  /* Increase spacing between interactive elements */
+  nav a,
+  nav button,
+  .nav-link {
+    padding: 12px 16px;
+    margin: 4px;
+  }
+
+  /* Larger form inputs */
+  input,
+  textarea,
+  select {
+    min-height: 48px;
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+}
+
+.touch-friendly button,
+.touch-friendly .btn,
+.touch-friendly a {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 12px 24px;
+}
+
+/**
+ * No hover capability (touch-only devices)
+ */
+@media (hover: none) {
+  /* Show focus states instead of hover */
+  a:hover,
+  button:hover {
+    /* Disable hover-only styles */
+  }
+
+  /* Make tap targets more obvious */
+  a,
+  button,
+  [role="button"] {
+    text-decoration: underline;
+  }
+
+  /* Show dropdown menus differently */
+  .dropdown:hover .dropdown-menu {
+    display: none;
+  }
+}
+
+[data-hover="none"] .hover-only {
+  display: none !important;
+}
+
+/**
+ * prefers-contrast: more (macOS/iOS Increase Contrast setting)
+ */
+@media (prefers-contrast: more) {
+  * {
+    border-color: currentcolor !important;
+  }
+
+  a {
+    text-decoration: underline !important;
+  }
+
+  button,
+  .btn {
+    border: 2px solid currentcolor !important;
+  }
+
+  /* Increase text weight for better readability */
+  body {
+    font-weight: 500;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 800;
+  }
+}
+
+/**
+ * prefers-contrast: less (reduce harsh contrasts)
+ */
+@media (prefers-contrast: less) {
+  :root {
+    --tiller-text-primary: #333333;
+    --tiller-bg-color: #f5f5f5;
+  }
+}
+
+[data-low-contrast="true"] {
+  --tiller-text-primary: #333333 !important;
+  --tiller-bg-color: #f5f5f5 !important;
+  filter: contrast(0.9);
+}
+
+/**
+ * Dark color scheme support
+ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tiller-bg-color: #1a1a2e;
+    --tiller-text-primary: #ffffff;
+    --tiller-text-secondary: #cccccc;
+    color-scheme: dark;
+  }
+
+  img {
+    filter: brightness(0.9);
+  }
+}
+
+[data-color-scheme="dark"] {
+  --tiller-bg-color: #1a1a2e;
+  --tiller-text-primary: #ffffff;
+  --tiller-text-secondary: #cccccc;
+  color-scheme: dark;
+}
+
+[data-color-scheme="dark"] img {
+  filter: brightness(0.9);
+}
+
+/**
+ * Light color scheme support (explicit)
+ */
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+  }
+}
+
+[data-color-scheme="light"] {
+  color-scheme: light;
+}
+
+/**
+ * Larger cursor support (user preference)
+ */
+[data-larger-cursor="true"],
+[data-larger-cursor="true"] * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='%23000' stroke='%23fff' stroke-width='2' d='M6 2L6 28L12 22L18 30L22 28L16 20L24 20Z'/%3E%3C/svg%3E") 6 2, auto;
+}
+
+/**
+ * Enhanced focus highlight (extra visible focus)
+ */
+[data-focus-highlight="true"] :focus-visible {
+  outline: 4px solid #ff0000 !important;
+  outline-offset: 4px !important;
+  box-shadow: 0 0 0 8px rgb(255 0 0 / 30%) !important;
 }
 
 /* ==========================================================================
@@ -419,12 +634,12 @@ a.nav-link,
   border: 2px dashed var(--tiller-color-gold, #c9a227);
   border-radius: inherit;
   pointer-events: none;
-  opacity: 0;
+  opacity: 0%;
   transition: opacity 0.2s;
 }
 
 [data-focus-trap="true"]:focus-within::before {
-  opacity: 1;
+  opacity: 100%;
 }
 
 /* ==========================================================================
@@ -453,6 +668,8 @@ blockquote {
  */
 body {
   line-height: 1.5;
+  letter-spacing: normal;
+  word-spacing: normal;
 }
 
 p,
@@ -465,15 +682,6 @@ li {
  */
 p + p {
   margin-top: 1em;
-}
-
-/**
- * Text spacing support (WCAG 1.4.12)
- * Allow user stylesheets to increase spacing
- */
-body {
-  letter-spacing: normal;
-  word-spacing: normal;
 }
 
 /**
@@ -514,11 +722,11 @@ label[for][data-required]::after,
 /**
  * Form field focus styling
  */
-input:not([type="checkbox"]):not([type="radio"]):focus,
+input:not([type="checkbox"], [type="radio"]):focus,
 textarea:focus,
 select:focus {
   border-color: var(--tiller-color-gold, #c9a227);
-  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.25);
+  box-shadow: 0 0 0 3px rgb(201 162 39 / 25%);
   outline: none;
 }
 
@@ -535,7 +743,7 @@ select[aria-invalid="true"],
 
 input[aria-invalid="true"]:focus,
 textarea[aria-invalid="true"]:focus {
-  box-shadow: 0 0 0 3px rgba(232, 90, 80, 0.25);
+  box-shadow: 0 0 0 3px rgb(232 90 80 / 25%);
 }
 
 /**
@@ -584,7 +792,7 @@ input[aria-invalid="false"].touched,
 [id$="-hint"],
 [id$="-description"] {
   font-size: 0.875rem;
-  color: var(--tiller-text-secondary, #555);
+  color: var(--tiller-text-secondary, #555555);
   margin-top: 0.25rem;
 }
 
@@ -592,7 +800,7 @@ input[aria-invalid="false"].touched,
  * Autocomplete support styling
  */
 input:-webkit-autofill {
-  box-shadow: 0 0 0 1000px var(--tiller-bg-color, #fff) inset;
+  box-shadow: 0 0 0 1000px var(--tiller-bg-color, #ffffff) inset;
 }
 
 /* ==========================================================================
@@ -646,7 +854,7 @@ input:-webkit-autofill {
 /**
  * Inert content behind modal
  */
-body.modal-open > *:not([role="dialog"]):not(.modal-backdrop) {
+body.modal-open > *:not([role="dialog"], .modal-backdrop) {
   /* Content behind modal should be inert */
   pointer-events: none;
 }
@@ -684,7 +892,7 @@ th,
 td {
   padding: 0.75rem;
   text-align: left;
-  border: 1px solid var(--tiller-border-color, #ddd);
+  border: 1px solid var(--tiller-border-color, #dddddd);
 }
 
 th {
@@ -700,7 +908,7 @@ tr:focus-within {
 
 /* Zebra striping for readability */
 tbody tr:nth-child(even) {
-  background: rgba(0, 0, 0, 0.02);
+  background: rgb(0 0 0 / 2%);
 }
 
 /* ==========================================================================
@@ -735,7 +943,7 @@ figure {
 
 figcaption {
   font-size: 0.875rem;
-  color: var(--tiller-text-secondary, #555);
+  color: var(--tiller-text-secondary, #555555);
   margin-top: 0.5rem;
   text-align: center;
 }
@@ -751,7 +959,7 @@ figcaption {
 [aria-busy="true"] {
   position: relative;
   pointer-events: none;
-  opacity: 0.7;
+  opacity: 70%;
 }
 
 .loading::after,
@@ -792,7 +1000,7 @@ figcaption {
   a[href]::after {
     content: " (" attr(href) ")";
     font-size: 0.8em;
-    color: #666;
+    color: #666666;
   }
 
   /* Don't print decorative elements */
@@ -804,17 +1012,17 @@ figcaption {
 
   /* Ensure sufficient contrast */
   * {
-    color: #000 !important;
-    background: #fff !important;
+    color: #000000 !important;
+    background: #ffffff !important;
   }
 
   /* Page breaks */
   h1, h2, h3 {
-    page-break-after: avoid;
+    break-after: avoid;
   }
 
   img, table, figure {
-    page-break-inside: avoid;
+    break-inside: avoid;
   }
 }
 
@@ -833,17 +1041,17 @@ figcaption {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  background: var(--tiller-bg-color, #fff);
+  background: var(--tiller-bg-color, #ffffff);
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
 }
 
 .a11y-toolbar button {
   min-width: 44px;
   min-height: 44px;
   padding: 0.5rem;
-  border: 2px solid currentColor;
+  border: 2px solid currentcolor;
   border-radius: 4px;
   background: transparent;
   cursor: pointer;
@@ -884,7 +1092,7 @@ button:hover {
  * Dyslexia-friendly font option
  */
 [data-font="dyslexia"] {
-  font-family: "OpenDyslexic", "Comic Sans MS", sans-serif;
+  font-family: OpenDyslexic, "Comic Sans MS", sans-serif;
   letter-spacing: 0.05em;
   word-spacing: 0.1em;
 }
@@ -894,8 +1102,8 @@ button:hover {
  */
 [data-reading-guide="true"] p:hover,
 [data-reading-guide="true"] li:hover {
-  background: rgba(255, 255, 0, 0.2);
-  outline: 2px solid rgba(255, 255, 0, 0.5);
+  background: rgb(255 255 0 / 20%);
+  outline: 2px solid rgb(255 255 0 / 50%);
 }
 
 /* ==========================================================================
@@ -905,7 +1113,7 @@ button:hover {
 /**
  * Ensure icons have accessible names
  */
-svg[role="img"]:not([aria-label]):not([aria-labelledby]) {
+svg[role="img"]:not([aria-label], [aria-labelledby]) {
   /* Warning: SVG needs aria-label */
 }
 
@@ -920,6 +1128,244 @@ svg[aria-hidden="true"],
 /**
  * Icon buttons need visible label or aria-label
  */
-button:has(svg):not([aria-label]):not(:has(.sr-only)) {
+button:has(svg):not([aria-label], :has(.sr-only)) {
   /* Warning: Icon button needs accessible name */
+}
+
+/* ==========================================================================
+   19. TEXT-TO-SPEECH (Read Aloud) STYLES
+   ========================================================================== */
+
+/**
+ * Currently being read element
+ */
+.tts-reading {
+  background: rgb(255 235 59 / 30%) !important;
+  outline: 3px solid #ffc107 !important;
+  outline-offset: 2px !important;
+  border-radius: 4px;
+}
+
+/**
+ * TTS active indicator on body
+ */
+[data-tts-active="true"]::before {
+  content: "🔊 Reading...";
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 16px;
+  background: #1a2a3a;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 14px;
+  z-index: 100001;
+  animation: tts-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes tts-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes tts-pulse {
+    0%, 100% { opacity: 1; }
+  }
+}
+
+/**
+ * TTS controls floating panel
+ */
+.tts-controls {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 20%);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 200px;
+}
+
+.tts-controls button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 2px solid #1a2a3a;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tts-controls button:hover,
+.tts-controls button:focus {
+  background: #1a2a3a;
+  color: #fff;
+}
+
+.tts-controls button.active {
+  background: #10b981;
+  border-color: #10b981;
+  color: #fff;
+}
+
+/* ==========================================================================
+   20. DEAF/HARD OF HEARING SUPPORT
+   ========================================================================== */
+
+/**
+ * Visual alert flash animation
+ */
+@keyframes a11y-flash {
+  0% { opacity: 0.6; }
+  100% { opacity: 0; }
+}
+
+/**
+ * Visual notification slide animations
+ */
+@keyframes a11y-slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes a11y-slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/**
+ * Video captions warning
+ */
+.no-captions-warning {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/**
+ * Ensure visual feedback for all audio cues
+ */
+video:not(:has(track[kind="captions"])),
+video:not(:has(track[kind="subtitles"])) {
+  /* Videos without captions get a subtle indicator */
+}
+
+/**
+ * Muted video indicator
+ */
+video[muted]::before {
+  content: "🔇";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgb(0 0 0 / 70%);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+/* ==========================================================================
+   21. SCREEN READER OPTIMIZATIONS
+   ========================================================================== */
+
+/**
+ * Ensure proper reading order
+ */
+main {
+  /* Main content reads first */
+}
+
+aside {
+  /* Sidebars read after main */
+}
+
+/**
+ * Live region styling (visible but can be hidden)
+ */
+[aria-live="polite"],
+[aria-live="assertive"],
+[role="status"],
+[role="alert"] {
+  /* Ensure screen readers can access */
+}
+
+/**
+ * Landmark visibility for development
+ */
+@media (prefers-reduced-motion: no-preference) {
+  [role="banner"]:focus-within,
+  [role="navigation"]:focus-within,
+  [role="main"]:focus-within,
+  [role="contentinfo"]:focus-within {
+    /* Optional: highlight landmarks on focus */
+  }
+}
+
+/* ==========================================================================
+   22. ASSISTIVE TECHNOLOGY SUPPORT
+   ========================================================================== */
+
+/**
+ * Ensure proper contrast for assistive tech overlays
+ */
+::selection {
+  background: #0066cc;
+  color: #fff;
+}
+
+/**
+ * Support for browser zoom
+ * Ensure layout doesn't break at 200% zoom
+ */
+@media (min-resolution: 192dpi) {
+  html {
+    /* High DPI displays */
+  }
+}
+
+/**
+ * Support for magnification software
+ */
+@media (min-width: 1px) {
+  /* Ensure content reflows properly when magnified */
+  body {
+    overflow-x: hidden;
+  }
+  
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+    height: auto;
+  }
 }

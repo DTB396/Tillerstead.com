@@ -27,7 +27,7 @@
   position: absolute;
   inset: 0;
   background: var(--retro-gradient-teal-purple);
-  opacity: 0.15;
+  opacity: 15%;
   pointer-events: none;
 }
 
@@ -39,7 +39,7 @@
 /* ===== 90s CHUNKY BORDERS ===== */
 
 .retro-border-chunky {
-  border: var(--retro-border-chunky) solid currentColor;
+  border: var(--retro-border-chunky) solid currentcolor;
   border-radius: var(--tiller-border-radius-sm);
 }
 
@@ -61,10 +61,10 @@
 
 /* Double border effect (classic 90s) */
 .retro-border-double {
-  border: var(--retro-border-medium) solid currentColor;
+  border: var(--retro-border-medium) solid currentcolor;
   box-shadow: 
     inset 0 0 0 var(--retro-border-thin) var(--tiller-bg-dark),
-    inset 0 0 0 calc(var(--retro-border-thin) + 2px) currentColor;
+    inset 0 0 0 calc(var(--retro-border-thin) + 2px) currentcolor;
 }
 
 /* ===== 90s OFFSET SHADOWS (Hard edges, no blur) ===== */
@@ -125,7 +125,7 @@
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-bottom: 35px solid var(--retro-teal);
-  opacity: 0.2;
+  opacity: 20%;
 }
 
 /* Memphis circle accent */
@@ -138,7 +138,7 @@
   height: 40px;
   background: var(--retro-salmon);
   border-radius: 50%;
-  opacity: 0.3;
+  opacity: 30%;
   z-index: -1;
 }
 
@@ -247,7 +247,7 @@
 
 .card-retro:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 10px 0 rgb(0 0 0 / 30%);
 }
 
 .card-retro-salmon {
@@ -280,14 +280,14 @@
     repeating-linear-gradient(45deg, 
       transparent,
       transparent 10px,
-      rgba(0, 128, 128, 0.03) 10px,
-      rgba(0, 128, 128, 0.03) 20px
+      rgb(0 128 128 / 3%) 10px,
+      rgb(0 128 128 / 3%) 20px
     ),
     repeating-linear-gradient(-45deg, 
       transparent,
       transparent 10px,
-      rgba(147, 112, 219, 0.03) 10px,
-      rgba(147, 112, 219, 0.03) 20px
+      rgb(147 112 219 / 3%) 10px,
+      rgb(147 112 219 / 3%) 20px
     );
   pointer-events: none;
 }
@@ -305,17 +305,17 @@
     repeating-linear-gradient(90deg,
       transparent,
       transparent 8px,
-      rgba(0, 128, 128, 0.05) 8px,
-      rgba(0, 128, 128, 0.05) 16px
+      rgb(0 128 128 / 5%) 8px,
+      rgb(0 128 128 / 5%) 16px
     ),
     repeating-linear-gradient(0deg,
       transparent,
       transparent 8px,
-      rgba(147, 112, 219, 0.05) 8px,
-      rgba(147, 112, 219, 0.05) 16px
+      rgb(147 112 219 / 5%) 8px,
+      rgb(147 112 219 / 5%) 16px
     );
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 50%;
 }
 
 /* ===== 90s GROUT COLORS ===== */
@@ -325,7 +325,7 @@
     linear-gradient(var(--retro-teal) 1px, transparent 1px),
     linear-gradient(90deg, var(--retro-teal) 1px, transparent 1px);
   background-size: 24px 24px;
-  opacity: 0.15;
+  opacity: 15%;
 }
 
 .grout-salmon {
@@ -333,7 +333,7 @@
     linear-gradient(var(--retro-salmon) 1px, transparent 1px),
     linear-gradient(90deg, var(--retro-salmon) 1px, transparent 1px);
   background-size: 24px 24px;
-  opacity: 0.15;
+  opacity: 15%;
 }
 
 .grout-mint {
@@ -341,7 +341,7 @@
     linear-gradient(var(--retro-mint-dark) 1px, transparent 1px),
     linear-gradient(90deg, var(--retro-mint-dark) 1px, transparent 1px);
   background-size: 24px 24px;
-  opacity: 0.15;
+  opacity: 15%;
 }
 
 /* ===== 90s HERO ENHANCEMENTS ===== */
@@ -363,7 +363,7 @@
   width: 40%;
   height: 100%;
   background: var(--retro-gradient-teal-purple);
-  opacity: 0.08;
+  opacity: 8%;
   pointer-events: none;
   clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
@@ -377,7 +377,7 @@
   width: 100px;
   height: 100px;
   background: var(--retro-salmon);
-  opacity: 0.1;
+  opacity: 10%;
   border-radius: 50%;
   pointer-events: none;
 }
@@ -433,7 +433,7 @@
   
   .retro-pattern-geometric::before,
   .retro-pattern-pixel::before {
-    opacity: 0.3;
+    opacity: 30%;
   }
   
   .memphis-triangle::after,

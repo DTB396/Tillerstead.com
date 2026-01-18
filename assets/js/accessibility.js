@@ -420,13 +420,170 @@
   }
 
   /**
-   * Apply saved preferences
+   * Detect system/browser accessibility preferences
+   * Auto-enables features based on OS/browser settings
+   */
+  function detectSystemPreferences() {
+    const detected = {};
+
+    // Detect reduced motion preference
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      detected.reducedMotion = true;
+      document.documentElement.classList.add('reduce-motion');
+      console.log('[A11Y] Detected: prefers-reduced-motion');
+    }
+
+    // Detect high contrast / forced colors (Windows High Contrast Mode)
+    if (window.matchMedia('(forced-colors: active)').matches) {
+      detected.highContrast = true;
+      detected.forcedColors = true;
+      document.documentElement.setAttribute('data-high-contrast', 'true');
+      document.documentElement.setAttribute('data-forced-colors', 'true');
+      console.log('[A11Y] Detected: forced-colors (Windows High Contrast)');
+    }
+
+    // Detect prefers-contrast: more (macOS/iOS increase contrast)
+    if (window.matchMedia('(prefers-contrast: more)').matches) {
+      detected.highContrast = true;
+      document.documentElement.setAttribute('data-high-contrast', 'true');
+      console.log('[A11Y] Detected: prefers-contrast: more');
+    }
+
+    // Detect prefers-contrast: less
+    if (window.matchMedia('(prefers-contrast: less)').matches) {
+      detected.lowContrast = true;
+      document.documentElement.setAttribute('data-low-contrast', 'true');
+      console.log('[A11Y] Detected: prefers-contrast: less');
+    }
+
+    // Detect color scheme preference
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      detected.darkMode = true;
+      document.documentElement.setAttribute('data-color-scheme', 'dark');
+      console.log('[A11Y] Detected: prefers-color-scheme: dark');
+    } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+      detected.lightMode = true;
+      document.documentElement.setAttribute('data-color-scheme', 'light');
+    }
+
+    // Detect inverted colors (iOS accessibility)
+    if (window.matchMedia('(inverted-colors: inverted)').matches) {
+      detected.invertedColors = true;
+      document.documentElement.setAttribute('data-inverted-colors', 'true');
+      console.log('[A11Y] Detected: inverted-colors');
+    }
+
+    // Detect transparency preference (reduce transparency - macOS)
+    if (window.matchMedia('(prefers-reduced-transparency: reduce)').matches) {
+      detected.reducedTransparency = true;
+      document.documentElement.setAttribute('data-reduced-transparency', 'true');
+      console.log('[A11Y] Detected: prefers-reduced-transparency');
+    }
+
+    // Detect pointer type (touch vs mouse)
+    if (window.matchMedia('(pointer: coarse)').matches) {
+      detected.touchDevice = true;
+      document.documentElement.setAttribute('data-pointer', 'coarse');
+      // Increase touch targets for touch devices
+      document.documentElement.classList.add('touch-friendly');
+      console.log('[A11Y] Detected: coarse pointer (touch device)');
+    }
+
+    // Detect hover capability
+    if (window.matchMedia('(hover: none)').matches) {
+      detected.noHover = true;
+      document.documentElement.setAttribute('data-hover', 'none');
+      console.log('[A11Y] Detected: no hover capability');
+    }
+
+    // Detect screen reader hints (limited detection)
+    // Note: Direct screen reader detection is unreliable and privacy-invasive
+    // Instead, we ensure all ARIA is always active
+
+    return detected;
+  }
+
+  /**
+   * Listen for changes to system preferences
+   */
+  function watchSystemPreferences() {
+    // Watch for reduced motion changes
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    motionQuery.addEventListener('change', (e) => {
+      if (e.matches) {
+        document.documentElement.classList.add('reduce-motion');
+        announce('Reduced motion enabled');
+      } else {
+        document.documentElement.classList.remove('reduce-motion');
+        announce('Reduced motion disabled');
+      }
+    });
+
+    // Watch for high contrast changes
+    const contrastQuery = window.matchMedia('(prefers-contrast: more)');
+    contrastQuery.addEventListener('change', (e) => {
+      if (e.matches) {
+        document.documentElement.setAttribute('data-high-contrast', 'true');
+        announce('High contrast mode enabled');
+      } else {
+        // Only remove if not forced colors
+        if (!window.matchMedia('(forced-colors: active)').matches) {
+          document.documentElement.removeAttribute('data-high-contrast');
+        }
+      }
+    });
+
+    // Watch for forced colors changes (Windows High Contrast)
+    const forcedColorsQuery = window.matchMedia('(forced-colors: active)');
+    forcedColorsQuery.addEventListener('change', (e) => {
+      if (e.matches) {
+        document.documentElement.setAttribute('data-high-contrast', 'true');
+        document.documentElement.setAttribute('data-forced-colors', 'true');
+        announce('Windows High Contrast Mode detected');
+      } else {
+        document.documentElement.removeAttribute('data-forced-colors');
+        // Check if user manually enabled high contrast
+        const prefs = loadPreferences();
+        if (!prefs.highContrast) {
+          document.documentElement.removeAttribute('data-high-contrast');
+        }
+      }
+    });
+
+    // Watch for color scheme changes
+    const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    darkQuery.addEventListener('change', (e) => {
+      document.documentElement.setAttribute('data-color-scheme', e.matches ? 'dark' : 'light');
+    });
+
+    // Watch for pointer type changes (e.g., connecting mouse to tablet)
+    const pointerQuery = window.matchMedia('(pointer: coarse)');
+    pointerQuery.addEventListener('change', (e) => {
+      if (e.matches) {
+        document.documentElement.setAttribute('data-pointer', 'coarse');
+        document.documentElement.classList.add('touch-friendly');
+      } else {
+        document.documentElement.setAttribute('data-pointer', 'fine');
+        document.documentElement.classList.remove('touch-friendly');
+      }
+    });
+  }
+
+  /**
+   * Apply saved preferences (user overrides)
    */
   function applyPreferences() {
+    // First, detect and apply system preferences
+    const systemPrefs = detectSystemPreferences();
+    
+    // Then, apply user-saved preferences (these override system where applicable)
     const prefs = loadPreferences();
 
-    if (prefs.highContrast) {
+    // User preference for high contrast overrides system
+    if (prefs.highContrast === true) {
       document.documentElement.setAttribute('data-high-contrast', 'true');
+    } else if (prefs.highContrast === false && !systemPrefs.highContrast && !systemPrefs.forcedColors) {
+      document.documentElement.removeAttribute('data-high-contrast');
     }
 
     if (prefs.textSize) {
@@ -437,13 +594,25 @@
       document.documentElement.setAttribute('data-font', 'dyslexia');
     }
 
-    if (prefs.reducedMotion) {
+    // User can force reduced motion even if system doesn't prefer it
+    if (prefs.reducedMotion === true) {
       document.documentElement.classList.add('reduce-motion');
     }
 
     if (prefs.readingGuide) {
       document.documentElement.setAttribute('data-reading-guide', 'true');
     }
+
+    if (prefs.largerCursor) {
+      document.documentElement.setAttribute('data-larger-cursor', 'true');
+    }
+
+    if (prefs.focusHighlight) {
+      document.documentElement.setAttribute('data-focus-highlight', 'true');
+    }
+
+    // Start watching for system preference changes
+    watchSystemPreferences();
   }
 
   /**
@@ -519,6 +688,349 @@
 
     announce(newValue ? 'Reading guide enabled' : 'Reading guide disabled');
     return newValue;
+  }
+
+  // ============================================================================
+  // TEXT-TO-SPEECH (Read Aloud) - For Blind/Low Vision/Reading Disabilities
+  // ============================================================================
+
+  /**
+   * Text-to-Speech engine using Web Speech API
+   * Helps users who are blind, have low vision, dyslexia, or reading difficulties
+   */
+  const TextToSpeech = {
+    synth: window.speechSynthesis,
+    utterance: null,
+    isReading: false,
+    isPaused: false,
+    currentElement: null,
+    rate: 1.0,
+    pitch: 1.0,
+    voice: null,
+
+    /**
+     * Get available voices
+     */
+    getVoices() {
+      return this.synth ? this.synth.getVoices() : [];
+    },
+
+    /**
+     * Set preferred voice
+     */
+    setVoice(voiceName) {
+      const voices = this.getVoices();
+      this.voice = voices.find(v => v.name === voiceName) || 
+                   voices.find(v => v.lang.startsWith('en')) ||
+                   voices[0];
+      
+      const prefs = loadPreferences();
+      prefs.ttsVoice = voiceName;
+      savePreferences(prefs);
+    },
+
+    /**
+     * Set speech rate (0.5 - 2.0)
+     */
+    setRate(rate) {
+      this.rate = Math.max(0.5, Math.min(2.0, rate));
+      const prefs = loadPreferences();
+      prefs.ttsRate = this.rate;
+      savePreferences(prefs);
+    },
+
+    /**
+     * Speak text
+     */
+    speak(text, options = {}) {
+      if (!this.synth) {
+        console.warn('[A11Y] Speech synthesis not supported');
+        return false;
+      }
+
+      // Cancel any ongoing speech
+      this.stop();
+
+      this.utterance = new SpeechSynthesisUtterance(text);
+      this.utterance.rate = options.rate || this.rate;
+      this.utterance.pitch = options.pitch || this.pitch;
+      this.utterance.voice = this.voice;
+
+      // Events
+      this.utterance.onstart = () => {
+        this.isReading = true;
+        document.documentElement.setAttribute('data-tts-active', 'true');
+        if (this.currentElement) {
+          this.currentElement.classList.add('tts-reading');
+        }
+      };
+
+      this.utterance.onend = () => {
+        this.isReading = false;
+        this.isPaused = false;
+        document.documentElement.removeAttribute('data-tts-active');
+        if (this.currentElement) {
+          this.currentElement.classList.remove('tts-reading');
+          this.currentElement = null;
+        }
+      };
+
+      this.utterance.onerror = (e) => {
+        console.warn('[A11Y] TTS Error:', e.error);
+        this.isReading = false;
+      };
+
+      this.synth.speak(this.utterance);
+      return true;
+    },
+
+    /**
+     * Read element content
+     */
+    readElement(element) {
+      if (!element) return;
+      
+      this.currentElement = element;
+      const text = element.textContent || element.innerText;
+      
+      if (text.trim()) {
+        this.speak(text.trim());
+      }
+    },
+
+    /**
+     * Read entire page content
+     */
+    readPage() {
+      const main = document.querySelector('main, [role="main"], #main-content');
+      if (main) {
+        this.readElement(main);
+        announce('Reading page content');
+      }
+    },
+
+    /**
+     * Read selected text
+     */
+    readSelection() {
+      const selection = window.getSelection();
+      const text = selection.toString().trim();
+      
+      if (text) {
+        this.speak(text);
+        announce('Reading selected text');
+      } else {
+        announce('No text selected');
+      }
+    },
+
+    /**
+     * Pause reading
+     */
+    pause() {
+      if (this.synth && this.isReading) {
+        this.synth.pause();
+        this.isPaused = true;
+        announce('Reading paused');
+      }
+    },
+
+    /**
+     * Resume reading
+     */
+    resume() {
+      if (this.synth && this.isPaused) {
+        this.synth.resume();
+        this.isPaused = false;
+        announce('Reading resumed');
+      }
+    },
+
+    /**
+     * Stop reading
+     */
+    stop() {
+      if (this.synth) {
+        this.synth.cancel();
+        this.isReading = false;
+        this.isPaused = false;
+        document.documentElement.removeAttribute('data-tts-active');
+        if (this.currentElement) {
+          this.currentElement.classList.remove('tts-reading');
+          this.currentElement = null;
+        }
+      }
+    },
+
+    /**
+     * Toggle reading state
+     */
+    toggle() {
+      if (this.isReading && !this.isPaused) {
+        this.pause();
+      } else if (this.isPaused) {
+        this.resume();
+      } else {
+        this.readPage();
+      }
+    },
+
+    /**
+     * Initialize TTS with saved preferences
+     */
+    init() {
+      if (!this.synth) return;
+
+      // Load saved preferences
+      const prefs = loadPreferences();
+      if (prefs.ttsRate) this.rate = prefs.ttsRate;
+      if (prefs.ttsPitch) this.pitch = prefs.ttsPitch;
+
+      // Wait for voices to load
+      if (this.synth.onvoiceschanged !== undefined) {
+        this.synth.onvoiceschanged = () => {
+          const voices = this.getVoices();
+          if (prefs.ttsVoice) {
+            this.setVoice(prefs.ttsVoice);
+          } else if (voices.length > 0) {
+            // Prefer English voice
+            this.voice = voices.find(v => v.lang.startsWith('en')) || voices[0];
+          }
+        };
+      }
+
+      console.log('[A11Y] Text-to-Speech initialized');
+    }
+  };
+
+  // Make TTS globally available
+  window.a11yTTS = TextToSpeech;
+  window.a11yReadPage = () => TextToSpeech.readPage();
+  window.a11yReadSelection = () => TextToSpeech.readSelection();
+  window.a11yStopReading = () => TextToSpeech.stop();
+  window.a11yPauseReading = () => TextToSpeech.pause();
+  window.a11yResumeReading = () => TextToSpeech.resume();
+
+  /**
+   * Toggle text-to-speech
+   */
+  function toggleTextToSpeech() {
+    TextToSpeech.toggle();
+    return TextToSpeech.isReading;
+  }
+
+  window.a11yToggleTextToSpeech = toggleTextToSpeech;
+
+  // ============================================================================
+  // DEAF/HARD OF HEARING SUPPORT
+  // ============================================================================
+
+  /**
+   * Visual alerts for deaf users
+   * Converts audio cues to visual feedback
+   */
+  const VisualAlerts = {
+    /**
+     * Flash the screen for urgent alerts
+     */
+    flash(color = '#ffff00', duration = 200) {
+      const overlay = document.createElement('div');
+      overlay.className = 'a11y-visual-alert';
+      overlay.style.cssText = `
+        position: fixed;
+        inset: 0;
+        background: ${color};
+        opacity: 0.5;
+        z-index: 100000;
+        pointer-events: none;
+        animation: a11y-flash ${duration}ms ease-out;
+      `;
+      document.body.appendChild(overlay);
+      
+      setTimeout(() => overlay.remove(), duration);
+    },
+
+    /**
+     * Show visual notification
+     */
+    notify(message, options = {}) {
+      const notification = document.createElement('div');
+      notification.className = 'a11y-visual-notification';
+      notification.setAttribute('role', 'alert');
+      notification.setAttribute('aria-live', 'assertive');
+      notification.innerHTML = `
+        <span class="notification-icon" aria-hidden="true">${options.icon || 'ℹ️'}</span>
+        <span class="notification-message">${message}</span>
+      `;
+      
+      notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 16px 24px;
+        background: ${options.background || '#1a2a3a'};
+        color: ${options.color || '#ffffff'};
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        z-index: 100000;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 16px;
+        max-width: 400px;
+        animation: a11y-slide-in 0.3s ease-out;
+      `;
+      
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.style.animation = 'a11y-slide-out 0.3s ease-in forwards';
+        setTimeout(() => notification.remove(), 300);
+      }, options.duration || 5000);
+    },
+
+    /**
+     * Convert audio events to visual
+     */
+    convertAudioToVisual() {
+      // Override browser beep/alert sounds with visual
+      const originalAlert = window.alert;
+      window.alert = (message) => {
+        this.notify(message, { icon: '⚠️' });
+        // Also show native alert for screen readers
+        originalAlert(message);
+      };
+    }
+  };
+
+  window.a11yVisualAlerts = VisualAlerts;
+
+  /**
+   * Ensure all media has captions indicator
+   */
+  function checkMediaCaptions() {
+    const videos = document.querySelectorAll('video');
+    
+    videos.forEach(video => {
+      const hasTrack = video.querySelector('track[kind="captions"], track[kind="subtitles"]');
+      
+      if (!hasTrack) {
+        // Add warning for developers
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          console.warn('[A11Y] Video without captions:', video.src || video.querySelector('source')?.src);
+        }
+        
+        // Add visual indicator that captions are not available
+        const wrapper = video.parentElement;
+        if (wrapper && !wrapper.querySelector('.no-captions-warning')) {
+          const warning = document.createElement('div');
+          warning.className = 'no-captions-warning';
+          warning.setAttribute('role', 'note');
+          warning.innerHTML = '<span aria-hidden="true">🔇</span> <span>Captions not available for this video</span>';
+          wrapper.appendChild(warning);
+        }
+      }
+    });
   }
 
   // Make preference toggles globally available
@@ -795,12 +1307,43 @@
     // Enhance external links
     enhanceExternalLinks();
 
+    // Initialize Text-to-Speech
+    TextToSpeech.init();
+
+    // Initialize visual alerts for deaf users
+    VisualAlerts.convertAudioToVisual();
+
+    // Check media for captions
+    checkMediaCaptions();
+
     // Development checks
     checkImageAccessibility();
     checkHeadingStructure();
 
     // Create toolbar if enabled
     createAccessibilityToolbar();
+
+    // Add keyboard shortcut for read aloud (Alt+R)
+    document.addEventListener('keydown', (e) => {
+      if (e.altKey && e.key === 'r') {
+        e.preventDefault();
+        toggleTextToSpeech();
+      }
+      // Alt+S to stop reading
+      if (e.altKey && e.key === 's') {
+        e.preventDefault();
+        TextToSpeech.stop();
+      }
+      // Alt+P to pause/resume
+      if (e.altKey && e.key === 'p') {
+        e.preventDefault();
+        if (TextToSpeech.isPaused) {
+          TextToSpeech.resume();
+        } else {
+          TextToSpeech.pause();
+        }
+      }
+    });
 
     // Announce page load for screen readers
     const pageTitle = document.title || 'Page';

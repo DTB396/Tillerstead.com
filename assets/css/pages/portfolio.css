@@ -18,13 +18,13 @@
   font-weight: 700;
   color: var(--tiller-color-emerald, #10b981);
   margin-bottom: 1.5rem;
-  text-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+  text-shadow: 0 0 30px rgb(16 185 129 / 40%);
 }
 
 .section-summary {
   font-size: 1.125rem;
   line-height: 1.6;
-  color: var(--tiller-text-secondary, rgba(255, 255, 255, 0.85));
+  color: var(--tiller-text-secondary, rgb(255 255 255 / 85%));
   margin-bottom: 1.5rem;
 }
 
@@ -38,7 +38,7 @@
   border-radius: 999px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 0 20px rgb(16 185 129 / 30%);
 }
 
 .portfolio-gallery {
@@ -57,7 +57,7 @@
 .filter-btn {
   padding: 0.75rem 1.5rem;
   background: var(--tiller-bg-stone, #222524);
-  border: 1px solid rgba(201, 162, 39, 0.2);
+  border: 1px solid rgb(201 162 39 / 20%);
   border-radius: 4px;
   font-size: 0.9375rem;
   font-weight: 600;
@@ -75,7 +75,7 @@
   background: var(--tiller-color-emerald, #10b981);
   border-color: var(--tiller-color-emerald, #10b981);
   color: white;
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 0 20px rgb(16 185 129 / 30%);
 }
 
 .project-grid {
@@ -99,7 +99,7 @@
 
 .project-card {
   background: var(--tiller-bg-stone, #222524);
-  border: 1px solid rgba(201, 162, 39, 0.2);
+  border: 1px solid rgb(201 162 39 / 20%);
   border-radius: 8px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -112,7 +112,7 @@
 .project-card:hover {
   border-color: var(--tiller-color-emerald, #10b981);
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 30px rgba(16, 185, 129, 0.1);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 40%), 0 0 30px rgb(16 185 129 / 10%);
 }
 
 .project-image {
@@ -142,13 +142,13 @@
   font-weight: 700;
   color: var(--tiller-color-emerald, #10b981);
   margin-bottom: 0.75rem;
-  text-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+  text-shadow: 0 0 15px rgb(16 185 129 / 30%);
 }
 
 .project-caption {
   font-size: 0.9375rem;
   line-height: 1.6;
-  color: var(--tiller-text-secondary, rgba(255, 255, 255, 0.85));
+  color: var(--tiller-text-secondary, rgb(255 255 255 / 85%));
   margin-bottom: 1.5rem;
 }
 
@@ -162,13 +162,13 @@
   display: inline-block;
   padding: 0.25rem 0.75rem;
   background: var(--tiller-bg-slate, #2a2d2c);
-  color: var(--tiller-text-muted, rgba(255, 255, 255, 0.6));
+  color: var(--tiller-text-muted, rgb(255 255 255 / 60%));
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   border-radius: 999px;
-  border: 1px solid rgba(201, 162, 39, 0.2);
+  border: 1px solid rgb(201 162 39 / 20%);
 }
 
 .portfolio-note {
@@ -181,7 +181,7 @@
 
 .portfolio-note p {
   font-size: 0.9375rem;
-  color: var(--tiller-text-secondary, rgba(255, 255, 255, 0.85));
+  color: var(--tiller-text-secondary, rgb(255 255 255 / 85%));
   margin: 0;
 }
 
@@ -210,7 +210,7 @@
 .cta-summary {
   font-size: 1.125rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255 255 255 / 90%);
   margin-bottom: 2rem;
 }
 
@@ -240,7 +240,7 @@
 .btn--white {
   background: var(--tiller-bg-stone, #222524);
   color: var(--tiller-text-primary, #ffffff);
-  border: 1px solid rgba(201, 162, 39, 0.3);
+  border: 1px solid rgb(201 162 39 / 30%);
 }
 
 .btn--white:hover {
@@ -255,7 +255,7 @@
 }
 
 .btn--outline-white:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(255 255 255 / 10%);
 }
 
 @media (max-width: 768px) {
