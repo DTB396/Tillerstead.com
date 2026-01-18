@@ -219,10 +219,10 @@ is_home: true
 <style>
 /* Homepage Styles */
 :root {
-  --color-primary: #2a5d4e;
-  --color-text: #222;
-  --color-text-secondary: #555;
-  --color-border: #e0e0e0;
+  --color-primary: #1a3d2e;
+  --color-text: #1a2018;
+  --color-text-secondary: #4a5048;
+  --color-border: #e8e4dc;
   --spacing-xs: 0.5rem;
   --spacing-sm: 0.75rem;
   --spacing-md: 1.5rem;

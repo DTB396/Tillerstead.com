@@ -1,148 +1,125 @@
+# =========================================================
+# Tillerstead Navigation - 2026 Contractor UX
+# Data-driven nav for desktop dropdowns + mobile accordions
+# =========================================================
+
 primary:
+  # --- Top-level links (no dropdown) ---
   - id: services
     title: "Services"
     url: "/services/"
     match: "^/services(/|$)"
-    external: false
+
   - id: portfolio
     title: "Our Work"
     url: "/portfolio/"
     match: "^/portfolio(/|$)"
-    external: false
-  - id: products
-    title: "Products"
-    url: "/products/"
-    match: "^/products(/|$)"
-    external: false
+
+  # --- Build Guides dropdown ---
+  - id: build
+    title: "Guides"
+    url: "/build/"
+    match: "^/build(/|$)"
+    has_dropdown: true
+    children:
+      - id: codes-permits
+        title: "Codes & Permits"
+        url: "/build/nj-codes-permits/"
+      - id: shower-pans-slopes
+        title: "Shower Pans & Slopes"
+        url: "/build/shower-pans-slopes-drains/"
+      - id: waterproofing-systems
+        title: "Waterproofing Systems"
+        url: "/build/waterproofing-systems/"
+      - id: curbs-curbless
+        title: "Curbless Showers"
+        url: "/build/curbs-curbless/"
+      - id: benches-niches
+        title: "Benches & Niches"
+        url: "/build/framing-benches-niches/"
+      - id: tile-standards
+        title: "Tile Standards (TCNA)"
+        url: "/build/tile-installation-standards/"
+
   - id: reviews
     title: "Reviews"
     url: "/reviews/"
     match: "^/reviews(/|$)"
-    external: false
-  - id: build
-    title: "Build Guides"
-    url: "/build/"
-    match: "^/build(/|$)"
-    external: false
-    children:
-      - id: codes-permits
-        title: "Codes, Permits & Inspections"
-        url: "/build/nj-codes-permits/"
-        external: false
-      - id: shower-pans-slopes
-        title: "Shower Pans, Slopes & Drains"
-        url: "/build/shower-pans-slopes-drains/"
-        external: false
-      - id: waterproofing-systems
-        title: "Waterproofing Systems"
-        url: "/build/waterproofing-systems/"
-        external: false
-      - id: curbs-curbless
-        title: "Curbs & Curbless Showers"
-        url: "/build/curbs-curbless/"
-        external: false
-      - id: benches-niches
-        title: "Benches, Seats & Niches"
-        url: "/build/framing-benches-niches/"
-        external: false
-      - id: tile-standards
-        title: "Tile Installation Standards"
-        url: "/build/tile-installation-standards/"
-        external: false
-  - id: company
-    title: "Company"
+
+  # --- About dropdown (merged Company + About) ---
+  - id: about
+    title: "About"
     url: "/about/"
     match: "^/about(/|$)"
-    external: false
-    aria_label: "Company information"
+    has_dropdown: true
+    aria_label: "About Tillerstead"
     children:
-      - id: about
-        title: "About"
+      - id: about-us
+        title: "Our Story"
         url: "/about/"
-        match: "^/about(/|$)"
-        external: false
-      - id: contact
-        title: "Get an Estimate"
-        url: "/contact/"
-        match: "^/contact(/|$)"
-        external: false
       - id: for-gcs
         title: "For Contractors"
         url: "/for-general-contractors/"
-        match: "^/for-general-contractors(/|$)"
-        external: false
+      - id: faq
+        title: "FAQ"
+        url: "/faq/"
+      - id: products
+        title: "Products We Use"
+        url: "/products/"
+
+  # --- Contact CTA (standalone) ---
   - id: contact
-    title: "Contact"
+    title: "Get Estimate"
     url: "/contact/"
     match: "^/contact(/|$)"
-    external: false
+    cta: true
 
 secondary:
   - id: privacy
     title: "Privacy"
     url: "/privacy/"
-    match: "^/privacy(/|$)"
-    external: false
   - id: terms
     title: "Terms"
     url: "/terms/"
-    match: "^/terms(/|$)"
-    external: false
 
 footer:
   - group: "Build Guides"
     items:
-      - ref: nj-codes-permits
-      - ref: shower-pans-slopes
-      - ref: waterproofing-systems
-      - ref: curbs-curbless
+      - title: "Codes & Permits"
+        url: "/build/nj-codes-permits/"
+      - title: "Shower Pans & Slopes"
+        url: "/build/shower-pans-slopes-drains/"
+      - title: "Waterproofing Systems"
+        url: "/build/waterproofing-systems/"
+      - title: "Curbless Showers"
+        url: "/build/curbs-curbless/"
   - group: "Learn"
     items:
-      - ref: faq
-      - ref: download-guide
-      - ref: blog
-      - ref: products
+      - title: "FAQ"
+        url: "/faq/"
+      - title: "Products"
+        url: "/products/"
+      - title: "Blog"
+        url: "/blog/"
   - group: "Service Areas"
     items:
-      - ref: atlantic-county
-      - ref: ocean-county
-      - ref: cape-may-county
+      - title: "Atlantic County"
+        url: "/atlantic-county-nj/"
+      - title: "Ocean County"
+        url: "/ocean-county-nj/"
+      - title: "Cape May County"
+        url: "/cape-may-county-nj/"
   - group: "Company"
     items:
-      - ref: about
-      - ref: for-gcs
+      - title: "About"
+        url: "/about/"
+      - title: "For Contractors"
+        url: "/for-general-contractors/"
+      - title: "Contact"
+        url: "/contact/"
   - group: "Legal"
     items:
-      - ref: privacy
-      - ref: terms
-  - id: main-navigation
-    title: "Main Navigation"
-    children:
-      - title: "Home"
-        url: "/"
-      - title: "About"
-        url: "/about.html"
-      - title: "Services"
-        url: "/services.html"
-      - title: "Portfolio"
-        url: "/portfolio.html"
-      - title: "Contact"
-        url: "/contact.html"
-      - title: "Build Guide"
-        children:
-          - title: "Codes, Permits & Inspections"
-            url: "/build/nj-codes-permits/"
-          - title: "Shower Pans, Slopes & Drains"
-            url: "/build/shower-pans-slopes-drains/"
-          - title: "Waterproofing Systems"
-            url: "/build/waterproofing-systems/"
-          - title: "Curbs & Curbless Showers"
-            url: "/build/curbs-curbless/"
-          - title: "Benches, Seats & Niches"
-            url: "/build/framing-benches-niches/"
-          - title: "Tile Installation Standards"
-            url: "/build/tile-installation-standards/"
-          - title: "Flood Testing & Verification"
-            url: "/build/flood-testing/"
-          - title: "Common Failures & Red Flags"
-            url: "/build/common-build-failures/"
+      - title: "Privacy"
+        url: "/privacy/"
+      - title: "Terms"
+        url: "/terms/"
