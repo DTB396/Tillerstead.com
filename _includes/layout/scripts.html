@@ -8,10 +8,11 @@ endcomment %} {% assign cache_version = site.cache_version | default:
   src="{{ '/assets/js/main.js' | relative_url }}?v={{ cache_version }}"
   defer
 ></script>
-<script
+<!-- nav.js disabled - navigation handled by inline script in main-nav.html -->
+<!-- <script
   src="{{ '/assets/js/nav.js' | relative_url }}?v={{ cache_version }}"
   defer
-></script>
+></script> -->
 
 <!-- Feature-specific scripts -->
 <script
