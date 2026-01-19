@@ -451,10 +451,11 @@
   /* Prevent iOS transform flattening */
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
-  /* Ensure always clickable */
-  pointer-events: auto !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+  /* Default visible state (can be overridden when drawer opens) */
+  pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
 .mobile-nav__toggle:hover {
@@ -490,12 +491,15 @@
   position: absolute;
   left: 0;
   width: 100%;
-  height: 2px;
+  height: 3px;
   background: var(--tiller-color-emerald, #10b981);
   border-radius: 2px;
   transition: all 0.35s cubic-bezier(0.68, -0.2, 0.32, 1.2);
   -webkit-transform-origin: center center;
   transform-origin: center center;
+  /* Ensure visibility - no glow/blur */
+  box-shadow: none;
+  filter: none;
 }
 
 .hamburger-icon span:nth-child(1) {
@@ -579,6 +583,13 @@
   background: rgb(0 0 0 / 60%);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* Hide toggle when drawer is open so it doesn't intercept clicks to close button */
+body.nav-open .mobile-nav__toggle {
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 .mobile-nav__header {
@@ -1123,23 +1134,22 @@
   
   .mobile-nav__toggle {
     display: flex;
-    /* Put hamburger on LEFT for right-hand thumb users */
-    order: -1;
+    /* Hamburger on RIGHT for right-hand thumb access */
+    order: 3;
   }
   
   .ts-header__container {
     padding: 0.625rem clamp(1rem, 4vw, 2rem);
   }
   
-  /* Branding goes to right on mobile */
+  /* Branding stays on left on mobile */
   .ts-header__branding {
-    order: 2;
-    flex-direction: row-reverse;
+    order: 1;
   }
   
   .ts-header__info {
-    align-items: flex-end;
-    text-align: right;
+    align-items: flex-start;
+    text-align: left;
   }
 }
 
