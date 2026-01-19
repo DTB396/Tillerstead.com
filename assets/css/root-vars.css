@@ -639,7 +639,7 @@ label {
   border-top: 1px solid var(--tiller-border-color);
 }
 
-/* Service Areas spans full width on top row */
+/* Service Areas spans full width on top row, centered */
 .footer-group:first-child {
   grid-column: 1 / -1;
   text-align: center;
@@ -653,6 +653,19 @@ label {
   justify-content: center;
   gap: var(--tiller-spacing-lg);
   flex-wrap: wrap;
+}
+
+/* Second row: Learn (left), Build Guides (center), Company (right) */
+.footer-group:nth-child(2) {
+  text-align: left;
+}
+
+.footer-group:nth-child(3) {
+  text-align: center;
+}
+
+.footer-group:nth-child(4) {
+  text-align: right;
 }
 
 .footer-group {
