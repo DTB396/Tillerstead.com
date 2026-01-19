@@ -396,3 +396,17 @@
     transform: none;
   }
 }
+
+/* =========================================================
+   CRITICAL OVERRIDES - FIX BLACK BOX ON LOGO
+   These override any compiled styles from main.css
+   ========================================================= */
+.nav-logo,
+.footer-logo,
+img.footer-logo,
+img.nav-logo {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
