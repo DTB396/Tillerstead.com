@@ -2156,7 +2156,6 @@
 
 .form-checkbox input[type="checkbox"] {
   appearance: none;
-  appearance: none;
   width: 18px;
   height: 18px;
   border: 2px solid var(--tiller-border);

@@ -5,6 +5,14 @@
   <!-- Jekyll include: no DOCTYPE needed, ensure space indentation -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Security Headers (Client-Side) -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+<meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://formsubmit.co https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://formsubmit.co https://www.google-analytics.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;" />
+
 <meta name="color-scheme" content="light dark" />
 <meta name="theme-color" content="#10b981" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#059669" media="(prefers-color-scheme: dark)" />
@@ -1384,7 +1392,7 @@
       <strong>💡 Homeowner Mode:</strong> Enter your room measurements below to calculate how much tile, mortar, and grout you'll need. For a professional quote, <a href="/contact.html">contact us</a>!
     </div>
 
-    <form class="estimate-form" id="estimate-form" novalidate>
+    <form class="estimate-form" id="estimate-form" method="POST" action="#estimate-results" novalidate>
       <!-- Project Info Card -->
       <fieldset class="tools-card">
         <legend class="tools-card__legend">Project Information</legend>

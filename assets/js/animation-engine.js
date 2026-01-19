@@ -456,14 +456,18 @@
       
       if (splitType === 'words') {
         const words = text.split(' ');
-        el.innerHTML = words.map((word, i) => 
-          `<span class="split-word" style="animation-delay: ${i * 80}ms">${word}</span>`
-        ).join(' ');
-      } else {
-        const chars = text.split('');
-        el.innerHTML = chars.map((char, i) => 
-          `<span class="split-char" style="animation-delay: ${i * 30}ms">${char === ' ' ? '&nbsp;' : char}</span>`
-        ).join('');
+        // XSS-safe: Create spans without innerHTML
+        el.textContent = ''; // Clear existing content
+        words.forEach((word, i) => {
+          const span = document.createElement('span');
+          span.className = 'word';
+          span.style.transitionDelay = `${i * 30}ms`;
+          span.textContent = word;
+          el.appendChild(span);
+          if (i < words.length - 1) {
+            el.appendChild(document.createTextNode(' '));
+          }
+        });
       }
     }
 

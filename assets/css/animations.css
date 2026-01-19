@@ -882,7 +882,6 @@ select:focus {
   );
   background-size: 200% auto;
   background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: text-shine 3s linear infinite;
 }
@@ -1247,7 +1246,6 @@ select:focus {
     var(--tiller-color-emerald)
   );
   background-size: 300% 100%;
-  background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient-shift 6s linear infinite;
