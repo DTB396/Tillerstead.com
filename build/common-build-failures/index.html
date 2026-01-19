@@ -2529,6 +2529,21 @@ document.addEventListener('DOMContentLoaded', function() {
       <span>Back to Top</span>
     </button>
 
+    <!-- Custom Cursor -->
+    <button 
+      type="button"
+      class="a11y-toolbar__btn"
+      id="a11y-cursor"
+      aria-pressed="false"
+      onclick="a11yToggleCustomCursor()"
+    >
+      <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="8"/>
+        <circle cx="12" cy="12" r="3"/>
+      </svg>
+      <span>Fancy Cursor</span>
+    </button>
+
     <!-- Free Quote CTA -->
     <a 
       href="/contact/"
@@ -2598,6 +2613,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       if (prefs.textSize && prefs.textSize !== 'normal') {
         document.getElementById('a11y-textsize')?.setAttribute('aria-pressed', 'true');
+      }
+      if (prefs.customCursor) {
+        document.getElementById('a11y-cursor')?.setAttribute('aria-pressed', 'true');
       }
       if (prefs.showToolbar) {
         document.getElementById('a11y-toolbar').hidden = false;
