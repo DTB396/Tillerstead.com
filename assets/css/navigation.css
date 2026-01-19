@@ -120,9 +120,14 @@
   max-height: 80px;
   object-fit: contain;
 
-  /* Drop shadow for visibility on dark header background */
-  filter: drop-shadow(0 2px 4px rgb(0 0 0 / 50%));
+  /* White solid bright with emerald glow */
+  filter: brightness(1.1) drop-shadow(0 4px 12px rgb(16 185 129 / 40%));
   transition: all 0.3s ease;
+}
+
+/* Gold glow on hover */
+.ts-header__logo .logo-image:hover {
+  filter: brightness(1.2) drop-shadow(0 6px 20px rgb(201 162 39 / 70%));
 }
 
 @keyframes logo-glow {
