@@ -17,13 +17,13 @@ import { roundUp, formatRange } from './rounding.js';
 export const MORTAR_FORMULA_INFO = {
   name: 'Mortar/Thinset Calculator',
   description: 'Calculates thinset mortar bags needed based on trowel notch size',
-  version: '1.0.0',
+  version: '1.1.0',
   sources: [
     {
-      name: 'Custom Building Products - VersaBond TDS',
-      url: 'https://www.custombuildingproducts.com/products/versabond-professional-thin-set-mortar-2',
+      name: 'Custom Building Products - VersaBond LFT TDS',
+      url: 'https://www.custombuildingproducts.com/products/versabond-lft-professional-large-format-tile-mortar',
       retrieved: '2026-01-19',
-      excerpt: 'Coverage: 1/4"x1/4" = 90-100 sq ft, 1/4"x3/8" = 60-67 sq ft, 1/2"x1/2" = 42-47 sq ft per 50 lb bag'
+      excerpt: 'Coverage: 1/4"x1/4" = 90-100 sq ft, 1/4"x3/8" = 60-67 sq ft, 3/4"x9/16" U-notch @30° = 38-47 sq ft per 50 lb bag. NOTE: 1/2"x1/2" square NOT recommended for LFT.'
     },
     {
       name: 'TCNA Handbook',
@@ -39,7 +39,8 @@ export const MORTAR_FORMULA_INFO = {
   assumptions: [
     'Coverage rates are manufacturer-provided ranges for typical conditions',
     'Actual coverage varies by substrate flatness, troweling technique, and tile back pattern',
-    'Back-buttering adds approximately 20-30% additional mortar consumption',
+    'Back-buttering (flat-back troweling) adds approximately 20-30% additional mortar consumption',
+    'For LFT ≥15": use U-notch or ridged trowel that promotes ridge collapse',
     'User should verify with specific product TDS'
   ]
 };
@@ -51,12 +52,13 @@ export const MORTAR_FORMULA_INFO = {
 /**
  * Trowel notch coverage rates per 50 lb bag
  * 
- * SOURCE: Custom Building Products VersaBond TDS
- * URL: https://www.custombuildingproducts.com/products/versabond-professional-thin-set-mortar-2
+ * SOURCE: Custom Building Products VersaBond & VersaBond LFT TDS
+ * URL: https://www.custombuildingproducts.com/products/versabond-lft-professional-large-format-tile-mortar
  * 
- * Note: These are industry-typical values. Always verify with specific product TDS.
+ * IMPORTANT: For Large Format Tile (LFT ≥15"), Custom Building Products 
+ * does NOT recommend 1/2"×1/2" square notch trowels. Use U-notch instead.
  * 
- * @type {Object<string, { name: string, coverageMin: number, coverageMax: number, source: string }>}
+ * @type {Object<string, { name: string, coverageMin: number, coverageMax: number, source: string, recommendedFor: string, warning?: string }>}
  */
 export const TROWEL_COVERAGE = {
   '3/16-v': {
@@ -70,27 +72,43 @@ export const TROWEL_COVERAGE = {
     name: '1/4" × 1/4" Square',
     coverageMin: 90,
     coverageMax: 100,
-    source: 'Custom Building Products VersaBond TDS: 90-100 sq ft per 50 lb bag',
+    source: 'Custom Building Products VersaBond LFT TDS: 90-100 sq ft per 50 lb bag',
     recommendedFor: 'Tile up to 8"×8"'
   },
   '1/4x3/8-sq': {
     name: '1/4" × 3/8" Square',
     coverageMin: 60,
     coverageMax: 67,
-    source: 'Custom Building Products VersaBond TDS: 60-67 sq ft per 50 lb bag',
+    source: 'Custom Building Products VersaBond LFT TDS: 60-67 sq ft per 50 lb bag',
     recommendedFor: 'Tile 8"×8" to 13"×13"'
   },
   '1/2-sq': {
     name: '1/2" × 1/2" Square',
     coverageMin: 42,
     coverageMax: 47,
-    source: 'Custom Building Products VersaBond TDS: 42-47 sq ft per 50 lb bag',
-    recommendedFor: 'Large format tile ≥15" or natural stone'
+    source: 'Custom Building Products VersaBond LFT TDS: 42-47 sq ft per 50 lb bag',
+    recommendedFor: 'Medium format tile 13"×13" to 15"×15"',
+    warning: 'NOT RECOMMENDED FOR LFT by manufacturer. Use U-notch trowel instead for tiles ≥15". The 1/2" spacing makes it difficult to bed tiles and achieve proper coverage.'
+  },
+  '3/4x9/16-u-45': {
+    name: '3/4" × 9/16" × 3/8" U-Notch @ 45°',
+    coverageMin: 34,
+    coverageMax: 42,
+    source: 'Custom Building Products VersaBond LFT TDS: 34-42 sq ft per 50 lb bag',
+    recommendedFor: 'Large Format Tile (LFT) ≥15", natural stone, tiles with deep back patterns'
+  },
+  '3/4x9/16-u-30': {
+    name: '3/4" × 9/16" × 3/8" U-Notch @ 30°',
+    coverageMin: 38,
+    coverageMax: 47,
+    source: 'Custom Building Products VersaBond LFT TDS: 38-47 sq ft per 50 lb bag',
+    recommendedFor: 'Large Format Tile (LFT) ≥15" - better coverage than 1/2" square, same yield'
   }
 };
 
 /**
  * TCNA/ANSI coverage requirements by application
+ * Source: TCNA Handbook 2025, ANSI A108
  */
 export const COVERAGE_REQUIREMENTS = {
   dry_interior: {
@@ -110,6 +128,82 @@ export const COVERAGE_REQUIREMENTS = {
   }
 };
 
+/**
+ * TCNA/ANSI Substrate Flatness Requirements
+ * Source: ANSI A108.02, TCNA Handbook 2025
+ */
+export const SUBSTRATE_FLATNESS = {
+  standard_tile: {
+    max_variation_10ft: '1/4"',
+    max_variation_12in: '1/16"',
+    applies_to: 'Tiles with all edges <15"',
+    source: 'ANSI A108.02'
+  },
+  large_format_tile: {
+    max_variation_10ft: '1/8"',
+    max_variation_24in: '1/16"',
+    applies_to: 'Tiles with any edge ≥15" (LFT) and natural stone',
+    source: 'ANSI A108.02'
+  },
+  note: 'If substrate does not meet flatness tolerances, lippage standards do NOT apply. Installer cannot be held responsible for lippage caused by out-of-tolerance substrate.'
+};
+
+/**
+ * Deflection Requirements
+ * Source: TCNA Handbook
+ */
+export const DEFLECTION_REQUIREMENTS = {
+  ceramic_tile: {
+    maximum: 'L/360',
+    description: 'Span length (inches) ÷ 360',
+    example: '10 ft span (120") = max 1/3" deflection'
+  },
+  natural_stone: {
+    maximum: 'L/720',
+    description: 'Span length (inches) ÷ 720',
+    example: '10 ft span (120") = max 1/6" deflection'
+  },
+  source: 'TCNA Handbook',
+  note: 'Excessive deflection causes grout cracking and tile failure. Verify before installation.'
+};
+
+/**
+ * PRO TIPS: Common installation issues and prevention
+ */
+export const PRO_TIPS = {
+  mortar_application: [
+    'Comb mortar in ONE direction only (not swirling) - creates consistent ridges',
+    'Press tile perpendicular to ridges to collapse them and eliminate voids',
+    'Work in small sections - mortar should not skin over before tile is set',
+    'Key in (burn) a thin layer to substrate before combing for better bond'
+  ],
+  coverage_verification: [
+    'Periodically lift tiles to verify coverage - especially first few tiles',
+    'Look for full collapse of ridges with no voids',
+    'All tile edges must be supported - especially corners',
+    'Document coverage checks on wet area installations'
+  ],
+  back_buttering: [
+    'Required by ANSI A108.5 when 95% coverage is specified',
+    'Flat-back trowel (formerly "back-butter") a skim coat on tile back',
+    'For tiles with deep lugs, use notched-back troweling technique',
+    'Back-buttering adds 20-30% mortar consumption - factor into estimates'
+  ],
+  large_format_tile: [
+    'ALWAYS use U-notch or ridged trowel - NOT 1/2" square (per CBP TDS)',
+    'Back-butter every tile - no exceptions',
+    'Limit running bond offset to 33% max (not 50%) to reduce lippage',
+    'Use tile leveling system (clips/wedges) for consistent lippage control',
+    'Substrate MUST meet LFT flatness tolerance (1/8" in 10 ft) before starting'
+  ],
+  open_time: [
+    'Check mortar open time on TDS - typically 20-30 minutes',
+    'If ridges do not collapse when pressing tile, scrape and re-apply',
+    'Hot/dry conditions reduce open time significantly',
+    'Do not set tile into skinned-over mortar'
+  ]
+};
+
 // ============================================
 // TROWEL RECOMMENDATION LOGIC
 // ============================================
@@ -117,9 +211,12 @@ export const COVERAGE_REQUIREMENTS = {
 /**
  * Get recommended trowel notch based on tile size
  * 
- * Based on industry guidelines and manufacturer recommendations.
+ * Based on Custom Building Products VersaBond LFT TDS and industry guidelines.
  * These are STARTING POINTS - actual trowel should be verified in field
  * by lifting test tiles to check coverage.
+ * 
+ * CRITICAL: For Large Format Tile (≥15"), manufacturer does NOT recommend 
+ * 1/2"×1/2" square notch. Use U-notch trowel instead.
  * 
  * @param {number} tileWidthInches
  * @param {number} tileHeightInches
@@ -128,7 +225,8 @@ export const COVERAGE_REQUIREMENTS = {
  *   trowelId: string,
  *   backButter: boolean,
  *   note: string,
- *   source: string
+ *   source: string,
+ *   warning?: string
  * }}
  */
 export function getRecommendedTrowel(tileWidthInches, tileHeightInches, substrate = 'typical') {
@@ -140,7 +238,7 @@ export function getRecommendedTrowel(tileWidthInches, tileHeightInches, substrat
     trowelId: '1/4-sq',
     backButter: false,
     note: '',
-    source: 'Industry typical based on tile size'
+    source: 'Custom Building Products VersaBond LFT TDS'
   };
 
   // Mosaic or very small tile (< 2")
@@ -159,20 +257,16 @@ export function getRecommendedTrowel(tileWidthInches, tileHeightInches, substrat
     result.backButter = substrate !== 'smooth';
     result.note = '1/4" × 3/8" square notch for medium tile. Back-butter recommended.';
   }
-  // Large format (>= 15" on any side)
+  // Large format (>= 15" on any side) - USE U-NOTCH, NOT SQUARE
   else {
-    result.trowelId = '1/2-sq';
+    result.trowelId = '3/4x9/16-u-30';  // U-notch at 30° - per CBP TDS recommendation
     result.backButter = true;
-    result.note = '1/2" × 1/2" square notch for large format. Back-buttering required for 95% coverage.';
+    result.note = '3/4" × 9/16" U-notch @ 30° for large format tile. Back-buttering (flat-back troweling) required for 95% coverage.';
+    result.warning = 'Per Custom Building Products TDS: Do NOT use 1/2"×1/2" square notch for LFT. U-notch promotes better mortar ridge collapse.';
   }
 
   // Substrate adjustment
   if (substrate === 'needs-flattening') {
-    const trowels = Object.keys(TROWEL_COVERAGE);
-    const currentIndex = trowels.indexOf(result.trowelId);
-    if (currentIndex < trowels.length - 1) {
-      result.trowelId = trowels[currentIndex + 1];
-    }
     result.note += ' Substrate may need flattening - larger notch compensates but does not replace proper prep.';
   }
 

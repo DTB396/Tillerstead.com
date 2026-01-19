@@ -160,6 +160,102 @@ export const WP_PRODUCTS = {
 };
 
 // ============================================
+// TCNA/ANSI WATERPROOFING REQUIREMENTS
+// ============================================
+
+/**
+ * TCNA Wet Area Requirements
+ * Source: TCNA Handbook 2025
+ */
+export const WET_AREA_REQUIREMENTS = {
+  areas_requiring_waterproofing: [
+    'Shower pans/floors (required)',
+    'Shower walls (required if using TCNA methods requiring membrane)',
+    'Tub surrounds (recommended)',
+    'Steam showers (required - use vapor barrier membrane)',
+    'Exterior installations (required)',
+    'Pools and fountains (required)'
+  ],
+  membrane_extension: {
+    beyond_wet_area: 'Minimum 3" beyond wet area perimeter',
+    above_shower_head: 'Minimum 3" above shower head or to ceiling',
+    source: 'TCNA Handbook'
+  },
+  coverage_requirement: {
+    mortar: '95% minimum coverage on waterproofed surfaces',
+    note: 'Full edge support required',
+    source: 'ANSI A108 / TCNA Handbook'
+  }
+};
+
+/**
+ * PRO TIPS: Waterproofing installation
+ */
+export const WATERPROOFING_PRO_TIPS = {
+  liquid_membrane_application: [
+    'Apply PERPENDICULAR directions for coat 1 vs coat 2 (cross-hatch)',
+    'Maintain minimum wet film thickness per TDS (typically 15-20 mils/coat)',
+    'Use mil gauge to verify thickness during application',
+    'Allow complete drying between coats - color change indicates dry',
+    'Do NOT thin liquid membrane - affects waterproofing performance'
+  ],
+  corner_treatment: [
+    'Embed fabric/mesh tape in FIRST coat at all corners and seams',
+    'Pre-form inside corners with KERDI-KERECK or fabric corner pieces',
+    'Outside corners: wrap membrane minimum 2" around corner',
+    'Changes of plane (floor-to-wall): embed reinforcing fabric'
+  ],
+  penetrations: [
+    'Seal around ALL penetrations (valves, pipes, drains)',
+    'Use manufacturer-specific seals for drains (KERDI-DRAIN, etc.)',
+    'Apply membrane TO drain flange, not just adjacent to it',
+    'Mixing valve body: seal behind escutcheon plate area'
+  ],
+  flood_testing: [
+    'TCNA/ANSI recommend flood testing before tiling',
+    'Plug drain, fill to 1-2" above finished threshold',
+    'Hold for minimum 24 hours (some specs require 48 hours)',
+    'Document with photos for warranty and inspection purposes'
+  ],
+  common_failures: [
+    'Insufficient thickness - use mil gauge to verify',
+    'Missing reinforcement at corners and changes of plane',
+    'Membrane not properly bonded to substrate (bubbles, fisheyes)',
+    'Not extending membrane far enough beyond wet area',
+    'Using modified thinset on KERDI (requires unmodified only)',
+    'Tiling before membrane fully cured'
+  ],
+  kerdi_specific: [
+    'MUST use unmodified thinset (ANSI A118.1) - modified will NOT bond',
+    'Overlap seams minimum 2"',
+    'Apply thinset to substrate AND to KERDI back (thin-set to thin-set)',
+    'Use KERDI-BAND (not fabric tape) for seams',
+    'KERDI-KERECK for pre-formed corners saves time and improves reliability'
+  ]
+};
+
+/**
+ * Movement joint requirements for waterproofed areas
+ * Source: TCNA EJ171
+ */
+export const WATERPROOF_MOVEMENT_JOINTS = {
+  perimeter: {
+    required: true,
+    location: 'Where tile meets walls, curbs, and other restraining surfaces',
+    minimum_width: '1/4"',
+    sealant: 'ASTM C920 compatible with waterproofing system'
+  },
+  field: {
+    interior_wet: 'Every 8-12 ft in each direction',
+    note: 'Movement joints must be sealed with flexible sealant, NOT grout'
+  },
+  transition: {
+    location: 'Where waterproofed area meets non-waterproofed area',
+    treatment: 'Seal with compatible sealant, not grout'
+  }
+};
+
+// ============================================
 // MAIN CALCULATION FUNCTIONS
 // ============================================
 

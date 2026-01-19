@@ -217,9 +217,11 @@ function testMortarFormulas() {
   const rec2 = getRecommendedTrowel(12, 12); // 12x12 tile
   assert.strictEqual(rec2.trowelId, '1/4x3/8-sq', '12x12 tile should get 1/4x3/8 square');
 
+  // UPDATED: Per CBP TDS, large format should use U-notch, NOT 1/2" square
   const rec3 = getRecommendedTrowel(24, 24); // Large format
-  assert.strictEqual(rec3.trowelId, '1/2-sq', '24x24 should get 1/2x1/2 square');
+  assert.strictEqual(rec3.trowelId, '3/4x9/16-u-30', '24x24 LFT should get U-notch per CBP TDS (NOT 1/2" square)');
   assert.strictEqual(rec3.backButter, true, 'Large format should recommend back-buttering');
+  assert(rec3.warning, 'Large format should include warning about 1/2" square notch');
 
   // Test mortar calculation
   // 100 sq ft with 1/4x1/4 trowel (90-100 coverage)
@@ -247,6 +249,24 @@ function testMortarFormulas() {
   });
   assert.strictEqual(mortar3.bagsMin, 2, '1 * 1.2 = 1.2 -> 2 bags with back-butter');
   assert.strictEqual(mortar3.bagsMax, 3, '2 * 1.3 = 2.6 -> 3 bags with back-butter');
+
+  // Test U-notch trowels for LFT (per CBP TDS)
+  const mortar4 = calculateMortarBags({
+    areaSqFt: 100,
+    trowelId: '3/4x9/16-u-30'  // U-notch at 30° - 38-47 coverage
+  });
+  assert.strictEqual(mortar4.valid, true, 'U-notch trowel should be valid');
+  assert.strictEqual(mortar4.bagsMin, 3, '100 / 47 = 2.13 -> 3 bags min');
+  assert.strictEqual(mortar4.bagsMax, 3, '100 / 38 = 2.63 -> 3 bags max');
+
+  // Verify U-notch at 45° (per CBP TDS - 34-42 coverage)
+  const mortar5 = calculateMortarBags({
+    areaSqFt: 100,
+    trowelId: '3/4x9/16-u-45'
+  });
+  assert.strictEqual(mortar5.valid, true, 'U-notch 45° should be valid');
+  assert.strictEqual(mortar5.bagsMin, 3, '100 / 42 = 2.38 -> 3 bags min');
+  assert.strictEqual(mortar5.bagsMax, 3, '100 / 34 = 2.94 -> 3 bags max');
 
   console.log('  ✓ All mortar formula tests passed');
 }
