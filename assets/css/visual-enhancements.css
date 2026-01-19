@@ -1,0 +1,325 @@
+/* =========================================================
+   Visual Enhancements - Subtle Brand Elements
+   Uses existing tile patterns and assets to create depth
+   and visual interest that converts visitors to clients
+   ========================================================= */
+
+/* ===== FOOTER TILE PATTERN OVERLAY ===== */
+.ts-footer {
+  position: relative;
+  overflow: hidden;
+}
+
+.ts-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    /* Subtle herringbone pattern - nod to professional tile work */
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 30px,
+      rgb(201 162 39 / 3%) 30px,
+      rgb(201 162 39 / 3%) 31px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 30px,
+      rgb(201 162 39 / 3%) 30px,
+      rgb(201 162 39 / 3%) 31px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ts-footer > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== TRUST INDICATOR ENHANCEMENTS ===== */
+
+/* Pulsing emerald dot for "active/verified" status */
+.footer-compliance::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--tiller-color-emerald, #10b981);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  animation: trust-pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgb(16 185 129 / 40%);
+}
+
+@keyframes trust-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgb(16 185 129 / 40%);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 8px 4px rgb(16 185 129 / 20%);
+  }
+}
+
+/* ===== SECTION DIVIDER - TILE GROUT LINE ===== */
+.ts-grout-divider {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(201 162 39 / 20%) 10%,
+    rgb(201 162 39 / 50%) 30%,
+    rgb(16 185 129 / 60%) 50%,
+    rgb(201 162 39 / 50%) 70%,
+    rgb(201 162 39 / 20%) 90%,
+    transparent 100%
+  );
+  margin: 0 auto;
+  max-width: 80%;
+  position: relative;
+}
+
+.ts-grout-divider::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: var(--tiller-color-emerald, #10b981);
+  border-radius: 50%;
+  border: 2px solid var(--tiller-bg-darker, #121414);
+  box-shadow: 
+    0 0 0 2px rgb(201 162 39 / 40%),
+    0 0 12px rgb(16 185 129 / 50%);
+}
+
+/* ===== HERO CORNER ACCENT ===== */
+.home-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background-image: url('/assets/img/patterns/sacred-tile.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+/* ===== CTA SECTION ENHANCEMENTS ===== */
+
+/* Add corner tile pattern accents to CTA via container */
+.home-cta .container {
+  position: relative;
+}
+
+.home-cta .container::before,
+.home-cta .container::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-image: url('/assets/img/patterns/flower-of-life.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.home-cta .container::before {
+  top: -20px;
+  left: -20px;
+}
+
+.home-cta .container::after {
+  bottom: -20px;
+  right: -20px;
+  transform: rotate(180deg);
+}
+
+/* ===== ENHANCED BUTTON MICRO-INTERACTIONS ===== */
+
+/* Primary button emerald shimmer on hover */
+.btn--primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(255 255 255 / 20%) 50%,
+    transparent 100%
+  );
+  transition: left 0.5s ease;
+}
+
+.btn--primary:hover::after {
+  left: 100%;
+}
+
+/* ===== SERVICE CARD ICON GLOW ===== */
+.service-card .service-icon {
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  filter: drop-shadow(0 0 12px rgb(16 185 129 / 60%));
+}
+
+/* ===== TESTIMONIAL QUOTE ACCENTS ===== */
+.card--review::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  font-size: 4rem;
+  font-family: Georgia, serif;
+  color: var(--tiller-color-gold, #c9a227);
+  opacity: 0.2;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ===== FOOTER CONTACT ICONS ===== */
+.footer-contact-phone::before,
+.footer-contact-email::before {
+  display: inline-block;
+  margin-right: 0.5rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.footer-contact-phone:hover::before,
+.footer-contact-email:hover::before {
+  opacity: 1;
+}
+
+/* Phone icon */
+.footer-contact-phone a::before {
+  content: '📞';
+}
+
+/* Email icon */
+.footer-contact-email a::before {
+  content: '✉️';
+}
+
+/* ===== HERO FACTS ENHANCEMENT ===== */
+.hero-facts .fact-item {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.hero-facts .fact-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: var(--tiller-color-emerald, #10b981);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgb(16 185 129 / 50%);
+}
+
+/* ===== HIGHLIGHT CHECKMARKS ENHANCEMENT ===== */
+.hero-highlights .highlight-icon {
+  color: var(--tiller-color-emerald, #10b981);
+  font-weight: bold;
+  text-shadow: 0 0 8px rgb(16 185 129 / 50%);
+}
+
+/* ===== SOCIAL LINK HOVER GLOW ===== */
+.footer-social a {
+  position: relative;
+}
+
+.footer-social a::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: rgb(16 185 129 / 0%);
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.footer-social a:hover::after {
+  background: rgb(16 185 129 / 20%);
+  box-shadow: 0 0 16px rgb(16 185 129 / 40%);
+}
+
+/* ===== SCROLL-TRIGGERED FADE IN (CSS Only) ===== */
+@supports (animation-timeline: scroll()) {
+  .service-card,
+  .card--review,
+  .highlight-item {
+    animation: fadeSlideUp linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+  
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .footer-compliance::before,
+  .btn--primary::after {
+    animation: none;
+    transition: none;
+  }
+  
+  .service-card,
+  .card--review,
+  .highlight-item {
+    animation: none !important;
+  }
+}
+
+/* ===== MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+  .home-hero::after {
+    width: 100px;
+    height: 100px;
+    opacity: 0.05;
+  }
+  
+  .home-cta .container::before,
+  .home-cta .container::after {
+    width: 50px;
+    height: 50px;
+    opacity: 0.05;
+  }
+  
+  .ts-grout-divider {
+    max-width: 90%;
+  }
+}
