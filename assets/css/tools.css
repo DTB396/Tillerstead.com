@@ -96,8 +96,91 @@
 .tools-header__subtitle {
   font-size: 1.125rem;
   color: rgba(255, 255, 255, 0.7);
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto 1.5rem;
+}
+
+/* Mode Toggle */
+.tools-mode-toggle {
+  display: inline-flex;
+  gap: 0;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: var(--tools-radius-sm);
+  padding: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.tools-mode-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  background: transparent;
+  border: none;
+  border-radius: calc(var(--tools-radius-sm) - 2px);
+  cursor: pointer;
+  transition: var(--tools-transition);
+}
+
+.tools-mode-btn:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.tools-mode-btn.is-active {
+  color: #fff;
+  background: var(--tiller-color-emerald, #10b981);
+}
+
+/* Quick Start Cards */
+.tools-quickstart {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  text-align: left;
+}
+
+.quickstart-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--tools-radius-sm);
+  padding: 1.25rem;
+}
+
+.quickstart-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--tiller-color-emerald, #10b981);
+  margin: 0 0 0.75rem;
+}
+
+.quickstart-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.quickstart-card li {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.quickstart-card li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--tiller-color-emerald, #10b981);
+}
+
+.quickstart-card li strong {
+  color: #fff;
 }
 
 .tools-disclaimer {
@@ -486,12 +569,19 @@
 .surface-toggle {
   display: block;
   cursor: pointer;
+  position: relative;
 }
 
 .surface-toggle input {
   position: absolute;
-  opacity: 0;
-  pointer-events: none;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .surface-toggle__label {

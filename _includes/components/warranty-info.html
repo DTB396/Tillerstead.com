@@ -1,0 +1,74 @@
+{%- comment -%}
+  Project Warranty Information Component
+  Displays warranty coverage details for completed tile work
+  NJ HIC requires written warranty information per N.J.A.C. 13:45A-16.2
+  Usage: {% include components/warranty-info.html %}
+{%- endcomment -%}
+{% assign warranty = site.warranty | default: site.data.warranty %}
+
+<section class="warranty-info" aria-labelledby="warranty-heading">
+  <div class="warranty-info__header">
+    <span class="warranty-info__icon" aria-hidden="true">
+      {% include components/ts-icon.html name="icon-shield" size="28" %}
+    </span>
+    <div>
+      <h3 id="warranty-heading" class="warranty-info__title">Our Warranty Coverage</h3>
+      <p class="warranty-info__subtitle">Professional workmanship guaranteed</p>
+    </div>
+  </div>
+
+  <div class="warranty-info__grid">
+    <!-- Workmanship Warranty -->
+    <div class="warranty-info__card">
+      <div class="warranty-info__card-header">
+        <span class="warranty-info__card-icon" aria-hidden="true">🔧</span>
+        <h4 class="warranty-info__card-title">Workmanship</h4>
+      </div>
+      <p class="warranty-info__card-term">{{ warranty.workmanship_years | default: 2 }} Year Warranty</p>
+      <p class="warranty-info__card-desc">
+        Covers installation defects, improper techniques, and adhesion failures 
+        attributable to workmanship.
+      </p>
+    </div>
+
+    <!-- Waterproofing Warranty -->
+    <div class="warranty-info__card warranty-info__card--highlight">
+      <div class="warranty-info__card-header">
+        <span class="warranty-info__card-icon" aria-hidden="true">💧</span>
+        <h4 class="warranty-info__card-title">Waterproofing</h4>
+      </div>
+      <p class="warranty-info__card-term">{{ warranty.waterproofing_years | default: 5 }} Year Warranty</p>
+      <p class="warranty-info__card-desc">
+        Shower pan and waterproofing membrane installations following 
+        TCNA Handbook methods are warranted against leakage.
+      </p>
+    </div>
+
+    <!-- Materials Warranty -->
+    <div class="warranty-info__card">
+      <div class="warranty-info__card-header">
+        <span class="warranty-info__card-icon" aria-hidden="true">🧱</span>
+        <h4 class="warranty-info__card-title">Materials</h4>
+      </div>
+      <p class="warranty-info__card-term">Manufacturer Warranty</p>
+      <p class="warranty-info__card-desc">
+        Materials carry their own manufacturer warranties. We provide documentation 
+        and assist with claims when needed.
+      </p>
+    </div>
+  </div>
+
+  <div class="warranty-info__footer">
+    <p class="warranty-info__note">
+      <strong>Note:</strong> Warranty coverage requires proper maintenance per our care instructions. 
+      Does not cover damage from misuse, neglect, structural movement, or acts of nature.
+    </p>
+    <p class="warranty-info__compliance">
+      <small>
+        Per New Jersey Home Improvement Contractor regulations (N.J.A.C. 13:45A-16.2), 
+        all warranty terms are provided in writing with your project contract.
+        <a href="/terms/#warranty" class="warranty-info__link">View full warranty terms →</a>
+      </small>
+    </p>
+  </div>
+</section>

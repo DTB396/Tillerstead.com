@@ -1925,6 +1925,45 @@
   }
 
   // ============================================
+  // MODE TOGGLE (Contractor / Homeowner)
+  // ============================================
+
+  function initModeToggle() {
+    const modeButtons = document.querySelectorAll('.tools-mode-btn');
+    if (!modeButtons.length) return;
+
+    modeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update button states
+        modeButtons.forEach(b => {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-pressed', 'true');
+
+        // Store preference
+        const mode = btn.dataset.mode;
+        try {
+          localStorage.setItem('tillerstead_tools_mode', mode);
+        } catch (e) {}
+
+        // Update UI based on mode
+        document.body.dataset.toolsMode = mode;
+      });
+    });
+
+    // Restore saved mode
+    try {
+      const savedMode = localStorage.getItem('tillerstead_tools_mode');
+      if (savedMode) {
+        const savedBtn = document.querySelector(`[data-mode="${savedMode}"]`);
+        if (savedBtn) savedBtn.click();
+      }
+    } catch (e) {}
+  }
+
+  // ============================================
   // INITIALIZATION
   // ============================================
 
@@ -1946,6 +1985,7 @@
     initEventListeners();
     initSmoothScroll();
     initActiveNavHighlight();
+    initModeToggle();
 
     // Initial calculations
     updateAreaSummary();

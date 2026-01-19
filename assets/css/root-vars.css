@@ -861,3 +861,272 @@ label {
     gap: var(--tiller-spacing-xs);
   }
 }
+
+/* =========================================================
+   NJ HIC License Verification Component
+   Official contractor license display with DCA verification link
+   ========================================================= */
+
+.nj-hic-verification {
+  background: var(--tiller-bg-stone);
+  border: 1px solid var(--tiller-border-color);
+  border-left: 4px solid var(--tiller-color-emerald);
+  border-radius: var(--tiller-radius-lg);
+  padding: var(--tiller-spacing-lg);
+  margin: var(--tiller-spacing-xl) 0;
+}
+
+.nj-hic-verification__content {
+  max-width: 600px;
+}
+
+.nj-hic-verification__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--tiller-spacing-md);
+  margin-bottom: var(--tiller-spacing-lg);
+}
+
+.nj-hic-verification__icon {
+  color: var(--tiller-color-emerald);
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 8px var(--tiller-color-emerald-glow));
+}
+
+.nj-hic-verification__title {
+  color: var(--tiller-color-emerald);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 0 12px var(--tiller-color-emerald-glow);
+}
+
+.nj-hic-verification__subtitle {
+  color: var(--tiller-text-secondary);
+  font-size: 0.95rem;
+  margin: var(--tiller-spacing-xs) 0 0;
+}
+
+.nj-hic-verification__details {
+  display: grid;
+  gap: var(--tiller-spacing-sm);
+  margin-bottom: var(--tiller-spacing-lg);
+}
+
+.nj-hic-verification__detail {
+  display: flex;
+  gap: var(--tiller-spacing-sm);
+  padding: var(--tiller-spacing-sm) 0;
+  border-bottom: 1px solid var(--tiller-border-color);
+}
+
+.nj-hic-verification__detail dt {
+  color: var(--tiller-text-tertiary);
+  font-size: 0.85rem;
+  min-width: 120px;
+}
+
+.nj-hic-verification__detail dd {
+  color: var(--tiller-text-primary);
+  margin: 0;
+}
+
+.nj-hic-verification__detail dd strong {
+  color: var(--tiller-color-gold);
+  font-family: var(--tiller-font-mono, monospace);
+  letter-spacing: 0.05em;
+}
+
+.nj-hic-verification__actions {
+  margin-bottom: var(--tiller-spacing-md);
+}
+
+.nj-hic-verification__verify-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--tiller-spacing-sm);
+}
+
+.nj-hic-verification__note {
+  color: var(--tiller-text-tertiary);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.nj-hic-verification__note abbr {
+  text-decoration: none;
+  border-bottom: 1px dotted var(--tiller-text-tertiary);
+}
+
+/* Compact badge variant */
+.nj-hic-badge--compact {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--tiller-spacing-sm);
+  background: var(--tiller-bg-slate);
+  border: 1px solid var(--tiller-border-color);
+  border-radius: var(--tiller-radius-md);
+  padding: var(--tiller-spacing-xs) var(--tiller-spacing-sm);
+  font-size: 0.875rem;
+}
+
+.nj-hic-badge__icon {
+  color: var(--tiller-color-emerald);
+}
+
+.nj-hic-badge__text {
+  display: flex;
+  align-items: center;
+  gap: var(--tiller-spacing-sm);
+  color: var(--tiller-text-primary);
+}
+
+.nj-hic-badge__text strong {
+  color: var(--tiller-color-gold);
+  font-family: var(--tiller-font-mono, monospace);
+}
+
+.nj-hic-badge__verify {
+  color: var(--tiller-color-emerald);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nj-hic-badge__verify:hover,
+.nj-hic-badge__verify:focus {
+  color: var(--tiller-color-emerald-light);
+  text-decoration: underline;
+}
+
+/* =========================================================
+   Warranty Information Component
+   Professional warranty display for NJ HIC compliance
+   ========================================================= */
+
+.warranty-info {
+  background: var(--tiller-bg-stone);
+  border: 1px solid var(--tiller-border-color);
+  border-radius: var(--tiller-radius-lg);
+  padding: var(--tiller-spacing-xl);
+  margin: var(--tiller-spacing-xl) 0;
+}
+
+.warranty-info__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--tiller-spacing-md);
+  margin-bottom: var(--tiller-spacing-xl);
+  padding-bottom: var(--tiller-spacing-lg);
+  border-bottom: 1px solid var(--tiller-border-color);
+}
+
+.warranty-info__icon {
+  color: var(--tiller-color-emerald);
+  filter: drop-shadow(0 0 8px var(--tiller-color-emerald-glow));
+}
+
+.warranty-info__title {
+  color: var(--tiller-color-emerald);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 0 12px var(--tiller-color-emerald-glow);
+}
+
+.warranty-info__subtitle {
+  color: var(--tiller-text-secondary);
+  margin: var(--tiller-spacing-xs) 0 0;
+}
+
+.warranty-info__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--tiller-spacing-lg);
+  margin-bottom: var(--tiller-spacing-xl);
+}
+
+.warranty-info__card {
+  background: var(--tiller-bg-slate);
+  border: 1px solid var(--tiller-border-color);
+  border-radius: var(--tiller-radius-md);
+  padding: var(--tiller-spacing-lg);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.warranty-info__card:hover {
+  border-color: var(--tiller-color-gold-muted);
+  transform: translateY(-2px);
+}
+
+.warranty-info__card--highlight {
+  border-color: var(--tiller-color-emerald);
+  background: linear-gradient(135deg, var(--tiller-bg-slate), rgb(16 185 129 / 8%));
+}
+
+.warranty-info__card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--tiller-spacing-sm);
+  margin-bottom: var(--tiller-spacing-sm);
+}
+
+.warranty-info__card-icon {
+  font-size: 1.5rem;
+}
+
+.warranty-info__card-title {
+  color: var(--tiller-text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.warranty-info__card-term {
+  color: var(--tiller-color-gold);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 var(--tiller-spacing-sm);
+}
+
+.warranty-info__card-desc {
+  color: var(--tiller-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.warranty-info__footer {
+  padding-top: var(--tiller-spacing-lg);
+  border-top: 1px solid var(--tiller-border-color);
+}
+
+.warranty-info__note {
+  color: var(--tiller-text-secondary);
+  font-size: 0.9rem;
+  margin: 0 0 var(--tiller-spacing-md);
+}
+
+.warranty-info__note strong {
+  color: var(--tiller-color-gold);
+}
+
+.warranty-info__compliance {
+  color: var(--tiller-text-tertiary);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.warranty-info__link {
+  color: var(--tiller-color-emerald);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.warranty-info__link:hover,
+.warranty-info__link:focus {
+  color: var(--tiller-color-emerald-light);
+  text-decoration: underline;
+}

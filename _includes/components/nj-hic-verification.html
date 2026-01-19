@@ -1,0 +1,74 @@
+{%- comment -%}
+  NJ HIC License Verification Component
+  Displays contractor license info with link to official NJ DCA verification
+  Usage: {% include components/nj-hic-verification.html %}
+  Optional: {% include components/nj-hic-verification.html style="compact" %}
+{%- endcomment -%}
+{% assign style = include.style | default: "full" %}
+{% assign hic = site.company.hic | default: "13VH10808800" %}
+
+{% if style == "compact" %}
+<div class="nj-hic-badge nj-hic-badge--compact">
+  <span class="nj-hic-badge__icon" aria-hidden="true">
+    {% include components/ts-icon.html name="icon-verified" size="18" %}
+  </span>
+  <span class="nj-hic-badge__text">
+    <strong>NJ HIC #{{ hic }}</strong>
+    <a href="https://www.njconsumeraffairs.gov/hic/Applications/ContractorLookup.aspx" 
+       target="_blank" 
+       rel="noopener" 
+       class="nj-hic-badge__verify"
+       aria-label="Verify Tillerstead's NJ Home Improvement Contractor license on NJ Consumer Affairs website">
+      Verify →
+    </a>
+  </span>
+</div>
+{% else %}
+<aside class="nj-hic-verification" aria-labelledby="hic-verification-heading">
+  <div class="nj-hic-verification__content">
+    <div class="nj-hic-verification__header">
+      <span class="nj-hic-verification__icon" aria-hidden="true">
+        {% include components/ts-icon.html name="icon-verified" size="32" %}
+      </span>
+      <div>
+        <h3 id="hic-verification-heading" class="nj-hic-verification__title">Licensed & Insured</h3>
+        <p class="nj-hic-verification__subtitle">New Jersey Home Improvement Contractor</p>
+      </div>
+    </div>
+    
+    <dl class="nj-hic-verification__details">
+      <div class="nj-hic-verification__detail">
+        <dt>License Number</dt>
+        <dd><strong>{{ hic }}</strong></dd>
+      </div>
+      <div class="nj-hic-verification__detail">
+        <dt>Business Name</dt>
+        <dd>{{ site.company.name | default: "Tillerstead LLC" }}</dd>
+      </div>
+      <div class="nj-hic-verification__detail">
+        <dt>Service Area</dt>
+        <dd>Atlantic, Ocean & Cape May Counties</dd>
+      </div>
+    </dl>
+    
+    <div class="nj-hic-verification__actions">
+      <a href="https://www.njconsumeraffairs.gov/hic/Applications/ContractorLookup.aspx" 
+         target="_blank" 
+         rel="noopener" 
+         class="btn btn--secondary nj-hic-verification__verify-btn"
+         aria-label="Verify Tillerstead's license on the official NJ Consumer Affairs website">
+        <span class="nj-hic-verification__verify-icon" aria-hidden="true">🔍</span>
+        Verify on NJ Consumer Affairs
+      </a>
+    </div>
+    
+    <p class="nj-hic-verification__note">
+      <small>
+        New Jersey law requires home improvement contractors to register with the 
+        <abbr title="Division of Consumer Affairs">DCA</abbr>. Always verify your contractor's 
+        license before signing any contract.
+      </small>
+    </p>
+  </div>
+</aside>
+{% endif %}

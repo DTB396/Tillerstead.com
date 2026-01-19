@@ -590,17 +590,9 @@
       document.documentElement.setAttribute('data-text-size', prefs.textSize);
     }
 
-    if (prefs.dyslexiaFont) {
-      document.documentElement.setAttribute('data-font', 'dyslexia');
-    }
-
     // User can force reduced motion even if system doesn't prefer it
     if (prefs.reducedMotion === true) {
       document.documentElement.classList.add('reduce-motion');
-    }
-
-    if (prefs.readingGuide) {
-      document.documentElement.setAttribute('data-reading-guide', 'true');
     }
 
     if (prefs.largerCursor) {
@@ -1036,8 +1028,6 @@
   // Make preference toggles globally available
   window.a11yToggleHighContrast = toggleHighContrast;
   window.a11yToggleTextSize = toggleTextSize;
-  window.a11yToggleDyslexiaFont = toggleDyslexiaFont;
-  window.a11yToggleReadingGuide = toggleReadingGuide;
 
   // ============================================================================
   // ACCESSIBILITY TOOLBAR
@@ -1060,9 +1050,7 @@
 
     const buttons = [
       { icon: '🔲', label: 'Toggle high contrast', action: toggleHighContrast, pref: 'highContrast' },
-      { icon: 'A+', label: 'Increase text size', action: toggleTextSize, pref: 'textSize' },
-      { icon: '📖', label: 'Toggle dyslexia font', action: toggleDyslexiaFont, pref: 'dyslexiaFont' },
-      { icon: '📏', label: 'Toggle reading guide', action: toggleReadingGuide, pref: 'readingGuide' }
+      { icon: 'A+', label: 'Increase text size', action: toggleTextSize, pref: 'textSize' }
     ];
 
     const prefs = loadPreferences();

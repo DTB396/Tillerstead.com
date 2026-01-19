@@ -27,9 +27,7 @@
   try{var p=JSON.parse(localStorage.getItem('tillerstead-a11y-prefs')||'{}');
     if(p.highContrast)d.setAttribute('data-high-contrast','true');
     if(p.textSize)d.setAttribute('data-text-size',p.textSize);
-    if(p.dyslexiaFont)d.setAttribute('data-font','dyslexia');
     if(p.reducedMotion)d.classList.add('reduce-motion');
-    if(p.readingGuide)d.setAttribute('data-reading-guide','true');
   }catch(e){}
 })();
 </script>
