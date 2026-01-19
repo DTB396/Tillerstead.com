@@ -1,27 +1,27 @@
 build_phases:
   - title: "Codes, Permits & Inspections"
-    url: "/build/phase-01/"
+    url: "/build/nj-codes-permits/"
     order: 1
   - title: "Shower Pans, Slopes & Drains"
-    url: "/build/phase-02/"
+    url: "/build/shower-pans-slopes-drains/"
     order: 2
   - title: "Waterproofing Systems"
-    url: "/build/phase-03/"
+    url: "/build/waterproofing-systems/"
     order: 3
   - title: "Curbs & Curbless Showers"
-    url: "/build/phase-04/"
+    url: "/build/curbs-curbless/"
     order: 4
   - title: "Benches, Seats & Niches"
-    url: "/build/phase-05/"
+    url: "/build/framing-benches-niches/"
     order: 5
   - title: "Tile Installation Standards"
-    url: "/build/phase-06/"
+    url: "/build/tile-installation-standards/"
     order: 6
   - title: "Flood Testing & Verification"
-    url: "/build/phase-07/"
+    url: "/build/flood-testing/"
     order: 7
   - title: "Common Failures & Red Flags"
-    url: "/build/phase-08/"
+    url: "/build/common-build-failures/"
     order: 8
 
 faq:
