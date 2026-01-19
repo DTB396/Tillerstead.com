@@ -950,10 +950,18 @@
       notification.className = 'a11y-visual-notification';
       notification.setAttribute('role', 'alert');
       notification.setAttribute('aria-live', 'assertive');
-      notification.innerHTML = `
-        <span class="notification-icon" aria-hidden="true">${options.icon || 'ℹ️'}</span>
-        <span class="notification-message">${message}</span>
-      `;
+      // XSS-safe: Create elements without innerHTML
+      const iconSpan = document.createElement('span');
+      iconSpan.className = 'notification-icon';
+      iconSpan.setAttribute('aria-hidden', 'true');
+      iconSpan.textContent = options.icon || 'ℹ️';
+      
+      const messageSpan = document.createElement('span');
+      messageSpan.className = 'notification-message';
+      messageSpan.textContent = message;
+      
+      notification.appendChild(iconSpan);
+      notification.appendChild(messageSpan);
       
       notification.style.cssText = `
         position: fixed;
@@ -1018,7 +1026,15 @@
           const warning = document.createElement('div');
           warning.className = 'no-captions-warning';
           warning.setAttribute('role', 'note');
-          warning.innerHTML = '<span aria-hidden="true">🔇</span> <span>Captions not available for this video</span>';
+          // XSS-safe: Create elements without innerHTML
+          const iconSpan = document.createElement('span');
+          iconSpan.setAttribute('aria-hidden', 'true');
+          iconSpan.textContent = '🔇';
+          const textSpan = document.createElement('span');
+          textSpan.textContent = 'Captions not available for this video';
+          warning.appendChild(iconSpan);
+          warning.appendChild(document.createTextNode(' '));
+          warning.appendChild(textSpan);
           wrapper.appendChild(warning);
         }
       }
@@ -1095,7 +1111,8 @@
     buttons.forEach(({ icon, label, action, pref }) => {
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.innerHTML = icon;
+      // XSS-safe: Use textContent for icons
+      btn.textContent = icon;
       btn.setAttribute('aria-label', label);
       btn.setAttribute('title', label);
       
@@ -1195,7 +1212,10 @@
             errorList.appendChild(li);
           });
 
-          errorSummary.innerHTML = '<h3>Please correct the following errors:</h3>';
+          // XSS-safe: Create element without innerHTML
+          const heading = document.createElement('h3');
+          heading.textContent = 'Please correct the following errors:';
+          errorSummary.appendChild(heading);
           errorSummary.appendChild(errorList);
 
           // Focus error summary

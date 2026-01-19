@@ -11,7 +11,7 @@ import { URL } from 'url';
   });
 
   try {
-    const { lhr, report } = await lighthouse('http://localhost:3000', {
+    const { report } = await lighthouse('http://localhost:3000', {
       port: new URL(browser.wsEndpoint()).port,
       output: 'html',
       logLevel: 'info'

@@ -45,7 +45,10 @@
       const partyBtn = document.getElementById("partyBtn");
       function burst(count) {
         if (!confettiRoot) return;
-        confettiRoot.innerHTML = "";
+        // XSS-safe: Clear children without innerHTML
+        while (confettiRoot.firstChild) {
+          confettiRoot.removeChild(confettiRoot.firstChild);
+        }
         const reduce =
           window.matchMedia &&
           window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -80,7 +83,10 @@
           confettiRoot.appendChild(piece);
         }
         window.setTimeout(() => {
-          confettiRoot.innerHTML = "";
+          // XSS-safe: Clear children without innerHTML
+          while (confettiRoot.firstChild) {
+            confettiRoot.removeChild(confettiRoot.firstChild);
+          }
         }, 3200);
       }
       window.setTimeout(() => burst(42), 180);

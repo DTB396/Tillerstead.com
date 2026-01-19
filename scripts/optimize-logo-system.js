@@ -134,7 +134,7 @@ async function createIcon(sourcePath, size, outputPath, options = {}) {
   return pipeline.png({ quality: 90, compressionLevel: 9 }).toBuffer();
 }
 
-async function createRectangularIcon(sourcePath, width, height, outputPath) {
+async function createRectangularIcon(sourcePath, width, height, _outputPath) {
   return sharp(sourcePath)
     .resize(width, height, {
       fit: 'contain',

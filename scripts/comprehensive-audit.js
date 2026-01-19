@@ -150,7 +150,6 @@ function scanFile(filePath, type) {
     // 7. Check for responsive design classes/utilities
     const hasResponsive =
       /class="[^"]*(?:sm:|md:|lg:|xl:|max-|flex-|grid-)[^"]*"/i.test(content);
-    const hasCSSVars = /var\(--/i.test(content);
 
     if (!hasResponsive && type !== 'includes') {
       fileIssues.push({
@@ -161,7 +160,6 @@ function scanFile(filePath, type) {
     }
 
     // 8. Check for interactive elements with ARIA
-    const buttons = (content.match(/<button[^>]*>/gi) || []).length;
     const clickableDiv = (content.match(/<div[^>]*onclick/gi) || []).length;
     if (clickableDiv > 0) {
       fileIssues.push({

@@ -23,14 +23,12 @@
  */
 
 import { readFileSync, writeFileSync, readdirSync } from 'fs';
-import { join, extname } from 'path';
+import { join } from 'path';
 import { resolve } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = resolve(fileURLToPath(import.meta.url), '..');
 const ROOT = join(__dirname, '..');
-const PAGES_DIR = join(ROOT, 'pages');
-const POSTS_DIR = join(ROOT, '_posts');
 const DATA_DIR = join(ROOT, '_data');
 
 // ============================================

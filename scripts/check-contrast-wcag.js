@@ -19,8 +19,8 @@
  * - contrast-audit-report.md
  */
 
-import { readFileSync, writeFileSync, readdirSync } from 'fs';
-import { join, extname, resolve } from 'path';
+import { writeFileSync } from 'fs';
+import { join, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = resolve(fileURLToPath(import.meta.url), '..');
