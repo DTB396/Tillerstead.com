@@ -73,7 +73,7 @@
   {% endif %}
   </head>
 
-<body class="ts-body{% if page.body_class %} {{ page.body_class }}{% endif %}">
+<body class="ts-body{% if page.body_class %} {{ page.body_class }}{% endif %}{% if layout.body_class %} {{ layout.body_class }}{% endif %}">
   <!-- Skip Links for Accessibility - Multiple Targets -->
   <nav class="skip-links" aria-label="Skip navigation">
     <a href="#main-content" class="skip-link">Skip to main content</a>
