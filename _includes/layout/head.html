@@ -82,7 +82,7 @@
 <link rel="stylesheet" href="{{ '/assets/css/carousel-premium.css' | relative_url }}" />
 <link rel="stylesheet" href="{{ '/assets/css/form-premium.css' | relative_url }}" />
 <link rel="stylesheet" href="{{ '/assets/css/page-theme.css' | relative_url }}" />
-{% if page.layout == 'build-page' %}
+{% if page.layout == 'build-page' or page.build_guide %}
 <link rel="stylesheet" href="{{ '/assets/css/build-guide.css' | relative_url }}" />
 {% endif %}
 

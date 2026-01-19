@@ -313,6 +313,75 @@ h1 {
     0 0 50px rgb(16 185 129 / 30%);
 }
 
+/* ===== BASE TABLE STYLES - Readable on all themes ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9375rem;
+  background: var(--tiller-bg-card, #2a2d2c);
+  border-radius: var(--tiller-border-radius-md, 8px);
+  overflow: hidden;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border: 1px solid var(--tiller-grout-subtle, rgba(201, 162, 39, 0.15));
+}
+
+th {
+  font-weight: 600;
+  background: var(--tiller-color-emerald-dark, #059669);
+  color: #ffffff;
+  text-shadow: none;
+}
+
+td {
+  color: var(--tiller-text-secondary, #e5e7eb);
+}
+
+tr:nth-child(even) td {
+  background: var(--tiller-bg-hover, rgba(255, 255, 255, 0.03));
+}
+
+tr:hover td {
+  background: var(--tiller-bg-elevated, #323534);
+}
+
+/* Light theme table overrides (for build guides, reports) */
+.page-build-guide table,
+.page-light table,
+main.light-theme table {
+  background: #ffffff;
+}
+
+.page-build-guide th,
+.page-light th,
+main.light-theme th {
+  background: #1a4a38;
+  color: #ffffff;
+}
+
+.page-build-guide td,
+.page-light td,
+main.light-theme td {
+  color: #374151;
+  border-color: #e5e7eb;
+}
+
+.page-build-guide tr:nth-child(even) td,
+.page-light tr:nth-child(even) td,
+main.light-theme tr:nth-child(even) td {
+  background: #f9fafb;
+}
+
+.page-build-guide tr:hover td,
+.page-light tr:hover td,
+main.light-theme tr:hover td {
+  background: #f3f4f6;
+}
+
 /* ===== GOLD GROUT GRID PATTERN ===== */
 .grout-grid {
   background-image: 
