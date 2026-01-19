@@ -15,8 +15,8 @@
    Mobile Navigation Drawer
    ========================================================= */
 
-/* Drawer base */
-.mobile-nav,
+/* Drawer base - LEGACY: styles now in navigation.css */
+/* .mobile-nav is handled by navigation.css */
 .nav-drawer {
   position: fixed;
   top: 0;
@@ -35,8 +35,7 @@
   pointer-events: none;
 }
 
-/* Open state */
-body.nav-open .mobile-nav,
+/* Open state - only for .nav-drawer legacy class */
 .nav-drawer.is-open {
   transform: translateX(0);
   pointer-events: auto;
