@@ -606,6 +606,11 @@
   color: white;
   border-radius: 50%;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
   box-shadow: 0 4px 15px rgb(16 185 129 / 40%);
   transition: all 0.3s ease;
 }
@@ -613,13 +618,6 @@
 .process-step:hover .step-number {
   transform: scale(1.1);
   box-shadow: 0 6px 20px rgb(16 185 129 / 50%);
-}
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 0 20px rgb(16 185 129 / 40%);
 }
 
 .step-title {
