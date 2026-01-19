@@ -653,12 +653,14 @@
    ============================================ */
 .home-materials {
   padding: 4rem 0;
-  background: var(--tiller-bg-darker, #121414);
+  background: #121414;
+  background-color: #121414;
 }
 
 .materials-callout {
   padding: 2.5rem 3rem;
-  background: var(--tiller-bg-stone, #222524);
+  background: #222524;
+  background-color: #222524;
   border-left: 4px solid var(--tiller-color-gold, #c9a227);
   border-radius: 33px;
   margin-bottom: 4rem;
@@ -685,9 +687,14 @@
   }
 }
 
-.material-card {
+/* Material cards - explicit dark backgrounds */
+.home-materials .material-card,
+.home-materials .material-card.ts-stone-card,
+.material-card,
+.material-card.ts-stone-card {
   padding: 2rem;
-  background: var(--tiller-bg-stone, #222524);
+  background: #222524;
+  background-color: #222524;
   border: 1px solid rgb(201 162 39 / 20%);
   border-radius: 33px;
   height: 100%;
@@ -696,6 +703,7 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  color: #ffffff;
 }
 
 .material-card::after {
