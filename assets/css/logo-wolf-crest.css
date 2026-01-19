@@ -38,8 +38,8 @@
 
 .hero-logo .logo-image {
   width: auto;
-  height: 180px; /* Extra large for hero */
-  max-width: 560px;
+  height: 240px; /* Extra large for hero */
+  max-width: 640px;
   object-fit: contain;
 }
 
@@ -86,16 +86,16 @@
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .ts-header__logo .logo-image {
-    height: 40px;
+    height: 56px;
   }
   
   .ts-header--minimized .ts-header__logo .logo-image {
-    height: 32px;
+    height: 40px;
   }
   
   .hero-logo .logo-image {
-    height: 120px;
-    max-width: 360px;
+    height: 160px;
+    max-width: 480px;
   }
 }
 

@@ -27,14 +27,14 @@
 
 .footer-logo {
   display: block;
-  max-width: 200px;
+  max-width: 280px;
   height: auto;
   margin: 0 auto var(--tiller-spacing-sm, 0.5rem);
   border-radius: 12px;
 }
 
 .footer-logo--large {
-  max-width: 200px;
+  max-width: 280px;
 }
 
 .footer-tagline {

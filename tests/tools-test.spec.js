@@ -4,8 +4,8 @@ import { test, expect } from '@playwright/test';
 test('Tools page loads and calculators work', async ({ page }) => {
   await page.goto('/tools/');
   
-  // Check page loads
-  await expect(page.locator('h1')).toContainText('Tile Project Tools');
+  // Check page loads - h1 is in the hero section
+  await expect(page.locator('h1.tools-hero__title')).toContainText('Tile Project Calculators');
   
   // Check Tile Calculator works
   await page.fill('#calc-area', '100');

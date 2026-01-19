@@ -1,10 +1,5 @@
 import { expect, test } from '@playwright/test';
 
-test.use({
-  trace: 'on',
-  video: 'on',
-});
-
 /**
  * Tillerstead Mobile Navigation Tests
  * Validates high-end mobile drawer functionality
@@ -22,19 +17,18 @@ test.describe('Mobile Navigation Drawer', () => {
   test.beforeEach(async ({ page }) => {
     // Capture browser console output
     page.on('console', (msg) => {
-      // Print all browser logs to test output
       console.log(`[BROWSER LOG][${msg.type()}]`, msg.text());
     });
     page.on('pageerror', (error) => {
       console.error('[BROWSER ERROR]', error);
     });
-    // Log failed network requests (e.g., JS not loading)
     page.on('requestfailed', (request) => {
       console.error('[REQUEST FAILED]', request.url(), request.failure());
     });
-    await page.goto('/'); // baseURL is set in Playwright config
-    // Set mobile viewport
+    
+    // Set mobile viewport BEFORE navigation to ensure mobile nav is visible
     await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
   });
 
   test('should open drawer when hamburger clicked', async ({ page }) => {
@@ -80,20 +74,25 @@ test.describe('Mobile Navigation Drawer', () => {
   test('should close drawer when backdrop clicked', async ({ page }) => {
     const toggle = page.locator('.mobile-nav__toggle');
     const drawer = page.locator('#mobile-nav-drawer');
+    const body = page.locator('.mobile-nav__body');
 
     // Open drawer
     await toggle.click();
     await page.waitForTimeout(500);
     await expect(drawer).toHaveAttribute('aria-hidden', 'false');
 
-    // Click on drawer background area (far right side, away from nav content)
-    // The drawer spans full width, clicking on the right edge should hit the backdrop area
+    // Get drawer bounding box to calculate backdrop area
     const drawerBox = await drawer.boundingBox();
+    const bodyBox = await body.boundingBox();
+    
     if (drawerBox) {
-      // Click on the right edge of the drawer (outside the nav panel)
-      await page.mouse.click(drawerBox.x + drawerBox.width - 20, drawerBox.y + drawerBox.height / 2);
+      // The backdrop is the transparent area to the left of the nav body
+      // Click outside the body element (left of bodyBox.x)
+      const clickX = Math.max(0, bodyBox?.x - 50 || drawerBox.x + 10);
+      const clickY = drawerBox.y + drawerBox.height / 2;
+      await page.mouse.click(clickX, clickY);
     }
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(700);
 
     // Drawer should be closed
     await expect(drawer).toHaveAttribute('aria-hidden', 'true');

@@ -112,8 +112,8 @@
 .ts-header__logo .logo-image {
   display: block;
   width: auto;
-  height: 48px;
-  max-height: 48px;
+  height: 64px;
+  max-height: 64px;
   object-fit: contain;
 
   /* Drop shadow for visibility on dark header background */
@@ -189,8 +189,8 @@
 }
 
 .ts-header--minimized .ts-header__logo .logo-image {
-  height: 36px;
-  max-height: 36px;
+  height: 48px;
+  max-height: 48px;
 }
 
 .ts-header--minimized .ts-header__branding {

@@ -1029,9 +1029,10 @@
       }
     });
     
-    // Close on backdrop click
+    // Close on backdrop click (anywhere outside the nav body)
     mobileDrawer.addEventListener('click', (e) => {
-      if (e.target === mobileDrawer) {
+      // Only close if clicked on drawer itself, not on nav body or its contents
+      if (e.target === mobileDrawer || !e.target.closest('.mobile-nav__body')) {
         closeMobileNav();
       }
     });
