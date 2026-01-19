@@ -74,21 +74,31 @@ test.describe('Mobile Navigation Drawer', () => {
   test('should close drawer when backdrop clicked', async ({ page }) => {
     const toggle = page.locator('.mobile-nav__toggle');
     const drawer = page.locator('#mobile-nav-drawer');
-    const body = page.locator('.mobile-nav__body');
+    const navBody = page.locator('.mobile-nav__body');
 
     // Open drawer
     await toggle.click();
     await page.waitForTimeout(500);
     await expect(drawer).toHaveAttribute('aria-hidden', 'false');
 
-    // Get drawer bounding box to calculate backdrop area
-    const drawerBox = await drawer.boundingBox();
-    const bodyBox = await body.boundingBox();
+    // Get dimensions to check if backdrop exists
+    const viewport = page.viewportSize();
+    const navBodyBox = await navBody.boundingBox();
     
-    if (drawerBox) {
-      // The backdrop is the transparent area to the left of the nav body
-      // Click outside the body element (left of bodyBox.x)
-      const clickX = Math.max(0, bodyBox?.x - 50 || drawerBox.x + 10);
+    // On very small phones (≤480px), nav body is 100% width - no backdrop area to click
+    // In this case, verify close via escape works instead
+    if (viewport && navBodyBox && navBodyBox.width >= viewport.width - 20) {
+      await page.keyboard.press('Escape');
+      await page.waitForTimeout(500);
+      await expect(drawer).toHaveAttribute('aria-hidden', 'true');
+      return;
+    }
+
+    // Click on the backdrop area (left of the nav body)
+    const drawerBox = await drawer.boundingBox();
+    if (drawerBox && navBodyBox) {
+      // Click to the left of the nav body (the backdrop/overlay area)
+      const clickX = Math.max(10, navBodyBox.x - 30);
       const clickY = drawerBox.y + drawerBox.height / 2;
       await page.mouse.click(clickX, clickY);
     }

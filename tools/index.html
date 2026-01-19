@@ -658,19 +658,19 @@
   aria-label="Navigation menu"
   aria-hidden="true"
 >
-  <!-- Drawer Header -->
-  <div class="mobile-nav__header">
-    <button 
-      type="button"
-      class="mobile-nav__close"
-      aria-label="Close navigation menu"
-    >
-      <span aria-hidden="true">✕</span> Close
-    </button>
-  </div>
-  
-  <!-- Drawer Body -->
+  <!-- Drawer Body (slides in from right) -->
   <nav class="mobile-nav__body" aria-label="Mobile Navigation">
+    <!-- Drawer Header with Close Button -->
+    <div class="mobile-nav__header">
+      <button 
+        type="button"
+        class="mobile-nav__close"
+        aria-label="Close navigation menu"
+      >
+        <span aria-hidden="true">✕</span> Close
+      </button>
+    </div>
+    
     <ul class="mobile-nav__list">
       
       <li class="mobile-nav__item">
@@ -2014,43 +2014,28 @@
               </svg>
               Copy
             </button>
-            <button type="button" class="btn btn--sm btn--secondary" id="print-output-btn" aria-label="Print / Save as PDF" title="Print or save as PDF">
-              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>
-              </svg>
-              Print / Save as PDF
-            </button>
             <button type="button" class="btn btn--sm btn--secondary" id="download-doc-btn" aria-label="Download as Word document" title="Download as .doc file">
               <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
               </svg>
               Download .doc
             </button>
+            <button type="button" class="btn btn--sm btn--secondary" id="download-txt-btn" aria-label="Download as text file" title="Download as .txt file">
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+              Download .txt
+            </button>
+            <button type="button" class="btn btn--sm btn--primary" id="download-pdf-btn" aria-label="Download PDF" title="Download formatted PDF">
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15h6"/><path d="M9 18h6"/>
+              </svg>
+              Download PDF
+            </button>
           </div>
         </div>
         <div class="output-preview__content" id="output-content"></div>
       </div>
-    </div>
-
-    <!-- Import/Export JSON (Pro Only) -->
-    <div class="tools-card tools-card--secondary pro-only">
-      <h3 class="tools-card__title">Save & Load Project Data</h3>
-      <div class="form-actions">
-        <button type="button" class="btn btn--secondary" id="export-json-btn" aria-label="Export project as JSON" title="Export project data">
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
-          </svg>
-          Export JSON
-        </button>
-        <label class="btn btn--secondary">
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
-          </svg>
-          Import JSON
-          <input type="file" id="import-json-input" accept=".json" class="sr-only">
-        </label>
-      </div>
-      <p class="tools-card__note">Projects auto-save to your browser. Use export to back up or transfer between devices.</p>
     </div>
   </div>
 </section>

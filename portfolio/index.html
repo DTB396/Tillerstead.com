@@ -658,19 +658,19 @@
   aria-label="Navigation menu"
   aria-hidden="true"
 >
-  <!-- Drawer Header -->
-  <div class="mobile-nav__header">
-    <button 
-      type="button"
-      class="mobile-nav__close"
-      aria-label="Close navigation menu"
-    >
-      <span aria-hidden="true">✕</span> Close
-    </button>
-  </div>
-  
-  <!-- Drawer Body -->
+  <!-- Drawer Body (slides in from right) -->
   <nav class="mobile-nav__body" aria-label="Mobile Navigation">
+    <!-- Drawer Header with Close Button -->
+    <div class="mobile-nav__header">
+      <button 
+        type="button"
+        class="mobile-nav__close"
+        aria-label="Close navigation menu"
+      >
+        <span aria-hidden="true">✕</span> Close
+      </button>
+    </div>
+    
     <ul class="mobile-nav__list">
       
       <li class="mobile-nav__item">
@@ -1168,8 +1168,9 @@
       <button class="filter-btn active" data-filter="all" aria-label="Show all projects">All Projects</button>
       <button class="filter-btn" data-filter="showers" aria-label="Filter by showers">Showers</button>
       <button class="filter-btn" data-filter="floors" aria-label="Filter by floors">Floors</button>
-      <button class="filter-btn" data-filter="large-format" aria-label="Filter by large-format tile">Large-Format Tile</button>
-      <button class="filter-btn" data-filter="prep" aria-label="Filter by prep and waterproofing">Prep & Waterproofing</button>
+      <button class="filter-btn" data-filter="backsplash" aria-label="Filter by backsplash">Backsplash</button>
+      <button class="filter-btn" data-filter="large-format" aria-label="Filter by large-format tile">Large-Format</button>
+      <button class="filter-btn" data-filter="prep" aria-label="Filter by prep and waterproofing">Prep</button>
     </nav>
 
     <!-- Project Grid -->
@@ -1227,7 +1228,31 @@
       <article class="project-card" data-tags="showers details">
         <div class="project-image">
           <img 
-            src="/assets/img/tillerstead-work/bathrooms/bathroom-wall-tile-detail-pre-grout.jpg" 
+            src="/assets/img/concepts/shower-white-subway-with-decor-tile.webp" 
+            alt="White subway tile shower with decorative accent tile band"
+            loading="lazy"
+          />
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Subway Tile Shower with Accent</h3>
+          <p class="project-caption">Classic subway tile pattern with integrated decorative accent band. Waterproofing and proper slope ensure long-term durability.
+</p>
+          
+          <div class="project-tags">
+            
+            <span class="tag">showers</span>
+            
+            <span class="tag">details</span>
+            
+          </div>
+          
+        </div>
+      </article>
+      
+      <article class="project-card" data-tags="showers details">
+        <div class="project-image">
+          <img 
+            src="/assets/img/tillerstead-work/bathrooms/bathroom-wall-tile-detail-pre-grout.webp" 
             alt="Bathroom wall tile detail before grout showing consistent joint spacing"
             loading="lazy"
           />
@@ -1248,16 +1273,16 @@
         </div>
       </article>
       
-      <article class="project-card" data-tags="floors large-format in-progress">
+      <article class="project-card" data-tags="floors large-format">
         <div class="project-image">
           <img 
-            src="/assets/img/tillerstead-work/bathrooms/large-format-tile-installation.jpg" 
+            src="/assets/img/tillerstead-work/bathrooms/large-format-tile-installation.webp" 
             alt="Large-format tile installation in progress with clip system for lippage control"
             loading="lazy"
           />
         </div>
         <div class="project-content">
-          <h3 class="project-title">Large-Format Tile Installation (In Progress)</h3>
+          <h3 class="project-title">Large-Format Tile Installation</h3>
           <p class="project-caption">In-progress install: clip system used to manage lippage, mortar and trowel selection matched to the tile, and coverage verified during setting.
 </p>
           
@@ -1267,7 +1292,29 @@
             
             <span class="tag">large-format</span>
             
-            <span class="tag">in-progress</span>
+          </div>
+          
+        </div>
+      </article>
+      
+      <article class="project-card" data-tags="backsplash details">
+        <div class="project-image">
+          <img 
+            src="/assets/img/concepts/backsplash-white.webp" 
+            alt="Clean white kitchen backsplash tile installation"
+            loading="lazy"
+          />
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Kitchen Backsplash</h3>
+          <p class="project-caption">Kitchen backsplash with precise cuts around outlets and clean transitions. Proper surface prep ensures lasting adhesion.
+</p>
+          
+          <div class="project-tags">
+            
+            <span class="tag">backsplash</span>
+            
+            <span class="tag">details</span>
             
           </div>
           
@@ -1283,7 +1330,7 @@
           />
         </div>
         <div class="project-content">
-          <h3 class="project-title">Membrane + Substrate Prep</h3>
+          <h3 class="project-title">Membrane & Substrate Prep</h3>
           <p class="project-caption">Prep phase: membrane installed over a prepared substrate to support the tile assembly. Details and transitions completed per the selected system specifications.
 </p>
           
@@ -1300,6 +1347,30 @@
         </div>
       </article>
       
+      <article class="project-card" data-tags="floors large-format">
+        <div class="project-image">
+          <img 
+            src="/assets/img/concepts/brown-tile-plank-flooring.webp" 
+            alt="Brown wood-look plank tile flooring installation"
+            loading="lazy"
+          />
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Wood-Look Plank Tile</h3>
+          <p class="project-caption">Wood-look plank tile with staggered pattern for natural appearance. Large-format installation requires proper mortar coverage and leveling.
+</p>
+          
+          <div class="project-tags">
+            
+            <span class="tag">floors</span>
+            
+            <span class="tag">large-format</span>
+            
+          </div>
+          
+        </div>
+      </article>
+      
       <article class="project-card" data-tags="floors remodeling">
         <div class="project-image">
           <img 
@@ -1309,8 +1380,32 @@
           />
         </div>
         <div class="project-content">
-          <h3 class="project-title">Hardwood Flooring (Scope Diversity)</h3>
+          <h3 class="project-title">Hardwood Flooring</h3>
           <p class="project-caption">Hardwood installation with clean transitions and substrate preparation consistent with manufacturer requirements.
+</p>
+          
+          <div class="project-tags">
+            
+            <span class="tag">floors</span>
+            
+            <span class="tag">remodeling</span>
+            
+          </div>
+          
+        </div>
+      </article>
+      
+      <article class="project-card" data-tags="floors remodeling">
+        <div class="project-image">
+          <img 
+            src="/assets/img/concepts/treat-sand-stain-hardwood-floor-room.webp" 
+            alt="Hardwood floor sanding and staining in progress"
+            loading="lazy"
+          />
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Hardwood Refinishing</h3>
+          <p class="project-caption">Hardwood refinishing: sanding, staining, and sealing for restored beauty. Proper prep and product selection ensure durable results.
 </p>
           
           <div class="project-tags">

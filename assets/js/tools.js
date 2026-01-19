@@ -1883,13 +1883,6 @@
   }
 
   /**
-   * Print output
-   */
-  function printOutput() {
-    window.print();
-  }
-
-  /**
    * Download as .doc (HTML-based)
    */
   function downloadDoc() {
@@ -1915,7 +1908,176 @@
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 
-    showToast('Downloaded! Open in Word or use Print to PDF.');
+    showToast('Downloaded! Open in Word or Google Docs.');
+  }
+
+  /**
+   * Download as plain text file
+   */
+  function downloadTxt() {
+    const text = generatePlainTextOutput();
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const filename = `${(state.project.name || 'tile-project').replace(/[^a-z0-9]/gi, '-')}-spec.txt`;
+    
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    showToast('Text file downloaded!');
+  }
+
+  /**
+   * Generate plain text output for .txt download
+   */
+  function generatePlainTextOutput() {
+    const date = new Date().toLocaleDateString('en-US', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
+    
+    let text = '';
+    const line = '═'.repeat(60);
+    const thinLine = '─'.repeat(60);
+    
+    // Header
+    text += line + '\n';
+    text += '  TILLERSTEAD TILE PROJECT SPECIFICATION\n';
+    text += line + '\n\n';
+    
+    text += `Project: ${state.project.name || 'Untitled Project'}\n`;
+    if (state.project.address) text += `Address: ${state.project.address}\n`;
+    if (state.project.contact) text += `Contact: ${state.project.contact}\n`;
+    text += `Date: ${date}\n`;
+    text += '\n' + thinLine + '\n\n';
+    
+    // Calculate totals
+    let totalArea = 0;
+    state.rooms.forEach(room => {
+      if (!room.surfaces) return;
+      Object.values(room.surfaces).forEach(s => {
+        if (s.selected) totalArea += s.area;
+      });
+    });
+    
+    const wasteFactor = (state.defaults.wasteFactor || 12) / 100;
+    const areaWithWaste = totalArea * (1 + wasteFactor);
+    
+    // MEASUREMENTS SECTION
+    if (document.getElementById('output-measurements').checked) {
+      text += '📐 MEASUREMENTS\n';
+      text += thinLine + '\n\n';
+      
+      state.rooms.filter(r => r.name).forEach(room => {
+        const surfaces = Object.entries(room.surfaces || {})
+          .filter(([, s]) => s.selected);
+        
+        if (surfaces.length === 0) return;
+        
+        text += `${room.name}:\n`;
+        surfaces.forEach(([id, s]) => {
+          const name = id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+          text += `  • ${name}: ${formatNumber(s.area, 1)} sf\n`;
+        });
+        const roomTotal = surfaces.reduce((sum, [, s]) => sum + s.area, 0);
+        text += `  Subtotal: ${formatNumber(roomTotal, 1)} sf\n\n`;
+      });
+      
+      text += `TOTAL TILE AREA: ${formatNumber(totalArea, 1)} sf\n`;
+      text += `With ${state.defaults.wasteFactor || 12}% waste: ${formatNumber(areaWithWaste, 1)} sf\n`;
+      text += '\n' + thinLine + '\n\n';
+    }
+    
+    // TILE DETAILS
+    if (document.getElementById('output-tile').checked) {
+      const tile = getTilePreset(
+        state.defaults.tilePreset,
+        state.defaults.customTileWidth,
+        state.defaults.customTileHeight
+      );
+      const layout = getLayoutPreset(state.defaults.layout);
+      
+      text += '🔲 TILE SPECIFICATION\n';
+      text += thinLine + '\n\n';
+      text += `Tile Size: ${tile.name}\n`;
+      text += `Layout Pattern: ${layout.name}\n`;
+      text += `Waste Factor: ${state.defaults.wasteFactor || 12}%\n`;
+      
+      const tilesPerSf = 144 / (tile.width * tile.height);
+      const tilesNeeded = Math.ceil(areaWithWaste * tilesPerSf);
+      text += `\nTiles Required: ~${tilesNeeded} tiles\n`;
+      
+      if (state.defaults.tilesPerBox) {
+        const boxes = Math.ceil(tilesNeeded / state.defaults.tilesPerBox);
+        text += `Boxes Needed: ${boxes} boxes (${state.defaults.tilesPerBox} tiles/box)\n`;
+      }
+      text += '\n' + thinLine + '\n\n';
+    }
+    
+    // MATERIALS
+    if (document.getElementById('output-mortar').checked) {
+      const tile = getTilePreset(
+        state.defaults.tilePreset,
+        state.defaults.customTileWidth,
+        state.defaults.customTileHeight
+      );
+      const trowelRec = recommendTrowel(tile.width, tile.height);
+      const mortarCalc = calculateMortarBags(areaWithWaste, trowelRec.trowelId);
+      const groutCalc = calculateGrout(
+        areaWithWaste,
+        tile.width,
+        tile.height,
+        getJointPreset(state.defaults.jointSize).size
+      );
+      
+      text += '🧱 MATERIALS ESTIMATE\n';
+      text += thinLine + '\n\n';
+      text += `Thinset Mortar: ${mortarCalc.min}–${mortarCalc.max} bags (50 lb)\n`;
+      text += `Recommended Trowel: ${getTrowelPreset(trowelRec.trowelId).name}\n`;
+      text += `Grout: ~${groutCalc.quantity} lbs\n`;
+      
+      if (state.systems.waterproofing === 'liquid') {
+        const gallons = Math.ceil(totalArea / 50);
+        text += `Waterproofing Membrane: ~${gallons} gallons\n`;
+      }
+      text += '\n' + thinLine + '\n\n';
+    }
+    
+    // ASSUMPTIONS
+    if (document.getElementById('output-assumptions').checked) {
+      text += '📋 ASSUMPTIONS & NOTES\n';
+      text += thinLine + '\n\n';
+      text += '• Substrate assumed level and sound\n';
+      text += '• Coverage rates based on TCNA guidelines\n';
+      text += '• Mortar coverage varies with trowel technique\n';
+      text += '• Waste factor accounts for cuts and breakage\n';
+      if (state.project.notes) {
+        text += `\nProject Notes:\n${state.project.notes}\n`;
+      }
+      text += '\n' + thinLine + '\n\n';
+    }
+    
+    // DISCLAIMER
+    if (document.getElementById('output-disclaimers').checked) {
+      text += '⚠️  DISCLAIMER\n';
+      text += thinLine + '\n\n';
+      text += 'This estimate is for planning purposes only. Actual material\n';
+      text += 'quantities may vary based on site conditions, tile size\n';
+      text += 'variations, and installation methods. Always verify with\n';
+      text += 'manufacturer specifications before purchasing.\n\n';
+    }
+    
+    // Footer
+    text += line + '\n';
+    text += `Generated by Tillerstead Tools | ${date}\n`;
+    text += 'tillerstead.com/tools/\n';
+    text += 'NJ HIC #13VH10808800\n';
+    text += line + '\n';
+    
+    return text;
   }
 
   /**
@@ -2826,9 +2988,9 @@
           printWindow.print();
         }, 500);
       };
-      showToast('PDF Build Guide opened! Use Print → Save as PDF');
+      showToast('Build Guide ready! Select "Save as PDF" in Print dialog');
     } else {
-      // Fallback: download as HTML file
+      // Fallback: download as HTML file that user can open and print
       const a = document.createElement('a');
       const filename = (state.project.name || 'tile-project').replace(/[^a-z0-9]/gi, '-') + '-build-guide.html';
       a.href = url;
@@ -2836,7 +2998,7 @@
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      showToast('Build Guide downloaded! Open and use Print → Save as PDF');
+      showToast('Build Guide downloaded! Open and Print → Save as PDF');
     }
     
     // Clean up after a delay
@@ -2907,68 +3069,6 @@
       console.warn('Could not load from localStorage:', e);
     }
     return false;
-  }
-
-  /**
-   * Export state as JSON file
-   */
-  function exportJson() {
-    const data = JSON.stringify(state, null, 2);
-    const blob = new Blob([data], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    const filename = `${(state.project.name || 'tile-project').replace(/[^a-z0-9]/gi, '-')}-data.json`;
-    
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-
-    showToast('Project exported!');
-  }
-
-  /**
-   * Import state from JSON file
-   */
-  function importJson(file) {
-    const reader = new FileReader();
-    
-    reader.onload = function(e) {
-      try {
-        const data = JSON.parse(e.target.result);
-        
-        // Validate required structure
-        if (!data.project || !data.rooms) {
-          throw new Error('Invalid project file format');
-        }
-
-        // Merge with current state
-        state = {
-          ...state,
-          ...data,
-          project: { ...state.project, ...data.project },
-          defaults: { ...state.defaults, ...data.defaults },
-          systems: { ...state.systems, ...data.systems }
-        };
-
-        // Re-render UI
-        renderFromState();
-        saveToStorage();
-        showToast('Project imported successfully!');
-
-      } catch (err) {
-        showToast('Error: Could not import file. Check format.');
-        console.error('Import error:', err);
-      }
-    };
-
-    reader.onerror = function() {
-      showToast('Error: Could not read file.');
-    };
-
-    reader.readAsText(file);
   }
 
   /**
@@ -3308,8 +3408,8 @@
     });
     document.getElementById('generate-output-btn').addEventListener('click', showOutputPreview);
     document.getElementById('copy-output-btn').addEventListener('click', copyOutput);
-    document.getElementById('print-output-btn').addEventListener('click', printOutput);
     document.getElementById('download-doc-btn').addEventListener('click', downloadDoc);
+    document.getElementById('download-txt-btn').addEventListener('click', downloadTxt);
     document.getElementById('download-pdf-btn').addEventListener('click', downloadPdfBuildGuide);
 
     // Save/Load buttons
@@ -3318,13 +3418,6 @@
       showToast('Project saved!');
     });
     document.getElementById('reset-project-btn').addEventListener('click', resetProject);
-    document.getElementById('export-json-btn').addEventListener('click', exportJson);
-    document.getElementById('import-json-input').addEventListener('change', (e) => {
-      if (e.target.files && e.target.files[0]) {
-        importJson(e.target.files[0]);
-        e.target.value = ''; // Reset for same file
-      }
-    });
 
     // Add room button
     document.getElementById('add-room-btn').addEventListener('click', () => {

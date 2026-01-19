@@ -41,13 +41,11 @@
   pointer-events: auto;
 }
 
-/* Prevent background scroll */
+/* Prevent background scroll - SIMPLIFIED to avoid stacking context issues */
+/* Note: position: fixed on body was causing mobile nav to be hidden behind content */
 body.nav-open {
   overflow: hidden !important;
   touch-action: none;
-  position: fixed;
-  width: 100%;
-  height: 100vh;
 }
 
 /* Drawer Content */
