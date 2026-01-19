@@ -62,6 +62,46 @@
 
   const STORAGE_KEY = 'tillerstead_tools_project';
 
+  // Surface type configurations
+  const SURFACE_CONFIGS = {
+    floor: {
+      label: 'Floor',
+      calcMode: 'dimensions', // uses L×W
+      defaultHeight: null,
+      icon: '▢'
+    },
+    'full-walls': {
+      label: 'Full Walls',
+      calcMode: 'perimeter', // perimeter × height
+      defaultHeight: 8,
+      icon: '▤'
+    },
+    'shower-walls': {
+      label: 'Shower Walls',
+      calcMode: 'manual', // user enters or uses preset
+      defaultArea: 72, // 3 walls × 3ft × 8ft
+      icon: '▥'
+    },
+    'tub-surround': {
+      label: 'Tub Surround',
+      calcMode: 'manual',
+      defaultArea: 60, // 3 walls × 5ft × 4ft
+      icon: '▧'
+    },
+    backsplash: {
+      label: 'Backsplash',
+      calcMode: 'manual',
+      defaultArea: 6, // ~4 linear ft × 18"
+      icon: '▨'
+    }
+  };
+
+  // Validation error types
+  const VALIDATION_TYPES = {
+    ERROR: 'error',
+    WARNING: 'warning'
+  };
+
   // ============================================
   // STATE MANAGEMENT
   // ============================================
@@ -97,9 +137,15 @@
       subfloorRepair: false,
       disposal: false
     },
+    mode: 'pro', // 'pro' or 'homeowner'
+    trowelOverride: {
+      selected: null,
+      reason: ''
+    },
     assumptions: [],
     nudges: [],
-    validationErrors: []
+    validationErrors: [],
+    validationWarnings: []
   };
 
   let roomIdCounter = 0;
@@ -458,16 +504,26 @@
 
   /**
    * Validate project data
+   * Returns { errors: [], warnings: [], missingFields: [] }
    */
   function validateProject() {
     const errors = [];
+    const warnings = [];
+    const missingFields = [];
 
     // Project name required
     if (!state.project.name || !state.project.name.trim()) {
       errors.push({
         field: 'project-name',
+        selector: '#project-name',
         message: 'Project name is required',
-        section: 'Project Information'
+        section: 'Project Information',
+        type: VALIDATION_TYPES.ERROR
+      });
+      missingFields.push({
+        label: 'Project Name',
+        selector: '#project-name',
+        message: 'Enter a project name'
       });
     }
 
@@ -475,18 +531,34 @@
     if (state.rooms.length === 0) {
       errors.push({
         field: 'add-room-btn',
+        selector: '#add-room-btn',
         message: 'Add at least one room',
-        section: 'Rooms'
+        section: 'Rooms',
+        type: VALIDATION_TYPES.ERROR
+      });
+      missingFields.push({
+        label: 'Rooms',
+        selector: '#add-room-btn',
+        message: 'Click "Add Room" to add your first room'
       });
     }
 
     // Validate each room
     state.rooms.forEach((room, index) => {
+      const roomSelector = `[data-room-id="${room.id}"]`;
+      
       if (!room.name || !room.name.trim()) {
         errors.push({
           field: `room-${room.id}-name`,
+          selector: `${roomSelector} .room-name-input`,
           message: `Room ${index + 1}: Name is required`,
-          section: 'Rooms'
+          section: 'Rooms',
+          type: VALIDATION_TYPES.ERROR
+        });
+        missingFields.push({
+          label: `Room ${index + 1} Name`,
+          selector: `${roomSelector} .room-name-input`,
+          message: 'Enter a room name'
         });
       }
 
@@ -495,8 +567,10 @@
       if (!hasSurface) {
         errors.push({
           field: `room-${room.id}-surfaces`,
+          selector: `${roomSelector} .surfaces-fieldset`,
           message: `${room.name || 'Room ' + (index + 1)}: Select at least one surface to tile`,
-          section: 'Rooms'
+          section: 'Rooms',
+          type: VALIDATION_TYPES.ERROR
         });
       }
 
@@ -507,57 +581,220 @@
         if (length <= 0 || width <= 0) {
           errors.push({
             field: `room-${room.id}-dimensions`,
+            selector: `${roomSelector} .room-length-ft`,
             message: `${room.name || 'Room ' + (index + 1)}: Enter room dimensions for floor area`,
-            section: 'Rooms'
+            section: 'Rooms',
+            type: VALIDATION_TYPES.ERROR
+          });
+          missingFields.push({
+            label: `${room.name || 'Room ' + (index + 1)} Dimensions`,
+            selector: `${roomSelector} .room-length-ft`,
+            message: 'Enter length and width'
+          });
+        }
+      }
+
+      // Check for manual area overrides that are zero/invalid
+      Object.entries(room.surfaces || {}).forEach(([surfaceId, surface]) => {
+        if (surface.selected && surface.areaMode === 'manual' && (!surface.manualArea || surface.manualArea <= 0)) {
+          errors.push({
+            field: `room-${room.id}-surface-${surfaceId}`,
+            selector: `${roomSelector} [data-surface-id="${surfaceId}"] .surface-manual-area`,
+            message: `${room.name || 'Room ' + (index + 1)}: ${SURFACE_CONFIGS[surfaceId]?.label || surfaceId} manual area must be greater than 0`,
+            section: 'Rooms',
+            type: VALIDATION_TYPES.ERROR
+          });
+        }
+      });
+
+      // Warning: Room is locked but has no area
+      if (room.locked) {
+        const totalArea = Object.values(room.surfaces || {}).reduce((sum, s) => sum + (s.selected ? s.area : 0), 0);
+        if (totalArea === 0) {
+          warnings.push({
+            field: `room-${room.id}-locked`,
+            selector: roomSelector,
+            message: `${room.name || 'Room ' + (index + 1)}: Measurements locked but no area calculated`,
+            section: 'Rooms',
+            type: VALIDATION_TYPES.WARNING
           });
         }
       }
     });
 
+    // Warning: No tile size selected
+    if (!state.defaults.tilePreset) {
+      warnings.push({
+        field: 'default-tile-size',
+        selector: '#default-tile-size',
+        message: 'Consider selecting a tile size for more accurate calculations',
+        section: 'Tile & Layout',
+        type: VALIDATION_TYPES.WARNING
+      });
+    }
+
+    // Warning: No layout selected
+    if (!state.defaults.layout) {
+      warnings.push({
+        field: 'default-layout',
+        selector: '#default-layout',
+        message: 'Consider selecting a layout pattern for waste factor guidance',
+        section: 'Tile & Layout',
+        type: VALIDATION_TYPES.WARNING
+      });
+    }
+
     state.validationErrors = errors;
-    return errors;
+    state.validationWarnings = warnings;
+
+    return { errors, warnings, missingFields };
   }
 
   /**
    * Show validation errors in UI
    */
-  function showValidationErrors(errors) {
+  function showValidationErrors(validationResult) {
+    const { errors, warnings, missingFields } = validationResult;
     const panel = document.getElementById('needs-attention');
     const list = document.getElementById('needs-attention-list');
+    const badge = document.getElementById('needs-attention-badge');
 
-    if (errors.length === 0) {
+    // Update badge count
+    const totalIssues = errors.length + warnings.length;
+    if (badge) {
+      badge.textContent = totalIssues;
+      badge.hidden = totalIssues === 0;
+    }
+
+    // Clear existing visual states
+    document.querySelectorAll('.is-invalid, .is-warning').forEach(el => {
+      el.classList.remove('is-invalid', 'is-warning');
+    });
+
+    if (totalIssues === 0) {
       panel.hidden = true;
+      list.innerHTML = '';
       return;
     }
 
-    list.innerHTML = errors.map(err => `
-      <li class="needs-attention__item">
-        <span class="needs-attention__message">${escapeHtml(err.message)}</span>
-        <button type="button" class="needs-attention__jump" data-field="${err.field}">
-          Jump to field
-        </button>
-      </li>
-    `).join('');
+    // Apply visual states to fields
+    errors.forEach(err => {
+      if (err.selector) {
+        const el = document.querySelector(err.selector);
+        if (el) el.classList.add('is-invalid');
+      }
+    });
+    warnings.forEach(warn => {
+      if (warn.selector) {
+        const el = document.querySelector(warn.selector);
+        if (el) el.classList.add('is-warning');
+      }
+    });
 
+    // Render list items (errors first, then warnings)
+    let html = '';
+    
+    if (errors.length > 0) {
+      html += `<li class="needs-attention__header needs-attention__header--error" role="status" aria-live="assertive">
+        <strong>⚠️ ${errors.length} Required</strong>
+      </li>`;
+      errors.forEach(err => {
+        html += `
+          <li class="needs-attention__item needs-attention__item--error">
+            <span class="needs-attention__icon">❌</span>
+            <span class="needs-attention__message">${escapeHtml(err.message)}</span>
+            ${err.selector ? `<button type="button" class="needs-attention__jump btn btn--ghost btn--xs" 
+              data-selector="${escapeHtml(err.selector)}" aria-label="Go to ${escapeHtml(err.message)}">
+              Go →
+            </button>` : ''}
+          </li>
+        `;
+      });
+    }
+
+    if (warnings.length > 0) {
+      html += `<li class="needs-attention__header needs-attention__header--warning" role="status" aria-live="polite">
+        <strong>💡 ${warnings.length} Suggestions</strong>
+      </li>`;
+      warnings.forEach(warn => {
+        html += `
+          <li class="needs-attention__item needs-attention__item--warning">
+            <span class="needs-attention__icon">⚡</span>
+            <span class="needs-attention__message">${escapeHtml(warn.message)}</span>
+            ${warn.selector ? `<button type="button" class="needs-attention__jump btn btn--ghost btn--xs" 
+              data-selector="${escapeHtml(warn.selector)}" aria-label="Go to ${escapeHtml(warn.message)}">
+              Go →
+            </button>` : ''}
+          </li>
+        `;
+      });
+    }
+
+    list.innerHTML = html;
     panel.hidden = false;
 
-    // Add jump-to-field handlers
-    list.querySelectorAll('.needs-attention__jump').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const fieldId = btn.dataset.field;
-        const field = document.getElementById(fieldId) || 
-                      document.querySelector(`[data-room-id="${fieldId.replace('room-', '').replace(/-.*/, '')}"]`);
-        if (field) {
-          field.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          const input = field.querySelector('input, select, textarea') || field;
-          if (input.focus) {
-            setTimeout(() => input.focus(), 300);
-          }
-          field.classList.add('highlight-field');
-          setTimeout(() => field.classList.remove('highlight-field'), 2000);
-        }
-      });
-    });
+    // Add jump-to-field handlers (event delegation)
+    list.addEventListener('click', handleNeedsAttentionClick);
+  }
+
+  /**
+   * Handle clicks on needs attention list (delegated)
+   */
+  function handleNeedsAttentionClick(e) {
+    const btn = e.target.closest('.needs-attention__jump');
+    if (!btn) return;
+
+    const selector = btn.dataset.selector;
+    if (!selector) return;
+
+    const field = document.querySelector(selector);
+    if (!field) return;
+
+    // Scroll to field
+    field.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    // Focus input inside if available
+    const input = field.matches('input, select, textarea') ? field : field.querySelector('input, select, textarea');
+    if (input && input.focus) {
+      setTimeout(() => input.focus(), 300);
+    }
+
+    // Visual highlight
+    field.classList.add('highlight-field');
+    setTimeout(() => field.classList.remove('highlight-field'), 2000);
+  }
+
+  /**
+   * Update validation display (called on changes)
+   */
+  function updateValidation() {
+    const result = validateProject();
+    showValidationErrors(result);
+    return result;
+  }
+
+  /**
+   * Update room audit trail display
+   */
+  function updateRoomAuditDisplay(card, room) {
+    const auditDetails = card.querySelector('.room-audit');
+    if (!auditDetails || !room.auditTrail || room.auditTrail.length === 0) return;
+
+    const auditList = auditDetails.querySelector('.room-audit__list');
+    if (!auditList) return;
+
+    auditList.innerHTML = room.auditTrail.map(entry => {
+      const date = new Date(entry.timestamp);
+      const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+      return `
+        <li class="room-audit__entry">
+          <span class="room-audit__time">${escapeHtml(dateStr)}</span>
+          <span class="room-audit__action room-audit__action--${entry.action}">${escapeHtml(entry.action)}</span>
+          ${entry.reason ? `<span class="room-audit__reason">"${escapeHtml(entry.reason)}"</span>` : ''}
+          <span class="room-audit__dims">${formatNumber(entry.dimensions.length, 1)}×${formatNumber(entry.dimensions.width, 1)} ft</span>
+        </li>
+      `;
+    }).join('');
   }
 
   // ============================================
@@ -804,7 +1041,19 @@
     if (!room) return;
 
     if (!room.surfaces) room.surfaces = {};
-    if (!room.surfaces[surfaceId]) room.surfaces[surfaceId] = { selected: false, area: 0 };
+    if (!room.surfaces[surfaceId]) {
+      room.surfaces[surfaceId] = { 
+        selected: false, 
+        area: 0,
+        areaMode: 'auto', // 'auto' or 'manual'
+        manualArea: 0,
+        useGlobalDefaults: true,
+        overrides: {},
+        deductions: [],
+        grossArea: 0,
+        netArea: 0
+      };
+    }
 
     room.surfaces[surfaceId].selected = selected;
 
@@ -813,24 +1062,196 @@
     const width = toDecimalFeet(room.widthFt, room.widthIn);
     const height = toDecimalFeet(room.heightFt, room.heightIn) || 8; // default 8ft ceiling
 
-    if (surfaceId === 'floor') {
-      room.surfaces[surfaceId].area = calculateArea(length, width);
-    } else if (surfaceId === 'full-walls') {
-      // Perimeter × height
-      room.surfaces[surfaceId].area = (length * 2 + width * 2) * height;
-    } else if (surfaceId === 'shower-walls') {
-      // Estimate: 3 walls at 3ft wide × 8ft high = 72 sq ft (placeholder)
-      room.surfaces[surfaceId].area = 72;
-    } else if (surfaceId === 'tub-surround') {
-      // Estimate: 3 walls at 5ft wide × 6ft high = 90 sq ft (placeholder)
-      room.surfaces[surfaceId].area = 60;
-    } else if (surfaceId === 'backsplash') {
-      // Estimate: 4 linear ft × 18" high = 6 sq ft (placeholder)
-      room.surfaces[surfaceId].area = 6;
+    const config = SURFACE_CONFIGS[surfaceId];
+    let grossArea = 0;
+
+    if (config.calcMode === 'dimensions') {
+      grossArea = calculateArea(length, width);
+    } else if (config.calcMode === 'perimeter') {
+      grossArea = (length * 2 + width * 2) * height;
+    } else if (config.calcMode === 'manual') {
+      grossArea = config.defaultArea;
+    }
+
+    room.surfaces[surfaceId].grossArea = grossArea;
+    room.surfaces[surfaceId].area = grossArea; // Will be updated by deductions
+
+    // Render surface details card if selected
+    const card = document.querySelector(`[data-room-id="${roomId}"]`);
+    if (card) {
+      renderSurfaceDetails(card, room);
     }
 
     updateAreaSummary();
     saveToStorage();
+  }
+
+  /**
+   * Render surface detail cards for a room
+   */
+  function renderSurfaceDetails(card, room) {
+    const container = card.querySelector('[data-surface-details]');
+    if (!container) return;
+
+    const selectedSurfaces = Object.entries(room.surfaces || {})
+      .filter(([, s]) => s.selected);
+
+    if (selectedSurfaces.length === 0) {
+      container.hidden = true;
+      container.innerHTML = '';
+      return;
+    }
+
+    container.hidden = false;
+    let html = '<div class="surface-details__grid">';
+
+    selectedSurfaces.forEach(([surfaceId, surface]) => {
+      const config = SURFACE_CONFIGS[surfaceId];
+      const isManual = surface.areaMode === 'manual';
+      const deductionsTotal = (surface.deductions || []).reduce((sum, d) => sum + (d.area || 0), 0);
+      const netArea = (isManual ? surface.manualArea : surface.grossArea) - deductionsTotal;
+
+      html += `
+        <div class="surface-detail-card" data-surface-id="${surfaceId}">
+          <div class="surface-detail-card__header">
+            <span class="surface-detail-card__icon">${config.icon}</span>
+            <span class="surface-detail-card__title">${config.label}</span>
+          </div>
+          <div class="surface-detail-card__body">
+            <!-- Area Mode Toggle -->
+            <div class="form-field">
+              <label class="form-label form-label--sm">Area Mode</label>
+              <select class="form-select form-select--sm surface-area-mode" data-surface="${surfaceId}">
+                <option value="auto" ${!isManual ? 'selected' : ''}>Auto from room dims</option>
+                <option value="manual" ${isManual ? 'selected' : ''}>Manual area override</option>
+              </select>
+            </div>
+            
+            <!-- Manual Area Input (shown when manual) -->
+            <div class="form-field surface-manual-area-field" ${!isManual ? 'hidden' : ''}>
+              <label class="form-label form-label--sm">Area (sq ft)</label>
+              <input type="number" class="form-input form-input--sm surface-manual-area" 
+                data-surface="${surfaceId}" value="${surface.manualArea || ''}" 
+                placeholder="Enter area" min="0" step="0.1">
+            </div>
+            
+            <!-- Gross Area Display -->
+            <div class="surface-area-display">
+              <span class="surface-area-label">Gross:</span>
+              <span class="surface-area-value">${formatNumber(isManual ? surface.manualArea : surface.grossArea, 1)} sf</span>
+            </div>
+            
+            <!-- Deductions -->
+            <div class="surface-deductions">
+              <div class="surface-deductions__header">
+                <span class="form-label form-label--sm">Deductions</span>
+                <button type="button" class="btn btn--ghost btn--xs add-deduction-btn" data-surface="${surfaceId}">
+                  + Add
+                </button>
+              </div>
+              <div class="surface-deductions__list" data-deductions="${surfaceId}">
+                ${renderDeductions(surface.deductions || [], surfaceId)}
+              </div>
+              ${deductionsTotal > 0 ? `
+              <div class="surface-deductions__total">
+                Total deductions: <strong>${formatNumber(deductionsTotal, 1)} sf</strong>
+              </div>
+              ` : ''}
+            </div>
+            
+            <!-- Net Area -->
+            <div class="surface-net-area">
+              <span>Net Area:</span>
+              <strong class="surface-net-value">${formatNumber(Math.max(0, netArea), 1)} sf</strong>
+            </div>
+            
+            <!-- Use Global Defaults Toggle -->
+            <label class="form-checkbox form-checkbox--sm">
+              <input type="checkbox" class="surface-use-defaults" data-surface="${surfaceId}"
+                ${surface.useGlobalDefaults !== false ? 'checked' : ''}>
+              <span>Use global tile defaults</span>
+            </label>
+            
+            <!-- Per-Surface Overrides (shown when not using global) -->
+            <div class="surface-overrides" ${surface.useGlobalDefaults !== false ? 'hidden' : ''}>
+              <div class="form-grid form-grid--2col">
+                <div class="form-field">
+                  <label class="form-label form-label--sm">Tile Size Override</label>
+                  <select class="form-select form-select--sm surface-tile-override" data-surface="${surfaceId}">
+                    <option value="">Same as global</option>
+                    ${TILE_PRESETS.map(t => `<option value="${t.id}" ${surface.overrides?.tilePreset === t.id ? 'selected' : ''}>${t.name}</option>`).join('')}
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label class="form-label form-label--sm">Waste Override</label>
+                  <div class="form-inline">
+                    <input type="number" class="form-input form-input--sm surface-waste-override" 
+                      data-surface="${surfaceId}" value="${surface.overrides?.waste || ''}" 
+                      placeholder="—" min="5" max="40">
+                    <span class="form-inline__suffix">%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+
+    html += '</div>';
+    container.innerHTML = html;
+
+    // Calculate room total
+    recalculateRoomSurfaces(room);
+  }
+
+  /**
+   * Render deduction rows
+   */
+  function renderDeductions(deductions, surfaceId) {
+    if (!deductions || deductions.length === 0) {
+      return '<p class="surface-deductions__empty">No deductions</p>';
+    }
+
+    return deductions.map((d, i) => `
+      <div class="deduction-row" data-index="${i}">
+        <input type="text" class="form-input form-input--sm deduction-label" 
+          value="${escapeHtml(d.label || '')}" placeholder="Label (door, window...)">
+        <div class="form-inline">
+          <input type="number" class="form-input form-input--sm deduction-width" 
+            value="${d.width || ''}" placeholder="W" min="0" step="0.5">
+          <span class="form-inline__sep">×</span>
+          <input type="number" class="form-input form-input--sm deduction-height" 
+            value="${d.height || ''}" placeholder="H" min="0" step="0.5">
+          <span class="form-inline__suffix">in</span>
+        </div>
+        <span class="deduction-area">${d.area ? formatNumber(d.area, 1) + ' sf' : '—'}</span>
+        <button type="button" class="btn btn--ghost btn--xs remove-deduction-btn" 
+          data-surface="${surfaceId}" data-index="${i}" aria-label="Remove deduction">×</button>
+      </div>
+    `).join('');
+  }
+
+  /**
+   * Recalculate all surface areas for a room
+   */
+  function recalculateRoomSurfaces(room) {
+    let roomTotal = 0;
+
+    Object.entries(room.surfaces || {}).forEach(([surfaceId, surface]) => {
+      if (!surface.selected) return;
+
+      const isManual = surface.areaMode === 'manual';
+      const grossArea = isManual ? (surface.manualArea || 0) : (surface.grossArea || 0);
+      const deductionsTotal = (surface.deductions || []).reduce((sum, d) => sum + (d.area || 0), 0);
+      const netArea = Math.max(0, grossArea - deductionsTotal);
+
+      surface.netArea = netArea;
+      surface.area = netArea;
+      roomTotal += netArea;
+    });
+
+    return roomTotal;
   }
 
   /**
@@ -1127,16 +1548,316 @@
       includeTile: document.getElementById('output-tile').checked,
       includeMortar: document.getElementById('output-mortar').checked,
       includeAssumptions: document.getElementById('output-assumptions').checked,
-      includeDisclaimers: document.getElementById('output-disclaimers').checked
+      includeDisclaimers: document.getElementById('output-disclaimers').checked,
+      includeAudit: document.getElementById('output-audit')?.checked || false
     };
 
-    const text = generateScopeSummary(options);
+    // Validate before generating output
+    const validation = validateProject();
+    if (validation.errors.length > 0) {
+      showValidationErrors(validation);
+      const needsAttention = document.getElementById('needs-attention');
+      if (needsAttention) {
+        needsAttention.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      showToast('Please fix errors before generating output');
+      return;
+    }
+
+    const outputHtml = generateOutputPacket(options);
     const preview = document.getElementById('output-preview');
     const content = document.getElementById('output-content');
 
-    content.innerHTML = `<pre>${escapeHtml(text)}</pre>`;
+    content.innerHTML = outputHtml;
     preview.hidden = false;
     preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /**
+   * Generate comprehensive output packet with tables
+   */
+  function generateOutputPacket(options) {
+    const date = new Date().toLocaleDateString('en-US', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
+
+    // Calculate totals
+    let totalGross = 0;
+    let totalDeductions = 0;
+    let totalNet = 0;
+
+    state.rooms.forEach(room => {
+      if (!room.surfaces) return;
+      Object.values(room.surfaces).forEach(s => {
+        if (s.selected) {
+          totalGross += (s.grossArea || s.area || 0);
+          totalDeductions += (s.deductions || []).reduce((sum, d) => sum + (d.area || 0), 0);
+          totalNet += (s.netArea || s.area || 0);
+        }
+      });
+    });
+
+    const tile = getTilePreset(
+      state.defaults.tilePreset,
+      state.defaults.customTileWidth,
+      state.defaults.customTileHeight
+    );
+    const layout = getLayoutPreset(state.defaults.layout);
+    const joint = getJointPreset(state.defaults.jointSize);
+    const wasteFactor = state.defaults.wasteFactor || 10;
+
+    let html = '<div class="output-packet">';
+
+    // Header
+    html += `
+      <div class="output-header">
+        <h2 class="output-title">${escapeHtml(state.project.name || 'Tile Project')}</h2>
+        ${state.project.client ? `<p class="output-client">Prepared for: ${escapeHtml(state.project.client)}</p>` : ''}
+        <p class="output-date">Generated: ${date}</p>
+      </div>
+    `;
+
+    // Scope Summary (narrative)
+    if (options.includeScope) {
+      html += `
+        <div class="output-section">
+          <h3 class="output-section-title">📋 Scope Summary</h3>
+          <div class="output-narrative">
+            ${generateScopeNarrative()}
+          </div>
+        </div>
+      `;
+    }
+
+    // Measurements Table
+    if (options.includeMeasurements) {
+      html += `
+        <div class="output-section">
+          <h3 class="output-section-title">📐 Measurements</h3>
+          <table class="output-table measurements-table">
+            <thead>
+              <tr>
+                <th>Room</th>
+                <th>Surface</th>
+                <th class="num">Gross (sf)</th>
+                <th class="num">Deductions</th>
+                <th class="num">Net Area</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${generateMeasurementsTableRows()}
+            </tbody>
+            <tfoot>
+              <tr class="totals-row">
+                <td colspan="2"><strong>Project Total</strong></td>
+                <td class="num"><strong>${formatNumber(totalGross, 1)}</strong></td>
+                <td class="num"><strong>−${formatNumber(totalDeductions, 1)}</strong></td>
+                <td class="num"><strong>${formatNumber(totalNet, 1)} sf</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      `;
+    }
+
+    // Material Takeoff Table
+    if (options.includeTile || options.includeMortar) {
+      html += `
+        <div class="output-section">
+          <h3 class="output-section-title">🧱 Material Takeoff</h3>
+          <table class="output-table materials-table">
+            <thead>
+              <tr>
+                <th>Material</th>
+                <th class="num">Quantity</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${generateMaterialsHtml()}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    // Trowel Override note
+    if (state.trowelOverride?.selected && state.trowelOverride?.reason) {
+      html += `
+        <div class="output-section output-note">
+          <p><strong>⚠️ Trowel Override:</strong> Selected ${escapeHtml(getTrowelPreset(state.trowelOverride.selected).name)} instead of recommendation. 
+          Reason: "${escapeHtml(state.trowelOverride.reason)}"</p>
+        </div>
+      `;
+    }
+
+    // Audit Trail
+    if (options.includeAudit && hasAuditEntries()) {
+      html += `
+        <div class="output-section">
+          <h3 class="output-section-title">📝 Measurement Audit Trail</h3>
+          <div class="output-audit">
+            ${generateAuditHtml()}
+          </div>
+        </div>
+      `;
+    }
+
+    // Assumptions & Exclusions
+    if (options.includeAssumptions) {
+      html += `
+        <div class="output-section">
+          <h3 class="output-section-title">📌 Assumptions & Exclusions</h3>
+          <div class="output-two-col">
+            <div class="output-col">
+              <h4>Assumptions</h4>
+              <ul>
+                <li>Material quantities are estimates; order extra for cuts/waste</li>
+                <li>Trowel size is a starting point; verify coverage per manufacturer</li>
+                <li>Waste factor: ${wasteFactor}% (adjust for complex layouts)</li>
+                <li>Substrate is assumed level within tolerance</li>
+                ${tile.isLargeFormat ? '<li>Large format tile requires minimum 95% coverage</li>' : ''}
+                ${layout.id.includes('herringbone') ? '<li>Herringbone pattern requires additional cuts at edges</li>' : ''}
+              </ul>
+            </div>
+            <div class="output-col">
+              <h4>Exclusions</h4>
+              <ul>
+                <li>Labor and installation costs</li>
+                <li>Permits and inspections</li>
+                <li>Subfloor repairs or leveling</li>
+                <li>Plumbing/electrical modifications</li>
+                <li>Furniture removal/replacement</li>
+                <li>Debris disposal (unless noted)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Disclaimers
+    if (options.includeDisclaimers) {
+      html += `
+        <div class="output-section output-disclaimers">
+          <h3 class="output-section-title">⚖️ Disclaimers</h3>
+          <p class="disclaimer-text">
+            <strong>For Estimation Purposes Only.</strong> This document provides preliminary estimates based on the information entered. 
+            Actual material requirements may vary based on site conditions, tile selection, installation method, and other factors. 
+            Tillerstead recommends professional measurement and consultation before purchasing materials.
+          </p>
+          <p class="disclaimer-text">
+            Trowel recommendations are starting points based on tile size and substrate. Always verify with manufacturer specifications 
+            and confirm minimum 80% coverage (95% for wet areas/large format) through field testing.
+          </p>
+          <p class="disclaimer-legal">
+            Tillerstead LLC is a NJ Registered Home Improvement Contractor (#13VH13397100). This estimate does not constitute a contract or proposal.
+          </p>
+        </div>
+      `;
+    }
+
+    html += '</div>';
+    return html;
+  }
+
+  /**
+   * Generate scope narrative
+   */
+  function generateScopeNarrative() {
+    const roomCount = state.rooms.filter(r => r.name).length;
+    const surfaces = [];
+    let totalArea = 0;
+
+    state.rooms.forEach(room => {
+      Object.entries(room.surfaces || {}).forEach(([id, s]) => {
+        if (s.selected) {
+          const label = id.replace(/-/g, ' ');
+          if (!surfaces.includes(label)) surfaces.push(label);
+          totalArea += (s.netArea || s.area || 0);
+        }
+      });
+    });
+
+    const tile = getTilePreset(
+      state.defaults.tilePreset,
+      state.defaults.customTileWidth,
+      state.defaults.customTileHeight
+    );
+    const layout = getLayoutPreset(state.defaults.layout);
+
+    let narrative = `<p>This project includes tile installation for <strong>${roomCount} room${roomCount !== 1 ? 's' : ''}</strong> `;
+    narrative += `covering approximately <strong>${formatNumber(totalArea, 0)} square feet</strong> of ${surfaces.join(', ')} surfaces.</p>`;
+
+    narrative += `<p>Tile specification: <strong>${escapeHtml(tile.name)}</strong>`;
+    if (layout) narrative += ` in <strong>${escapeHtml(layout.name)}</strong> pattern`;
+    narrative += '.</p>';
+
+    if (state.systems.waterproofing !== 'none') {
+      narrative += `<p>Waterproofing: ${state.systems.waterproofing === 'liquid' ? 'Liquid membrane' : 'Sheet membrane'} system included.</p>`;
+    }
+
+    return narrative;
+  }
+
+  /**
+   * Generate measurements table rows
+   */
+  function generateMeasurementsTableRows() {
+    let rows = '';
+
+    state.rooms.filter(r => r.name).forEach(room => {
+      const surfaces = Object.entries(room.surfaces || {}).filter(([, s]) => s.selected);
+      if (surfaces.length === 0) return;
+
+      surfaces.forEach(([surfaceId, surface], idx) => {
+        const config = SURFACE_CONFIGS[surfaceId] || { label: surfaceId };
+        const gross = surface.grossArea || surface.area || 0;
+        const deductionsTotal = (surface.deductions || []).reduce((sum, d) => sum + (d.area || 0), 0);
+        const net = surface.netArea || (gross - deductionsTotal);
+
+        rows += `
+          <tr>
+            ${idx === 0 ? `<td rowspan="${surfaces.length}" class="room-name">${escapeHtml(room.name)}${room.locked ? ' 🔒' : ''}</td>` : ''}
+            <td>${escapeHtml(config.label)}</td>
+            <td class="num">${formatNumber(gross, 1)}</td>
+            <td class="num">${deductionsTotal > 0 ? '−' + formatNumber(deductionsTotal, 1) : '—'}</td>
+            <td class="num">${formatNumber(net, 1)}</td>
+          </tr>
+        `;
+      });
+    });
+
+    return rows;
+  }
+
+  /**
+   * Check if any rooms have audit entries
+   */
+  function hasAuditEntries() {
+    return state.rooms.some(r => r.auditTrail && r.auditTrail.length > 0);
+  }
+
+  /**
+   * Generate audit trail HTML
+   */
+  function generateAuditHtml() {
+    let html = '<ul class="audit-list">';
+
+    state.rooms.filter(r => r.auditTrail && r.auditTrail.length > 0).forEach(room => {
+      html += `<li class="audit-room"><strong>${escapeHtml(room.name || 'Unnamed Room')}</strong><ul>`;
+      room.auditTrail.forEach(entry => {
+        const date = new Date(entry.timestamp);
+        const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+        html += `<li>${escapeHtml(dateStr)}: ${escapeHtml(entry.action)}`;
+        if (entry.reason) html += ` — "${escapeHtml(entry.reason)}"`;
+        html += ` (${formatNumber(entry.dimensions.length, 1)}×${formatNumber(entry.dimensions.width, 1)} ft)</li>`;
+      });
+      html += '</ul></li>';
+    });
+
+    html += '</ul>';
+    return html;
   }
 
   /**
@@ -1195,6 +1916,931 @@
     URL.revokeObjectURL(url);
 
     showToast('Downloaded! Open in Word or use Print to PDF.');
+  }
+
+  /**
+   * Helper to generate rooms/surfaces HTML for PDF
+   * Separated to avoid template literal nesting issues
+   */
+  function generateRoomsHtml() {
+    let html = '';
+    state.rooms.filter(r => r.name).forEach(room => {
+      const surfaces = Object.entries(room.surfaces || {})
+        .filter(([, s]) => s.selected)
+        .map(([id, s]) => ({
+          name: id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+          area: s.area
+        }));
+      
+      if (surfaces.length === 0) return;
+      
+      const roomTotal = surfaces.reduce((sum, s) => sum + s.area, 0);
+      
+      html += '<tr class="room-header"><td colspan="2"><strong>' + escapeHtml(room.name) + '</strong></td></tr>';
+      surfaces.forEach(s => {
+        html += '<tr><td class="indent">' + escapeHtml(s.name) + '</td>';
+        html += '<td class="num">' + formatNumber(s.area, 1) + ' sf</td></tr>';
+      });
+      html += '<tr class="room-subtotal"><td class="indent">Subtotal</td>';
+      html += '<td class="num">' + formatNumber(roomTotal, 1) + ' sf</td></tr>';
+    });
+    return html;
+  }
+
+  /**
+   * Helper to generate materials list HTML for PDF
+   */
+  function generateMaterialsHtml() {
+    // Calculate totals
+    let totalArea = 0;
+    state.rooms.forEach(room => {
+      if (!room.surfaces) return;
+      Object.values(room.surfaces).forEach(s => {
+        if (s.selected) totalArea += s.area;
+      });
+    });
+
+    const tile = getTilePreset(
+      state.defaults.tilePreset,
+      state.defaults.customTileWidth,
+      state.defaults.customTileHeight
+    );
+    const joint = getJointPreset(state.defaults.jointSize);
+    const wasteFactor = state.defaults.wasteFactor || 10;
+    const areaWithWaste = totalArea * (1 + wasteFactor / 100);
+
+    // Tile quantity
+    const tileCalc = calculateTileQuantity(totalArea, tile, wasteFactor);
+    
+    // Mortar estimate
+    const trowelRec = getRecommendedTrowel(tile, 'smooth');
+    const mortarCalc = calculateMortarBags(totalArea, trowelRec.trowelId, trowelRec.backButter);
+    
+    // Grout estimate (use default 8mm thickness if not specified)
+    const groutCalc = calculateGrout(
+      totalArea,
+      tile.width,
+      tile.height,
+      8, // default tile thickness mm
+      parseFloat(joint.size) || 0.125,
+      'cement',
+      tile.isMosaic
+    );
+
+    let html = '';
+    
+    // Tile
+    html += '<tr class="material-row">';
+    html += '<td><strong>Tile</strong><br><span class="material-detail">' + escapeHtml(tile.name) + '</span></td>';
+    html += '<td class="num">' + formatNumber(areaWithWaste, 0) + ' sf</td>';
+    html += '<td class="material-note">Includes ' + wasteFactor + '% waste' + (state.defaults.extraAtticStock ? ' + attic stock' : '') + '</td>';
+    html += '</tr>';
+
+    // Thinset/Mortar
+    html += '<tr class="material-row">';
+    html += '<td><strong>Thinset Mortar</strong><br><span class="material-detail">50 lb bags, ' + escapeHtml(getTrowelPreset(trowelRec.trowelId).name) + ' trowel</span></td>';
+    html += '<td class="num">' + mortarCalc.min + '–' + mortarCalc.max + ' bags</td>';
+    html += '<td class="material-note">' + (trowelRec.backButter ? 'Back-buttering recommended' : 'Standard coverage') + '</td>';
+    html += '</tr>';
+
+    // Grout
+    html += '<tr class="material-row">';
+    html += '<td><strong>Grout</strong><br><span class="material-detail">' + escapeHtml(joint.name) + ' joints</span></td>';
+    html += '<td class="num">~' + groutCalc.quantity + ' lbs</td>';
+    html += '<td class="material-note">' + (tile.isMosaic ? 'Mosaic = more grout' : 'Standard joint volume') + '</td>';
+    html += '</tr>';
+
+    // Backer Board (if underlayment selected)
+    if (state.systems.underlayment === 'cement-board') {
+      const sheets = Math.ceil(totalArea / 15); // 3x5 sheets = 15 sf
+      html += '<tr class="material-row">';
+      html += '<td><strong>Cement Board</strong><br><span class="material-detail">3×5 ft sheets (1/2")</span></td>';
+      html += '<td class="num">' + sheets + ' sheets</td>';
+      html += '<td class="material-note">CBU screws & mesh tape needed</td>';
+      html += '</tr>';
+    }
+
+    // Waterproofing
+    if (state.systems.waterproofing === 'liquid') {
+      const gallons = Math.ceil(totalArea / 50); // ~50 sf per gallon for 2 coats
+      html += '<tr class="material-row">';
+      html += '<td><strong>Waterproofing</strong><br><span class="material-detail">Liquid membrane (2 coats)</span></td>';
+      html += '<td class="num">~' + gallons + ' gal</td>';
+      html += '<td class="material-note">Plus corners, curbs, fabric</td>';
+      html += '</tr>';
+    } else if (state.systems.waterproofing === 'sheet') {
+      html += '<tr class="material-row">';
+      html += '<td><strong>Waterproofing</strong><br><span class="material-detail">Sheet membrane</span></td>';
+      html += '<td class="num">' + formatNumber(areaWithWaste * 1.1, 0) + ' sf</td>';
+      html += '<td class="material-note">Includes corners & seams</td>';
+      html += '</tr>';
+    }
+
+    // Uncoupling membrane
+    if (state.systems.underlayment === 'uncoupling') {
+      html += '<tr class="material-row">';
+      html += '<td><strong>Uncoupling Membrane</strong><br><span class="material-detail">DITRA or equivalent</span></td>';
+      html += '<td class="num">' + formatNumber(areaWithWaste, 0) + ' sf</td>';
+      html += '<td class="material-note">Unmodified thinset required</td>';
+      html += '</tr>';
+    }
+
+    return html;
+  }
+
+  /**
+   * Generate professional PDF Build Guide for homeowner
+   * Uses Tillerstead theme colors inverted for print-friendly output
+   */
+  function downloadPdfBuildGuide() {
+    const date = new Date().toLocaleDateString('en-US', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
+
+    // Calculate total area
+    let totalArea = 0;
+    state.rooms.forEach(room => {
+      if (!room.surfaces) return;
+      Object.values(room.surfaces).forEach(s => {
+        if (s.selected) totalArea += s.area;
+      });
+    });
+
+    // Get tile/layout info
+    const tile = getTilePreset(
+      state.defaults.tilePreset,
+      state.defaults.customTileWidth,
+      state.defaults.customTileHeight
+    );
+    const layout = getLayoutPreset(state.defaults.layout);
+    const joint = getJointPreset(state.defaults.jointSize);
+
+    // Determine which build guides are relevant based on project selections
+    const relevantGuides = [];
+    if (state.systems.waterproofing !== 'none') {
+      relevantGuides.push({
+        title: 'Waterproofing Systems',
+        url: '/build/waterproofing-systems/',
+        summary: 'How your shower is protected from water damage'
+      });
+    }
+    if (totalArea > 0) {
+      relevantGuides.push({
+        title: 'Tile Installation Standards',
+        url: '/build/tile-installation-standards/',
+        summary: 'TCNA & ANSI standards for durable installations'
+      });
+    }
+    if (state.systems.underlayment !== 'none' && state.systems.underlayment !== 'cement-board') {
+      relevantGuides.push({
+        title: 'Shower Pans & Slopes',
+        url: '/build/shower-pans-slopes-drains/',
+        summary: 'Why proper slope and drainage matter'
+      });
+    }
+    relevantGuides.push({
+      title: 'NJ Codes & Permits',
+      url: '/build/nj-codes-permits/',
+      summary: 'New Jersey building requirements'
+    });
+
+    // Build the professional HTML document with Tillerstead theme (light variant)
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Build Guide - ${escapeHtml(state.project.name || 'Your Project')} | Tillerstead</title>
+  <style>
+    /* =============================================
+       TILLERSTEAD THEME - Print-Friendly Light Mode
+       Colors: Gold accents, Emerald highlights, Stone neutrals
+       ============================================= */
+    
+    @page {
+      size: letter;
+      margin: 0.6in 0.75in;
+    }
+    
+    :root {
+      /* Tillerstead Brand - Light/Print Variant */
+      --ts-gold: #9a7a1a;
+      --ts-gold-light: #c9a227;
+      --ts-gold-bg: #faf6e8;
+      --ts-emerald: #059669;
+      --ts-emerald-light: #10b981;
+      --ts-emerald-bg: #ecfdf5;
+      --ts-stone: #1a1c1a;
+      --ts-stone-light: #374151;
+      --ts-stone-muted: #6b7280;
+      --ts-bg: #ffffff;
+      --ts-bg-alt: #f9fafb;
+      --ts-border: #e5e7eb;
+      --ts-border-light: #f3f4f6;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-size: 10pt;
+      line-height: 1.5;
+      color: var(--ts-stone);
+      background: var(--ts-bg);
+    }
+    
+    /* Page breaks */
+    .page {
+      page-break-after: always;
+      min-height: 9in;
+    }
+    .page:last-child {
+      page-break-after: avoid;
+    }
+    .no-break {
+      page-break-inside: avoid;
+    }
+    
+    /* ===== HEADER ===== */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      border-bottom: 3px solid var(--ts-gold);
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .header-logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--ts-emerald) 0%, var(--ts-emerald-light) 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 20px;
+      font-family: Georgia, serif;
+    }
+    .header-text {
+      line-height: 1.2;
+    }
+    .header-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ts-stone);
+      letter-spacing: -0.02em;
+    }
+    .header-subtitle {
+      font-size: 9px;
+      color: var(--ts-stone-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .header-info {
+      text-align: right;
+      font-size: 9px;
+      color: var(--ts-stone-muted);
+    }
+    .header-info strong {
+      color: var(--ts-emerald);
+      font-size: 10px;
+    }
+    
+    /* ===== COVER PAGE ===== */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 8in;
+      text-align: center;
+      padding: 1in;
+    }
+    .cover-logo {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--ts-emerald) 0%, var(--ts-emerald-light) 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 40px;
+      font-family: Georgia, serif;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    .cover h1 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--ts-stone-muted);
+      margin-bottom: 8px;
+    }
+    .cover-project {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ts-stone);
+      margin-bottom: 32px;
+      line-height: 1.2;
+    }
+    .cover-client {
+      font-size: 12px;
+      color: var(--ts-stone-light);
+      margin-bottom: 48px;
+      line-height: 1.8;
+    }
+    .cover-meta {
+      font-size: 10px;
+      color: var(--ts-stone-muted);
+      line-height: 1.6;
+    }
+    .cover-meta strong {
+      color: var(--ts-gold);
+    }
+    
+    /* ===== SECTION HEADERS ===== */
+    h2 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ts-emerald);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding-bottom: 6px;
+      margin: 24px 0 12px;
+      border-bottom: 2px solid var(--ts-gold);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h2 .icon {
+      font-size: 14px;
+    }
+    h3 {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ts-stone);
+      margin: 16px 0 8px;
+    }
+    
+    /* ===== TABLES ===== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 9.5pt;
+    }
+    th {
+      background: var(--ts-stone);
+      color: white;
+      font-weight: 600;
+      text-align: left;
+      padding: 8px 12px;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--ts-border);
+      vertical-align: top;
+    }
+    tr:nth-child(even) td {
+      background: var(--ts-bg-alt);
+    }
+    
+    /* Special table rows */
+    .room-header td {
+      background: var(--ts-gold-bg) !important;
+      border-bottom: 2px solid var(--ts-gold);
+      padding-top: 12px;
+    }
+    .room-subtotal td {
+      font-weight: 600;
+      color: var(--ts-emerald);
+      border-bottom: 2px solid var(--ts-emerald-bg);
+    }
+    .total-row td {
+      background: var(--ts-emerald-bg) !important;
+      font-weight: 700;
+      color: var(--ts-emerald);
+      font-size: 11px;
+      border-top: 2px solid var(--ts-emerald);
+    }
+    .indent {
+      padding-left: 24px;
+    }
+    .num {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    
+    /* Materials table */
+    .materials-table th:first-child { width: 45%; }
+    .materials-table th:nth-child(2) { width: 20%; text-align: right; }
+    .materials-table th:nth-child(3) { width: 35%; }
+    .material-row td {
+      padding: 10px 12px;
+    }
+    .material-detail {
+      font-size: 8.5pt;
+      color: var(--ts-stone-muted);
+    }
+    .material-note {
+      font-size: 8.5pt;
+      color: var(--ts-stone-muted);
+      font-style: italic;
+    }
+    
+    /* Spec table */
+    .spec-table { margin: 8px 0; }
+    .spec-table td:first-child {
+      width: 40%;
+      color: var(--ts-stone-muted);
+      font-weight: 500;
+    }
+    .spec-table td:last-child {
+      font-weight: 600;
+    }
+    
+    /* ===== CARDS ===== */
+    .card {
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin: 12px 0;
+      page-break-inside: avoid;
+    }
+    .card-info {
+      background: var(--ts-emerald-bg);
+      border: 1px solid #a7f3d0;
+      border-left: 4px solid var(--ts-emerald);
+    }
+    .card-warning {
+      background: #fffbeb;
+      border: 1px solid #fcd34d;
+      border-left: 4px solid #f59e0b;
+    }
+    .card-gold {
+      background: var(--ts-gold-bg);
+      border: 1px solid #e8d48a;
+      border-left: 4px solid var(--ts-gold);
+    }
+    .card h4 {
+      font-size: 10px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .card-info h4 { color: var(--ts-emerald); }
+    .card-warning h4 { color: #b45309; }
+    .card-gold h4 { color: var(--ts-gold); }
+    .card p, .card li {
+      font-size: 9pt;
+      color: var(--ts-stone-light);
+      margin: 0;
+    }
+    
+    /* ===== GRID LAYOUTS ===== */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 12px 0;
+    }
+    .guide-card {
+      background: var(--ts-bg-alt);
+      border: 1px solid var(--ts-border);
+      border-radius: 6px;
+      padding: 12px;
+    }
+    .guide-card h4 {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--ts-emerald);
+      margin-bottom: 4px;
+    }
+    .guide-card p {
+      font-size: 8.5pt;
+      color: var(--ts-stone-muted);
+      margin-bottom: 6px;
+    }
+    .guide-card .url {
+      font-size: 8pt;
+      color: var(--ts-gold);
+      font-weight: 500;
+    }
+    
+    /* ===== CHECKLIST ===== */
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+    }
+    .checklist li {
+      padding: 8px 0 8px 28px;
+      position: relative;
+      border-bottom: 1px solid var(--ts-border-light);
+      font-size: 9.5pt;
+    }
+    .checklist li::before {
+      content: "☐";
+      position: absolute;
+      left: 4px;
+      color: var(--ts-emerald);
+      font-size: 14px;
+    }
+    
+    /* ===== FOOTER ===== */
+    .footer {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--ts-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 8pt;
+      color: var(--ts-stone-muted);
+    }
+    .footer-brand {
+      font-weight: 600;
+      color: var(--ts-gold);
+    }
+    
+    /* ===== UTILITIES ===== */
+    .text-gold { color: var(--ts-gold); }
+    .text-emerald { color: var(--ts-emerald); }
+    .text-muted { color: var(--ts-stone-muted); }
+    .text-center { text-align: center; }
+    .mt-0 { margin-top: 0; }
+    .mb-0 { margin-bottom: 0; }
+    
+    /* ===== PRINT ===== */
+    @media print {
+      body {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+      .page {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="page cover">
+  <div class="cover-logo">T</div>
+  <h1>Tile Project Build Guide</h1>
+  <div class="cover-project">${escapeHtml(state.project.name || 'Your Tile Project')}</div>
+  <div class="cover-client">
+    ${state.project.clientName ? `<strong>${escapeHtml(state.project.clientName)}</strong><br>` : ''}
+    ${state.project.address ? `${escapeHtml(state.project.address)}<br>` : ''}
+    ${state.project.county ? `${escapeHtml(state.project.county)}` : ''}
+  </div>
+  <div class="cover-meta">
+    Prepared <strong>${date}</strong><br>
+    by Tillerstead LLC<br>
+    NJ HIC #13VH10808800
+  </div>
+</div>
+
+<!-- ==================== PROJECT SPECIFICATIONS ==================== -->
+<div class="page">
+  <div class="header">
+    <div class="header-brand">
+      <div class="header-logo">T</div>
+      <div class="header-text">
+        <div class="header-title">Tillerstead</div>
+        <div class="header-subtitle">Professional Tile Installation</div>
+      </div>
+    </div>
+    <div class="header-info">
+      <strong>Licensed & Insured</strong><br>
+      NJ HIC #13VH10808800 • (609) 862-8808
+    </div>
+  </div>
+
+  <h2><span class="icon">📋</span> Project Specifications</h2>
+  
+  <table class="spec-table">
+    ${state.project.name ? `<tr><td>Project</td><td>${escapeHtml(state.project.name)}</td></tr>` : ''}
+    ${state.project.clientName ? `<tr><td>Client</td><td>${escapeHtml(state.project.clientName)}</td></tr>` : ''}
+    ${state.project.address ? `<tr><td>Address</td><td>${escapeHtml(state.project.address)}</td></tr>` : ''}
+    <tr><td>Date Prepared</td><td>${date}</td></tr>
+    <tr class="total-row"><td>Total Tile Area</td><td>${formatNumber(totalArea, 1)} sq ft</td></tr>
+  </table>
+
+  <div class="two-col">
+    <div>
+      <h2><span class="icon">🧱</span> Tile Selection</h2>
+      <table class="spec-table mt-0">
+        <tr><td>Tile Size</td><td>${escapeHtml(tile.name)}</td></tr>
+        <tr><td>Layout Pattern</td><td>${escapeHtml(layout.name)}</td></tr>
+        <tr><td>Grout Joint</td><td>${escapeHtml(joint.name)}</td></tr>
+        <tr><td>Waste Factor</td><td>${state.defaults.wasteFactor}%</td></tr>
+        ${state.defaults.extraAtticStock ? '<tr><td>Attic Stock</td><td>✓ Included</td></tr>' : ''}
+      </table>
+    </div>
+    <div>
+      <h2><span class="icon">🔧</span> Systems</h2>
+      <table class="spec-table mt-0">
+        <tr>
+          <td>Underlayment</td>
+          <td>${state.systems.underlayment === 'none' ? '—' : 
+            state.systems.underlayment === 'cement-board' ? 'Cement Board' :
+            state.systems.underlayment === 'uncoupling' ? 'Uncoupling Membrane' :
+            state.systems.underlayment === 'mud-bed' ? 'Mud Bed' :
+            state.systems.underlayment === 'self-leveler' ? 'Self-Leveler' :
+            escapeHtml(state.systems.underlayment)}</td>
+        </tr>
+        <tr>
+          <td>Waterproofing</td>
+          <td>${state.systems.waterproofing === 'none' ? '—' :
+            state.systems.waterproofing === 'liquid' ? 'Liquid Membrane' :
+            state.systems.waterproofing === 'sheet' ? 'Sheet Membrane' :
+            escapeHtml(state.systems.waterproofing)}</td>
+        </tr>
+        <tr><td>Edge Trim</td><td>${state.systems.edgeTrim === 'none' ? '—' : escapeHtml(state.systems.edgeTrim)}</td></tr>
+        <tr><td>Movement Joints</td><td>${state.systems.movementJoints ? '✓ Required' : 'TBD'}</td></tr>
+      </table>
+    </div>
+  </div>
+
+  ${tile.isLargeFormat ? `
+  <div class="card card-warning no-break">
+    <h4>⚠️ Large Format Tile</h4>
+    <p>Tiles larger than 15" require substrate flatness within 1/8" in 10 feet per ANSI A108.02. 
+    Floor leveling may be needed. Minimum 95% mortar coverage with back-buttering.</p>
+  </div>
+  ` : ''}
+
+  ${layout.lippageRisk ? `
+  <div class="card card-warning no-break">
+    <h4>⚠️ Lippage Risk</h4>
+    <p>A 50% offset pattern with rectangular tiles increases lippage risk. Consider 1/3 offset 
+    or verify tiles are within ANSI warpage tolerances.</p>
+  </div>
+  ` : ''}
+
+  ${state.systems.waterproofing !== 'none' ? `
+  <div class="card card-info no-break">
+    <h4>✓ Waterproofing Included</h4>
+    <p>Your project includes waterproofing per TCNA Handbook and ANSI A118.10 standards. 
+    Continuity maintained at corners, penetrations, and transitions.</p>
+  </div>
+  ` : ''}
+
+  <div class="footer">
+    <span class="footer-brand">Tillerstead LLC</span>
+    <span>Page 2 • tillerstead.com</span>
+  </div>
+</div>
+
+<!-- ==================== MEASUREMENTS & MATERIALS ==================== -->
+<div class="page">
+  <div class="header">
+    <div class="header-brand">
+      <div class="header-logo">T</div>
+      <div class="header-text">
+        <div class="header-title">Tillerstead</div>
+        <div class="header-subtitle">Professional Tile Installation</div>
+      </div>
+    </div>
+    <div class="header-info">
+      <strong>Licensed & Insured</strong><br>
+      NJ HIC #13VH10808800
+    </div>
+  </div>
+
+  <h2><span class="icon">📐</span> Room Measurements</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Room / Surface</th>
+        <th style="text-align: right; width: 100px;">Area</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${generateRoomsHtml()}
+      <tr class="total-row">
+        <td><strong>TOTAL TILE AREA</strong></td>
+        <td class="num"><strong>${formatNumber(totalArea, 1)} sf</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2><span class="icon">📦</span> Estimated Materials</h2>
+  
+  <table class="materials-table">
+    <thead>
+      <tr>
+        <th>Material</th>
+        <th>Quantity</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${generateMaterialsHtml()}
+    </tbody>
+  </table>
+
+  <div class="card card-gold no-break">
+    <h4>📝 Material Notes</h4>
+    <p>Quantities are estimates. Final amounts depend on actual site conditions, tile lot size, 
+    and manufacturer packaging. Always order 10-15% extra for cuts, waste, and future repairs. 
+    Confirm with your supplier before purchasing.</p>
+  </div>
+
+  ${state.systems.demoTile || state.systems.demoUnderlayment || state.systems.subfloorRepair || state.systems.disposal ? `
+  <h2><span class="icon">🔨</span> Preparation Scope</h2>
+  <ul style="padding-left: 20px; margin: 8px 0;">
+    ${state.systems.demoTile ? '<li>Remove existing tile and thin-set</li>' : ''}
+    ${state.systems.demoUnderlayment ? '<li>Remove existing underlayment/backer board</li>' : ''}
+    ${state.systems.subfloorRepair ? '<li>Subfloor repair and preparation</li>' : ''}
+    ${state.systems.disposal ? '<li>Debris removal and disposal</li>' : ''}
+  </ul>
+  ` : ''}
+
+  ${state.project.notes ? `
+  <h2><span class="icon">📝</span> Project Notes</h2>
+  <div class="card card-info">
+    <p>${escapeHtml(state.project.notes)}</p>
+  </div>
+  ` : ''}
+
+  <div class="footer">
+    <span class="footer-brand">Tillerstead LLC</span>
+    <span>Page 3 • tillerstead.com</span>
+  </div>
+</div>
+
+<!-- ==================== BUILD GUIDES & CHECKLIST ==================== -->
+<div class="page">
+  <div class="header">
+    <div class="header-brand">
+      <div class="header-logo">T</div>
+      <div class="header-text">
+        <div class="header-title">Tillerstead</div>
+        <div class="header-subtitle">Professional Tile Installation</div>
+      </div>
+    </div>
+    <div class="header-info">
+      <strong>Licensed & Insured</strong><br>
+      NJ HIC #13VH10808800
+    </div>
+  </div>
+
+  <h2><span class="icon">📚</span> Build Guide References</h2>
+  <p class="text-muted" style="font-size: 9pt; margin-bottom: 12px;">These guides explain the standards relevant to your project. Visit tillerstead.com to read more.</p>
+  
+  <div class="guide-grid">
+    ${relevantGuides.map(g => `
+    <div class="guide-card">
+      <h4>${escapeHtml(g.title)}</h4>
+      <p>${escapeHtml(g.summary)}</p>
+      <div class="url">tillerstead.com${g.url}</div>
+    </div>
+    `).join('')}
+  </div>
+
+  <h2><span class="icon">✅</span> Homeowner Checklist</h2>
+  
+  <ul class="checklist">
+    <li>Review specifications with installer before work begins</li>
+    <li>Confirm tile selection and quantities with supplier</li>
+    <li>Discuss movement joint locations (perimeter & field)</li>
+    <li>Verify waterproofing system and compatibility</li>
+    <li>Request mortar coverage test during installation</li>
+    <li>Obtain written warranty documentation</li>
+    <li>Schedule flood test for shower/wet areas</li>
+    <li>Review cleaning and maintenance instructions</li>
+  </ul>
+
+  <div class="two-col" style="margin-top: 20px;">
+    <div class="card card-info">
+      <h4>TCNA & ANSI Standards</h4>
+      <p>We follow TCNA Handbook methods and ANSI A108/A118 standards on every project—even when not required by code. 
+      These industry best practices ensure your installation performs properly for years to come.</p>
+    </div>
+    <div class="card card-gold">
+      <h4>NJ HIC Requirements</h4>
+      <p>As a licensed NJ Home Improvement Contractor (#13VH10808800), we provide written contracts, 
+      detailed scopes, and honor all warranty commitments per N.J.A.C. 13:45A-16.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="footer-brand">Tillerstead LLC</span>
+    <span>Page 4 • tillerstead.com</span>
+  </div>
+</div>
+
+<!-- ==================== DISCLAIMERS & CONTACT ==================== -->
+<div class="page">
+  <div class="header">
+    <div class="header-brand">
+      <div class="header-logo">T</div>
+      <div class="header-text">
+        <div class="header-title">Tillerstead</div>
+        <div class="header-subtitle">Professional Tile Installation</div>
+      </div>
+    </div>
+    <div class="header-info">
+      <strong>Licensed & Insured</strong><br>
+      NJ HIC #13VH10808800
+    </div>
+  </div>
+
+  <h2><span class="icon">⚠️</span> Important Notices</h2>
+  
+  <ul style="padding-left: 20px; font-size: 9.5pt; line-height: 1.7;">
+    <li><strong>Material Quantities:</strong> All quantities are estimates based on measurements provided. 
+    Verify with your supplier and account for manufacturer-recommended overage.</li>
+    <li><strong>Trowel Selection:</strong> Notch recommendations are starting points. Coverage must be 
+    verified by periodically lifting tiles during installation.</li>
+    <li><strong>Grout Joints:</strong> Final joint width depends on tile variation, warpage, and 
+    manufacturer recommendations.</li>
+    <li><strong>Site Conditions:</strong> Final scope may be adjusted based on actual conditions. 
+    Any changes will be documented in writing.</li>
+    <li><strong>Not a Contract:</strong> This specification is for planning purposes only. A formal 
+    contract with complete terms will be provided before work begins.</li>
+  </ul>
+
+  <h2><span class="icon">📞</span> Contact Information</h2>
+  
+  <table class="spec-table" style="max-width: 400px;">
+    <tr><td>Company</td><td>Tillerstead LLC</td></tr>
+    <tr><td>Phone</td><td>(609) 862-8808</td></tr>
+    <tr><td>Email</td><td>info@tillerstead.com</td></tr>
+    <tr><td>Website</td><td>tillerstead.com</td></tr>
+    <tr><td>NJ HIC License</td><td>13VH10808800</td></tr>
+    <tr><td>Service Area</td><td>Atlantic, Ocean & Cape May Counties, NJ</td></tr>
+  </table>
+
+  <div class="card card-info" style="margin-top: 24px;">
+    <h4>Ready to Get Started?</h4>
+    <p>Contact us to schedule a site visit and receive a detailed written proposal. We'll review your project 
+    in person, discuss your goals, and provide transparent pricing with no hidden fees.</p>
+  </div>
+
+  <div class="footer" style="margin-top: auto; flex-direction: column; text-align: center; gap: 4px;">
+    <span>Generated ${date} by Tillerstead Tools</span>
+    <span>© ${new Date().getFullYear()} Tillerstead LLC • All Rights Reserved</span>
+    <span style="color: var(--ts-gold);">tillerstead.com/tools/</span>
+  </div>
+</div>
+
+</body>
+</html>`;
+
+    // Create blob and trigger download
+    const blob = new Blob([html], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    
+    // Open in new window for printing as PDF
+    const printWindow = window.open(url, '_blank');
+    
+    if (printWindow) {
+      printWindow.onload = function() {
+        // Give the page a moment to render, then trigger print dialog
+        setTimeout(() => {
+          printWindow.print();
+        }, 500);
+      };
+      showToast('PDF Build Guide opened! Use Print → Save as PDF');
+    } else {
+      // Fallback: download as HTML file
+      const a = document.createElement('a');
+      const filename = (state.project.name || 'tile-project').replace(/[^a-z0-9]/gi, '-') + '-build-guide.html';
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast('Build Guide downloaded! Open and use Print → Save as PDF');
+    }
+    
+    // Clean up after a delay
+    setTimeout(() => URL.revokeObjectURL(url), 60000);
   }
 
   /**
@@ -1448,8 +3094,9 @@
     const customWidth = parseFloat(document.getElementById('mortar-custom-width').value) || 0;
     const customHeight = parseFloat(document.getElementById('mortar-custom-height').value) || 0;
     const substrate = document.getElementById('mortar-substrate').value;
-    const trowelId = document.getElementById('mortar-trowel').value;
+    const selectedTrowelId = document.getElementById('mortar-trowel').value;
     const backButter = document.getElementById('mortar-backbutter').checked;
+    const coverageGoal = document.getElementById('mortar-coverage-goal')?.value || 'standard';
 
     if (area <= 0) {
       showToast('Enter a valid area');
@@ -1458,26 +3105,82 @@
 
     const tile = getTilePreset(tilePresetId, customWidth, customHeight);
     
-    // Get recommended trowel if auto
-    let useTrowelId = trowelId;
+    // Get recommended trowel based on tile, substrate, and coverage goal
     const recommendation = getRecommendedTrowel(tile, substrate);
-    
-    if (trowelId === 'auto' || !trowelId) {
-      useTrowelId = recommendation.trowelId;
-      
-      // Show recommendation
-      const recEl = document.getElementById('trowel-recommendation');
-      const recText = document.getElementById('trowel-recommendation-text');
-      recText.textContent = `${getTrowelPreset(recommendation.trowelId).name}. ${recommendation.note}`;
-      recEl.hidden = false;
+    const recommendedTrowelId = recommendation.trowelId;
+    const recommendedTrowel = getTrowelPreset(recommendedTrowelId);
 
-      // Update back-butter checkbox
-      if (recommendation.backButter && !backButter) {
-        document.getElementById('mortar-backbutter').checked = true;
+    // Determine which trowel to use for calculation
+    let useTrowelId = recommendedTrowelId;
+    let isOverride = false;
+
+    if (selectedTrowelId && selectedTrowelId !== 'auto') {
+      useTrowelId = selectedTrowelId;
+      isOverride = selectedTrowelId !== recommendedTrowelId;
+    }
+
+    // Update trowel comparison display
+    const comparisonEl = document.getElementById('trowel-comparison');
+    const recommendedDisplay = document.getElementById('trowel-recommended-display');
+    const selectedDisplay = document.getElementById('trowel-selected-display');
+    const overrideReasonField = document.getElementById('mortar-trowel-override-reason-field');
+
+    if (comparisonEl && recommendedDisplay && selectedDisplay) {
+      recommendedDisplay.innerHTML = `
+        <span class="trowel-label">Recommended:</span>
+        <span class="trowel-value">${escapeHtml(recommendedTrowel.name)}</span>
+        <span class="trowel-note">${escapeHtml(recommendation.note || 'Starting point; verify coverage')}</span>
+      `;
+
+      if (isOverride) {
+        const selectedTrowel = getTrowelPreset(useTrowelId);
+        selectedDisplay.innerHTML = `
+          <span class="trowel-label">Selected:</span>
+          <span class="trowel-value trowel-value--override">${escapeHtml(selectedTrowel.name)}</span>
+          <span class="trowel-note trowel-note--override">↑ Override</span>
+        `;
+        selectedDisplay.hidden = false;
+        if (overrideReasonField) overrideReasonField.hidden = false;
+      } else {
+        selectedDisplay.hidden = true;
+        if (overrideReasonField) overrideReasonField.hidden = true;
+      }
+
+      comparisonEl.hidden = false;
+    }
+
+    // Store override in state
+    state.trowelOverride = {
+      selected: isOverride ? useTrowelId : null,
+      reason: isOverride ? (document.getElementById('mortar-trowel-override-reason')?.value || '') : ''
+    };
+
+    // Legacy recommendation display
+    const recEl = document.getElementById('trowel-recommendation');
+    const recText = document.getElementById('trowel-recommendation-text');
+    if (recEl && recText) {
+      recText.textContent = `${recommendedTrowel.name}. ${recommendation.note}`;
+      recEl.hidden = false;
+    }
+
+    // Auto-suggest back-butter for large format tiles (any side ≥ 24")
+    if ((tile.width >= 24 || tile.height >= 24) && !backButter) {
+      const bbCheckbox = document.getElementById('mortar-backbutter');
+      if (bbCheckbox) {
+        bbCheckbox.checked = true;
+        showToast('Back-buttering auto-enabled for large format tile');
       }
     }
 
-    const result = calculateMortarBags(area, useTrowelId, backButter);
+    // Adjust coverage for coverage goal
+    let coverageMultiplier = 1;
+    if (coverageGoal === 'wet-area') {
+      coverageMultiplier = 0.95; // Need better coverage in wet areas
+    } else if (coverageGoal === 'large-format') {
+      coverageMultiplier = 0.90; // Large format needs excellent coverage
+    }
+
+    const result = calculateMortarBags(area / coverageMultiplier, useTrowelId, backButter);
     const trowel = getTrowelPreset(useTrowelId);
 
     // Show results
@@ -1491,7 +3194,7 @@
     const substrateNudge = document.getElementById('substrate-nudge');
     const substrateNudgeText = document.getElementById('substrate-nudge-text');
     if (substrate === 'needs-flattening') {
-      substrateNudgeText.textContent = 'Substrate needs flattening. Consider self-leveler or patching before tile installation.';
+      substrateNudgeText.textContent = 'Substrate needs flattening. Consider self-leveler or patching before tile installation. Factor in additional material and labor.';
       substrateNudge.hidden = false;
     } else {
       substrateNudge.hidden = true;
@@ -1499,7 +3202,7 @@
 
     // Show back-butter nudge for large format
     const bbNudge = document.getElementById('backbutter-nudge');
-    if (tile.isLargeFormat && !backButter) {
+    if (tile.isLargeFormat && !document.getElementById('mortar-backbutter').checked) {
       bbNudge.hidden = false;
     } else {
       bbNudge.hidden = true;
@@ -1607,6 +3310,7 @@
     document.getElementById('copy-output-btn').addEventListener('click', copyOutput);
     document.getElementById('print-output-btn').addEventListener('click', printOutput);
     document.getElementById('download-doc-btn').addEventListener('click', downloadDoc);
+    document.getElementById('download-pdf-btn').addEventListener('click', downloadPdfBuildGuide);
 
     // Save/Load buttons
     document.getElementById('save-project-btn').addEventListener('click', () => {
@@ -1658,6 +3362,113 @@
         if (state.rooms.length > 1 || confirm('Remove this room?')) {
           removeRoom(roomId);
         }
+      }
+    }
+
+    // Add deduction button
+    if (target.closest('.add-deduction-btn')) {
+      const btn = target.closest('.add-deduction-btn');
+      const surfaceId = btn.dataset.surface;
+      const roomCard = btn.closest('.room-card');
+      if (roomCard && surfaceId) {
+        addDeduction(roomCard.dataset.roomId, surfaceId);
+      }
+    }
+
+    // Remove deduction button
+    if (target.closest('.remove-deduction-btn')) {
+      const btn = target.closest('.remove-deduction-btn');
+      const surfaceId = btn.dataset.surface;
+      const index = parseInt(btn.dataset.index);
+      const roomCard = btn.closest('.room-card');
+      if (roomCard && surfaceId && !isNaN(index)) {
+        removeDeduction(roomCard.dataset.roomId, surfaceId, index);
+      }
+    }
+
+    // Back to top button
+    if (target.closest('.back-to-top')) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  /**
+   * Add a deduction to a surface
+   */
+  function addDeduction(roomId, surfaceId) {
+    const room = state.rooms.find(r => r.id === roomId);
+    if (!room || !room.surfaces || !room.surfaces[surfaceId]) return;
+
+    if (!room.surfaces[surfaceId].deductions) {
+      room.surfaces[surfaceId].deductions = [];
+    }
+
+    room.surfaces[surfaceId].deductions.push({
+      label: '',
+      width: 0,
+      height: 0,
+      area: 0
+    });
+
+    const card = document.querySelector(`[data-room-id="${roomId}"]`);
+    if (card) {
+      renderSurfaceDetails(card, room);
+    }
+    saveToStorage();
+  }
+
+  /**
+   * Remove a deduction from a surface
+   */
+  function removeDeduction(roomId, surfaceId, index) {
+    const room = state.rooms.find(r => r.id === roomId);
+    if (!room || !room.surfaces || !room.surfaces[surfaceId]) return;
+
+    if (room.surfaces[surfaceId].deductions && room.surfaces[surfaceId].deductions[index]) {
+      room.surfaces[surfaceId].deductions.splice(index, 1);
+    }
+
+    const card = document.querySelector(`[data-room-id="${roomId}"]`);
+    if (card) {
+      renderSurfaceDetails(card, room);
+      recalculateRoomSurfaces(room);
+    }
+    updateAreaSummary();
+    saveToStorage();
+  }
+
+  /**
+   * Update deduction values
+   */
+  function updateDeduction(roomId, surfaceId, index, field, value) {
+    const room = state.rooms.find(r => r.id === roomId);
+    if (!room || !room.surfaces || !room.surfaces[surfaceId]) return;
+
+    const deduction = room.surfaces[surfaceId].deductions?.[index];
+    if (!deduction) return;
+
+    deduction[field] = value;
+
+    // Calculate area from width × height (convert to sq ft)
+    if (deduction.width > 0 && deduction.height > 0) {
+      deduction.area = (deduction.width * deduction.height) / 144; // inches to sq ft
+    }
+
+    recalculateRoomSurfaces(room);
+    updateAreaSummary();
+    saveToStorage();
+
+    // Update display
+    const card = document.querySelector(`[data-room-id="${roomId}"]`);
+    if (card) {
+      const areaSpan = card.querySelector(`[data-deductions="${surfaceId}"] [data-index="${index}"] .deduction-area`);
+      if (areaSpan) {
+        areaSpan.textContent = deduction.area > 0 ? formatNumber(deduction.area, 1) + ' sf' : '—';
+      }
+      // Update net area display
+      const netSpan = card.querySelector(`[data-surface-id="${surfaceId}"] .surface-net-value`);
+      if (netSpan) {
+        netSpan.textContent = formatNumber(room.surfaces[surfaceId].netArea || 0, 1) + ' sf';
       }
     }
   }
@@ -1793,8 +3604,118 @@
       if (target.classList.contains('room-lock-checkbox')) {
         const room = state.rooms.find(r => r.id === roomId);
         if (room) {
+          const wasLocked = room.locked;
           room.locked = target.checked;
+          
+          // Initialize audit trail if needed
+          if (!room.auditTrail) room.auditTrail = [];
+          
+          // Disable/enable inputs based on lock state
+          const dimensionInputs = roomCard.querySelectorAll('.room-length-ft, .room-length-in, .room-width-ft, .room-width-in, .room-height-ft, .room-height-in');
+          dimensionInputs.forEach(input => {
+            input.disabled = target.checked;
+          });
+          
+          // Visual lock state
+          roomCard.classList.toggle('room-card--locked', target.checked);
+          
+          // Add audit entry
+          const auditEntry = {
+            timestamp: new Date().toISOString(),
+            action: target.checked ? 'locked' : 'unlocked',
+            reason: '',
+            dimensions: {
+              length: toDecimalFeet(room.lengthFt, room.lengthIn),
+              width: toDecimalFeet(room.widthFt, room.widthIn),
+              height: toDecimalFeet(room.heightFt, room.heightIn)
+            }
+          };
+          
+          // If unlocking, prompt for reason
+          if (wasLocked && !target.checked) {
+            const reason = prompt('Optional: Enter reason for unlocking measurements:');
+            if (reason !== null) {
+              auditEntry.reason = reason;
+            }
+          }
+          
+          room.auditTrail.push(auditEntry);
+          
+          // Update audit display in room card
+          updateRoomAuditDisplay(roomCard, room);
+          
           roomCard.querySelector('.room-lock-reason').hidden = true;
+          saveToStorage();
+        }
+      }
+
+      // Surface area mode change
+      if (target.classList.contains('surface-area-mode')) {
+        const surfaceId = target.dataset.surface;
+        const room = state.rooms.find(r => r.id === roomId);
+        if (room && room.surfaces && room.surfaces[surfaceId]) {
+          room.surfaces[surfaceId].areaMode = target.value;
+          // Show/hide manual area field
+          const manualField = roomCard.querySelector(`[data-surface-id="${surfaceId}"] .surface-manual-area-field`);
+          if (manualField) {
+            manualField.hidden = target.value !== 'manual';
+          }
+          recalculateRoomSurfaces(room);
+          updateAreaSummary();
+          saveToStorage();
+        }
+      }
+
+      // Surface manual area change
+      if (target.classList.contains('surface-manual-area')) {
+        const surfaceId = target.dataset.surface;
+        const room = state.rooms.find(r => r.id === roomId);
+        if (room && room.surfaces && room.surfaces[surfaceId]) {
+          room.surfaces[surfaceId].manualArea = parseFloat(target.value) || 0;
+          recalculateRoomSurfaces(room);
+          updateAreaSummary();
+          saveToStorage();
+          // Update net display
+          const netSpan = roomCard.querySelector(`[data-surface-id="${surfaceId}"] .surface-net-value`);
+          if (netSpan) {
+            netSpan.textContent = formatNumber(room.surfaces[surfaceId].netArea || 0, 1) + ' sf';
+          }
+        }
+      }
+
+      // Surface use global defaults toggle
+      if (target.classList.contains('surface-use-defaults')) {
+        const surfaceId = target.dataset.surface;
+        const room = state.rooms.find(r => r.id === roomId);
+        if (room && room.surfaces && room.surfaces[surfaceId]) {
+          room.surfaces[surfaceId].useGlobalDefaults = target.checked;
+          // Show/hide overrides
+          const overridesDiv = roomCard.querySelector(`[data-surface-id="${surfaceId}"] .surface-overrides`);
+          if (overridesDiv) {
+            overridesDiv.hidden = target.checked;
+          }
+          saveToStorage();
+        }
+      }
+
+      // Surface tile override
+      if (target.classList.contains('surface-tile-override')) {
+        const surfaceId = target.dataset.surface;
+        const room = state.rooms.find(r => r.id === roomId);
+        if (room && room.surfaces && room.surfaces[surfaceId]) {
+          if (!room.surfaces[surfaceId].overrides) room.surfaces[surfaceId].overrides = {};
+          room.surfaces[surfaceId].overrides.tilePreset = target.value;
+          saveToStorage();
+        }
+      }
+
+      // Surface waste override
+      if (target.classList.contains('surface-waste-override')) {
+        const surfaceId = target.dataset.surface;
+        const room = state.rooms.find(r => r.id === roomId);
+        if (room && room.surfaces && room.surfaces[surfaceId]) {
+          if (!room.surfaces[surfaceId].overrides) room.surfaces[surfaceId].overrides = {};
+          room.surfaces[surfaceId].overrides.waste = parseFloat(target.value) || null;
           saveToStorage();
         }
       }
@@ -1873,7 +3794,53 @@
           saveToStorage();
         }
       }
+
+      // Deduction inputs
+      const deductionRow = target.closest('.deduction-row');
+      if (deductionRow) {
+        const index = parseInt(deductionRow.dataset.index);
+        const surfaceCard = target.closest('.surface-detail-card');
+        if (surfaceCard && !isNaN(index)) {
+          const surfaceId = surfaceCard.dataset.surfaceId;
+          if (target.classList.contains('deduction-label')) {
+            updateDeduction(roomId, surfaceId, index, 'label', target.value);
+          }
+          if (target.classList.contains('deduction-width')) {
+            updateDeduction(roomId, surfaceId, index, 'width', parseFloat(target.value) || 0);
+          }
+          if (target.classList.contains('deduction-height')) {
+            updateDeduction(roomId, surfaceId, index, 'height', parseFloat(target.value) || 0);
+          }
+        }
+      }
     }
+  }
+
+  // ============================================
+  // BACK TO TOP BUTTON
+  // ============================================
+
+  function initBackToTop() {
+    const btn = document.querySelector('.back-to-top');
+    if (!btn) return;
+
+    let ticking = false;
+    
+    function updateBackToTop() {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateBackToTop);
+        ticking = true;
+      }
+    }, { passive: true });
   }
 
   // ============================================
@@ -1924,44 +3891,7 @@
     sections.forEach(section => observer.observe(section));
   }
 
-  // ============================================
-  // MODE TOGGLE (Contractor / Homeowner)
-  // ============================================
 
-  function initModeToggle() {
-    const modeButtons = document.querySelectorAll('.tools-mode-btn');
-    if (!modeButtons.length) return;
-
-    modeButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Update button states
-        modeButtons.forEach(b => {
-          b.classList.remove('is-active');
-          b.setAttribute('aria-pressed', 'false');
-        });
-        btn.classList.add('is-active');
-        btn.setAttribute('aria-pressed', 'true');
-
-        // Store preference
-        const mode = btn.dataset.mode;
-        try {
-          localStorage.setItem('tillerstead_tools_mode', mode);
-        } catch (e) {}
-
-        // Update UI based on mode
-        document.body.dataset.toolsMode = mode;
-      });
-    });
-
-    // Restore saved mode
-    try {
-      const savedMode = localStorage.getItem('tillerstead_tools_mode');
-      if (savedMode) {
-        const savedBtn = document.querySelector(`[data-mode="${savedMode}"]`);
-        if (savedBtn) savedBtn.click();
-      }
-    } catch (e) {}
-  }
 
   // ============================================
   // INITIALIZATION
@@ -1985,17 +3915,23 @@
     initEventListeners();
     initSmoothScroll();
     initActiveNavHighlight();
-    initModeToggle();
+    initBackToTop();
 
     // Initial calculations
     updateAreaSummary();
     showLayoutNudge();
     showJointRecommendation();
 
+    // Initial validation (non-blocking)
+    setTimeout(() => {
+      updateValidation();
+    }, 500);
+
     // Developer test harness (console only)
     if (typeof window !== 'undefined') {
       window.TillersteadTools = {
         state,
+        validateProject,
         calculateTileQuantity,
         calculateMortarBags,
         calculateGrout,

@@ -92,6 +92,7 @@
 <link rel="stylesheet" href="/assets/css/retro-enhancements.css" />
 <link rel="stylesheet" href="/assets/css/logo-wolf-crest.css" />
 <link rel="stylesheet" href="/assets/css/main.css" />
+<link rel="stylesheet" href="/assets/css/footer.css" />
 <link rel="stylesheet" href="/assets/css/accessibility.css" />
 <link rel="stylesheet" href="/assets/css/nav-drawer.css" />
 <link rel="stylesheet" href="/assets/css/navigation.css" />
@@ -1110,927 +1111,953 @@
   
 
   <main class="ts-main-content" role="main" id="main-content" aria-label="Main content">
-    <main class="tools-page" id="main-content">
-  <!-- Sticky Mini-Nav -->
-  <nav class="tools-nav" aria-label="Tools navigation">
-    <div class="container">
-      <ul class="tools-nav__list" role="list">
-        <li><a href="#estimate-builder" class="tools-nav__link">Estimate Builder</a></li>
-        <li><a href="#tile-calculator" class="tools-nav__link">Tile Calculator</a></li>
-        <li><a href="#mortar-calculator" class="tools-nav__link">Mortar & Trowel</a></li>
-        <li><a href="#grout-calculator" class="tools-nav__link">Grout Calculator</a></li>
-        <li><a href="#leveling-calculator" class="tools-nav__link">Leveling</a></li>
-        <li><a href="#guides-tips" class="tools-nav__link">Guides & Tips</a></li>
-      </ul>
-    </div>
-  </nav>
+    <a href="#main-content" class="skip-link sr-only sr-only-focusable">Skip to tools</a>
 
-  <!-- Page Header -->
-  <header class="tools-header">
-    <div class="container">
-      <h1 class="tools-header__title">Tile Project Tools</h1>
-      <p class="tools-header__subtitle">Professional calculators for contractors and homeowners. Build accurate estimates, calculate materials, and generate project specs.</p>
-      
-      <!-- User Mode Toggle -->
-      <div class="tools-mode-toggle" role="group" aria-label="Select user mode">
-        <button type="button" class="tools-mode-btn is-active" data-mode="pro" aria-pressed="true">
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
-          </svg>
-          Contractor
-        </button>
-        <button type="button" class="tools-mode-btn" data-mode="homeowner" aria-pressed="false">
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-          </svg>
-          Homeowner
-        </button>
-      </div>
-      
-      <!-- Quick Start Cards -->
-      <div class="tools-quickstart">
-        <div class="quickstart-card" data-for="pro">
-          <h3>For Contractors</h3>
-          <ul>
-            <li><strong>Estimate Builder:</strong> Generate professional specs with measurements, materials list, and scope of work</li>
-            <li><strong>Material Takeoffs:</strong> Accurate tile, mortar, and grout calculations with waste factors</li>
-            <li><strong>Export Options:</strong> Copy to clipboard, print, or download for proposals</li>
-          </ul>
-        </div>
-        <div class="quickstart-card" data-for="homeowner">
-          <h3>For Homeowners</h3>
-          <ul>
-            <li><strong>Budget Planning:</strong> Estimate how much tile and materials you'll need</li>
-            <li><strong>Compare Quotes:</strong> Understand what a proper scope should include</li>
-            <li><strong>DIY Help:</strong> Calculate materials for your own projects</li>
-          </ul>
-        </div>
-      </div>
-      
-      <!-- Global Disclaimer -->
-      <div class="tools-disclaimer" role="note">
-        <strong>Important:</strong> These tools provide starting-point estimates based on common industry practices. Always verify calculations with tile and mortar manufacturer specifications, and confirm coverage before purchasing materials.
-      </div>
-    </div>
-  </header>
+<main class="tools-page" id="main-content" data-tools-mode="pro">
+  <!-- Sticky Mini-Nav for Tools Page -->
+<nav class="tools-nav" aria-label="Tools navigation">
+  <div class="container">
+    <ul class="tools-nav__list" role="list">
+      <li><a href="#estimate-builder" class="tools-nav__link">Estimate Builder</a></li>
+      <li><a href="#tile-calculator" class="tools-nav__link">Tile Calculator</a></li>
+      <li><a href="#mortar-calculator" class="tools-nav__link">Mortar & Trowel</a></li>
+      <li><a href="#grout-calculator" class="tools-nav__link">Grout Calculator</a></li>
+      <li><a href="#leveling-calculator" class="tools-nav__link">Leveling</a></li>
+      <li><a href="#guides-tips" class="tools-nav__link">Guides & Tips</a></li>
+    </ul>
+  </div>
+</nav>
 
-  <!-- Needs Attention Panel (populated by JS) -->
-  <aside class="needs-attention" id="needs-attention" hidden aria-live="polite">
-    <div class="container">
-      <h2 class="needs-attention__title">
-        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+  <!-- Page Header with Mode Toggle, Quickstart, and Disclaimer -->
+<header class="tools-header">
+  <div class="container">
+    <h1 class="tools-header__title">Tile Project Tools</h1>
+    <p class="tools-header__subtitle">Professional calculators for contractors and homeowners. Build accurate estimates, calculate materials, and generate project specs.</p>
+    
+    <!-- User Mode Toggle -->
+    <div class="tools-mode-toggle" role="group" aria-label="Select user mode">
+      <button type="button" class="tools-mode-btn is-active" data-mode="pro" aria-pressed="true">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
         </svg>
-        Needs Attention
-      </h2>
-      <ul class="needs-attention__list" id="needs-attention-list"></ul>
+        Contractor
+      </button>
+      <button type="button" class="tools-mode-btn" data-mode="homeowner" aria-pressed="false">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        Homeowner
+      </button>
     </div>
-  </aside>
+    
+    <!-- Quick Start Cards -->
+    <div class="tools-quickstart">
+      <div class="quickstart-card" data-for="pro">
+        <h3>For Contractors</h3>
+        <ul>
+          <li><strong>Estimate Builder:</strong> Generate professional specs with measurements, materials list, and scope of work</li>
+          <li><strong>Material Takeoffs:</strong> Accurate tile, mortar, and grout calculations with waste factors</li>
+          <li><strong>Export Options:</strong> Copy to clipboard, print, or download for proposals</li>
+        </ul>
+      </div>
+      <div class="quickstart-card" data-for="homeowner">
+        <h3>For Homeowners</h3>
+        <ul>
+          <li><strong>Budget Planning:</strong> Estimate how much tile and materials you'll need</li>
+          <li><strong>Compare Quotes:</strong> Understand what a proper scope should include</li>
+          <li><strong>DIY Help:</strong> Calculate materials for your own projects</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Global Disclaimer -->
+    <div class="tools-disclaimer" role="note">
+      <strong>Important:</strong> These tools provide starting-point estimates based on common industry practices. Always verify calculations with tile and mortar manufacturer specifications, and confirm coverage before purchasing materials.
+    </div>
+  </div>
+</header>
 
-  <!-- ============================================
-       MODULE 1: ESTIMATE SPEC BUILDER
-       ============================================ -->
-  <section class="tools-section" id="estimate-builder" aria-labelledby="estimate-builder-title">
-    <div class="container">
-      <header class="tools-section__header">
-        <h2 id="estimate-builder-title" class="tools-section__title">Estimate Spec Builder</h2>
-        <p class="tools-section__desc">Build a detailed project specification with measurements, materials, and a copy-ready scope summary.</p>
-      </header>
+<!-- Needs Attention Panel (populated by JS) -->
+<aside class="needs-attention" id="needs-attention" hidden aria-live="polite">
+  <div class="container">
+    <h2 class="needs-attention__title">
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      Needs Attention
+      <span class="needs-attention__badge" id="needs-attention-badge" hidden></span>
+    </h2>
+    <ul class="needs-attention__list" id="needs-attention-list"></ul>
+  </div>
+</aside>
 
-      <form class="estimate-form" id="estimate-form" novalidate>
-        <!-- Project Info Card -->
-        <fieldset class="tools-card">
-          <legend class="tools-card__legend">Project Information</legend>
-          
-          <div class="form-grid form-grid--2col">
-            <div class="form-field">
-              <label for="project-name" class="form-label form-label--required">Project Name</label>
-              <input type="text" id="project-name" name="projectName" class="form-input" required aria-required="true" placeholder="e.g., Master Bath Remodel">
-            </div>
-            <div class="form-field">
-              <label for="client-name" class="form-label">Client Name <span class="form-label__optional">(optional)</span></label>
-              <input type="text" id="client-name" name="clientName" class="form-input" placeholder="Homeowner name">
-            </div>
-          </div>
+  <!-- MODULE 1: ESTIMATE SPEC BUILDER -->
+<section class="tools-section" id="estimate-builder" aria-labelledby="estimate-builder-title">
+  <div class="container">
+    <header class="tools-section__header">
+      <h2 id="estimate-builder-title" class="tools-section__title">Estimate Spec Builder</h2>
+      <p class="tools-section__desc">Build a detailed project specification with measurements, materials, and a copy-ready scope summary.</p>
+    </header>
 
-          <div class="form-grid form-grid--2col">
-            <div class="form-field">
-              <label for="project-address" class="form-label">Address <span class="form-label__optional">(optional)</span></label>
-              <input type="text" id="project-address" name="address" class="form-input" placeholder="Project location">
-            </div>
-            <div class="form-field">
-              <label for="project-county" class="form-label">County / City <span class="form-label__optional">(optional)</span></label>
-              <input type="text" id="project-county" name="county" class="form-input" placeholder="e.g., Atlantic County, NJ">
-            </div>
-          </div>
+    <!-- Homeowner Mode Tip -->
+    <div class="homeowner-tip">
+      <strong>💡 Homeowner Mode:</strong> Enter your room measurements below to calculate how much tile, mortar, and grout you'll need. For a professional quote, <a href="/contact.html">contact us</a>!
+    </div>
 
-          <div class="form-grid form-grid--2col">
-            <div class="form-field">
-              <label for="client-phone" class="form-label">Phone <span class="form-label__optional">(optional)</span></label>
-              <input type="tel" id="client-phone" name="phone" class="form-input" placeholder="(555) 555-5555">
-            </div>
-            <div class="form-field">
-              <label for="client-email" class="form-label">Email <span class="form-label__optional">(optional)</span></label>
-              <input type="email" id="client-email" name="email" class="form-input" placeholder="client@example.com">
-            </div>
-          </div>
-
+    <form class="estimate-form" id="estimate-form" novalidate>
+      <!-- Project Info Card -->
+      <fieldset class="tools-card">
+        <legend class="tools-card__legend">Project Information</legend>
+        
+        <div class="form-grid form-grid--2col">
           <div class="form-field">
-            <label for="project-notes" class="form-label">Project Notes <span class="form-label__optional">(optional)</span></label>
-            <textarea id="project-notes" name="notes" class="form-textarea" rows="3" placeholder="Special considerations, access notes, timeline requirements..."></textarea>
+            <label for="project-name" class="form-label form-label--required">Project Name</label>
+            <input type="text" id="project-name" name="projectName" class="form-input" required aria-required="true" placeholder="e.g., Master Bath Remodel">
           </div>
-        </fieldset>
-
-        <!-- Rooms Container -->
-        <div class="rooms-container" id="rooms-container">
-          <div class="rooms-header">
-            <h3 class="rooms-header__title">Rooms & Surfaces</h3>
-            <button type="button" class="btn btn--secondary btn--sm" id="add-room-btn">
-              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
-              </svg>
-              Add Room
-            </button>
-          </div>
-          
-          <!-- Room cards inserted here by JS -->
-          <div id="rooms-list"></div>
-        </div>
-
-        <!-- Global Tile & Layout Defaults -->
-        <fieldset class="tools-card">
-          <legend class="tools-card__legend">Tile & Layout Defaults</legend>
-          <p class="tools-card__help">These defaults apply to all surfaces unless overridden per-surface.</p>
-
-          <div class="form-grid form-grid--3col">
-            <div class="form-field">
-              <label for="default-tile-size" class="form-label">Tile Size</label>
-              <select id="default-tile-size" name="defaultTileSize" class="form-select">
-                <option value="">Select tile size...</option>
-              </select>
-            </div>
-            <div class="form-field" id="custom-tile-fields" hidden>
-              <label class="form-label">Custom Size (inches)</label>
-              <div class="form-inline">
-                <input type="number" id="custom-tile-width" name="customTileWidth" class="form-input form-input--sm" placeholder="W" min="1" step="0.25">
-                <span class="form-inline__sep">×</span>
-                <input type="number" id="custom-tile-height" name="customTileHeight" class="form-input form-input--sm" placeholder="H" min="1" step="0.25">
-              </div>
-            </div>
-            <div class="form-field">
-              <label for="default-tile-thickness" class="form-label">Tile Thickness</label>
-              <select id="default-tile-thickness" name="defaultTileThickness" class="form-select">
-                <option value="6">6mm (1/4")</option>
-                <option value="8" selected>8mm (5/16") — typical</option>
-                <option value="10">10mm (3/8")</option>
-                <option value="12">12mm (1/2")</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-grid form-grid--3col">
-            <div class="form-field">
-              <label for="default-layout" class="form-label">Layout / Pattern</label>
-              <select id="default-layout" name="defaultLayout" class="form-select">
-                <option value="">Select layout...</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="default-waste" class="form-label">Waste Factor</label>
-              <div class="form-inline">
-                <input type="number" id="default-waste" name="defaultWaste" class="form-input" value="12" min="5" max="40" step="1">
-                <span class="form-inline__suffix">%</span>
-              </div>
-              <span class="form-hint" id="waste-hint">Auto-suggested based on layout</span>
-            </div>
-            <div class="form-field">
-              <label for="default-joint" class="form-label">Grout Joint Width</label>
-              <select id="default-joint" name="defaultJoint" class="form-select">
-                <option value="">Select joint size...</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-field">
-            <label class="form-checkbox">
-              <input type="checkbox" id="extra-attic-stock" name="extraAtticStock">
-              <span class="form-checkbox__text">Add extra attic stock (+5% or 1 box minimum)</span>
-            </label>
-          </div>
-
-          <!-- Layout Nudge -->
-          <div class="nudge" id="layout-nudge" hidden role="alert" aria-live="polite">
-            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-            </svg>
-            <span id="layout-nudge-text"></span>
-          </div>
-
-          <!-- Joint Recommendation -->
-          <div class="recommendation" id="joint-recommendation" hidden>
-            <strong>Recommendation:</strong> <span id="joint-recommendation-text"></span>
-          </div>
-        </fieldset>
-
-        <!-- System Selections -->
-        <fieldset class="tools-card">
-          <legend class="tools-card__legend">System Selections</legend>
-
-          <div class="form-grid form-grid--2col">
-            <div class="form-field">
-              <label for="underlayment" class="form-label">Underlayment</label>
-              <select id="underlayment" name="underlayment" class="form-select">
-                <option value="none">None / Existing acceptable</option>
-                <option value="cement-board">Cement Board (CBU)</option>
-                <option value="uncoupling">Uncoupling Membrane</option>
-                <option value="mud-bed">Mud Bed</option>
-                <option value="self-leveler">Self-Leveling Compound</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="waterproofing" class="form-label">Waterproofing</label>
-              <select id="waterproofing" name="waterproofing" class="form-select">
-                <option value="none">None (dry area)</option>
-                <option value="liquid">Liquid-Applied Membrane</option>
-                <option value="sheet">Sheet Membrane</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-grid form-grid--2col">
-            <div class="form-field">
-              <label for="edge-trim" class="form-label">Edge Trim / Profile</label>
-              <select id="edge-trim" name="edgeTrim" class="form-select">
-                <option value="none">None</option>
-                <option value="metal">Metal Profile (Schluter-style)</option>
-                <option value="threshold">Stone Threshold</option>
-                <option value="bullnose">Bullnose Tile</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label class="form-checkbox">
-                <input type="checkbox" id="movement-joints" name="movementJoints">
-                <span class="form-checkbox__text">Movement joints required (perimeter & field)</span>
-              </label>
-              <span class="form-hint">Required per industry standards for most installations</span>
-            </div>
-          </div>
-
-          <!-- Demo Scope -->
-          <div class="form-subsection">
-            <h4 class="form-subsection__title">Demo Scope</h4>
-            <div class="form-grid form-grid--2col">
-              <label class="form-checkbox">
-                <input type="checkbox" id="demo-tile" name="demoTile">
-                <span class="form-checkbox__text">Remove existing tile</span>
-              </label>
-              <label class="form-checkbox">
-                <input type="checkbox" id="demo-underlayment" name="demoUnderlayment">
-                <span class="form-checkbox__text">Remove existing underlayment</span>
-              </label>
-              <label class="form-checkbox">
-                <input type="checkbox" id="subfloor-repair" name="subfloorRepair">
-                <span class="form-checkbox__text">Subfloor repair may be needed</span>
-              </label>
-              <label class="form-checkbox">
-                <input type="checkbox" id="disposal" name="disposal">
-                <span class="form-checkbox__text">Disposal / haul-away required</span>
-              </label>
-            </div>
-          </div>
-        </fieldset>
-
-        <!-- Area Summary (live calculated) -->
-        <div class="area-summary tools-card" id="area-summary">
-          <h3 class="area-summary__title">Area Summary</h3>
-          <div class="area-summary__grid" id="area-summary-grid">
-            <p class="area-summary__empty">Add rooms and select surfaces to see area calculations.</p>
-          </div>
-          <div class="area-summary__total">
-            <strong>Total Project Area:</strong> <span id="total-area">0</span> sq ft
+          <div class="form-field pro-only">
+            <label for="client-name" class="form-label">Client Name <span class="form-label__optional">(optional)</span></label>
+            <input type="text" id="client-name" name="clientName" class="form-input" placeholder="Homeowner name">
           </div>
         </div>
 
-        <!-- Form Actions -->
-        <div class="form-actions">
-          <button type="button" class="btn btn--primary" id="generate-scope-btn">
-            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+        <div class="form-grid form-grid--2col pro-only">
+          <div class="form-field">
+            <label for="project-address" class="form-label">Address <span class="form-label__optional">(optional)</span></label>
+            <input type="text" id="project-address" name="address" class="form-input" placeholder="Project location">
+          </div>
+          <div class="form-field">
+            <label for="project-county" class="form-label">County / City <span class="form-label__optional">(optional)</span></label>
+            <input type="text" id="project-county" name="county" class="form-input" placeholder="e.g., Atlantic County, NJ">
+          </div>
+        </div>
+
+        <div class="form-grid form-grid--2col pro-only">
+          <div class="form-field">
+            <label for="client-phone" class="form-label">Phone <span class="form-label__optional">(optional)</span></label>
+            <input type="tel" id="client-phone" name="phone" class="form-input" placeholder="(555) 555-5555">
+          </div>
+          <div class="form-field">
+            <label for="client-email" class="form-label">Email <span class="form-label__optional">(optional)</span></label>
+            <input type="email" id="client-email" name="email" class="form-input" placeholder="client@example.com">
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="project-notes" class="form-label">Project Notes <span class="form-label__optional">(optional)</span></label>
+          <textarea id="project-notes" name="notes" class="form-textarea" rows="3" placeholder="Special considerations, access notes, timeline requirements..."></textarea>
+        </div>
+      </fieldset>
+
+      <!-- Rooms Container -->
+      <div class="rooms-container" id="rooms-container">
+        <div class="rooms-header">
+          <h3 class="rooms-header__title">Rooms & Surfaces</h3>
+          <button type="button" class="btn btn--secondary btn--sm" id="add-room-btn">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
             </svg>
-            Generate Scope Summary
+            Add Room
           </button>
-          <button type="button" class="btn btn--secondary" id="save-project-btn">Save Project</button>
-          <button type="button" class="btn btn--ghost" id="reset-project-btn">Reset All</button>
         </div>
-      </form>
-    </div>
-  </section>
+        
+        <!-- Room cards inserted here by JS -->
+        <div id="rooms-list"></div>
+      </div>
 
-  <!-- ============================================
-       MODULE 2: TILE QUANTITY CALCULATOR
-       ============================================ -->
-  <section class="tools-section tools-section--alt" id="tile-calculator" aria-labelledby="tile-calculator-title">
-    <div class="container">
-      <header class="tools-section__header">
-        <h2 id="tile-calculator-title" class="tools-section__title">Tile Quantity Calculator</h2>
-        <p class="tools-section__desc">Calculate how many tiles and boxes you need for your project.</p>
-      </header>
+      <!-- Global Tile & Layout Defaults -->
+      <fieldset class="tools-card">
+        <legend class="tools-card__legend">Tile & Layout Defaults</legend>
+        <p class="tools-card__help">These defaults apply to all surfaces unless overridden per-surface.</p>
 
-      <div class="tools-card">
         <div class="form-grid form-grid--3col">
           <div class="form-field">
-            <label for="calc-area" class="form-label form-label--required">Total Area</label>
-            <div class="form-inline">
-              <input type="number" id="calc-area" class="form-input" placeholder="0" min="1" step="0.1" required>
-              <span class="form-inline__suffix">sq ft</span>
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="calc-tile-size" class="form-label">Tile Size</label>
-            <select id="calc-tile-size" class="form-select">
+            <label for="default-tile-size" class="form-label">Tile Size</label>
+            <select id="default-tile-size" name="defaultTileSize" class="form-select">
               <option value="">Select tile size...</option>
             </select>
           </div>
-          <div class="form-field" id="calc-custom-tile-fields" hidden>
+          <div class="form-field" id="custom-tile-fields" hidden>
             <label class="form-label">Custom Size (inches)</label>
             <div class="form-inline">
-              <input type="number" id="calc-custom-width" class="form-input form-input--sm" placeholder="W" min="1" step="0.25">
+              <input type="number" id="custom-tile-width" name="customTileWidth" class="form-input form-input--sm" placeholder="W" min="1" step="0.25">
               <span class="form-inline__sep">×</span>
-              <input type="number" id="calc-custom-height" class="form-input form-input--sm" placeholder="H" min="1" step="0.25">
+              <input type="number" id="custom-tile-height" name="customTileHeight" class="form-input form-input--sm" placeholder="H" min="1" step="0.25">
             </div>
+          </div>
+          <div class="form-field">
+            <label for="default-tile-thickness" class="form-label">Tile Thickness</label>
+            <select id="default-tile-thickness" name="defaultTileThickness" class="form-select">
+              <option value="6">6mm (1/4")</option>
+              <option value="8" selected>8mm (5/16") — typical</option>
+              <option value="10">10mm (3/8")</option>
+              <option value="12">12mm (1/2")</option>
+            </select>
           </div>
         </div>
 
         <div class="form-grid form-grid--3col">
           <div class="form-field">
-            <label for="calc-layout" class="form-label">Layout / Pattern</label>
-            <select id="calc-layout" class="form-select">
+            <label for="default-layout" class="form-label">Layout / Pattern</label>
+            <select id="default-layout" name="defaultLayout" class="form-select">
               <option value="">Select layout...</option>
             </select>
           </div>
           <div class="form-field">
-            <label for="calc-waste" class="form-label">Waste Factor</label>
+            <label for="default-waste" class="form-label">Waste Factor</label>
             <div class="form-inline">
-              <input type="number" id="calc-waste" class="form-input" value="12" min="5" max="40" step="1">
+              <input type="number" id="default-waste" name="defaultWaste" class="form-input" value="12" min="5" max="40" step="1">
               <span class="form-inline__suffix">%</span>
             </div>
+            <span class="form-hint" id="waste-hint">Auto-suggested based on layout</span>
           </div>
           <div class="form-field">
-            <label for="calc-box-mode" class="form-label">Box Info</label>
-            <select id="calc-box-mode" class="form-select">
-              <option value="tiles-per-box">Tiles per box</option>
-              <option value="sqft-per-box">Sq ft per box</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-grid form-grid--2col">
-          <div class="form-field" id="calc-tiles-per-box-field">
-            <label for="calc-tiles-per-box" class="form-label">Tiles per Box</label>
-            <input type="number" id="calc-tiles-per-box" class="form-input" placeholder="e.g., 10" min="1">
-          </div>
-          <div class="form-field" id="calc-sqft-per-box-field" hidden>
-            <label for="calc-sqft-per-box" class="form-label">Sq Ft per Box</label>
-            <input type="number" id="calc-sqft-per-box" class="form-input" placeholder="e.g., 12.5" min="0.1" step="0.1">
-          </div>
-          <div class="form-field">
-            <label class="form-checkbox">
-              <input type="checkbox" id="calc-attic-stock">
-              <span class="form-checkbox__text">Add attic stock (+5% or 1 box)</span>
-            </label>
-          </div>
-        </div>
-
-        <button type="button" class="btn btn--primary" id="calc-tile-btn">Calculate</button>
-
-        <!-- Results -->
-        <div class="calc-results" id="tile-calc-results" hidden>
-          <h4 class="calc-results__title">Results</h4>
-          <div class="calc-results__grid">
-            <div class="calc-result">
-              <span class="calc-result__label">Area with waste</span>
-              <span class="calc-result__value" id="result-area-waste">—</span>
-            </div>
-            <div class="calc-result">
-              <span class="calc-result__label">Tiles needed</span>
-              <span class="calc-result__value" id="result-tiles">—</span>
-            </div>
-            <div class="calc-result">
-              <span class="calc-result__label">Boxes needed</span>
-              <span class="calc-result__value calc-result__value--highlight" id="result-boxes">—</span>
-            </div>
-          </div>
-          <p class="calc-results__note" id="tile-calc-note"></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       MODULE 3: MORTAR / TROWEL CALCULATOR
-       ============================================ -->
-  <section class="tools-section" id="mortar-calculator" aria-labelledby="mortar-calculator-title">
-    <div class="container">
-      <header class="tools-section__header">
-        <h2 id="mortar-calculator-title" class="tools-section__title">Mortar & Trowel Calculator</h2>
-        <p class="tools-section__desc">Estimate mortar quantity with auto-recommended trowel notch based on tile size and substrate.</p>
-      </header>
-
-      <div class="tools-card">
-        <div class="form-grid form-grid--3col">
-          <div class="form-field">
-            <label for="mortar-area" class="form-label form-label--required">Area</label>
-            <div class="form-inline">
-              <input type="number" id="mortar-area" class="form-input" placeholder="0" min="1" step="0.1" required>
-              <span class="form-inline__suffix">sq ft</span>
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="mortar-tile-size" class="form-label">Tile Size</label>
-            <select id="mortar-tile-size" class="form-select">
-              <option value="">Select tile size...</option>
-            </select>
-          </div>
-          <div class="form-field" id="mortar-custom-tile-fields" hidden>
-            <label class="form-label">Custom Size (inches)</label>
-            <div class="form-inline">
-              <input type="number" id="mortar-custom-width" class="form-input form-input--sm" placeholder="W" min="1" step="0.25">
-              <span class="form-inline__sep">×</span>
-              <input type="number" id="mortar-custom-height" class="form-input form-input--sm" placeholder="H" min="1" step="0.25">
-            </div>
-          </div>
-        </div>
-
-        <div class="form-grid form-grid--3col">
-          <div class="form-field">
-            <label for="mortar-substrate" class="form-label">Substrate Condition</label>
-            <select id="mortar-substrate" class="form-select">
-              <option value="smooth">Smooth / Flat</option>
-              <option value="typical" selected>Typical (minor variation)</option>
-              <option value="needs-flattening">Needs Flattening</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="mortar-trowel" class="form-label">Trowel Notch</label>
-            <select id="mortar-trowel" class="form-select">
-              <option value="">Auto-recommend...</option>
-            </select>
-            <span class="form-hint" id="trowel-hint">Will auto-recommend based on tile size</span>
-          </div>
-          <div class="form-field">
-            <label class="form-checkbox">
-              <input type="checkbox" id="mortar-backbutter">
-              <span class="form-checkbox__text">Back-butter tiles</span>
-            </label>
-            <span class="form-hint">Recommended for large-format tile</span>
-          </div>
-        </div>
-
-        <!-- Trowel Recommendation -->
-        <div class="recommendation" id="trowel-recommendation" hidden>
-          <strong>Auto-Recommended:</strong> <span id="trowel-recommendation-text"></span>
-          <p class="recommendation__note">This is a starting-point recommendation. Verify with tile/mortar manufacturer and confirm coverage in the field.</p>
-        </div>
-
-        <!-- Substrate Nudge -->
-        <div class="nudge" id="substrate-nudge" hidden role="alert" aria-live="polite">
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-          </svg>
-          <span id="substrate-nudge-text"></span>
-        </div>
-
-        <!-- Back-butter Nudge -->
-        <div class="nudge nudge--info" id="backbutter-nudge" hidden role="alert" aria-live="polite">
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
-          </svg>
-          <span>Large-format tile (any side ≥24"): Consider back-buttering for better coverage.</span>
-        </div>
-
-        <button type="button" class="btn btn--primary" id="calc-mortar-btn">Calculate Mortar</button>
-
-        <!-- Results -->
-        <div class="calc-results" id="mortar-calc-results" hidden>
-          <h4 class="calc-results__title">Estimated Mortar Needed</h4>
-          <div class="calc-results__grid">
-            <div class="calc-result">
-              <span class="calc-result__label">Trowel notch</span>
-              <span class="calc-result__value" id="result-trowel">—</span>
-            </div>
-            <div class="calc-result">
-              <span class="calc-result__label">Coverage range</span>
-              <span class="calc-result__value" id="result-coverage">—</span>
-            </div>
-            <div class="calc-result">
-              <span class="calc-result__label">50 lb bags needed</span>
-              <span class="calc-result__value calc-result__value--highlight" id="result-bags">—</span>
-            </div>
-          </div>
-          <p class="calc-results__note">Coverage varies by troweling technique, substrate conditions, and mortar type. Confirm with manufacturer data sheets. If back-buttering, increase estimate by 20–30%.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       MODULE 4: GROUT CALCULATOR
-       ============================================ -->
-  <section class="tools-section tools-section--alt" id="grout-calculator" aria-labelledby="grout-calculator-title">
-    <div class="container">
-      <header class="tools-section__header">
-        <h2 id="grout-calculator-title" class="tools-section__title">Grout Calculator</h2>
-        <p class="tools-section__desc">Estimate grout quantity based on tile size, thickness, and joint width.</p>
-      </header>
-
-      <div class="tools-card">
-        <div class="form-grid form-grid--3col">
-          <div class="form-field">
-            <label for="grout-area" class="form-label form-label--required">Area</label>
-            <div class="form-inline">
-              <input type="number" id="grout-area" class="form-input" placeholder="0" min="1" step="0.1" required>
-              <span class="form-inline__suffix">sq ft</span>
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="grout-tile-length" class="form-label">Tile Length</label>
-            <div class="form-inline">
-              <input type="number" id="grout-tile-length" class="form-input" placeholder="12" min="1" step="0.25">
-              <span class="form-inline__suffix">in</span>
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="grout-tile-width" class="form-label">Tile Width</label>
-            <div class="form-inline">
-              <input type="number" id="grout-tile-width" class="form-input" placeholder="12" min="1" step="0.25">
-              <span class="form-inline__suffix">in</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-grid form-grid--3col">
-          <div class="form-field">
-            <label for="grout-tile-thickness" class="form-label">Tile Thickness</label>
-            <div class="form-inline">
-              <input type="number" id="grout-tile-thickness" class="form-input" value="8" min="3" max="20" step="1">
-              <span class="form-inline__suffix">mm</span>
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="grout-joint-width" class="form-label">Joint Width</label>
-            <select id="grout-joint-width" class="form-select">
+            <label for="default-joint" class="form-label">Grout Joint Width</label>
+            <select id="default-joint" name="defaultJoint" class="form-select">
               <option value="">Select joint size...</option>
             </select>
           </div>
-          <div class="form-field" id="grout-custom-joint-field" hidden>
-            <label for="grout-custom-joint" class="form-label">Custom Joint</label>
-            <div class="form-inline">
-              <input type="number" id="grout-custom-joint" class="form-input" placeholder="0.125" min="0.0625" max="0.5" step="0.0625">
-              <span class="form-inline__suffix">in</span>
-            </div>
+        </div>
+
+        <div class="form-field">
+          <label class="form-checkbox">
+            <input type="checkbox" id="extra-attic-stock" name="extraAtticStock">
+            <span class="form-checkbox__text">Add extra attic stock (+5% or 1 box minimum)</span>
+          </label>
+        </div>
+
+        <!-- Layout Nudge -->
+        <div class="nudge" id="layout-nudge" hidden role="alert" aria-live="polite">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          <span id="layout-nudge-text"></span>
+        </div>
+
+        <!-- Joint Recommendation -->
+        <div class="recommendation" id="joint-recommendation" hidden>
+          <strong>Recommendation:</strong> <span id="joint-recommendation-text"></span>
+        </div>
+      </fieldset>
+
+      <!-- System Selections (Pro Only) -->
+      <fieldset class="tools-card pro-only">
+        <legend class="tools-card__legend">System Selections</legend>
+
+        <div class="form-grid form-grid--2col">
+          <div class="form-field">
+            <label for="underlayment" class="form-label">Underlayment</label>
+            <select id="underlayment" name="underlayment" class="form-select">
+              <option value="none">None / Existing acceptable</option>
+              <option value="cement-board">Cement Board (CBU)</option>
+              <option value="uncoupling">Uncoupling Membrane</option>
+              <option value="mud-bed">Mud Bed</option>
+              <option value="self-leveler">Self-Leveling Compound</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="waterproofing" class="form-label">Waterproofing</label>
+            <select id="waterproofing" name="waterproofing" class="form-select">
+              <option value="none">None (dry area)</option>
+              <option value="liquid">Liquid-Applied Membrane</option>
+              <option value="sheet">Sheet Membrane</option>
+            </select>
           </div>
         </div>
 
         <div class="form-grid form-grid--2col">
           <div class="form-field">
-            <label for="grout-type" class="form-label">Grout Type</label>
-            <select id="grout-type" class="form-select">
-              <option value="cement">Cement-based (sanded/unsanded)</option>
-              <option value="epoxy">Epoxy</option>
+            <label for="edge-trim" class="form-label">Edge Trim / Profile</label>
+            <select id="edge-trim" name="edgeTrim" class="form-select">
+              <option value="none">None</option>
+              <option value="metal">Metal Profile (Schluter-style)</option>
+              <option value="threshold">Stone Threshold</option>
+              <option value="bullnose">Bullnose Tile</option>
             </select>
           </div>
           <div class="form-field">
             <label class="form-checkbox">
-              <input type="checkbox" id="grout-mosaic">
-              <span class="form-checkbox__text">Mosaic tile (higher grout consumption)</span>
+              <input type="checkbox" id="movement-joints" name="movementJoints">
+              <span class="form-checkbox__text">Movement joints required (perimeter & field)</span>
             </label>
+            <span class="form-hint">Required per industry standards for most installations</span>
           </div>
         </div>
 
-        <button type="button" class="btn btn--primary" id="calc-grout-btn">Calculate Grout</button>
-
-        <!-- Results -->
-        <div class="calc-results" id="grout-calc-results" hidden>
-          <h4 class="calc-results__title">Estimated Grout Needed</h4>
-          <div class="calc-results__grid">
-            <div class="calc-result">
-              <span class="calc-result__label">Joint volume</span>
-              <span class="calc-result__value" id="result-joint-volume">—</span>
-            </div>
-            <div class="calc-result">
-              <span class="calc-result__label">Grout needed</span>
-              <span class="calc-result__value calc-result__value--highlight" id="result-grout">—</span>
-            </div>
-          </div>
-          <p class="calc-results__note">Grout coverage varies by mixing consistency, joint depth, and application method. Check manufacturer coverage charts for your specific product.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       MODULE 5: LEVELING CALCULATOR
-       ============================================ -->
-  <section class="tools-section" id="leveling-calculator" aria-labelledby="leveling-calculator-title">
-    <div class="container">
-      <header class="tools-section__header">
-        <h2 id="leveling-calculator-title" class="tools-section__title">Self-Leveler Calculator</h2>
-        <p class="tools-section__desc">Estimate self-leveling compound quantity based on area and depth.</p>
-      </header>
-
-      <div class="tools-card">
-        <div class="form-grid form-grid--3col">
-          <div class="form-field">
-            <label for="level-area" class="form-label form-label--required">Area</label>
-            <div class="form-inline">
-              <input type="number" id="level-area" class="form-input" placeholder="0" min="1" step="0.1" required>
-              <span class="form-inline__suffix">sq ft</span>
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="level-depth-avg" class="form-label form-label--required">Average Depth</label>
-            <div class="form-inline">
-              <input type="number" id="level-depth-avg" class="form-input" placeholder="0.25" min="0.0625" max="2" step="0.0625">
-              <span class="form-inline__suffix">in</span>
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="level-depth-max" class="form-label">Max Depth <span class="form-label__optional">(optional)</span></label>
-            <div class="form-inline">
-              <input type="number" id="level-depth-max" class="form-input" placeholder="—" min="0.0625" max="3" step="0.0625">
-              <span class="form-inline__suffix">in</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="nudge nudge--info" id="leveling-nudge">
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
-          </svg>
-          <span><strong>Note:</strong> "Leveling" creates a flat plane; "flattening" removes high spots. Evaluate whether you need self-leveler, patching compound, or grinding. Always use manufacturer-recommended primer.</span>
-        </div>
-
-        <button type="button" class="btn btn--primary" id="calc-level-btn">Calculate</button>
-
-        <!-- Results -->
-        <div class="calc-results" id="level-calc-results" hidden>
-          <h4 class="calc-results__title">Estimated Self-Leveler Needed</h4>
-          <div class="calc-results__grid">
-            <div class="calc-result">
-              <span class="calc-result__label">Volume</span>
-              <span class="calc-result__value" id="result-level-volume">—</span>
-            </div>
-            <div class="calc-result">
-              <span class="calc-result__label">50 lb bags (est.)</span>
-              <span class="calc-result__value calc-result__value--highlight" id="result-level-bags">—</span>
-            </div>
-          </div>
-          <p class="calc-results__note">Coverage varies by product. Most self-levelers cover approximately 0.45–0.5 cu ft per 50 lb bag at 1" depth. Verify with product data sheet. <strong>Don't forget primer!</strong></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       GUIDES & TIPS
-       ============================================ -->
-  <section class="tools-section tools-section--alt" id="guides-tips" aria-labelledby="guides-tips-title">
-    <div class="container">
-      <header class="tools-section__header">
-        <h2 id="guides-tips-title" class="tools-section__title">Guides & Tips</h2>
-        <p class="tools-section__desc">Quick reference for planning your tile project.</p>
-      </header>
-
-      <div class="tips-grid">
-        <!-- Measuring Tips -->
-        <details class="tip-card">
-          <summary class="tip-card__summary">
-            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/>
-            </svg>
-            Measuring Tips
-          </summary>
-          <div class="tip-card__content">
-            <ul>
-              <li><strong>Measure twice:</strong> Record length and width at multiple points—rooms aren't always perfectly square.</li>
-              <li><strong>Draw it out:</strong> Sketch the room shape and note obstacles (toilets, vanities, doorways).</li>
-              <li><strong>Account for alcoves:</strong> Measure recessed areas separately and add to total.</li>
-              <li><strong>Wall height:</strong> For wall tile, measure floor-to-ceiling or floor-to-desired-height at multiple points.</li>
-              <li><strong>Complex shapes:</strong> Break into rectangles, calculate each, then sum.</li>
-            </ul>
-          </div>
-        </details>
-
-        <!-- Layout Choice Tips -->
-        <details class="tip-card">
-          <summary class="tip-card__summary">
-            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
-            </svg>
-            Layout & Pattern Selection
-          </summary>
-          <div class="tip-card__content">
-            <ul>
-              <li><strong>Straight/stacked:</strong> Lowest waste, easiest to install. Works well with square tiles.</li>
-              <li><strong>1/3 offset (recommended):</strong> Reduces lippage risk on plank tiles compared to 50% offset. Most installers prefer this for wood-look tile.</li>
-              <li><strong>50% offset (brick):</strong> Classic subway look, but can emphasize tile warpage. Best for shorter tiles (≤12").</li>
-              <li><strong>Diagonal:</strong> Visually expands space but increases waste. Plan layout to minimize small corner cuts.</li>
-              <li><strong>Herringbone:</strong> Dramatic pattern but highest waste (20–30%). Requires precise cuts.</li>
-            </ul>
-            <p class="tip-card__note">Always dry-lay a section before setting to verify pattern and check for issues.</p>
-          </div>
-        </details>
-
-        <!-- Coverage Check -->
-        <details class="tip-card">
-          <summary class="tip-card__summary">
-            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
-            </svg>
-            Mortar Coverage Check
-          </summary>
-          <div class="tip-card__content">
-            <ul>
-              <li><strong>Lift and check:</strong> Periodically lift a just-set tile to verify mortar coverage on the back.</li>
-              <li><strong>Target coverage:</strong> Floor tile: 80%+ coverage. Wet areas and large-format: 95%+ coverage.</li>
-              <li><strong>Full contact:</strong> No voids or hollow spots, especially at corners and edges.</li>
-              <li><strong>Back-butter when needed:</strong> For large-format tile, apply a thin layer of mortar to tile back in addition to substrate.</li>
-              <li><strong>Directional troweling:</strong> Comb mortar in straight lines (not swirls) for easier air release.</li>
-            </ul>
-          </div>
-        </details>
-
-        <!-- Movement Joints -->
-        <details class="tip-card">
-          <summary class="tip-card__summary">
-            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-            </svg>
-            Movement Joints
-          </summary>
-          <div class="tip-card__content">
-            <ul>
-              <li><strong>Perimeter joints:</strong> Leave a gap at all walls, cabinets, and fixtures—filled with caulk, not grout.</li>
-              <li><strong>Field joints:</strong> For large areas, movement joints may be needed every 20–25 feet (varies by conditions).</li>
-              <li><strong>Change of plane:</strong> Where floors meet walls, use caulk at the transition.</li>
-              <li><strong>Existing joints:</strong> Honor any expansion/control joints in the substrate.</li>
-            </ul>
-            <p class="tip-card__note">Movement joints prevent cracks from building stress. They're required by industry standards for most installations.</p>
-          </div>
-        </details>
-
-        <!-- Waste Factors -->
-        <details class="tip-card">
-          <summary class="tip-card__summary">
-            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="3 6 5 6 6 6"/><path d="M19 6h1a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h1"/><polygon points="10 3 14 3 14 6 10 6"/>
-            </svg>
-            Understanding Waste Factors
-          </summary>
-          <div class="tip-card__content">
-            <ul>
-              <li><strong>10%:</strong> Minimum for straight layouts in simple rectangular rooms.</li>
-              <li><strong>12–15%:</strong> Standard for most offset/brick patterns.</li>
-              <li><strong>15–20%:</strong> Diagonal layouts, rooms with many cuts.</li>
-              <li><strong>20–30%:</strong> Herringbone, complex patterns, or rooms with many obstacles.</li>
-              <li><strong>Attic stock:</strong> Always order extra (1 box or +5%) for future repairs. Dye lots vary!</li>
-            </ul>
-            <p class="tip-card__note">When in doubt, round up. Running short mid-project is far more costly than having extra.</p>
-          </div>
-        </details>
-
-        <!-- Substrate Prep -->
-        <details class="tip-card">
-          <summary class="tip-card__summary">
-            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-            </svg>
-            Substrate Preparation
-          </summary>
-          <div class="tip-card__content">
-            <ul>
-              <li><strong>Clean:</strong> Remove dust, debris, adhesive residue, and contaminants.</li>
-              <li><strong>Flat:</strong> Check with a straightedge. For large-format tile, flatness is critical.</li>
-              <li><strong>Sound:</strong> No loose areas, delamination, or structural issues.</li>
-              <li><strong>Dry:</strong> Concrete must cure adequately. Test moisture if needed.</li>
-              <li><strong>Primed:</strong> Many substrates need primer for proper mortar bond.</li>
-            </ul>
-            <p class="tip-card__note">Most tile failures trace back to substrate problems. Invest time here.</p>
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       PROJECT OUTPUT / EXPORT
-       ============================================ -->
-  <section class="tools-section" id="project-output" aria-labelledby="project-output-title">
-    <div class="container">
-      <header class="tools-section__header">
-        <h2 id="project-output-title" class="tools-section__title">Generate Project Packet</h2>
-        <p class="tools-section__desc">Create a copy-ready scope summary and material estimates.</p>
-      </header>
-
-      <div class="tools-card">
-        <fieldset class="output-options">
-          <legend class="sr-only">Include in output</legend>
+        <!-- Demo Scope -->
+        <div class="form-subsection">
+          <h4 class="form-subsection__title">Demo Scope</h4>
           <div class="form-grid form-grid--2col">
             <label class="form-checkbox">
-              <input type="checkbox" id="output-scope" checked>
-              <span class="form-checkbox__text">Scope summary</span>
+              <input type="checkbox" id="demo-tile" name="demoTile">
+              <span class="form-checkbox__text">Remove existing tile</span>
             </label>
             <label class="form-checkbox">
-              <input type="checkbox" id="output-measurements" checked>
-              <span class="form-checkbox__text">Measurements table</span>
+              <input type="checkbox" id="demo-underlayment" name="demoUnderlayment">
+              <span class="form-checkbox__text">Remove existing underlayment</span>
             </label>
             <label class="form-checkbox">
-              <input type="checkbox" id="output-tile" checked>
-              <span class="form-checkbox__text">Tile quantities</span>
+              <input type="checkbox" id="subfloor-repair" name="subfloorRepair">
+              <span class="form-checkbox__text">Subfloor repair may be needed</span>
             </label>
             <label class="form-checkbox">
-              <input type="checkbox" id="output-mortar" checked>
-              <span class="form-checkbox__text">Mortar/grout estimates</span>
-            </label>
-            <label class="form-checkbox">
-              <input type="checkbox" id="output-assumptions" checked>
-              <span class="form-checkbox__text">Assumptions & notes</span>
-            </label>
-            <label class="form-checkbox">
-              <input type="checkbox" id="output-disclaimers" checked>
-              <span class="form-checkbox__text">Disclaimers</span>
+              <input type="checkbox" id="disposal" name="disposal">
+              <span class="form-checkbox__text">Disposal / haul-away required</span>
             </label>
           </div>
-        </fieldset>
-
-        <div class="form-actions">
-          <button type="button" class="btn btn--primary" id="generate-output-btn">
-            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
-            </svg>
-            Generate Output
-          </button>
         </div>
+      </fieldset>
 
-        <!-- Output Preview -->
-        <div class="output-preview" id="output-preview" hidden>
-          <div class="output-preview__header">
-            <h3>Output Preview</h3>
-            <div class="output-preview__actions">
-              <button type="button" class="btn btn--sm btn--secondary" id="copy-output-btn">
-                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                </svg>
-                Copy
-              </button>
-              <button type="button" class="btn btn--sm btn--secondary" id="print-output-btn">
-                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>
-                </svg>
-                Print
-              </button>
-              <button type="button" class="btn btn--sm btn--secondary" id="download-doc-btn">
-                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
-                </svg>
-                Download .doc
-              </button>
-            </div>
-          </div>
-          <div class="output-preview__content" id="output-content"></div>
+      <!-- Area Summary (live calculated) -->
+      <div class="area-summary tools-card" id="area-summary">
+        <h3 class="area-summary__title">Area Summary</h3>
+        <div class="area-summary__grid" id="area-summary-grid">
+          <p class="area-summary__empty">Add rooms and select surfaces to see area calculations.</p>
+        </div>
+        <div class="area-summary__total">
+          <strong>Total Project Area:</strong> <span id="total-area">0</span> sq ft
         </div>
       </div>
 
-      <!-- Import/Export JSON -->
-      <div class="tools-card tools-card--secondary">
-        <h3 class="tools-card__title">Save & Load Project Data</h3>
-        <div class="form-actions">
-          <button type="button" class="btn btn--secondary" id="export-json-btn">
-            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
-            </svg>
-            Export JSON
-          </button>
-          <label class="btn btn--secondary">
-            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-            Import JSON
-            <input type="file" id="import-json-input" accept=".json" class="sr-only">
+      <!-- Form Actions -->
+      <div class="form-actions">
+        <button type="button" class="btn btn--primary" id="generate-scope-btn">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          Generate Scope Summary
+        </button>
+        <button type="button" class="btn btn--secondary" id="save-project-btn">Save Project</button>
+        <button type="button" class="btn btn--ghost" id="reset-project-btn">Reset All</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+  <!-- MODULE 2: TILE QUANTITY CALCULATOR -->
+<section class="tools-section tools-section--alt" id="tile-calculator" aria-labelledby="tile-calculator-title">
+  <div class="container">
+    <header class="tools-section__header">
+      <h2 id="tile-calculator-title" class="tools-section__title">Tile Quantity Calculator</h2>
+      <p class="tools-section__desc">Calculate how many tiles and boxes you need for your project.</p>
+    </header>
+
+    <div class="tools-card">
+      <div class="form-grid form-grid--3col">
+        <div class="form-field">
+          <label for="calc-area" class="form-label form-label--required">Total Area</label>
+          <div class="form-inline">
+            <input type="number" id="calc-area" class="form-input" placeholder="0" min="1" step="0.1" required>
+            <span class="form-inline__suffix">sq ft</span>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="calc-tile-size" class="form-label">Tile Size</label>
+          <select id="calc-tile-size" class="form-select">
+            <option value="">Select tile size...</option>
+          </select>
+        </div>
+        <div class="form-field" id="calc-custom-tile-fields" hidden>
+          <label class="form-label">Custom Size (inches)</label>
+          <div class="form-inline">
+            <input type="number" id="calc-custom-width" class="form-input form-input--sm" placeholder="W" min="1" step="0.25">
+            <span class="form-inline__sep">×</span>
+            <input type="number" id="calc-custom-height" class="form-input form-input--sm" placeholder="H" min="1" step="0.25">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-grid form-grid--3col">
+        <div class="form-field">
+          <label for="calc-layout" class="form-label">Layout / Pattern</label>
+          <select id="calc-layout" class="form-select">
+            <option value="">Select layout...</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="calc-waste" class="form-label">Waste Factor</label>
+          <div class="form-inline">
+            <input type="number" id="calc-waste" class="form-input" value="12" min="5" max="40" step="1">
+            <span class="form-inline__suffix">%</span>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="calc-box-mode" class="form-label">Box Info</label>
+          <select id="calc-box-mode" class="form-select">
+            <option value="tiles-per-box">Tiles per box</option>
+            <option value="sqft-per-box">Sq ft per box</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-grid form-grid--2col">
+        <div class="form-field" id="calc-tiles-per-box-field">
+          <label for="calc-tiles-per-box" class="form-label">Tiles per Box</label>
+          <input type="number" id="calc-tiles-per-box" class="form-input" placeholder="e.g., 10" min="1">
+        </div>
+        <div class="form-field" id="calc-sqft-per-box-field" hidden>
+          <label for="calc-sqft-per-box" class="form-label">Sq Ft per Box</label>
+          <input type="number" id="calc-sqft-per-box" class="form-input" placeholder="e.g., 12.5" min="0.1" step="0.1">
+        </div>
+        <div class="form-field">
+          <label class="form-checkbox">
+            <input type="checkbox" id="calc-attic-stock">
+            <span class="form-checkbox__text">Add attic stock (+5% or 1 box)</span>
           </label>
         </div>
-        <p class="tools-card__note">Projects auto-save to your browser. Use export to back up or transfer between devices.</p>
+      </div>
+
+      <button type="button" class="btn btn--primary" id="calc-tile-btn">Calculate</button>
+
+      <!-- Results -->
+      <div class="calc-results" id="tile-calc-results" hidden>
+        <h4 class="calc-results__title">Results</h4>
+        <div class="calc-results__grid">
+          <div class="calc-result">
+            <span class="calc-result__label">Area with waste</span>
+            <span class="calc-result__value" id="result-area-waste">—</span>
+          </div>
+          <div class="calc-result">
+            <span class="calc-result__label">Tiles needed</span>
+            <span class="calc-result__value" id="result-tiles">—</span>
+          </div>
+          <div class="calc-result">
+            <span class="calc-result__label">Boxes needed</span>
+            <span class="calc-result__value calc-result__value--highlight" id="result-boxes">—</span>
+          </div>
+        </div>
+        <p class="calc-results__note" id="tile-calc-note"></p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+  <!-- MODULE 3: MORTAR / TROWEL CALCULATOR -->
+<section class="tools-section" id="mortar-calculator" aria-labelledby="mortar-calculator-title">
+  <div class="container">
+    <header class="tools-section__header">
+      <h2 id="mortar-calculator-title" class="tools-section__title">Mortar & Trowel Calculator</h2>
+      <p class="tools-section__desc">Estimate mortar quantity with auto-recommended trowel notch based on tile size and substrate.</p>
+    </header>
+
+    <div class="tools-card">
+      <div class="form-grid form-grid--3col">
+        <div class="form-field">
+          <label for="mortar-area" class="form-label form-label--required">Area</label>
+          <div class="form-inline">
+            <input type="number" id="mortar-area" class="form-input" placeholder="0" min="1" step="0.1" required>
+            <span class="form-inline__suffix">sq ft</span>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="mortar-tile-size" class="form-label">Tile Size</label>
+          <select id="mortar-tile-size" class="form-select">
+            <option value="">Select tile size...</option>
+          </select>
+        </div>
+        <div class="form-field" id="mortar-custom-tile-fields" hidden>
+          <label class="form-label">Custom Size (inches)</label>
+          <div class="form-inline">
+            <input type="number" id="mortar-custom-width" class="form-input form-input--sm" placeholder="W" min="1" step="0.25">
+            <span class="form-inline__sep">×</span>
+            <input type="number" id="mortar-custom-height" class="form-input form-input--sm" placeholder="H" min="1" step="0.25">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-grid form-grid--3col">
+        <div class="form-field">
+          <label for="mortar-substrate" class="form-label">Substrate Condition</label>
+          <select id="mortar-substrate" class="form-select">
+            <option value="smooth">Smooth / Flat</option>
+            <option value="typical" selected>Typical (minor variation)</option>
+            <option value="needs-flattening">Needs Flattening</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="mortar-coverage-goal" class="form-label">Coverage Goal</label>
+          <select id="mortar-coverage-goal" class="form-select">
+            <option value="dry-floor">Dry Floor (80%+)</option>
+            <option value="wet-area" selected>Wet Area (95%+)</option>
+            <option value="large-format">Large Format (95%+, back-butter)</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="mortar-trowel" class="form-label">Trowel Notch</label>
+          <select id="mortar-trowel" class="form-select">
+            <option value="">Auto-recommend...</option>
+          </select>
+          <span class="form-hint" id="trowel-hint">Will auto-recommend based on tile size</span>
+        </div>
+      </div>
+
+      <div class="form-grid form-grid--2col">
+        <div class="form-field">
+          <label class="form-checkbox">
+            <input type="checkbox" id="mortar-backbutter">
+            <span class="form-checkbox__text">Back-butter tiles</span>
+          </label>
+          <span class="form-hint">Recommended for large-format tile</span>
+        </div>
+        <div class="form-field" id="mortar-trowel-override-reason-field" hidden>
+          <label for="mortar-trowel-override-reason" class="form-label form-label--sm">Reason for override</label>
+          <input type="text" id="mortar-trowel-override-reason" class="form-input" placeholder="Why a different notch?">
+        </div>
+      </div>
+
+      <!-- Trowel Recommendation -->
+      <div class="recommendation" id="trowel-recommendation" hidden>
+        <strong>Auto-Recommended:</strong> <span id="trowel-recommendation-text"></span>
+        <p class="recommendation__note">This is a starting-point recommendation. Verify with tile/mortar manufacturer and confirm coverage in the field.</p>
+      </div>
+
+      <!-- Selected vs Recommended Display -->
+      <div class="trowel-comparison" id="trowel-comparison" hidden>
+        <div class="trowel-comparison__item">
+          <span class="trowel-comparison__label">Recommended</span>
+          <span class="trowel-comparison__value" id="trowel-recommended-display">—</span>
+        </div>
+        <div class="trowel-comparison__item trowel-comparison__item--selected">
+          <span class="trowel-comparison__label">Selected</span>
+          <span class="trowel-comparison__value" id="trowel-selected-display">—</span>
+        </div>
+      </div>
+
+      <!-- Substrate Nudge -->
+      <div class="nudge" id="substrate-nudge" hidden role="alert" aria-live="polite">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        <span id="substrate-nudge-text"></span>
+      </div>
+
+      <!-- Back-butter Nudge -->
+      <div class="nudge nudge--info" id="backbutter-nudge" hidden role="alert" aria-live="polite">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+        </svg>
+        <span>Large-format tile (any side ≥24"): Consider back-buttering for better coverage.</span>
+      </div>
+
+      <button type="button" class="btn btn--primary" id="calc-mortar-btn">Calculate Mortar</button>
+
+      <!-- Results -->
+      <div class="calc-results" id="mortar-calc-results" hidden>
+        <h4 class="calc-results__title">Estimated Mortar Needed</h4>
+        <div class="calc-results__grid">
+          <div class="calc-result">
+            <span class="calc-result__label">Trowel notch</span>
+            <span class="calc-result__value" id="result-trowel">—</span>
+          </div>
+          <div class="calc-result">
+            <span class="calc-result__label">Coverage range</span>
+            <span class="calc-result__value" id="result-coverage">—</span>
+          </div>
+          <div class="calc-result">
+            <span class="calc-result__label">50 lb bags needed</span>
+            <span class="calc-result__value calc-result__value--highlight" id="result-bags">—</span>
+          </div>
+        </div>
+        <p class="calc-results__note">Coverage varies by troweling technique, substrate conditions, and mortar type. Confirm with manufacturer data sheets. If back-buttering, increase estimate by 20–30%.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- MODULE 4: GROUT CALCULATOR -->
+<section class="tools-section tools-section--alt" id="grout-calculator" aria-labelledby="grout-calculator-title">
+  <div class="container">
+    <header class="tools-section__header">
+      <h2 id="grout-calculator-title" class="tools-section__title">Grout Calculator</h2>
+      <p class="tools-section__desc">Estimate grout quantity based on tile size, thickness, and joint width.</p>
+    </header>
+
+    <div class="tools-card">
+      <div class="form-grid form-grid--3col">
+        <div class="form-field">
+          <label for="grout-area" class="form-label form-label--required">Area</label>
+          <div class="form-inline">
+            <input type="number" id="grout-area" class="form-input" placeholder="0" min="1" step="0.1" required>
+            <span class="form-inline__suffix">sq ft</span>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="grout-tile-length" class="form-label">Tile Length</label>
+          <div class="form-inline">
+            <input type="number" id="grout-tile-length" class="form-input" placeholder="12" min="1" step="0.25">
+            <span class="form-inline__suffix">in</span>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="grout-tile-width" class="form-label">Tile Width</label>
+          <div class="form-inline">
+            <input type="number" id="grout-tile-width" class="form-input" placeholder="12" min="1" step="0.25">
+            <span class="form-inline__suffix">in</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-grid form-grid--3col">
+        <div class="form-field">
+          <label for="grout-tile-thickness" class="form-label">Tile Thickness</label>
+          <div class="form-inline">
+            <input type="number" id="grout-tile-thickness" class="form-input" value="8" min="3" max="20" step="1">
+            <span class="form-inline__suffix">mm</span>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="grout-joint-width" class="form-label">Joint Width</label>
+          <select id="grout-joint-width" class="form-select">
+            <option value="">Select joint size...</option>
+          </select>
+        </div>
+        <div class="form-field" id="grout-custom-joint-field" hidden>
+          <label for="grout-custom-joint" class="form-label">Custom Joint</label>
+          <div class="form-inline">
+            <input type="number" id="grout-custom-joint" class="form-input" placeholder="0.125" min="0.0625" max="0.5" step="0.0625">
+            <span class="form-inline__suffix">in</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-grid form-grid--2col">
+        <div class="form-field">
+          <label for="grout-type" class="form-label">Grout Type</label>
+          <select id="grout-type" class="form-select">
+            <option value="cement">Cement-based (sanded/unsanded)</option>
+            <option value="epoxy">Epoxy</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-checkbox">
+            <input type="checkbox" id="grout-mosaic">
+            <span class="form-checkbox__text">Mosaic tile (higher grout consumption)</span>
+          </label>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn--primary" id="calc-grout-btn">Calculate Grout</button>
+
+      <!-- Results -->
+      <div class="calc-results" id="grout-calc-results" hidden>
+        <h4 class="calc-results__title">Estimated Grout Needed</h4>
+        <div class="calc-results__grid">
+          <div class="calc-result">
+            <span class="calc-result__label">Joint volume</span>
+            <span class="calc-result__value" id="result-joint-volume">—</span>
+          </div>
+          <div class="calc-result">
+            <span class="calc-result__label">Grout needed</span>
+            <span class="calc-result__value calc-result__value--highlight" id="result-grout">—</span>
+          </div>
+        </div>
+        <p class="calc-results__note">Grout coverage varies by mixing consistency, joint depth, and application method. Check manufacturer coverage charts for your specific product.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- MODULE 5: LEVELING CALCULATOR -->
+<section class="tools-section" id="leveling-calculator" aria-labelledby="leveling-calculator-title">
+  <div class="container">
+    <header class="tools-section__header">
+      <h2 id="leveling-calculator-title" class="tools-section__title">Self-Leveler Calculator</h2>
+      <p class="tools-section__desc">Estimate self-leveling compound quantity based on area and depth.</p>
+    </header>
+
+    <div class="tools-card">
+      <div class="form-grid form-grid--3col">
+        <div class="form-field">
+          <label for="level-area" class="form-label form-label--required">Area</label>
+          <div class="form-inline">
+            <input type="number" id="level-area" class="form-input" placeholder="0" min="1" step="0.1" required>
+            <span class="form-inline__suffix">sq ft</span>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="level-depth-avg" class="form-label form-label--required">Average Depth</label>
+          <div class="form-inline">
+            <input type="number" id="level-depth-avg" class="form-input" placeholder="0.25" min="0.0625" max="2" step="0.0625">
+            <span class="form-inline__suffix">in</span>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="level-depth-max" class="form-label">Max Depth <span class="form-label__optional">(optional)</span></label>
+          <div class="form-inline">
+            <input type="number" id="level-depth-max" class="form-input" placeholder="—" min="0.0625" max="3" step="0.0625">
+            <span class="form-inline__suffix">in</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="nudge nudge--info" id="leveling-nudge">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+        </svg>
+        <span><strong>Note:</strong> "Leveling" creates a flat plane; "flattening" removes high spots. Evaluate whether you need self-leveler, patching compound, or grinding. Always use manufacturer-recommended primer.</span>
+      </div>
+
+      <button type="button" class="btn btn--primary" id="calc-level-btn">Calculate</button>
+
+      <!-- Results -->
+      <div class="calc-results" id="level-calc-results" hidden>
+        <h4 class="calc-results__title">Estimated Self-Leveler Needed</h4>
+        <div class="calc-results__grid">
+          <div class="calc-result">
+            <span class="calc-result__label">Volume</span>
+            <span class="calc-result__value" id="result-level-volume">—</span>
+          </div>
+          <div class="calc-result">
+            <span class="calc-result__label">50 lb bags (est.)</span>
+            <span class="calc-result__value calc-result__value--highlight" id="result-level-bags">—</span>
+          </div>
+        </div>
+        <p class="calc-results__note">Coverage varies by product. Most self-levelers cover approximately 0.45–0.5 cu ft per 50 lb bag at 1" depth. Verify with product data sheet. <strong>Don't forget primer!</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- GUIDES & TIPS SECTION -->
+<section class="tools-section tools-section--alt" id="guides-tips" aria-labelledby="guides-tips-title">
+  <div class="container">
+    <header class="tools-section__header">
+      <h2 id="guides-tips-title" class="tools-section__title">Guides & Tips</h2>
+      <p class="tools-section__desc">Quick reference for planning your tile project.</p>
+    </header>
+
+    <div class="tips-grid">
+      <!-- Measuring Tips -->
+      <details class="tip-card">
+        <summary class="tip-card__summary">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/>
+          </svg>
+          Measuring Tips
+        </summary>
+        <div class="tip-card__content">
+          <ul>
+            <li><strong>Measure twice:</strong> Record length and width at multiple points—rooms aren't always perfectly square.</li>
+            <li><strong>Draw it out:</strong> Sketch the room shape and note obstacles (toilets, vanities, doorways).</li>
+            <li><strong>Account for alcoves:</strong> Measure recessed areas separately and add to total.</li>
+            <li><strong>Wall height:</strong> For wall tile, measure floor-to-ceiling or floor-to-desired-height at multiple points.</li>
+            <li><strong>Complex shapes:</strong> Break into rectangles, calculate each, then sum.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Layout Choice Tips -->
+      <details class="tip-card">
+        <summary class="tip-card__summary">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          Layout & Pattern Selection
+        </summary>
+        <div class="tip-card__content">
+          <ul>
+            <li><strong>Straight/stacked:</strong> Lowest waste, easiest to install. Works well with square tiles.</li>
+            <li><strong>1/3 offset (recommended):</strong> Reduces lippage risk on plank tiles compared to 50% offset. Most installers prefer this for wood-look tile.</li>
+            <li><strong>50% offset (brick):</strong> Classic subway look, but can emphasize tile warpage. Best for shorter tiles (≤12").</li>
+            <li><strong>Diagonal:</strong> Visually expands space but increases waste. Plan layout to minimize small corner cuts.</li>
+            <li><strong>Herringbone:</strong> Dramatic pattern but highest waste (20–30%). Requires precise cuts.</li>
+          </ul>
+          <p class="tip-card__note">Always dry-lay a section before setting to verify pattern and check for issues.</p>
+        </div>
+      </details>
+
+      <!-- Coverage Check -->
+      <details class="tip-card">
+        <summary class="tip-card__summary">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          Mortar Coverage Check
+        </summary>
+        <div class="tip-card__content">
+          <ul>
+            <li><strong>Lift and check:</strong> Periodically lift a just-set tile to verify mortar coverage on the back.</li>
+            <li><strong>Target coverage:</strong> Floor tile: 80%+ coverage. Wet areas and large-format: 95%+ coverage.</li>
+            <li><strong>Full contact:</strong> No voids or hollow spots, especially at corners and edges.</li>
+            <li><strong>Back-butter when needed:</strong> For large-format tile, apply a thin layer of mortar to tile back in addition to substrate.</li>
+            <li><strong>Directional troweling:</strong> Comb mortar in straight lines (not swirls) for easier air release.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Movement Joints -->
+      <details class="tip-card">
+        <summary class="tip-card__summary">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+          Movement Joints
+        </summary>
+        <div class="tip-card__content">
+          <ul>
+            <li><strong>Perimeter joints:</strong> Leave a gap at all walls, cabinets, and fixtures—filled with caulk, not grout.</li>
+            <li><strong>Field joints:</strong> For large areas, movement joints may be needed every 20–25 feet (varies by conditions).</li>
+            <li><strong>Change of plane:</strong> Where floors meet walls, use caulk at the transition.</li>
+            <li><strong>Existing joints:</strong> Honor any expansion/control joints in the substrate.</li>
+          </ul>
+          <p class="tip-card__note">Movement joints prevent cracks from building stress. They're required by industry standards for most installations.</p>
+        </div>
+      </details>
+
+      <!-- Waste Factors -->
+      <details class="tip-card">
+        <summary class="tip-card__summary">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="3 6 5 6 6 6"/><path d="M19 6h1a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h1"/><polygon points="10 3 14 3 14 6 10 6"/>
+          </svg>
+          Understanding Waste Factors
+        </summary>
+        <div class="tip-card__content">
+          <ul>
+            <li><strong>10%:</strong> Minimum for straight layouts in simple rectangular rooms.</li>
+            <li><strong>12–15%:</strong> Standard for most offset/brick patterns.</li>
+            <li><strong>15–20%:</strong> Diagonal layouts, rooms with many cuts.</li>
+            <li><strong>20–30%:</strong> Herringbone, complex patterns, or rooms with many obstacles.</li>
+            <li><strong>Attic stock:</strong> Always order extra (1 box or +5%) for future repairs. Dye lots vary!</li>
+          </ul>
+          <p class="tip-card__note">When in doubt, round up. Running short mid-project is far more costly than having extra.</p>
+        </div>
+      </details>
+
+      <!-- Substrate Prep -->
+      <details class="tip-card">
+        <summary class="tip-card__summary">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+          </svg>
+          Substrate Preparation
+        </summary>
+        <div class="tip-card__content">
+          <ul>
+            <li><strong>Clean:</strong> Remove dust, debris, adhesive residue, and contaminants.</li>
+            <li><strong>Flat:</strong> Check with a straightedge. For large-format tile, flatness is critical.</li>
+            <li><strong>Sound:</strong> No loose areas, delamination, or structural issues.</li>
+            <li><strong>Dry:</strong> Concrete must cure adequately. Test moisture if needed.</li>
+            <li><strong>Primed:</strong> Many substrates need primer for proper mortar bond.</li>
+          </ul>
+          <p class="tip-card__note">Most tile failures trace back to substrate problems. Invest time here.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+  <!-- PROJECT OUTPUT / EXPORT SECTION -->
+<section class="tools-section" id="project-output" aria-labelledby="project-output-title">
+  <div class="container">
+    <header class="tools-section__header">
+      <h2 id="project-output-title" class="tools-section__title">Generate Project Packet</h2>
+      <p class="tools-section__desc">Create a copy-ready scope summary and material estimates.</p>
+    </header>
+
+    <div class="tools-card">
+      <fieldset class="output-options">
+        <legend class="sr-only">Include in output</legend>
+        <div class="form-grid form-grid--2col">
+          <label class="form-checkbox">
+            <input type="checkbox" id="output-scope" checked>
+            <span class="form-checkbox__text">Scope summary</span>
+          </label>
+          <label class="form-checkbox">
+            <input type="checkbox" id="output-measurements" checked>
+            <span class="form-checkbox__text">Measurements table</span>
+          </label>
+          <label class="form-checkbox">
+            <input type="checkbox" id="output-tile" checked>
+            <span class="form-checkbox__text">Tile quantities</span>
+          </label>
+          <label class="form-checkbox">
+            <input type="checkbox" id="output-mortar" checked>
+            <span class="form-checkbox__text">Mortar/grout estimates</span>
+          </label>
+          <label class="form-checkbox">
+            <input type="checkbox" id="output-assumptions" checked>
+            <span class="form-checkbox__text">Assumptions & notes</span>
+          </label>
+          <label class="form-checkbox">
+            <input type="checkbox" id="output-disclaimers" checked>
+            <span class="form-checkbox__text">Disclaimers</span>
+          </label>
+          <label class="form-checkbox pro-only">
+            <input type="checkbox" id="output-audit">
+            <span class="form-checkbox__text">Measurement audit trail</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="form-actions">
+        <button type="button" class="btn btn--primary" id="generate-output-btn">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+          </svg>
+          Generate Output
+        </button>
+      </div>
+
+      <!-- Output Preview -->
+      <div class="output-preview" id="output-preview" hidden>
+        <div class="output-preview__header">
+          <h3>Output Preview</h3>
+          <div class="output-preview__actions">
+            <button type="button" class="btn btn--sm btn--secondary" id="copy-output-btn" aria-label="Copy to clipboard" title="Copy to clipboard">
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+              Copy
+            </button>
+            <button type="button" class="btn btn--sm btn--secondary" id="print-output-btn" aria-label="Print / Save as PDF" title="Print or save as PDF">
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>
+              </svg>
+              Print / Save as PDF
+            </button>
+            <button type="button" class="btn btn--sm btn--secondary" id="download-doc-btn" aria-label="Download as Word document" title="Download as .doc file">
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download .doc
+            </button>
+          </div>
+        </div>
+        <div class="output-preview__content" id="output-content"></div>
+      </div>
+    </div>
+
+    <!-- Import/Export JSON (Pro Only) -->
+    <div class="tools-card tools-card--secondary pro-only">
+      <h3 class="tools-card__title">Save & Load Project Data</h3>
+      <div class="form-actions">
+        <button type="button" class="btn btn--secondary" id="export-json-btn" aria-label="Export project as JSON" title="Export project data">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+          Export JSON
+        </button>
+        <label class="btn btn--secondary">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Import JSON
+          <input type="file" id="import-json-input" accept=".json" class="sr-only">
+        </label>
+      </div>
+      <p class="tools-card__note">Projects auto-save to your browser. Use export to back up or transfer between devices.</p>
+    </div>
+  </div>
+</section>
 
   <!-- Assumptions Panel (populated by JS) -->
-  <aside class="assumptions-panel" id="assumptions-panel" hidden>
-    <div class="container">
-      <h3 class="assumptions-panel__title">Applied Assumptions</h3>
-      <ul class="assumptions-panel__list" id="assumptions-list"></ul>
-    </div>
-  </aside>
+<aside class="assumptions-panel" id="assumptions-panel" hidden>
+  <div class="container">
+    <h3 class="assumptions-panel__title">Applied Assumptions</h3>
+    <ul class="assumptions-panel__list" id="assumptions-list"></ul>
+  </div>
+</aside>
+
 </main>
 
 <!-- Room Template (cloned by JS) -->
@@ -2041,7 +2068,7 @@
         <label class="form-label form-label--required sr-only">Room Name</label>
         <input type="text" class="form-input room-name-input" placeholder="Room name (e.g., Master Bath)" required>
       </div>
-      <button type="button" class="btn btn--ghost btn--sm room-remove-btn" aria-label="Remove room">
+      <button type="button" class="btn btn--ghost btn--sm room-remove-btn" aria-label="Remove room" title="Remove this room">
         <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
         </svg>
@@ -2153,9 +2180,25 @@
           <input type="text" class="form-input form-input--sm room-lock-reason-input" placeholder="Why are you editing locked measurements?">
         </div>
       </div>
+
+      <!-- Audit Trail (hidden, populated by JS) -->
+      <div class="room-audit" hidden>
+        <details class="room-audit__details">
+          <summary class="room-audit__summary">Measurement audit trail</summary>
+          <ul class="room-audit__list"></ul>
+        </details>
+      </div>
     </div>
   </div>
 </template>
+
+
+<!-- Back to Top Button -->
+<button type="button" class="back-to-top" id="back-to-top-btn" hidden aria-label="Back to top" title="Scroll to top">
+  <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <polyline points="18 15 12 9 6 15"/>
+  </svg>
+</button>
 
 <!-- Load Tools CSS and JS -->
 <link rel="stylesheet" href="/assets/css/tools.css">
