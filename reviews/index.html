@@ -1111,25 +1111,30 @@
   
 
   <main class="ts-main-content" role="main" id="main-content" aria-label="Main content">
-    <section class="page-hero page-hero--compact">
-  <div class="page-hero__container">
-    <h1>Client Reviews</h1>
-    <p class="page-hero__subtitle">Real feedback from South Jersey homeowners</p>
+    <!-- Hero Section -->
+<section class="reviews-hero">
+  <div class="container">
+    <div class="reviews-hero__content">
+      <span class="reviews-hero__eyebrow">Client Feedback</span>
+      <h1 class="reviews-hero__title">Client Reviews</h1>
+      <p class="reviews-hero__summary">Real feedback from South Jersey homeowners</p>
+    </div>
   </div>
 </section>
 
+<!-- Reviews Section -->
 <section class="reviews-section">
-  <div class="reviews-container">
+  <div class="container">
     <div class="reviews-intro">
-      <p>We take pride in every project we complete. Here's what our clients have to say about working with Tillerstead.</p>
-      <p class="reviews-meta">
+      <p class="reviews-intro__text">We take pride in every project we complete. Here's what our clients have to say about working with Tillerstead.</p>
+      <p class="reviews-intro__meta">
         <strong>3 verified reviews</strong> · All reviews are genuine and unedited
       </p>
     </div>
 
     <div class="reviews-grid">
       
-      <article class="review-card ts-tile-framed" itemscope itemtype="https://schema.org/Review">
+      <article class="review-card" itemscope itemtype="https://schema.org/Review">
         <div class="review-card__header">
           <div class="review-card__rating" aria-label="5 out of 5 stars">
             
@@ -1178,7 +1183,7 @@
         
       </article>
       
-      <article class="review-card ts-tile-framed" itemscope itemtype="https://schema.org/Review">
+      <article class="review-card" itemscope itemtype="https://schema.org/Review">
         <div class="review-card__header">
           <div class="review-card__rating" aria-label="5 out of 5 stars">
             
@@ -1230,7 +1235,7 @@
         
       </article>
       
-      <article class="review-card ts-tile-framed" itemscope itemtype="https://schema.org/Review">
+      <article class="review-card" itemscope itemtype="https://schema.org/Review">
         <div class="review-card__header">
           <div class="review-card__rating" aria-label="5 out of 5 stars">
             
@@ -1281,108 +1286,160 @@
       
     </div>
 
+    <!-- CTA -->
     <div class="reviews-cta">
-      <h2>Ready to Join Our Happy Clients?</h2>
-      <p>Get a free estimate for your tile or bathroom remodel project.</p>
-      <a href="/contact/" class="btn btn-primary">Request Free Estimate</a>
+      <h2 class="reviews-cta__title">Ready to Join Our Happy Clients?</h2>
+      <p class="reviews-cta__text">Get a free estimate for your tile or bathroom remodel project.</p>
+      <a href="/contact/" class="btn btn--primary btn--lg">Request Free Estimate</a>
     </div>
   </div>
 </section>
 
 <style>
-/* Reviews Page Styles */
-.reviews-section {
-  padding: var(--tiller-spacing-2xl) 0;
-  background: var(--tiller-bg-alt);
+/* Reviews Page - Fixed Dark Theme */
+
+/* Hero */
+.reviews-hero {
+  background: linear-gradient(135deg, var(--tiller-color-green, #1a3d2e) 0%, var(--tiller-color-green-dark, #0f2a1f) 100%);
+  padding: clamp(3rem, 8vw, 5rem) 0;
+  color: #fff;
 }
 
-.reviews-container {
-  max-width: 1200px;
+.reviews-hero__content {
+  max-width: 800px;
   margin: 0 auto;
-  padding: 0 var(--tiller-spacing-lg);
+  text-align: center;
 }
 
+.reviews-hero__eyebrow {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--tiller-color-gold, #c9a227);
+  margin-bottom: 1rem;
+}
+
+.reviews-hero__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.reviews-hero__summary {
+  font-size: clamp(1.0625rem, 2.5vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* Reviews Section */
+.reviews-section {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  background: var(--tiller-bg-dark, #121414);
+}
+
+/* Reviews Intro - FIXED: Light text on dark background */
 .reviews-intro {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto var(--tiller-spacing-xl);
+  margin: 0 auto 3rem;
 }
 
-.reviews-intro p {
-  font-size: 1.1rem;
-  color: var(--tiller-text-muted);
-  margin-bottom: var(--tiller-spacing-sm);
+.reviews-intro__text {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.85); /* FIXED: Light text */
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
 }
 
-.reviews-meta {
-  color: var(--tiller-color-green);
-  font-size: 0.95rem;
+.reviews-intro__meta {
+  color: var(--tiller-color-emerald, #10b981); /* FIXED: Bright accent color */
+  font-size: 0.9375rem;
 }
 
+.reviews-intro__meta strong {
+  color: #fff;
+}
+
+/* Reviews Grid */
 .reviews-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: var(--tiller-spacing-lg);
-  margin-bottom: var(--tiller-spacing-2xl);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
 }
 
+@media (max-width: 400px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Review Card - Dark Theme */
 .review-card {
-  background: var(--tiller-bg-card);
-  border-radius: var(--tiller-border-radius-lg);
-  padding: var(--tiller-spacing-lg);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  background: var(--tiller-bg-stone, #1a1c1a);
+  border: 1px solid rgba(201, 162, 39, 0.15);
+  border-radius: 12px;
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .review-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--tiller-color-emerald, #10b981);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(16, 185, 129, 0.1);
 }
 
 .review-card__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--tiller-spacing-md);
-  padding-bottom: var(--tiller-spacing-sm);
-  border-bottom: 1px solid var(--tiller-border-color);
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.15);
 }
 
 .review-card__rating {
   display: flex;
-  gap: 2px;
+  gap: 3px;
 }
 
 .review-card__star {
-  color: var(--tiller-color-gold);
+  color: var(--tiller-color-gold, #c9a227);
 }
 
+/* FIXED: Source link styling - light on dark */
 .review-card__source a {
-  font-size: 0.85rem;
-  color: var(--tiller-color-green);
+  font-size: 0.8125rem;
+  color: var(--tiller-color-emerald, #10b981); /* FIXED: Bright color */
   text-decoration: none;
   font-weight: 600;
-  padding: 4px 10px;
-  background: rgba(26, 61, 46, 0.08);
-  border-radius: var(--tiller-border-radius-sm);
-  transition: background 0.2s ease;
+  padding: 0.375rem 0.75rem;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 999px;
+  transition: all 0.2s ease;
 }
 
 .review-card__source a:hover {
-  background: rgba(26, 61, 46, 0.15);
+  background: rgba(16, 185, 129, 0.2);
 }
 
+/* Review Content - Light text */
 .review-card__content {
   flex: 1;
-  margin-bottom: var(--tiller-spacing-md);
+  margin-bottom: 1.25rem;
   line-height: 1.7;
-  color: var(--tiller-text-body);
+  color: rgba(255, 255, 255, 0.85); /* FIXED: Light text */
 }
 
 .review-card__content p {
-  margin-bottom: var(--tiller-spacing-sm);
+  margin-bottom: 0.75rem;
+  color: rgba(255, 255, 255, 0.85); /* FIXED: Light text */
 }
 
 .review-card__content p:last-child {
@@ -1393,67 +1450,73 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding-top: var(--tiller-spacing-sm);
-  border-top: 1px solid var(--tiller-border-color);
+  padding-top: 1rem;
+  border-top: 1px solid rgba(201, 162, 39, 0.15);
 }
 
 .review-card__author strong {
   display: block;
-  color: var(--tiller-text-heading);
+  color: #fff; /* FIXED: White text */
   font-size: 1rem;
 }
 
+/* FIXED: Job type and date - visible on dark */
 .review-card__job {
-  font-size: 0.85rem;
-  color: var(--tiller-text-muted);
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.6); /* FIXED: Light muted text */
 }
 
 .review-card__date {
-  font-size: 0.8rem;
-  color: var(--tiller-text-muted);
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.5); /* FIXED: Light muted text */
 }
 
+/* Badges */
 .review-card__badges {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--tiller-spacing-xs);
-  margin-top: var(--tiller-spacing-sm);
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
+/* FIXED: Badge styling for dark theme */
 .review-card__badge {
   font-size: 0.75rem;
-  padding: 3px 8px;
-  background: var(--tiller-color-beige);
-  color: var(--tiller-color-green);
-  border-radius: var(--tiller-border-radius-sm);
+  padding: 0.375rem 0.75rem;
+  background: rgba(201, 162, 39, 0.15);
+  color: var(--tiller-color-gold, #c9a227); /* FIXED: Gold on dark */
+  border-radius: 999px;
   font-weight: 500;
+  border: 1px solid rgba(201, 162, 39, 0.3);
 }
 
+/* Reviews CTA */
 .reviews-cta {
   text-align: center;
-  background: var(--tiller-color-green);
-  color: var(--tiller-text-light);
-  padding: var(--tiller-spacing-xl);
-  border-radius: var(--tiller-border-radius-lg);
+  background: var(--tiller-color-emerald, #10b981);
+  padding: 3rem 2rem;
+  border-radius: 12px;
 }
 
-.reviews-cta h2 {
-  color: var(--tiller-text-light);
-  margin-bottom: var(--tiller-spacing-sm);
+.reviews-cta__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.75rem;
 }
 
-.reviews-cta p {
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: var(--tiller-spacing-md);
+.reviews-cta__text {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
 }
 
-.reviews-cta .btn-primary {
-  background: var(--tiller-color-gold);
-  color: var(--tiller-color-green);
+.reviews-cta .btn--primary {
+  background: #fff;
+  color: var(--tiller-color-green, #1a3d2e);
 }
 
-.reviews-cta .btn-primary:hover {
-  background: var(--tiller-color-gold-light);
+.reviews-cta .btn--primary:hover {
+  background: rgba(255, 255, 255, 0.9);
 }
 
 @media (max-width: 768px) {
@@ -1464,7 +1527,7 @@
   .review-card__footer {
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--tiller-spacing-xs);
+    gap: 0.5rem;
   }
 }
 </style>
