@@ -10,7 +10,6 @@
  * - Toast notification system
  * - Theme toggle (dark/light)
  * - Sticky CTA on scroll
- * - Reading time calculator
  * - Image lightbox
  * - Smooth page transitions
  */
@@ -849,63 +848,6 @@
   }
 
   // ============================================================
-  // READING TIME CALCULATOR
-  // ============================================================
-
-  class ReadingTime {
-    constructor() {
-      this.init();
-    }
-
-    init() {
-      const articles = document.querySelectorAll('article, .post-content, .guide-article');
-      articles.forEach(article => this.addReadingTime(article));
-    }
-
-    addReadingTime(article) {
-      const existingBadge = article.querySelector('.reading-time');
-      if (existingBadge) return;
-
-      const text = article.textContent || '';
-      const wordCount = text.trim().split(/\s+/).length;
-      const readingTime = Math.ceil(wordCount / 200); // 200 WPM average
-
-      // Find a place to insert the badge
-      const header = article.querySelector('h1, h2, .post-title, .guide-title');
-      if (!header) return;
-
-      const badge = document.createElement('span');
-      badge.className = 'reading-time';
-      badge.innerHTML = `
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px; vertical-align: -2px;">
-          <circle cx="12" cy="12" r="10"/>
-          <polyline points="12 6 12 12 16 14"/>
-        </svg>
-        ${readingTime} min read
-      `;
-
-      const style = document.createElement('style');
-      style.textContent = `
-        .reading-time {
-          display: inline-flex;
-          align-items: center;
-          font-size: 0.8125rem;
-          color: var(--tiller-text-muted, #6b7280);
-          margin-left: 1rem;
-          font-weight: 500;
-        }
-      `;
-
-      if (!document.querySelector('style[data-reading-time]')) {
-        style.setAttribute('data-reading-time', '');
-        document.head.appendChild(style);
-      }
-
-      header.insertAdjacentElement('afterend', badge);
-    }
-  }
-
-  // ============================================================
   // IMAGE LIGHTBOX
   // ============================================================
 
@@ -1220,7 +1162,6 @@
       this.modules.toast = new ToastSystem();
       this.modules.pageLoad = new PageLoadAnimation();
       this.modules.stickyCTA = new StickyCTA();
-      this.modules.readingTime = new ReadingTime();
       this.modules.lightbox = new Lightbox();
       this.modules.hamburger = new HamburgerAnimation();
       this.modules.linkTransitions = new SmoothLinkTransitions();
