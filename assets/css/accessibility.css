@@ -561,9 +561,9 @@ textarea:focus-visible,
  * Enhanced focus highlight (extra visible focus)
  */
 [data-focus-highlight="true"] :focus-visible {
-  outline: 4px solid #ff0000 !important;
+  outline: 4px solid var(--tiller-color-emerald, #10b981) !important;
   outline-offset: 4px !important;
-  box-shadow: 0 0 0 8px rgb(255 0 0 / 30%) !important;
+  box-shadow: 0 0 0 8px rgb(16 185 129 / 30%) !important;
 }
 
 /* ==========================================================================
@@ -953,7 +953,7 @@ tbody tr:nth-child(even) {
  * Images without alt text warning (dev only)
  */
 img:not([alt]) {
-  outline: 3px solid red !important;
+  outline: 3px solid var(--tiller-color-coral, #f87171) !important;
 }
 
 img[alt=""] {

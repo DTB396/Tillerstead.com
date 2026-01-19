@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="high-contrast" data-high-contrast="true">
+<html lang="en">
 
 <head>
   <!-- Jekyll include: no DOCTYPE needed, ensure space indentation -->
@@ -1749,7 +1749,11 @@
         <!-- Mortar Calculator Card -->
         <article class="calc-app-card" id="mortar-calc-card" data-calculator="mortar">
           <header class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="mortar-calc-body">
-            <div class="calc-app-card__icon">🪣</div>
+            <div class="calc-app-card__icon calc-app-card__icon--svg">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
+                <path d="M18.5 2.5L22 6l-1.5 1.5-3.5-3.5L18.5 2.5zM3 21l1.5-5.5L16 4l3.5 3.5L8 19l-5 2zm3.5-3.5l8-8-1-1-8 8 1 1z"/>
+              </svg>
+            </div>
             <div class="calc-app-card__title-group">
               <h3 class="calc-app-card__title">Mortar Coverage</h3>
               <p class="calc-app-card__subtitle">Thin-set requirements</p>
@@ -1903,7 +1907,11 @@
         <!-- Grout Calculator Card -->
         <article class="calc-app-card" id="grout-calc-card" data-calculator="grout">
           <header class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="grout-calc-body">
-            <div class="calc-app-card__icon">🧴</div>
+            <div class="calc-app-card__icon calc-app-card__icon--svg">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
+                <path d="M4 4h16v3H4V4zm0 5h16v2H4V9zm2 4h12l-1 7H7l-1-7zm3 2v3h2v-3H9zm4 0v3h2v-3h-2z"/>
+              </svg>
+            </div>
             <div class="calc-app-card__title-group">
               <h3 class="calc-app-card__title">Grout Calculation</h3>
               <p class="calc-app-card__subtitle">Bags & coverage</p>
@@ -3128,6 +3136,17 @@
   .tools-cta__actions .btn {
     width: 100%;
   }
+}
+
+/* SVG Icon Styling for Calculator Cards */
+.calc-app-card__icon--svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calc-app-card__icon--svg svg {
+  color: var(--tiller-color-gold, #c9a227);
 }
 </style>
 

@@ -648,11 +648,14 @@
 }
 
 .build-content--dark a {
-  color: var(--tiller-color-gold, #c9a227);
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .build-content--dark a:hover {
-  color: var(--tiller-color-emerald, #10b981);
+  color: var(--tiller-color-gold, #c9a227);
+  text-shadow: 0 0 8px rgb(201 162 39 / 50%);
 }
 
 /* ==========================================================================

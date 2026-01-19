@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="high-contrast" data-high-contrast="true">
+<html lang="en">
 
 <head>
   <!-- Jekyll include: no DOCTYPE needed, ensure space indentation -->
@@ -106,6 +106,8 @@
 <link rel="stylesheet" href="/assets/css/carousel-premium.css" />
 <link rel="stylesheet" href="/assets/css/form-premium.css" />
 <link rel="stylesheet" href="/assets/css/page-theme.css" />
+
+<link rel="stylesheet" href="/assets/css/build-guide.css" />
 
 
 <!-- Page-specific stylesheets -->
@@ -368,7 +370,7 @@
   
   </head>
 
-<body class="ts-body page-build-hub">
+<body class="ts-body page-build-hub page-build-guide">
   <!-- Skip Links for Accessibility - Multiple Targets -->
   <nav class="skip-links" aria-label="Skip navigation">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -1249,16 +1251,27 @@
 </script>
 
   
-  
-  
 
   
+  <section class="build-hero">
+    <div class="container">
+      <nav class="build-breadcrumb" aria-label="Breadcrumb">
+        <a href="/build/">Build Guides</a>
+        
+      </nav>
+      
+      <h1 class="build-hero-title">Build Phase Guides</h1>
+      <p class="build-hero-desc">A step-by-step guide through proper bathroom and shower construction. Each phase follows TCNA standards and New Jersey building codes.</p>
+    </div>
+  </section>
   
 
   <main class="ts-main-content" role="main" id="main-content" aria-label="Main content">
     
-    <!-- Hero Section -->
-<section class="ts-section build-hero bg-gradient-primary">
+    <div class="container">
+      <article class="build-article prose" style="max-width: 800px; margin: 0 auto;">
+        <!-- Hero Section -->
+<section class="ts-section build-hero">
   <div class="container">
     <header class="section-header text-center">
       <span class="eyebrow">Educational Resource</span>
@@ -1376,7 +1389,7 @@
 </section>
 
 <!-- How to Use Section -->
-<section class="ts-section build-how-to bg-soft">
+<section class="ts-section build-how-to">
   <div class="container">
     <div class="how-to-grid">
       <div class="how-to-content">
@@ -1443,7 +1456,7 @@
 </section>
 
 <!-- FAQ Section -->
-<section class="ts-section build-faq bg-light">
+<section class="ts-section build-faq">
   <div class="container">
     <h2 class="section-title text-center">Frequently Asked Questions</h2>
     <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
@@ -1524,7 +1537,7 @@
 </section>
 
 <!-- CTA Section -->
-<section class="ts-section build-cta bg-gradient-primary">
+<section class="ts-section build-cta">
   <div class="container text-center">
     <h2 class="section-title text-white">Ready to Start Your Project?</h2>
     <p class="text-white-80">Get a detailed estimate from a licensed NJ contractor who builds to these standards.</p>
@@ -1539,10 +1552,42 @@
 </section>
 
 <style>
-/* Build Hub Page Styles */
+/* Build Hub Page Styles - DARK THEME */
+.page-build-hub {
+  background: var(--tiller-bg-darker, #121414);
+  color: var(--tiller-text-primary, #ffffff);
+}
+
+.page-build-hub .ts-main-content,
+.page-build-hub main,
+.page-build-hub .container {
+  background: var(--tiller-bg-darker, #121414);
+  color: var(--tiller-text-primary, #ffffff);
+}
+
 .build-hero {
   padding: var(--spacing-2xl, 4rem) 0;
-  background: linear-gradient(135deg, var(--color-primary, #2a5d4e) 0%, var(--color-primary-dark, #1e4a3d) 100%);
+  background: linear-gradient(135deg, #121414 0%, #0f2a1f 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.build-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a227' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.build-hero .container {
+  position: relative;
+  z-index: 1;
+  background: transparent;
 }
 
 .build-hero .eyebrow {
@@ -1551,13 +1596,15 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-accent, #10b981);
+  color: var(--tiller-color-gold, #c9a227);
   margin-bottom: var(--spacing-sm);
 }
 
 .build-hero .section-title {
   font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: var(--spacing-md);
+  color: #ffffff;
+  text-shadow: 0 0 40px rgba(16, 185, 129, 0.3);
 }
 
 .build-hero .section-description {
@@ -1565,6 +1612,7 @@
   margin: 0 auto var(--spacing-lg);
   font-size: 1.125rem;
   line-height: 1.7;
+  color: rgba(255,255,255,0.9);
 }
 
 .hero-standards {
@@ -1577,15 +1625,20 @@
 .hero-standards .badge {
   font-size: 0.75rem;
   padding: 0.375rem 0.75rem;
+  background: rgba(201, 162, 39, 0.15);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  color: var(--tiller-color-gold, #c9a227);
+  border-radius: 999px;
 }
 
 .text-white { color: #fff; }
 .text-white-80 { color: rgba(255,255,255,0.8); }
 .text-white-60 { color: rgba(255,255,255,0.6); }
 
-/* Phase Grid */
+/* Phase Grid - DARK */
 .build-phases-grid {
   padding: var(--spacing-2xl, 4rem) 0;
+  background: var(--tiller-bg-darker, #121414);
 }
 
 .phase-grid {
@@ -1599,8 +1652,8 @@
 .phase-card {
   display: flex;
   flex-direction: column;
-  background: var(--color-surface, #fff);
-  border: 2px solid var(--color-border, #e5e7eb);
+  background: var(--tiller-bg-stone, #222524);
+  border: 1px solid rgba(201, 162, 39, 0.2);
   border-radius: var(--radius-lg, 12px);
   padding: var(--spacing-lg, 1.5rem);
   text-decoration: none;
@@ -1616,15 +1669,16 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: var(--color-primary, #2a5d4e);
+  background: var(--tiller-color-gold, #c9a227);
   transform: scaleX(0);
   transition: transform 0.2s ease;
 }
 
 .phase-card:hover {
-  border-color: var(--color-primary, #2a5d4e);
+  border-color: var(--tiller-color-gold, #c9a227);
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+  background: var(--tiller-bg-slate, #2a2d2c);
 }
 
 .phase-card:hover::before {
@@ -1644,23 +1698,24 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  background: var(--color-primary, #2a5d4e);
+  background: var(--tiller-color-emerald, #10b981);
   color: #fff;
   border-radius: 50%;
   font-size: 1.5rem;
   font-weight: 700;
   flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
 }
 
 .phase-indicator {
   font-size: 0.875rem;
-  color: var(--color-text-muted, #6b7280);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .phase-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--color-text, #1f2937);
+  color: #ffffff;
   margin: 0 0 auto;
   line-height: 1.4;
 }
@@ -1668,18 +1723,23 @@
 .phase-card-footer {
   margin-top: var(--spacing-md);
   padding-top: var(--spacing-md);
-  border-top: 1px solid var(--color-border, #e5e7eb);
+  border-top: 1px solid rgba(201, 162, 39, 0.2);
 }
 
 .phase-cta {
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--color-primary, #2a5d4e);
+  color: var(--tiller-color-gold, #c9a227);
 }
 
-/* How To Section */
+/* How To Section - DARK */
 .build-how-to {
   padding: var(--spacing-2xl, 4rem) 0;
+  background: var(--tiller-bg-stone, #222524);
+}
+
+.build-how-to .section-title {
+  color: var(--tiller-color-gold, #c9a227);
 }
 
 .how-to-grid {
@@ -1699,6 +1759,10 @@
   margin-bottom: var(--spacing-md);
 }
 
+.how-to-content p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 .use-cases {
   display: grid;
   gap: var(--spacing-lg);
@@ -1712,16 +1776,18 @@
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: var(--spacing-xs);
+  color: #ffffff;
 }
 
 .use-case p {
   margin: 0;
-  color: var(--color-text-secondary, #4b5563);
+  color: rgba(255, 255, 255, 0.8);
   padding-left: calc(1.5rem + var(--spacing-sm));
 }
 
 .callout-box {
-  background: var(--color-primary, #2a5d4e);
+  background: var(--tiller-bg-darker, #121414);
+  border: 1px solid rgba(201, 162, 39, 0.3);
   color: #fff;
   padding: var(--spacing-xl);
   border-radius: var(--radius-lg, 12px);
@@ -1730,6 +1796,7 @@
 .callout-box h3 {
   font-size: 1.25rem;
   margin-bottom: var(--spacing-md);
+  color: var(--tiller-color-gold, #c9a227);
 }
 
 .callout-box p {
@@ -1738,17 +1805,22 @@
 }
 
 .callout-box .btn-primary {
-  background: #fff;
-  color: var(--color-primary, #2a5d4e);
+  background: var(--tiller-color-emerald, #10b981);
+  color: #ffffff;
 }
 
 .callout-box .btn-primary:hover {
-  background: rgba(255,255,255,0.9);
+  background: var(--tiller-color-emerald-light, #34d399);
 }
 
-/* Quick Links */
+/* Quick Links - DARK */
 .build-quick-links {
   padding: var(--spacing-2xl, 4rem) 0;
+  background: var(--tiller-bg-darker, #121414);
+}
+
+.build-quick-links .section-title {
+  color: var(--tiller-color-emerald, #10b981);
 }
 
 .quick-links-grid {
@@ -1762,10 +1834,10 @@
 .quick-link-group h3 {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--color-primary, #2a5d4e);
+  color: var(--tiller-color-gold, #c9a227);
   margin-bottom: var(--spacing-md);
   padding-bottom: var(--spacing-sm);
-  border-bottom: 2px solid var(--color-primary, #2a5d4e);
+  border-bottom: 2px solid var(--tiller-color-gold, #c9a227);
 }
 
 .quick-link-group ul {
@@ -1779,20 +1851,25 @@
 }
 
 .quick-link-group a {
-  color: var(--color-text, #1f2937);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-size: 0.9375rem;
   transition: color 0.15s ease;
 }
 
 .quick-link-group a:hover {
-  color: var(--color-primary, #2a5d4e);
+  color: var(--tiller-color-emerald, #10b981);
   text-decoration: underline;
 }
 
-/* FAQ */
+/* FAQ - DARK */
 .build-faq {
   padding: var(--spacing-2xl, 4rem) 0;
+  background: var(--tiller-bg-stone, #222524);
+}
+
+.build-faq .section-title {
+  color: var(--tiller-color-gold, #c9a227);
 }
 
 .faq-list {
@@ -1801,8 +1878,8 @@
 }
 
 .faq-item {
-  background: var(--color-surface, #fff);
-  border: 1px solid var(--color-border, #e5e7eb);
+  background: var(--tiller-bg-darker, #121414);
+  border: 1px solid rgba(201, 162, 39, 0.2);
   border-radius: var(--radius-md, 8px);
   padding: var(--spacing-lg);
   margin-bottom: var(--spacing-md);
@@ -1811,19 +1888,20 @@
 .faq-question {
   font-size: 1.0625rem;
   font-weight: 600;
-  color: var(--color-text, #1f2937);
+  color: #ffffff;
   margin: 0 0 var(--spacing-sm);
 }
 
 .faq-answer p {
   margin: 0;
-  color: var(--color-text-secondary, #4b5563);
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.6;
 }
 
-/* CTA */
+/* CTA - EMERALD GRADIENT */
 .build-cta {
   padding: var(--spacing-2xl, 4rem) 0;
+  background: linear-gradient(135deg, var(--tiller-color-emerald, #10b981) 0%, #0f7a5c 100%);
 }
 
 .build-cta .section-title {
@@ -1845,17 +1923,26 @@
 /* Button variants */
 .btn-light {
   background: #fff;
-  color: var(--color-primary, #2a5d4e);
+  color: var(--tiller-color-emerald, #10b981);
+  padding: 0.875rem 1.75rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
 }
 
 .btn-light:hover {
-  background: rgba(255,255,255,0.9);
+  background: var(--tiller-color-gold, #c9a227);
+  color: #000000;
 }
 
 .btn-outline-light {
   background: transparent;
   color: #fff;
   border: 2px solid rgba(255,255,255,0.5);
+  padding: 0.875rem 1.75rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
 }
 
 .btn-outline-light:hover {
@@ -1885,10 +1972,42 @@
 }
 </style>
 
+      </article>
+    </div>
     
   </main>
 
   
+  <section class="build-phase-nav ts-section">
+    <div class="container">
+      <nav class="phase-nav-links" aria-label="Build Phase Navigation">
+        
+        <a href="/build/" class="phase-link phase-prev">
+          <span class="phase-label">← Back</span>
+          <span class="phase-title">All Build Guides</span>
+        </a>
+        
+        
+        <a href="/build/nj-codes-permits/" class="phase-link phase-next">
+          <span class="phase-label">Next →</span>
+          <span class="phase-title">Phase 1: Codes, Permits & Inspections</span>
+        </a>
+        
+      </nav>
+    </div>
+  </section>
+
+  <section class="build-cta">
+    <div class="container text-center">
+      <h2>Ready to Start Your Project?</h2>
+      <p>Get a detailed estimate for your bathroom or shower remodel from a licensed NJ contractor.</p>
+      <div class="cta-buttons">
+        <a href="/contact/" class="btn btn-light btn-lg">Request an Estimate</a>
+        <a href="tel:+16098628808" class="btn btn-outline-light btn-lg">Call (609) 862-8808</a>
+      </div>
+      <p class="cta-cred"><small>NJ HIC #13VH10808800 • TCNA-Compliant Methods</small></p>
+    </div>
+  </section>
   
 
   

@@ -89,7 +89,7 @@
   --retro-mint-dark: #6ecc6e;
   --retro-hotpink: #ff69b4;
   --retro-cyan: #00ffff;
-  --retro-yellow: #ffff00;
+  --retro-yellow: #c9a227; /* Replaced with brand gold */
   
   /* 90s Gradients - Subtle, professional versions */
   --retro-gradient-teal-purple: linear-gradient(135deg, var(--retro-teal) 0%, var(--retro-purple) 100%);
@@ -288,16 +288,43 @@ body {
   border-radius: 2px;
 }
 
-/* Links - Emerald glow on hover */
+/* =========================================================
+   UNIFIED LINK SYSTEM - WCAG AAA Compliant
+   Contrast Ratios (on #000000 black):
+   - White #ffffff: 21:1 ✓ AAA
+   - Gold #c9a227: 8.19:1 ✓ AAA  
+   - Emerald #10b981: 8.59:1 ✓ AAA
+   ========================================================= */
+
+/* Base Links - White on dark backgrounds */
 a {
-  color: var(--tiller-color-emerald-light);
-  text-decoration: none;
-  transition: all var(--tiller-transition-fast);
+  color: #ffffff;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+  text-underline-offset: 2px;
+  transition: color 0.15s ease, text-shadow 0.15s ease, text-decoration-color 0.15s ease;
 }
 
-a:hover {
-  color: var(--tiller-color-emerald-bright);
-  text-shadow: 0 0 8px var(--tiller-color-emerald-glow);
+a:hover,
+a:focus {
+  color: var(--tiller-color-gold, #c9a227);
+  text-decoration-color: var(--tiller-color-gold, #c9a227);
+  text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%);
+}
+
+/* Active/Visited can use Emerald for distinction */
+a:active,
+a.is-active {
+  color: var(--tiller-color-emerald, #10b981);
+  text-shadow: 0 0 8px rgb(16 185 129 / 60%);
+}
+
+/* Nav links - no underline, handled separately */
+.desktop-nav__link,
+.mobile-nav__link,
+.footer-list a,
+.footer-legal a {
+  text-decoration: none;
 }
 
 /* ===== EMERALD GLOW HEADERS ===== */
@@ -309,7 +336,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   text-shadow: 
     0 0 10px var(--tiller-color-emerald-glow),
-    0 0 30px var(16 185 129 /-emerald-glow),
+    0 0 30px rgb(16 185 129 / 40%),
     0 0 50px rgb(16 185 129 / 30%);
 }
 

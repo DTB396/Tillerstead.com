@@ -96,13 +96,14 @@ body.nav-open {
 .mobile-nav-list a:hover,
 .mobile-nav-list a:focus,
 .mobile-nav-list a.active {
-  background: rgb(16 185 129 / 10%);
-  border-left-color: var(--tiller-color-emerald, #10b981);
-  color: var(--tiller-color-emerald, #10b981);
+  background: rgb(201 162 39 / 10%);
+  border-left-color: var(--tiller-color-gold, #c9a227);
+  color: var(--tiller-color-gold, #c9a227);
+  text-shadow: 0 0 8px rgb(201 162 39 / 50%);
 }
 
 .mobile-nav-list a:active {
-  background: rgb(184 160 64 / 20%);
+  background: rgb(201 162 39 / 15%);
 }
 
 /* =========================================================
@@ -114,11 +115,12 @@ body.nav-open {
   color: #ffffff;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 .nav-menu a:hover {
-  color: var(--tiller-color-gold);
+  color: var(--tiller-color-gold, #c9a227);
+  text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%);
 }
 
 /* Nested menus in desktop navigation */

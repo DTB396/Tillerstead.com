@@ -771,3 +771,159 @@ body[class*="page-build"],
   }
 }
 
+/* ===== PROSE CLASS - DARK THEME ===== */
+.page-build-guide .prose,
+.page-build-hub .prose,
+body[class*="page-build"] .prose {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.page-build-guide .prose h1,
+.page-build-guide .prose h2,
+.page-build-guide .prose h3,
+.page-build-guide .prose h4 {
+  color: var(--tiller-color-gold, #c9a227) !important;
+}
+
+.page-build-guide .prose p,
+.page-build-guide .prose li,
+.page-build-guide .prose td,
+.page-build-guide .prose span {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.page-build-guide .prose a {
+  color: var(--tiller-color-emerald, #10b981) !important;
+}
+
+.page-build-guide .prose a:hover {
+  color: var(--tiller-color-gold, #c9a227) !important;
+}
+
+/* ===== BUILD HUB PAGE SPECIFIC ===== */
+.page-build-hub {
+  background: var(--tiller-bg-darker, #121414) !important;
+}
+
+.page-build-hub .ts-main-content,
+.page-build-hub main,
+.page-build-hub section {
+  background: transparent;
+}
+
+.page-build-hub .ts-section {
+  color: #ffffff;
+}
+
+/* ===== FOOTER TRANSITION - SEAMLESS ===== */
+.page-build-guide .ts-footer,
+.page-build-hub .ts-footer,
+body[class*="page-build"] .ts-footer {
+  margin-top: 0;
+  border-top: 1px solid rgba(201, 162, 39, 0.2);
+  background: linear-gradient(180deg, var(--tiller-bg-stone, #222524) 0%, var(--tiller-bg-darker, #121414) 100%);
+}
+
+/* Ensure CTA section flows into footer */
+.build-cta + .ts-footer,
+.build-guide-cta + .ts-footer {
+  margin-top: 0;
+  border-top: none;
+}
+
+/* ===== FOOTER - NO WHITE BOXES ===== */
+.page-build-guide .ts-footer *,
+.page-build-hub .ts-footer *,
+body[class*="page-build"] .ts-footer * {
+  background-color: transparent;
+}
+
+.page-build-guide .footer-logo,
+.page-build-hub .footer-logo,
+body[class*="page-build"] .footer-logo {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.page-build-guide .footer-main,
+.page-build-hub .footer-main,
+body[class*="page-build"] .footer-main {
+  background: transparent !important;
+}
+
+.page-build-guide .footer-group,
+.page-build-hub .footer-group,
+body[class*="page-build"] .footer-group {
+  background: transparent !important;
+}
+
+.page-build-guide .footer-columns,
+.page-build-hub .footer-columns,
+body[class*="page-build"] .footer-columns {
+  background: transparent !important;
+}
+
+.page-build-guide .footer-contact,
+.page-build-hub .footer-contact,
+body[class*="page-build"] .footer-contact {
+  background: transparent !important;
+}
+
+.page-build-guide .footer-bottom,
+.page-build-hub .footer-bottom,
+body[class*="page-build"] .footer-bottom {
+  background: transparent !important;
+}
+
+.page-build-guide .footer-social a,
+.page-build-hub .footer-social a,
+body[class*="page-build"] .footer-social a {
+  background: var(--tiller-bg-slate, #2a2d2c) !important;
+}
+
+.page-build-guide .footer-social a:hover,
+.page-build-hub .footer-social a:hover,
+body[class*="page-build"] .footer-social a:hover {
+  background: var(--tiller-color-gold, #c9a227) !important;
+}
+
+/* ===== GLOBAL WHITE BOX OVERRIDES ===== */
+.page-build-guide .card,
+.page-build-guide .card--post,
+.page-build-guide .box,
+.page-build-guide .panel,
+.page-build-hub .card,
+.page-build-hub .card--post,
+.page-build-hub .box,
+.page-build-hub .panel,
+body[class*="page-build"] .card,
+body[class*="page-build"] .card--post,
+body[class*="page-build"] .box,
+body[class*="page-build"] .panel {
+  background: var(--tiller-bg-stone, #222524) !important;
+  color: #ffffff !important;
+}
+
+/* Logo section fix */
+.page-build-guide .footer-logo-section,
+.page-build-hub .footer-logo-section,
+body[class*="page-build"] .footer-logo-section {
+  background: transparent !important;
+}
+
+/* Address element */
+.page-build-guide address,
+.page-build-hub address,
+body[class*="page-build"] address {
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Nav grid */
+.page-build-guide .footer-nav-grid,
+.page-build-hub .footer-nav-grid,
+body[class*="page-build"] .footer-nav-grid {
+  background: transparent !important;
+}
+

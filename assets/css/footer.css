@@ -1,15 +1,15 @@
 /* =========================================================
    Footer Styles - Tillerstead Design System
-   Clean, organized footer with proper alignment
+   Modern, clean footer with seamless integration
    ========================================================= */
 
 /* Main Footer Container */
 .ts-footer {
-  background: var(--tiller-bg-darker, #121414);
-  padding: var(--tiller-spacing-lg, 1.5rem) 0 0;
-  margin-top: var(--tiller-spacing-lg, 1.5rem);
-  border-top: 2px solid var(--tiller-color-gold, #c9a227);
-  color: var(--tiller-text-light, #f9fafb);
+  background: linear-gradient(180deg, var(--tiller-bg-stone, #222524) 0%, var(--tiller-bg-darker, #121414) 100%);
+  padding: 2.5rem 0 1rem;
+  margin-top: 0;
+  border-top: 1px solid rgba(201, 162, 39, 0.15);
+  color: #ffffff;
   font-size: 0.9375rem;
 }
 
