@@ -161,7 +161,7 @@
   font-size: 1rem;
   color: var(--tiller-color-emerald, #10b981);
   letter-spacing: -0.01em;
-  text-shadow: 0 0 15px rgb(16 185 129 / 30%);
+  text-shadow: 0 0 10px rgb(16 185 129 / 80%), 0 0 25px rgb(16 185 129 / 60%), 0 0 40px rgb(16 185 129 / 40%);
 }
 
 .ts-header__tagline {
@@ -173,7 +173,8 @@
 
 .ts-header__region {
   font-size: 0.6875rem;
-  color: #fff;
+  color: #ffffff !important;
+  opacity: 1 !important;
 }
 
 .ts-header__region abbr {
@@ -276,15 +277,16 @@
 }
 
 .desktop-nav__link:hover {
-  background: rgb(16 185 129 / 15%);
-  color: var(--tiller-color-emerald, #10b981);
-  text-shadow: 0 0 12px rgb(16 185 129 / 50%);
+  background: rgb(201 162 39 / 10%);
+  color: var(--tiller-color-gold, #c9a227);
+  text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%), 0 0 30px rgb(201 162 39 / 20%);
 }
 
 .desktop-nav__link:focus-visible {
-  outline: 2px solid var(--tiller-color-emerald, #10b981);
+  outline: 2px solid var(--tiller-color-gold, #c9a227);
   outline-offset: 2px;
-  background: rgb(16 185 129 / 15%);
+  background: rgb(201 162 39 / 10%);
+  text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%);
 }
 
 .desktop-nav__link[aria-current="page"] {
@@ -794,8 +796,8 @@ body.nav-open .mobile-nav__toggle {
 
 .mobile-nav__link:hover,
 .mobile-nav__link:focus {
-  color: var(--tiller-color-emerald, #10b981);
-  text-shadow: 0 0 20px rgb(16 185 129 / 40%);
+  color: var(--tiller-color-gold, #c9a227);
+  text-shadow: 0 0 8px rgb(201 162 39 / 70%), 0 0 20px rgb(201 162 39 / 50%), 0 0 35px rgb(201 162 39 / 30%);
 }
 
 .mobile-nav__link:hover::before {
@@ -809,12 +811,12 @@ body.nav-open .mobile-nav__toggle {
 
 .mobile-nav__link:active {
   transform: scale(0.98);
-  background: rgb(16 185 129 / 8%);
+  background: rgb(201 162 39 / 8%);
 }
 
 .mobile-nav__link:focus-visible {
   outline: none;
-  background: rgb(16 185 129 / 10%);
+  background: rgb(201 162 39 / 10%);
 }
 
 .mobile-nav__link[aria-current="page"] {
@@ -837,7 +839,7 @@ body.nav-open .mobile-nav__toggle {
 
 .mobile-nav__link:hover .accordion-arrow {
   opacity: 1;
-  color: var(--tiller-color-emerald, #10b981);
+  color: var(--tiller-color-gold, #c9a227);
 }
 
 .mobile-nav__accordion-trigger.is-expanded .accordion-arrow {
