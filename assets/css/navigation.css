@@ -169,7 +169,7 @@
 
 .ts-header__region {
   font-size: 0.6875rem;
-  color: var(--tiller-text-muted, rgb(255 255 255 / 50%));
+  color: #fff;
 }
 
 .ts-header__region abbr {
