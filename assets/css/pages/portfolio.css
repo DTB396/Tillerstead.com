@@ -249,24 +249,26 @@
 }
 
 .btn--white {
-  background: var(--tiller-bg-stone, #222524);
-  color: var(--tiller-text-primary, #ffffff);
-  border: 1px solid rgb(201 162 39 / 30%);
+  background: var(--tiller-color-green, #1a3d2e);
+  color: var(--tiller-color-gold, #c9a227);
+  border: 2px solid var(--tiller-color-gold, #c9a227);
 }
 
 .btn--white:hover {
-  background: var(--tiller-bg-slate, #2a2d2c);
+  background: var(--tiller-color-green-dark, #0f2a1f);
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .btn--outline-white {
   background: transparent;
-  color: white;
-  border-color: white;
+  color: var(--tiller-color-green, #1a3d2e);
+  border-color: var(--tiller-color-green, #1a3d2e);
 }
 
 .btn--outline-white:hover {
-  background: rgb(255 255 255 / 10%);
+  background: var(--tiller-color-green, #1a3d2e);
+  color: #fff;
 }
 
 @media (max-width: 768px) {
