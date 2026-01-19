@@ -14,11 +14,14 @@
 /**
  * Round up to nearest integer (ceiling)
  * Used for: bags, boxes, tiles, rolls - any discrete unit
+ * Accounts for floating point precision (e.g., 110.00000000001 → 110, not 111)
  * @param {number} value
  * @returns {number}
  */
 export function roundUp(value) {
-  return Math.ceil(value);
+  // Handle floating point precision: round to 10 decimal places first
+  const cleaned = Math.round(value * 1e10) / 1e10;
+  return Math.ceil(cleaned);
 }
 
 /**

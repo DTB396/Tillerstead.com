@@ -23,7 +23,7 @@ import {
   validatePositiveNumber,
   validatePercentage,
   CONVERSIONS
-} from '../assets/js/tools/formulas/units.js';
+} from '../../assets/js/tools/formulas/units.js';
 
 function testUnitConversions() {
   console.log('Testing unit conversions...');
@@ -92,7 +92,7 @@ import {
   roundToDecimals,
   toFractionString,
   formatNumber
-} from '../assets/js/tools/formulas/rounding.js';
+} from '../../assets/js/tools/formulas/rounding.js';
 
 function testRounding() {
   console.log('Testing rounding functions...');
@@ -125,7 +125,7 @@ import {
   calculateBoxesNeeded,
   isLargeFormat,
   isPlankFormat
-} from '../assets/js/tools/formulas/formulas.tile.js';
+} from '../../assets/js/tools/formulas/formulas.tile.js';
 
 function testTileFormulas() {
   console.log('Testing tile formulas...');
@@ -205,7 +205,7 @@ import {
   calculateMortarBags,
   getRecommendedTrowel,
   TROWEL_COVERAGE
-} from '../assets/js/tools/formulas/formulas.mortar.js';
+} from '../../assets/js/tools/formulas/formulas.mortar.js';
 
 function testMortarFormulas() {
   console.log('Testing mortar formulas...');
@@ -258,7 +258,7 @@ function testMortarFormulas() {
 import {
   calculateGrout,
   getRecommendedGroutType
-} from '../assets/js/tools/formulas/formulas.grout.js';
+} from '../../assets/js/tools/formulas/formulas.grout.js';
 
 function testGroutFormulas() {
   console.log('Testing grout formulas...');
@@ -309,7 +309,7 @@ import {
   calculateWaterproofing,
   getWaterproofingProducts,
   WP_PRODUCTS
-} from '../assets/js/tools/formulas/formulas.waterproofing.js';
+} from '../../assets/js/tools/formulas/formulas.waterproofing.js';
 
 function testWaterproofingFormulas() {
   console.log('Testing waterproofing formulas...');
@@ -357,7 +357,7 @@ import {
   calculateLeveler,
   getLevelerProducts,
   SLU_PRODUCTS
-} from '../assets/js/tools/formulas/formulas.leveling.js';
+} from '../../assets/js/tools/formulas/formulas.leveling.js';
 
 function testLevelingFormulas() {
   console.log('Testing leveling formulas...');
@@ -401,7 +401,7 @@ function testLevelingFormulas() {
 import {
   calculateSlope,
   SLOPE_REQUIREMENTS
-} from '../assets/js/tools/formulas/formulas.slope.js';
+} from '../../assets/js/tools/formulas/formulas.slope.js';
 
 function testSlopeFormulas() {
   console.log('Testing slope formulas...');
@@ -478,3 +478,4 @@ function runAllTests() {
 }
 
 runAllTests();
+
