@@ -25,16 +25,28 @@
   margin-bottom: var(--tiller-spacing-md, 1rem);
 }
 
-.footer-logo {
+.footer-logo,
+.footer-logo--large {
   display: block;
-  max-width: 280px;
+  max-width: 200px;
   height: auto;
   margin: 0 auto var(--tiller-spacing-sm, 0.5rem);
-  border-radius: 12px;
+  /* CRITICAL: Remove all background/border effects that create the black box */
+  background: transparent !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0;
+  /* Use drop-shadow for logo glow instead of box-shadow */
+  filter: drop-shadow(0 4px 12px rgb(16 185 129 / 40%));
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.footer-logo--large {
-  max-width: 280px;
+.footer-logo:hover,
+.footer-logo--large:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 20px rgb(16 185 129 / 60%));
 }
 
 .footer-tagline {
@@ -247,6 +259,26 @@
   font-size: 0.8125rem;
 }
 
+/* NJ HIC Compliance Badge */
+.footer-compliance {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  background: rgb(201 162 39 / 10%);
+  border: 1px solid rgb(201 162 39 / 30%);
+  border-radius: 4px;
+  color: var(--tiller-color-gold-accessible, #8a7830);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.footer-compliance svg {
+  width: 16px;
+  height: 16px;
+  color: var(--tiller-color-gold, #c9a227);
+}
+
 .footer-legal a {
   color: #ffffff;
   text-decoration: none;
@@ -363,4 +395,18 @@
   .footer-social a:hover {
     transform: none;
   }
+}
+
+/* =========================================================
+   CRITICAL OVERRIDES - FIX BLACK BOX ON LOGO
+   These override any compiled styles from main.css
+   ========================================================= */
+.nav-logo,
+.footer-logo,
+img.footer-logo,
+img.nav-logo {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }

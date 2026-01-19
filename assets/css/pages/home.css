@@ -21,7 +21,7 @@
   }
 }
 
-@keyframes fadeInLeft {
+@keyframes fade-in-left {
   from {
     opacity: 0%;
     transform: translateX(-30px);
@@ -33,7 +33,7 @@
   }
 }
 
-@keyframes fadeInRight {
+@keyframes fade-in-right {
   from {
     opacity: 0%;
     transform: translateX(30px);
@@ -220,7 +220,7 @@
   overflow: hidden;
   border-radius: 33px;
   box-shadow: 0 8px 24px rgb(0 0 0 / 40%), 0 0 0 1px rgb(201 162 39 / 20%);
-  animation: fadeInRight 0.8s ease 0.2s forwards;
+  animation: fade-in-right 0.8s ease 0.2s forwards;
   opacity: 0%;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
