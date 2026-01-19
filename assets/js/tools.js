@@ -4464,9 +4464,42 @@
       });
     }
 
-    // Auto-expand first card on desktop
-    if (window.innerWidth >= 900 && calcCards.length > 0) {
-      expandCard(calcCards[0]);
+    // Handle navigation clicks - expand target calculator
+    document.querySelectorAll('.tools-nav__link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const targetId = href.substring(1);
+          const targetCard = document.getElementById(targetId);
+          
+          if (targetCard && targetCard.classList.contains('calc-app-card')) {
+            // Small delay to allow scroll to complete
+            setTimeout(() => {
+              if (!targetCard.classList.contains('calc-app-card--expanded')) {
+                expandCard(targetCard);
+              }
+            }, 300);
+          }
+        }
+      });
+    });
+
+    // Handle direct URL hash - expand target on page load
+    if (window.location.hash) {
+      const targetId = window.location.hash.substring(1);
+      const targetCard = document.getElementById(targetId);
+      
+      if (targetCard && targetCard.classList.contains('calc-app-card')) {
+        setTimeout(() => {
+          expandCard(targetCard);
+          targetCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 500);
+      }
+    } else {
+      // Auto-expand first card on desktop if no hash
+      if (window.innerWidth >= 900 && calcCards.length > 0) {
+        expandCard(calcCards[0]);
+      }
     }
   }
 
