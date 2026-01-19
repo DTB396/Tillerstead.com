@@ -1,0 +1,107 @@
+{
+  "timestamp": "2026-01-19T05:20:45.851Z",
+  "siteUrl": "https://tillerstead.com",
+  "complianceLicense": "13VH10808800",
+  "results": {
+    "tcna": {
+      "status": "warning",
+      "findings": [
+        {
+          "level": "warning",
+          "message": "Could not read index.html: ENOENT: no such file or directory, open 'C:\\web-dev\\github-repos\\Tillerstead.com\\index.html'"
+        },
+        {
+          "level": "warning",
+          "message": "Could not read pages/services.html: ENOENT: no such file or directory, open 'C:\\web-dev\\github-repos\\Tillerstead.com\\pages\\services.html'"
+        },
+        {
+          "level": "warning",
+          "message": "Could not read pages/build/index.md: ENOENT: no such file or directory, open 'C:\\web-dev\\github-repos\\Tillerstead.com\\pages\\build\\index.md'"
+        },
+        {
+          "level": "warning",
+          "message": "Could not audit Build Phase guides: ENOENT: no such file or directory, scandir 'C:\\web-dev\\github-repos\\Tillerstead.com\\_build'"
+        }
+      ],
+      "score": 0
+    },
+    "njHic": {
+      "status": "fail",
+      "findings": [
+        {
+          "level": "error",
+          "message": "License number not found on any major pages - violates NJ HIC requirements"
+        },
+        {
+          "level": "warning",
+          "message": "HIC disclaimers found on fewer than 3 pages - recommend prominent display"
+        }
+      ],
+      "licenseDisplayed": false
+    },
+    "wcag": {
+      "status": "fail",
+      "findings": [
+        {
+          "level": "error",
+          "message": "Could not audit WCAG compliance: ENOENT: no such file or directory, open 'C:\\web-dev\\github-repos\\Tillerstead.com\\index.html'"
+        }
+      ],
+      "targetLevel": "AAA"
+    },
+    "buildPhase": {
+      "status": "fail",
+      "findings": [
+        {
+          "level": "error",
+          "message": "Could not audit Build Phase guides: ENOENT: no such file or directory, scandir 'C:\\web-dev\\github-repos\\Tillerstead.com\\_build'"
+        }
+      ]
+    },
+    "metadata": {
+      "status": "fail",
+      "findings": [
+        {
+          "level": "error",
+          "message": "Could not audit metadata: ENOENT: no such file or directory, open 'C:\\web-dev\\github-repos\\Tillerstead.com\\index.html'"
+        }
+      ]
+    },
+    "colors": {
+      "status": "fail",
+      "findings": [
+        {
+          "level": "warning",
+          "colors": "Teal on White",
+          "ratio": "4.54:1",
+          "message": "Meets WCAG AA (4.5:1) but not AAA (7:1)"
+        },
+        {
+          "level": "warning",
+          "colors": "Red on White",
+          "ratio": "5.14:1",
+          "message": "Meets WCAG AA (4.5:1) but not AAA (7:1)"
+        },
+        {
+          "level": "error",
+          "colors": "Gold on White",
+          "ratio": "1.36:1",
+          "message": "Does not meet WCAG AA minimum (4.5:1)"
+        },
+        {
+          "level": "warning",
+          "colors": "White on Teal",
+          "ratio": "4.54:1",
+          "message": "Meets WCAG AA (4.5:1) but not AAA (7:1)"
+        }
+      ],
+      "totalPairsTested": 6
+    }
+  },
+  "summary": {
+    "totalChecks": 13,
+    "passed": 0,
+    "warnings": 1,
+    "failures": 5
+  }
+}

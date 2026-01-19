@@ -2,6 +2,7 @@
 layout: post
 title: "Waterproofing 101: RedGard® vs Schluter® KERDI vs LATICRETE® HYDRO BAN®"
 description: "A technical, code-compliant comparison of RedGard, KERDI, and HYDRO BAN—how Tillerstead selects and installs each system to TCNA and New Jersey code for lasting, warrantable showers."
+permalink: /blog/waterproofing-redgard-vs-kerdi-vs-hydroban/
 ---
 
 Even flawless tile work fails if the waterproofing beneath isn’t installed **precisely to manufacturer and code spec**. At **Tillerstead LLC**, every shower is built to **ANSI A118.10 (waterproof membranes)**, **A118.12 (crack isolation)**, and the **TCNA Handbook** (details B422, B421, B415, etc.), ensuring your system is **documented, warrantable, and durable**—not just attractive.

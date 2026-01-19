@@ -1,10 +1,11 @@
 ---
 layout: post
 title: "Large-Format Tile Done Right: Flatness, Mortars, & Trowels"
-description: "Installing large-format tile in South Jersey? Here’s how Tillerstead ensures flat substrates, the right mortar choice, and consistent coverage for floors and walls that stay beautiful."
+description: "Installing large-format tile in South Jersey? Here's how Tillerstead ensures flat substrates, the right mortar choice, and consistent coverage for floors and walls that stay beautiful."
+permalink: /blog/large-format-tile-flatness-mortars-trowels/
 ---
 
-Large-format tile—**15″ or greater on any side**—delivers a seamless, modern aesthetic. But performance and longevity depend on strict adherence to **TCNA** and **ANSI** standards. At **Tillerstead LLC**, we don’t cut corners: every step is engineered for lasting results and New Jersey HIC compliance.
+Large-format tile—**15″ or greater on any side**—delivers a seamless, modern aesthetic. But performance and longevity depend on strict adherence to **TCNA** and **ANSI** standards. At **Tillerstead LLC**, we don't cut corners: every step is engineered for lasting results and New Jersey HIC compliance.
 
 ---
 
@@ -73,13 +74,12 @@ Coverage is critical:
 ---
 
 **Summary:**  
-Precision is non-negotiable with large-format tile. Whether it’s a porcelain floor in **Egg Harbor Township**, a shower in **Galloway**, or a full bath remodel in **Atlantic County**, Tillerstead delivers compliant, durable, and beautiful results—every time.
+Precision is non-negotiable with large-format tile. Whether it's a porcelain floor in **Egg Harbor Township**, a shower in **Galloway**, or a full bath remodel in **Atlantic County**, Tillerstead delivers compliant, durable, and beautiful results—every time.
 
 **Ready to start?**  
-[Email us at info@tillerstead.com](mailto:info@tillerstead.com) or schedule a consultation. We’ll verify your substrate and recommend the right system for your project.
+[Email us at info@tillerstead.com](mailto:info@tillerstead.com) or schedule a consultation. We'll verify your substrate and recommend the right system for your project.
 
 ---
 
 _Do the work with integrity and care.  
-Tillerstead LLC—where standards aren’t optional._
-
+Tillerstead LLC—where standards aren't optional._

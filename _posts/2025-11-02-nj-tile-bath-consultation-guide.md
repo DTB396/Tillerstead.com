@@ -3,6 +3,7 @@ layout: post
 title: "Your First Tile/Bath Consultation in New Jersey: What to Expect & How to Prep"
 description: "A 15-minute prep guide for South Jersey homeowners—photos, measurements, and how Tillerstead delivers TCNA-compliant, transparent proposals for tile and bathroom projects."
 accessibility: "All content uses semantic headings, lists, and descriptive links for screen reader compatibility and New Jersey HIC compliance."
+permalink: /blog/nj-tile-bath-consultation-guide/
 ---
 
 If you’ve never hired a licensed home improvement contractor in New Jersey, your first consultation can feel uncertain. **Tillerstead LLC** makes it straightforward: a calm walkthrough, clear expectations, and a proposal based on your real space—not guesswork or “ballpark” numbers.
