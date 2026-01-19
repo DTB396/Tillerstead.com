@@ -31,9 +31,7 @@
   try{var p=JSON.parse(localStorage.getItem('tillerstead-a11y-prefs')||'{}');
     if(p.highContrast)d.setAttribute('data-high-contrast','true');
     if(p.textSize)d.setAttribute('data-text-size',p.textSize);
-    if(p.dyslexiaFont)d.setAttribute('data-font','dyslexia');
     if(p.reducedMotion)d.classList.add('reduce-motion');
-    if(p.readingGuide)d.setAttribute('data-reading-guide','true');
   }catch(e){}
 })();
 </script>
@@ -1508,113 +1506,11 @@
       <span>Larger Text</span>
     </button>
 
-    <!-- Dyslexia Font -->
-    <button 
-      type="button"
-      class="a11y-toolbar__btn"
-      id="a11y-dyslexia"
-      aria-pressed="false"
-      onclick="a11yToggleDyslexiaFont()"
-    >
-      <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M4 7V4h16v3M9 20h6M12 4v16"/>
-      </svg>
-      <span>Dyslexia Font</span>
-    </button>
-
-    <!-- Reading Guide -->
-    <button 
-      type="button"
-      class="a11y-toolbar__btn"
-      id="a11y-guide"
-      aria-pressed="false"
-      onclick="a11yToggleReadingGuide()"
-    >
-      <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <rect x="3" y="10" width="18" height="4" rx="1"/>
-        <line x1="3" y1="6" x2="21" y2="6"/>
-        <line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
-      <span>Reading Guide</span>
-    </button>
-
-    <!-- Keyboard Shortcuts Help -->
-    <button
-      type="button"
-      class="a11y-toolbar__btn"
-      aria-haspopup="dialog"
-      onclick="showKeyboardHelp()"
-    >
-      <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <rect x="2" y="6" width="20" height="12" rx="2"/>
-        <line x1="6" y1="10" x2="6" y2="10"/>
-        <line x1="10" y1="10" x2="10" y2="10"/>
-        <line x1="14" y1="10" x2="14" y2="10"/>
-        <line x1="18" y1="10" x2="18" y2="10"/>
-        <line x1="8" y1="14" x2="16" y2="14"/>
-      </svg>
-      <span>Keyboard Help</span>
-    </button>
-
     <p class="a11y-toolbar__note">
       <small>Settings are saved for your next visit</small>
     </p>
   </div>
 </aside>
-
-<!-- Keyboard Shortcuts Dialog -->
-<dialog 
-  class="a11y-keyboard-dialog" 
-  id="keyboard-help-dialog"
-  aria-labelledby="keyboard-dialog-title"
->
-  <header>
-    <h2 id="keyboard-dialog-title">Keyboard Shortcuts</h2>
-    <button 
-      type="button" 
-      class="dialog-close" 
-      aria-label="Close keyboard shortcuts"
-      onclick="document.getElementById('keyboard-help-dialog').close()"
-    >
-      ×
-    </button>
-  </header>
-  
-  <div class="keyboard-shortcuts">
-    <h3>Navigation</h3>
-    <dl>
-      <dt><kbd>Tab</kbd></dt>
-      <dd>Move to next interactive element</dd>
-      
-      <dt><kbd>Shift</kbd> + <kbd>Tab</kbd></dt>
-      <dd>Move to previous interactive element</dd>
-      
-      <dt><kbd>Enter</kbd> or <kbd>Space</kbd></dt>
-      <dd>Activate buttons and links</dd>
-      
-      <dt><kbd>Escape</kbd></dt>
-      <dd>Close dialogs and menus</dd>
-      
-      <dt><kbd>↑</kbd> <kbd>↓</kbd></dt>
-      <dd>Navigate menu items</dd>
-      
-      <dt><kbd>Home</kbd></dt>
-      <dd>Go to first item in list</dd>
-      
-      <dt><kbd>End</kbd></dt>
-      <dd>Go to last item in list</dd>
-    </dl>
-
-    <h3>Skip Links</h3>
-    <p>Press <kbd>Tab</kbd> on page load to reveal skip links for quick navigation.</p>
-  </div>
-
-  <footer>
-    <button type="button" onclick="document.getElementById('keyboard-help-dialog').close()">
-      Close
-    </button>
-  </footer>
-</dialog>
 
 <script>
 (function() {
@@ -1667,12 +1563,6 @@
       }
       if (prefs.textSize && prefs.textSize !== 'normal') {
         document.getElementById('a11y-textsize')?.setAttribute('aria-pressed', 'true');
-      }
-      if (prefs.dyslexiaFont) {
-        document.getElementById('a11y-dyslexia')?.setAttribute('aria-pressed', 'true');
-      }
-      if (prefs.readingGuide) {
-        document.getElementById('a11y-guide')?.setAttribute('aria-pressed', 'true');
       }
       if (prefs.showToolbar) {
         document.getElementById('a11y-toolbar').hidden = false;

@@ -31,9 +31,7 @@
   try{var p=JSON.parse(localStorage.getItem('tillerstead-a11y-prefs')||'{}');
     if(p.highContrast)d.setAttribute('data-high-contrast','true');
     if(p.textSize)d.setAttribute('data-text-size',p.textSize);
-    if(p.dyslexiaFont)d.setAttribute('data-font','dyslexia');
     if(p.reducedMotion)d.classList.add('reduce-motion');
-    if(p.readingGuide)d.setAttribute('data-reading-guide','true');
   }catch(e){}
 })();
 </script>
@@ -1131,11 +1129,47 @@
   <header class="tools-header">
     <div class="container">
       <h1 class="tools-header__title">Tile Project Tools</h1>
-      <p class="tools-header__subtitle">Calculators, guides, and an estimate builder to help plan your tile project. All calculations run locally—no data leaves your device.</p>
+      <p class="tools-header__subtitle">Professional calculators for contractors and homeowners. Build accurate estimates, calculate materials, and generate project specs.</p>
+      
+      <!-- User Mode Toggle -->
+      <div class="tools-mode-toggle" role="group" aria-label="Select user mode">
+        <button type="button" class="tools-mode-btn is-active" data-mode="pro" aria-pressed="true">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+          </svg>
+          Contractor
+        </button>
+        <button type="button" class="tools-mode-btn" data-mode="homeowner" aria-pressed="false">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          Homeowner
+        </button>
+      </div>
+      
+      <!-- Quick Start Cards -->
+      <div class="tools-quickstart">
+        <div class="quickstart-card" data-for="pro">
+          <h3>For Contractors</h3>
+          <ul>
+            <li><strong>Estimate Builder:</strong> Generate professional specs with measurements, materials list, and scope of work</li>
+            <li><strong>Material Takeoffs:</strong> Accurate tile, mortar, and grout calculations with waste factors</li>
+            <li><strong>Export Options:</strong> Copy to clipboard, print, or download for proposals</li>
+          </ul>
+        </div>
+        <div class="quickstart-card" data-for="homeowner">
+          <h3>For Homeowners</h3>
+          <ul>
+            <li><strong>Budget Planning:</strong> Estimate how much tile and materials you'll need</li>
+            <li><strong>Compare Quotes:</strong> Understand what a proper scope should include</li>
+            <li><strong>DIY Help:</strong> Calculate materials for your own projects</li>
+          </ul>
+        </div>
+      </div>
       
       <!-- Global Disclaimer -->
       <div class="tools-disclaimer" role="note">
-        <strong>Important:</strong> These tools provide starting-point estimates based on common industry practices. Always verify calculations with tile and mortar manufacturer specifications, and confirm coverag before purchasing materials.
+        <strong>Important:</strong> These tools provide starting-point estimates based on common industry practices. Always verify calculations with tile and mortar manufacturer specifications, and confirm coverage before purchasing materials.
       </div>
     </div>
   </header>
@@ -2356,113 +2390,11 @@
       <span>Larger Text</span>
     </button>
 
-    <!-- Dyslexia Font -->
-    <button 
-      type="button"
-      class="a11y-toolbar__btn"
-      id="a11y-dyslexia"
-      aria-pressed="false"
-      onclick="a11yToggleDyslexiaFont()"
-    >
-      <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M4 7V4h16v3M9 20h6M12 4v16"/>
-      </svg>
-      <span>Dyslexia Font</span>
-    </button>
-
-    <!-- Reading Guide -->
-    <button 
-      type="button"
-      class="a11y-toolbar__btn"
-      id="a11y-guide"
-      aria-pressed="false"
-      onclick="a11yToggleReadingGuide()"
-    >
-      <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <rect x="3" y="10" width="18" height="4" rx="1"/>
-        <line x1="3" y1="6" x2="21" y2="6"/>
-        <line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
-      <span>Reading Guide</span>
-    </button>
-
-    <!-- Keyboard Shortcuts Help -->
-    <button
-      type="button"
-      class="a11y-toolbar__btn"
-      aria-haspopup="dialog"
-      onclick="showKeyboardHelp()"
-    >
-      <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <rect x="2" y="6" width="20" height="12" rx="2"/>
-        <line x1="6" y1="10" x2="6" y2="10"/>
-        <line x1="10" y1="10" x2="10" y2="10"/>
-        <line x1="14" y1="10" x2="14" y2="10"/>
-        <line x1="18" y1="10" x2="18" y2="10"/>
-        <line x1="8" y1="14" x2="16" y2="14"/>
-      </svg>
-      <span>Keyboard Help</span>
-    </button>
-
     <p class="a11y-toolbar__note">
       <small>Settings are saved for your next visit</small>
     </p>
   </div>
 </aside>
-
-<!-- Keyboard Shortcuts Dialog -->
-<dialog 
-  class="a11y-keyboard-dialog" 
-  id="keyboard-help-dialog"
-  aria-labelledby="keyboard-dialog-title"
->
-  <header>
-    <h2 id="keyboard-dialog-title">Keyboard Shortcuts</h2>
-    <button 
-      type="button" 
-      class="dialog-close" 
-      aria-label="Close keyboard shortcuts"
-      onclick="document.getElementById('keyboard-help-dialog').close()"
-    >
-      ×
-    </button>
-  </header>
-  
-  <div class="keyboard-shortcuts">
-    <h3>Navigation</h3>
-    <dl>
-      <dt><kbd>Tab</kbd></dt>
-      <dd>Move to next interactive element</dd>
-      
-      <dt><kbd>Shift</kbd> + <kbd>Tab</kbd></dt>
-      <dd>Move to previous interactive element</dd>
-      
-      <dt><kbd>Enter</kbd> or <kbd>Space</kbd></dt>
-      <dd>Activate buttons and links</dd>
-      
-      <dt><kbd>Escape</kbd></dt>
-      <dd>Close dialogs and menus</dd>
-      
-      <dt><kbd>↑</kbd> <kbd>↓</kbd></dt>
-      <dd>Navigate menu items</dd>
-      
-      <dt><kbd>Home</kbd></dt>
-      <dd>Go to first item in list</dd>
-      
-      <dt><kbd>End</kbd></dt>
-      <dd>Go to last item in list</dd>
-    </dl>
-
-    <h3>Skip Links</h3>
-    <p>Press <kbd>Tab</kbd> on page load to reveal skip links for quick navigation.</p>
-  </div>
-
-  <footer>
-    <button type="button" onclick="document.getElementById('keyboard-help-dialog').close()">
-      Close
-    </button>
-  </footer>
-</dialog>
 
 <script>
 (function() {
@@ -2515,12 +2447,6 @@
       }
       if (prefs.textSize && prefs.textSize !== 'normal') {
         document.getElementById('a11y-textsize')?.setAttribute('aria-pressed', 'true');
-      }
-      if (prefs.dyslexiaFont) {
-        document.getElementById('a11y-dyslexia')?.setAttribute('aria-pressed', 'true');
-      }
-      if (prefs.readingGuide) {
-        document.getElementById('a11y-guide')?.setAttribute('aria-pressed', 'true');
       }
       if (prefs.showToolbar) {
         document.getElementById('a11y-toolbar').hidden = false;
