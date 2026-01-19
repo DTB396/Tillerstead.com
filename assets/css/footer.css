@@ -134,15 +134,16 @@
 }
 
 .footer-list a {
-  color: var(--tiller-text-secondary, #e5e7eb);
+  color: #ffffff;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
   display: inline-block;
 }
 
 .footer-list a:hover,
 .footer-list a:focus {
   color: var(--tiller-color-gold, #c9a227);
+  text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%);
   text-decoration: underline;
 }
 
@@ -181,15 +182,16 @@
 
 .footer-contact-phone a,
 .footer-contact-email a {
-  color: var(--tiller-color-gold, #c9a227);
+  color: #ffffff;
   font-weight: 600;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 .footer-contact-phone a:hover,
 .footer-contact-email a:hover {
-  color: var(--tiller-color-gold-light, #e8c848);
+  color: var(--tiller-color-gold, #c9a227);
+  text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%);
   text-decoration: underline;
 }
 
@@ -246,13 +248,14 @@
 }
 
 .footer-legal a {
-  color: var(--tiller-text-secondary, #e5e7eb);
+  color: #ffffff;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 .footer-legal a:hover {
   color: var(--tiller-color-gold, #c9a227);
+  text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%);
 }
 
 .footer-divider {

@@ -770,7 +770,7 @@ label {
 }
 
 .footer-list a {
-  color: var(--tiller-text-secondary);
+  color: #ffffff;
   text-decoration: none;
   font-size: 0.95rem;
   transition: all 0.2s ease;
@@ -778,8 +778,8 @@ label {
 
 .footer-list a:hover,
 .footer-list a:focus {
-  color: var(--tiller-color-gold);
-  text-shadow: 0 0 8px var(--tiller-shadow-glow-gold);
+  color: var(--tiller-color-gold, #c9a227);
+  text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%);
 }
 
 .footer-contact {
@@ -816,20 +816,19 @@ label {
 
 .footer-contact-phone a,
 .footer-contact-email a {
-  color: var(--tiller-color-gold, #c9a227);
+  color: #ffffff;
   text-decoration: none;
   font-weight: 600;
   font-size: 1.1rem;
   transition: all 0.2s ease;
-  text-shadow: 0 0 10px rgb(201 162 39 / 30%);
 }
 
 .footer-contact-phone a:hover,
 .footer-contact-phone a:focus,
 .footer-contact-email a:hover,
 .footer-contact-email a:focus {
-  color: var(--tiller-color-emerald);
-  text-shadow: 0 0 8px var(--tiller-color-emerald-glow);
+  color: var(--tiller-color-gold, #c9a227);
+  text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%);
 }
 
 .footer-bottom {
@@ -884,14 +883,15 @@ label {
 }
 
 .footer-legal a {
-  color: var(--tiller-text-tertiary);
+  color: #ffffff;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 .footer-legal a:hover,
 .footer-legal a:focus {
-  color: var(--tiller-color-emerald);
+  color: var(--tiller-color-gold, #c9a227);
+  text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%);
 }
 
 .footer-divider {

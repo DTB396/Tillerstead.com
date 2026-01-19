@@ -293,10 +293,10 @@ textarea:focus-visible,
   --tiller-bg-color: #000000;
   --tiller-text-primary: #ffffff;
   --tiller-text-secondary: #ffffff;
-  --tiller-color-gold: #ffff00;
+  --tiller-color-gold: #c9a227;
   --tiller-color-primary: #ffffff;
-  --link-color: #ffff00;
-  --focus-color: #00ffff;
+  --link-color: #ffffff;
+  --focus-color: #10b981;
 
   background: #000000 !important;
   color: #ffffff !important;
@@ -304,8 +304,8 @@ textarea:focus-visible,
 
 [data-high-contrast="true"] a,
 .high-contrast a {
-  color: #ffffff !important;
-  text-decoration: underline !important;
+  color: #ffffff;
+  text-decoration: underline;
   transition: color 0.15s ease, text-shadow 0.15s ease;
 }
 
@@ -313,17 +313,32 @@ textarea:focus-visible,
 [data-high-contrast="true"] a:focus,
 .high-contrast a:hover,
 .high-contrast a:focus {
-  color: var(--tiller-color-gold, #c9a227) !important;
-  text-shadow: 0 0 8px rgb(201 162 39 / 70%), 0 0 20px rgb(201 162 39 / 50%), 0 0 35px rgb(201 162 39 / 30%) !important;
+  color: var(--tiller-color-gold, #c9a227);
+  text-shadow: 0 0 8px rgb(201 162 39 / 70%), 0 0 20px rgb(201 162 39 / 50%), 0 0 35px rgb(201 162 39 / 30%);
+}
+
+/* Nav links handle their own styling */
+[data-high-contrast="true"] .desktop-nav__link,
+[data-high-contrast="true"] .mobile-nav__link,
+.high-contrast .desktop-nav__link,
+.high-contrast .mobile-nav__link {
+  text-decoration: none;
+}
+
+/* Header company name keeps emerald glow */
+[data-high-contrast="true"] .ts-header__company,
+.high-contrast .ts-header__company {
+  color: var(--tiller-color-emerald, #10b981) !important;
+  text-shadow: 0 0 10px rgb(16 185 129 / 80%), 0 0 25px rgb(16 185 129 / 60%), 0 0 40px rgb(16 185 129 / 40%) !important;
 }
 
 [data-high-contrast="true"] button,
 [data-high-contrast="true"] .btn,
 .high-contrast button,
 .high-contrast .btn {
-  background: #ffffff !important;
-  color: #000000 !important;
-  border: 2px solid #ffffff !important;
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #ffffff;
   transition: all 0.15s ease;
 }
 
@@ -331,9 +346,9 @@ textarea:focus-visible,
 [data-high-contrast="true"] .btn:hover,
 .high-contrast button:hover,
 .high-contrast .btn:hover {
-  background: var(--tiller-color-gold, #c9a227) !important;
-  border-color: var(--tiller-color-gold, #c9a227) !important;
-  box-shadow: 0 0 15px rgb(201 162 39 / 60%), 0 0 30px rgb(201 162 39 / 30%) !important;
+  background: var(--tiller-color-gold, #c9a227);
+  border-color: var(--tiller-color-gold, #c9a227);
+  box-shadow: 0 0 15px rgb(201 162 39 / 60%), 0 0 30px rgb(201 162 39 / 30%);
 }
 
 /* ==========================================================================
