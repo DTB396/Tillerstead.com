@@ -115,503 +115,104 @@
           "column": 6,
           "specs": [
             {
-              "title": "should open drawer when hamburger clicked",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5997,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T08:47:39.247Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-444cb4474c1a21420386",
-              "file": "mobile-nav.spec.js",
-              "line": 34,
-              "column": 3
-            },
-            {
-              "title": "should show backdrop when drawer opens",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4690,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T08:47:45.403Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-bedcee948df68afca0a5",
-              "file": "mobile-nav.spec.js",
-              "line": 57,
-              "column": 3
-            },
-            {
-              "title": "should close drawer when backdrop clicked",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4254,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T08:47:50.148Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-3403f2e01448b2e3c574",
-              "file": "mobile-nav.spec.js",
-              "line": 74,
-              "column": 3
-            },
-            {
               "title": "should close drawer when X button clicked",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
                   "timeout": 60000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
                   "results": [
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4310,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 9786,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#mobile-nav-drawer')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#mobile-nav-drawer')\u001b[22m\n\u001b[2m    8 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" class=\"mobile-nav\" aria-hidden=\"false\" id=\"mobile-nav-drawer\" aria-label=\"Navigation menu\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#mobile-nav-drawer')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#mobile-nav-drawer')\u001b[22m\n\u001b[2m    8 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" class=\"mobile-nav\" aria-hidden=\"false\" id=\"mobile-nav-drawer\" aria-label=\"Navigation menu\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:126:26",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                          "column": 26,
+                          "line": 126
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 124 |\u001b[39m\n \u001b[90m 125 |\u001b[39m     \u001b[90m// Drawer should be closed\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 126 |\u001b[39m     \u001b[36mawait\u001b[39m expect(drawer)\u001b[33m.\u001b[39mtoHaveAttribute(\u001b[32m'aria-hidden'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'true'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 127 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 128 |\u001b[39m\n \u001b[90m 129 |\u001b[39m   test(\u001b[32m'should close drawer when ESC key pressed'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                            "column": 26,
+                            "line": 126
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#mobile-nav-drawer')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#mobile-nav-drawer')\u001b[22m\n\u001b[2m    8 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" class=\"mobile-nav\" aria-hidden=\"false\" id=\"mobile-nav-drawer\" aria-label=\"Navigation menu\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 124 |\u001b[39m\n \u001b[90m 125 |\u001b[39m     \u001b[90m// Drawer should be closed\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 126 |\u001b[39m     \u001b[36mawait\u001b[39m expect(drawer)\u001b[33m.\u001b[39mtoHaveAttribute(\u001b[32m'aria-hidden'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'true'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 127 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 128 |\u001b[39m\n \u001b[90m 129 |\u001b[39m   test(\u001b[32m'should close drawer when ESC key pressed'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:126:26\u001b[22m"
+                        }
+                      ],
                       "stdout": [
                         {
                           "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
                         },
                         {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
+                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
                         },
                         {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
+                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
                         },
                         {
                           "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
                         },
                         {
                           "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T08:47:54.460Z",
+                      "startTime": "2026-01-19T09:57:40.096Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-effbb-rawer-when-X-button-clicked-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-effbb-rawer-when-X-button-clicked-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-effbb-rawer-when-X-button-clicked-chromium-desktop\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-effbb-rawer-when-X-button-clicked-chromium-desktop\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
+                        "column": 26,
+                        "line": 126
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
-              "id": "2658a5cb0a709a925606-2f51bd71a49206190bc9",
+              "id": "2658a5cb0a709a925606-907c5e71bfe9fecfe042",
               "file": "mobile-nav.spec.js",
               "line": 111,
-              "column": 3
-            },
-            {
-              "title": "should close drawer when ESC key pressed",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3823,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T08:47:58.844Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-6c19e9dd7749c3455ce7",
-              "file": "mobile-nav.spec.js",
-              "line": 129,
-              "column": 3
-            },
-            {
-              "title": "should display correct menu items",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4115,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T08:48:02.769Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-bc0369bb819bc61e2412",
-              "file": "mobile-nav.spec.js",
-              "line": 146,
-              "column": 3
-            },
-            {
-              "title": "should display CTA buttons",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4108,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T08:48:06.923Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-10fbf528a9347d619a84",
-              "file": "mobile-nav.spec.js",
-              "line": 171,
-              "column": 3
-            },
-            {
-              "title": "should lock body scroll when drawer is open",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4186,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T08:48:11.083Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-8e38452c92c1ef3d9eac",
-              "file": "mobile-nav.spec.js",
-              "line": 190,
-              "column": 3
-            },
-            {
-              "title": "should have proper ARIA attributes",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3891,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T08:48:15.338Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-3df4268af7f10094e230",
-              "file": "mobile-nav.spec.js",
-              "line": 220,
-              "column": 3
-            },
-            {
-              "title": "should be keyboard navigable",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3709,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T08:48:19.282Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-fcfa9b6e684bbc35b4f5",
-              "file": "mobile-nav.spec.js",
-              "line": 240,
               "column": 3
             }
           ]
@@ -621,11 +222,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-19T08:46:25.818Z",
-    "duration": 117481.261,
-    "expected": 10,
+    "startTime": "2026-01-19T09:57:37.821Z",
+    "duration": 13937.126,
+    "expected": 0,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 1,
     "flaky": 0
   }
 }

@@ -690,7 +690,7 @@
         class="mobile-nav__close"
         aria-label="Close navigation menu"
       >
-        <span aria-hidden="true">✕</span> Close
+        <span class="close-x" aria-hidden="true">✕</span> Close
       </button>
     </div>
     
@@ -923,153 +923,235 @@
 (function() {
   'use strict';
   
-  // ===== Desktop Dropdowns =====
-  const dropdownTriggers = document.querySelectorAll('.desktop-nav__trigger');
-  
-  dropdownTriggers.forEach(trigger => {
-    const dropdown = document.getElementById(trigger.getAttribute('aria-controls'));
-    let closeTimeout;
+  // ===== DESKTOP NAVIGATION (≥1024px) =====
+  // Completely separate from mobile - only runs on desktop viewport
+  function initDesktopNav() {
+    const dropdownTriggers = document.querySelectorAll('.desktop-nav__trigger');
+    if (!dropdownTriggers.length) return;
     
-    // Hover open (mouse)
-    trigger.parentElement.addEventListener('mouseenter', () => {
-      clearTimeout(closeTimeout);
-      openDropdown(trigger, dropdown);
-    });
-    
-    trigger.parentElement.addEventListener('mouseleave', () => {
-      closeTimeout = setTimeout(() => {
-        closeDropdown(trigger, dropdown);
-      }, 150);
-    });
-    
-    // Keyboard support (focus)
-    trigger.addEventListener('focus', () => {
-      openDropdown(trigger, dropdown);
-    });
-    
-    // Click toggle (for touch devices detecting as desktop)
-    trigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
-      if (isExpanded) {
-        closeDropdown(trigger, dropdown);
-      } else {
-        closeAllDropdowns();
-        openDropdown(trigger, dropdown);
-      }
-    });
-    
-    // Keyboard navigation
-    trigger.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeDropdown(trigger, dropdown);
-        trigger.focus();
-      }
-      if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        openDropdown(trigger, dropdown);
-        const firstItem = dropdown.querySelector('a');
-        if (firstItem) firstItem.focus();
-      }
-    });
-    
-    // Dropdown keyboard nav
-    dropdown.addEventListener('keydown', (e) => {
-      const items = dropdown.querySelectorAll('a');
-      const currentIndex = Array.from(items).indexOf(document.activeElement);
+    dropdownTriggers.forEach(trigger => {
+      const dropdown = document.getElementById(trigger.getAttribute('aria-controls'));
+      if (!dropdown) return;
       
-      if (e.key === 'Escape') {
-        closeDropdown(trigger, dropdown);
-        trigger.focus();
-      }
-      if (e.key === 'ArrowDown') {
+      let closeTimeout;
+      
+      // Hover open (mouse)
+      trigger.parentElement.addEventListener('mouseenter', () => {
+        clearTimeout(closeTimeout);
+        openDropdown(trigger, dropdown);
+      });
+      
+      trigger.parentElement.addEventListener('mouseleave', () => {
+        closeTimeout = setTimeout(() => {
+          closeDropdown(trigger, dropdown);
+        }, 150);
+      });
+      
+      // Keyboard support (focus)
+      trigger.addEventListener('focus', () => {
+        openDropdown(trigger, dropdown);
+      });
+      
+      // Click toggle (for touch devices detecting as desktop)
+      trigger.addEventListener('click', (e) => {
         e.preventDefault();
-        const nextIndex = (currentIndex + 1) % items.length;
-        items[nextIndex].focus();
-      }
-      if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        const prevIndex = currentIndex <= 0 ? items.length - 1 : currentIndex - 1;
-        items[prevIndex].focus();
-      }
-      if (e.key === 'Tab' && !e.shiftKey && currentIndex === items.length - 1) {
-        closeDropdown(trigger, dropdown);
-      }
+        const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+        if (isExpanded) {
+          closeDropdown(trigger, dropdown);
+        } else {
+          closeAllDesktopDropdowns();
+          openDropdown(trigger, dropdown);
+        }
+      });
+      
+      // Keyboard navigation
+      trigger.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeDropdown(trigger, dropdown);
+          trigger.focus();
+        }
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          openDropdown(trigger, dropdown);
+          const firstItem = dropdown.querySelector('a');
+          if (firstItem) firstItem.focus();
+        }
+      });
+      
+      // Dropdown keyboard nav
+      dropdown.addEventListener('keydown', (e) => {
+        const items = dropdown.querySelectorAll('a');
+        const currentIndex = Array.from(items).indexOf(document.activeElement);
+        
+        if (e.key === 'Escape') {
+          closeDropdown(trigger, dropdown);
+          trigger.focus();
+        }
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          const nextIndex = (currentIndex + 1) % items.length;
+          items[nextIndex].focus();
+        }
+        if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          const prevIndex = currentIndex <= 0 ? items.length - 1 : currentIndex - 1;
+          items[prevIndex].focus();
+        }
+        if (e.key === 'Tab' && !e.shiftKey && currentIndex === items.length - 1) {
+          closeDropdown(trigger, dropdown);
+        }
+      });
     });
-  });
-  
-  function openDropdown(trigger, dropdown) {
-    trigger.setAttribute('aria-expanded', 'true');
-    trigger.parentElement.classList.add('is-open');
-  }
-  
-  function closeDropdown(trigger, dropdown) {
-    trigger.setAttribute('aria-expanded', 'false');
-    trigger.parentElement.classList.remove('is-open');
-  }
-  
-  function closeAllDropdowns() {
-    dropdownTriggers.forEach(t => {
-      const d = document.getElementById(t.getAttribute('aria-controls'));
-      closeDropdown(t, d);
-    });
-  }
-  
-  // Close on outside click
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.has-dropdown')) {
-      closeAllDropdowns();
+    
+    function openDropdown(trigger, dropdown) {
+      trigger.setAttribute('aria-expanded', 'true');
+      trigger.parentElement.classList.add('is-open');
     }
-  });
+    
+    function closeDropdown(trigger, dropdown) {
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.parentElement.classList.remove('is-open');
+    }
+    
+    function closeAllDesktopDropdowns() {
+      dropdownTriggers.forEach(t => {
+        const d = document.getElementById(t.getAttribute('aria-controls'));
+        if (d) closeDropdown(t, d);
+      });
+    }
+    
+    // Close desktop dropdowns on outside click - but NOT on mobile nav elements
+    document.addEventListener('click', (e) => {
+      // Skip if clicking on mobile nav elements
+      if (e.target.closest('.mobile-nav') || e.target.closest('.mobile-nav__toggle')) {
+        return;
+      }
+      if (!e.target.closest('.has-dropdown')) {
+        closeAllDesktopDropdowns();
+      }
+    });
+  }
   
-  // ===== Mobile Navigation =====
-  const mobileToggle = document.querySelector('.mobile-nav__toggle');
-  const mobileClose = document.querySelector('.mobile-nav__close');
-  const mobileDrawer = document.getElementById('mobile-nav-drawer');
-  const body = document.body;
-  let scrollPosition = 0; // Track scroll position for iOS
-  
-  if (mobileToggle && mobileDrawer) {
-    // Open drawer - use both click and touchend for iOS reliability
+  // ===== MOBILE NAVIGATION (<1024px) =====
+  // Completely separate from desktop
+  function initMobileNav() {
+    const mobileToggle = document.querySelector('.mobile-nav__toggle');
+    const mobileClose = document.querySelector('.mobile-nav__close');
+    const mobileDrawer = document.getElementById('mobile-nav-drawer');
+    const body = document.body;
+    let scrollPosition = 0;
+    
+    // Exit if elements don't exist
+    if (!mobileToggle || !mobileDrawer || !mobileClose) {
+      console.warn('[MobileNav] Required elements not found');
+      return;
+    }
+    
+    // Open drawer function
+    function openMobileNav() {
+      scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      
+      mobileDrawer.setAttribute('aria-hidden', 'false');
+      mobileToggle.setAttribute('aria-expanded', 'true');
+      body.classList.add('nav-open');
+      body.style.overflow = 'hidden';
+      body.style.position = 'fixed';
+      body.style.top = `-${scrollPosition}px`;
+      body.style.width = '100%';
+      
+      // Focus close button after transition
+      setTimeout(() => {
+        mobileClose.focus();
+      }, 100);
+      
+      trapFocus(mobileDrawer);
+    }
+    
+    // Close drawer function
+    function closeMobileNav() {
+      mobileDrawer.setAttribute('aria-hidden', 'true');
+      mobileToggle.setAttribute('aria-expanded', 'false');
+      body.classList.remove('nav-open');
+      body.style.overflow = '';
+      body.style.position = '';
+      body.style.top = '';
+      body.style.width = '';
+      
+      // Restore scroll position
+      window.scrollTo(0, scrollPosition);
+      mobileToggle.focus();
+    }
+    
+    // Focus trap for modal accessibility
+    function trapFocus(element) {
+      const focusable = element.querySelectorAll('button, a, input, [tabindex]:not([tabindex="-1"])');
+      if (focusable.length === 0) return;
+      
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      
+      element.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') return;
+        
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      });
+    }
+    
+    // === Event Listeners ===
+    
+    // Open: Click
     mobileToggle.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
+      console.log('[MobileNav] Toggle clicked - opening');
       openMobileNav();
     });
     
-    // iOS touch fallback
+    // Open: Touch (iOS fallback)
     mobileToggle.addEventListener('touchend', (e) => {
       e.preventDefault();
+      e.stopPropagation();
+      console.log('[MobileNav] Toggle touchend - opening');
       openMobileNav();
     }, { passive: false });
     
-    // Close drawer
+    // Close: Click
     mobileClose.addEventListener('click', (e) => {
+      console.log('[MobileNav] Close clicked');
       e.preventDefault();
+      e.stopPropagation();
       closeMobileNav();
     });
     
+    // Close: Touch (iOS fallback)
     mobileClose.addEventListener('touchend', (e) => {
+      console.log('[MobileNav] Close touchend');
       e.preventDefault();
+      e.stopPropagation();
       closeMobileNav();
     }, { passive: false });
     
-    // Close on escape
+    // Close: Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mobileDrawer.getAttribute('aria-hidden') === 'false') {
         closeMobileNav();
       }
     });
     
-    // Close on backdrop click (anywhere outside the nav body)
+    // Close: Backdrop click
     mobileDrawer.addEventListener('click', (e) => {
-      // Only close if clicked on drawer itself, not on nav body or its contents
       if (e.target === mobileDrawer || !e.target.closest('.mobile-nav__body')) {
         closeMobileNav();
       }
     });
     
-    // iOS backdrop touch
+    // Close: Backdrop touch (iOS)
     mobileDrawer.addEventListener('touchend', (e) => {
       if (e.target === mobileDrawer || !e.target.closest('.mobile-nav__body')) {
         e.preventDefault();
@@ -1078,92 +1160,49 @@
     }, { passive: false });
   }
   
-  function openMobileNav() {
-    // Store scroll position for iOS
-    scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+  // ===== MOBILE ACCORDIONS =====
+  function initMobileAccordions() {
+    const accordionTriggers = document.querySelectorAll('.mobile-nav__accordion-trigger');
+    if (!accordionTriggers.length) return;
     
-    mobileDrawer.setAttribute('aria-hidden', 'false');
-    mobileToggle.setAttribute('aria-expanded', 'true');
-    body.classList.add('nav-open');
-    body.style.overflow = 'hidden';
-    body.style.position = 'fixed';
-    body.style.top = `-${scrollPosition}px`;
-    body.style.width = '100%';
-    
-    // Focus close button after transition
-    setTimeout(() => {
-      mobileClose.focus();
-    }, 100);
-    
-    trapFocus(mobileDrawer);
-  }
-  
-  function closeMobileNav() {
-    mobileDrawer.setAttribute('aria-hidden', 'true');
-    mobileToggle.setAttribute('aria-expanded', 'false');
-    body.classList.remove('nav-open');
-    body.style.overflow = '';
-    body.style.position = '';
-    body.style.top = '';
-    body.style.width = '';
-    
-    // Restore scroll position for iOS
-    window.scrollTo(0, scrollPosition);
-    
-    mobileToggle.focus();
-  }
-  
-  // Focus trap for modal
-  function trapFocus(element) {
-    const focusable = element.querySelectorAll('button, a, input, [tabindex]:not([tabindex="-1"])');
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    
-    element.addEventListener('keydown', (e) => {
-      if (e.key !== 'Tab') return;
-      
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    });
-  }
-  
-  // ===== Mobile Accordions =====
-  const accordionTriggers = document.querySelectorAll('.mobile-nav__accordion-trigger');
-  
-  accordionTriggers.forEach(trigger => {
-    trigger.addEventListener('click', () => {
-      const panel = document.getElementById(trigger.getAttribute('aria-controls'));
-      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
-      
-      // Close other accordions (only one open at a time)
-      accordionTriggers.forEach(t => {
-        if (t !== trigger) {
-          t.setAttribute('aria-expanded', 'false');
-          t.classList.remove('is-expanded');
-          const otherPanel = document.getElementById(t.getAttribute('aria-controls'));
-          if (otherPanel) {
-            otherPanel.hidden = true;
+    accordionTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (!panel) return;
+        
+        const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+        
+        // Close other accordions (only one open at a time)
+        accordionTriggers.forEach(t => {
+          if (t !== trigger) {
+            t.setAttribute('aria-expanded', 'false');
+            t.classList.remove('is-expanded');
+            const otherPanel = document.getElementById(t.getAttribute('aria-controls'));
+            if (otherPanel) {
+              otherPanel.hidden = true;
+            }
           }
+        });
+        
+        // Toggle current
+        if (isExpanded) {
+          trigger.setAttribute('aria-expanded', 'false');
+          trigger.classList.remove('is-expanded');
+          panel.hidden = true;
+        } else {
+          trigger.setAttribute('aria-expanded', 'true');
+          trigger.classList.add('is-expanded');
+          panel.hidden = false;
         }
       });
-      
-      // Toggle current
-      if (isExpanded) {
-        trigger.setAttribute('aria-expanded', 'false');
-        trigger.classList.remove('is-expanded');
-        panel.hidden = true;
-      } else {
-        trigger.setAttribute('aria-expanded', 'true');
-        trigger.classList.add('is-expanded');
-        panel.hidden = false;
-      }
     });
-  });
+  }
+  
+  // ===== INITIALIZE ALL NAVIGATION =====
+  // Run each init function independently so one failure doesn't break others
+  try { initDesktopNav(); } catch(e) { console.error('[DesktopNav]', e); }
+  try { initMobileNav(); } catch(e) { console.error('[MobileNav]', e); }
+  try { initMobileAccordions(); } catch(e) { console.error('[MobileAccordions]', e); }
   
 })();
 </script>

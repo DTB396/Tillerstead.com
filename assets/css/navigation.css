@@ -451,6 +451,10 @@
   /* Prevent iOS transform flattening */
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
+  /* Ensure always clickable */
+  pointer-events: auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .mobile-nav__toggle:hover {
@@ -487,7 +491,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: var(--tiller-text-primary, #ffffff);
+  background: var(--tiller-color-emerald, #10b981);
   border-radius: 2px;
   transition: all 0.35s cubic-bezier(0.68, -0.2, 0.32, 1.2);
   -webkit-transform-origin: center center;
@@ -579,7 +583,7 @@
 
 .mobile-nav__header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding: 1rem 1.25rem;
   background: transparent;
   position: relative;
@@ -588,6 +592,7 @@
 
 .mobile-nav__close {
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -612,6 +617,12 @@
   color: var(--tiller-color-emerald, #10b981);
   transform: scale(1.02);
   box-shadow: 0 0 20px rgb(16 185 129 / 30%);
+}
+
+/* Close X is always green */
+.mobile-nav__close .close-x {
+  color: var(--tiller-color-emerald, #10b981);
+  font-weight: bold;
 }
 
 .mobile-nav__close:active {
@@ -1112,10 +1123,23 @@
   
   .mobile-nav__toggle {
     display: flex;
+    /* Put hamburger on LEFT for right-hand thumb users */
+    order: -1;
   }
   
   .ts-header__container {
     padding: 0.625rem clamp(1rem, 4vw, 2rem);
+  }
+  
+  /* Branding goes to right on mobile */
+  .ts-header__branding {
+    order: 2;
+    flex-direction: row-reverse;
+  }
+  
+  .ts-header__info {
+    align-items: flex-end;
+    text-align: right;
   }
 }
 
@@ -1265,11 +1289,8 @@
 
 /* ===== Body Lock (When nav open) ===== */
 body.nav-open {
-  overflow: hidden;
-  /* iOS Safari scroll lock */
-  position: fixed;
-  width: 100%;
-  height: 100%;
+  overflow: hidden !important;
+  /* Note: position: fixed causes issues on iOS - using overflow only */
   touch-action: none;
   -webkit-overflow-scrolling: none;
 }
