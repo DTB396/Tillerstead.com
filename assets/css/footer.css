@@ -28,7 +28,7 @@
 .footer-logo,
 .footer-logo--large {
   display: block;
-  max-width: 200px;
+  max-width: 280px;
   height: auto;
   margin: 0 auto var(--tiller-spacing-sm, 0.5rem);
   /* CRITICAL: Remove all background/border effects that create the black box */
