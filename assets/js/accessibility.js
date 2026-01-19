@@ -1025,9 +1025,46 @@
     });
   }
 
+  // ============================================================================
+  // CUSTOM CURSOR TOGGLE
+  // ============================================================================
+
+  /**
+   * Toggle custom cursor effect (opt-in accessibility feature)
+   */
+  function toggleCustomCursor() {
+    const isActive = document.documentElement.hasAttribute('data-custom-cursor');
+    
+    if (isActive) {
+      document.documentElement.removeAttribute('data-custom-cursor');
+      // Disable cursor in professional features
+      if (window.TillersteadCursor) {
+        window.TillersteadCursor.disable();
+      }
+    } else {
+      document.documentElement.setAttribute('data-custom-cursor', 'true');
+      // Enable cursor in professional features
+      if (window.TillersteadCursor) {
+        window.TillersteadCursor.enable();
+      }
+    }
+
+    // Update button state
+    const btn = document.getElementById('a11y-cursor');
+    if (btn) {
+      btn.setAttribute('aria-pressed', (!isActive).toString());
+    }
+
+    // Save preference
+    const prefs = JSON.parse(localStorage.getItem('tillerstead-a11y-prefs') || '{}');
+    prefs.customCursor = !isActive;
+    localStorage.setItem('tillerstead-a11y-prefs', JSON.stringify(prefs));
+  }
+
   // Make preference toggles globally available
   window.a11yToggleHighContrast = toggleHighContrast;
   window.a11yToggleTextSize = toggleTextSize;
+  window.a11yToggleCustomCursor = toggleCustomCursor;
 
   // ============================================================================
   // ACCESSIBILITY TOOLBAR

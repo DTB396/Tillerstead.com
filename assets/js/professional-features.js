@@ -24,7 +24,7 @@
 
   const CONFIG = {
     cursor: {
-      enabled: true,
+      enabled: false, // Disabled - intrusive UX, changes user's system cursor
       size: 24,
       glowColor: 'rgba(16, 185, 129, 0.4)',
       hoverScale: 2.5
@@ -58,8 +58,17 @@
 
   class CustomCursor {
     constructor() {
-      if (!CONFIG.cursor.enabled || prefersReducedMotion || this.isTouchDevice()) return;
+      // Check if user has enabled custom cursor via accessibility preferences
+      this.userEnabled = this.checkUserPreference();
       
+      // Only auto-init if CONFIG enables it AND user hasn't explicitly disabled
+      // Since CONFIG is now false by default, cursor only activates via a11y toggle
+      if (prefersReducedMotion || this.isTouchDevice()) {
+        this.supported = false;
+        return;
+      }
+      
+      this.supported = true;
       this.cursor = null;
       this.cursorDot = null;
       this.mouseX = 0;
@@ -69,12 +78,57 @@
       this.dotX = 0;
       this.dotY = 0;
       this.isHovering = false;
+      this.isActive = false;
+      this.styleElement = null;
       
-      this.init();
+      // If user previously enabled cursor, activate it
+      if (this.userEnabled) {
+        this.enable();
+      }
+    }
+
+    checkUserPreference() {
+      try {
+        const prefs = JSON.parse(localStorage.getItem('tillerstead-a11y-prefs') || '{}');
+        return prefs.customCursor === true;
+      } catch (e) {
+        return false;
+      }
     }
 
     isTouchDevice() {
       return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    }
+
+    enable() {
+      if (!this.supported || this.isActive) return;
+      this.isActive = true;
+      this.createCursor();
+      this.bindEvents();
+      this.animate();
+      document.documentElement.setAttribute('data-custom-cursor', 'true');
+    }
+
+    disable() {
+      if (!this.isActive) return;
+      this.isActive = false;
+      
+      // Remove cursor elements
+      if (this.cursor) {
+        this.cursor.remove();
+        this.cursor = null;
+      }
+      if (this.cursorDot) {
+        this.cursorDot.remove();
+        this.cursorDot = null;
+      }
+      if (this.styleElement) {
+        this.styleElement.remove();
+        this.styleElement = null;
+      }
+      
+      document.body.classList.remove('custom-cursor-active');
+      document.documentElement.removeAttribute('data-custom-cursor');
     }
 
     init() {
@@ -105,8 +159,8 @@
     }
 
     injectStyles() {
-      const style = document.createElement('style');
-      style.textContent = `
+      this.styleElement = document.createElement('style');
+      this.styleElement.textContent = `
         .custom-cursor,
         .custom-cursor-dot {
           position: fixed;
@@ -179,7 +233,7 @@
           }
         }
       `;
-      document.head.appendChild(style);
+      document.head.appendChild(this.styleElement);
     }
 
     bindEvents() {
@@ -1186,6 +1240,13 @@
 
   // Expose to global scope
   window.TillersteadPro = features;
+
+  // Expose cursor control for accessibility toolbar
+  window.TillersteadCursor = {
+    enable: () => features.modules.cursor?.enable(),
+    disable: () => features.modules.cursor?.disable(),
+    isActive: () => features.modules.cursor?.isActive || false
+  };
 
   // Convenience methods
   window.toast = {
