@@ -339,31 +339,57 @@
   color: #2a5d4e;
 }
 
-/* Tables - READABLE */
-.guide-article table {
+/* Tables - READABLE - High contrast headers */
+.guide-article table,
+.build-article table,
+.page-build-guide table {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5rem 0;
   font-size: 0.9375rem;
   background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .guide-article th,
-.guide-article td {
+.guide-article td,
+.build-article th,
+.build-article td,
+.page-build-guide th,
+.page-build-guide td {
   padding: 0.75rem 1rem;
   text-align: left;
   border: 1px solid #e5e7eb;
-  color: #374151;
 }
 
-.guide-article th {
+.guide-article th,
+.build-article th,
+.page-build-guide th {
   font-weight: 600;
-  background: #f8f9fa;
-  color: #1f2937;
+  background: #1a4a38 !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
 }
 
-.guide-article tr:hover td {
-  background: #fafafa;
+.guide-article td,
+.build-article td,
+.page-build-guide td {
+  color: #374151 !important;
+  background: #ffffff;
+}
+
+.guide-article tr:nth-child(even) td,
+.build-article tr:nth-child(even) td,
+.page-build-guide tr:nth-child(even) td {
+  background: #f9fafb;
+}
+
+.guide-article tr:hover td,
+.build-article tr:hover td,
+.page-build-guide tr:hover td {
+  background: #f3f4f6;
 }
 
 /* Phase Navigation */
