@@ -39,16 +39,16 @@ select {
   padding: 0.875rem 1rem;
   font-size: 1rem;
   font-family: inherit;
-  border: 2px solid rgba(201, 162, 39, 0.2);
+  border: 2px solid rgb(201 162 39 / 20%);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgb(255 255 255 / 5%);
   color: var(--tiller-text-primary, #ffffff);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
 
   /* Placeholder styling */
   &::placeholder {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgb(255 255 255 / 40%);
   }
 }
 
@@ -59,8 +59,8 @@ input[type='number']:focus,
 textarea:focus,
 select:focus {
   border-color: var(--tiller-color-emerald, #10b981);
-  background: rgba(16, 185, 129, 0.05);
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+  background: rgb(16 185 129 / 5%);
+  box-shadow: 0 0 0 3px rgb(16 185 129 / 15%);
   outline: none;
 }
 
@@ -70,20 +70,20 @@ input.has-error,
 textarea.has-error,
 select.has-error {
   border-color: #ef4444;
-  background: rgba(239, 68, 68, 0.05);
+  background: rgb(239 68 68 / 5%);
 }
 
 input.has-error:focus,
 textarea.has-error:focus,
 select.has-error:focus {
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+  box-shadow: 0 0 0 3px rgb(239 68 68 / 15%);
 }
 
 input.has-success,
 textarea.has-success,
 select.has-success {
   border-color: var(--tiller-color-emerald, #10b981);
-  background: rgba(16, 185, 129, 0.05);
+  background: rgb(16 185 129 / 5%);
 }
 
 input.has-success::after {
@@ -103,11 +103,12 @@ input.has-success::after {
 
 @keyframes slideDown {
   from {
-    opacity: 0;
+    opacity: 0%;
     transform: translateY(-10px);
   }
+
   to {
-    opacity: 1;
+    opacity: 100%;
     transform: translateY(0);
   }
 }
@@ -120,17 +121,18 @@ input.has-success::after {
   top: 50%;
   transform: translateY(-50%);
   color: var(--tiller-color-emerald, #10b981);
-  opacity: 0;
+  opacity: 0%;
   animation: scaleIn 0.3s ease-out forwards;
 }
 
 @keyframes scaleIn {
   from {
-    opacity: 0;
+    opacity: 0%;
     transform: translateY(-50%) scale(0);
   }
+
   to {
-    opacity: 1;
+    opacity: 100%;
     transform: translateY(-50%) scale(1);
   }
 }
@@ -149,17 +151,18 @@ input.has-success::after {
 
 @keyframes slideInDown {
   from {
-    opacity: 0;
+    opacity: 0%;
     transform: translateY(-20px);
   }
+
   to {
-    opacity: 1;
+    opacity: 100%;
     transform: translateY(0);
   }
 }
 
 .form-alert--error {
-  background: rgba(239, 68, 68, 0.15);
+  background: rgb(239 68 68 / 15%);
   border: 1px solid #ef4444;
   color: #fca5a5;
 }
@@ -172,7 +175,7 @@ input.has-success::after {
 }
 
 .form-alert--success {
-  background: rgba(16, 185, 129, 0.15);
+  background: rgb(16 185 129 / 15%);
   border: 1px solid var(--tiller-color-emerald, #10b981);
   color: #86efac;
 }
@@ -209,7 +212,7 @@ input.has-success::after {
 
 [data-contact-form] [type='submit']:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 12px 24px rgb(16 185 129 / 30%);
 }
 
 [data-contact-form] [type='submit']:active:not(:disabled) {
@@ -217,7 +220,7 @@ input.has-success::after {
 }
 
 [data-contact-form] [type='submit']:disabled {
-  opacity: 0.7;
+  opacity: 70%;
   cursor: not-allowed;
 }
 
@@ -227,7 +230,7 @@ input.has-success::after {
   display: inline-block;
   width: 16px;
   height: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgb(255 255 255 / 30%);
   border-top-color: #ffffff;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
@@ -288,7 +291,7 @@ label {
 
 .form-hint {
   font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgb(255 255 255 / 60%);
   margin-top: 0.25rem;
 }
 

@@ -16,6 +16,7 @@
    ========================================================= */
 
 /* Drawer base - LEGACY: styles now in navigation.css */
+
 /* .mobile-nav is handled by navigation.css */
 .nav-drawer {
   position: fixed;
@@ -42,6 +43,7 @@
 }
 
 /* Prevent background scroll - SIMPLIFIED to avoid stacking context issues */
+
 /* Note: position: fixed on body was causing mobile nav to be hidden behind content */
 body.nav-open {
   overflow: hidden !important;
@@ -222,7 +224,7 @@ body.nav-open {
 }
 
 .nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(2) {
-  opacity: 0;
+  opacity: 0%;
   transform: scaleX(0);
 }
 
@@ -240,7 +242,7 @@ body.nav-open {
   background: rgb(255 255 255 / 10%);
   border: 1px solid rgb(255 255 255 / 20%);
   border-radius: 50%;
-  color: #fff;
+  color: #ffffff;
   font-size: 1.75rem;
   line-height: 1;
   cursor: pointer;
@@ -276,14 +278,14 @@ body.nav-open {
   background: rgb(0 0 0 / 60%);
   backdrop-filter: blur(4px);
   z-index: 10000;
-  opacity: 0;
+  opacity: 0%;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
   pointer-events: none;
 }
 
 .nav-overlay.is-open {
-  opacity: 1;
+  opacity: 100%;
   visibility: visible;
   pointer-events: auto;
 }

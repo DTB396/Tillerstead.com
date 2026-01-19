@@ -46,8 +46,9 @@
   -webkit-backdrop-filter: blur(20px);
   transition: all var(--nav-transition);
   box-shadow: 0 2px 8px rgb(0 0 0 / 40%);
+
   /* iOS stacking context - ensures children can have higher z-index */
-  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
   transform: translateZ(0);
 }
 
@@ -174,7 +175,7 @@
 .ts-header__region {
   font-size: 0.6875rem;
   color: #ffffff !important;
-  opacity: 1 !important;
+  opacity: 100% !important;
 }
 
 .ts-header__region abbr {
@@ -436,27 +437,30 @@
   padding: 0.75rem;
   cursor: pointer;
   border-radius: 0.75rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 48px;
   min-height: 48px;
   align-items: center;
   justify-content: center;
+
   /* Must be higher than mobile-nav drawer to stay clickable */
   z-index: 100010;
   position: relative;
+
   /* iOS Safari touch fixes */
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
-  -webkit-user-select: none;
+  user-select: none;
   user-select: none;
   touch-action: manipulation;
+
   /* Prevent iOS transform flattening */
-  -webkit-transform: translateZ(0);
   transform: translateZ(0);
+  transform: translateZ(0);
+
   /* Default visible state (can be overridden when drawer opens) */
   pointer-events: auto;
   visibility: visible;
-  opacity: 1;
+  opacity: 100%;
   transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
@@ -483,8 +487,9 @@
   width: 24px;
   height: 18px;
   position: relative;
+
   /* iOS transform fix */
-  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
   transform: translateZ(0);
 }
 
@@ -497,8 +502,9 @@
   background: var(--tiller-color-emerald, #10b981);
   border-radius: 2px;
   transition: all 0.35s cubic-bezier(0.68, -0.2, 0.32, 1.2);
-  -webkit-transform-origin: center center;
   transform-origin: center center;
+  transform-origin: center center;
+
   /* Ensure visibility - no glow/blur */
   box-shadow: none;
   filter: none;
@@ -510,7 +516,7 @@
 
 .hamburger-icon span:nth-child(2) {
   top: 50%;
-  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
@@ -529,20 +535,20 @@
 
 .mobile-nav__toggle[aria-expanded="true"] .hamburger-icon span:nth-child(1) {
   top: 50%;
-  -webkit-transform: translateY(-50%) rotate(45deg);
+  transform: translateY(-50%) rotate(45deg);
   transform: translateY(-50%) rotate(45deg);
 }
 
 .mobile-nav__toggle[aria-expanded="true"] .hamburger-icon span:nth-child(2) {
-  opacity: 0;
-  -webkit-transform: translateY(-50%) scaleX(0);
+  opacity: 0%;
+  transform: translateY(-50%) scaleX(0);
   transform: translateY(-50%) scaleX(0);
 }
 
 .mobile-nav__toggle[aria-expanded="true"] .hamburger-icon span:nth-child(3) {
   bottom: auto;
   top: 50%;
-  -webkit-transform: translateY(-50%) rotate(-45deg);
+  transform: translateY(-50%) rotate(-45deg);
   transform: translateY(-50%) rotate(-45deg);
 }
 
@@ -553,21 +559,24 @@
   left: 0;
   right: 0;
   bottom: 0;
+
   /* Use dvh for iOS Safari viewport handling */
   height: 100vh;
   height: 100dvh;
   width: 100vw;
+
   /* Very high z-index to ensure it's above everything on iOS */
   z-index: 100000;
   background: rgb(0 0 0 / 0%);
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
+
   /* iOS stacking context fix */
-  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
   transform: translateZ(0);
   
   /* Hidden by default */
-  opacity: 0;
+  opacity: 0%;
   visibility: hidden;
   pointer-events: none;
   transition: 
@@ -579,7 +588,7 @@
 }
 
 .mobile-nav[aria-hidden="false"] {
-  opacity: 1;
+  opacity: 100%;
   visibility: visible;
   pointer-events: auto;
   background: rgb(0 0 0 / 60%);
@@ -590,7 +599,7 @@
 /* Hide toggle when drawer is open so it doesn't intercept clicks to close button */
 body.nav-open .mobile-nav__toggle {
   pointer-events: none !important;
-  opacity: 0 !important;
+  opacity: 0% !important;
   visibility: hidden !important;
 }
 
@@ -663,6 +672,7 @@ body.nav-open .mobile-nav__toggle {
   overflow: hidden auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+
   /* iOS Safari safe area */
   padding-top: env(safe-area-inset-top, 0);
   padding-bottom: env(safe-area-inset-bottom, 0);
@@ -671,11 +681,13 @@ body.nav-open .mobile-nav__toggle {
     -20px 0 60px rgb(0 0 0 / 50%),
     -8px 0 30px rgb(0 0 0 / 30%),
     0 0 1px rgb(255 255 255 / 10%);
+
   /* Higher than parent for proper stacking */
   z-index: 100001;
   border-left: 1px solid rgb(201 162 39 / 20%);
+
   /* iOS transform fix */
-  -webkit-transform: translateX(105%) translateZ(0);
+  transform: translateX(105%) translateZ(0);
   transform: translateX(105%) translateZ(0);
   transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
 }
@@ -695,17 +707,17 @@ body.nav-open .mobile-nav__toggle {
     rgb(201 162 39 / 80%) 80%,
     rgb(201 162 39 / 0%) 100%);
   box-shadow: 0 0 20px rgb(201 162 39 / 40%);
-  opacity: 0;
+  opacity: 0%;
   transition: opacity 0.6s ease 0.2s;
 }
 
 .mobile-nav[aria-hidden="false"] .mobile-nav__body {
-  -webkit-transform: translateX(0) translateZ(0);
+  transform: translateX(0) translateZ(0);
   transform: translateX(0) translateZ(0);
 }
 
 .mobile-nav[aria-hidden="false"] .mobile-nav__body::before {
-  opacity: 1;
+  opacity: 100%;
 }
 
 /* ===== Mobile Nav List - PREMIUM ===== */
@@ -718,7 +730,7 @@ body.nav-open .mobile-nav__toggle {
 
 .mobile-nav__item {
   border-bottom: 1px solid rgb(255 255 255 / 6%);
-  opacity: 0;
+  opacity: 0%;
   transform: translateX(20px);
   transition: 
     opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
@@ -727,7 +739,7 @@ body.nav-open .mobile-nav__toggle {
 
 /* Staggered animation for menu items */
 .mobile-nav[aria-hidden="false"] .mobile-nav__item {
-  opacity: 1;
+  opacity: 100%;
   transform: translateX(0);
 }
 
@@ -834,18 +846,18 @@ body.nav-open .mobile-nav__toggle {
   font-size: 0.875rem;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--tiller-color-gold, #c9a227);
-  opacity: 0.7;
+  opacity: 70%;
 }
 
 .mobile-nav__link:hover .accordion-arrow {
-  opacity: 1;
+  opacity: 100%;
   color: var(--tiller-color-gold, #c9a227);
 }
 
 .mobile-nav__accordion-trigger.is-expanded .accordion-arrow {
   transform: rotate(90deg);
   color: var(--tiller-color-emerald, #10b981);
-  opacity: 1;
+  opacity: 100%;
 }
 
 /* ===== Mobile Accordion - PREMIUM ===== */
@@ -863,17 +875,18 @@ body.nav-open .mobile-nav__toggle {
 
 @keyframes accordionSlideDown {
   from {
-    opacity: 0;
+    opacity: 0%;
     transform: translateY(-10px);
   }
+
   to {
-    opacity: 1;
+    opacity: 100%;
     transform: translateY(0);
   }
 }
 
 .mobile-nav__accordion-item {
-  opacity: 0;
+  opacity: 0%;
   transform: translateX(10px);
   animation: accordionItemFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
@@ -889,7 +902,7 @@ body.nav-open .mobile-nav__toggle {
 
 @keyframes accordionItemFadeIn {
   to {
-    opacity: 1;
+    opacity: 100%;
     transform: translateX(0);
   }
 }
@@ -918,7 +931,7 @@ body.nav-open .mobile-nav__toggle {
   height: 4px;
   background: var(--tiller-color-gold, #c9a227);
   border-radius: 50%;
-  opacity: 0.6;
+  opacity: 60%;
   transition: all 0.25s ease;
 }
 
@@ -932,7 +945,7 @@ body.nav-open .mobile-nav__toggle {
 .mobile-nav__accordion-item a:hover::before,
 .mobile-nav__accordion-item a:focus::before {
   background: var(--tiller-color-emerald, #10b981);
-  opacity: 1;
+  opacity: 100%;
   box-shadow: 0 0 8px var(--tiller-color-emerald, #10b981);
 }
 
@@ -971,12 +984,12 @@ body.nav-open .mobile-nav__toggle {
   -webkit-tap-highlight-color: transparent;
   position: relative;
   overflow: hidden;
-  opacity: 0;
+  opacity: 0%;
   transform: translateY(10px);
 }
 
 .mobile-nav[aria-hidden="false"] .mobile-nav__estimate-btn {
-  opacity: 1;
+  opacity: 100%;
   transform: translateY(0);
   transition-delay: 0.4s;
 }
@@ -1032,7 +1045,7 @@ body.nav-open .mobile-nav__toggle {
   border-top: 1px solid rgb(255 255 255 / 6%);
   margin-top: auto;
   background: rgb(0 0 0 / 20%);
-  opacity: 0;
+  opacity: 0%;
   transform: translateY(10px);
   transition: 
     opacity 0.4s ease,
@@ -1040,7 +1053,7 @@ body.nav-open .mobile-nav__toggle {
 }
 
 .mobile-nav[aria-hidden="false"] .mobile-nav__trust {
-  opacity: 1;
+  opacity: 100%;
   transform: translateY(0);
   transition-delay: 0.5s;
 }
@@ -1136,6 +1149,7 @@ body.nav-open .mobile-nav__toggle {
   
   .mobile-nav__toggle {
     display: flex;
+
     /* Hamburger on RIGHT for right-hand thumb access */
     order: 3;
   }
@@ -1302,6 +1316,7 @@ body.nav-open .mobile-nav__toggle {
 /* ===== Body Lock (When nav open) ===== */
 body.nav-open {
   overflow: hidden !important;
+
   /* Note: position: fixed causes issues on iOS - using overflow only */
   touch-action: none;
   -webkit-overflow-scrolling: none;

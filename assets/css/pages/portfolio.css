@@ -90,6 +90,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-bottom: 4rem;
+
   /* No grid background - clean dark look */
   background: transparent;
   padding: 0;
@@ -257,7 +258,7 @@
 .btn--white:hover {
   background: var(--tiller-color-green-dark, #0f2a1f);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
 }
 
 .btn--outline-white {
@@ -268,7 +269,7 @@
 
 .btn--outline-white:hover {
   background: var(--tiller-color-green, #1a3d2e);
-  color: #fff;
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {

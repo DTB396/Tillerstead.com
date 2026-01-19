@@ -8,7 +8,7 @@
   background: linear-gradient(180deg, var(--tiller-bg-stone, #222524) 0%, var(--tiller-bg-darker, #121414) 100%);
   padding: 2.5rem 0 1rem;
   margin-top: 0;
-  border-top: 1px solid rgba(201, 162, 39, 0.15);
+  border-top: 1px solid rgb(201 162 39 / 15%);
   color: #ffffff;
   font-size: 0.9375rem;
 }
@@ -55,7 +55,7 @@
   text-align: center;
   margin-bottom: var(--tiller-spacing-md, 1rem);
   padding-bottom: var(--tiller-spacing-sm, 0.5rem);
-  border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+  border-bottom: 1px solid rgb(201 162 39 / 20%);
 }
 
 .footer-list--horizontal {
@@ -95,7 +95,7 @@
   letter-spacing: 0.05em;
   margin: 0 0 var(--tiller-spacing-md, 1rem);
   padding-bottom: var(--tiller-spacing-xs, 0.25rem);
-  border-bottom: 1px solid rgba(201, 162, 39, 0.3);
+  border-bottom: 1px solid rgb(201 162 39 / 30%);
 }
 
 /* Learn Column - Left Aligned */
@@ -151,7 +151,7 @@
 .footer-contact {
   text-align: center;
   padding: var(--tiller-spacing-md, 1rem) 0;
-  border-top: 1px solid rgba(201, 162, 39, 0.2);
+  border-top: 1px solid rgb(201 162 39 / 20%);
   margin-top: var(--tiller-spacing-md, 1rem);
 }
 
@@ -203,7 +203,7 @@
   align-items: center;
   gap: var(--tiller-spacing-sm, 0.5rem);
   padding: var(--tiller-spacing-md, 1rem) 0;
-  border-top: 1px solid rgba(201, 162, 39, 0.2);
+  border-top: 1px solid rgb(201 162 39 / 20%);
   margin-top: var(--tiller-spacing-sm, 0.5rem);
 }
 
@@ -292,7 +292,7 @@
     order: -1;
     margin-bottom: var(--tiller-spacing-md, 1rem);
     padding-bottom: var(--tiller-spacing-md, 1rem);
-    border-bottom: 1px solid rgba(201, 162, 39, 0.15);
+    border-bottom: 1px solid rgb(201 162 39 / 15%);
   }
   
   .footer-logo--large {

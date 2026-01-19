@@ -379,7 +379,7 @@ textarea:focus-visible,
   *::before,
   *::after {
     backdrop-filter: none !important;
-    opacity: 1 !important;
+    opacity: 100% !important;
   }
 
   .glass,
@@ -506,6 +506,7 @@ textarea:focus-visible,
 [data-low-contrast="true"] {
   --tiller-text-primary: #333333 !important;
   --tiller-bg-color: #f5f5f5 !important;
+
   filter: contrast(0.9);
 }
 
@@ -517,6 +518,7 @@ textarea:focus-visible,
     --tiller-bg-color: #1a1a2e;
     --tiller-text-primary: #ffffff;
     --tiller-text-secondary: #cccccc;
+
     color-scheme: dark;
   }
 
@@ -529,6 +531,7 @@ textarea:focus-visible,
   --tiller-bg-color: #1a1a2e;
   --tiller-text-primary: #ffffff;
   --tiller-text-secondary: #cccccc;
+
   color-scheme: dark;
 }
 
@@ -1191,7 +1194,7 @@ button:has(svg):not([aria-label], :has(.sr-only)) {
   transform: translateX(-50%);
   padding: 8px 16px;
   background: #1a2a3a;
-  color: #fff;
+  color: #ffffff;
   border-radius: 20px;
   font-size: 14px;
   z-index: 100001;
@@ -1199,13 +1202,13 @@ button:has(svg):not([aria-label], :has(.sr-only)) {
 }
 
 @keyframes tts-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+  0%, 100% { opacity: 100%; }
+  50% { opacity: 70%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   @keyframes tts-pulse {
-    0%, 100% { opacity: 1; }
+    0%, 100% { opacity: 100%; }
   }
 }
 
@@ -1216,7 +1219,7 @@ button:has(svg):not([aria-label], :has(.sr-only)) {
   position: fixed;
   bottom: 80px;
   right: 20px;
-  background: #fff;
+  background: #ffffff;
   padding: 16px;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgb(0 0 0 / 20%);
@@ -1234,7 +1237,7 @@ button:has(svg):not([aria-label], :has(.sr-only)) {
   padding: 10px 16px;
   border: 2px solid #1a2a3a;
   border-radius: 8px;
-  background: #fff;
+  background: #ffffff;
   cursor: pointer;
   font-size: 14px;
   transition: background 0.2s, color 0.2s;
@@ -1243,13 +1246,13 @@ button:has(svg):not([aria-label], :has(.sr-only)) {
 .tts-controls button:hover,
 .tts-controls button:focus {
   background: #1a2a3a;
-  color: #fff;
+  color: #ffffff;
 }
 
 .tts-controls button.active {
   background: #10b981;
   border-color: #10b981;
-  color: #fff;
+  color: #ffffff;
 }
 
 /* ==========================================================================
@@ -1260,8 +1263,8 @@ button:has(svg):not([aria-label], :has(.sr-only)) {
  * Visual alert flash animation
  */
 @keyframes a11y-flash {
-  0% { opacity: 0.6; }
-  100% { opacity: 0; }
+  0% { opacity: 60%; }
+  100% { opacity: 0%; }
 }
 
 /**
@@ -1270,22 +1273,24 @@ button:has(svg):not([aria-label], :has(.sr-only)) {
 @keyframes a11y-slide-in {
   from {
     transform: translateX(100%);
-    opacity: 0;
+    opacity: 0%;
   }
+
   to {
     transform: translateX(0);
-    opacity: 1;
+    opacity: 100%;
   }
 }
 
 @keyframes a11y-slide-out {
   from {
     transform: translateX(0);
-    opacity: 1;
+    opacity: 100%;
   }
+
   to {
     transform: translateX(100%);
-    opacity: 0;
+    opacity: 0%;
   }
 }
 
@@ -1322,7 +1327,7 @@ video[muted]::before {
   top: 10px;
   right: 10px;
   background: rgb(0 0 0 / 70%);
-  color: #fff;
+  color: #ffffff;
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 12px;
@@ -1374,7 +1379,7 @@ aside {
  */
 ::selection {
   background: #0066cc;
-  color: #fff;
+  color: #ffffff;
 }
 
 /**

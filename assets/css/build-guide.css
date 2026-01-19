@@ -14,8 +14,9 @@ body[class*="page-build"],
   --tiller-bg-alt: var(--tiller-bg-stone, #222524);
   --tiller-bg-soft: var(--tiller-bg-slate, #2a2d2c);
   --tiller-text-primary: #ffffff;
-  --tiller-text-secondary: rgba(255, 255, 255, 0.9);
-  --tiller-text-tertiary: rgba(255, 255, 255, 0.7);
+  --tiller-text-secondary: rgb(255 255 255 / 90%);
+  --tiller-text-tertiary: rgb(255 255 255 / 70%);
+
   background: var(--tiller-bg-darker, #121414);
   color: #ffffff;
 }
@@ -43,8 +44,8 @@ body[class*="page-build"],
 .guide-article h4, .guide-article h5, .guide-article h6,
 .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
   color: #ffffff !important;
-  text-shadow: 0 0 20px rgba(201, 162, 39, 0.3);
-  opacity: 1 !important;
+  text-shadow: 0 0 20px rgb(201 162 39 / 30%);
+  opacity: 100% !important;
 }
 
 /* H2 with gold accent */
@@ -52,7 +53,7 @@ body[class*="page-build"],
 .build-article h2,
 .guide-article h2 {
   color: var(--tiller-color-gold, #c9a227) !important;
-  text-shadow: 0 0 25px rgba(201, 162, 39, 0.4);
+  text-shadow: 0 0 25px rgb(201 162 39 / 40%);
 }
 
 /* ===== BODY TEXT - HIGH CONTRAST WHITE ===== */
@@ -68,8 +69,8 @@ body[class*="page-build"],
 .guide-article li,
 .guide-article td,
 .prose p, .prose li, .prose td {
-  color: rgba(255, 255, 255, 0.95) !important;
-  opacity: 1 !important;
+  color: rgb(255 255 255 / 95%) !important;
+  opacity: 100% !important;
 }
 
 /* STRONG/BOLD text - Pure white */
@@ -85,14 +86,14 @@ body[class*="page-build"],
 }
 
 /* ===== LINKS - EMERALD WITH GOLD HOVER ===== */
-.page-build-guide a:not(.btn):not(.phase-link):not(.build-breadcrumb a),
+.page-build-guide a:not(.btn, .phase-link, .build-breadcrumb a),
 .build-article a:not(.btn),
 .guide-article a:not(.btn),
 .prose a:not(.btn) {
   color: var(--tiller-color-emerald, #10b981) !important;
   text-decoration: underline !important;
   text-underline-offset: 3px !important;
-  opacity: 1 !important;
+  opacity: 100% !important;
   transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
@@ -101,12 +102,12 @@ body[class*="page-build"],
 .guide-article a:not(.btn):hover,
 .prose a:not(.btn):hover {
   color: var(--tiller-color-gold, #c9a227) !important;
-  text-shadow: 0 0 10px rgba(201, 162, 39, 0.5);
+  text-shadow: 0 0 10px rgb(201 162 39 / 50%);
 }
 
 /* ===== BACKGROUNDS - DARK THEME ===== */
 .page-build-guide .ts-section,
-.page-build-guide section:not(.build-hero):not(.build-cta),
+.page-build-guide section:not(.build-hero, .build-cta),
 .build-guide-content,
 .build-article,
 .guide-article {
@@ -133,7 +134,7 @@ body[class*="page-build"],
   right: 0;
   bottom: 0;
   background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a227' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  opacity: 0.5;
+  opacity: 50%;
   pointer-events: none;
 }
 
@@ -159,7 +160,7 @@ body[class*="page-build"],
   gap: 0.5rem;
   font-size: 0.875rem;
   margin-bottom: 1rem;
-  color: rgba(255,255,255,0.8);
+  color: rgb(255 255 255 / 80%);
 }
 
 .build-breadcrumb a {
@@ -176,8 +177,8 @@ body[class*="page-build"],
 /* Phase Badge */
 .phase-badge {
   display: inline-block;
-  background: rgba(201, 162, 39, 0.15);
-  border: 1px solid rgba(201, 162, 39, 0.3);
+  background: rgb(201 162 39 / 15%);
+  border: 1px solid rgb(201 162 39 / 30%);
   color: var(--tiller-color-gold, #c9a227) !important;
   padding: 0.5rem 1rem;
   border-radius: 2rem;
@@ -195,14 +196,14 @@ body[class*="page-build"],
   margin: 0 0 1rem;
   line-height: 1.2;
   color: #ffffff !important;
-  text-shadow: 0 0 40px rgba(16, 185, 129, 0.3);
+  text-shadow: 0 0 40px rgb(16 185 129 / 30%);
 }
 
 .build-hero-desc,
 .build-guide-description {
   font-size: 1.125rem;
   max-width: 700px;
-  color: rgba(255,255,255,0.9) !important;
+  color: rgb(255 255 255 / 90%) !important;
   line-height: 1.6;
   margin: 0;
 }
@@ -272,7 +273,7 @@ body[class*="page-build"],
   padding: 1rem;
   background: var(--tiller-bg-stone, #222524);
   border-radius: 8px;
-  border: 1px solid rgba(201, 162, 39, 0.2);
+  border: 1px solid rgb(201 162 39 / 20%);
 }
 
 .toc-title,
@@ -290,7 +291,7 @@ body[class*="page-build"],
   display: block;
   padding: 0.375rem 0;
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255 255 255 / 80%);
   text-decoration: none;
   border-left: 2px solid transparent;
   padding-left: 0.75rem;
@@ -327,8 +328,8 @@ body[class*="page-build"],
   color: var(--tiller-color-gold, #c9a227) !important;
   margin: 2.5rem 0 1rem;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(201, 162, 39, 0.2);
-  text-shadow: 0 0 20px rgba(201, 162, 39, 0.3);
+  border-top: 1px solid rgb(201 162 39 / 20%);
+  text-shadow: 0 0 20px rgb(201 162 39 / 30%);
 }
 
 .guide-article h2:first-of-type,
@@ -350,7 +351,7 @@ body[class*="page-build"],
 .build-article h4 {
   font-size: 1.0625rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.95) !important;
+  color: rgb(255 255 255 / 95%) !important;
   margin: 1.5rem 0 0.5rem;
 }
 
@@ -358,7 +359,7 @@ body[class*="page-build"],
 .build-article p {
   line-height: 1.7;
   margin: 0 0 1rem;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: rgb(255 255 255 / 90%) !important;
 }
 
 .guide-article ul,
@@ -367,14 +368,14 @@ body[class*="page-build"],
 .build-article ol {
   margin: 0 0 1.5rem;
   padding-left: 1.5rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255 255 255 / 90%);
 }
 
 .guide-article li,
 .build-article li {
   line-height: 1.6;
   margin-bottom: 0.5rem;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: rgb(255 255 255 / 90%) !important;
 }
 
 /* Blockquotes - Dark styled */
@@ -398,7 +399,7 @@ body[class*="page-build"],
 .guide-article hr,
 .build-article hr {
   border: none;
-  border-top: 1px solid rgba(201, 162, 39, 0.2);
+  border-top: 1px solid rgb(201 162 39 / 20%);
   margin: 2rem 0;
 }
 
@@ -431,7 +432,7 @@ body[class*="page-build"],
   background: var(--tiller-bg-stone, #222524);
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid rgba(201, 162, 39, 0.2);
+  border: 1px solid rgb(201 162 39 / 20%);
 }
 
 .guide-article th,
@@ -442,7 +443,7 @@ body[class*="page-build"],
 .page-build-guide td {
   padding: 0.75rem 1rem;
   text-align: left;
-  border: 1px solid rgba(201, 162, 39, 0.15);
+  border: 1px solid rgb(201 162 39 / 15%);
 }
 
 .guide-article th,
@@ -457,7 +458,7 @@ body[class*="page-build"],
 .guide-article td,
 .build-article td,
 .page-build-guide td {
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: rgb(255 255 255 / 90%) !important;
   background: var(--tiller-bg-stone, #222524);
 }
 
@@ -501,7 +502,7 @@ body[class*="page-build"],
   flex-direction: column;
   padding: 1.25rem;
   background: var(--tiller-bg-darker, #121414);
-  border: 1px solid rgba(201, 162, 39, 0.2);
+  border: 1px solid rgb(201 162 39 / 20%);
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -512,7 +513,7 @@ body[class*="page-build"],
   background: var(--tiller-bg-slate, #2a2d2c);
   border-color: var(--tiller-color-gold, #c9a227);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
 }
 
 .phase-nav-prev,
@@ -528,7 +529,7 @@ body[class*="page-build"],
 .phase-nav-label,
 .phase-label {
   font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgb(255 255 255 / 60%);
   margin-bottom: 0.25rem;
 }
 
@@ -585,7 +586,7 @@ body[class*="page-build"],
 .build-cta p {
   max-width: 600px;
   margin: 0 auto 1.5rem;
-  color: rgba(255,255,255,0.9) !important;
+  color: rgb(255 255 255 / 90%) !important;
 }
 
 .cta-buttons {
@@ -618,18 +619,18 @@ body[class*="page-build"],
 .btn-outline-light {
   background: transparent;
   color: #ffffff !important;
-  border: 2px solid rgba(255,255,255,0.5);
+  border: 2px solid rgb(255 255 255 / 50%);
 }
 
 .btn-outline-light:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgb(255 255 255 / 10%);
   border-color: #ffffff;
 }
 
 .cta-credential,
 .cta-cred {
   margin-top: 1.5rem;
-  color: rgba(255,255,255,0.7) !important;
+  color: rgb(255 255 255 / 70%) !important;
   font-size: 0.875rem;
 }
 
@@ -663,7 +664,7 @@ body[class*="page-build"],
   text-align: center;
   padding: 1rem 1.25rem;
   background: var(--tiller-bg-darker, #121414);
-  border: 1px solid rgba(201, 162, 39, 0.2);
+  border: 1px solid rgb(201 162 39 / 20%);
   border-radius: 8px;
   text-decoration: none;
   color: #ffffff;
@@ -674,7 +675,7 @@ body[class*="page-build"],
   background: var(--tiller-bg-slate, #2a2d2c);
   border-color: var(--tiller-color-gold, #c9a227);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
 }
 
 .build-sidenav__link.is-active {
@@ -688,7 +689,7 @@ body[class*="page-build"],
 
 .build-sidenav__step {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgb(255 255 255 / 60%);
   margin-bottom: 0.25rem;
 }
 
@@ -731,6 +732,7 @@ body[class*="page-build"],
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+
   .build-toc {
     order: -1;
   }
@@ -776,7 +778,7 @@ body[class*="page-build"],
 .page-build-hub .prose,
 body[class*="page-build"] .prose {
   background: transparent;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgb(255 255 255 / 95%);
 }
 
 .page-build-guide .prose h1,
@@ -790,7 +792,7 @@ body[class*="page-build"] .prose {
 .page-build-guide .prose li,
 .page-build-guide .prose td,
 .page-build-guide .prose span {
-  color: rgba(255, 255, 255, 0.95) !important;
+  color: rgb(255 255 255 / 95%) !important;
 }
 
 .page-build-guide .prose a {
@@ -821,7 +823,7 @@ body[class*="page-build"] .prose {
 .page-build-hub .ts-footer,
 body[class*="page-build"] .ts-footer {
   margin-top: 0;
-  border-top: 1px solid rgba(201, 162, 39, 0.2);
+  border-top: 1px solid rgb(201 162 39 / 20%);
   background: linear-gradient(180deg, var(--tiller-bg-stone, #222524) 0%, var(--tiller-bg-darker, #121414) 100%);
 }
 
@@ -917,7 +919,7 @@ body[class*="page-build"] .footer-logo-section {
 .page-build-hub address,
 body[class*="page-build"] address {
   background: transparent !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: rgb(255 255 255 / 90%) !important;
 }
 
 /* Nav grid */

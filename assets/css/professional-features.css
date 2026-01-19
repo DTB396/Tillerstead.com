@@ -37,7 +37,7 @@
 [data-tooltip]::before,
 [data-tooltip]::after {
   position: absolute;
-  opacity: 0;
+  opacity: 0%;
   visibility: hidden;
   transition: all 0.2s ease;
   pointer-events: none;
@@ -51,7 +51,7 @@
   transform: translateX(-50%) translateY(5px);
   padding: 0.5rem 0.75rem;
   background: var(--tiller-bg-elevated, #323534);
-  color: var(--tiller-text-primary, #fff);
+  color: var(--tiller-text-primary, #ffffff);
   font-size: 0.8125rem;
   font-weight: 500;
   border-radius: 6px;
@@ -70,7 +70,7 @@
 
 [data-tooltip]:hover::before,
 [data-tooltip]:hover::after {
-  opacity: 1;
+  opacity: 100%;
   visibility: visible;
 }
 
@@ -174,7 +174,7 @@
   padding: 1.25rem 0;
   background: none;
   border: none;
-  color: var(--tiller-text-primary, #fff);
+  color: var(--tiller-text-primary, #ffffff);
   font-size: 1.0625rem;
   font-weight: 600;
   text-align: left;
@@ -245,7 +245,7 @@
 }
 
 .tab:hover {
-  color: var(--tiller-text-primary, #fff);
+  color: var(--tiller-text-primary, #ffffff);
 }
 
 .tab.is-active {
@@ -267,11 +267,12 @@
 
 @keyframes tab-fade {
   from {
-    opacity: 0;
+    opacity: 0%;
     transform: translateY(10px);
   }
+
   to {
-    opacity: 1;
+    opacity: 100%;
     transform: translateY(0);
   }
 }
@@ -287,14 +288,14 @@
   justify-content: center;
   padding: 2rem;
   z-index: 10000;
-  opacity: 0;
+  opacity: 0%;
   visibility: hidden;
   transition: all 0.3s ease;
   backdrop-filter: blur(8px);
 }
 
 .modal-overlay.is-open {
-  opacity: 1;
+  opacity: 100%;
   visibility: visible;
 }
 
@@ -325,7 +326,7 @@
 .modal-title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--tiller-text-primary, #fff);
+  color: var(--tiller-text-primary, #ffffff);
 }
 
 .modal-close {
@@ -338,7 +339,7 @@
 }
 
 .modal-close:hover {
-  color: var(--tiller-text-primary, #fff);
+  color: var(--tiller-text-primary, #ffffff);
 }
 
 .modal-body {
@@ -368,7 +369,7 @@
   border-radius: 12px;
   box-shadow: 0 10px 40px rgb(0 0 0 / 40%);
   border: 1px solid rgb(255 255 255 / 10%);
-  opacity: 0;
+  opacity: 0%;
   visibility: hidden;
   transform: translateY(-10px);
   transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -376,7 +377,7 @@
 }
 
 .dropdown.is-open .dropdown-menu {
-  opacity: 1;
+  opacity: 100%;
   visibility: visible;
   transform: translateY(0);
 }
@@ -384,7 +385,7 @@
 .dropdown-item {
   display: block;
   padding: 0.75rem 1rem;
-  color: var(--tiller-text-primary, #fff);
+  color: var(--tiller-text-primary, #ffffff);
   text-decoration: none;
   transition: background 0.15s ease;
 }

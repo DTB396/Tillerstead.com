@@ -59,7 +59,7 @@ section[aria-labelledby="form-heading"] {
   background: var(--tiller-bg-card, #2a2d2c);
   border-radius: var(--tiller-border-radius-lg, 12px);
   padding: var(--tiller-spacing-xl, 2rem);
-  border: 1px solid var(--tiller-grout-subtle, rgba(201, 162, 39, 0.15));
+  border: 1px solid var(--tiller-grout-subtle, rgb(201 162 39 / 15%));
 }
 
 section[aria-labelledby="form-heading"] h2 {
@@ -133,7 +133,7 @@ section[aria-labelledby="form-heading"] > p {
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
   color: var(--tiller-text-muted, #6b7280);
-  opacity: 1;
+  opacity: 100%;
 }
 
 /* Focus States */
@@ -141,7 +141,7 @@ section[aria-labelledby="form-heading"] > p {
 .contact-form textarea:focus {
   outline: none;
   border-color: var(--tiller-color-emerald, #10b981);
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 0 3px rgb(16 185 129 / 20%);
   background: var(--tiller-bg-darker, #121414);
 }
 
@@ -158,15 +158,15 @@ section[aria-labelledby="form-heading"] > p {
 }
 
 /* Invalid/Error State */
-.contact-form input:invalid:not(:placeholder-shown):not(:focus),
-.contact-form textarea:invalid:not(:placeholder-shown):not(:focus) {
+.contact-form input:invalid:not(:placeholder-shown, :focus),
+.contact-form textarea:invalid:not(:placeholder-shown, :focus) {
   border-color: var(--tiller-color-coral, #f87171);
 }
 
 .contact-form input.is-invalid,
 .contact-form textarea.is-invalid {
   border-color: var(--tiller-color-coral, #f87171);
-  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.2);
+  box-shadow: 0 0 0 3px rgb(248 113 113 / 20%);
 }
 
 /* Textarea Specific */
@@ -197,7 +197,7 @@ section[aria-labelledby="form-heading"] > p {
 
 /* Error Summary */
 .contact-form .error-summary {
-  background: rgba(248, 113, 113, 0.1);
+  background: rgb(248 113 113 / 10%);
   border: 1px solid var(--tiller-color-coral, #f87171);
   border-radius: var(--tiller-border-radius-md, 8px);
   padding: var(--tiller-spacing-md, 1rem);
@@ -228,19 +228,19 @@ section[aria-labelledby="form-heading"] > p {
 .contact-form .btn-primary {
   background: linear-gradient(135deg, var(--tiller-color-emerald, #10b981) 0%, var(--tiller-color-emerald-dark, #059669) 100%);
   color: var(--tiller-text-white, #ffffff);
-  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 4px 14px rgb(16 185 129 / 30%);
 }
 
 .contact-form .btn-primary:hover,
 .contact-form .btn-primary:focus {
   background: linear-gradient(135deg, var(--tiller-color-emerald-light, #34d399) 0%, var(--tiller-color-emerald, #10b981) 100%);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 6px 20px rgb(16 185 129 / 40%);
   transform: translateY(-2px);
 }
 
 .contact-form .btn-primary:active {
   transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 2px 8px rgb(16 185 129 / 30%);
 }
 
 .contact-form .btn-primary:focus-visible {
@@ -267,7 +267,7 @@ section[aria-labelledby="form-heading"] > p {
 
 /* Loading State */
 .contact-form.is-submitting .btn-primary {
-  opacity: 0.7;
+  opacity: 70%;
   cursor: wait;
   pointer-events: none;
 }

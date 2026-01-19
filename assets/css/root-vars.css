@@ -300,7 +300,7 @@ body {
 a {
   color: #ffffff;
   text-decoration: underline;
-  text-decoration-color: rgba(255, 255, 255, 0.3);
+  text-decoration-color: rgb(255 255 255 / 30%);
   text-underline-offset: 2px;
   transition: color 0.15s ease, text-shadow 0.15s ease, text-decoration-color 0.15s ease;
 }
@@ -354,7 +354,7 @@ table {
 th, td {
   padding: 0.75rem 1rem;
   text-align: left;
-  border: 1px solid var(--tiller-grout-subtle, rgba(201, 162, 39, 0.15));
+  border: 1px solid var(--tiller-grout-subtle, rgb(201 162 39 / 15%));
 }
 
 th {
@@ -369,7 +369,7 @@ td {
 }
 
 tr:nth-child(even) td {
-  background: var(--tiller-bg-hover, rgba(255, 255, 255, 0.03));
+  background: var(--tiller-bg-hover, rgb(255 255 255 / 3%));
 }
 
 tr:hover td {
