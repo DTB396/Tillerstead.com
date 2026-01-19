@@ -1085,8 +1085,8 @@
     toolbar.setAttribute('role', 'toolbar');
     toolbar.setAttribute('aria-label', 'Accessibility options');
 
+    // High contrast is now permanently enabled - only text size toggle remains
     const buttons = [
-      { icon: '🔲', label: 'Toggle high contrast', action: toggleHighContrast, pref: 'highContrast' },
       { icon: 'A+', label: 'Increase text size', action: toggleTextSize, pref: 'textSize' }
     ];
 

@@ -123,9 +123,9 @@
 .ts-portfolio-tiled {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3px; /* Grout-line gap */
-  background-color: var(--tiller-color-gold-muted, #8a7830);
-  padding: 3px;
+  gap: 1.5rem; /* Clean gap between items */
+  background-color: transparent;
+  padding: 0;
   border-radius: var(--tiller-border-radius-md, 8px);
 }
 

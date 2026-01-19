@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="high-contrast" data-high-contrast="true">
 
 <head>
   <!-- Jekyll include: no DOCTYPE needed, ensure space indentation -->
@@ -1257,16 +1257,45 @@
 
   <main class="ts-main-content" role="main" id="main-content" aria-label="Main content">
     
-    <!-- Hero Section -->
+    <!-- Branded Hero Section -->
 <section class="tools-hero">
+  <div class="tools-hero__pattern"></div>
   <div class="container">
     <div class="tools-hero__content">
-      <span class="tools-hero__eyebrow">Free Contractor Tools</span>
+      <!-- Logo Badge -->
+      <div class="tools-hero__brand">
+        <img src="/assets/img/logo/logo-wolf-crest-compact.webp" 
+             alt="Tillerstead" 
+             class="tools-hero__logo"
+             width="60" height="60"
+             loading="eager">
+        <div class="tools-hero__brand-text">
+          <span class="tools-hero__brand-name">TillerCalc</span>
+          <span class="tools-hero__brand-badge">PRO TOOLS</span>
+        </div>
+      </div>
+      
       <h1 class="tools-hero__title">Tile Project Calculators</h1>
       <p class="tools-hero__summary">
         Professional-grade calculators for tile quantities, mortar coverage, grout needs, 
         and leveling compound. Built by a licensed NJ contractor using TCNA specifications.
       </p>
+      
+      <!-- Trust Badges -->
+      <div class="tools-hero__badges">
+        <span class="tools-badge tools-badge--gold">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          TCNA 2024
+        </span>
+        <span class="tools-badge tools-badge--emerald">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+          ANSI A108/A118
+        </span>
+        <span class="tools-badge tools-badge--silver">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          NJ HIC #13VH10808800
+        </span>
+      </div>
     </div>
   </div>
 </section>
@@ -1286,6 +1315,10 @@
       <div class="tools-trust__item">
         <span class="tools-trust__icon">💾</span>
         <span class="tools-trust__text">Export Project Data</span>
+      </div>
+      <div class="tools-trust__item">
+        <span class="tools-trust__icon">🔒</span>
+        <span class="tools-trust__text">No Account Required</span>
       </div>
     </div>
   </div>
@@ -1311,6 +1344,33 @@
   </div>
 </nav>
 
+  
+  <!-- Expand/Collapse Controls -->
+  <section class="tools-section">
+    <div class="container">
+      <div class="calc-controls">
+        <div class="auto-calc-indicator">
+          <span>Auto-Calculate</span>
+        </div>
+        <div class="calc-controls__actions">
+          <button type="button" class="calc-controls__btn" id="expand-all-btn" aria-label="Expand all calculators">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+            Expand All
+          </button>
+          <button type="button" class="calc-controls__btn" id="collapse-all-btn" aria-label="Collapse all calculators">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="18 15 12 9 6 15"/>
+            </svg>
+            Collapse All
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Featured: Estimate Builder -->
   <!-- MODULE 1: ESTIMATE SPEC BUILDER -->
 <section class="tools-section" id="estimate-builder" aria-labelledby="estimate-builder-title">
   <div class="container">
@@ -1553,7 +1613,39 @@
   </div>
 </section>
 
-  <!-- MODULE 2: TILE QUANTITY CALCULATOR -->
+  
+  <!-- Calculator App Grid -->
+  <section class="tools-section">
+    <div class="container">
+      <div class="tools-app-grid">
+        
+        <!-- Group: Material Calculators -->
+        <div class="calc-group-header">
+          <div class="calc-group-header__line"></div>
+          <h3 class="calc-group-header__title">📦 Material Calculators</h3>
+          <div class="calc-group-header__line"></div>
+        </div>
+        
+        <!-- Tile Calculator Card -->
+        <article class="calc-app-card" id="tile-calc-card" data-calculator="tile">
+          <header class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="tile-calc-body">
+            <div class="calc-app-card__icon">🧱</div>
+            <div class="calc-app-card__title-group">
+              <h3 class="calc-app-card__title">Tile Quantity</h3>
+              <p class="calc-app-card__subtitle">Tiles & boxes needed</p>
+            </div>
+            <div class="calc-app-card__toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+          </header>
+          <div class="calc-app-card__preview" id="tile-calc-preview">
+            <span class="calc-app-card__preview-label">Result:</span>
+            <span class="calc-app-card__preview-empty">Enter values to calculate</span>
+          </div>
+          <div class="calc-app-card__body" id="tile-calc-body">
+            <!-- MODULE 2: TILE QUANTITY CALCULATOR -->
 <section class="tools-section tools-section--alt" id="tile-calculator" aria-labelledby="tile-calculator-title">
   <div class="container">
     <header class="tools-section__header">
@@ -1651,7 +1743,29 @@
   </div>
 </section>
 
-  <!-- MODULE 3: MORTAR / TROWEL CALCULATOR -->
+          </div>
+        </article>
+        
+        <!-- Mortar Calculator Card -->
+        <article class="calc-app-card" id="mortar-calc-card" data-calculator="mortar">
+          <header class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="mortar-calc-body">
+            <div class="calc-app-card__icon">🪣</div>
+            <div class="calc-app-card__title-group">
+              <h3 class="calc-app-card__title">Mortar Coverage</h3>
+              <p class="calc-app-card__subtitle">Thin-set requirements</p>
+            </div>
+            <div class="calc-app-card__toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+          </header>
+          <div class="calc-app-card__preview" id="mortar-calc-preview">
+            <span class="calc-app-card__preview-label">Result:</span>
+            <span class="calc-app-card__preview-empty">Enter values to calculate</span>
+          </div>
+          <div class="calc-app-card__body" id="mortar-calc-body">
+            <!-- MODULE 3: MORTAR / TROWEL CALCULATOR -->
 <section class="tools-section" id="mortar-calculator" aria-labelledby="mortar-calculator-title">
   <div class="container">
     <header class="tools-section__header">
@@ -1783,7 +1897,29 @@
   </div>
 </section>
 
-  <!-- MODULE 4: GROUT CALCULATOR -->
+          </div>
+        </article>
+        
+        <!-- Grout Calculator Card -->
+        <article class="calc-app-card" id="grout-calc-card" data-calculator="grout">
+          <header class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="grout-calc-body">
+            <div class="calc-app-card__icon">🧴</div>
+            <div class="calc-app-card__title-group">
+              <h3 class="calc-app-card__title">Grout Calculation</h3>
+              <p class="calc-app-card__subtitle">Bags & coverage</p>
+            </div>
+            <div class="calc-app-card__toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+          </header>
+          <div class="calc-app-card__preview" id="grout-calc-preview">
+            <span class="calc-app-card__preview-label">Result:</span>
+            <span class="calc-app-card__preview-empty">Enter values to calculate</span>
+          </div>
+          <div class="calc-app-card__body" id="grout-calc-body">
+            <!-- MODULE 4: GROUT CALCULATOR -->
 <section class="tools-section tools-section--alt" id="grout-calculator" aria-labelledby="grout-calculator-title">
   <div class="container">
     <header class="tools-section__header">
@@ -1876,7 +2012,29 @@
   </div>
 </section>
 
-  <!-- MODULE 5: LEVELING CALCULATOR -->
+          </div>
+        </article>
+        
+        <!-- Leveling Calculator Card -->
+        <article class="calc-app-card" id="leveling-calc-card" data-calculator="leveling">
+          <header class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="leveling-calc-body">
+            <div class="calc-app-card__icon">📏</div>
+            <div class="calc-app-card__title-group">
+              <h3 class="calc-app-card__title">Self-Leveling</h3>
+              <p class="calc-app-card__subtitle">Compound amounts</p>
+            </div>
+            <div class="calc-app-card__toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+          </header>
+          <div class="calc-app-card__preview" id="leveling-calc-preview">
+            <span class="calc-app-card__preview-label">Result:</span>
+            <span class="calc-app-card__preview-empty">Enter values to calculate</span>
+          </div>
+          <div class="calc-app-card__body" id="leveling-calc-body">
+            <!-- MODULE 5: LEVELING CALCULATOR -->
 <section class="tools-section" id="leveling-calculator" aria-labelledby="leveling-calculator-title">
   <div class="container">
     <header class="tools-section__header">
@@ -1937,7 +2095,36 @@
   </div>
 </section>
 
-  <!-- MODULE: SHOWER SLOPE CALCULATOR -->
+          </div>
+        </article>
+        
+        <!-- Group: Construction Calculators -->
+        <div class="calc-group-header">
+          <div class="calc-group-header__line"></div>
+          <h3 class="calc-group-header__title">🔧 Construction Calculators</h3>
+          <div class="calc-group-header__line"></div>
+        </div>
+        
+        <!-- Slope Calculator Card -->
+        <article class="calc-app-card" id="slope-calc-card" data-calculator="slope">
+          <header class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="slope-calc-body">
+            <div class="calc-app-card__icon">📐</div>
+            <div class="calc-app-card__title-group">
+              <h3 class="calc-app-card__title">Shower Slope</h3>
+              <p class="calc-app-card__subtitle">Pre-slope calculations</p>
+            </div>
+            <div class="calc-app-card__toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+          </header>
+          <div class="calc-app-card__preview" id="slope-calc-preview">
+            <span class="calc-app-card__preview-label">Result:</span>
+            <span class="calc-app-card__preview-empty">Enter values to calculate</span>
+          </div>
+          <div class="calc-app-card__body" id="slope-calc-body">
+            <!-- MODULE: SHOWER SLOPE CALCULATOR -->
 <section class="tools-section" id="slope-calculator" aria-labelledby="slope-calculator-title">
   <div class="container">
     <header class="tools-section__header">
@@ -2005,7 +2192,29 @@
   </div>
 </section>
 
-  <!-- MODULE: WATERPROOFING CALCULATOR -->
+          </div>
+        </article>
+        
+        <!-- Waterproof Calculator Card -->
+        <article class="calc-app-card" id="waterproof-calc-card" data-calculator="waterproof">
+          <header class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="waterproof-calc-body">
+            <div class="calc-app-card__icon">💧</div>
+            <div class="calc-app-card__title-group">
+              <h3 class="calc-app-card__title">Waterproofing <span class="badge">TCNA</span></h3>
+              <p class="calc-app-card__subtitle">Membrane & accessories</p>
+            </div>
+            <div class="calc-app-card__toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+          </header>
+          <div class="calc-app-card__preview" id="waterproof-calc-preview">
+            <span class="calc-app-card__preview-label">Result:</span>
+            <span class="calc-app-card__preview-empty">Enter values to calculate</span>
+          </div>
+          <div class="calc-app-card__body" id="waterproof-calc-body">
+            <!-- MODULE: WATERPROOFING CALCULATOR -->
 <section class="tools-section" id="waterproof-calculator" aria-labelledby="waterproof-calculator-title">
   <div class="container">
     <header class="tools-section__header">
@@ -2100,7 +2309,29 @@
   </div>
 </section>
 
-  <!-- MODULE: LABOR TIME ESTIMATOR -->
+          </div>
+        </article>
+        
+        <!-- Labor Calculator Card -->
+        <article class="calc-app-card" id="labor-calc-card" data-calculator="labor">
+          <header class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="labor-calc-body">
+            <div class="calc-app-card__icon">⏱️</div>
+            <div class="calc-app-card__title-group">
+              <h3 class="calc-app-card__title">Labor Estimate</h3>
+              <p class="calc-app-card__subtitle">Time & scheduling</p>
+            </div>
+            <div class="calc-app-card__toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+          </header>
+          <div class="calc-app-card__preview" id="labor-calc-preview">
+            <span class="calc-app-card__preview-label">Result:</span>
+            <span class="calc-app-card__preview-empty">Enter values to calculate</span>
+          </div>
+          <div class="calc-app-card__body" id="labor-calc-body">
+            <!-- MODULE: LABOR TIME ESTIMATOR -->
 <section class="tools-section" id="labor-calculator" aria-labelledby="labor-calculator-title">
   <div class="container">
     <header class="tools-section__header">
@@ -2218,6 +2449,13 @@
   </div>
 </section>
 
+          </div>
+        </article>
+        
+      </div>
+    </div>
+  </section>
+  
   <!-- GUIDES & TIPS SECTION -->
 <section class="tools-section tools-section--alt" id="guides-tips" aria-labelledby="guides-tips-title">
   <div class="container">
@@ -2608,56 +2846,156 @@
 <script src="/assets/js/tools.js" defer></script>
 
 <style>
-/* Tools Page - Premium Styling */
+/* Tools Page - Premium Branded Styling */
 
+/* ===== HERO WITH TILE PATTERN ===== */
 .tools-hero {
   background: linear-gradient(135deg, var(--tiller-color-green, #1a3d2e) 0%, var(--tiller-color-green-dark, #0f2a1f) 100%);
   padding: clamp(3rem, 8vw, 5rem) 0;
   color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Tile/Grout Pattern Overlay */
+.tools-hero__pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, rgba(201, 162, 39, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(201, 162, 39, 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 .tools-hero__content {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
-.tools-hero__eyebrow {
-  display: inline-block;
-  font-size: 0.875rem;
-  font-weight: 600;
+/* Brand Badge */
+.tools-hero__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  border-radius: 60px;
+  padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tools-hero__logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px;
+}
+
+.tools-hero__brand-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.125rem;
+}
+
+.tools-hero__brand-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+.tools-hero__brand-badge {
+  font-size: 0.625rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   color: var(--tiller-color-gold, #c9a227);
-  margin-bottom: 1rem;
+  background: rgba(201, 162, 39, 0.15);
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
 }
 
 .tools-hero__title {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(2rem, 5vw, 3.25rem);
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   color: #fff;
+  text-shadow: 0 0 40px rgba(16, 185, 129, 0.3);
 }
 
 .tools-hero__summary {
   font-size: clamp(1rem, 2.5vw, 1.25rem);
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.9);
-  margin: 0;
+  margin: 0 0 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Trust Bar */
+/* Trust Badges */
+.tools-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.tools-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: 1px solid;
+}
+
+.tools-badge svg {
+  flex-shrink: 0;
+}
+
+.tools-badge--gold {
+  background: rgba(201, 162, 39, 0.15);
+  border-color: rgba(201, 162, 39, 0.3);
+  color: var(--tiller-color-gold, #c9a227);
+}
+
+.tools-badge--emerald {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: var(--tiller-color-emerald, #10b981);
+}
+
+.tools-badge--silver {
+  background: rgba(192, 192, 192, 0.1);
+  border-color: rgba(192, 192, 192, 0.25);
+  color: var(--tiller-color-silver, #c0c0c0);
+}
+
+/* ===== TRUST BAR ===== */
 .tools-trust {
-  background: var(--tiller-bg-dark, #121414);
-  padding: 1.5rem 0;
-  border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+  background: var(--tiller-bg-darker, #121414);
+  padding: 1.25rem 0;
+  border-bottom: 2px solid rgba(201, 162, 39, 0.15);
 }
 
 .tools-trust__grid {
   display: flex;
   justify-content: center;
-  gap: 3rem;
+  gap: 2rem;
   flex-wrap: wrap;
 }
 
@@ -2665,29 +3003,47 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 .tools-trust__icon {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 }
 
-/* Tools Main Area */
+/* ===== TOOLS MAIN AREA ===== */
 .tools-main {
-  background: var(--tiller-bg-soft, #f8f9f8);
+  background: var(--tiller-bg-dark, #1a1c1a);
 }
 
-/* CTA Section */
+/* ===== CTA SECTION ===== */
 .tools-cta {
-  background: var(--tiller-color-emerald, #10b981);
+  background: linear-gradient(135deg, var(--tiller-color-emerald, #10b981) 0%, var(--tiller-color-emerald-dark, #059669) 100%);
   padding: clamp(3rem, 6vw, 4rem) 0;
+  position: relative;
+}
+
+.tools-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
 }
 
 .tools-cta__content {
   max-width: 700px;
   margin: 0 auto;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .tools-cta__title {
@@ -2713,10 +3069,12 @@
 .tools-cta .btn--primary {
   background: #fff;
   color: var(--tiller-color-green, #1a3d2e);
+  font-weight: 700;
 }
 
 .tools-cta .btn--primary:hover {
   background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
 }
 
 .tools-cta .btn--outline-light {
@@ -2730,7 +3088,39 @@
   border-color: #fff;
 }
 
-@media (max-width: 600px) {
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .tools-hero__brand {
+    padding: 0.375rem 1rem 0.375rem 0.375rem;
+    gap: 0.75rem;
+  }
+  
+  .tools-hero__logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .tools-hero__brand-name {
+    font-size: 1.125rem;
+  }
+  
+  .tools-hero__badges {
+    gap: 0.5rem;
+  }
+  
+  .tools-badge {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+  }
+  
+  .tools-trust__grid {
+    gap: 1rem 1.5rem;
+  }
+  
+  .tools-trust__item {
+    font-size: 0.8125rem;
+  }
+  
   .tools-cta__actions {
     flex-direction: column;
   }

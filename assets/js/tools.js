@@ -1757,6 +1757,27 @@
       `;
     }
 
+    // Powered by Tillerstead Footer
+    html += `
+      <div class="output-footer">
+        <div class="output-footer__brand">
+          <img src="/assets/img/logo/logo-wolf-crest-compact.webp" 
+               alt="Tillerstead" 
+               class="output-footer__logo"
+               width="32" height="32">
+          <div class="output-footer__text">
+            <span class="output-footer__name">Powered by TillerCalc™</span>
+            <span class="output-footer__tagline">Professional Tile Calculators by Tillerstead LLC</span>
+          </div>
+        </div>
+        <div class="output-footer__info">
+          <span>NJ HIC #13VH10808800</span>
+          <span>•</span>
+          <a href="https://tillerstead.com/tools/" target="_blank">tillerstead.com/tools</a>
+        </div>
+      </div>
+    `;
+
     html += '</div>';
     return html;
   }
@@ -2343,6 +2364,12 @@
     .header-logo {
       width: 40px;
       height: 40px;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+    .header-logo-fallback {
+      width: 40px;
+      height: 40px;
       background: linear-gradient(135deg, var(--ts-emerald) 0%, var(--ts-emerald-light) 100%);
       border-radius: 8px;
       display: flex;
@@ -2389,6 +2416,14 @@
       padding: 1in;
     }
     .cover-logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: contain;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    .cover-logo-fallback {
       width: 80px;
       height: 80px;
       background: linear-gradient(135deg, var(--ts-emerald) 0%, var(--ts-emerald-light) 100%);
@@ -2669,7 +2704,10 @@
 
 <!-- ==================== COVER PAGE ==================== -->
 <div class="page cover">
-  <div class="cover-logo">T</div>
+  <img src="https://tillerstead.com/assets/img/logo/logo-wolf-crest.webp" 
+       alt="Tillerstead Wolf Crest" 
+       class="cover-logo"
+       onerror="this.outerHTML='<div class=\\'cover-logo-fallback\\'>T</div>'">
   <h1>Tile Project Build Guide</h1>
   <div class="cover-project">${escapeHtml(state.project.name || 'Your Tile Project')}</div>
   <div class="cover-client">
@@ -2688,7 +2726,10 @@
 <div class="page">
   <div class="header">
     <div class="header-brand">
-      <div class="header-logo">T</div>
+      <img src="https://tillerstead.com/assets/img/logo/logo-wolf-crest-compact.webp" 
+           alt="Tillerstead" 
+           class="header-logo"
+           onerror="this.outerHTML='<div class=\\'header-logo-fallback\\'>T</div>'">
       <div class="header-text">
         <div class="header-title">Tillerstead</div>
         <div class="header-subtitle">Professional Tile Installation</div>
@@ -4382,6 +4423,216 @@
     sections.forEach(section => observer.observe(section));
   }
 
+  // ============================================
+  // APP-LIKE COLLAPSIBLE CALCULATOR CARDS
+  // ============================================
+
+  function initCollapsibleCards() {
+    const calcCards = document.querySelectorAll('.calc-app-card');
+    const expandAllBtn = document.getElementById('expand-all-btn');
+    const collapseAllBtn = document.getElementById('collapse-all-btn');
+    
+    if (!calcCards.length) return;
+
+    // Toggle individual card
+    calcCards.forEach(card => {
+      const header = card.querySelector('.calc-app-card__header');
+      if (!header) return;
+
+      header.addEventListener('click', () => toggleCard(card));
+      header.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleCard(card);
+        }
+      });
+    });
+
+    // Expand All button
+    if (expandAllBtn) {
+      expandAllBtn.addEventListener('click', () => {
+        calcCards.forEach(card => expandCard(card));
+        updateControlsState(true);
+      });
+    }
+
+    // Collapse All button
+    if (collapseAllBtn) {
+      collapseAllBtn.addEventListener('click', () => {
+        calcCards.forEach(card => collapseCard(card));
+        updateControlsState(false);
+      });
+    }
+
+    // Auto-expand first card on desktop
+    if (window.innerWidth >= 900 && calcCards.length > 0) {
+      expandCard(calcCards[0]);
+    }
+  }
+
+  function toggleCard(card) {
+    if (card.classList.contains('calc-app-card--expanded')) {
+      collapseCard(card);
+    } else {
+      expandCard(card);
+    }
+  }
+
+  function expandCard(card) {
+    card.classList.add('calc-app-card--expanded');
+    const header = card.querySelector('.calc-app-card__header');
+    if (header) header.setAttribute('aria-expanded', 'true');
+    
+    // Trigger resize for any charts/elements inside
+    const body = card.querySelector('.calc-app-card__body');
+    if (body) {
+      body.style.display = 'block';
+      // Trigger recalculation of internal layouts
+      window.dispatchEvent(new Event('resize'));
+    }
+  }
+
+  function collapseCard(card) {
+    card.classList.remove('calc-app-card--expanded');
+    const header = card.querySelector('.calc-app-card__header');
+    if (header) header.setAttribute('aria-expanded', 'false');
+    
+    const body = card.querySelector('.calc-app-card__body');
+    if (body) body.style.display = 'none';
+  }
+
+  function updateControlsState(allExpanded) {
+    const expandAllBtn = document.getElementById('expand-all-btn');
+    const collapseAllBtn = document.getElementById('collapse-all-btn');
+    
+    if (expandAllBtn) {
+      expandAllBtn.classList.toggle('calc-controls__btn--active', !allExpanded);
+    }
+    if (collapseAllBtn) {
+      collapseAllBtn.classList.toggle('calc-controls__btn--active', allExpanded);
+    }
+  }
+
+  // Auto-calculate on input change with debounce
+  function initAutoCalculate() {
+    const calcCards = document.querySelectorAll('.calc-app-card');
+    
+    calcCards.forEach(card => {
+      const inputs = card.querySelectorAll('input, select');
+      const calculatorType = card.dataset.calculator;
+      
+      inputs.forEach(input => {
+        input.addEventListener('change', debounce(() => {
+          autoCalculate(calculatorType, card);
+        }, 300));
+        
+        // For number inputs, also listen to input event
+        if (input.type === 'number') {
+          input.addEventListener('input', debounce(() => {
+            autoCalculate(calculatorType, card);
+          }, 500));
+        }
+      });
+    });
+  }
+
+  function autoCalculate(calculatorType, card) {
+    const preview = card.querySelector('.calc-app-card__preview');
+    let result = null;
+    
+    try {
+      switch (calculatorType) {
+        case 'tile':
+          // Trigger tile calculation
+          const tileBtn = document.getElementById('calc-tile-btn');
+          if (tileBtn) tileBtn.click();
+          const tilesResult = document.getElementById('result-boxes');
+          if (tilesResult && tilesResult.textContent !== '—') {
+            result = tilesResult.textContent + ' boxes';
+          }
+          break;
+          
+        case 'mortar':
+          const mortarBtn = document.getElementById('calc-mortar-btn');
+          if (mortarBtn) mortarBtn.click();
+          const mortarResult = document.getElementById('result-mortar-bags');
+          if (mortarResult && mortarResult.textContent !== '—') {
+            result = mortarResult.textContent + ' bags';
+          }
+          break;
+          
+        case 'grout':
+          const groutBtn = document.getElementById('calc-grout-btn');
+          if (groutBtn) groutBtn.click();
+          const groutResult = document.getElementById('result-grout-bags');
+          if (groutResult && groutResult.textContent !== '—') {
+            result = groutResult.textContent + ' bags';
+          }
+          break;
+          
+        case 'leveling':
+          const levelBtn = document.getElementById('calc-leveler-btn');
+          if (levelBtn) levelBtn.click();
+          const levelResult = document.getElementById('result-leveler-bags');
+          if (levelResult && levelResult.textContent !== '—') {
+            result = levelResult.textContent + ' bags';
+          }
+          break;
+          
+        case 'slope':
+          const slopeBtn = document.getElementById('calc-slope-btn');
+          if (slopeBtn) slopeBtn.click();
+          break;
+          
+        case 'waterproof':
+          const wpBtn = document.getElementById('calc-waterproof-btn');
+          if (wpBtn) wpBtn.click();
+          break;
+          
+        case 'labor':
+          const laborBtn = document.getElementById('calc-labor-btn');
+          if (laborBtn) laborBtn.click();
+          break;
+      }
+    } catch (e) {
+      console.warn('Auto-calculate error:', e);
+    }
+    
+    // Update preview if we have a result
+    if (preview && result) {
+      const previewValue = preview.querySelector('.calc-app-card__preview-value');
+      const previewEmpty = preview.querySelector('.calc-app-card__preview-empty');
+      
+      if (previewValue) {
+        previewValue.textContent = result;
+        previewValue.style.display = 'block';
+      } else {
+        const valueEl = document.createElement('span');
+        valueEl.className = 'calc-app-card__preview-value';
+        valueEl.textContent = result;
+        if (previewEmpty) {
+          previewEmpty.replaceWith(valueEl);
+        } else {
+          preview.appendChild(valueEl);
+        }
+      }
+      
+      if (previewEmpty) previewEmpty.style.display = 'none';
+    }
+  }
+
+  // Utility: Debounce function
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
 
 
   // ============================================
@@ -4408,6 +4659,8 @@
     initActiveNavHighlight();
     initBackToTop();
     initNewCalculators();
+    initCollapsibleCards();
+    initAutoCalculate();
 
     // Initial calculations
     updateAreaSummary();

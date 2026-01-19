@@ -1,6 +1,6 @@
 /* main.js — Tillerstead
   - Responsive, accessible navigation (ESC, outside click, resize, touch)
-  - High contrast mode toggle (WCAG AAA, TCNA/New Jersey HIC compliant, persists via localStorage)
+  - High contrast mode permanently enabled (WCAG AAA, TCNA/New Jersey HIC compliant)
   - Smooth anchor scrolling (respects reduced motion, ARIA focus)
   - Static-hosted form handling (GitHub Pages/Netlify passthrough)
   - Modern browser support, robust fallbacks
@@ -8,67 +8,19 @@
 */
 (() => {
   // =========================
-  // HIGH CONTRAST MODE TOGGLE
-  // - Adds html.high-contrast class (WCAG AAA)
-  // - Persists preference in localStorage
-  // - Recalculates contrast overlays if present
+  // HIGH CONTRAST MODE - PERMANENTLY ENABLED
+  // - Class is set in HTML, this ensures it stays enabled
   // =========================
-  const HC_KEY = 'ts:high-contrast';
-  const contrastToggle = document.querySelector('[data-contrast-toggle]');
-
-  function applyHighContrast(enabled) {
-    document.documentElement.classList.toggle('high-contrast', !!enabled);
-    if (contrastToggle) {
-      contrastToggle.setAttribute('aria-pressed', String(!!enabled));
-      contrastToggle.setAttribute(
-        'aria-label',
-        enabled
-          ? 'Disable high contrast mode (meets WCAG AAA, TCNA/New Jersey HIC compliant)'
-          : 'Enable high contrast mode (meets WCAG AAA, TCNA/New Jersey HIC compliant)',
-      );
-    }
-    if (typeof window.applyContrast === 'function') window.applyContrast(7); // Maintain AAA target
-    if (typeof window.autoContrast === 'function') window.autoContrast();
-  }
-
-  try {
-    const storedHC = localStorage.getItem(HC_KEY) === '1';
-    applyHighContrast(storedHC);
-  } catch (_) {
-    /* localStorage unavailable, skip */
-  }
-
-  if (contrastToggle) {
-    contrastToggle.addEventListener('click', () => {
-      const enabled =
-        !document.documentElement.classList.contains('high-contrast');
-      applyHighContrast(enabled);
-      try {
-        localStorage.setItem(HC_KEY, enabled ? '1' : '0');
-      } catch (_) {
-        /* localStorage unavailable, skip */
-      }
-    });
-  }
+  document.documentElement.classList.add('high-contrast');
+  document.documentElement.setAttribute('data-high-contrast', 'true');
 
   // =========================
   // KEYBOARD SHORTCUTS
-  // Alt+Shift+C : Toggle High Contrast (WCAG AAA)
   // Alt+Shift+A : Toggle Audit Overlay (reload if enabling)
   // =========================
   document.addEventListener('keydown', (e) => {
     if (!e.altKey || !e.shiftKey) return;
-    if (e.code === 'KeyC') {
-      e.preventDefault();
-      const enabled =
-        !document.documentElement.classList.contains('high-contrast');
-      applyHighContrast(enabled);
-      try {
-        localStorage.setItem(HC_KEY, enabled ? '1' : '0');
-      } catch (_) {
-        /* localStorage unavailable, skip */
-      }
-    } else if (e.code === 'KeyA') {
+    if (e.code === 'KeyA') {
       e.preventDefault();
       const hasFlag = localStorage.getItem('ts:audit') === '1';
       if (hasFlag) {

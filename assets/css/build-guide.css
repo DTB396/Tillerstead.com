@@ -5,7 +5,11 @@
    ========================================================= */
 
 /* ===== FORCE LIGHT THEME FOR BUILD GUIDES ===== */
-.page-build-guide {
+.page-build-guide,
+body[class*="page-build"],
+.build-guide-content,
+.build-article,
+.guide-article {
   --tiller-bg-main: #ffffff !important;
   --tiller-bg-alt: #f8f9fa !important;
   --tiller-bg-soft: #f3f4f6 !important;
@@ -16,6 +20,23 @@
   color: #1f2937 !important;
 }
 
+/* CRITICAL: Force all text to be fully opaque and readable */
+.page-build-guide *,
+.build-guide-content *,
+.build-article *,
+.guide-article * {
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+/* Ensure main content area has light background */
+.page-build-guide .ts-main-content,
+.page-build-guide main {
+  background: #ffffff !important;
+  color: #1f2937 !important;
+}
+
+/* HEADINGS - All fully visible dark text */
 .page-build-guide .build-guide-content h1,
 .page-build-guide .build-guide-content h2,
 .page-build-guide .build-guide-content h3,
@@ -27,43 +48,84 @@
 .page-build-guide .guide-article h3,
 .page-build-guide .guide-article h4,
 .page-build-guide .guide-article h5,
-.page-build-guide .guide-article h6 {
-  color: #1f2937 !important;
-  text-shadow: none !important;
-}
-
-/* Hero section keeps white text */
-.page-build-guide .build-guide-hero h1,
-.page-build-guide .build-guide-hero h2,
-.page-build-guide .build-guide-hero h3,
-.page-build-guide .build-guide-hero p,
-.page-build-guide .build-guide-hero span {
-  color: #ffffff !important;
-}
-
-.page-build-guide a {
+.page-build-guide .guide-article h6,
+.build-article h1, .build-article h2, .build-article h3,
+.build-article h4, .build-article h5, .build-article h6,
+.guide-article h1, .guide-article h2, .guide-article h3,
+.guide-article h4, .guide-article h5, .guide-article h6,
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
   color: #1a4a38 !important;
   text-shadow: none !important;
+  opacity: 1 !important;
 }
 
-.page-build-guide a:hover {
-  color: #2a5d4e !important;
-  text-shadow: none !important;
-}
-
+/* BODY TEXT - All fully visible */
 .page-build-guide p,
 .page-build-guide li,
 .page-build-guide td,
-.page-build-guide th {
+.page-build-guide span,
+.page-build-guide div,
+.build-article p,
+.build-article li,
+.build-article td,
+.guide-article p,
+.guide-article li,
+.guide-article td,
+.prose p, .prose li, .prose td {
   color: #374151 !important;
+  opacity: 1 !important;
 }
 
-.page-build-guide .ts-section {
+/* STRONG/BOLD text */
+.page-build-guide strong,
+.page-build-guide b,
+.build-article strong,
+.build-article b,
+.guide-article strong,
+.guide-article b,
+.prose strong, .prose b {
+  color: #1f2937 !important;
+  font-weight: 700 !important;
+}
+
+/* LINKS - Visible and accessible */
+.page-build-guide a:not(.btn):not(.phase-link):not(.build-breadcrumb a),
+.build-article a:not(.btn),
+.guide-article a:not(.btn),
+.prose a:not(.btn) {
+  color: #1a4a38 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  opacity: 1 !important;
+}
+
+.page-build-guide a:not(.btn):hover,
+.build-article a:not(.btn):hover,
+.guide-article a:not(.btn):hover,
+.prose a:not(.btn):hover {
+  color: #10b981 !important;
+}
+
+/* BACKGROUNDS - Light theme */
+.page-build-guide .ts-section,
+.page-build-guide section:not(.build-hero):not(.build-cta),
+.build-guide-content,
+.build-article,
+.guide-article {
   background: #ffffff !important;
 }
 
-.page-build-guide main {
-  background: #ffffff !important;
+/* Hero section keeps white text - EXCEPTION */
+.page-build-guide .build-guide-hero *,
+.page-build-guide .build-hero *,
+.build-hero *,
+.build-cta * {
+  color: #ffffff !important;
+}
+
+.build-hero .phase-badge,
+.page-build-guide .build-hero .phase-badge {
+  color: #c9a227 !important;
 }
 
 /* Hero Section - Crosshatch pattern to match brand */

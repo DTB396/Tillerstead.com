@@ -6,8 +6,8 @@
 /* Main Footer Container */
 .ts-footer {
   background: var(--tiller-bg-darker, #121414);
-  padding: var(--tiller-spacing-xl, 3rem) 0 0;
-  margin-top: var(--tiller-spacing-xl, 3rem);
+  padding: var(--tiller-spacing-lg, 1.5rem) 0 0;
+  margin-top: var(--tiller-spacing-lg, 1.5rem);
   border-top: 2px solid var(--tiller-color-gold, #c9a227);
   color: var(--tiller-text-light, #f9fafb);
   font-size: 0.9375rem;
@@ -16,13 +16,13 @@
 .footer-main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--tiller-spacing-lg, 1.5rem);
+  padding: 0 var(--tiller-spacing-md, 1rem);
 }
 
 /* Logo Section */
 .footer-logo-section {
   text-align: center;
-  margin-bottom: var(--tiller-spacing-xl, 2rem);
+  margin-bottom: var(--tiller-spacing-md, 1rem);
 }
 
 .footer-logo {
@@ -47,14 +47,14 @@
 /* Navigation Grid */
 .footer-nav-grid {
   width: 100%;
-  margin-bottom: var(--tiller-spacing-xl, 2rem);
+  margin-bottom: var(--tiller-spacing-md, 1rem);
 }
 
 /* Service Areas - Full Width Top */
 .footer-group--service-areas {
   text-align: center;
-  margin-bottom: var(--tiller-spacing-xl, 2rem);
-  padding-bottom: var(--tiller-spacing-lg, 1.5rem);
+  margin-bottom: var(--tiller-spacing-md, 1rem);
+  padding-bottom: var(--tiller-spacing-sm, 0.5rem);
   border-bottom: 1px solid rgba(201, 162, 39, 0.2);
 }
 
@@ -149,14 +149,14 @@
 /* Contact Section */
 .footer-contact {
   text-align: center;
-  padding: var(--tiller-spacing-lg, 1.5rem) 0;
+  padding: var(--tiller-spacing-md, 1rem) 0;
   border-top: 1px solid rgba(201, 162, 39, 0.2);
-  margin-top: var(--tiller-spacing-lg, 1.5rem);
+  margin-top: var(--tiller-spacing-md, 1rem);
 }
 
 .footer-contact .footer-group-title {
   border-bottom: none;
-  margin-bottom: var(--tiller-spacing-sm, 0.5rem);
+  margin-bottom: var(--tiller-spacing-xs, 0.25rem);
 }
 
 .footer-license {
@@ -199,10 +199,10 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: var(--tiller-spacing-md, 1rem);
-  padding: var(--tiller-spacing-lg, 1.5rem) 0;
+  gap: var(--tiller-spacing-sm, 0.5rem);
+  padding: var(--tiller-spacing-md, 1rem) 0;
   border-top: 1px solid rgba(201, 162, 39, 0.2);
-  margin-top: var(--tiller-spacing-md, 1rem);
+  margin-top: var(--tiller-spacing-sm, 0.5rem);
 }
 
 /* Social Links */
