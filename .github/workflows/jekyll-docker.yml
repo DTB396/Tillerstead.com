@@ -1,10 +1,9 @@
-name: Jekyll site CI
+name: Jekyll site CI (Docker) [DISABLED]
 
+# DISABLED: Bundler version mismatch with jekyll/builder Docker image
+# Use jekyll-gh-pages.yml or site-build.yml instead
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:  # Manual trigger only
 
 jobs:
   build:

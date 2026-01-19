@@ -1,10 +1,8 @@
-name: NodeJS with Webpack
+name: NodeJS with Webpack [DISABLED]
 
+# DISABLED: This project does not use Webpack - no ./src directory exists
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:  # Manual trigger only
 
 jobs:
   build:
