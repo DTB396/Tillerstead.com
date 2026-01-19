@@ -43,8 +43,12 @@
   background: var(--tiller-bg-darker, #121414);
   border-bottom: 1px solid var(--tiller-border-color, rgb(201 162 39 / 20%));
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   transition: all var(--nav-transition);
   box-shadow: 0 2px 8px rgb(0 0 0 / 40%);
+  /* iOS stacking context - ensures children can have higher z-index */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 /* Gold grout line at bottom */
@@ -435,8 +439,18 @@
   min-height: 48px;
   align-items: center;
   justify-content: center;
-  z-index: 901;
+  /* Must be higher than mobile-nav drawer to stay clickable */
+  z-index: 100010;
   position: relative;
+  /* iOS Safari touch fixes */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  /* Prevent iOS transform flattening */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .mobile-nav__toggle:hover {
@@ -458,65 +472,89 @@
 .hamburger-icon {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 6px;
+  justify-content: space-between;
   width: 24px;
-  height: 24px;
+  height: 18px;
   position: relative;
+  /* iOS transform fix */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .hamburger-icon span {
   display: block;
+  position: absolute;
+  left: 0;
   width: 100%;
   height: 2px;
   background: var(--tiller-text-primary, #ffffff);
   border-radius: 2px;
-  transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-  transform-origin: center;
+  transition: all 0.35s cubic-bezier(0.68, -0.2, 0.32, 1.2);
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
 }
 
 .hamburger-icon span:nth-child(1) {
-  width: 100%;
+  top: 0;
 }
 
 .hamburger-icon span:nth-child(2) {
-  width: 75%;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .hamburger-icon span:nth-child(3) {
-  width: 50%;
+  bottom: 0;
 }
 
 .mobile-nav__toggle:hover .hamburger-icon span {
-  width: 100%;
   background: var(--tiller-color-emerald, #10b981);
 }
 
-/* Hamburger to X animation */
+/* Hamburger to X animation - Premium */
+.mobile-nav__toggle[aria-expanded="true"] .hamburger-icon span {
+  background: var(--tiller-color-emerald, #10b981);
+}
+
 .mobile-nav__toggle[aria-expanded="true"] .hamburger-icon span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-  width: 100%;
+  top: 50%;
+  -webkit-transform: translateY(-50%) rotate(45deg);
+  transform: translateY(-50%) rotate(45deg);
 }
 
 .mobile-nav__toggle[aria-expanded="true"] .hamburger-icon span:nth-child(2) {
   opacity: 0;
-  transform: scaleX(0);
+  -webkit-transform: translateY(-50%) scaleX(0);
+  transform: translateY(-50%) scaleX(0);
 }
 
 .mobile-nav__toggle[aria-expanded="true"] .hamburger-icon span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-  width: 100%;
+  bottom: auto;
+  top: 50%;
+  -webkit-transform: translateY(-50%) rotate(-45deg);
+  transform: translateY(-50%) rotate(-45deg);
 }
 
 /* ===== Mobile Navigation Drawer - PREMIUM ===== */
 .mobile-nav {
   position: fixed;
-  inset: 0;
-  z-index: 10000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Use dvh for iOS Safari viewport handling */
+  height: 100vh;
+  height: 100dvh;
+  width: 100vw;
+  /* Very high z-index to ensure it's above everything on iOS */
+  z-index: 100000;
   background: rgb(0 0 0 / 0%);
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
+  /* iOS stacking context fix */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
   
   /* Hidden by default */
   opacity: 0;
@@ -526,7 +564,8 @@
     opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     visibility 0.4s,
     background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    backdrop-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    -webkit-backdrop-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mobile-nav[aria-hidden="false"] {
@@ -591,6 +630,7 @@
   right: 0;
   width: min(88vw, 380px);
   height: 100%;
+  height: 100dvh;
   background: linear-gradient(180deg, 
     var(--tiller-bg-darker, #0d0f0d) 0%,
     var(--tiller-bg-dark, #121414) 100%);
@@ -599,15 +639,20 @@
   overflow: hidden auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+  /* iOS Safari safe area */
+  padding-top: env(safe-area-inset-top, 0);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  padding-right: env(safe-area-inset-right, 0);
   box-shadow: 
     -20px 0 60px rgb(0 0 0 / 50%),
     -8px 0 30px rgb(0 0 0 / 30%),
     0 0 1px rgb(255 255 255 / 10%);
-  z-index: 10001;
+  /* Higher than parent for proper stacking */
+  z-index: 100001;
   border-left: 1px solid rgb(201 162 39 / 20%);
-  
-  /* Slide in animation - spring effect */
-  transform: translateX(105%);
+  /* iOS transform fix */
+  -webkit-transform: translateX(105%) translateZ(0);
+  transform: translateX(105%) translateZ(0);
   transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
@@ -631,7 +676,8 @@
 }
 
 .mobile-nav[aria-hidden="false"] .mobile-nav__body {
-  transform: translateX(0);
+  -webkit-transform: translateX(0) translateZ(0);
+  transform: translateX(0) translateZ(0);
 }
 
 .mobile-nav[aria-hidden="false"] .mobile-nav__body::before {
@@ -1220,6 +1266,12 @@
 /* ===== Body Lock (When nav open) ===== */
 body.nav-open {
   overflow: hidden;
+  /* iOS Safari scroll lock */
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  -webkit-overflow-scrolling: none;
 }
 
 /* ===== Reduced Motion ===== */

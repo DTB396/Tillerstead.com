@@ -1026,17 +1026,32 @@
   const mobileClose = document.querySelector('.mobile-nav__close');
   const mobileDrawer = document.getElementById('mobile-nav-drawer');
   const body = document.body;
+  let scrollPosition = 0; // Track scroll position for iOS
   
   if (mobileToggle && mobileDrawer) {
-    // Open drawer
-    mobileToggle.addEventListener('click', () => {
+    // Open drawer - use both click and touchend for iOS reliability
+    mobileToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       openMobileNav();
     });
     
+    // iOS touch fallback
+    mobileToggle.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      openMobileNav();
+    }, { passive: false });
+    
     // Close drawer
-    mobileClose.addEventListener('click', () => {
+    mobileClose.addEventListener('click', (e) => {
+      e.preventDefault();
       closeMobileNav();
     });
+    
+    mobileClose.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      closeMobileNav();
+    }, { passive: false });
     
     // Close on escape
     document.addEventListener('keydown', (e) => {
@@ -1052,14 +1067,33 @@
         closeMobileNav();
       }
     });
+    
+    // iOS backdrop touch
+    mobileDrawer.addEventListener('touchend', (e) => {
+      if (e.target === mobileDrawer || !e.target.closest('.mobile-nav__body')) {
+        e.preventDefault();
+        closeMobileNav();
+      }
+    }, { passive: false });
   }
   
   function openMobileNav() {
+    // Store scroll position for iOS
+    scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    
     mobileDrawer.setAttribute('aria-hidden', 'false');
     mobileToggle.setAttribute('aria-expanded', 'true');
     body.classList.add('nav-open');
     body.style.overflow = 'hidden';
-    mobileClose.focus();
+    body.style.position = 'fixed';
+    body.style.top = `-${scrollPosition}px`;
+    body.style.width = '100%';
+    
+    // Focus close button after transition
+    setTimeout(() => {
+      mobileClose.focus();
+    }, 100);
+    
     trapFocus(mobileDrawer);
   }
   
@@ -1068,6 +1102,13 @@
     mobileToggle.setAttribute('aria-expanded', 'false');
     body.classList.remove('nav-open');
     body.style.overflow = '';
+    body.style.position = '';
+    body.style.top = '';
+    body.style.width = '';
+    
+    // Restore scroll position for iOS
+    window.scrollTo(0, scrollPosition);
+    
     mobileToggle.focus();
   }
   
