@@ -10,13 +10,22 @@
 
       {%- for c in crumbs -%}
         {%- if c == "" -%}{% continue %}{%- endif -%}
+        
+        {%- comment -%} Skip date segments (4-digit years, 2-digit months/days) {%- endcomment -%}
+        {%- assign c_size = c | size -%}
+        {%- assign is_numeric = c | remove: "0" | remove: "1" | remove: "2" | remove: "3" | remove: "4" | remove: "5" | remove: "6" | remove: "7" | remove: "8" | remove: "9" -%}
+        {%- if is_numeric == "" and c_size <= 4 -%}
+          {%- assign path = path | append:"/" | append:c -%}
+          {%- continue -%}
+        {%- endif -%}
+        
         {%- assign path = path | append:"/" | append:c -%}
         {%- assign is_last = forloop.last -%}
         <li class="breadcrumbs__item" aria-current="{% if is_last %}page{% else %}false{% endif %}">
           {%- if is_last -%}
             <span class="breadcrumbs__current">{{ page.breadcrumb_title | default: page.title | default: c | replace:"-"," " }}</span>
           {%- else -%}
-            <a class="breadcrumbs__link" href="{{ path | relative_url }}/">{{ c | replace:"-"," " }}</a>
+            <a class="breadcrumbs__link" href="{{ path | relative_url }}/">{{ c | replace:"-"," " | capitalize }}</a>
           {%- endif -%}
         </li>
       {%- endfor -%}

@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 3
+      "actualWorkers": 4
     },
     "preserveOutput": "always",
     "reporter": [
@@ -43,7 +43,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 3
+          "actualWorkers": 4
         },
         "id": "chromium-desktop",
         "name": "chromium-desktop",
@@ -59,7 +59,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 3
+          "actualWorkers": 4
         },
         "id": "chromium-mobile",
         "name": "chromium-mobile",
@@ -75,7 +75,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 3
+          "actualWorkers": 4
         },
         "id": "chromium-tablet",
         "name": "chromium-tablet",
@@ -102,6 +102,226 @@
   },
   "suites": [
     {
+      "title": "basic.spec.js",
+      "file": "basic.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "homepage has correct title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-desktop",
+              "projectName": "chromium-desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5831,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-19T05:05:17.619Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "39a4afdb91042e108afb-1f8b4a05dcf159081d06",
+          "file": "basic.spec.js",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "homepage has correct title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-mobile",
+              "projectName": "chromium-mobile",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 5149,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-19T05:05:31.202Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "39a4afdb91042e108afb-a59bf45d77f52b0580cc",
+          "file": "basic.spec.js",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "homepage has correct title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-tablet",
+              "projectName": "chromium-tablet",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6132,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-19T05:05:47.353Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "39a4afdb91042e108afb-b33cb28382fc2055b4ff",
+          "file": "basic.spec.js",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "basic.spec.ts",
+      "file": "basic.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "homepage has correct title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-desktop",
+              "projectName": "chromium-desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6570,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-19T05:05:17.490Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8946741c555a0c4515d8-0a4ac6a74f381eab6704",
+          "file": "basic.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "homepage has correct title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-mobile",
+              "projectName": "chromium-mobile",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4756,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-19T05:05:31.252Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8946741c555a0c4515d8-2316c1794fd240232a38",
+          "file": "basic.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "homepage has correct title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-tablet",
+              "projectName": "chromium-tablet",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 7427,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-19T05:05:49.547Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8946741c555a0c4515d8-4c3d6ee01bbd8929901c",
+          "file": "basic.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
       "title": "mobile-nav.spec.js",
       "file": "mobile-nav.spec.js",
       "column": 0,
@@ -127,10 +347,10 @@
                   "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 3482,
+                      "duration": 5925,
                       "errors": [],
                       "stdout": [
                         {
@@ -141,14 +361,11 @@
                         },
                         {
                           "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:16.953Z",
+                      "startTime": "2026-01-19T05:05:17.655Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -174,10 +391,54 @@
                   "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 3504,
+                      "duration": 3819,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-19T05:05:24.160Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-0b04e191f9cac4e05b23",
+              "file": "mobile-nav.spec.js",
+              "line": 57,
+              "column": 3
+            },
+            {
+              "title": "should close drawer when backdrop clicked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 7147,
                       "errors": [],
                       "stdout": [
                         {
@@ -195,99 +456,12 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:20.949Z",
+                      "startTime": "2026-01-19T05:05:28.068Z",
                       "annotations": [],
                       "attachments": []
                     }
                   ],
                   "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-0b04e191f9cac4e05b23",
-              "file": "mobile-nav.spec.js",
-              "line": 57,
-              "column": 3
-            },
-            {
-              "title": "should close drawer when backdrop clicked",
-              "ok": false,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-desktop",
-                  "projectName": "chromium-desktop",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 10267,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#mobile-nav-drawer')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#mobile-nav-drawer')\u001b[22m\n\u001b[2m    8 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" class=\"mobile-nav\" aria-hidden=\"false\" id=\"mobile-nav-drawer\" aria-label=\"Navigation menu\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#mobile-nav-drawer')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#mobile-nav-drawer')\u001b[22m\n\u001b[2m    8 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" class=\"mobile-nav\" aria-hidden=\"false\" id=\"mobile-nav-drawer\" aria-label=\"Navigation menu\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:98:26",
-                        "location": {
-                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
-                          "column": 26,
-                          "line": 98
-                        },
-                        "snippet": "\u001b[0m \u001b[90m  96 |\u001b[39m\n \u001b[90m  97 |\u001b[39m     \u001b[90m// Drawer should be closed\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  98 |\u001b[39m     \u001b[36mawait\u001b[39m expect(drawer)\u001b[33m.\u001b[39mtoHaveAttribute(\u001b[32m'aria-hidden'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'true'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  99 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 100 |\u001b[39m\n \u001b[90m 101 |\u001b[39m   test(\u001b[32m'should close drawer when X button clicked'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
-                            "column": 26,
-                            "line": 98
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#mobile-nav-drawer')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#mobile-nav-drawer')\u001b[22m\n\u001b[2m    8 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" class=\"mobile-nav\" aria-hidden=\"false\" id=\"mobile-nav-drawer\" aria-label=\"Navigation menu\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\n\n\u001b[0m \u001b[90m  96 |\u001b[39m\n \u001b[90m  97 |\u001b[39m     \u001b[90m// Drawer should be closed\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  98 |\u001b[39m     \u001b[36mawait\u001b[39m expect(drawer)\u001b[33m.\u001b[39mtoHaveAttribute(\u001b[32m'aria-hidden'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'true'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  99 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 100 |\u001b[39m\n \u001b[90m 101 |\u001b[39m   test(\u001b[32m'should close drawer when X button clicked'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:98:26\u001b[22m"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T04:48:24.489Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-desktop\\test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-desktop\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-desktop\\error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
-                        "column": 26,
-                        "line": 98
-                      }
-                    }
-                  ],
-                  "status": "unexpected"
                 }
               ],
               "id": "2658a5cb0a709a925606-296b8795eb8dc5d70e77",
@@ -308,24 +482,12 @@
                   "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 3133,
+                      "duration": 4023,
                       "errors": [],
                       "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
                         {
                           "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
                         },
@@ -341,7 +503,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:38.401Z",
+                      "startTime": "2026-01-19T05:05:35.333Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -351,7 +513,7 @@
               ],
               "id": "2658a5cb0a709a925606-907c5e71bfe9fecfe042",
               "file": "mobile-nav.spec.js",
-              "line": 101,
+              "line": 111,
               "column": 3
             },
             {
@@ -367,10 +529,10 @@
                   "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 3742,
+                      "duration": 4756,
                       "errors": [],
                       "stdout": [
                         {
@@ -388,7 +550,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:41.890Z",
+                      "startTime": "2026-01-19T05:05:39.414Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -398,7 +560,7 @@
               ],
               "id": "2658a5cb0a709a925606-6c31528c5c867bf75799",
               "file": "mobile-nav.spec.js",
-              "line": 119,
+              "line": 129,
               "column": 3
             },
             {
@@ -414,10 +576,10 @@
                   "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 2437,
+                      "duration": 4394,
                       "errors": [],
                       "stdout": [
                         {
@@ -435,7 +597,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:45.679Z",
+                      "startTime": "2026-01-19T05:05:44.307Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -445,7 +607,7 @@
               ],
               "id": "2658a5cb0a709a925606-77cbefec894cd1064cae",
               "file": "mobile-nav.spec.js",
-              "line": 136,
+              "line": 146,
               "column": 3
             },
             {
@@ -461,10 +623,10 @@
                   "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 2590,
+                      "duration": 6484,
                       "errors": [],
                       "stdout": [
                         {
@@ -482,7 +644,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:48.153Z",
+                      "startTime": "2026-01-19T05:05:48.756Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -492,7 +654,7 @@
               ],
               "id": "2658a5cb0a709a925606-121b6fd49a0b42f736f3",
               "file": "mobile-nav.spec.js",
-              "line": 161,
+              "line": 171,
               "column": 3
             },
             {
@@ -508,10 +670,10 @@
                   "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 3669,
+                      "duration": 8104,
                       "errors": [],
                       "stdout": [
                         {
@@ -529,7 +691,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:50.802Z",
+                      "startTime": "2026-01-19T05:05:55.292Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -539,7 +701,7 @@
               ],
               "id": "2658a5cb0a709a925606-672f0a1fa102aed108e4",
               "file": "mobile-nav.spec.js",
-              "line": 180,
+              "line": 190,
               "column": 3
             },
             {
@@ -555,10 +717,10 @@
                   "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 3394,
+                      "duration": 8865,
                       "errors": [],
                       "stdout": [
                         {
@@ -569,14 +731,11 @@
                         },
                         {
                           "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:54.624Z",
+                      "startTime": "2026-01-19T05:06:03.446Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -586,7 +745,7 @@
               ],
               "id": "2658a5cb0a709a925606-3a2d3f921d5c99bddcac",
               "file": "mobile-nav.spec.js",
-              "line": 210,
+              "line": 220,
               "column": 3
             },
             {
@@ -602,10 +761,10 @@
                   "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 10876,
+                      "duration": 5912,
                       "errors": [],
                       "stdout": [
                         {
@@ -623,7 +782,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:58.067Z",
+                      "startTime": "2026-01-19T05:06:12.374Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -633,7 +792,7 @@
               ],
               "id": "2658a5cb0a709a925606-b7fe38d5ec143f576112",
               "file": "mobile-nav.spec.js",
-              "line": 230,
+              "line": 240,
               "column": 3
             },
             {
@@ -649,10 +808,10 @@
                   "projectName": "chromium-mobile",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 9997,
+                      "duration": 8425,
                       "errors": [],
                       "stdout": [
                         {
@@ -673,7 +832,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:16.992Z",
+                      "startTime": "2026-01-19T05:05:40.959Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -699,77 +858,11 @@
                   "projectName": "chromium-mobile",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4178,
+                      "duration": 9804,
                       "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T04:48:27.298Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-bedcee948df68afca0a5",
-              "file": "mobile-nav.spec.js",
-              "line": 57,
-              "column": 3
-            },
-            {
-              "title": "should close drawer when backdrop clicked",
-              "ok": false,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "failed",
-                      "duration": 12553,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#mobile-nav-drawer')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#mobile-nav-drawer')\u001b[22m\n\u001b[2m    8 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" class=\"mobile-nav\" aria-hidden=\"false\" id=\"mobile-nav-drawer\" aria-label=\"Navigation menu\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#mobile-nav-drawer')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#mobile-nav-drawer')\u001b[22m\n\u001b[2m    8 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" class=\"mobile-nav\" aria-hidden=\"false\" id=\"mobile-nav-drawer\" aria-label=\"Navigation menu\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:98:26",
-                        "location": {
-                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
-                          "column": 26,
-                          "line": 98
-                        },
-                        "snippet": "\u001b[0m \u001b[90m  96 |\u001b[39m\n \u001b[90m  97 |\u001b[39m     \u001b[90m// Drawer should be closed\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  98 |\u001b[39m     \u001b[36mawait\u001b[39m expect(drawer)\u001b[33m.\u001b[39mtoHaveAttribute(\u001b[32m'aria-hidden'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'true'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  99 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 100 |\u001b[39m\n \u001b[90m 101 |\u001b[39m   test(\u001b[32m'should close drawer when X button clicked'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
-                            "column": 26,
-                            "line": 98
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#mobile-nav-drawer')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#mobile-nav-drawer')\u001b[22m\n\u001b[2m    8 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" class=\"mobile-nav\" aria-hidden=\"false\" id=\"mobile-nav-drawer\" aria-label=\"Navigation menu\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\n\n\u001b[0m \u001b[90m  96 |\u001b[39m\n \u001b[90m  97 |\u001b[39m     \u001b[90m// Drawer should be closed\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  98 |\u001b[39m     \u001b[36mawait\u001b[39m expect(drawer)\u001b[33m.\u001b[39mtoHaveAttribute(\u001b[32m'aria-hidden'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'true'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  99 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 100 |\u001b[39m\n \u001b[90m 101 |\u001b[39m   test(\u001b[32m'should close drawer when X button clicked'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:98:26\u001b[22m"
-                        }
-                      ],
                       "stdout": [
                         {
                           "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
@@ -789,33 +882,62 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:31.693Z",
+                      "startTime": "2026-01-19T05:05:49.900Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-mobile\\test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-mobile\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-mobile\\error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
-                        "column": 26,
-                        "line": 98
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
+                }
+              ],
+              "id": "2658a5cb0a709a925606-bedcee948df68afca0a5",
+              "file": "mobile-nav.spec.js",
+              "line": 57,
+              "column": 3
+            },
+            {
+              "title": "should close drawer when backdrop clicked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9273,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][warning] The resource http://localhost:4000/assets/js/main.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it wasn't preloaded for nothing.\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-19T05:05:59.834Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
               "id": "2658a5cb0a709a925606-3403f2e01448b2e3c574",
@@ -836,10 +958,10 @@
                   "projectName": "chromium-mobile",
                   "results": [
                     {
-                      "workerIndex": 5,
-                      "parallelIndex": 1,
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 12453,
+                      "duration": 8468,
                       "errors": [],
                       "stdout": [
                         {
@@ -856,23 +978,11 @@
                         },
                         {
                           "text": "[BROWSER LOG][warning] The resource http://localhost:4000/assets/js/main.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it wasn't preloaded for nothing.\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:50.113Z",
+                      "startTime": "2026-01-19T05:06:09.191Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -882,7 +992,7 @@
               ],
               "id": "2658a5cb0a709a925606-2f51bd71a49206190bc9",
               "file": "mobile-nav.spec.js",
-              "line": 101,
+              "line": 111,
               "column": 3
             },
             {
@@ -898,10 +1008,10 @@
                   "projectName": "chromium-mobile",
                   "results": [
                     {
-                      "workerIndex": 5,
-                      "parallelIndex": 1,
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 12586,
+                      "duration": 9630,
                       "errors": [],
                       "stdout": [
                         {
@@ -922,7 +1032,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:49:03.991Z",
+                      "startTime": "2026-01-19T05:06:17.697Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -932,7 +1042,7 @@
               ],
               "id": "2658a5cb0a709a925606-6c19e9dd7749c3455ce7",
               "file": "mobile-nav.spec.js",
-              "line": 119,
+              "line": 129,
               "column": 3
             },
             {
@@ -948,10 +1058,10 @@
                   "projectName": "chromium-mobile",
                   "results": [
                     {
-                      "workerIndex": 5,
-                      "parallelIndex": 1,
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3220,
+                      "duration": 6002,
                       "errors": [],
                       "stdout": [
                         {
@@ -965,11 +1075,14 @@
                         },
                         {
                           "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][warning] The resource http://localhost:4000/assets/js/main.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it wasn't preloaded for nothing.\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:49:16.699Z",
+                      "startTime": "2026-01-19T05:06:27.396Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -979,7 +1092,7 @@
               ],
               "id": "2658a5cb0a709a925606-bc0369bb819bc61e2412",
               "file": "mobile-nav.spec.js",
-              "line": 136,
+              "line": 146,
               "column": 3
             },
             {
@@ -995,10 +1108,10 @@
                   "projectName": "chromium-mobile",
                   "results": [
                     {
-                      "workerIndex": 5,
-                      "parallelIndex": 1,
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3610,
+                      "duration": 5109,
                       "errors": [],
                       "stdout": [
                         {
@@ -1012,11 +1125,14 @@
                         },
                         {
                           "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][warning] The resource http://localhost:4000/assets/js/main.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it wasn't preloaded for nothing.\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:49:19.990Z",
+                      "startTime": "2026-01-19T05:06:33.498Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1026,7 +1142,7 @@
               ],
               "id": "2658a5cb0a709a925606-10fbf528a9347d619a84",
               "file": "mobile-nav.spec.js",
-              "line": 161,
+              "line": 171,
               "column": 3
             },
             {
@@ -1042,10 +1158,10 @@
                   "projectName": "chromium-mobile",
                   "results": [
                     {
-                      "workerIndex": 5,
-                      "parallelIndex": 1,
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4097,
+                      "duration": 6615,
                       "errors": [],
                       "stdout": [
                         {
@@ -1066,7 +1182,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:49:23.636Z",
+                      "startTime": "2026-01-19T05:06:38.647Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1076,7 +1192,7 @@
               ],
               "id": "2658a5cb0a709a925606-8e38452c92c1ef3d9eac",
               "file": "mobile-nav.spec.js",
-              "line": 180,
+              "line": 190,
               "column": 3
             },
             {
@@ -1092,10 +1208,10 @@
                   "projectName": "chromium-mobile",
                   "results": [
                     {
-                      "workerIndex": 5,
-                      "parallelIndex": 1,
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7266,
+                      "duration": 5333,
                       "errors": [],
                       "stdout": [
                         {
@@ -1116,7 +1232,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:49:27.778Z",
+                      "startTime": "2026-01-19T05:06:45.298Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1126,12 +1242,12 @@
               ],
               "id": "2658a5cb0a709a925606-3df4268af7f10094e230",
               "file": "mobile-nav.spec.js",
-              "line": 210,
+              "line": 220,
               "column": 3
             },
             {
               "title": "should be keyboard navigable",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -1142,30 +1258,11 @@
                   "projectName": "chromium-mobile",
                   "results": [
                     {
-                      "workerIndex": 5,
-                      "parallelIndex": 1,
-                      "status": "failed",
-                      "duration": 4067,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:257:27",
-                        "location": {
-                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
-                          "column": 27,
-                          "line": 257
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 255 |\u001b[39m       \u001b[36mreturn\u001b[39m drawer \u001b[33m&&\u001b[39m drawer\u001b[33m.\u001b[39mcontains(document\u001b[33m.\u001b[39mactiveElement)\u001b[33m;\u001b[39m\n \u001b[90m 256 |\u001b[39m     })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 257 |\u001b[39m     expect(focusInDrawer)\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 258 |\u001b[39m\n \u001b[90m 259 |\u001b[39m     \u001b[90m// Test ESC closes the drawer\u001b[39m\n \u001b[90m 260 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Escape'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
-                            "column": 27,
-                            "line": 257
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n\u001b[0m \u001b[90m 255 |\u001b[39m       \u001b[36mreturn\u001b[39m drawer \u001b[33m&&\u001b[39m drawer\u001b[33m.\u001b[39mcontains(document\u001b[33m.\u001b[39mactiveElement)\u001b[33m;\u001b[39m\n \u001b[90m 256 |\u001b[39m     })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 257 |\u001b[39m     expect(focusInDrawer)\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 258 |\u001b[39m\n \u001b[90m 259 |\u001b[39m     \u001b[90m// Test ESC closes the drawer\u001b[39m\n \u001b[90m 260 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Escape'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:257:27\u001b[22m"
-                        }
-                      ],
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4991,
+                      "errors": [],
                       "stdout": [
                         {
                           "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
@@ -1178,42 +1275,24 @@
                         },
                         {
                           "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
+                        },
+                        {
+                          "text": "[BROWSER LOG][warning] The resource http://localhost:4000/assets/js/main.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it wasn't preloaded for nothing.\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:49:35.114Z",
+                      "startTime": "2026-01-19T05:06:50.671Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-99ae0-hould-be-keyboard-navigable-chromium-mobile\\test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-99ae0-hould-be-keyboard-navigable-chromium-mobile\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-99ae0-hould-be-keyboard-navigable-chromium-mobile\\error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
-                        "column": 27,
-                        "line": 257
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "2658a5cb0a709a925606-fcfa9b6e684bbc35b4f5",
               "file": "mobile-nav.spec.js",
-              "line": 230,
+              "line": 240,
               "column": 3
             },
             {
@@ -1229,10 +1308,10 @@
                   "projectName": "chromium-tablet",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3892,
+                      "duration": 15881,
                       "errors": [],
                       "stdout": [
                         {
@@ -1250,7 +1329,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:16.921Z",
+                      "startTime": "2026-01-19T05:05:54.330Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1276,10 +1355,10 @@
                   "projectName": "chromium-tablet",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 4413,
+                      "duration": 5555,
                       "errors": [],
                       "stdout": [
                         {
@@ -1297,7 +1376,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:21.219Z",
+                      "startTime": "2026-01-19T05:06:10.280Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1312,7 +1391,7 @@
             },
             {
               "title": "should close drawer when backdrop clicked",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -1323,30 +1402,11 @@
                   "projectName": "chromium-tablet",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "failed",
-                      "duration": 10896,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#mobile-nav-drawer')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#mobile-nav-drawer')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" class=\"mobile-nav\" aria-hidden=\"false\" id=\"mobile-nav-drawer\" aria-label=\"Navigation menu\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#mobile-nav-drawer')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#mobile-nav-drawer')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" class=\"mobile-nav\" aria-hidden=\"false\" id=\"mobile-nav-drawer\" aria-label=\"Navigation menu\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:98:26",
-                        "location": {
-                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
-                          "column": 26,
-                          "line": 98
-                        },
-                        "snippet": "\u001b[0m \u001b[90m  96 |\u001b[39m\n \u001b[90m  97 |\u001b[39m     \u001b[90m// Drawer should be closed\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  98 |\u001b[39m     \u001b[36mawait\u001b[39m expect(drawer)\u001b[33m.\u001b[39mtoHaveAttribute(\u001b[32m'aria-hidden'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'true'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  99 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 100 |\u001b[39m\n \u001b[90m 101 |\u001b[39m   test(\u001b[32m'should close drawer when X button clicked'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
-                            "column": 26,
-                            "line": 98
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#mobile-nav-drawer')\nExpected: \u001b[32m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#mobile-nav-drawer')\u001b[22m\n\u001b[2m    9 × locator resolved to <div role=\"dialog\" aria-modal=\"true\" class=\"mobile-nav\" aria-hidden=\"false\" id=\"mobile-nav-drawer\" aria-label=\"Navigation menu\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"false\"\u001b[22m\n\n\n\u001b[0m \u001b[90m  96 |\u001b[39m\n \u001b[90m  97 |\u001b[39m     \u001b[90m// Drawer should be closed\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  98 |\u001b[39m     \u001b[36mawait\u001b[39m expect(drawer)\u001b[33m.\u001b[39mtoHaveAttribute(\u001b[32m'aria-hidden'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'true'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  99 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 100 |\u001b[39m\n \u001b[90m 101 |\u001b[39m   test(\u001b[32m'should close drawer when X button clicked'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js:98:26\u001b[22m"
-                        }
-                      ],
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5934,
+                      "errors": [],
                       "stdout": [
                         {
                           "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
@@ -1363,33 +1423,12 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:25.676Z",
+                      "startTime": "2026-01-19T05:06:15.910Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-tablet\\test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-tablet\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\mobile-nav-Mobile-Navigati-47432-rawer-when-backdrop-clicked-chromium-tablet\\error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\mobile-nav.spec.js",
-                        "column": 26,
-                        "line": 98
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "2658a5cb0a709a925606-383c82018c018b15a1cb",
@@ -1410,24 +1449,12 @@
                   "projectName": "chromium-tablet",
                   "results": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 2,
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 4293,
+                      "duration": 6988,
                       "errors": [],
                       "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
                         {
                           "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
                         },
@@ -1443,7 +1470,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:40.429Z",
+                      "startTime": "2026-01-19T05:06:22.025Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1453,7 +1480,7 @@
               ],
               "id": "2658a5cb0a709a925606-b65e733d2b34841fa662",
               "file": "mobile-nav.spec.js",
-              "line": 101,
+              "line": 111,
               "column": 3
             },
             {
@@ -1469,10 +1496,10 @@
                   "projectName": "chromium-tablet",
                   "results": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 2,
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3104,
+                      "duration": 4342,
                       "errors": [],
                       "stdout": [
                         {
@@ -1490,7 +1517,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:45.509Z",
+                      "startTime": "2026-01-19T05:06:29.063Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1500,7 +1527,7 @@
               ],
               "id": "2658a5cb0a709a925606-864a1bafa945d6036916",
               "file": "mobile-nav.spec.js",
-              "line": 119,
+              "line": 129,
               "column": 3
             },
             {
@@ -1516,10 +1543,10 @@
                   "projectName": "chromium-tablet",
                   "results": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 2,
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 2714,
+                      "duration": 2666,
                       "errors": [],
                       "stdout": [
                         {
@@ -1537,7 +1564,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:48.673Z",
+                      "startTime": "2026-01-19T05:06:33.448Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1547,7 +1574,7 @@
               ],
               "id": "2658a5cb0a709a925606-3eddfe91cc0ce4d82010",
               "file": "mobile-nav.spec.js",
-              "line": 136,
+              "line": 146,
               "column": 3
             },
             {
@@ -1563,10 +1590,10 @@
                   "projectName": "chromium-tablet",
                   "results": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 2,
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 5333,
+                      "duration": 2227,
                       "errors": [],
                       "stdout": [
                         {
@@ -1584,7 +1611,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:51.428Z",
+                      "startTime": "2026-01-19T05:06:36.149Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1594,7 +1621,7 @@
               ],
               "id": "2658a5cb0a709a925606-552201c96c1cfae0f5f2",
               "file": "mobile-nav.spec.js",
-              "line": 161,
+              "line": 171,
               "column": 3
             },
             {
@@ -1610,10 +1637,10 @@
                   "projectName": "chromium-tablet",
                   "results": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 2,
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 4815,
+                      "duration": 4041,
                       "errors": [],
                       "stdout": [
                         {
@@ -1631,7 +1658,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:48:56.830Z",
+                      "startTime": "2026-01-19T05:06:38.412Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1641,7 +1668,7 @@
               ],
               "id": "2658a5cb0a709a925606-d0b47aa4e4e5e1de2dd6",
               "file": "mobile-nav.spec.js",
-              "line": 180,
+              "line": 190,
               "column": 3
             },
             {
@@ -1657,10 +1684,10 @@
                   "projectName": "chromium-tablet",
                   "results": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 2,
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 8609,
+                      "duration": 2832,
                       "errors": [],
                       "stdout": [
                         {
@@ -1678,7 +1705,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:49:01.812Z",
+                      "startTime": "2026-01-19T05:06:42.484Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1688,7 +1715,7 @@
               ],
               "id": "2658a5cb0a709a925606-5ab93d3c89b2510823ab",
               "file": "mobile-nav.spec.js",
-              "line": 210,
+              "line": 220,
               "column": 3
             },
             {
@@ -1704,10 +1731,10 @@
                   "projectName": "chromium-tablet",
                   "results": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 2,
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 4474,
+                      "duration": 3583,
                       "errors": [],
                       "stdout": [
                         {
@@ -1725,7 +1752,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T04:49:10.711Z",
+                      "startTime": "2026-01-19T05:06:45.356Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1735,21 +1762,241 @@
               ],
               "id": "2658a5cb0a709a925606-fa795ebba6bb21b6a1e0",
               "file": "mobile-nav.spec.js",
-              "line": 230,
+              "line": 240,
               "column": 3
             }
           ]
+        }
+      ]
+    },
+    {
+      "title": "surface-checkbox.spec.js",
+      "file": "surface-checkbox.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Surface checkboxes work independently",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-desktop",
+              "projectName": "chromium-desktop",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 6059,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-19T05:05:17.699Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "da078047368765642879-b0200e012cbe9f7605a9",
+          "file": "surface-checkbox.spec.js",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "Surface checkboxes work independently",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-mobile",
+              "projectName": "chromium-mobile",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4762,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-19T05:05:36.395Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "da078047368765642879-e456d6dbccfe57095c42",
+          "file": "surface-checkbox.spec.js",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "Surface checkboxes work independently",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-tablet",
+              "projectName": "chromium-tablet",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3350,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-19T05:05:58.301Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "da078047368765642879-396622c615f5093c4651",
+          "file": "surface-checkbox.spec.js",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "tools-test.spec.js",
+      "file": "tools-test.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Tools page loads and calculators work",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-desktop",
+              "projectName": "chromium-desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10372,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-19T05:05:24.188Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4879bb04630d395fe8dd-72d25873ddc9b62b61ce",
+          "file": "tools-test.spec.js",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "Tools page loads and calculators work",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-mobile",
+              "projectName": "chromium-mobile",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 7233,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-19T05:05:37.069Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4879bb04630d395fe8dd-cf9869abb83002f44fdf",
+          "file": "tools-test.spec.js",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "Tools page loads and calculators work",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-tablet",
+              "projectName": "chromium-tablet",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8127,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-19T05:06:01.731Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4879bb04630d395fe8dd-a4b3810e0ddbf7372937",
+          "file": "tools-test.spec.js",
+          "line": 4,
+          "column": 1
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-19T04:48:13.633Z",
-    "duration": 86669.095,
-    "expected": 26,
+    "startTime": "2026-01-19T05:05:11.898Z",
+    "duration": 104110.26400000001,
+    "expected": 42,
     "skipped": 0,
-    "unexpected": 4,
+    "unexpected": 0,
     "flaky": 0
   }
 }

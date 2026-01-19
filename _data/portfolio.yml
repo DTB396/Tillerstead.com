@@ -27,24 +27,37 @@ projects:
     ar: "4/3"
     priority: 9
 
+  - id: shower-subway-decor
+    title: "Subway Tile Shower with Accent"
+    tags: ["showers", "details"]
+    file: "/assets/img/concepts/shower-white-subway-with-decor-tile.webp"
+    file_fallback: "/assets/img/concepts/shower-white-subway-with-decor-tile.jpg"
+    alt: "White subway tile shower with decorative accent tile band"
+    caption: >
+      Classic subway tile pattern with integrated decorative accent band.
+      Waterproofing and proper slope ensure long-term durability.
+    location: "South Jersey"
+    ar: "4/3"
+    priority: 8
+
   - id: wall-tile-detail
     title: "Wall Tile Detail (Pre-Grout)"
     tags: ["showers", "details"]
-    file: "/assets/img/tillerstead-work/bathrooms/bathroom-wall-tile-detail-pre-grout.jpg"
-    file_webp: "/assets/img/tillerstead-work/bathrooms/bathroom-wall-tile-detail-pre-grout.webp"
+    file: "/assets/img/tillerstead-work/bathrooms/bathroom-wall-tile-detail-pre-grout.webp"
+    file_fallback: "/assets/img/tillerstead-work/bathrooms/bathroom-wall-tile-detail-pre-grout.jpg"
     alt: "Bathroom wall tile detail before grout showing consistent joint spacing"
     caption: >
       Pre-grout detail: consistent spacing, clean cuts, and readiness checks
       completed before grout and final seal-up.
     location: "South Jersey"
     ar: "4/3"
-    priority: 8
+    priority: 7
 
   - id: lft-installation
-    title: "Large-Format Tile Installation (In Progress)"
-    tags: ["floors", "large-format", "in-progress"]
-    file: "/assets/img/tillerstead-work/bathrooms/large-format-tile-installation.jpg"
-    file_webp: "/assets/img/tillerstead-work/bathrooms/large-format-tile-installation.webp"
+    title: "Large-Format Tile Installation"
+    tags: ["floors", "large-format"]
+    file: "/assets/img/tillerstead-work/bathrooms/large-format-tile-installation.webp"
+    file_fallback: "/assets/img/tillerstead-work/bathrooms/large-format-tile-installation.jpg"
     alt: "Large-format tile installation in progress with clip system for lippage control"
     caption: >
       In-progress install: clip system used to manage lippage,
@@ -52,10 +65,23 @@ projects:
       and coverage verified during setting.
     location: "South Jersey"
     ar: "4/3"
-    priority: 7
+    priority: 6
+
+  - id: backsplash-white
+    title: "Kitchen Backsplash"
+    tags: ["backsplash", "details"]
+    file: "/assets/img/concepts/backsplash-white.webp"
+    file_fallback: "/assets/img/concepts/backsplash-white.jpg"
+    alt: "Clean white kitchen backsplash tile installation"
+    caption: >
+      Kitchen backsplash with precise cuts around outlets and clean transitions.
+      Proper surface prep ensures lasting adhesion.
+    location: "South Jersey"
+    ar: "4/3"
+    priority: 5
 
   - id: waterproof-membrane
-    title: "Membrane + Substrate Prep"
+    title: "Membrane & Substrate Prep"
     tags: ["floors", "showers", "prep"]
     file: "/assets/img/tillerstead-work/bathrooms/lft-decoupling-membrane-sealed.jpeg"
     alt: "Uncoupling or waterproofing membrane installed over a prepared substrate for tile assembly"
@@ -64,10 +90,23 @@ projects:
       Details and transitions completed per the selected system specifications.
     location: "South Jersey"
     ar: "4/3"
-    priority: 6
+    priority: 4
+
+  - id: wood-look-plank
+    title: "Wood-Look Plank Tile"
+    tags: ["floors", "large-format"]
+    file: "/assets/img/concepts/brown-tile-plank-flooring.webp"
+    file_fallback: "/assets/img/concepts/brown-tile-plank-flooring.jpg"
+    alt: "Brown wood-look plank tile flooring installation"
+    caption: >
+      Wood-look plank tile with staggered pattern for natural appearance.
+      Large-format installation requires proper mortar coverage and leveling.
+    location: "South Jersey"
+    ar: "4/3"
+    priority: 3
 
   - id: hardwood-flooring
-    title: "Hardwood Flooring (Scope Diversity)"
+    title: "Hardwood Flooring"
     tags: ["floors", "remodeling"]
     file: "/assets/img/tillerstead-work/floors/hardwood-room.jpg"
     alt: "Hardwood flooring installation showing clean lines and transitions"
@@ -76,7 +115,20 @@ projects:
       consistent with manufacturer requirements.
     location: "South Jersey"
     ar: "4/3"
-    priority: 5
+    priority: 2
+
+  - id: hardwood-stain
+    title: "Hardwood Refinishing"
+    tags: ["floors", "remodeling"]
+    file: "/assets/img/concepts/treat-sand-stain-hardwood-floor-room.webp"
+    file_fallback: "/assets/img/concepts/treat-sand-stain-hardwood-floor-room.jpg"
+    alt: "Hardwood floor sanding and staining in progress"
+    caption: >
+      Hardwood refinishing: sanding, staining, and sealing for restored beauty.
+      Proper prep and product selection ensure durable results.
+    location: "South Jersey"
+    ar: "4/3"
+    priority: 1
 
 meta:
   compliance_note: "NJ HIC #13VH10808800 · Tile assemblies follow TCNA 2024 methods and applicable ANSI A108/A118 standards."
