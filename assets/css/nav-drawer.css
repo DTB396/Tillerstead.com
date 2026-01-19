@@ -168,25 +168,122 @@ body.nav-open {
   display: none;
   background: none;
   border: none;
-  font-size: 1.75rem;
-  color: var(--tiller-text-primary);
   cursor: pointer;
   padding: 0.625rem;
   border-radius: 8px;
   min-width: 48px;
   min-height: 48px; /* Touch-friendly */
   transition: background 0.2s ease;
+  position: relative;
+  z-index: 10002;
+}
+
+/* Hamburger lines container */
+.hamburger-lines {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+}
+
+/* Individual hamburger lines */
+.hamburger-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--tiller-color-emerald, #10b981);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+/* Hamburger hover state */
+.nav-toggle:hover .hamburger-line,
+.nav-toggle:focus .hamburger-line {
+  background: var(--tiller-color-gold, #c9a227);
 }
 
 .nav-toggle:hover,
 .nav-toggle:focus {
-  background: rgb(184 160 64 / 15%);
-  color: var(--tiller-color-green, #1a3d2e);
+  background: rgb(16 185 129 / 15%);
 }
 
 .nav-toggle:focus-visible {
-  outline: 2px solid var(--tiller-color-highlight, #0b6cff);
+  outline: 2px solid var(--tiller-color-emerald, #10b981);
   outline-offset: 2px;
+}
+
+/* Hamburger to X animation when menu is open */
+.nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Close button in drawer */
+.nav-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 48px;
+  height: 48px;
+  background: rgb(255 255 255 / 10%);
+  border: 1px solid rgb(255 255 255 / 20%);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.nav-close:hover,
+.nav-close:focus {
+  background: var(--tiller-color-emerald, #10b981);
+  border-color: var(--tiller-color-emerald, #10b981);
+  transform: rotate(90deg);
+}
+
+.nav-close:focus-visible {
+  outline: 2px solid var(--tiller-color-gold, #c9a227);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   Overlay
+   ========================================================= */
+
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(0 0 0 / 60%);
+  backdrop-filter: blur(4px);
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+}
+
+.nav-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 /* =========================================================
