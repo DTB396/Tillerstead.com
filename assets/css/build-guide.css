@@ -31,9 +31,16 @@ body[class*="page-build"],
 
 /* Ensure main content area has light background */
 .page-build-guide .ts-main-content,
-.page-build-guide main {
+.page-build-guide main,
+.page-build-guide .build-layout,
+.page-build-guide .build-article {
   background: #ffffff !important;
   color: #1f2937 !important;
+}
+
+/* Build layout container */
+.page-build-guide .container {
+  background: #ffffff;
 }
 
 /* HEADINGS - All fully visible dark text */
@@ -49,6 +56,12 @@ body[class*="page-build"],
 .page-build-guide .guide-article h4,
 .page-build-guide .guide-article h5,
 .page-build-guide .guide-article h6,
+.page-build-guide .build-article h1,
+.page-build-guide .build-article h2,
+.page-build-guide .build-article h3,
+.page-build-guide .build-article h4,
+.page-build-guide .build-article h5,
+.page-build-guide .build-article h6,
 .build-article h1, .build-article h2, .build-article h3,
 .build-article h4, .build-article h5, .build-article h6,
 .guide-article h1, .guide-article h2, .guide-article h3,
@@ -65,6 +78,9 @@ body[class*="page-build"],
 .page-build-guide td,
 .page-build-guide span,
 .page-build-guide div,
+.page-build-guide .build-article p,
+.page-build-guide .build-article li,
+.page-build-guide .build-article td,
 .build-article p,
 .build-article li,
 .build-article td,

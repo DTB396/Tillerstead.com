@@ -304,8 +304,17 @@ textarea:focus-visible,
 
 [data-high-contrast="true"] a,
 .high-contrast a {
-  color: #ffff00 !important;
+  color: #ffffff !important;
   text-decoration: underline !important;
+  transition: color 0.15s ease, text-shadow 0.15s ease;
+}
+
+[data-high-contrast="true"] a:hover,
+[data-high-contrast="true"] a:focus,
+.high-contrast a:hover,
+.high-contrast a:focus {
+  color: var(--tiller-color-gold, #c9a227) !important;
+  text-shadow: 0 0 8px rgb(201 162 39 / 70%), 0 0 20px rgb(201 162 39 / 50%), 0 0 35px rgb(201 162 39 / 30%) !important;
 }
 
 [data-high-contrast="true"] button,
@@ -315,6 +324,16 @@ textarea:focus-visible,
   background: #ffffff !important;
   color: #000000 !important;
   border: 2px solid #ffffff !important;
+  transition: all 0.15s ease;
+}
+
+[data-high-contrast="true"] button:hover,
+[data-high-contrast="true"] .btn:hover,
+.high-contrast button:hover,
+.high-contrast .btn:hover {
+  background: var(--tiller-color-gold, #c9a227) !important;
+  border-color: var(--tiller-color-gold, #c9a227) !important;
+  box-shadow: 0 0 15px rgb(201 162 39 / 60%), 0 0 30px rgb(201 162 39 / 30%) !important;
 }
 
 /* ==========================================================================
