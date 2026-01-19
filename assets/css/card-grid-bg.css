@@ -1,0 +1,97 @@
+/* =========================================================
+   Card Grid Background - Subtle grid lines behind cards
+   Add .has-grid-bg to card container elements
+   ========================================================= */
+
+/* Utility class to add subtle grid lines behind cards */
+.has-grid-bg {
+  position: relative;
+}
+
+.has-grid-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--grid-line-color, rgba(201, 162, 39, 0.08)) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-color, rgba(201, 162, 39, 0.08)) 1px, transparent 1px);
+  background-size: var(--grid-size, 32px) var(--grid-size, 32px);
+  border-radius: inherit;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%);
+}
+
+/* Ensure card contents stay above the grid */
+.has-grid-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Variant: Denser grid */
+.has-grid-bg--dense {
+  --grid-size: 20px;
+}
+
+/* Variant: Larger grid */
+.has-grid-bg--large {
+  --grid-size: 48px;
+}
+
+/* Variant: Gold grout lines (default, more visible) */
+.has-grid-bg--gold {
+  --grid-line-color: rgba(201, 162, 39, 0.12);
+}
+
+/* Variant: Subtle white lines */
+.has-grid-bg--subtle {
+  --grid-line-color: rgba(255, 255, 255, 0.04);
+}
+
+/* Variant: Emerald accent */
+.has-grid-bg--emerald {
+  --grid-line-color: rgba(16, 185, 129, 0.08);
+}
+
+/* Apply to all card grids by default */
+.cards--3col,
+.cards--4col,
+.ts-plans__grid {
+  position: relative;
+}
+
+.cards--3col::before,
+.cards--4col::before,
+.ts-plans__grid::before {
+  content: '';
+  position: absolute;
+  inset: -1rem;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(201, 162, 39, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(201, 162, 39, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+  border-radius: var(--tiller-border-radius-lg, 12px);
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, black 30%, transparent 100%);
+}
+
+/* Ensure cards stay above grid */
+.cards--3col > *,
+.cards--4col > *,
+.ts-plans__grid > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Reduced motion: disable animations if any were added */
+@media (prefers-reduced-motion: reduce) {
+  .has-grid-bg::before,
+  .cards--3col::before,
+  .cards--4col::before,
+  .ts-plans__grid::before {
+    animation: none;
+  }
+}
