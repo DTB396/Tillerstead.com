@@ -1,5 +1,7 @@
 ---
 layout: default
+build_guide: true
+toc: true
 title: "Flood Testing & Verification"
 permalink: /build/flood-testing/
 order: 7

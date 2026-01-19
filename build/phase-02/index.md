@@ -1,5 +1,7 @@
 ---
 layout: default
+build_guide: true
+toc: true
 title: "Shower Pans, Slopes & Drains"
 permalink: /build/shower-pans-slopes-drains/
 order: 2

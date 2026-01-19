@@ -1,5 +1,7 @@
 ---
 layout: default
+build_guide: true
+toc: true
 title: "Codes, Permits & Inspections"
 permalink: /build/nj-codes-permits/
 order: 1

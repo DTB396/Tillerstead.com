@@ -1,5 +1,7 @@
 ---
 layout: default
+build_guide: true
+toc: true
 title: "Curbs & Curbless Showers"
 permalink: /build/curbs-curbless/
 order: 4

@@ -1,5 +1,7 @@
 ---
 layout: default
+build_guide: true
+toc: true
 title: "Phase 5: Framing for Benches, Seats & Niches"
 permalink: /build/framing-benches-niches/
 description: "Structural planning for benches and niches before waterproofing and tile, based on TCNA methods."

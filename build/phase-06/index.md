@@ -1,5 +1,7 @@
 ---
 layout: default
+build_guide: true
+toc: true
 title: "Tile Installation Standards"
 permalink: /build/tile-installation-standards/
 order: 6

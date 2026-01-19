@@ -1,5 +1,7 @@
 ---
 layout: default
+build_guide: true
+toc: true
 title: "Benches, Seats & Niches"
 permalink: /build/framing-benches-niches/
 order: 5

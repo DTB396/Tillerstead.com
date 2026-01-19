@@ -82,11 +82,107 @@
 
   {% include layout/header.html %}
 
+  {% unless page.build_guide %}
   {% include navigation/ts-breadcrumbs.html %}
+  {% endunless %}
+
+  {% comment %} Build Guide Hero - opt-in via front matter build_guide: true {% endcomment %}
+  {% if page.build_guide %}
+  {%- assign phase_order = page.order | default: page.build_order -%}
+  {%- assign phases = site.data.build_phases.build_phases | sort: "order" -%}
+  <section class="build-hero">
+    <div class="container">
+      <nav class="build-breadcrumb" aria-label="Breadcrumb">
+        <a href="/build/">Build Guides</a>
+        {% if phase_order %}
+        <span aria-hidden="true">›</span>
+        <span>Phase {{ phase_order }}</span>
+        {% endif %}
+      </nav>
+      {% if phase_order %}<span class="phase-badge">Phase {{ phase_order }} of 8</span>{% endif %}
+      <h1 class="build-hero-title">{{ page.build_title | default: page.title }}</h1>
+      {% if page.description %}<p class="build-hero-desc">{{ page.description }}</p>{% endif %}
+    </div>
+  </section>
+  {% endif %}
 
   <main class="ts-main-content" role="main" id="main-content" aria-label="Main content">
+    {% if page.build_guide and page.toc %}
+    <div class="container">
+      <div class="build-layout">
+        <aside class="build-toc" aria-label="Table of Contents">
+          <h2 class="toc-title">On This Page</h2>
+          <nav class="toc-nav" id="toc-nav"></nav>
+        </aside>
+        <article class="build-article prose">
+          {{ content }}
+        </article>
+      </div>
+    </div>
+    {% elsif page.build_guide %}
+    <div class="container">
+      <article class="build-article prose" style="max-width: 800px; margin: 0 auto;">
+        {{ content }}
+      </article>
+    </div>
+    {% else %}
     {{ content }}
+    {% endif %}
   </main>
+
+  {% comment %} Build Guide Phase Navigation {% endcomment %}
+  {% if page.build_guide %}
+  {%- assign phase_order = page.order | default: page.build_order -%}
+  {%- assign phases = site.data.build_phases.build_phases | sort: "order" -%}
+  {%- assign prev_order = phase_order | minus: 1 -%}
+  {%- assign next_order = phase_order | plus: 1 -%}
+  {%- assign prev_phase = nil -%}
+  {%- assign next_phase = nil -%}
+  {%- for phase in phases -%}
+    {%- if phase.order == prev_order -%}{%- assign prev_phase = phase -%}{%- endif -%}
+    {%- if phase.order == next_order -%}{%- assign next_phase = phase -%}{%- endif -%}
+  {%- endfor -%}
+  <section class="build-phase-nav ts-section">
+    <div class="container">
+      <nav class="phase-nav-links" aria-label="Build Phase Navigation">
+        {% if prev_phase %}
+        <a href="{{ prev_phase.url | relative_url }}" class="phase-link phase-prev">
+          <span class="phase-label">← Previous</span>
+          <span class="phase-title">Phase {{ prev_phase.order }}: {{ prev_phase.title }}</span>
+        </a>
+        {% else %}
+        <a href="/build/" class="phase-link phase-prev">
+          <span class="phase-label">← Back</span>
+          <span class="phase-title">All Build Guides</span>
+        </a>
+        {% endif %}
+        {% if next_phase %}
+        <a href="{{ next_phase.url | relative_url }}" class="phase-link phase-next">
+          <span class="phase-label">Next →</span>
+          <span class="phase-title">Phase {{ next_phase.order }}: {{ next_phase.title }}</span>
+        </a>
+        {% else %}
+        <a href="/contact/" class="phase-link phase-next phase-cta">
+          <span class="phase-label">Ready to Build?</span>
+          <span class="phase-title">Request an Estimate</span>
+        </a>
+        {% endif %}
+      </nav>
+    </div>
+  </section>
+
+  <section class="build-cta">
+    <div class="container text-center">
+      <h2>Ready to Start Your Project?</h2>
+      <p>Get a detailed estimate for your bathroom or shower remodel from a licensed NJ contractor.</p>
+      <div class="cta-buttons">
+        <a href="/contact/" class="btn btn-light btn-lg">Request an Estimate</a>
+        <a href="tel:+16098628808" class="btn btn-outline-light btn-lg">Call (609) 862-8808</a>
+      </div>
+      <p class="cta-cred"><small>NJ HIC #13VH10808800 • TCNA-Compliant Methods</small></p>
+    </div>
+  </section>
+  {% endif %}
 
   {% include layout/footer.html %}
 

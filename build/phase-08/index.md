@@ -1,5 +1,7 @@
 ---
 layout: default
+build_guide: true
+toc: true
 title: "Common Failures & Red Flags"
 permalink: /build/common-build-failures/
 order: 8

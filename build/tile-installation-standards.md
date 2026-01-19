@@ -1,5 +1,7 @@
 ---
 layout: default
+build_guide: true
+toc: true
 title: "Phase 6: Tile Installation Standards"
 permalink: /build/tile-installation-standards/
 description: "ANSI A108/A118 tile installation standards covering substrate prep, mortar selection, coverage, and movement joints."

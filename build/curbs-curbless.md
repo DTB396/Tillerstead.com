@@ -1,5 +1,7 @@
 ---
 layout: default
+build_guide: true
+toc: true
 title: "Phase 4: Curbs & Curbless Showers"
 permalink: /build/curbs-curbless/
 description: "How showers contain water at the entry, including curbed and curbless designs permitted in New Jersey."
