@@ -46,11 +46,11 @@
   background: var(--tiller-bg-darker, #121414);
 }
 
-/* CUSTOMIZED: Emerald/green grout-line grid effect instead of gold */
+/* CUSTOMIZED: No grid background - matches dark page */
 .ts-portfolio-tiled {
-  background: var(--tiller-color-emerald-dark, #059669);
-  padding: 4px;
-  gap: 4px;
+  background: transparent;
+  padding: 0;
+  gap: 2rem;
 }
 
 .portfolio-filters {
@@ -88,12 +88,12 @@
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
+  gap: 2rem;
   margin-bottom: 4rem;
-  /* Emerald grout-line grid effect */
-  background: var(--tiller-color-emerald-dark, #059669);
-  padding: 4px;
-  border-radius: var(--tiller-border-radius-md, 8px);
+  /* No grid background - clean dark look */
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
 }
 
 @media (max-width: 1024px) {
