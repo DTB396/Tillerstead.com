@@ -16,14 +16,29 @@
   color: #1f2937 !important;
 }
 
-.page-build-guide h1,
-.page-build-guide h2,
-.page-build-guide h3,
-.page-build-guide h4,
-.page-build-guide h5,
-.page-build-guide h6 {
+.page-build-guide .build-guide-content h1,
+.page-build-guide .build-guide-content h2,
+.page-build-guide .build-guide-content h3,
+.page-build-guide .build-guide-content h4,
+.page-build-guide .build-guide-content h5,
+.page-build-guide .build-guide-content h6,
+.page-build-guide .guide-article h1,
+.page-build-guide .guide-article h2,
+.page-build-guide .guide-article h3,
+.page-build-guide .guide-article h4,
+.page-build-guide .guide-article h5,
+.page-build-guide .guide-article h6 {
   color: #1f2937 !important;
   text-shadow: none !important;
+}
+
+/* Hero section keeps white text */
+.page-build-guide .build-guide-hero h1,
+.page-build-guide .build-guide-hero h2,
+.page-build-guide .build-guide-hero h3,
+.page-build-guide .build-guide-hero p,
+.page-build-guide .build-guide-hero span {
+  color: #ffffff !important;
 }
 
 .page-build-guide a {
