@@ -187,6 +187,20 @@ test.describe('Mobile Navigation Drawer', () => {
     await expect(trustSignal).toContainText('NJ HIC');
   });
 
+  test('should display "For Contractors" link after "Get an Estimate"', async ({ page }) => {
+    const toggle = page.locator('.mobile-nav__toggle');
+    const drawer = page.locator('#mobile-nav-drawer');
+
+    // Open drawer
+    await toggle.click();
+    await page.waitForTimeout(500);
+
+    // Check for "For Contractors" link
+    const contractorsLink = drawer.locator('.mobile-nav__link', { hasText: 'FOR CONTRACTORS' });
+    await expect(contractorsLink).toBeVisible();
+    await expect(contractorsLink).toHaveAttribute('href', '/for-general-contractors/');
+  });
+
   test('should lock body scroll when drawer is open', async ({ page }) => {
     const toggle = page.locator('.mobile-nav__toggle');
 
