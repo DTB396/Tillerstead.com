@@ -35,8 +35,8 @@
       height: '3px'
     },
     scrollToTop: {
-      enabled: true,
-      showAfter: 400, // pixels
+      enabled: false, // Disabled - integrated into accessibility toolbar instead
+      showAfter: 400,
       duration: 600
     },
     toast: {
@@ -44,7 +44,7 @@
       position: 'bottom-right'
     },
     stickyCTA: {
-      enabled: true,
+      enabled: false, // Disabled - integrated into accessibility toolbar instead
       showAfter: 600
     }
   };

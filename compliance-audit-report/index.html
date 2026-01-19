@@ -1491,6 +1491,31 @@
       <span>Larger Text</span>
     </button>
 
+    <!-- Scroll to Top -->
+    <button 
+      type="button"
+      class="a11y-toolbar__btn"
+      id="a11y-scroll-top"
+      onclick="window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); this.blur();"
+    >
+      <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 15l-6-6-6 6"/>
+      </svg>
+      <span>Back to Top</span>
+    </button>
+
+    <!-- Free Quote CTA -->
+    <a 
+      href="/contact/"
+      class="a11y-toolbar__btn a11y-toolbar__cta"
+      id="a11y-quote"
+    >
+      <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      <span>Free Quote</span>
+    </a>
+
     <p class="a11y-toolbar__note">
       <small>Settings are saved for your next visit</small>
     </p>
@@ -1646,6 +1671,26 @@
   background: var(--tiller-color-gold, #c9a227);
   color: #000;
   font-weight: 600;
+}
+
+/* Free Quote CTA Button - standout styling */
+.a11y-toolbar__cta {
+  background: linear-gradient(135deg, var(--tiller-color-emerald, #10b981), var(--tiller-color-emerald-dark, #059669));
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  margin-top: 0.5rem;
+}
+
+.a11y-toolbar__cta:hover {
+  background: linear-gradient(135deg, var(--tiller-color-gold, #c9a227), var(--tiller-color-gold-dark, #9a7a1a));
+  color: #000;
+}
+
+.a11y-toolbar__cta:focus-visible {
+  outline: 3px solid var(--tiller-color-gold, #c9a227);
+  outline-offset: 2px;
 }
 
 .a11y-toolbar__note {

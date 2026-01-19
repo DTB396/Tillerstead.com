@@ -1,24 +1,67 @@
 /* =========================================================
    Build Guide Styles - Tillerstead
    Styles for the 8-phase build guide pages
-   UPGRADED: Light readable design with proper width
+   LIGHT THEME OVERRIDE for readable content
    ========================================================= */
 
-/* Page-level overrides for build guides */
+/* ===== FORCE LIGHT THEME FOR BUILD GUIDES ===== */
 .page-build-guide {
-  background: #ffffff;
+  --tiller-bg-main: #ffffff !important;
+  --tiller-bg-alt: #f8f9fa !important;
+  --tiller-bg-soft: #f3f4f6 !important;
+  --tiller-text-primary: #1f2937 !important;
+  --tiller-text-secondary: #374151 !important;
+  --tiller-text-tertiary: #6b7280 !important;
+  background: #ffffff !important;
+  color: #1f2937 !important;
+}
+
+.page-build-guide h1,
+.page-build-guide h2,
+.page-build-guide h3,
+.page-build-guide h4,
+.page-build-guide h5,
+.page-build-guide h6 {
+  color: #1f2937 !important;
+  text-shadow: none !important;
+}
+
+.page-build-guide a {
+  color: #1a4a38 !important;
+  text-shadow: none !important;
+}
+
+.page-build-guide a:hover {
+  color: #2a5d4e !important;
+  text-shadow: none !important;
+}
+
+.page-build-guide p,
+.page-build-guide li,
+.page-build-guide td,
+.page-build-guide th {
+  color: #374151 !important;
 }
 
 .page-build-guide .ts-section {
-  background: #ffffff;
+  background: #ffffff !important;
 }
 
-/* Hero Section */
+.page-build-guide main {
+  background: #ffffff !important;
+}
+
+/* Hero Section - Keep brand colors */
 .build-guide-hero {
-  background: linear-gradient(135deg, #1a4a38 0%, #2a5d4e 50%, #1e7a5a 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, #1a4a38 0%, #2a5d4e 50%, #1e7a5a 100%) !important;
+  color: #ffffff !important;
   padding: 3rem 0 2.5rem;
   position: relative;
+}
+
+.build-guide-hero * {
+  color: #ffffff !important;
+  text-shadow: none !important;
 }
 
 .build-guide-hero .container {
