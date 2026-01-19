@@ -23,7 +23,7 @@
   right: 0;
   bottom: 0;
   width: var(--mobile-nav-width);
-  background: #ffffff;
+  background: var(--tiller-bg-darker, #121414);
   box-shadow: var(--drawer-shadow);
   z-index: 10001;
   display: flex;
@@ -73,7 +73,7 @@ body.nav-open {
 
 .mobile-nav-list li {
   width: 100%;
-  border-bottom: 1px solid rgb(0 0 0 / 6%);
+  border-bottom: 1px solid rgb(255 255 255 / 10%);
 }
 
 .mobile-nav-list li:last-child {
@@ -88,7 +88,7 @@ body.nav-open {
   padding: 1.125rem 1.75rem;
   font-size: clamp(1rem, 4vw, 1.125rem);
   font-weight: 600;
-  color: var(--tiller-text-primary, #1a2018);
+  color: var(--tiller-text-primary, #ffffff);
   text-decoration: none;
   border-left: 4px solid transparent;
   transition: all 0.2s ease;
@@ -99,9 +99,9 @@ body.nav-open {
 .mobile-nav-list a:hover,
 .mobile-nav-list a:focus,
 .mobile-nav-list a.active {
-  background: rgb(184 160 64 / 10%);
-  border-left-color: var(--tiller-color-gold, #b8a040);
-  color: var(--tiller-color-green, #1a3d2e);
+  background: rgb(16 185 129 / 10%);
+  border-left-color: var(--tiller-color-emerald, #10b981);
+  color: var(--tiller-color-emerald, #10b981);
 }
 
 .mobile-nav-list a:active {

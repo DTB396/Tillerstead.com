@@ -606,7 +606,7 @@ label {
 }
 
 .footer-logo {
-  max-width: 200px;
+  width: 120px;
   height: auto;
   margin: 0 auto var(--tiller-spacing-md);
   display: block;
@@ -632,11 +632,27 @@ label {
 
 .footer-sections {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--tiller-spacing-lg);
   margin-bottom: var(--tiller-spacing-lg);
   padding-top: var(--tiller-spacing-md);
   border-top: 1px solid var(--tiller-border-color);
+}
+
+/* Service Areas spans full width on top row */
+.footer-group:first-child {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding-bottom: var(--tiller-spacing-md);
+  border-bottom: 1px solid var(--tiller-border-color);
+  margin-bottom: var(--tiller-spacing-sm);
+}
+
+.footer-group:first-child .footer-list {
+  display: flex;
+  justify-content: center;
+  gap: var(--tiller-spacing-lg);
+  flex-wrap: wrap;
 }
 
 .footer-group {
@@ -803,6 +819,14 @@ label {
     text-align: center;
   }
   
+  .footer-group:first-child {
+    grid-column: 1 / -1;
+  }
+  
+  .footer-group:first-child .footer-list {
+    gap: var(--tiller-spacing-md);
+  }
+  
   .footer-bottom {
     flex-direction: column;
     text-align: center;
@@ -816,5 +840,10 @@ label {
 @media (max-width: 480px) {
   .footer-sections {
     grid-template-columns: 1fr;
+  }
+  
+  .footer-group:first-child .footer-list {
+    flex-direction: column;
+    gap: var(--tiller-spacing-xs);
   }
 }

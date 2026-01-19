@@ -249,4 +249,96 @@
       // Otherwise let default href="/" behavior happen
     });
   });
+
+  // =========================
+  // SCROLL-TRIGGERED ANIMATIONS
+  // - Uses IntersectionObserver for performance
+  // - Respects prefers-reduced-motion
+  // - Staggered reveal for grid items
+  // =========================
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion) {
+    // Elements that animate on scroll
+    const animatedElements = document.querySelectorAll(
+      '.section-header, .service-card, .process-step, .material-card, .testimonial-card, .highlight-item'
+    );
+
+    // Add initial hidden state
+    animatedElements.forEach((el, index) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = `opacity 0.6s ease ${index % 4 * 0.1}s, transform 0.6s ease ${index % 4 * 0.1}s`;
+    });
+
+    // Create observer
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -50px 0px',
+      threshold: 0.1
+    };
+
+    const revealOnScroll = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          revealOnScroll.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    animatedElements.forEach(el => revealOnScroll.observe(el));
+
+    // Parallax effect for hero image (subtle)
+    const heroImage = document.querySelector('.hero-image');
+    if (heroImage) {
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * 0.15;
+            if (scrolled < 600) {
+              heroImage.style.transform = `translateY(${rate}px)`;
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    }
+
+    // Counter animation for stats
+    const counters = document.querySelectorAll('[data-counter]');
+    counters.forEach(counter => {
+      const countUp = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const target = parseInt(counter.dataset.counter, 10);
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                counter.textContent = target;
+                clearInterval(timer);
+              } else {
+                counter.textContent = Math.floor(current);
+              }
+            }, 30);
+            countUp.unobserve(counter);
+          }
+        });
+      }, { threshold: 0.5 });
+      countUp.observe(counter);
+    });
+  }
+
+  // =========================
+  // SMOOTH SCROLL ENHANCEMENT
+  // - Native CSS scroll-behavior with JS fallback
+  // =========================
+  document.documentElement.style.scrollBehavior = 'smooth';
 })();
