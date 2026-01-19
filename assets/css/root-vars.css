@@ -638,10 +638,11 @@ label {
   margin-bottom: var(--tiller-spacing-lg);
   padding-top: var(--tiller-spacing-md);
   border-top: 1px solid var(--tiller-border-color);
+  width: 100%;
 }
 
 /* Service Areas spans full width on top row, centered */
-.footer-group:first-child {
+.footer-group--service-areas {
   grid-column: 1 / -1;
   text-align: center;
   padding-bottom: var(--tiller-spacing-md);
@@ -649,7 +650,7 @@ label {
   margin-bottom: var(--tiller-spacing-sm);
 }
 
-.footer-group:first-child .footer-list {
+.footer-list--horizontal {
   display: flex;
   justify-content: center;
   gap: var(--tiller-spacing-lg);
@@ -657,16 +658,22 @@ label {
 }
 
 /* Second row: Learn (left), Build Guides (center), Company (right) */
-.footer-group:nth-child(2) {
+.footer-group--learn {
   text-align: left;
 }
 
-.footer-group:nth-child(3) {
+.footer-group--build-guides {
   text-align: center;
 }
 
-.footer-group:nth-child(4) {
+.footer-group--company {
   text-align: right;
+}
+
+.footer-list--two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--tiller-spacing-xs) var(--tiller-spacing-md);
 }
 
 .footer-group {
@@ -833,12 +840,22 @@ label {
     text-align: center;
   }
   
-  .footer-group:first-child {
+  .footer-group--service-areas {
     grid-column: 1 / -1;
   }
   
-  .footer-group:first-child .footer-list {
+  .footer-list--horizontal {
     gap: var(--tiller-spacing-md);
+  }
+  
+  .footer-group--learn,
+  .footer-group--build-guides,
+  .footer-group--company {
+    text-align: center;
+  }
+  
+  .footer-list--two-col {
+    grid-template-columns: 1fr;
   }
   
   .footer-bottom {
@@ -856,7 +873,7 @@ label {
     grid-template-columns: 1fr;
   }
   
-  .footer-group:first-child .footer-list {
+  .footer-list--horizontal {
     flex-direction: column;
     gap: var(--tiller-spacing-xs);
   }

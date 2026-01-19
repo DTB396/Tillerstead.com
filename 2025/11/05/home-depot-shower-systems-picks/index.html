@@ -514,6 +514,22 @@
       
         <!-- Regular link -->
         <a 
+          href="/blog/" 
+          class="desktop-nav__link"
+          role="menuitem"
+          
+        >
+          Blog
+        </a>
+      
+      
+    </li>
+    
+    <li class="desktop-nav__item" role="none">
+      
+      
+        <!-- Regular link -->
+        <a 
           href="/reviews/" 
           class="desktop-nav__link"
           role="menuitem"
@@ -738,6 +754,23 @@
             
           </ul>
         
+        
+        
+      </li>
+      
+      <li class="mobile-nav__item">
+        
+        
+          <!-- Regular link -->
+          <a 
+            href="/blog/" 
+            class="mobile-nav__link"
+            
+          >
+            
+              BLOG
+            
+          </a>
         
         
       </li>
@@ -1240,6 +1273,14 @@ Send your shower photos and goals to <strong><a href="mailto:info@tillerstead.co
 
 
         </div>
+
+        <!-- Post Footer Navigation -->
+        <footer class="post-footer">
+          <a href="/blog/" class="post-footer__link">
+            <span class="post-footer__icon">←</span>
+            View Other Articles
+          </a>
+        </footer>
       </article>
     </div>
   </main>
@@ -1362,6 +1403,39 @@ Send your shower photos and goals to <strong><a href="mailto:info@tillerstead.co
 <script src="/assets/js/accessibility.js" defer></script>
 
 
+
+  <style>
+  /* Post Footer Navigation */
+  .post-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(201, 162, 39, 0.2);
+    text-align: center;
+  }
+  
+  .post-footer__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--tiller-color-emerald, #10b981);
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    background: rgba(16, 185, 129, 0.1);
+    transition: all 0.2s ease;
+  }
+  
+  .post-footer__link:hover {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--tiller-color-gold, #c9a227);
+  }
+  
+  .post-footer__icon {
+    font-size: 1.25rem;
+  }
+  </style>
 </body>
 
 </html>
