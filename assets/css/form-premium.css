@@ -1,0 +1,306 @@
+/* =========================================================
+   Premium Contact Form Styles
+   Real-time validation, micro-interactions, accessibility
+   ========================================================= */
+
+/* ========== FORM CONTAINER ========== */
+
+[data-contact-form] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--tiller-spacing-lg, 1.5rem);
+  max-width: 600px;
+}
+
+/* ========== FORM GROUPS ========== */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--tiller-text-primary, #ffffff);
+  transition: color 0.3s ease;
+}
+
+/* ========== FORM FIELDS ========== */
+
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+input[type='number'],
+textarea,
+select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 2px solid rgba(201, 162, 39, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--tiller-text-primary, #ffffff);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+
+  /* Placeholder styling */
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='tel']:focus,
+input[type='number']:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--tiller-color-emerald, #10b981);
+  background: rgba(16, 185, 129, 0.05);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+  outline: none;
+}
+
+/* ========== VALIDATION STATES ========== */
+
+input.has-error,
+textarea.has-error,
+select.has-error {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.05);
+}
+
+input.has-error:focus,
+textarea.has-error:focus,
+select.has-error:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+input.has-success,
+textarea.has-success,
+select.has-success {
+  border-color: var(--tiller-color-emerald, #10b981);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+input.has-success::after {
+  content: '✓';
+  color: var(--tiller-color-emerald, #10b981);
+}
+
+/* ========== ERROR MESSAGES ========== */
+
+.field-error {
+  display: none;
+  font-size: 0.875rem;
+  color: #ef4444;
+  margin-top: 0.25rem;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== SUCCESS CHECKMARK ========== */
+
+.field-success-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--tiller-color-emerald, #10b981);
+  opacity: 0;
+  animation: scaleIn 0.3s ease-out forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+/* ========== FORM ALERTS ========== */
+
+.form-alert {
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  animation: slideInDown 0.4s ease-out;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-alert--error {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid #ef4444;
+  color: #fca5a5;
+}
+
+.form-alert--error::before {
+  content: '✕';
+  font-weight: bold;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.form-alert--success {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid var(--tiller-color-emerald, #10b981);
+  color: #86efac;
+}
+
+.form-alert--success::before {
+  content: '✓';
+  font-weight: bold;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* ========== SUBMIT BUTTON ========== */
+
+[data-contact-form] [type='submit'] {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(
+    135deg,
+    var(--tiller-color-emerald, #10b981),
+    var(--tiller-color-gold, #c9a227)
+  );
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+[data-contact-form] [type='submit']:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(16, 185, 129, 0.3);
+}
+
+[data-contact-form] [type='submit']:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+[data-contact-form] [type='submit']:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ========== SPINNER ANIMATION ========== */
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========== TEXTAREA ========== */
+
+textarea {
+  min-height: 150px;
+  max-height: 400px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+/* ========== SELECT DROPDOWN ========== */
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310b981' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.5rem;
+  padding-right: 2.5rem;
+}
+
+/* ========== FORM GRID LAYOUT ========== */
+
+@media (min-width: 768px) {
+  .form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--tiller-spacing-lg, 1.5rem);
+  }
+
+  .form-grid-2 .form-group:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ========== ACCESSIBILITY ========== */
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.form-hint {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.25rem;
+}
+
+/* ========== REDUCED MOTION ========== */
+
+@media (prefers-reduced-motion: reduce) {
+  input,
+  textarea,
+  select,
+  .form-alert,
+  .field-error {
+    animation: none;
+    transition: none;
+  }
+}

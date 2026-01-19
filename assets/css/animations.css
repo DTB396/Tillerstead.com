@@ -1,0 +1,400 @@
+/* =========================================================
+   Animated Gradients & Modern Visual Effects
+   Premium flourishes that elevate the brand
+   ========================================================= */
+
+/* ========== GRADIENT ANIMATIONS ========== */
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient-rotate {
+  from {
+    background-position: 0deg;
+  }
+
+  to {
+    background-position: 360deg;
+  }
+}
+
+/* Animated gradient backgrounds */
+.gradient-animated {
+  background: linear-gradient(
+    -45deg,
+    var(--tiller-color-emerald, #10b981),
+    var(--tiller-color-gold, #c9a227),
+    var(--tiller-bg-darker, #121414),
+    var(--tiller-color-emerald, #10b981)
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* For section headers */
+.header-gradient {
+  background: linear-gradient(
+    135deg,
+    rgb(16 185 129 / 10%) 0%,
+    rgb(201 162 39 / 5%) 100%
+  );
+  border-left: 4px solid var(--tiller-color-emerald, #10b981);
+  padding-left: 1.5rem;
+}
+
+/* ========== SMOOTH SCROLL BEHAVIOR ========== */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Smooth scrolling fallback for older browsers */
+@supports not (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ========== SCROLL-SNAP BEHAVIOR ========== */
+
+.scroll-snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.scroll-snap-child {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 100vh;
+}
+
+/* ========== ENHANCED TRANSITIONS ========== */
+
+/* Global smooth transitions */
+* {
+  transition-property: color, background-color, border-color, box-shadow, opacity, transform;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Disable transitions on elements that shouldn't animate */
+.no-transition,
+.no-transition * {
+  transition: none !important;
+}
+
+/* ========== BUTTON ENHANCEMENTS ========== */
+
+button[data-button-premium],
+a[data-button-premium] {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+button[data-button-premium]:hover,
+a[data-button-premium]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgb(16 185 129 / 30%);
+}
+
+button[data-button-premium]:active,
+a[data-button-premium]:active {
+  transform: translateY(0);
+}
+
+/* Shine effect for premium buttons */
+.shine-effect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(255 255 255 / 30%),
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* ========== LINK HOVER EFFECTS ========== */
+
+a[data-link-premium] {
+  position: relative;
+  text-decoration: none;
+  color: var(--tiller-color-emerald, #10b981);
+  transition: color 0.3s ease;
+}
+
+a[data-link-premium]::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--tiller-color-gold, #c9a227);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a[data-link-premium]:hover::after {
+  width: 100%;
+}
+
+a[data-link-premium]:hover {
+  color: var(--tiller-color-gold, #c9a227);
+}
+
+/* ========== CARD HOVER EFFECTS ========== */
+
+[data-card-premium] {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-card-premium]:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgb(16 185 129 / 15%);
+}
+
+[data-card-premium]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgb(16 185 129 / 10%),
+    rgb(201 162 39 / 5%)
+  );
+  opacity: 0%;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+[data-card-premium]:hover::before {
+  opacity: 100%;
+}
+
+/* ========== INPUT FOCUS EFFECTS ========== */
+
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+textarea,
+select {
+  transition: all 0.3s ease;
+  border-color: rgb(201 162 39 / 30%);
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='tel']:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--tiller-color-emerald, #10b981);
+  box-shadow: 0 0 0 3px rgb(16 185 129 / 10%);
+  outline: none;
+}
+
+/* ========== LOADING ANIMATIONS ========== */
+
+@keyframes spin-smooth {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyf
+  100% {
+    opacity: 100%;
+    box-shadow: 0 0 0 0 rgb(16 185 129 / 70%);
+  }
+
+  50% {
+    opacity: 80%;
+    box-shadow: 0 0 0 10px rgb(16 185 129 / 0%
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
+}
+
+.spinner {
+  animation: spin-smooth 1s linear infinite;
+}
+
+.pulse {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* =========%= TEXT REVEAL ANIMATIONS ========== */
+
+[data-reveal-text] {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.reveal-visible {
+  animation: reveal-text 0.8s ease-out forwards;
+}
+
+@keyframes rev00%eal-text {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== PARALLAX DEPTH ========== */
+
+[data-parallax-hero] {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-parallax-image] {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* ========== BACKDROP BLUR EFFECTS ========== */
+
+.blur-sm {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.blur-md {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.blur-lg {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.blur-xl {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* ========== GLASS-MORPHISM ========== */
+
+.glass {
+  background: rgb(255 255 255 / 10%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgb(255 255 255 / 20%);
+  border-radius: 12px;
+}
+
+.glass-light {
+  background: rgb(255 255 255 / 5%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgb(255 255 255 / 10%);
+}
+
+/* ========== SHADOW EFFECTS ========== */
+
+.shadow-sm {
+  box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px rgb(0 0 0 / 15%);
+}
+
+.shadow-xl {
+  box-shadow: 0 20px 25px rgb(0 0 0 / 20%);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 20px rgb(16 185 129 / 30%);
+}
+
+.shadow-glow-gold {
+  box-shadow: 0 0 20px rgb(201 162 39 / 30%);
+}
+
+/* ========== BACKDROP BLOOM EFFECT ========== */
+
+.bloom {
+  filter: drop-shadow(0 0 30px rgb(16 185 129 / 40%));
+}
+
+.bloom-gold {
+  filter: drop-shadow(0 0 30px rgb(201 162 39 / 40%));
+}
+
+/* ========== SCALE & ZOOM ON HOVER ========== */
+
+[data-hover-scale] {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-hover-scale]:hover {
+  transform: scale(1.05);
+}
+
+/* ========== TEXT GRADIENT ========== */
+
+.text-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--tiller-color-emerald, #10b981) 0%,
+    var(--tiller-color-gold, #c9a227) 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ========== ANIMATION PERFORMANCE ========== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========== WILL-CHANGE OPTIMIZATION ========== */
+
+.animate-transform {
+  will-change: transform;
+}
+
+.animate-opacity {
+  will-change: opacity;
+}
+
+.animate-scroll {
+  will-change: scroll-position;
+}

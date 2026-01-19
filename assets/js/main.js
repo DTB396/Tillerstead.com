@@ -342,3 +342,45 @@
   // =========================
   document.documentElement.style.scrollBehavior = 'smooth';
 })();
+
+// =========================================================
+// MODERN PREMIUM ANIMATIONS & INTERACTIONS
+// Conditionally import premium features for enhanced UX
+// =========================================================
+
+// Dynamic imports for optional premium features
+const initPremiumFeatures = async () => {
+  try {
+    // Premium scroll animations (GSAP + AOS)
+    const { initAllAnimations } = await import('./animations-premium.js');
+    initAllAnimations();
+    console.log('✓ Premium animations loaded');
+  } catch (err) {
+    console.log('Premium animations not available (GSAP not loaded)');
+  }
+
+  try {
+    // Premium form validation
+    const { PremiumContactForm } = await import('./form-validation-premium.js');
+    // Auto-initializes on import
+    console.log('✓ Premium form validation loaded');
+  } catch (err) {
+    console.log('Premium form validation not available');
+  }
+
+  try {
+    // Premium carousel (Swiper)
+    const { default: PremiumCarousel } = await import('./carousel-premium.js');
+    // Auto-initializes on import
+    console.log('✓ Premium carousel loaded');
+  } catch (err) {
+    console.log('Premium carousel not available (Swiper not loaded)');
+  }
+};
+
+// Initialize premium features when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPremiumFeatures);
+} else {
+  initPremiumFeatures();
+}
