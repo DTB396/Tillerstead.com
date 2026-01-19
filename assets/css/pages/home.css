@@ -118,11 +118,40 @@
 }
 
 /* ============================================
-   HERO SECTION - DARK THEME
+   HERO SECTION - DARK THEME WITH CROSSHATCH PATTERN
    ============================================ */
 .home-hero {
   padding: 4rem 0;
-  background: var(--tiller-bg-dark, #1a1c1a);
+  background: linear-gradient(135deg, var(--tiller-bg-dark, #1a1c1a) 0%, var(--tiller-bg-stone, #222524) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Unified Hero Crosshatch Pattern */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--tiller-color-green, #1a3d2e) 0%, var(--tiller-color-green-dark, #0f2a1f) 100%);
+  overflow: hidden;
+}
+
+.hero__crosshatch-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(90deg, rgba(201, 162, 39, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(201, 162, 39, 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-grid {
