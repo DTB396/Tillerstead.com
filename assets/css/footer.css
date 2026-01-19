@@ -249,6 +249,12 @@
   height: 20px;
 }
 
+/* Ensure stroke icons (like thumbtack) are visible */
+.footer-social a svg[stroke] {
+  stroke: currentColor;
+  fill: none;
+}
+
 /* Legal Links */
 .footer-legal {
   display: flex;
