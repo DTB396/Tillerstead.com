@@ -1275,7 +1275,7 @@
         <img src="/assets/img/logo/logo-wolf-crest-compact.webp" 
              alt="Tillerstead" 
              class="tools-hero__logo"
-             width="60" height="60"
+             width="72" height="72"
              loading="eager">
         <div class="tools-hero__brand-text">
           <span class="tools-hero__brand-name">TillerCalc</span>
@@ -1352,31 +1352,6 @@
   </div>
 </nav>
 
-  
-  <!-- Expand/Collapse Controls -->
-  <section class="tools-section">
-    <div class="container">
-      <div class="calc-controls">
-        <div class="auto-calc-indicator">
-          <span>Auto-Calculate</span>
-        </div>
-        <div class="calc-controls__actions">
-          <button type="button" class="calc-controls__btn" id="expand-all-btn" aria-label="Expand all calculators">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="6 9 12 15 18 9"/>
-            </svg>
-            Expand All
-          </button>
-          <button type="button" class="calc-controls__btn" id="collapse-all-btn" aria-label="Collapse all calculators">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="18 15 12 9 6 15"/>
-            </svg>
-            Collapse All
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
   
   <!-- Featured: Estimate Builder -->
   <!-- MODULE 1: ESTIMATE SPEC BUILDER -->
@@ -1625,6 +1600,34 @@
   <!-- Calculator App Grid -->
   <section class="tools-section">
     <div class="container">
+      
+      <!-- Expand/Collapse Controls (contextually placed above calculators) -->
+      <div class="calc-controls">
+        <div class="calc-controls__header">
+          <h2 class="calc-controls__title">Project Calculators</h2>
+          <div class="auto-calc-indicator">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+            </svg>
+            <span>Auto-Calculate</span>
+          </div>
+        </div>
+        <div class="calc-controls__actions">
+          <button type="button" class="calc-controls__btn" id="expand-all-btn" aria-label="Expand all calculators">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+            Expand All
+          </button>
+          <button type="button" class="calc-controls__btn" id="collapse-all-btn" aria-label="Collapse all calculators">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="18 15 12 9 6 15"/>
+            </svg>
+            Collapse All
+          </button>
+        </div>
+      </div>
+      
       <div class="tools-app-grid">
         
         <!-- Group: Material Calculators -->
@@ -2909,11 +2912,12 @@
 }
 
 .tools-hero__logo {
-  width: 48px;
-  height: 48px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
-  padding: 4px;
+  padding: 6px;
+  box-shadow: 0 4px 16px rgba(201, 162, 39, 0.3);
 }
 
 .tools-hero__brand-text {
@@ -3112,8 +3116,8 @@
   }
   
   .tools-hero__logo {
-    width: 40px;
-    height: 40px;
+    width: 56px;
+    height: 56px;
   }
   
   .tools-hero__brand-name {
