@@ -59,6 +59,7 @@
     transform: scale(1);
     box-shadow: 0 0 0 0 rgb(16 185 129 / 40%);
   }
+  
   50% {
     transform: scale(1.1);
     box-shadow: 0 0 8px 4px rgb(16 185 129 / 20%);
@@ -111,7 +112,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom right;
-  opacity: 0.08;
+  opacity: 8%;
   pointer-events: none;
 }
 
@@ -131,7 +132,7 @@
   background-image: url('/assets/img/patterns/flower-of-life.svg');
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: 0.08;
+  opacity: 8%;
   pointer-events: none;
 }
 
@@ -192,7 +193,7 @@
   font-size: 4rem;
   font-family: Georgia, serif;
   color: var(--tiller-color-gold, #c9a227);
-  opacity: 0.2;
+  opacity: 20%;
   line-height: 1;
   pointer-events: none;
 }
@@ -202,13 +203,13 @@
 .footer-contact-email::before {
   display: inline-block;
   margin-right: 0.5rem;
-  opacity: 0.7;
+  opacity: 70%;
   transition: opacity 0.3s ease;
 }
 
 .footer-contact-phone:hover::before,
 .footer-contact-email:hover::before {
-  opacity: 1;
+  opacity: 100%;
 }
 
 /* Phone icon */
@@ -272,18 +273,19 @@
   .service-card,
   .card--review,
   .highlight-item {
-    animation: fadeSlideUp linear both;
+    animation: fade-slide-up linear both;
     animation-timeline: view();
     animation-range: entry 0% entry 30%;
   }
-  
-  @keyframes fadeSlideUp {
+
+  @keyframes fade-slide-up {
     from {
-      opacity: 0;
+      opacity: 0%;
       transform: translateY(20px);
     }
+
     to {
-      opacity: 1;
+      opacity: 100%;
       transform: translateY(0);
     }
   }
@@ -308,15 +310,14 @@
 @media (max-width: 768px) {
   .home-hero::after {
     width: 100px;
-    height: 100px;
-    opacity: 0.05;
+    height: 15%;
   }
   
   .home-cta .container::before,
   .home-cta .container::after {
     width: 50px;
     height: 50px;
-    opacity: 0.05;
+    opacity: 5%;
   }
   
   .ts-grout-divider {
