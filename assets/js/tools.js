@@ -3961,6 +3961,404 @@
   }
 
   // ============================================
+  // NEW CALCULATORS - COST, SLOPE, WATERPROOF, LABOR
+  // ============================================
+
+  /**
+   * Cost Estimator Pricing Data (2025 South Jersey)
+   */
+  const COST_PRICING = {
+    projectBase: {
+      'shower-only': { budget: 3500, mid: 6500, premium: 12000, luxury: 20000 },
+      'tub-shower': { budget: 4000, mid: 7500, premium: 14000, luxury: 25000 },
+      'half-bath': { budget: 2500, mid: 5000, premium: 9000, luxury: 15000 },
+      'full-bath': { budget: 6000, mid: 12000, premium: 22000, luxury: 40000 },
+      'master-bath': { budget: 10000, mid: 20000, premium: 40000, luxury: 75000 },
+      'floor-only': { budget: 1500, mid: 3000, premium: 5500, luxury: 9000 },
+      'backsplash': { budget: 800, mid: 1500, premium: 3000, luxury: 5500 }
+    },
+    perSqFt: {
+      budget: 8,
+      mid: 15,
+      premium: 28,
+      luxury: 50
+    },
+    addons: {
+      demo: { budget: 300, mid: 500, premium: 800, luxury: 1200 },
+      waterproof: { budget: 200, mid: 400, premium: 700, luxury: 1000 },
+      plumbing: { budget: 400, mid: 800, premium: 1500, luxury: 3000 },
+      electrical: { budget: 300, mid: 600, premium: 1200, luxury: 2000 },
+      fixtures: { budget: 200, mid: 500, premium: 1200, luxury: 3000 },
+      vanity: { budget: 400, mid: 1000, premium: 2500, luxury: 5000 },
+      glass: { budget: 500, mid: 1200, premium: 2500, luxury: 4500 },
+      niche: { budget: 150, mid: 300, premium: 600, luxury: 1000 }
+    },
+    zipAdjustments: {
+      '08': 1.05, // Atlantic/Cape May
+      '08401': 1.10, // Atlantic City
+      '08204': 1.08, // Cape May
+      '08742': 1.12, // Point Pleasant
+      'default': 1.0
+    }
+  };
+
+  /**
+   * Calculate bathroom remodel cost estimate
+   */
+  function calculateCostEstimate() {
+    const projectType = document.getElementById('cost-project-type')?.value;
+    const quality = document.getElementById('cost-quality')?.value || 'mid-range';
+    const sqft = parseFloat(document.getElementById('cost-sqft')?.value) || 50;
+    const tileArea = parseFloat(document.getElementById('cost-tile-area')?.value) || 100;
+    const zip = document.getElementById('cost-zip')?.value || '';
+
+    if (!projectType) {
+      showToast('Please select a project type', 'warning');
+      return;
+    }
+
+    // Map quality level
+    const qualityKey = quality === 'mid-range' ? 'mid' : quality;
+    
+    // Base cost
+    const basePrice = COST_PRICING.projectBase[projectType]?.[qualityKey] || 5000;
+    
+    // Per sq ft addition for tile
+    const tileLabor = tileArea * COST_PRICING.perSqFt[qualityKey];
+    
+    // Add-ons
+    let addonsTotal = 0;
+    const addonIds = ['demo', 'waterproof', 'plumbing', 'electrical', 'fixtures', 'vanity', 'glass', 'niche'];
+    addonIds.forEach(id => {
+      const checkbox = document.getElementById(`cost-${id}`);
+      if (checkbox?.checked) {
+        addonsTotal += COST_PRICING.addons[id]?.[qualityKey] || 0;
+      }
+    });
+    
+    // ZIP code adjustment
+    let zipMultiplier = 1.0;
+    if (zip.length >= 2) {
+      const prefix = zip.substring(0, 2);
+      zipMultiplier = COST_PRICING.zipAdjustments[zip] || 
+                      COST_PRICING.zipAdjustments[prefix] || 
+                      COST_PRICING.zipAdjustments['default'];
+    }
+    
+    // Calculate totals
+    const subtotal = (basePrice + tileLabor + addonsTotal) * zipMultiplier;
+    const contingency = subtotal * 0.10;
+    const laborPct = 0.45;
+    
+    const lowEstimate = Math.round(subtotal * 0.85);
+    const highEstimate = Math.round((subtotal + contingency) * 1.15);
+    const labor = Math.round(subtotal * laborPct);
+    const materials = Math.round(subtotal * 0.35);
+    const fixturesCost = Math.round(subtotal * 0.10);
+    
+    // Update UI
+    document.getElementById('cost-result-low').textContent = '$' + formatNumber(lowEstimate);
+    document.getElementById('cost-result-high').textContent = '$' + formatNumber(highEstimate);
+    document.getElementById('cost-labor').textContent = '$' + formatNumber(labor);
+    document.getElementById('cost-materials').textContent = '$' + formatNumber(materials);
+    document.getElementById('cost-fixtures').textContent = '$' + formatNumber(fixturesCost);
+    document.getElementById('cost-contingency').textContent = '$' + formatNumber(Math.round(contingency));
+    
+    document.getElementById('cost-calc-results').hidden = false;
+  }
+
+  /**
+   * Calculate shower slope requirements
+   */
+  function calculateSlopeRequirements() {
+    const distance = parseFloat(document.getElementById('slope-length')?.value) || 3;
+    const drainType = document.getElementById('slope-drain-type')?.value || 'center';
+    const method = document.getElementById('slope-method')?.value || 'mud-bed';
+    
+    // IPC requires minimum 1/4" per foot
+    const minSlopePerFoot = 0.25;
+    const recSlopePerFoot = 0.3125; // 5/16" recommended for better drainage
+    
+    // Calculate based on drain type
+    let effectiveDistance = distance;
+    if (drainType === 'linear') {
+      effectiveDistance = distance * 0.75; // Linear drains reduce slope distance
+    } else if (drainType === 'offset') {
+      effectiveDistance = distance * 1.15; // Offset adds complexity
+    }
+    
+    const minHeight = effectiveDistance * minSlopePerFoot;
+    const recHeight = effectiveDistance * recSlopePerFoot;
+    
+    // Format results
+    const formatInches = (val) => {
+      const inches = Math.floor(val);
+      const fraction = val - inches;
+      if (fraction < 0.0625) return inches + '"';
+      if (fraction < 0.1875) return inches + ' 1/8"';
+      if (fraction < 0.3125) return inches + ' 1/4"';
+      if (fraction < 0.4375) return inches + ' 3/8"';
+      if (fraction < 0.5625) return inches + ' 1/2"';
+      if (fraction < 0.6875) return inches + ' 5/8"';
+      if (fraction < 0.8125) return inches + ' 3/4"';
+      if (fraction < 0.9375) return inches + ' 7/8"';
+      return (inches + 1) + '"';
+    };
+    
+    document.getElementById('result-slope-min').textContent = '¼" per ft (' + formatInches(minHeight) + ' at ' + distance + ' ft)';
+    document.getElementById('result-slope-rec').textContent = '5/16" per ft (' + formatInches(recHeight) + ' at ' + distance + ' ft)';
+    document.getElementById('result-slope-height').textContent = formatInches(recHeight) + ' above drain';
+    
+    // Method-specific note
+    const notes = {
+      'mud-bed': 'Traditional mud bed allows precise slope control. Use dry-pack mortar (4:1 sand:cement ratio) reinforced with metal lath.',
+      'foam-pan': 'Pre-sloped foam pans are factory-made to code. Verify slope before waterproofing. Faster install, consistent results.',
+      'bonded': 'Bonded waterproofing systems (Kerdi, Wedi) require substrate slope. Build slope into substrate before membrane.'
+    };
+    document.getElementById('slope-method-note').textContent = notes[method] || '';
+    
+    document.getElementById('slope-calc-results').hidden = false;
+  }
+
+  /**
+   * Waterproofing system specifications
+   */
+  const WP_SYSTEMS = {
+    'schluter-kerdi': {
+      name: 'Schluter KERDI',
+      unit: 'roll (54.5 sf)',
+      coverage: 54.5,
+      tapePerCorner: 2, // feet
+      accessories: ['KERDI-BAND', 'KERDI-SEAL', 'KERDI-DRAIN']
+    },
+    'laticrete': {
+      name: 'LATICRETE Hydro Ban',
+      unit: 'gallon (covers 50-60 sf)',
+      coverage: 55,
+      liquidCoats: 2,
+      accessories: ['Hydro Ban Board', 'Seam Tape']
+    },
+    'custom-redgard': {
+      name: 'Custom RedGard',
+      unit: 'gallon (covers 55 sf @ 2 coats)',
+      coverage: 55,
+      liquidCoats: 2,
+      accessories: ['Mesh Tape', 'Corners']
+    },
+    'mapei-aquadefense': {
+      name: 'Mapei AquaDefense',
+      unit: 'gallon (covers 50 sf @ 2 coats)',
+      coverage: 50,
+      liquidCoats: 2,
+      accessories: ['Fabric Tape']
+    },
+    'go-board': {
+      name: 'GoBoard',
+      unit: 'panel (3x5 ft = 15 sf)',
+      coverage: 15,
+      accessories: ['GoBoard Sealant', 'Seam Tape']
+    },
+    'noble-deck': {
+      name: 'Noble Deck',
+      unit: 'roll (varies)',
+      coverage: 32.5,
+      accessories: ['Noble Seal TS', 'Corners']
+    }
+  };
+
+  /**
+   * Calculate waterproofing materials
+   */
+  function calculateWaterproofing() {
+    const systemId = document.getElementById('wp-system')?.value || 'custom-redgard';
+    const area = parseFloat(document.getElementById('wp-area')?.value) || 72;
+    const corners = parseInt(document.getElementById('wp-corners')?.value) || 4;
+    const niches = parseInt(document.getElementById('wp-niches')?.value) || 1;
+    
+    const system = WP_SYSTEMS[systemId];
+    if (!system) return;
+    
+    // Calculate primary material
+    const coverageWithWaste = area * 1.15; // 15% waste
+    const unitsNeeded = Math.ceil(coverageWithWaste / system.coverage);
+    
+    // Tape/seam calculation
+    const tapePerCorner = system.tapePerCorner || 2;
+    const tapeNeeded = (corners * tapePerCorner) + (niches * 8); // 8 ft per niche
+    
+    // Update UI
+    document.getElementById('wp-membrane-label').textContent = system.liquidCoats ? 'Membrane (liquid)' : 'Membrane';
+    document.getElementById('result-wp-membrane').textContent = unitsNeeded + ' ' + system.unit;
+    document.getElementById('result-wp-tape').textContent = tapeNeeded + ' linear ft';
+    document.getElementById('result-wp-corners').textContent = corners + ' pre-formed corners';
+    
+    // Accessories list
+    const accessoriesHtml = system.accessories.map(a => `<span class="wp-accessory">${a}</span>`).join(', ');
+    document.getElementById('wp-accessories').innerHTML = '<strong>Also need:</strong> ' + accessoriesHtml;
+    
+    // System-specific notes
+    const notes = {
+      'schluter-kerdi': 'KERDI must be set in unmodified thinset. Use KERDI-BAND for all seams and corners.',
+      'laticrete': 'Apply 2 coats with drying time between. Use with Hydro Ban Board for shower niches.',
+      'custom-redgard': 'Apply 2 coats at 15 mils wet each. Allow to dry pink to red between coats.',
+      'mapei-aquadefense': 'Apply 2 coats. Embed fabric tape in first coat at corners and seams.',
+      'go-board': 'Waterproof at joints only. Seal all fastener holes with sealant.',
+      'noble-deck': 'Can be used with modified thinset. Great for drains and seats.'
+    };
+    document.getElementById('wp-system-note').textContent = notes[systemId] || '';
+    
+    // Add valve/drain/curb if checked
+    const extras = [];
+    if (document.getElementById('wp-valve')?.checked) extras.push('Mixing valve seal');
+    if (document.getElementById('wp-drain')?.checked) extras.push('Drain assembly');
+    if (document.getElementById('wp-curb')?.checked) extras.push('Curb membrane');
+    
+    if (extras.length > 0) {
+      document.getElementById('wp-accessories').innerHTML += '<br><strong>Penetrations:</strong> ' + extras.join(', ');
+    }
+    
+    document.getElementById('waterproof-calc-results').hidden = false;
+  }
+
+  /**
+   * Labor time estimation data
+   */
+  const LABOR_RATES = {
+    // sq ft per hour for tile installation only
+    tileInstall: {
+      mosaic: 6,
+      subway: 15,
+      small: 18,
+      standard: 25,
+      medium: 20,
+      large: 15,
+      plank: 18
+    },
+    // Pattern multipliers (1.0 = baseline)
+    patternMultiplier: {
+      straight: 1.0,
+      offset: 1.15,
+      diagonal: 1.35,
+      herringbone: 1.6,
+      versailles: 1.4
+    },
+    // Surface multipliers
+    surfaceMultiplier: {
+      floor: 1.0,
+      wall: 1.2,
+      shower: 1.5,
+      backsplash: 1.3
+    },
+    // Complexity multipliers
+    complexityMultiplier: {
+      simple: 0.9,
+      moderate: 1.0,
+      complex: 1.3
+    },
+    // Prep work hours
+    prepHours: {
+      demo: 4,
+      levelprep: 3,
+      waterproof: 2,
+      backerboard: 3,
+      schluter: 1.5,
+      niche: 2.5
+    }
+  };
+
+  /**
+   * Calculate labor time estimate
+   */
+  function calculateLaborTime() {
+    const tileType = document.getElementById('labor-tile-type')?.value;
+    const pattern = document.getElementById('labor-pattern')?.value || 'straight';
+    const area = parseFloat(document.getElementById('labor-area')?.value) || 100;
+    const surface = document.getElementById('labor-surface')?.value || 'floor';
+    const complexity = document.getElementById('labor-complexity')?.value || 'moderate';
+    
+    if (!tileType) {
+      showToast('Please select a tile type', 'warning');
+      return;
+    }
+    
+    // Base installation rate
+    const baseSqFtPerHour = LABOR_RATES.tileInstall[tileType] || 20;
+    
+    // Apply multipliers
+    const patternMult = LABOR_RATES.patternMultiplier[pattern] || 1.0;
+    const surfaceMult = LABOR_RATES.surfaceMultiplier[surface] || 1.0;
+    const complexMult = LABOR_RATES.complexityMultiplier[complexity] || 1.0;
+    
+    const effectiveRate = baseSqFtPerHour / (patternMult * surfaceMult * complexMult);
+    const tileHours = area / effectiveRate;
+    
+    // Add grouting time (about 30% of tile time)
+    const groutHours = tileHours * 0.3;
+    
+    // Prep work
+    let prepHours = 0;
+    const breakdown = [];
+    
+    const prepItems = ['demo', 'levelprep', 'waterproof', 'backerboard', 'schluter', 'niche'];
+    prepItems.forEach(id => {
+      const checkbox = document.getElementById(`labor-${id}`);
+      if (checkbox?.checked) {
+        const hours = LABOR_RATES.prepHours[id] || 0;
+        prepHours += hours;
+        const labels = {
+          demo: 'Demolition',
+          levelprep: 'Floor leveling',
+          waterproof: 'Waterproofing',
+          backerboard: 'Backer board',
+          schluter: 'Edge trim',
+          niche: 'Niche install'
+        };
+        breakdown.push({ task: labels[id], hours: hours });
+      }
+    });
+    
+    // Add tile and grout to breakdown
+    breakdown.push({ task: 'Tile installation', hours: tileHours });
+    breakdown.push({ task: 'Grouting & cleanup', hours: groutHours });
+    
+    const totalHours = prepHours + tileHours + groutHours;
+    const workDays = Math.ceil(totalHours / 8);
+    
+    // Update UI
+    document.getElementById('result-labor-days').textContent = workDays;
+    document.getElementById('result-labor-detail').textContent = 
+      `${formatNumber(totalHours, 1)} total hours at ${formatNumber(effectiveRate, 1)} sq ft/hour`;
+    
+    // Build breakdown list
+    const breakdownHtml = breakdown.map(item => 
+      `<div class="labor-breakdown__item">
+        <span class="labor-breakdown__task">${item.task}</span>
+        <span class="labor-breakdown__hours">${formatNumber(item.hours, 1)} hrs</span>
+      </div>`
+    ).join('');
+    document.getElementById('labor-breakdown-list').innerHTML = breakdownHtml;
+    
+    document.getElementById('labor-calc-results').hidden = false;
+  }
+
+  /**
+   * Initialize new calculator event listeners
+   */
+  function initNewCalculators() {
+    // Cost estimator
+    document.getElementById('calc-cost-btn')?.addEventListener('click', calculateCostEstimate);
+    
+    // Slope calculator
+    document.getElementById('calc-slope-btn')?.addEventListener('click', calculateSlopeRequirements);
+    
+    // Waterproofing calculator
+    document.getElementById('calc-waterproof-btn')?.addEventListener('click', calculateWaterproofing);
+    
+    // Labor calculator
+    document.getElementById('calc-labor-btn')?.addEventListener('click', calculateLaborTime);
+  }
+
+  // ============================================
   // ACTIVE NAV HIGHLIGHTING
   // ============================================
 
@@ -4009,6 +4407,7 @@
     initSmoothScroll();
     initActiveNavHighlight();
     initBackToTop();
+    initNewCalculators();
 
     // Initial calculations
     updateAreaSummary();

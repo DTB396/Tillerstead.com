@@ -1,0 +1,680 @@
+/* =========================================================
+   Page Theme - Tillerstead
+   Generic crosshatch hero and page styles
+   Inspired by for-general-contractors page
+   Use body_class: "page-theme-dark" to apply
+   ========================================================= */
+
+/* ==========================================================================
+   1. CSS Variables for Page Theme
+   ========================================================================== */
+
+:root {
+  /* Page theme colors */
+  --page-bg-dark: #121414;
+  --page-bg-darker: #0d0f0d;
+  --page-bg-stone: #1a1c1a;
+  --page-bg-green-dark: #0f2a1f;
+  --page-text-primary: #ffffff;
+  --page-text-secondary: rgb(255 255 255 / 85%);
+  --page-text-muted: rgb(255 255 255 / 75%);
+  --page-text-faded: rgb(255 255 255 / 50%);
+  --page-border-gold: rgb(201 162 39 / 15%);
+  --page-border-gold-hover: rgb(201 162 39 / 30%);
+  --page-border-emerald: rgb(16 185 129 / 30%);
+}
+
+/* ==========================================================================
+   2. CROSSHATCH HERO - Generic Pattern Hero
+   ========================================================================== */
+
+.crosshatch-hero {
+  background: linear-gradient(135deg, var(--page-bg-dark, #121414) 0%, var(--page-bg-green-dark, #0f2a1f) 100%);
+  padding: clamp(4rem, 10vw, 6rem) 0;
+  color: var(--page-text-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Crosshatch pattern overlay */
+.crosshatch-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a227' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 50%;
+  pointer-events: none;
+}
+
+/* Hero content container */
+.crosshatch-hero__content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero eyebrow - small label above title */
+.crosshatch-hero__eyebrow {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--tiller-color-gold, #c9a227);
+  margin-bottom: 1.25rem;
+}
+
+/* Hero title */
+.crosshatch-hero__title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 1.5rem;
+  color: var(--page-text-primary);
+  text-shadow: 0 0 40px rgb(16 185 129 / 30%);
+}
+
+/* Hero summary/description */
+.crosshatch-hero__summary {
+  font-size: clamp(1.0625rem, 2.5vw, 1.25rem);
+  line-height: 1.7;
+  color: var(--page-text-secondary);
+  margin: 0 0 2rem;
+}
+
+/* Hero badges container */
+.crosshatch-hero__badges {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Individual badge */
+.crosshatch-hero__badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgb(201 162 39 / 15%);
+  border: 1px solid var(--page-border-gold-hover);
+  color: var(--tiller-color-gold, #c9a227);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+/* Hero actions/CTAs */
+.crosshatch-hero__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* ==========================================================================
+   3. PAGE SECTION STYLES
+   ========================================================================== */
+
+/* Section header */
+.page-section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.page-section-title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  color: var(--tiller-color-emerald, #10b981);
+  margin-bottom: 0.75rem;
+}
+
+.page-section-subtitle {
+  font-size: 1.125rem;
+  color: var(--page-text-muted);
+}
+
+/* ==========================================================================
+   4. DARK THEME SECTIONS
+   ========================================================================== */
+
+.page-section--dark {
+  background: var(--page-bg-dark, #121414);
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  color: var(--page-text-primary);
+}
+
+.page-section--darker {
+  background: var(--page-bg-darker, #0d0f0d);
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  color: var(--page-text-primary);
+}
+
+.page-section--stone {
+  background: var(--page-bg-stone, #1a1c1a);
+  padding: clamp(3rem, 6vw, 4rem) 0;
+  color: var(--page-text-primary);
+}
+
+/* ==========================================================================
+   5. FEATURE CARDS
+   ========================================================================== */
+
+.page-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .page-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .page-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+.page-feature {
+  background: var(--page-bg-stone, #1a1c1a);
+  border: 1px solid var(--page-border-gold);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.page-feature:hover {
+  border-color: var(--tiller-color-emerald, #10b981);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgb(0 0 0 / 30%), 0 0 20px rgb(16 185 129 / 10%);
+}
+
+.page-feature__icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.page-feature__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--tiller-color-emerald, #10b981);
+  margin-bottom: 0.75rem;
+}
+
+.page-feature__text {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--page-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   6. SERVICE CARDS
+   ========================================================================== */
+
+.page-services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .page-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .page-services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.page-service-card {
+  background: var(--page-bg-stone, #1a1c1a);
+  border: 1px solid var(--page-border-gold);
+  border-radius: 12px;
+  padding: 1.75rem;
+}
+
+.page-service-card__title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--tiller-color-gold, #c9a227);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgb(201 162 39 / 20%);
+}
+
+.page-service-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.page-service-card__list li {
+  font-size: 0.9375rem;
+  color: var(--page-text-secondary);
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.page-service-card__list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--tiller-color-emerald, #10b981);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   7. PROCESS STEPS
+   ========================================================================== */
+
+.page-process-steps {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-process-step {
+  flex: 1;
+  min-width: 200px;
+  max-width: 220px;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.page-process-step__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--tiller-color-emerald, #10b981);
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 20px rgb(16 185 129 / 30%);
+}
+
+.page-process-step__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--page-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.page-process-step__text {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--page-text-muted);
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .page-process-steps {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .page-process-step {
+    max-width: 100%;
+  }
+}
+
+/* ==========================================================================
+   8. AREA/LOCATION SECTION
+   ========================================================================== */
+
+.page-area__content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-area__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--tiller-color-emerald, #10b981);
+  margin-bottom: 0.75rem;
+}
+
+.page-area__text {
+  color: var(--page-text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.page-area__tags {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.page-area__tag {
+  padding: 0.5rem 1rem;
+  background: rgb(16 185 129 / 10%);
+  border: 1px solid var(--page-border-emerald);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--tiller-color-emerald, #10b981);
+}
+
+.page-area__note {
+  font-size: 0.875rem;
+  color: var(--page-text-faded);
+  font-style: italic;
+  margin: 0;
+}
+
+/* ==========================================================================
+   9. CTA SECTION
+   ========================================================================== */
+
+.page-cta {
+  background: var(--tiller-color-emerald, #10b981);
+  padding: clamp(4rem, 8vw, 5rem) 0;
+}
+
+.page-cta__content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-cta__title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.page-cta__text {
+  font-size: 1.125rem;
+  color: rgb(255 255 255 / 90%);
+  margin-bottom: 2rem;
+}
+
+.page-cta__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.page-cta .btn--primary {
+  background: #ffffff;
+  color: var(--tiller-color-green, #1a3d2e);
+}
+
+.page-cta .btn--primary:hover {
+  background: rgb(255 255 255 / 90%);
+}
+
+.page-cta .btn--outline-light {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid rgb(255 255 255 / 50%);
+}
+
+.page-cta .btn--outline-light:hover {
+  background: rgb(255 255 255 / 10%);
+  border-color: #ffffff;
+}
+
+.page-cta__credential {
+  margin-top: 2rem;
+  color: rgb(255 255 255 / 70%);
+}
+
+@media (max-width: 600px) {
+  .page-cta__actions {
+    flex-direction: column;
+  }
+  
+  .page-cta__actions .btn {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   10. INFO CARDS (for guides, etc.)
+   ========================================================================== */
+
+.page-info-card {
+  background: var(--page-bg-stone, #1a1c1a);
+  border: 1px solid var(--page-border-gold);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.page-info-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--tiller-color-gold, #c9a227);
+  margin-bottom: 1rem;
+}
+
+.page-info-card__content {
+  color: var(--page-text-secondary);
+  line-height: 1.7;
+}
+
+.page-info-card__content h3 {
+  color: var(--tiller-color-emerald, #10b981);
+  font-size: 1.125rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.page-info-card__content ul,
+.page-info-card__content ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.page-info-card__content li {
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   11. PAGE DARK THEME BODY CLASS
+   ========================================================================== */
+
+/* Apply dark theme to entire page */
+.page-theme-dark {
+  background: var(--page-bg-dark, #121414);
+  color: var(--page-text-primary);
+}
+
+.page-theme-dark main {
+  background: var(--page-bg-dark, #121414);
+}
+
+/* Ensure proper text colors */
+.page-theme-dark h1,
+.page-theme-dark h2,
+.page-theme-dark h3,
+.page-theme-dark h4,
+.page-theme-dark h5,
+.page-theme-dark h6 {
+  color: var(--page-text-primary);
+}
+
+.page-theme-dark p,
+.page-theme-dark li {
+  color: var(--page-text-secondary);
+}
+
+/* ==========================================================================
+   12. BUILD GUIDE HERO (Crosshatch variant)
+   ========================================================================== */
+
+.build-hero {
+  background: linear-gradient(135deg, var(--page-bg-dark, #121414) 0%, var(--page-bg-green-dark, #0f2a1f) 100%);
+  padding: clamp(3rem, 8vw, 5rem) 0;
+  color: var(--page-text-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.build-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a227' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 50%;
+  pointer-events: none;
+}
+
+.build-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.build-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  color: var(--page-text-muted);
+}
+
+.build-hero__breadcrumb a {
+  color: var(--page-text-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.build-hero__breadcrumb a:hover {
+  text-decoration: underline;
+  color: var(--tiller-color-gold, #c9a227);
+}
+
+.build-hero__badge {
+  display: inline-block;
+  background: rgb(201 162 39 / 15%);
+  color: var(--tiller-color-gold, #c9a227);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-bottom: 1rem;
+  border: 1px solid var(--page-border-gold-hover);
+}
+
+.build-hero__title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+  color: var(--page-text-primary);
+  text-shadow: 0 0 40px rgb(16 185 129 / 30%);
+}
+
+.build-hero__summary {
+  font-size: 1.125rem;
+  max-width: 700px;
+  color: var(--page-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   13. BUILD GUIDE CONTENT SECTION (Dark variant)
+   ========================================================================== */
+
+.build-content--dark {
+  background: var(--page-bg-darker, #0d0f0d);
+  padding: clamp(3rem, 6vw, 4rem) 0;
+}
+
+.build-content--dark .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.build-content--dark h2 {
+  color: var(--tiller-color-emerald, #10b981);
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--page-border-gold);
+}
+
+.build-content--dark h3 {
+  color: var(--tiller-color-gold, #c9a227);
+  font-size: 1.25rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.build-content--dark p {
+  color: var(--page-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.build-content--dark ul,
+.build-content--dark ol {
+  color: var(--page-text-secondary);
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.build-content--dark li {
+  margin-bottom: 0.5rem;
+}
+
+.build-content--dark a {
+  color: var(--tiller-color-gold, #c9a227);
+}
+
+.build-content--dark a:hover {
+  color: var(--tiller-color-emerald, #10b981);
+}
+
+/* ==========================================================================
+   14. UTILITY CLASSES
+   ========================================================================== */
+
+.text-gold {
+  color: var(--tiller-color-gold, #c9a227) !important;
+}
+
+.text-emerald {
+  color: var(--tiller-color-emerald, #10b981) !important;
+}
+
+.bg-dark {
+  background: var(--page-bg-dark, #121414) !important;
+}
+
+.bg-darker {
+  background: var(--page-bg-darker, #0d0f0d) !important;
+}
+
+.bg-stone {
+  background: var(--page-bg-stone, #1a1c1a) !important;
+}

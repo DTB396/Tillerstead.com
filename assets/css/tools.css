@@ -77,6 +77,16 @@
   background: rgba(16, 185, 129, 0.1);
 }
 
+.tools-nav__link--new {
+  background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(201, 162, 39, 0.1));
+  color: var(--tiller-gold) !important;
+  border: 1px solid rgba(201, 162, 39, 0.3);
+}
+
+.tools-nav__link--new:hover {
+  background: linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(201, 162, 39, 0.2));
+}
+
 /* ============================================
    PAGE HEADER
    ============================================ */
@@ -1914,5 +1924,286 @@
 
   .output-table {
     page-break-inside: avoid;
+  }
+}
+
+/* ============================================
+   NEW CALCULATORS - COST, SLOPE, WATERPROOF, LABOR
+   ============================================ */
+
+/* Cost Estimator Featured Section */
+.tools-section--featured {
+  background: linear-gradient(135deg, rgba(201, 162, 39, 0.08), rgba(5, 150, 105, 0.06));
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-radius: var(--tools-radius);
+  margin: 2rem 0;
+}
+
+.tools-section__badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--tiller-gold), var(--tiller-gold-dark, #9a7a1a));
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
+}
+
+.tools-card--premium {
+  background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(201, 162, 39, 0.05));
+  border: 1px solid rgba(201, 162, 39, 0.15);
+}
+
+/* Cost Estimate Display */
+.cost-estimate-display {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(201, 162, 39, 0.08));
+  border-radius: var(--tools-radius);
+  margin-bottom: 1.5rem;
+}
+
+.cost-estimate__range {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cost-estimate__low,
+.cost-estimate__high {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--tiller-gold);
+}
+
+@media (min-width: 640px) {
+  .cost-estimate__low,
+  .cost-estimate__high {
+    font-size: 2.5rem;
+  }
+}
+
+.cost-estimate__separator {
+  font-size: 1.5rem;
+  color: var(--tiller-text-muted);
+}
+
+.cost-estimate__label {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--tiller-text-secondary);
+}
+
+/* Cost Breakdown Grid */
+.cost-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .cost-breakdown-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.cost-breakdown__item {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--tools-radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cost-breakdown__label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--tiller-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.cost-breakdown__value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--tiller-emerald);
+}
+
+/* Cost Disclaimer */
+.cost-disclaimer {
+  background: rgba(234, 179, 8, 0.1);
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  border-radius: var(--tools-radius-sm);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  font-size: 0.85rem;
+}
+
+.cost-disclaimer a {
+  color: var(--tiller-gold);
+  text-decoration: underline;
+}
+
+/* Cost CTA */
+.cost-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+/* Labor Estimate Display */
+.labor-estimate-display {
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(16, 185, 129, 0.08));
+  border-radius: var(--tools-radius);
+  margin-bottom: 1.5rem;
+}
+
+.labor-estimate__days {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.labor-estimate__value {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--tiller-emerald);
+}
+
+.labor-estimate__unit {
+  font-size: 1.25rem;
+  color: var(--tiller-text-secondary);
+}
+
+.labor-estimate__detail {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--tiller-text-muted);
+}
+
+/* Labor Breakdown */
+.labor-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.labor-breakdown__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--tools-radius-sm);
+  border-left: 3px solid var(--tiller-emerald);
+}
+
+.labor-breakdown__task {
+  font-size: 0.9rem;
+}
+
+.labor-breakdown__hours {
+  font-weight: 600;
+  color: var(--tiller-gold);
+}
+
+/* Waterproofing Accessories */
+.wp-accessory {
+  display: inline-block;
+  background: rgba(5, 150, 105, 0.15);
+  color: var(--tiller-emerald-light);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin: 0.2rem;
+}
+
+/* Fieldset Styling */
+.form-fieldset {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--tools-radius-sm);
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+}
+
+.form-fieldset__legend {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--tiller-gold);
+  padding: 0 0.5rem;
+}
+
+/* Checkbox Styling */
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+.form-checkbox input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--tiller-border);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.form-checkbox input[type="checkbox"]:checked {
+  background: var(--tiller-emerald);
+  border-color: var(--tiller-emerald);
+}
+
+.form-checkbox input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.form-checkbox input[type="checkbox"]:focus {
+  outline: 2px solid var(--tiller-gold);
+  outline-offset: 2px;
+}
+
+.form-checkbox__text {
+  font-size: 0.9rem;
+  color: var(--tiller-text-primary);
+}
+
+/* 3-Column Grid */
+.form-grid--3col {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .form-grid--3col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .form-grid--3col {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
