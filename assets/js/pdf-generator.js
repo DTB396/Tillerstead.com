@@ -390,6 +390,48 @@
     }
 
     /**
+     * Add disclaimer section before footer
+     */
+    addDisclaimer() {
+      const doc = this.doc;
+      const disclaimerY = this.pageHeight - 45;
+      const contentWidth = this.pageWidth - (this.margin * 2);
+
+      // Check if we need a new page
+      if (this.y > disclaimerY - 10) {
+        this.addNewPage();
+      }
+
+      // Disclaimer box
+      doc.setDrawColor(...COLORS.border);
+      doc.setFillColor(255, 252, 245); // Light cream/yellow tint
+      doc.roundedRect(this.margin, disclaimerY, contentWidth, 20, 2, 2, 'FD');
+
+      // Disclaimer text
+      doc.setTextColor(...COLORS.textMuted);
+      doc.setFont('helvetica', 'italic');
+      doc.setFontSize(7);
+      
+      const disclaimerText = [
+        'DISCLAIMER: This estimate is for planning purposes only and does not constitute a binding quote.',
+        'Actual material quantities may vary based on site conditions, tile breakage, pattern complexity, and cutting waste.',
+        'Final pricing requires on-site measurement. Contact Tillerstead LLC for a professional consultation and formal quote.'
+      ];
+      
+      let textY = disclaimerY + 5;
+      disclaimerText.forEach(line => {
+        doc.text(line, this.margin + 3, textY);
+        textY += 4;
+      });
+
+      // NJ Consumer Affairs note
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(6);
+      doc.text('NJ Home Improvement Contractor Lic. #13VH10808800 | Consumer Affairs: 1-800-242-5846', 
+        this.pageWidth / 2, disclaimerY + 18, { align: 'center' });
+    }
+
+    /**
      * Add a new page
      */
     addNewPage() {
@@ -637,6 +679,9 @@
         });
       }
 
+      // Add disclaimer on last page
+      this.addDisclaimer();
+
       // Add footer to all pages
       const totalPages = this.doc.internal.getNumberOfPages();
       for (let i = 1; i <= totalPages; i++) {
@@ -668,6 +713,7 @@
       this.doc.setFontSize(8);
       this.doc.text('Note: Quantities include calculated waste factors. Verify availability before purchase.', this.margin, this.y);
 
+      this.addDisclaimer();
       this.addFooter(1, 1);
 
       return this.doc;
@@ -730,6 +776,7 @@
         this.addMaterialTable(materials);
       }
 
+      this.addDisclaimer();
       this.addFooter(1, 1);
 
       return this.doc;
