@@ -787,9 +787,9 @@
     }
 
     /**
-     * Generate quick estimate PDF (single calculation)
+     * Generate quick estimate PDF (single calculation) with optional shopping list
      */
-    async generateQuickEstimate(calcId, inputs, results, projectName = 'Quick Estimate') {
+    async generateQuickEstimate(calcId, inputs, results, projectName = 'Quick Estimate', shoppingList = []) {
       await this.init();
 
       this.addHeader('Quick Estimate');
@@ -843,10 +843,128 @@
         this.addMaterialTable(materials);
       }
 
+      // Add shopping list summary if available
+      if (shoppingList && shoppingList.length > 0) {
+        this.addSectionTitle('SHOPPING LIST SUMMARY');
+        this.addShoppingListTable(shoppingList);
+      }
+
       this.addDisclaimer();
       this.addFooter(1, 1);
 
       return this.doc;
+    }
+
+    /**
+     * Add shopping list table to PDF
+     */
+    addShoppingListTable(shoppingList) {
+      const doc = this.doc;
+
+      if (!shoppingList || shoppingList.length === 0) {
+        doc.setTextColor(...COLORS.textMuted);
+        doc.setFont('helvetica', 'italic');
+        doc.setFontSize(9);
+        doc.text('No items in shopping list', this.margin, this.y + 5);
+        this.y += 12;
+        return;
+      }
+
+      // Check if autoTable is available
+      if (typeof doc.autoTable === 'function') {
+        doc.autoTable({
+          startY: this.y,
+          head: [['Item', 'Quantity', 'Unit', 'Source']],
+          body: shoppingList.map(item => [
+            item.item,
+            item.quantity,
+            item.unit || '',
+            this.formatCalcSource(item.source)
+          ]),
+          margin: { left: this.margin, right: this.margin },
+          headStyles: {
+            fillColor: COLORS.gold,
+            textColor: [33, 37, 41],
+            fontStyle: 'bold',
+            fontSize: 9
+          },
+          bodyStyles: {
+            textColor: COLORS.text,
+            fontSize: 9
+          },
+          alternateRowStyles: {
+            fillColor: COLORS.surface
+          },
+          columnStyles: {
+            0: { cellWidth: 55 },
+            1: { cellWidth: 25, halign: 'right', fontStyle: 'bold' },
+            2: { cellWidth: 35 },
+            3: { cellWidth: 40, fontStyle: 'italic' }
+          }
+        });
+        this.y = doc.lastAutoTable.finalY + 8;
+      } else {
+        // Fallback without autoTable
+        this.addSimpleShoppingTable(shoppingList);
+      }
+    }
+
+    /**
+     * Simple shopping list table fallback without autoTable plugin
+     */
+    addSimpleShoppingTable(shoppingList) {
+      const doc = this.doc;
+      const startX = this.margin;
+      const colWidths = [55, 25, 35, 40];
+      const rowHeight = 7;
+
+      // Header
+      doc.setFillColor(...COLORS.gold);
+      doc.rect(startX, this.y, colWidths.reduce((a, b) => a + b, 0), rowHeight, 'F');
+      doc.setTextColor(33, 37, 41);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(9);
+      doc.text('Item', startX + 2, this.y + 5);
+      doc.text('Qty', startX + colWidths[0] + 2, this.y + 5);
+      doc.text('Unit', startX + colWidths[0] + colWidths[1] + 2, this.y + 5);
+      doc.text('Source', startX + colWidths[0] + colWidths[1] + colWidths[2] + 2, this.y + 5);
+      this.y += rowHeight;
+
+      // Rows
+      doc.setTextColor(...COLORS.text);
+      shoppingList.forEach((item, i) => {
+        if (i % 2 === 0) {
+          doc.setFillColor(...COLORS.surface);
+          doc.rect(startX, this.y, colWidths.reduce((a, b) => a + b, 0), rowHeight, 'F');
+        }
+        doc.setFont('helvetica', 'normal');
+        doc.text(String(item.item || ''), startX + 2, this.y + 5);
+        doc.setFont('helvetica', 'bold');
+        doc.text(String(item.quantity || ''), startX + colWidths[0] + 2, this.y + 5);
+        doc.setFont('helvetica', 'normal');
+        doc.text(String(item.unit || ''), startX + colWidths[0] + colWidths[1] + 2, this.y + 5);
+        doc.setFont('helvetica', 'italic');
+        doc.text(this.formatCalcSource(item.source), startX + colWidths[0] + colWidths[1] + colWidths[2] + 2, this.y + 5);
+        this.y += rowHeight;
+      });
+
+      this.y += 5;
+    }
+
+    /**
+     * Format calculator source for display
+     */
+    formatCalcSource(source) {
+      const sourceMap = {
+        tile: 'Tile Calc',
+        mortar: 'Mortar Calc',
+        grout: 'Grout Calc',
+        leveling: 'Leveling Calc',
+        waterproof: 'Waterproof Calc',
+        sealant: 'Sealant Calc',
+        sealer: 'Sealer Calc'
+      };
+      return sourceMap[source] || source || '';
     }
 
     /**
@@ -923,10 +1041,10 @@
     /**
      * Generate and download quick estimate
      */
-    async downloadQuickEstimate(calcId, inputs, results, projectName) {
+    async downloadQuickEstimate(calcId, inputs, results, projectName, shoppingList = []) {
       try {
         const gen = new PDFGenerator();
-        await gen.generateQuickEstimate(calcId, inputs, results, projectName);
+        await gen.generateQuickEstimate(calcId, inputs, results, projectName, shoppingList);
         const filename = gen.save('tillerpro-estimate', projectName || calcId);
         return { success: true, filename };
       } catch (err) {
