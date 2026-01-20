@@ -35,6 +35,9 @@ export * from './formulas.leveling.js';
 // Shower slope calculations
 export * from './formulas.slope.js';
 
+// Advanced / adjacency calculations
+export * from './formulas.advanced.js';
+
 // ============================================
 // LIBRARY METADATA
 // ============================================
@@ -51,7 +54,8 @@ export const FORMULA_LIBRARY_INFO = {
     'formulas.grout',
     'formulas.waterproofing',
     'formulas.leveling',
-    'formulas.slope'
+    'formulas.slope',
+    'formulas.advanced'
   ],
   principles: [
     'No unsourced constants - all values traced to TDS or standards',
@@ -80,6 +84,7 @@ export function getAllFormulaInfo() {
   const { WATERPROOFING_FORMULA_INFO } = require('./formulas.waterproofing.js');
   const { LEVELING_FORMULA_INFO } = require('./formulas.leveling.js');
   const { SLOPE_FORMULA_INFO } = require('./formulas.slope.js');
+  const { ADVANCED_FORMULA_INFO } = require('./formulas.advanced.js');
 
   return {
     tile: TILE_FORMULA_INFO,
@@ -87,6 +92,7 @@ export function getAllFormulaInfo() {
     grout: GROUT_FORMULA_INFO,
     waterproofing: WATERPROOFING_FORMULA_INFO,
     leveling: LEVELING_FORMULA_INFO,
-    slope: SLOPE_FORMULA_INFO
+    slope: SLOPE_FORMULA_INFO,
+    advanced: ADVANCED_FORMULA_INFO
   };
 }

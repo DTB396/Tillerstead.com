@@ -6,7 +6,7 @@ A production-ready web app for NJ tile/general contractor project management. Fe
 
 ## Web App Integration
 
-The TillerCalc Pro web app (`/tools/app/`) integrates with this toolkit:
+The TillerPro web app (`/tools/`) integrates with this toolkit:
 
 - **Hybrid Mode**: Uses toolkit API when available, falls back to client-side calculations
 - **Project Sync**: Local projects can be synced to the backend database

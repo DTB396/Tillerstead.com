@@ -2,7 +2,7 @@
 // Tests the branded Word document export functionality
 import { test, expect } from '@playwright/test';
 
-test.describe('TillerCalc Document Export', () => {
+test.describe('TillerPro Document Export', () => {
   
   test.beforeEach(async ({ page }) => {
     // Clear localStorage before each test to start fresh
@@ -234,7 +234,7 @@ test.describe('TillerCalc Document Export', () => {
     await expect(preview).toBeVisible({ timeout: 5000 });
     
     // Check for branding elements
-    await expect(preview).toContainText('TillerCalc');
+    await expect(preview).toContainText('TillerPro');
     await expect(preview).toContainText('Tillerstead');
     await expect(preview).toContainText('NJ HIC');
   });

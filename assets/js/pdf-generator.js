@@ -1,43 +1,83 @@
 /**
- * TillerCalc Pro - PDF Generator Module
+ * TillerPro - PDF Generator Module
  * Generates branded PDF summaries for tile projects
  * Uses jsPDF library for PDF generation
+ * Integrates with logo-system.js for adaptive branding
+ * 
+ * @copyright 2025-2026 Tillerstead LLC. All rights reserved.
+ * @license Proprietary - Unauthorized copying prohibited
  */
 
 (function() {
   'use strict';
 
-  // Debug: Log jsPDF availability on load
-  console.log('[TillerPDF] Checking jsPDF availability:', {
-    'window.jspdf': typeof window.jspdf,
-    'window.jsPDF': typeof window.jsPDF
-  });
-
-  // Brand colors
+  // ============================================
+  // PROTECTED BRAND CONFIGURATION
+  // ============================================
+  
+  // Brand colors (encoded for IP protection)
+  const _c = [26,61,46,201,162,39,33,37,41,108,117,125,248,249,250,255,255,255,206,212,218];
   const COLORS = {
-    primary: [26, 61, 46],      // #1a3d2e - Forest green
-    gold: [201, 162, 39],       // #c9a227 - Gold accent
-    text: [33, 37, 41],         // Dark text
-    textMuted: [108, 117, 125], // Muted text
-    surface: [248, 249, 250],   // Light gray background
-    white: [255, 255, 255],
-    border: [206, 212, 218]
+    primary: _c.slice(0,3),
+    gold: _c.slice(3,6),
+    text: _c.slice(6,9),
+    textMuted: _c.slice(9,12),
+    surface: _c.slice(12,15),
+    white: _c.slice(15,18),
+    border: _c.slice(18,21)
   };
 
-  // Company info
-  const COMPANY = {
+  // Company info (protected)
+  const COMPANY = Object.freeze({
     name: 'TILLERSTEAD LLC',
     tagline: 'Expert Tile Installation',
     license: 'NJ HIC #13VH10808800',
     website: 'tillerstead.com',
     phone: '(609) 500-1555',
-    email: 'info@tillerstead.com'
-  };
+    email: 'info@tillerstead.com',
+    appName: 'TillerPro'
+  });
 
-  // Wolf Crest Logo (Base64 encoded PNG)
-  const LOGO_BASE64 = 'data:image/png;base64,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';
+  // ============================================
+  // ADAPTIVE LOGO SYSTEM
+  // ============================================
 
-  // Calculator display names
+  /**
+   * Get logo for PDF rendering with fallbacks
+   * Supports: TillerLogo system, Base64, text fallback
+   */
+  function getLogo() {
+    // Try logo system first (if loaded)
+    if (typeof window !== 'undefined' && window.TillerLogo) {
+      try {
+        const logo = window.TillerLogo.instance.getLogo('pdf');
+        if (logo && logo.data) {
+          return { data: logo.data, type: logo.format || 'PNG', fallback: logo.fallback };
+        }
+      } catch (e) {
+        console.warn('[TillerPDF] Logo system error:', e);
+      }
+    }
+
+    // Fallback to embedded Base64 logo
+    return {
+      data: LOGO_FALLBACK_BASE64,
+      type: 'PNG',
+      fallback: getTextLogo()
+    };
+  }
+
+  /**
+   * Get text-only logo as ultimate fallback
+   */
+  function getTextLogo() {
+    return `[${COMPANY.appName}]`;
+  }
+
+  // Embedded fallback logo (wolf crest compact - 100x100)
+  const LOGO_FALLBACK_BASE64 = 'data:image/png;base64,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';
+
+  // Calculator display names (now includes trim calculators)
   const CALC_NAMES = {
     tile: 'Tile Quantity',
     mortar: 'Mortar Coverage',
@@ -45,7 +85,10 @@
     leveling: 'Self-Leveling Compound',
     slope: 'Shower Slope',
     waterproof: 'Waterproofing',
-    labor: 'Labor Estimate'
+    labor: 'Labor Estimate',
+    crown: 'Crown Molding',
+    baseboard: 'Baseboard & Chair Rail',
+    quarter: 'Quarter Round'
   };
 
   /**
@@ -58,20 +101,33 @@
       this.pageHeight = 0;
       this.margin = 20;
       this.y = 0;
+      this._jsPDFConstructor = null;
     }
 
     /**
      * Initialize a new PDF document
+     * @returns {Promise<void>}
      */
-    init() {
+    async init() {
+      // Wait for jsPDF to be ready (async loader in tools.html)
+      if (window._jsPDFReady) {
+        try {
+          await window._jsPDFReady;
+        } catch (e) {
+          console.error('[TillerPro PDF] jsPDF load promise rejected:', e);
+        }
+      }
+
       // Check if jsPDF is available (UMD exposes as window.jspdf or window.jsPDF)
-      const jspdfLib = window.jspdf || window.jsPDF;
+      const jspdfLib = window.jsPDF || window.jspdf;
       if (!jspdfLib) {
-        throw new Error('jsPDF library not loaded');
+        throw new Error('jsPDF library not loaded. Please refresh the page.');
       }
 
       // Get the jsPDF constructor (may be the lib itself or a property)
       const jsPDF = jspdfLib.jsPDF || jspdfLib;
+      this._jsPDFConstructor = jsPDF;
+      
       this.doc = new jsPDF({
         orientation: 'portrait',
         unit: 'mm',
@@ -384,7 +440,7 @@
       doc.setTextColor(...COLORS.textMuted);
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(7);
-      doc.text('Generated by TillerCalc Pro', this.margin, footerY + 7);
+      doc.text('Generated by TillerPro', this.margin, footerY + 7);
       doc.text(`${COMPANY.website} | ${COMPANY.phone}`, this.margin, footerY + 11);
 
       // Page number
@@ -652,8 +708,8 @@
     /**
      * Generate full project summary PDF
      */
-    generateProjectSummary(project) {
-      this.init();
+    async generateProjectSummary(project) {
+      await this.init();
 
       this.addHeader('Project Summary');
       this.addProjectInfo(project);
@@ -706,8 +762,8 @@
     /**
      * Generate material list PDF
      */
-    generateMaterialList(project) {
-      this.init();
+    async generateMaterialList(project) {
+      await this.init();
 
       this.addHeader('Material List');
       this.addProjectInfo(project);
@@ -733,8 +789,8 @@
     /**
      * Generate quick estimate PDF (single calculation)
      */
-    generateQuickEstimate(calcId, inputs, results, projectName = 'Quick Estimate') {
-      this.init();
+    async generateQuickEstimate(calcId, inputs, results, projectName = 'Quick Estimate') {
+      await this.init();
 
       this.addHeader('Quick Estimate');
 
@@ -837,14 +893,14 @@
     /**
      * Generate and download project summary
      */
-    downloadProjectSummary(project) {
+    async downloadProjectSummary(project) {
       try {
         const gen = new PDFGenerator();
-        gen.generateProjectSummary(project);
-        const filename = gen.save('tillerstead-project', project.name);
+        await gen.generateProjectSummary(project);
+        const filename = gen.save('tillerpro-project', project.name);
         return { success: true, filename };
       } catch (err) {
-        console.error('PDF generation failed:', err);
+        console.error('[TillerPro PDF] Generation failed:', err);
         return { success: false, error: err.message };
       }
     },
@@ -852,14 +908,14 @@
     /**
      * Generate and download material list
      */
-    downloadMaterialList(project) {
+    async downloadMaterialList(project) {
       try {
         const gen = new PDFGenerator();
-        gen.generateMaterialList(project);
-        const filename = gen.save('tillerstead-materials', project.name);
+        await gen.generateMaterialList(project);
+        const filename = gen.save('tillerpro-materials', project.name);
         return { success: true, filename };
       } catch (err) {
-        console.error('PDF generation failed:', err);
+        console.error('[TillerPro PDF] Generation failed:', err);
         return { success: false, error: err.message };
       }
     },
@@ -867,14 +923,14 @@
     /**
      * Generate and download quick estimate
      */
-    downloadQuickEstimate(calcId, inputs, results, projectName) {
+    async downloadQuickEstimate(calcId, inputs, results, projectName) {
       try {
         const gen = new PDFGenerator();
-        gen.generateQuickEstimate(calcId, inputs, results, projectName);
-        const filename = gen.save('tillerstead-estimate', projectName || calcId);
+        await gen.generateQuickEstimate(calcId, inputs, results, projectName);
+        const filename = gen.save('tillerpro-estimate', projectName || calcId);
         return { success: true, filename };
       } catch (err) {
-        console.error('PDF generation failed:', err);
+        console.error('[TillerPro PDF] Generation failed:', err);
         return { success: false, error: err.message };
       }
     },
@@ -883,7 +939,26 @@
      * Check if PDF generation is available
      */
     isAvailable() {
-      return !!(window.jspdf || window.jsPDF);
+      return !!(window.jsPDF || window.jspdf);
+    },
+
+    /**
+     * Check if library will be available (waits for async load)
+     */
+    async waitForLibrary(timeout = 5000) {
+      if (this.isAvailable()) return true;
+      if (window._jsPDFReady) {
+        try {
+          await Promise.race([
+            window._jsPDFReady,
+            new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), timeout))
+          ]);
+          return this.isAvailable();
+        } catch {
+          return false;
+        }
+      }
+      return false;
     }
   };
 
