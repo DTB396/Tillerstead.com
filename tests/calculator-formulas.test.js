@@ -1,6 +1,6 @@
 /**
  * Calculator Formula Unit Tests
- * Tests the mathematical accuracy of TillerCalc Pro calculations
+ * Tests the mathematical accuracy of TillerPro calculations
  * Based on TCNA (Tile Council of North America) guidelines
  */
 
@@ -106,8 +106,8 @@ function calcSlope(inputs) {
 // TEST CASES
 // ============================================
 
-console.log('TillerCalc Pro Formula Tests');
-console.log('============================\n');
+console.log('TillerPro Formula Tests');
+console.log('========================\n');
 
 let passed = 0;
 let failed = 0;

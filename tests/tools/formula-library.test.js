@@ -126,6 +126,19 @@ import {
   isLargeFormat,
   isPlankFormat
 } from '../../assets/js/tools/formulas/formulas.tile.js';
+import {
+  calculateMovementJoints,
+  calculateDeflection,
+  calculateHeatedFloorLoad,
+  evaluateMoistureReadings,
+  calculateThinsetMix,
+  estimateSealer,
+  calculateDeckMud,
+  estimatePrimer,
+  estimateSealantTubes,
+  estimateLaborSensitivity,
+  calculateBathLayout
+} from '../../assets/js/tools/formulas/formulas.advanced.js';
 
 function testTileFormulas() {
   console.log('Testing tile formulas...');
@@ -454,6 +467,120 @@ function testSlopeFormulas() {
 }
 
 // ============================================
+// ADVANCED FORMULA TESTS
+// ============================================
+
+function testAdvancedFormulas() {
+  console.log('Testing advanced formulas...');
+
+  // Movement joints interior normal temp
+  const mj1 = calculateMovementJoints({ lengthFt: 40, widthFt: 20, exposure: 'interior', tempSwingF: 20 });
+  assert.strictEqual(mj1.valid, true);
+  assert.strictEqual(mj1.spacingFt, 24);
+  assert.strictEqual(mj1.jointsLong, 1);
+  assert.strictEqual(mj1.jointsShort, 0);
+
+  // Exterior high temp should tighten spacing
+  const mj2 = calculateMovementJoints({ lengthFt: 40, widthFt: 20, exposure: 'exterior', tempSwingF: 50 });
+  assert.strictEqual(mj2.spacingFt, 8);
+
+  // Deflection check 2x10, 16" oc, 12 ft span
+  const defl = calculateDeflection({
+    spanFeet: 12,
+    joistSpacingInches: 16,
+    joistWidthInches: 1.5,
+    joistDepthInches: 9.25,
+    modulusPsi: 1600000
+  });
+  assert.strictEqual(defl.valid, true);
+  assert.strictEqual(defl.passesCeramic, true);
+
+  // Heated floor load 100 sf @12 W/sf 120V
+  const heat = calculateHeatedFloorLoad({ areaSqFt: 100, wattsPerSqFt: 12, voltage: 120 });
+  assert.strictEqual(heat.valid, true);
+  assert.ok(heat.amps > 0);
+  assert.ok(heat.breakerAmps >= 15);
+
+  // Moisture limits
+  const moisture = evaluateMoistureReadings({ mverLbs: 4, rhPercent: 70, productLimitMver: 5, productLimitRh: 75 });
+  assert.strictEqual(moisture.requiresMitigation, false);
+
+  const moistureFail = evaluateMoistureReadings({ mverLbs: 8, rhPercent: 80, productLimitMver: 5, productLimitRh: 75 });
+  assert.strictEqual(moistureFail.requiresMitigation, true);
+
+  // Thinset mix partial batch
+  const mix = calculateThinsetMix({ bagWeightLbs: 50, batchWeightLbs: 25, waterQuartsPerBagMin: 5, waterQuartsPerBagMax: 6 });
+  assert.strictEqual(mix.valid, true);
+  assert.ok(mix.waterQuartsRange[0] > 0);
+
+  // Sealer coverage
+  const sealer = estimateSealer({ areaSqFt: 500, surface: 'natural_stone', coats: 2 });
+  assert.strictEqual(sealer.valid, true);
+  assert.ok(sealer.gallons >= 1);
+
+  // Deck mud volume
+  const deck = calculateDeckMud({ areaSqFt: 25, runFeet: 3 });
+  assert.strictEqual(deck.valid, true);
+  assert.ok(deck.bags >= 1);
+
+  // Primer
+  const primer = estimatePrimer({ areaSqFt: 400, porosity: 'porous', doublePrime: true });
+  assert.strictEqual(primer.valid, true);
+  assert.ok(primer.gallons >= 1);
+
+  // Sealant
+  const sealant = estimateSealantTubes({ linearFeet: 50, beadDiameterInches: 0.25, tubeVolumeOz: 10.1 });
+  assert.strictEqual(sealant.valid, true);
+  assert.ok(sealant.tubes >= 1);
+
+  // Labor sensitivity
+  const labor = estimateLaborSensitivity({
+    areaSqFt: 200,
+    baseProductivitySqFtPerHour: 25,
+    complexity: 'high',
+    pattern: 'herringbone',
+    surface: 'wall',
+    crewSize: 2
+  });
+  assert.strictEqual(labor.valid, true);
+  assert.ok(labor.hours > 0);
+
+  console.log('  ✓ All advanced formula tests passed');
+}
+
+function testBathLayout() {
+  console.log('Testing bath layout...');
+
+  const result = calculateBathLayout({
+    roomLengthFt: 14,
+    roomWidthFt: 8,
+    doorWidthIn: 32,
+    walkwayMinIn: 30,
+    includeTub: true,
+    tubLengthIn: 60,
+    tubWidthIn: 30,
+    tubFrontClearIn: 30,
+    includeShower: false,
+    includeToilet: true,
+    toiletSideClearIn: 15,
+    toiletDepthIn: 28,
+    toiletFrontClearIn: 24,
+    includeVanity: true,
+    vanityWidthIn: 36,
+    vanityDepthIn: 22,
+    vanityFrontClearIn: 30
+  });
+
+  assert.strictEqual(result.valid, true, 'Bath layout should be valid');
+  assert.strictEqual(result.fitsLinear, 'Yes', 'Should fit along primary wall');
+  assert.strictEqual(result.walkwayPass, 'Yes', 'Walkway should pass minimum clearance');
+  assert.ok(result.requiredWallIn > 0, 'Required wall should be positive');
+  assert.ok(result.availableWallIn > 0, 'Available wall should be positive');
+
+  console.log('  ✓ Bath layout test passed');
+}
+
+// ============================================
 // RUN ALL TESTS
 // ============================================
 
@@ -474,7 +601,9 @@ function runAllTests() {
     testGroutFormulas,
     testWaterproofingFormulas,
     testLevelingFormulas,
-    testSlopeFormulas
+    testSlopeFormulas,
+    testAdvancedFormulas,
+    testBathLayout
   ];
 
   for (const test of tests) {

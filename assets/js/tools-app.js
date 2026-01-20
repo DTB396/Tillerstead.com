@@ -30,6 +30,16 @@
     { id: 'leveling', name: 'Self-Leveling', icon: '📏', desc: 'Leveling compound amounts', category: 'prep' },
     { id: 'slope', name: 'Shower Slope', icon: '📐', desc: 'Pre-slope calculations', category: 'prep' },
     { id: 'waterproof', name: 'Waterproofing', icon: '💧', desc: 'Membrane requirements', category: 'prep' },
+    { id: 'movement', name: 'Movement Joints', icon: '↔️', desc: 'TCNA EJ171 spacing & soft joints', category: 'standards' },
+    { id: 'deflection', name: 'Structure Deflection', icon: '🏗️', desc: 'L/360 ceramic, L/720 stone check', category: 'standards' },
+    { id: 'heated-floor', name: 'Heated Floor Load', icon: '♨️', desc: 'Watts, amps, breaker/relay sizing', category: 'electrical' },
+    { id: 'moisture', name: 'Moisture / RH', icon: '💨', desc: 'ASTM F1869 / F2170 gating', category: 'prep' },
+    { id: 'thinset-mix', name: 'Thinset Mixing', icon: '🌀', desc: 'Water, yield, pot life', category: 'tile' },
+    { id: 'sealer', name: 'Sealer Coverage', icon: '🛡️', desc: 'Porosity-based gallons', category: 'finishes' },
+    { id: 'deck-mud', name: 'Deck Mud', icon: '🪣', desc: 'Shower pan volume & bags', category: 'prep' },
+    { id: 'primer', name: 'Primer / SLU', icon: '🧴', desc: 'Porous vs non-porous coats', category: 'prep' },
+    { id: 'sealant', name: 'Sealant / Caulk', icon: '🧵', desc: 'Bead length to tubes', category: 'finishes' },
+    { id: 'bath-layout', name: 'Bath Layout', icon: '🛁', desc: 'Check clearances for tub, shower, toilet, vanity', category: 'layout' },
     { id: 'crown', name: 'Crown Molding', icon: '👑', desc: 'Ceiling trim & corners', category: 'trim' },
     { id: 'baseboard', name: 'Baseboard & Chair Rail', icon: '📋', desc: 'Wall base and mid-panel framing', category: 'trim' },
     { id: 'quarter', name: 'Quarter Round', icon: '🔘', desc: 'Floor trim & shoe molding', category: 'trim' },
@@ -214,7 +224,7 @@
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `tillercalc-export-${Date.now()}.json`;
+      a.download = `tillerpro-export-${Date.now()}.json`;
       a.click();
       URL.revokeObjectURL(url);
       Toast.show('Data exported successfully', 'success');
@@ -400,6 +410,16 @@
       'leveling': 'self_leveler',
       'slope': 'shower_slope',
       'waterproof': 'waterproofing',
+      'movement': 'movement_joints',
+      'deflection': 'deflection',
+      'heated-floor': 'heated_floor',
+      'moisture': 'moisture_check',
+      'thinset-mix': 'thinset_mix',
+      'sealer': 'sealer',
+      'deck-mud': 'deck_mud',
+      'primer': 'primer',
+      'sealant': 'sealant',
+      'bath-layout': 'bath_layout',
       'labor': 'labor'
     },
 
@@ -440,6 +460,73 @@
             area_sqft: inputs.area,
             trowel_notch_size: inputs.trowelSize,
             back_butter: inputs.backButter || false
+          };
+        case 'movement':
+          return {
+            length_ft: inputs.length || inputs.lengthFt,
+            width_ft: inputs.width || inputs.widthFt,
+            exposure: inputs.exposure || 'interior',
+            temp_swing_f: inputs.tempSwingF ?? 30,
+            sun_exposed: inputs.isSunExposed || false
+          };
+        case 'deflection':
+          return {
+            span_ft: inputs.spanFeet,
+            joist_spacing_in: inputs.joistSpacingInches,
+            joist_width_in: inputs.joistWidthInches,
+            joist_depth_in: inputs.joistDepthInches,
+            modulus_psi: inputs.modulusPsi || 1600000,
+            live_load_psf: inputs.liveLoadPsft || 40,
+            dead_load_psf: inputs.deadLoadPsft || 10
+          };
+        case 'heated-floor':
+          return {
+            area_sqft: inputs.areaSqFt || inputs.area,
+            watts_per_sqft: inputs.wattsPerSqFt || 12,
+            voltage: inputs.voltage || 120,
+            thermostat_max_amps: inputs.thermostatMaxAmps || 15
+          };
+        case 'moisture':
+          return {
+            mver_lbs: inputs.mverLbs,
+            rh_percent: inputs.rhPercent,
+            limit_mver: inputs.productLimitMver || 5,
+            limit_rh: inputs.productLimitRh || 75
+          };
+        case 'thinset-mix':
+          return {
+            bag_weight_lbs: inputs.bagWeightLbs || 50,
+            water_quarts_min: inputs.waterQuartsPerBagMin || 5,
+            water_quarts_max: inputs.waterQuartsPerBagMax || 6,
+            batch_weight_lbs: inputs.batchWeightLbs,
+            pot_life_min: inputs.potLifeMinutes || 120,
+            yield_cuft_per_bag: inputs.yieldCuFtPerBag || 0.45
+          };
+        case 'sealer':
+          return {
+            area_sqft: inputs.areaSqFt || inputs.area,
+            surface: inputs.surface || 'natural_stone',
+            coats: inputs.coats || 2
+          };
+        case 'deck-mud':
+          return {
+            area_sqft: inputs.areaSqFt || inputs.area,
+            run_ft: inputs.runFeet,
+            min_thickness_in: inputs.minThicknessInches || 1.25,
+            slope_in_per_ft: inputs.slopeInchesPerFoot || 0.25,
+            bag_yield_cuft: inputs.bagYieldCuFt || 0.5
+          };
+        case 'primer':
+          return {
+            area_sqft: inputs.areaSqFt || inputs.area,
+            porosity: inputs.porosity || 'porous',
+            double_prime: inputs.doublePrime || false
+          };
+        case 'sealant':
+          return {
+            linear_ft: inputs.linearFeet,
+            bead_diameter_in: inputs.beadDiameterInches || 0.25,
+            tube_volume_oz: inputs.tubeVolumeOz || 10.1
           };
         default:
           return inputs;
@@ -507,7 +594,7 @@
         settings: 'Settings'
       };
       const el = document.getElementById('page-title');
-      if (el) el.textContent = titles[AppState.currentRoute] || 'TillerCalc';
+      if (el) el.textContent = titles[AppState.currentRoute] || 'TillerPro';
     }
   };
 
@@ -719,6 +806,126 @@
   // ============================================
 
   const Calculations = {
+    movement(inputs) {
+      const { calculateMovementJoints } = window.TillersteadFormulas;
+      return calculateMovementJoints({
+        lengthFt: inputs.length || inputs.lengthFt,
+        widthFt: inputs.width || inputs.widthFt,
+        exposure: inputs.exposure || 'interior',
+        tempSwingF: inputs.tempSwingF ?? 30,
+        isSunExposed: inputs.isSunExposed || false
+      });
+    },
+
+    deflection(inputs) {
+      const { calculateDeflection } = window.TillersteadFormulas;
+      return calculateDeflection({
+        spanFeet: inputs.spanFeet,
+        joistSpacingInches: inputs.joistSpacingInches,
+        joistWidthInches: inputs.joistWidthInches,
+        joistDepthInches: inputs.joistDepthInches,
+        modulusPsi: inputs.modulusPsi || 1600000,
+        liveLoadPsft: inputs.liveLoadPsft || 40,
+        deadLoadPsft: inputs.deadLoadPsft || 10
+      });
+    },
+
+    'heated-floor'(inputs) {
+      const { calculateHeatedFloorLoad } = window.TillersteadFormulas;
+      return calculateHeatedFloorLoad({
+        areaSqFt: inputs.areaSqFt || inputs.area,
+        wattsPerSqFt: inputs.wattsPerSqFt || 12,
+        voltage: inputs.voltage || 120,
+        thermostatMaxAmps: inputs.thermostatMaxAmps || 15
+      });
+    },
+
+    moisture(inputs) {
+      const { evaluateMoistureReadings } = window.TillersteadFormulas;
+      return evaluateMoistureReadings({
+        mverLbs: inputs.mverLbs,
+        rhPercent: inputs.rhPercent,
+        productLimitMver: inputs.productLimitMver || 5,
+        productLimitRh: inputs.productLimitRh || 75
+      });
+    },
+
+    'thinset-mix'(inputs) {
+      const { calculateThinsetMix } = window.TillersteadFormulas;
+      return calculateThinsetMix({
+        bagWeightLbs: inputs.bagWeightLbs || 50,
+        waterQuartsPerBagMin: inputs.waterQuartsPerBagMin || 5,
+        waterQuartsPerBagMax: inputs.waterQuartsPerBagMax || 6,
+        batchWeightLbs: inputs.batchWeightLbs,
+        potLifeMinutes: inputs.potLifeMinutes || 120,
+        yieldCuFtPerBag: inputs.yieldCuFtPerBag || 0.45
+      });
+    },
+
+    sealer(inputs) {
+      const { estimateSealer } = window.TillersteadFormulas;
+      return estimateSealer({
+        areaSqFt: inputs.areaSqFt || inputs.area,
+        surface: inputs.surface || 'natural_stone',
+        coats: inputs.coats || 2
+      });
+    },
+
+    'deck-mud'(inputs) {
+      const { calculateDeckMud } = window.TillersteadFormulas;
+      return calculateDeckMud({
+        areaSqFt: inputs.areaSqFt || inputs.area,
+        runFeet: inputs.runFeet,
+        minThicknessInches: inputs.minThicknessInches || 1.25,
+        slopeInchesPerFoot: inputs.slopeInchesPerFoot || 0.25,
+        bagYieldCuFt: inputs.bagYieldCuFt || 0.5
+      });
+    },
+
+    primer(inputs) {
+      const { estimatePrimer } = window.TillersteadFormulas;
+      return estimatePrimer({
+        areaSqFt: inputs.areaSqFt || inputs.area,
+        porosity: inputs.porosity || 'porous',
+        doublePrime: inputs.doublePrime || false
+      });
+    },
+
+    sealant(inputs) {
+      const { estimateSealantTubes } = window.TillersteadFormulas;
+      return estimateSealantTubes({
+        linearFeet: inputs.linearFeet,
+        beadDiameterInches: inputs.beadDiameterInches || 0.25,
+        tubeVolumeOz: inputs.tubeVolumeOz || 10.1
+      });
+    },
+
+    'bath-layout'(inputs) {
+      const { calculateBathLayout } = window.TillersteadFormulas;
+      return calculateBathLayout({
+        roomLengthFt: inputs.roomLengthFt,
+        roomWidthFt: inputs.roomWidthFt,
+        doorWidthIn: inputs.doorWidthIn ?? 32,
+        walkwayMinIn: inputs.walkwayMinIn ?? 30,
+        includeTub: inputs.includeTub ?? true,
+        tubLengthIn: inputs.tubLengthIn ?? 60,
+        tubWidthIn: inputs.tubWidthIn ?? 30,
+        tubFrontClearIn: inputs.tubFrontClearIn ?? 30,
+        includeShower: inputs.includeShower ?? true,
+        showerWidthIn: inputs.showerWidthIn ?? 36,
+        showerDepthIn: inputs.showerDepthIn ?? 36,
+        showerFrontClearIn: inputs.showerFrontClearIn ?? 30,
+        includeToilet: inputs.includeToilet ?? true,
+        toiletSideClearIn: inputs.toiletSideClearIn ?? 15,
+        toiletDepthIn: inputs.toiletDepthIn ?? 28,
+        toiletFrontClearIn: inputs.toiletFrontClearIn ?? 24,
+        includeVanity: inputs.includeVanity ?? true,
+        vanityWidthIn: inputs.vanityWidthIn ?? 48,
+        vanityDepthIn: inputs.vanityDepthIn ?? 22,
+        vanityFrontClearIn: inputs.vanityFrontClearIn ?? 30
+      });
+    },
+
     tile(inputs) {
       const { area, tileSize, layout, waste, tilesPerBox, sqftPerBox, atticStock, customWidth, customHeight } = inputs;
       
@@ -1592,6 +1799,166 @@
           </div>
         `,
 
+        'bath-layout': `
+          <div class="form-section">
+            <div class="form-section__title">Room</div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-label form-label--required">Room Length</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="roomLengthFt" value="${inputs.roomLengthFt || ''}" min="4" step="0.5" placeholder="e.g. 10">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label form-label--required">Room Width</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="roomWidthFt" value="${inputs.roomWidthFt || ''}" min="4" step="0.5" placeholder="e.g. 5">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Door Width</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="doorWidthIn" value="${inputs.doorWidthIn ?? 32}" min="24" max="42" step="1">
+                  <span class="input-group__suffix">in</span>
+                </div>
+                <p class="form-help">Deducted from primary wall</p>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Walkway Minimum</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="walkwayMinIn" value="${inputs.walkwayMinIn ?? 30}" min="24" max="42" step="1">
+                  <span class="input-group__suffix">in</span>
+                </div>
+                <p class="form-help">30–36" recommended clear path</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section__title">Fixtures</div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-checkbox">
+                  <input type="checkbox" name="includeTub" ${inputs.includeTub ?? true ? 'checked' : ''}>
+                  <span>Include Tub</span>
+                </label>
+                <div class="form-grid form-grid--2col mt-sm">
+                  <div class="form-field">
+                    <label class="form-label">Tub Length</label>
+                    <div class="input-group">
+                      <input type="number" class="form-input" name="tubLengthIn" value="${inputs.tubLengthIn ?? 60}" min="54" max="72" step="1">
+                      <span class="input-group__suffix">in</span>
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label">Tub Width</label>
+                    <div class="input-group">
+                      <input type="number" class="form-input" name="tubWidthIn" value="${inputs.tubWidthIn ?? 30}" min="28" max="36" step="1">
+                      <span class="input-group__suffix">in</span>
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label">Front Clearance</label>
+                    <div class="input-group">
+                      <input type="number" class="form-input" name="tubFrontClearIn" value="${inputs.tubFrontClearIn ?? 30}" min="24" max="42" step="1">
+                      <span class="input-group__suffix">in</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-checkbox">
+                  <input type="checkbox" name="includeShower" ${inputs.includeShower ?? true ? 'checked' : ''}>
+                  <span>Include Shower</span>
+                </label>
+                <div class="form-grid form-grid--2col mt-sm">
+                  <div class="form-field">
+                    <label class="form-label">Shower Width</label>
+                    <div class="input-group">
+                      <input type="number" class="form-input" name="showerWidthIn" value="${inputs.showerWidthIn ?? 36}" min="30" max="60" step="1">
+                      <span class="input-group__suffix">in</span>
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label">Shower Depth</label>
+                    <div class="input-group">
+                      <input type="number" class="form-input" name="showerDepthIn" value="${inputs.showerDepthIn ?? 36}" min="30" max="60" step="1">
+                      <span class="input-group__suffix">in</span>
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label">Front Clearance</label>
+                    <div class="input-group">
+                      <input type="number" class="form-input" name="showerFrontClearIn" value="${inputs.showerFrontClearIn ?? 30}" min="24" max="42" step="1">
+                      <span class="input-group__suffix">in</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-checkbox">
+                  <input type="checkbox" name="includeToilet" ${inputs.includeToilet ?? true ? 'checked' : ''}>
+                  <span>Include Toilet</span>
+                </label>
+                <div class="form-grid form-grid--2col mt-sm">
+                  <div class="form-field">
+                    <label class="form-label">Side Clearance</label>
+                    <div class="input-group">
+                      <input type="number" class="form-input" name="toiletSideClearIn" value="${inputs.toiletSideClearIn ?? 15}" min="12" max="18" step="1">
+                      <span class="input-group__suffix">in</span>
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label">Toilet Depth</label>
+                    <div class="input-group">
+                      <input type="number" class="form-input" name="toiletDepthIn" value="${inputs.toiletDepthIn ?? 28}" min="26" max="32" step="1">
+                      <span class="input-group__suffix">in</span>
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label">Front Clearance</label>
+                    <div class="input-group">
+                      <input type="number" class="form-input" name="toiletFrontClearIn" value="${inputs.toiletFrontClearIn ?? 24}" min="21" max="36" step="1">
+                      <span class="input-group__suffix">in</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-checkbox">
+                  <input type="checkbox" name="includeVanity" ${inputs.includeVanity ?? true ? 'checked' : ''}>
+                  <span>Include Vanity</span>
+                </label>
+                <div class="form-grid form-grid--2col mt-sm">
+                  <div class="form-field">
+                    <label class="form-label">Vanity Width</label>
+                    <div class="input-group">
+                      <input type="number" class="form-input" name="vanityWidthIn" value="${inputs.vanityWidthIn ?? 48}" min="24" max="72" step="1">
+                      <span class="input-group__suffix">in</span>
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label">Vanity Depth</label>
+                    <div class="input-group">
+                      <input type="number" class="form-input" name="vanityDepthIn" value="${inputs.vanityDepthIn ?? 22}" min="18" max="26" step="1">
+                      <span class="input-group__suffix">in</span>
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label class="form-label">Front Clearance</label>
+                    <div class="input-group">
+                      <input type="number" class="form-input" name="vanityFrontClearIn" value="${inputs.vanityFrontClearIn ?? 30}" min="24" max="42" step="1">
+                      <span class="input-group__suffix">in</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+
         // ============================================
         // TRIM CALCULATOR FORMS
         // ============================================
@@ -1877,6 +2244,14 @@
           { key: 'membrane', label: 'Membrane', suffix: ' gal', highlight: true },
           { key: 'bandFeet', label: 'Seam Band', suffix: ' ft' },
           { key: 'coats', label: 'Coats Required' }
+        ],
+        'bath-layout': [
+          { key: 'fitsLinear', label: 'Wall Fit' },
+          { key: 'availableWallIn', label: 'Available Wall', suffix: ' in' },
+          { key: 'requiredWallIn', label: 'Required Wall', suffix: ' in' },
+          { key: 'walkwayPass', label: 'Walkway OK' },
+          { key: 'walkwayWidthIn', label: 'Clear Path', suffix: ' in', highlight: true },
+          { key: 'maxDepthClearIn', label: 'Deepest Fixture + Clear', suffix: ' in' }
         ],
         labor: [
           { key: 'hours', label: 'Est. Hours' },
@@ -2408,7 +2783,7 @@
         Projects.updateCount();
 
       } catch (err) {
-        console.error('TillerCalc init error:', err);
+        console.error('TillerPro init error:', err);
         // Show error toast if available
         try { Toast.show('App initialization error', 'error'); } catch (e) {}
       } finally {
@@ -2658,59 +3033,78 @@
     // Toolkit sync methods
     syncToToolkit: () => App.syncToToolkit(),
     importFromToolkit: () => App.importFromToolkit(),
-    // PDF export methods
-    downloadProjectPDF: (projectId) => {
+    // PDF export methods (async for jsPDF loading)
+    downloadProjectPDF: async (projectId) => {
       const project = Projects.get(projectId);
       if (!project) {
         Toast.show('Project not found', 'error');
         return;
       }
-      if (!window.TillerPDF || !window.TillerPDF.isAvailable()) {
-        Toast.show('PDF library not loaded', 'error');
+      if (!window.TillerPDF) {
+        Toast.show('PDF module not loaded', 'error');
         return;
       }
-      const result = window.TillerPDF.downloadProjectSummary(project);
+      // Wait for library if needed
+      const available = await window.TillerPDF.waitForLibrary();
+      if (!available) {
+        Toast.show('PDF library not loaded. Please refresh.', 'error');
+        return;
+      }
+      Toast.show('Generating PDF...', 'info');
+      const result = await window.TillerPDF.downloadProjectSummary(project);
       if (result.success) {
         Toast.show(`Downloaded: ${result.filename}`, 'success');
       } else {
-        Toast.show('PDF generation failed', 'error');
+        Toast.show(`PDF failed: ${result.error}`, 'error');
       }
     },
-    downloadMaterialsPDF: (projectId) => {
+    downloadMaterialsPDF: async (projectId) => {
       const project = Projects.get(projectId);
       if (!project) {
         Toast.show('Project not found', 'error');
         return;
       }
-      if (!window.TillerPDF || !window.TillerPDF.isAvailable()) {
-        Toast.show('PDF library not loaded', 'error');
+      if (!window.TillerPDF) {
+        Toast.show('PDF module not loaded', 'error');
         return;
       }
-      const result = window.TillerPDF.downloadMaterialList(project);
+      const available = await window.TillerPDF.waitForLibrary();
+      if (!available) {
+        Toast.show('PDF library not loaded. Please refresh.', 'error');
+        return;
+      }
+      Toast.show('Generating PDF...', 'info');
+      const result = await window.TillerPDF.downloadMaterialList(project);
       if (result.success) {
         Toast.show(`Downloaded: ${result.filename}`, 'success');
       } else {
-        Toast.show('PDF generation failed', 'error');
+        Toast.show(`PDF failed: ${result.error}`, 'error');
       }
     },
-    downloadCalcPDF: (calcId) => {
+    downloadCalcPDF: async (calcId) => {
       const inputs = AppState.calculatorInputs[calcId];
       const results = AppState.calculatorResults[calcId];
       if (!inputs || !results) {
         Toast.show('No calculation results to export', 'warning');
         return;
       }
-      if (!window.TillerPDF || !window.TillerPDF.isAvailable()) {
-        Toast.show('PDF library not loaded', 'error');
+      if (!window.TillerPDF) {
+        Toast.show('PDF module not loaded', 'error');
+        return;
+      }
+      const available = await window.TillerPDF.waitForLibrary();
+      if (!available) {
+        Toast.show('PDF library not loaded. Please refresh.', 'error');
         return;
       }
       const activeProject = AppState.activeProject ? Projects.get(AppState.activeProject) : null;
       const projectName = activeProject ? activeProject.name : 'Quick Estimate';
-      const result = window.TillerPDF.downloadQuickEstimate(calcId, inputs, results, projectName);
+      Toast.show('Generating PDF...', 'info');
+      const result = await window.TillerPDF.downloadQuickEstimate(calcId, inputs, results, projectName);
       if (result.success) {
         Toast.show(`Downloaded: ${result.filename}`, 'success');
       } else {
-        Toast.show('PDF generation failed', 'error');
+        Toast.show(`PDF failed: ${result.error}`, 'error');
       }
     }
   };

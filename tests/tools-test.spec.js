@@ -1,7 +1,7 @@
-// TillerCalc Pro App - Playwright tests
+// TillerPro App - Playwright tests
 import { test, expect } from '@playwright/test';
 
-test.describe('TillerCalc Pro App', () => {
+test.describe('TillerPro App', () => {
   
   test.beforeEach(async ({ page }) => {
     await page.goto('/tools/');
@@ -194,7 +194,7 @@ test.describe('TillerCalc Pro App', () => {
 
 });
 
-test.describe('TillerCalc Pro - Mobile', () => {
+test.describe('TillerPro - Mobile', () => {
   test.use({ viewport: { width: 390, height: 844 } });
 
   test('Bottom navigation works on mobile', async ({ page }) => {
