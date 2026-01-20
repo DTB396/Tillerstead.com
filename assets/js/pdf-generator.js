@@ -7,6 +7,12 @@
 (function() {
   'use strict';
 
+  // Debug: Log jsPDF availability on load
+  console.log('[TillerPDF] Checking jsPDF availability:', {
+    'window.jspdf': typeof window.jspdf,
+    'window.jsPDF': typeof window.jsPDF
+  });
+
   // Brand colors
   const COLORS = {
     primary: [26, 61, 46],      // #1a3d2e - Forest green
@@ -55,12 +61,14 @@
      * Initialize a new PDF document
      */
     init() {
-      // Check if jsPDF is available
-      if (typeof window.jspdf === 'undefined') {
+      // Check if jsPDF is available (UMD exposes as window.jspdf or window.jsPDF)
+      const jspdfLib = window.jspdf || window.jsPDF;
+      if (!jspdfLib) {
         throw new Error('jsPDF library not loaded');
       }
 
-      const { jsPDF } = window.jspdf;
+      // Get the jsPDF constructor (may be the lib itself or a property)
+      const jsPDF = jspdfLib.jsPDF || jspdfLib;
       this.doc = new jsPDF({
         orientation: 'portrait',
         unit: 'mm',
@@ -817,7 +825,7 @@
      * Check if PDF generation is available
      */
     isAvailable() {
-      return typeof window.jspdf !== 'undefined';
+      return !!(window.jspdf || window.jsPDF);
     }
   };
 
