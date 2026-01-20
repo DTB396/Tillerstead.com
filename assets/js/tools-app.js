@@ -1739,7 +1739,10 @@
   function showApp() {
     const loading = document.getElementById('app-loading');
     const shell = document.getElementById('app-shell');
-    if (loading) loading.hidden = true;
+    if (loading) {
+      loading.style.display = 'none';
+      loading.hidden = true;
+    }
     if (shell) shell.classList.add('is-ready');
   }
 
