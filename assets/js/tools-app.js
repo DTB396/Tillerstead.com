@@ -33,34 +33,65 @@
     { id: 'labor', name: 'Labor Estimate', icon: '⏱️', desc: 'Time and scheduling' }
   ];
 
-  // Tile presets (reused from tools.js)
+  // ============================================
+  // CONSTANTS - Synced with tools.js (TDS-verified)
+  // ============================================
+
+  // TCNA defines Large Format Tile (LFT) as any tile with any side ≥15"
+  // LFT requires 95% mortar coverage, proper trowel selection, and back-buttering
   const TILE_PRESETS = [
-    { id: 'mosaic-1x1', name: '1×1 Mosaic', width: 1, height: 1, isMosaic: true },
-    { id: 'mosaic-2x2', name: '2×2 Mosaic', width: 2, height: 2, isMosaic: true },
+    { id: 'mosaic-1x1', name: '1×1 Mosaic (12×12 sheet)', width: 1, height: 1, isMosaic: true, sheetCoverage: 1 },
+    { id: 'mosaic-2x2', name: '2×2 Mosaic (12×12 sheet)', width: 2, height: 2, isMosaic: true, sheetCoverage: 1 },
     { id: '3x6', name: '3×6 Subway', width: 3, height: 6 },
     { id: '4x4', name: '4×4', width: 4, height: 4 },
+    { id: '4x12', name: '4×12', width: 4, height: 12 },
     { id: '6x6', name: '6×6', width: 6, height: 6 },
-    { id: '6x24', name: '6×24 Plank', width: 6, height: 24 },
+    { id: '6x24', name: '6×24 Plank', width: 6, height: 24, isPlank: true, isLargeFormat: true },
+    { id: '8x48', name: '8×48 Plank', width: 8, height: 48, isPlank: true, isLargeFormat: true },
     { id: '12x12', name: '12×12', width: 12, height: 12 },
-    { id: '12x24', name: '12×24', width: 12, height: 24 },
-    { id: '24x24', name: '24×24', width: 24, height: 24 },
-    { id: 'custom', name: 'Custom Size', width: 0, height: 0 }
+    { id: '12x24', name: '12×24', width: 12, height: 24, isLargeFormat: true },
+    { id: '12x48', name: '12×48 Plank', width: 12, height: 48, isPlank: true, isLargeFormat: true },
+    { id: '24x24', name: '24×24', width: 24, height: 24, isLargeFormat: true },
+    { id: '24x48', name: '24×48', width: 24, height: 48, isLargeFormat: true },
+    { id: 'custom', name: 'Custom Size', width: 0, height: 0, isCustom: true }
   ];
 
+  // Layout patterns with waste factors
+  // TCNA restricts LFT offset to maximum 33% to minimize lippage risk
   const LAYOUT_PRESETS = [
-    { id: 'straight', name: 'Straight', waste: 10 },
-    { id: 'subway-33', name: '1/3 Offset', waste: 12 },
-    { id: 'subway-50', name: '50% Offset', waste: 15 },
-    { id: 'diagonal', name: 'Diagonal', waste: 18 },
-    { id: 'herringbone', name: 'Herringbone', waste: 25 }
+    { id: 'straight', name: 'Straight / Stacked', waste: 10, wasteFactor: 0.10 },
+    { id: 'subway-33', name: '1/3 Offset (Recommended for LFT)', waste: 12, wasteFactor: 0.12, lftSafe: true },
+    { id: 'subway-50', name: '50% Offset (Brick)', waste: 15, wasteFactor: 0.15, lippageRisk: true, lftWarning: 'NOT recommended for LFT—max 33% offset per TCNA' },
+    { id: 'brick', name: 'Running Bond', waste: 12, wasteFactor: 0.12 },
+    { id: 'diagonal', name: 'Diagonal', waste: 18, wasteFactor: 0.18 },
+    { id: 'herringbone', name: 'Herringbone', waste: 25, wasteFactor: 0.25 },
+    { id: 'mosaic', name: 'Mosaic Sheet', waste: 12, wasteFactor: 0.12 }
   ];
 
+  // Trowel presets with TDS-verified coverage per 50 lb bag
+  // Source: Custom Building Products VersaBond LFT TDS-132 (verified Jan 2026)
   const TROWEL_PRESETS = [
-    { id: '3/16-v', name: '3/16" V-Notch', min: 95, max: 120 },
-    { id: '1/4-sq', name: '1/4" Square', min: 70, max: 95 },
-    { id: '1/4x3/8-sq', name: '1/4"×3/8" Square', min: 50, max: 70 },
-    { id: '1/2-sq', name: '1/2" Square', min: 35, max: 50 }
+    { id: '3/16-v', name: '3/16" V-Notch', min: 100, max: 130, forTiles: 'mosaic, small wall' },
+    { id: '1/4-sq', name: '1/4" × 1/4" Square', min: 90, max: 100, forTiles: 'up to 8×8' },
+    { id: '1/4x3/8-sq', name: '1/4" × 3/8" Square', min: 60, max: 67, forTiles: '8×8 to 13×13' },
+    { id: '1/2-sq', name: '1/2" × 1/2" Square', min: 42, max: 47, forTiles: 'not recommended for LFT', notForLFT: true },
+    { id: '3/4-u-45', name: '3/4" × 9/16" U-Notch @ 45°', min: 34, max: 38, forTiles: 'LFT ≥15"', forLFT: true },
+    { id: '3/4-u-30', name: '3/4" × 9/16" U-Notch @ 30°', min: 42, max: 47, forTiles: 'LFT ≥15" (best)', forLFT: true, recommended: true }
   ];
+
+  // Joint width presets per ANSI A108.02
+  const JOINT_PRESETS = [
+    { id: '1/16', name: '1/16" (minimum)', size: 0.0625, note: 'Absolute minimum per ANSI' },
+    { id: '1/8', name: '1/8" (rectified)', size: 0.125, note: 'Standard for rectified tile' },
+    { id: '3/16', name: '3/16" (calibrated)', size: 0.1875, note: 'Standard for non-rectified' },
+    { id: '1/4', name: '1/4" (rustic/handmade)', size: 0.25, note: 'Handmade/high-variation tile' }
+  ];
+
+  // Grout density constant: ~1.86 lbs per cubic inch for sanded cement grout
+  const GROUT_DENSITY_LBS_PER_CUIN = 1.86;
+
+  // Self-leveler coverage: 0.45 cu ft per 50 lb bag (conservative avg per TDS)
+  const LEVELER_COVERAGE = 0.45;
 
   // ============================================
   // STATE MANAGEMENT
@@ -628,28 +659,37 @@
   };
 
   // ============================================
-  // CALCULATION FUNCTIONS
+  // CALCULATION FUNCTIONS (Harmonized with tools.js)
   // ============================================
 
   const Calculations = {
     tile(inputs) {
-      const { area, tileSize, layout, waste, tilesPerBox, sqftPerBox, atticStock } = inputs;
+      const { area, tileSize, layout, waste, tilesPerBox, sqftPerBox, atticStock, customWidth, customHeight } = inputs;
       
       if (!area || area <= 0) return null;
 
-      const tile = TILE_PRESETS.find(t => t.id === tileSize) || TILE_PRESETS[6];
+      // Get tile data, handle custom sizes
+      let tile = TILE_PRESETS.find(t => t.id === tileSize) || TILE_PRESETS[8]; // default 12x12
+      if (tile.isCustom && customWidth && customHeight) {
+        const w = parseFloat(customWidth);
+        const h = parseFloat(customHeight);
+        tile = { ...tile, width: w, height: h, isLargeFormat: Math.max(w, h) >= 15 };
+      }
+      
       const layoutData = LAYOUT_PRESETS.find(l => l.id === layout) || LAYOUT_PRESETS[0];
       const wastePercent = waste || layoutData.waste;
       
       const areaWithWaste = area * (1 + wastePercent / 100);
       
       let tilesNeeded;
-      if (tile.isMosaic) {
-        // Mosaic sheets are typically sold as 1 sq ft each
-        tilesNeeded = Math.ceil(areaWithWaste);
-      } else {
+      if (tile.isMosaic && tile.sheetCoverage) {
+        // Mosaic sheets use sheet coverage (typically 1 sq ft each)
+        tilesNeeded = Math.ceil(areaWithWaste / tile.sheetCoverage);
+      } else if (tile.width > 0 && tile.height > 0) {
         const tileSqFt = (tile.width * tile.height) / 144;
         tilesNeeded = Math.ceil(areaWithWaste / tileSqFt);
+      } else {
+        tilesNeeded = 0;
       }
       
       let boxes = 0;
@@ -663,66 +703,118 @@
         boxes += Math.max(1, Math.ceil(boxes * 0.05));
       }
 
+      // Build notes and warnings for LFT
+      const notes = [];
+      const warnings = [];
+      
+      if (tile.isMosaic) {
+        notes.push('Mosaic sheets (1 sq ft each)');
+      }
+      
+      if (tile.isLargeFormat) {
+        notes.push('Large-format tile (LFT) — requires 95% mortar coverage');
+        if (layoutData.lippageRisk) {
+          warnings.push(layoutData.lftWarning || '50% offset NOT recommended for LFT per TCNA');
+        }
+      }
+
       return {
         areaWithWaste: areaWithWaste.toFixed(1),
         tilesNeeded,
         boxes,
         wastePercent,
-        note: tile.isMosaic ? 'Mosaic sheets (1 sq ft each)' : ''
+        isLargeFormat: tile.isLargeFormat || false,
+        note: notes.join('. '),
+        warning: warnings.join(' ')
       };
     },
 
     mortar(inputs) {
-      const { area, trowel, backButter } = inputs;
+      const { area, trowel, backButter, tileSize } = inputs;
       
       if (!area || area <= 0) return null;
 
       const trowelData = TROWEL_PRESETS.find(t => t.id === trowel) || TROWEL_PRESETS[1];
+      const tile = tileSize ? TILE_PRESETS.find(t => t.id === tileSize) : null;
+      const isLFT = tile?.isLargeFormat || false;
       
       let bagsMin = Math.ceil(area / trowelData.max);
       let bagsMax = Math.ceil(area / trowelData.min);
 
-      if (backButter) {
+      // Always add 20-30% for back-buttering with LFT
+      const shouldBackButter = backButter || isLFT;
+      if (shouldBackButter) {
         bagsMin = Math.ceil(bagsMin * 1.2);
         bagsMax = Math.ceil(bagsMax * 1.3);
+      }
+
+      // Build notes and warnings
+      const notes = [];
+      const warnings = [];
+      
+      notes.push(`Coverage: ${trowelData.min}–${trowelData.max} sq ft/bag per CBP TDS-132`);
+      
+      if (shouldBackButter) {
+        notes.push('Includes ~25% extra for back-buttering');
+      }
+      
+      if (isLFT) {
+        if (trowelData.notForLFT) {
+          warnings.push(`${trowelData.name} NOT recommended for LFT—use 3/4" U-notch`);
+        } else if (trowelData.forLFT) {
+          notes.push('Correct trowel for LFT');
+        }
       }
 
       return {
         bagsMin,
         bagsMax,
         coverage: `${trowelData.min}–${trowelData.max} sq ft/bag`,
-        note: backButter ? 'Includes ~25% for back-buttering' : ''
+        note: notes.join('. '),
+        warning: warnings.join(' ')
       };
     },
 
     grout(inputs) {
-      const { area, tileWidth, tileLength, tileThickness, jointWidth } = inputs;
+      const { area, tileWidth, tileLength, tileThickness, jointWidth, tileSize } = inputs;
       
-      if (!area || !tileWidth || !tileLength) return null;
+      if (!area || area <= 0) return null;
+      
+      // Get tile dimensions from preset if not provided directly
+      let tileW = parseFloat(tileWidth);
+      let tileL = parseFloat(tileLength);
+      
+      if ((!tileW || !tileL) && tileSize) {
+        const tile = TILE_PRESETS.find(t => t.id === tileSize);
+        if (tile && tile.width > 0) {
+          tileW = tile.width;
+          tileL = tile.height;
+        }
+      }
+      
+      if (!tileW || !tileL) return null;
 
-      // TCNA Grout Coverage Formula
-      // Coverage (sq ft/lb) = (L × W) / ((L + W) × D × W × 1.86)
-      // Where: L,W = tile dimensions (inches), D = joint depth, W = joint width
-      const tileW = parseFloat(tileWidth);      // tile width in inches
-      const tileL = parseFloat(tileLength);     // tile length in inches
-      const jointW = parseFloat(jointWidth) || 0.125;  // joint width in inches
-      const jointD = parseFloat(tileThickness) || 0.375; // joint depth in inches
+      // Joint dimensions
+      const jointW = parseFloat(jointWidth) || 0.125;  // default 1/8"
+      const jointD = parseFloat(tileThickness) || 0.375; // default 3/8" (typical tile)
       
-      // Calculate coverage in sq ft per lb of grout
-      const coverageSqFtPerLb = (tileL * tileW) / ((tileL + tileW) * jointD * jointW * 1.86);
+      // TCNA Grout Coverage Formula using constant
+      // Formula: Area × (L + W) / (L × W) × T × J × K where K = 1.86
+      const lbsPerSqFt = ((tileL + tileW) / (tileL * tileW)) * jointD * jointW * GROUT_DENSITY_LBS_PER_CUIN;
       
-      // Pounds needed for the area
-      const groutLbs = area / coverageSqFtPerLb;
+      // Coverage in sq ft per lb (inverse)
+      const coverageSqFtPerLb = 1 / lbsPerSqFt;
       
-      // Add 10% waste
-      const totalLbs = groutLbs * 1.1;
+      // Pounds needed with 10% waste
+      const groutLbs = area * lbsPerSqFt * 1.1;
 
       return {
-        pounds: Math.ceil(totalLbs),
-        bags25lb: Math.ceil(totalLbs / 25),
-        bags10lb: Math.ceil(totalLbs / 10),
+        pounds: Math.ceil(groutLbs),
+        bags25lb: Math.ceil(groutLbs / 25),
+        bags10lb: Math.ceil(groutLbs / 10),
         coverage: coverageSqFtPerLb.toFixed(1),
-        note: 'Based on sanded grout with 10% waste'
+        lbsPerSqFt: lbsPerSqFt.toFixed(3),
+        note: `Sanded grout with 10% waste. ~${lbsPerSqFt.toFixed(2)} lbs/sq ft`
       };
     },
 
@@ -733,20 +825,20 @@
 
       // avgDepth is in inches, convert to feet for volume
       const volumeCuFt = area * (avgDepth / 12);
-      // Standard SLU coverage: ~0.45 cu ft per 50lb bag
-      const bags = Math.ceil(volumeCuFt / 0.45);
+      // Use harmonized LEVELER_COVERAGE constant
+      const bags = Math.ceil(volumeCuFt / LEVELER_COVERAGE);
       
       let bagsMax = bags;
       if (maxDepth && maxDepth > avgDepth) {
         const maxVolume = area * (maxDepth / 12);
-        bagsMax = Math.ceil(maxVolume / 0.45);
+        bagsMax = Math.ceil(maxVolume / LEVELER_COVERAGE);
       }
 
       return {
         bags,
         bagsMax,
         volume: volumeCuFt.toFixed(2),
-        note: bags !== bagsMax ? `Range: ${bags}–${bagsMax} bags (50lb)` : 'Based on 50lb bags'
+        note: bags !== bagsMax ? `Range: ${bags}–${bagsMax} bags (50lb)` : `Based on 50lb bags @ ${LEVELER_COVERAGE} cu ft/bag`
       };
     },
 
