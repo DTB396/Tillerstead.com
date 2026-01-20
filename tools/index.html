@@ -85,6 +85,19 @@
     .app-shell { display: none; }
     .app-shell.is-ready { display: flex; }
   </style>
+  
+  <!-- Failsafe: hide loading after 5s no matter what -->
+  <script>
+    setTimeout(function() {
+      var loading = document.getElementById('app-loading');
+      var shell = document.getElementById('app-shell');
+      if (loading && !loading.hidden) {
+        loading.hidden = true;
+        if (shell) shell.classList.add('is-ready');
+        console.warn('TillerCalc: Failsafe timeout triggered');
+      }
+    }, 5000);
+  </script>
 </head>
 <body>
   <!-- Loading State -->

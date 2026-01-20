@@ -419,7 +419,8 @@
         projects: 'Projects',
         settings: 'Settings'
       };
-      document.getElementById('page-title').textContent = titles[AppState.currentRoute] || 'TillerCalc';
+      const el = document.getElementById('page-title');
+      if (el) el.textContent = titles[AppState.currentRoute] || 'TillerCalc';
     }
   };
 
@@ -828,36 +829,65 @@
   const Views = {
     dashboard() {
       const content = document.getElementById('app-content');
+      if (!content) return;
       const recentProjects = Projects.getRecent(5);
       const totalProjects = AppState.projects.length;
       const totalArea = AppState.projects.reduce((sum, p) => sum + (p.totalArea || 0), 0);
 
       content.innerHTML = `
         <div class="dashboard">
-          <div class="dashboard__welcome">
-            <h2 class="dashboard__welcome-title">Welcome to TillerCalc Pro</h2>
-            <p class="dashboard__welcome-text">Professional tile calculators built by a licensed NJ contractor. Calculate materials, save projects, and export estimates.</p>
+          <!-- Hero Section -->
+          <div class="dashboard__hero">
+            <div class="dashboard__hero-content">
+              <h2 class="dashboard__hero-title">TillerCalc Pro</h2>
+              <p class="dashboard__hero-subtitle">Professional tile calculators built by a licensed NJ contractor</p>
+              <div class="dashboard__hero-actions">
+                <button class="btn btn--primary btn--lg" onclick="window.TillerApp.Router.navigate('calculators')">
+                  <span>🧮</span> Start Calculating
+                </button>
+                <button class="btn btn--secondary btn--lg" onclick="window.TillerApp.createNewProject()">
+                  <span>📁</span> New Project
+                </button>
+              </div>
+            </div>
+            <div class="dashboard__hero-stats">
+              <div class="hero-stat">
+                <div class="hero-stat__value">${totalProjects}</div>
+                <div class="hero-stat__label">Projects</div>
+              </div>
+              <div class="hero-stat">
+                <div class="hero-stat__value">${CALCULATORS.length}</div>
+                <div class="hero-stat__label">Tools</div>
+              </div>
+              <div class="hero-stat">
+                <div class="hero-stat__value">${totalArea > 1000 ? (totalArea/1000).toFixed(1) + 'k' : totalArea}</div>
+                <div class="hero-stat__label">Sq Ft</div>
+              </div>
+            </div>
           </div>
 
-          <div class="dashboard__stats">
-            <div class="stat-card">
-              <div class="stat-card__value">${totalProjects}</div>
-              <div class="stat-card__label">Saved Projects</div>
+          <!-- Quick Calculator Grid -->
+          <div class="dashboard__section">
+            <div class="dashboard__section-header">
+              <h3 class="dashboard__section-title">Quick Access</h3>
+              <span class="dashboard__section-badge">7 calculators</span>
             </div>
-            <div class="stat-card">
-              <div class="stat-card__value">${CALCULATORS.length}</div>
-              <div class="stat-card__label">Calculators</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-card__value">${totalArea.toLocaleString()}</div>
-              <div class="stat-card__label">Sq Ft Calculated</div>
+            <div class="calc-grid">
+              ${CALCULATORS.map(calc => `
+                <button class="calc-card" data-calc="${calc.id}">
+                  <span class="calc-card__icon">${calc.icon}</span>
+                  <span class="calc-card__name">${calc.name}</span>
+                  <span class="calc-card__desc">${calc.desc}</span>
+                </button>
+              `).join('')}
             </div>
           </div>
 
+          <!-- Recent Projects -->
           <div class="dashboard__section">
             <div class="dashboard__section-header">
               <h3 class="dashboard__section-title">Recent Projects</h3>
-              <a href="#/projects" class="dashboard__section-action">View All →</a>
+              ${recentProjects.length > 0 ? `<a href="#/projects" class="dashboard__section-action">View All →</a>` : ''}
             </div>
             ${recentProjects.length > 0 ? `
               <ul class="recent-list">
@@ -872,27 +902,12 @@
                 `).join('')}
               </ul>
             ` : `
-              <div class="recent-list__empty">
-                <p>No projects yet. <a href="#/calculators">Start calculating</a> to create your first project.</p>
+              <div class="empty-state">
+                <div class="empty-state__icon">📋</div>
+                <h4 class="empty-state__title">No projects yet</h4>
+                <p class="empty-state__text">Start calculating to create your first project.</p>
               </div>
             `}
-          </div>
-
-          <div class="dashboard__section">
-            <div class="dashboard__section-header">
-              <h3 class="dashboard__section-title">Quick Actions</h3>
-            </div>
-            <div style="padding: var(--space-lg); display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-md);">
-              <button class="btn btn--primary" onclick="window.TillerApp.Router.navigate('calculators')">
-                🧮 Open Calculators
-              </button>
-              <button class="btn btn--secondary" onclick="window.TillerApp.createNewProject()">
-                ➕ New Project
-              </button>
-              <button class="btn btn--secondary" onclick="window.TillerApp.Storage.exportData()">
-                📤 Export Data
-              </button>
-            </div>
           </div>
         </div>
       `;
@@ -904,48 +919,91 @@
           Router.navigate('calculators');
         });
       });
+
+      // Event listeners for quick calc cards
+      content.querySelectorAll('.calc-card').forEach(card => {
+        card.addEventListener('click', () => {
+          AppState.activeCalculator = card.dataset.calc;
+          Router.navigate('calculators');
+        });
+      });
     },
 
     calculators() {
       const content = document.getElementById('app-content');
+      if (!content) return;
       const activeCalc = AppState.activeCalculator;
+      const activeData = CALCULATORS.find(c => c.id === activeCalc);
 
       content.innerHTML = `
-        <div class="calculators">
-          <div class="calc-tabs" role="tablist">
-            ${CALCULATORS.map(calc => `
-              <button class="calc-tab ${calc.id === activeCalc ? 'is-active' : ''}" 
-                      role="tab" 
-                      aria-selected="${calc.id === activeCalc}"
-                      data-calc="${calc.id}">
-                <span class="calc-tab__icon">${calc.icon}</span>
-                <span>${calc.name}</span>
-              </button>
-            `).join('')}
-          </div>
-
-          ${CALCULATORS.map(calc => `
-            <div class="calc-panel ${calc.id === activeCalc ? 'is-active' : ''}" 
-                 id="calc-panel-${calc.id}"
-                 role="tabpanel"
-                 aria-hidden="${calc.id !== activeCalc}">
-              <div class="calc-panel__header">
-                <h2 class="calc-panel__title">${calc.icon} ${calc.name}</h2>
-                <p class="calc-panel__desc">${calc.desc}</p>
-              </div>
-              ${this.renderCalculatorForm(calc.id)}
+        <div class="calculators-layout">
+          <!-- Calculator Selector Panel -->
+          <aside class="calc-selector">
+            <div class="calc-selector__header">
+              <h2 class="calc-selector__title">Calculators</h2>
+              <p class="calc-selector__subtitle">Select a calculator below</p>
             </div>
-          `).join('')}
+            <nav class="calc-selector__list" role="tablist" aria-label="Calculator selection">
+              ${CALCULATORS.map(calc => `
+                <button class="calc-selector__item ${calc.id === activeCalc ? 'is-active' : ''}" 
+                        role="tab" 
+                        aria-selected="${calc.id === activeCalc}"
+                        data-calc="${calc.id}">
+                  <span class="calc-selector__icon">${calc.icon}</span>
+                  <div class="calc-selector__info">
+                    <span class="calc-selector__name">${calc.name}</span>
+                    <span class="calc-selector__desc">${calc.desc}</span>
+                  </div>
+                  <svg class="calc-selector__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                  </svg>
+                </button>
+              `).join('')}
+            </nav>
+          </aside>
+
+          <!-- Active Calculator Panel -->
+          <main class="calc-workspace">
+            <div class="calc-panel is-active" id="calc-panel-${activeCalc}" role="tabpanel">
+              <div class="calc-panel__header">
+                <div class="calc-panel__badge">${activeData.icon}</div>
+                <div>
+                  <h2 class="calc-panel__title">${activeData.name} Calculator</h2>
+                  <p class="calc-panel__desc">${activeData.desc}</p>
+                </div>
+              </div>
+              ${this.renderCalculatorForm(activeCalc)}
+            </div>
+          </main>
+        </div>
+
+        <!-- Mobile Calculator Dropdown (shown only on small screens) -->
+        <div class="calc-mobile-select">
+          <label class="form-label">Select Calculator</label>
+          <select class="form-select calc-mobile-dropdown" aria-label="Select calculator">
+            ${CALCULATORS.map(calc => `
+              <option value="${calc.id}" ${calc.id === activeCalc ? 'selected' : ''}>${calc.icon} ${calc.name}</option>
+            `).join('')}
+          </select>
         </div>
       `;
 
-      // Tab switching
-      content.querySelectorAll('.calc-tab').forEach(tab => {
-        tab.addEventListener('click', () => {
-          AppState.activeCalculator = tab.dataset.calc;
+      // Selector item clicks
+      content.querySelectorAll('.calc-selector__item').forEach(item => {
+        item.addEventListener('click', () => {
+          AppState.activeCalculator = item.dataset.calc;
           this.calculators();
         });
       });
+
+      // Mobile dropdown change
+      const mobileDropdown = content.querySelector('.calc-mobile-dropdown');
+      if (mobileDropdown) {
+        mobileDropdown.addEventListener('change', (e) => {
+          AppState.activeCalculator = e.target.value;
+          this.calculators();
+        });
+      }
 
       // Form submissions
       this.attachCalculatorListeners();
@@ -959,8 +1017,12 @@
         tile: `
           <div class="form-grid form-grid--2col">
             <div class="form-field">
-              <label class="form-label form-label--required">Total Area (sq ft)</label>
-              <input type="number" class="form-input" name="area" value="${inputs.area || ''}" min="1" step="0.1" placeholder="Enter area">
+              <label class="form-label form-label--required">Room Area</label>
+              <div class="input-group">
+                <input type="number" class="form-input" name="area" value="${inputs.area || ''}" min="1" step="0.1" placeholder="e.g. 120">
+                <span class="input-group__suffix">sq ft</span>
+              </div>
+              <p class="form-help">Length × Width of the space</p>
             </div>
             <div class="form-field">
               <label class="form-label">Tile Size</label>
@@ -971,26 +1033,36 @@
             <div class="form-field">
               <label class="form-label">Layout Pattern</label>
               <select class="form-select" name="layout">
-                ${LAYOUT_PRESETS.map(l => `<option value="${l.id}" ${inputs.layout === l.id ? 'selected' : ''}>${l.name} (${l.waste}%)</option>`).join('')}
+                ${LAYOUT_PRESETS.map(l => `<option value="${l.id}" ${inputs.layout === l.id ? 'selected' : ''}>${l.name} (+${l.waste}% waste)</option>`).join('')}
               </select>
+              <p class="form-help">Pattern affects waste factor</p>
             </div>
             <div class="form-field">
-              <label class="form-label">Waste Factor (%)</label>
-              <input type="number" class="form-input" name="waste" value="${inputs.waste || 12}" min="5" max="40">
-            </div>
-            <div class="form-field">
-              <label class="form-label">Tiles per Box</label>
-              <input type="number" class="form-input" name="tilesPerBox" value="${inputs.tilesPerBox || ''}" min="1" placeholder="Optional">
-            </div>
-            <div class="form-field">
-              <label class="form-label">Sq Ft per Box</label>
-              <input type="number" class="form-input" name="sqftPerBox" value="${inputs.sqftPerBox || ''}" min="0.1" step="0.1" placeholder="Optional">
+              <label class="form-label">Waste Factor</label>
+              <div class="input-group">
+                <input type="number" class="form-input" name="waste" value="${inputs.waste || ''}" min="5" max="40" placeholder="Auto">
+                <span class="input-group__suffix">%</span>
+              </div>
+              <p class="form-help">Leave empty for auto based on layout</p>
             </div>
           </div>
-          <div class="form-field mt-md">
+          <div class="form-section">
+            <div class="form-section__title">Box Packaging (Optional)</div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-label">Tiles per Box</label>
+                <input type="number" class="form-input" name="tilesPerBox" value="${inputs.tilesPerBox || ''}" min="1" placeholder="From box label">
+              </div>
+              <div class="form-field">
+                <label class="form-label">Sq Ft per Box</label>
+                <input type="number" class="form-input" name="sqftPerBox" value="${inputs.sqftPerBox || ''}" min="0.1" step="0.1" placeholder="From box label">
+              </div>
+            </div>
+          </div>
+          <div class="form-field mt-lg">
             <label class="form-checkbox">
               <input type="checkbox" name="atticStock" ${inputs.atticStock ? 'checked' : ''}>
-              <span>Add attic stock (+5% or 1 box)</span>
+              <span>Add attic stock (+5% or 1 box minimum for future repairs)</span>
             </label>
           </div>
         `,
@@ -998,20 +1070,24 @@
         mortar: `
           <div class="form-grid form-grid--2col">
             <div class="form-field">
-              <label class="form-label form-label--required">Total Area (sq ft)</label>
-              <input type="number" class="form-input" name="area" value="${inputs.area || ''}" min="1" step="0.1" placeholder="Enter area">
+              <label class="form-label form-label--required">Tile Area</label>
+              <div class="input-group">
+                <input type="number" class="form-input" name="area" value="${inputs.area || ''}" min="1" step="0.1" placeholder="e.g. 120">
+                <span class="input-group__suffix">sq ft</span>
+              </div>
             </div>
             <div class="form-field">
               <label class="form-label">Trowel Size</label>
               <select class="form-select" name="trowel">
                 ${TROWEL_PRESETS.map(t => `<option value="${t.id}" ${inputs.trowel === t.id ? 'selected' : ''}>${t.name}</option>`).join('')}
               </select>
+              <p class="form-help">Larger tiles = larger trowel</p>
             </div>
           </div>
-          <div class="form-field mt-md">
+          <div class="form-field mt-lg">
             <label class="form-checkbox">
               <input type="checkbox" name="backButter" ${inputs.backButter ? 'checked' : ''}>
-              <span>Include back-buttering (+25%)</span>
+              <span>Include back-buttering (large format tiles, +25% mortar)</span>
             </label>
           </div>
         `,
@@ -1019,24 +1095,46 @@
         grout: `
           <div class="form-grid form-grid--2col">
             <div class="form-field">
-              <label class="form-label form-label--required">Total Area (sq ft)</label>
-              <input type="number" class="form-input" name="area" value="${inputs.area || ''}" min="1" step="0.1">
+              <label class="form-label form-label--required">Tile Area</label>
+              <div class="input-group">
+                <input type="number" class="form-input" name="area" value="${inputs.area || ''}" min="1" step="0.1" placeholder="e.g. 120">
+                <span class="input-group__suffix">sq ft</span>
+              </div>
             </div>
             <div class="form-field">
-              <label class="form-label">Tile Width (inches)</label>
-              <input type="number" class="form-input" name="tileWidth" value="${inputs.tileWidth || 12}" min="1" step="0.25">
+              <label class="form-label">Joint Width</label>
+              <div class="input-group">
+                <input type="number" class="form-input" name="jointWidth" value="${inputs.jointWidth || 0.125}" min="0.0625" max="0.5" step="0.0625">
+                <span class="input-group__suffix">in</span>
+              </div>
+              <p class="form-help">1/16" = 0.0625, 1/8" = 0.125</p>
             </div>
-            <div class="form-field">
-              <label class="form-label">Tile Length (inches)</label>
-              <input type="number" class="form-input" name="tileLength" value="${inputs.tileLength || 12}" min="1" step="0.25">
-            </div>
-            <div class="form-field">
-              <label class="form-label">Tile Thickness (mm)</label>
-              <input type="number" class="form-input" name="tileThickness" value="${inputs.tileThickness || 8}" min="3" max="20">
-            </div>
-            <div class="form-field">
-              <label class="form-label">Joint Width (inches)</label>
-              <input type="number" class="form-input" name="jointWidth" value="${inputs.jointWidth || 0.125}" min="0.0625" max="0.5" step="0.0625">
+          </div>
+          <div class="form-section">
+            <div class="form-section__title">Tile Dimensions</div>
+            <div class="form-grid form-grid--3col">
+              <div class="form-field">
+                <label class="form-label">Width</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="tileWidth" value="${inputs.tileWidth || 12}" min="1" step="0.25">
+                  <span class="input-group__suffix">in</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Length</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="tileLength" value="${inputs.tileLength || 12}" min="1" step="0.25">
+                  <span class="input-group__suffix">in</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Thickness</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="tileThickness" value="${inputs.tileThickness || 0.375}" min="0.125" max="0.75" step="0.125">
+                  <span class="input-group__suffix">in</span>
+                </div>
+                <p class="form-help">Joint depth</p>
+              </div>
             </div>
           </div>
         `,
@@ -1044,16 +1142,27 @@
         leveling: `
           <div class="form-grid form-grid--2col">
             <div class="form-field">
-              <label class="form-label form-label--required">Area (sq ft)</label>
-              <input type="number" class="form-input" name="area" value="${inputs.area || ''}" min="1" step="0.1">
+              <label class="form-label form-label--required">Floor Area</label>
+              <div class="input-group">
+                <input type="number" class="form-input" name="area" value="${inputs.area || ''}" min="1" step="0.1" placeholder="e.g. 120">
+                <span class="input-group__suffix">sq ft</span>
+              </div>
             </div>
             <div class="form-field">
-              <label class="form-label form-label--required">Average Depth (inches)</label>
-              <input type="number" class="form-input" name="avgDepth" value="${inputs.avgDepth || ''}" min="0.125" max="3" step="0.125">
+              <label class="form-label form-label--required">Average Depth</label>
+              <div class="input-group">
+                <input type="number" class="form-input" name="avgDepth" value="${inputs.avgDepth || ''}" min="0.125" max="3" step="0.125" placeholder="e.g. 0.25">
+                <span class="input-group__suffix">in</span>
+              </div>
+              <p class="form-help">Typical: 1/8" to 1/2"</p>
             </div>
             <div class="form-field">
-              <label class="form-label">Max Depth (inches)</label>
-              <input type="number" class="form-input" name="maxDepth" value="${inputs.maxDepth || ''}" min="0.125" max="3" step="0.125" placeholder="Optional">
+              <label class="form-label">Maximum Depth</label>
+              <div class="input-group">
+                <input type="number" class="form-input" name="maxDepth" value="${inputs.maxDepth || ''}" min="0.125" max="3" step="0.125" placeholder="Optional">
+                <span class="input-group__suffix">in</span>
+              </div>
+              <p class="form-help">Deepest pour point</p>
             </div>
           </div>
         `,
@@ -1061,12 +1170,20 @@
         slope: `
           <div class="form-grid form-grid--2col">
             <div class="form-field">
-              <label class="form-label form-label--required">Drain to Wall Distance (ft)</label>
-              <input type="number" class="form-input" name="drainToWall" value="${inputs.drainToWall || ''}" min="1" max="10" step="0.25">
+              <label class="form-label form-label--required">Drain to Wall</label>
+              <div class="input-group">
+                <input type="number" class="form-input" name="drainToWall" value="${inputs.drainToWall || ''}" min="1" max="10" step="0.25" placeholder="e.g. 3">
+                <span class="input-group__suffix">ft</span>
+              </div>
+              <p class="form-help">Distance from center drain to wall</p>
             </div>
             <div class="form-field">
-              <label class="form-label">Slope Ratio (in/ft)</label>
-              <input type="number" class="form-input" name="slopeRatio" value="${inputs.slopeRatio || 0.25}" min="0.125" max="0.5" step="0.0625">
+              <label class="form-label">Slope Ratio</label>
+              <div class="input-group">
+                <input type="number" class="form-input" name="slopeRatio" value="${inputs.slopeRatio || 0.25}" min="0.125" max="0.5" step="0.125">
+                <span class="input-group__suffix">"/ft</span>
+              </div>
+              <p class="form-help">Standard: 1/4" per foot</p>
             </div>
           </div>
         `,
@@ -1074,20 +1191,30 @@
         waterproof: `
           <div class="form-grid form-grid--2col">
             <div class="form-field">
-              <label class="form-label">Wall Area (sq ft)</label>
-              <input type="number" class="form-input" name="wallArea" value="${inputs.wallArea || ''}" min="0" step="0.1">
+              <label class="form-label form-label--required">Wall Area</label>
+              <div class="input-group">
+                <input type="number" class="form-input" name="wallArea" value="${inputs.wallArea || ''}" min="0" step="0.1" placeholder="e.g. 80">
+                <span class="input-group__suffix">sq ft</span>
+              </div>
+              <p class="form-help">Total wall surface in wet areas</p>
             </div>
             <div class="form-field">
-              <label class="form-label">Floor Area (sq ft)</label>
-              <input type="number" class="form-input" name="floorArea" value="${inputs.floorArea || ''}" min="0" step="0.1">
+              <label class="form-label">Floor Area</label>
+              <div class="input-group">
+                <input type="number" class="form-input" name="floorArea" value="${inputs.floorArea || ''}" min="0" step="0.1" placeholder="e.g. 25">
+                <span class="input-group__suffix">sq ft</span>
+              </div>
+              <p class="form-help">Shower floor, curb, bench tops</p>
             </div>
             <div class="form-field">
               <label class="form-label">Inside Corners</label>
-              <input type="number" class="form-input" name="corners" value="${inputs.corners || 0}" min="0" max="50">
+              <input type="number" class="form-input" name="corners" value="${inputs.corners || 4}" min="0" max="50" placeholder="e.g. 4">
+              <p class="form-help">Count all inside corners</p>
             </div>
             <div class="form-field">
               <label class="form-label">Pipe Penetrations</label>
-              <input type="number" class="form-input" name="pipes" value="${inputs.pipes || 0}" min="0" max="20">
+              <input type="number" class="form-input" name="pipes" value="${inputs.pipes || 1}" min="0" max="20" placeholder="e.g. 2">
+              <p class="form-help">Shower head, valve, etc.</p>
             </div>
           </div>
         `,
@@ -1095,30 +1222,36 @@
         labor: `
           <div class="form-grid form-grid--2col">
             <div class="form-field">
-              <label class="form-label form-label--required">Total Area (sq ft)</label>
-              <input type="number" class="form-input" name="area" value="${inputs.area || ''}" min="1" step="0.1">
+              <label class="form-label form-label--required">Total Area</label>
+              <div class="input-group">
+                <input type="number" class="form-input" name="area" value="${inputs.area || ''}" min="1" step="0.1" placeholder="e.g. 120">
+                <span class="input-group__suffix">sq ft</span>
+              </div>
             </div>
             <div class="form-field">
-              <label class="form-label">Complexity</label>
+              <label class="form-label">Job Complexity</label>
               <select class="form-select" name="complexity">
-                <option value="simple" ${inputs.complexity === 'simple' ? 'selected' : ''}>Simple (straight lay)</option>
-                <option value="moderate" ${inputs.complexity === 'moderate' ? 'selected' : ''}>Moderate (cuts, patterns)</option>
-                <option value="complex" ${inputs.complexity === 'complex' ? 'selected' : ''}>Complex (mosaics, intricate)</option>
+                <option value="simple" ${inputs.complexity === 'simple' ? 'selected' : ''}>Simple – Straight lay, minimal cuts</option>
+                <option value="moderate" ${inputs.complexity === 'moderate' ? 'selected' : ''}>Moderate – Pattern work, some cuts</option>
+                <option value="complex" ${inputs.complexity === 'complex' ? 'selected' : ''}>Complex – Mosaics, intricate patterns</option>
               </select>
             </div>
           </div>
-          <div class="form-grid form-grid--2col mt-md">
-            <div class="form-field">
-              <label class="form-checkbox">
-                <input type="checkbox" name="includePrep" ${inputs.includePrep ? 'checked' : ''}>
-                <span>Include surface prep</span>
-              </label>
-            </div>
-            <div class="form-field">
-              <label class="form-checkbox">
-                <input type="checkbox" name="includeDemo" ${inputs.includeDemo ? 'checked' : ''}>
-                <span>Include demo</span>
-              </label>
+          <div class="form-section">
+            <div class="form-section__title">Additional Work</div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-checkbox">
+                  <input type="checkbox" name="includePrep" ${inputs.includePrep ? 'checked' : ''}>
+                  <span>Include surface prep (+30% time)</span>
+                </label>
+              </div>
+              <div class="form-field">
+                <label class="form-checkbox">
+                  <input type="checkbox" name="includeDemo" ${inputs.includeDemo ? 'checked' : ''}>
+                  <span>Include demo of existing (+50% time)</span>
+                </label>
+              </div>
             </div>
           </div>
         `
@@ -1262,6 +1395,7 @@
 
     projects() {
       const content = document.getElementById('app-content');
+      if (!content) return;
       const projects = AppState.projects;
 
       content.innerHTML = `
@@ -1321,6 +1455,7 @@
 
     settings() {
       const content = document.getElementById('app-content');
+      if (!content) return;
       const settings = AppState.settings;
       const apiConnected = API.isConnected;
 
@@ -1526,75 +1661,89 @@
   // APP INITIALIZATION
   // ============================================
 
+  // Helper to hide loading and show app (always runs, even on error)
+  function showApp() {
+    const loading = document.getElementById('app-loading');
+    const shell = document.getElementById('app-shell');
+    if (loading) loading.hidden = true;
+    if (shell) shell.classList.add('is-ready');
+  }
+
   const App = {
     async init() {
-      // Load data
-      Storage.load();
+      try {
+        // Load data
+        Storage.load();
 
-      // Initialize router
-      Router.init();
+        // Initialize router
+        Router.init();
 
-      // Initialize keyboard shortcuts
-      Keyboard.init();
+        // Initialize keyboard shortcuts
+        Keyboard.init();
 
-      // Register service worker
-      ServiceWorkerManager.register();
+        // Register service worker
+        ServiceWorkerManager.register();
 
-      // Check toolkit API connection (non-blocking)
-      API.checkHealth().then(connected => {
-        if (connected) {
-          Toast.show('Connected to Toolkit API', 'success');
-        }
-      });
+        // Check toolkit API connection (non-blocking)
+        API.checkHealth().then(connected => {
+          if (connected) {
+            Toast.show('Connected to Toolkit API', 'success');
+          }
+        }).catch(() => {}); // Ignore API check errors
 
-      // Periodic health check (every 30 seconds)
-      setInterval(() => API.checkHealth(), 30000);
+        // Periodic health check (every 30 seconds)
+        setInterval(() => API.checkHealth(), 30000);
 
-      // Online/offline status
-      window.addEventListener('online', () => {
+        // Online/offline status
+        window.addEventListener('online', () => {
+          ServiceWorkerManager.updateOnlineStatus();
+          API.checkHealth();
+        });
+        window.addEventListener('offline', () => {
+          ServiceWorkerManager.updateOnlineStatus();
+          API.isConnected = false;
+          API.updateConnectionUI(false);
+        });
         ServiceWorkerManager.updateOnlineStatus();
-        API.checkHealth();
-      });
-      window.addEventListener('offline', () => {
-        ServiceWorkerManager.updateOnlineStatus();
-        API.isConnected = false;
-        API.updateConnectionUI(false);
-      });
-      ServiceWorkerManager.updateOnlineStatus();
 
-      // Sidebar toggle
-      document.getElementById('sidebar-toggle')?.addEventListener('click', () => {
-        const sidebar = document.getElementById('app-sidebar');
-        sidebar.classList.toggle('is-open');
-        this.toggleOverlay(sidebar.classList.contains('is-open'));
-      });
+        // Sidebar toggle
+        document.getElementById('sidebar-toggle')?.addEventListener('click', () => {
+          const sidebar = document.getElementById('app-sidebar');
+          sidebar.classList.toggle('is-open');
+          this.toggleOverlay(sidebar.classList.contains('is-open'));
+        });
 
-      document.getElementById('sidebar-close')?.addEventListener('click', () => {
-        document.getElementById('app-sidebar').classList.remove('is-open');
-        this.toggleOverlay(false);
-      });
+        document.getElementById('sidebar-close')?.addEventListener('click', () => {
+          document.getElementById('app-sidebar').classList.remove('is-open');
+          this.toggleOverlay(false);
+        });
 
-      // Modal close handlers
-      document.getElementById('modal-close')?.addEventListener('click', () => Modal.hide());
-      document.getElementById('modal-overlay')?.addEventListener('click', (e) => {
-        if (e.target.id === 'modal-overlay') Modal.hide();
-      });
+        // Modal close handlers
+        document.getElementById('modal-close')?.addEventListener('click', () => Modal.hide());
+        document.getElementById('modal-overlay')?.addEventListener('click', (e) => {
+          if (e.target.id === 'modal-overlay') Modal.hide();
+        });
 
-      // New project button
-      document.getElementById('new-project-btn')?.addEventListener('click', () => this.createNewProject());
+        // New project button
+        document.getElementById('new-project-btn')?.addEventListener('click', () => this.createNewProject());
 
-      // Save button
-      document.getElementById('save-btn')?.addEventListener('click', () => {
-        Storage.save();
-        Toast.show('Saved', 'success');
-      });
+        // Save button
+        document.getElementById('save-btn')?.addEventListener('click', () => {
+          Storage.save();
+          Toast.show('Saved', 'success');
+        });
 
-      // Update project count
-      Projects.updateCount();
+        // Update project count
+        Projects.updateCount();
 
-      // Show app
-      document.getElementById('app-loading').hidden = true;
-      document.getElementById('app-shell').classList.add('is-ready');
+      } catch (err) {
+        console.error('TillerCalc init error:', err);
+        // Show error toast if available
+        try { Toast.show('App initialization error', 'error'); } catch (e) {}
+      } finally {
+        // ALWAYS show the app, even if init had errors
+        showApp();
+      }
     },
 
     toggleOverlay(show) {
