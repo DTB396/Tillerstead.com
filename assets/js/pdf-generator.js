@@ -34,6 +34,9 @@
     email: 'info@tillerstead.com'
   };
 
+  // Wolf Crest Logo (Base64 encoded PNG)
+  const LOGO_BASE64 = 'data:image/png;base64,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';
+
   // Calculator display names
   const CALC_NAMES = {
     tile: 'Tile Quantity',
@@ -95,29 +98,37 @@
       doc.setFillColor(...COLORS.gold);
       doc.rect(0, 45, this.pageWidth, 2, 'F');
 
-      // Company name
+      // Add Wolf Crest Logo (left side)
+      try {
+        doc.addImage(LOGO_BASE64, 'PNG', this.margin, 5, 35, 35);
+      } catch (e) {
+        console.warn('Could not add logo to PDF:', e);
+      }
+
+      // Company name (offset to right of logo)
+      const textStartX = this.margin + 40;
       doc.setTextColor(...COLORS.white);
       doc.setFont('helvetica', 'bold');
-      doc.setFontSize(20);
-      doc.text(COMPANY.name, this.margin, 18);
+      doc.setFontSize(18);
+      doc.text(COMPANY.name, textStartX, 16);
 
       // Title
       doc.setFont('helvetica', 'normal');
-      doc.setFontSize(14);
-      doc.text(title, this.margin, 28);
+      doc.setFontSize(12);
+      doc.text(title, textStartX, 26);
 
       // License number
       doc.setFontSize(9);
       doc.setTextColor(200, 200, 200);
-      doc.text(COMPANY.license, this.margin, 38);
+      doc.text(COMPANY.license, textStartX, 36);
 
       // Right side - contact info
       doc.setTextColor(...COLORS.white);
       doc.setFontSize(9);
       const rightX = this.pageWidth - this.margin;
-      doc.text(COMPANY.website, rightX, 18, { align: 'right' });
-      doc.text(COMPANY.phone, rightX, 25, { align: 'right' });
-      doc.text(COMPANY.email, rightX, 32, { align: 'right' });
+      doc.text(COMPANY.website, rightX, 16, { align: 'right' });
+      doc.text(COMPANY.phone, rightX, 23, { align: 'right' });
+      doc.text(COMPANY.email, rightX, 30, { align: 'right' });
 
       this.y = 55;
     }
