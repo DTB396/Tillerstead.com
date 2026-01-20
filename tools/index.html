@@ -82,6 +82,7 @@
       to { transform: rotate(360deg); }
     }
     
+    .app-loading[hidden] { display: none !important; }
     .app-shell { display: none; }
     .app-shell.is-ready { display: flex; }
   </style>
@@ -92,6 +93,7 @@
       var loading = document.getElementById('app-loading');
       var shell = document.getElementById('app-shell');
       if (loading && !loading.hidden) {
+        loading.style.display = 'none';
         loading.hidden = true;
         if (shell) shell.classList.add('is-ready');
         console.warn('TillerCalc: Failsafe timeout triggered');
