@@ -15,12 +15,220 @@
     STORAGE_KEY: 'tillerstead_app_data',
     AUTO_SAVE_DELAY: 2000,
     TOAST_DURATION: 4000,
-    VERSION: '1.0.0',
+    VERSION: '2.0.0',
     // Toolkit API settings
     API_BASE_URL: 'http://localhost:8000/api',
     API_TIMEOUT: 5000,
-    API_RETRY_ATTEMPTS: 2
+    API_RETRY_ATTEMPTS: 2,
+    // Company info
+    COMPANY: {
+      name: 'Tillerstead LLC',
+      license: 'NJ HIC #13VH10808800',
+      phone: '(609) 500-1555',
+      email: 'info@tillerstead.com',
+      website: 'tillerstead.com',
+      serviceArea: 'South Jersey & Shore Communities'
+    }
   };
+
+  // ============================================
+  // TRUST SIGNALS & CREDENTIALS
+  // ============================================
+
+  const CREDENTIALS = {
+    license: {
+      type: 'NJ Home Improvement Contractor',
+      number: '13VH10808800',
+      status: 'Active',
+      verifyUrl: 'https://www.njconsumeraffairs.gov/regulated/Pages/Regulated-Business-Verify.aspx'
+    },
+    standards: [
+      { name: 'TCNA 2024', desc: 'Tile Council of North America Handbook', icon: '📘' },
+      { name: 'ANSI A108/A118', desc: 'American National Standards Institute', icon: '✅' },
+      { name: 'NTCA', desc: 'National Tile Contractors Association Methods', icon: '🏆' }
+    ],
+    insurance: {
+      type: 'General Liability & Workers Comp',
+      status: 'Fully Insured'
+    }
+  };
+
+  // ============================================
+  // PRO TIPS - Educational content by calculator
+  // ============================================
+
+  const PRO_TIPS = {
+    tile: [
+      { tip: 'Always dry-lay tiles before installing to check pattern and minimize lippage.', source: 'TCNA' },
+      { tip: 'For large format tile (≥15"), back-butter plus notch trowel for 95% coverage.', source: 'TCNA EJ171' },
+      { tip: 'Order 10-15% extra for waste, cuts, and future repairs (attic stock).', source: 'Industry Standard' },
+      { tip: 'Rectified tile allows tighter grout joints (1/16"-1/8"), non-rectified needs 3/16"+.', source: 'ANSI A108' }
+    ],
+    mortar: [
+      { tip: 'Use polymer-modified thin-set for most applications—better bond and flexibility.', source: 'TCNA' },
+      { tip: 'Mix to "peanut butter" consistency—mortar should hold ridges without slumping.', source: 'NTCA' },
+      { tip: 'Let mortar slake 5-10 minutes after mixing, then remix briefly before use.', source: 'Manufacturer TDS' },
+      { tip: 'Never add water to mortar that has started to set—discard and mix fresh.', source: 'TCNA' }
+    ],
+    grout: [
+      { tip: 'Sanded grout for joints ≥1/8", unsanded for smaller joints to avoid scratching.', source: 'TCNA' },
+      { tip: 'Wait 24-48 hours after tile installation before grouting (check mortar TDS).', source: 'ANSI A108' },
+      { tip: 'Seal grout 2-4 weeks after installation when fully cured for stain protection.', source: 'Industry Standard' },
+      { tip: 'Work in small sections—grout has limited working time before it starts to set.', source: 'NTCA' }
+    ],
+    leveling: [
+      { tip: 'Always prime substrate before SLU—prevents dehydration and improves bond.', source: 'Manufacturer TDS' },
+      { tip: 'Check floor flatness with 10-ft straightedge—max 1/8" variation for tile.', source: 'TCNA' },
+      { tip: 'Pour SLU in continuous ribbons and use spike roller to release air bubbles.', source: 'NTCA' },
+      { tip: 'Temperature matters: SLU needs 50-80°F for proper curing.', source: 'Manufacturer TDS' }
+    ],
+    slope: [
+      { tip: 'Standard shower floor slope is 1/4" per foot toward drain—code minimum.', source: 'IPC/IRC' },
+      { tip: 'Pre-slope under membrane, then sloped mortar bed on top for proper drainage.', source: 'TCNA B422' },
+      { tip: 'Use a level and slope gauge to verify consistent pitch across entire floor.', source: 'NTCA' }
+    ],
+    waterproof: [
+      { tip: 'Apply liquid membrane in 2 coats at 90° angles for complete coverage.', source: 'Manufacturer TDS' },
+      { tip: 'Embed reinforcing fabric in corners, seams, and transitions per TCNA.', source: 'TCNA B422' },
+      { tip: 'Flood test shower pan for 24 hours before installing tile.', source: 'IPC/Local Code' },
+      { tip: 'Extend waterproofing 3"+ above showerhead height on walls.', source: 'TCNA B422' }
+    ],
+    'heated-floor': [
+      { tip: 'Radiant heat requires dedicated circuit—verify load with electrician.', source: 'NEC' },
+      { tip: 'Use modified thin-set rated for radiant heat applications.', source: 'TCNA' },
+      { tip: 'Wait 28 days after installation before energizing heat system.', source: 'Manufacturer TDS' }
+    ],
+    deflection: [
+      { tip: 'Natural stone requires L/720 deflection; ceramic/porcelain allows L/360.', source: 'TCNA F150' },
+      { tip: 'Add 1/4" cement board over subfloor to increase stiffness and flatness.', source: 'TCNA F144' },
+      { tip: 'Joist sistering or blocking may be needed to meet deflection requirements.', source: 'TCNA' }
+    ],
+    labor: [
+      { tip: 'Account for substrate prep, waterproofing, and curing time in schedule.', source: 'Industry Standard' },
+      { tip: 'Complex patterns (herringbone, chevron) take 2-3x longer than straight lay.', source: 'NTCA' },
+      { tip: 'Large format tile requires more precision and time—plan accordingly.', source: 'TCNA' }
+    ],
+    moisture: [
+      { tip: 'Concrete must cure 28 days minimum before moisture testing.', source: 'ASTM F2170' },
+      { tip: 'RH >75% or MVER >5 lbs requires moisture mitigation before flooring.', source: 'ASTM F1869' },
+      { tip: 'Test multiple locations—moisture varies across slab, especially near walls.', source: 'ASTM F2170' }
+    ]
+  };
+
+  // Get random pro tip for a calculator
+  function getProTip(calcId) {
+    const tips = PRO_TIPS[calcId];
+    if (!tips || tips.length === 0) return null;
+    return tips[Math.floor(Math.random() * tips.length)];
+  }
+
+  // Get all tips for a calculator
+  function getAllTips(calcId) {
+    return PRO_TIPS[calcId] || [];
+  }
+
+  // ============================================
+  // RETAILER CONFIGURATION - Shop Links
+  // ============================================
+
+  const RETAILERS = {
+    homedepot: {
+      name: 'Home Depot',
+      icon: '🏠',
+      color: '#f96302',
+      searchUrl: (term) => `https://www.homedepot.com/s/${encodeURIComponent(term)}`
+    },
+    lowes: {
+      name: "Lowe's",
+      icon: '🔵',
+      color: '#004990',
+      searchUrl: (term) => `https://www.lowes.com/search?searchTerm=${encodeURIComponent(term)}`
+    },
+    flooranddecor: {
+      name: 'Floor & Decor',
+      icon: '🏪',
+      color: '#00a651',
+      searchUrl: (term) => `https://www.flooranddecor.com/search?q=${encodeURIComponent(term)}`
+    },
+    amazon: {
+      name: 'Amazon',
+      icon: '📦',
+      color: '#ff9900',
+      searchUrl: (term) => `https://www.amazon.com/s?k=${encodeURIComponent(term)}&tag=tillerstead-20`
+    },
+    msi: {
+      name: 'MSI Surfaces',
+      icon: '💎',
+      color: '#1a1a1a',
+      searchUrl: (term) => `https://www.msisurfaces.com/search?q=${encodeURIComponent(term)}`
+    },
+    daltile: {
+      name: 'Daltile',
+      icon: '🔷',
+      color: '#003366',
+      searchUrl: (term) => `https://www.daltile.com/search?search=${encodeURIComponent(term)}`
+    }
+  };
+
+  // Shop search terms by calculator type
+  const SHOP_SEARCH_TERMS = {
+    tile: (inputs) => {
+      const size = inputs.tileWidth && inputs.tileHeight ? `${inputs.tileWidth}x${inputs.tileHeight}` : '';
+      return size ? `${size} porcelain tile` : 'porcelain floor tile';
+    },
+    mortar: (inputs) => inputs.backButter ? 'large format thin-set mortar' : 'thin-set mortar 50lb',
+    grout: (inputs) => {
+      const jointSize = inputs.jointWidth || 0.125;
+      return jointSize > 0.125 ? 'sanded grout' : 'unsanded grout';
+    },
+    leveling: () => 'self-leveling underlayment',
+    waterproof: (inputs) => inputs.membraneType === 'sheet' ? 'kerdi membrane' : 'redgard waterproofing',
+    slope: () => 'deck mud mortar mix',
+    'heated-floor': (inputs) => `radiant floor heat mat ${inputs.voltage || 120}v`,
+    deflection: () => 'floor leveling compound',
+    'thinset-mix': () => 'thin-set mortar',
+    primer: () => 'concrete primer SLU',
+    'deck-mud': () => 'deck mud mortar sand mix',
+    sealant: () => 'silicone caulk bathroom',
+    sealer: (inputs) => inputs.surface === 'natural_stone' ? 'natural stone sealer' : 'grout sealer',
+    movement: () => 'tile expansion joint',
+    moisture: () => 'moisture barrier concrete',
+    'bath-layout': () => 'bathroom fixtures',
+    labor: () => 'tile installation tools',
+    crown: () => 'crown molding',
+    baseboard: () => 'baseboard molding MDF',
+    quarter: () => 'quarter round trim'
+  };
+
+  // Get shop links for a specific calculator
+  function getShopLinks(calcId, inputs) {
+    const searchTermFn = SHOP_SEARCH_TERMS[calcId];
+    if (!searchTermFn) return [];
+    
+    const searchTerm = searchTermFn(inputs || {});
+    const links = [];
+    
+    // Select relevant retailers based on calculator type
+    const retailerKeys = calcId === 'tile' 
+      ? ['homedepot', 'lowes', 'flooranddecor', 'msi', 'daltile']
+      : ['homedepot', 'lowes', 'amazon'];
+    
+    retailerKeys.forEach(key => {
+      const retailer = RETAILERS[key];
+      if (retailer) {
+        links.push({
+          id: key,
+          name: retailer.name,
+          icon: retailer.icon,
+          color: retailer.color,
+          url: retailer.searchUrl(searchTerm),
+          searchTerm
+        });
+      }
+    });
+    
+    return links;
+  }
 
   // Calculator definitions - TillerPro suite
   // status: 'ready' = implemented, 'coming' = planned
@@ -381,12 +589,15 @@
     searchQuery: '',
     settings: {
       autoSave: true,
+      autoCreateProject: true,
       notifications: true,
       darkMode: true,
       units: 'imperial'
     },
     calculatorInputs: {},
-    calculatorResults: {}
+    calculatorResults: {},
+    lastAutoSave: null,
+    shopLinksClicked: []
   };
 
   // ============================================
@@ -1621,6 +1832,82 @@
             </div>
           </div>
 
+          <!-- Trust Signals Banner -->
+          <div class="trust-banner">
+            <div class="trust-banner__item">
+              <span class="trust-banner__icon">🏆</span>
+              <div class="trust-banner__content">
+                <span class="trust-banner__label">Licensed Contractor</span>
+                <span class="trust-banner__value">${CREDENTIALS.license.number}</span>
+              </div>
+            </div>
+            <div class="trust-banner__item">
+              <span class="trust-banner__icon">📘</span>
+              <div class="trust-banner__content">
+                <span class="trust-banner__label">TCNA 2024</span>
+                <span class="trust-banner__value">Compliant</span>
+              </div>
+            </div>
+            <div class="trust-banner__item">
+              <span class="trust-banner__icon">✅</span>
+              <div class="trust-banner__content">
+                <span class="trust-banner__label">ANSI Standards</span>
+                <span class="trust-banner__value">A108/A118</span>
+              </div>
+            </div>
+            <div class="trust-banner__item">
+              <span class="trust-banner__icon">🛡️</span>
+              <div class="trust-banner__content">
+                <span class="trust-banner__label">Insurance</span>
+                <span class="trust-banner__value">Fully Covered</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions Grid -->
+          <section class="dashboard__section dashboard__section--quick-actions">
+            <div class="dashboard__section-header">
+              <h3 class="dashboard__section-title">
+                <span class="dashboard__section-icon" aria-hidden="true">⚡</span>
+                Quick Actions
+              </h3>
+            </div>
+            <div class="quick-actions-grid">
+              <button class="quick-action-card" onclick="window.TillerApp.Router.navigate('calculators'); window.TillerApp.setActiveCalculator('tile');">
+                <span class="quick-action-card__icon">🧱</span>
+                <span class="quick-action-card__title">Calculate Tile</span>
+                <span class="quick-action-card__desc">Tiles, boxes & waste</span>
+              </button>
+              <button class="quick-action-card" onclick="window.TillerApp.Router.navigate('calculators'); window.TillerApp.setActiveCalculator('mortar');">
+                <span class="quick-action-card__icon">🔧</span>
+                <span class="quick-action-card__title">Mortar Estimate</span>
+                <span class="quick-action-card__desc">Thin-set coverage</span>
+              </button>
+              <button class="quick-action-card" onclick="window.TillerApp.Router.navigate('calculators'); window.TillerApp.setActiveCalculator('grout');">
+                <span class="quick-action-card__icon">🪣</span>
+                <span class="quick-action-card__title">Grout Calc</span>
+                <span class="quick-action-card__desc">Bags & coverage</span>
+              </button>
+              <button class="quick-action-card quick-action-card--highlight" onclick="window.TillerApp.createNewProject();">
+                <span class="quick-action-card__icon">📋</span>
+                <span class="quick-action-card__title">Full Estimate</span>
+                <span class="quick-action-card__desc">Complete material list</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- Pro Tip of the Day -->
+          <section class="dashboard__section dashboard__section--tip">
+            <div class="pro-tip-card">
+              <div class="pro-tip-card__header">
+                <span class="pro-tip-card__icon">💡</span>
+                <span class="pro-tip-card__label">Pro Tip</span>
+              </div>
+              <p class="pro-tip-card__text">${getProTip('tile')?.tip || 'Always order 10-15% extra tile for waste, cuts, and future repairs.'}</p>
+              <span class="pro-tip-card__source">Source: ${getProTip('tile')?.source || 'Industry Standard'}</span>
+            </div>
+          </section>
+
           <!-- Calculator Sections by Category -->
           ${sortedCategories.map(([catId, cat]) => {
             const catCalcs = CALCULATORS.filter(c => c.category === catId && c.status === 'ready');
@@ -1704,6 +1991,56 @@
                 <p class="empty-state__text">Start calculating to create your first project.</p>
               </div>
             `}
+          </section>
+
+          <!-- Why Choose TillerPro -->
+          <section class="dashboard__section dashboard__section--features">
+            <div class="dashboard__section-header">
+              <h3 class="dashboard__section-title">
+                <span class="dashboard__section-icon" aria-hidden="true">⭐</span>
+                Why America Trusts TillerPro
+              </h3>
+            </div>
+            <div class="features-grid">
+              <div class="feature-card">
+                <span class="feature-card__icon">🎯</span>
+                <h4 class="feature-card__title">TCNA Compliant</h4>
+                <p class="feature-card__desc">All calculations follow Tile Council of North America 2024 standards.</p>
+              </div>
+              <div class="feature-card">
+                <span class="feature-card__icon">👷</span>
+                <h4 class="feature-card__title">Built by Pros</h4>
+                <p class="feature-card__desc">Developed by licensed NJ contractors with 10+ years field experience.</p>
+              </div>
+              <div class="feature-card">
+                <span class="feature-card__icon">📱</span>
+                <h4 class="feature-card__title">Works Offline</h4>
+                <p class="feature-card__desc">Use on the job site—no internet required after first load.</p>
+              </div>
+              <div class="feature-card">
+                <span class="feature-card__icon">🔒</span>
+                <h4 class="feature-card__title">Your Data, Private</h4>
+                <p class="feature-card__desc">All projects stored locally on your device. No account required.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Contact CTA -->
+          <section class="dashboard__section dashboard__section--cta">
+            <div class="cta-card">
+              <div class="cta-card__content">
+                <h3 class="cta-card__title">Need Professional Installation?</h3>
+                <p class="cta-card__text">Tillerstead LLC serves South Jersey & Shore communities with expert tile installation. Licensed, insured, TCNA-trained.</p>
+              </div>
+              <div class="cta-card__actions">
+                <a href="tel:${CONFIG.COMPANY.phone.replace(/[^0-9]/g, '')}" class="btn btn--primary">
+                  <span>📞</span> ${CONFIG.COMPANY.phone}
+                </a>
+                <a href="/contact/" class="btn btn--secondary">
+                  <span>📧</span> Request Quote
+                </a>
+              </div>
+            </div>
           </section>
         </div>
       `;
@@ -3227,6 +3564,57 @@
         return `${f.prefix || ''}${rawValue}${f.suffix || ''}`;
       };
 
+      // Get shop links for this calculator
+      const inputs = AppState.calculatorInputs[calcId] || {};
+      const shopLinks = getShopLinks(calcId, inputs);
+      const shopLinksHtml = shopLinks.length > 0 ? `
+        <div class="calc-results__shop">
+          <h5 class="calc-results__shop-title">🛒 Shop This Material</h5>
+          <div class="shop-links">
+            ${shopLinks.map(link => `
+              <a href="${link.url}" 
+                 class="shop-link" 
+                 target="_blank" 
+                 rel="noopener sponsored"
+                 data-retailer="${link.id}"
+                 onclick="window.TillerApp.trackShopClick('${link.id}', '${calcId}')"
+                 title="Search ${link.name} for ${link.searchTerm}">
+                <span class="shop-link__icon">${link.icon}</span>
+                <span class="shop-link__name">${link.name}</span>
+              </a>
+            `).join('')}
+            <button type="button" class="shop-link shop-link--local" onclick="window.TillerApp.findLocalSuppliers('${calcId}')">
+              <span class="shop-link__icon">📍</span>
+              <span class="shop-link__name">Local Stores</span>
+            </button>
+          </div>
+        </div>
+      ` : '';
+
+      // Auto-save indicator
+      const autoSaveHtml = AppState.settings.autoSave ? `
+        <div class="autosave-indicator" id="autosave-${calcId}">
+          <span class="autosave-icon">💾</span>
+          <span class="autosave-text">Auto-saved to project</span>
+        </div>
+      ` : `
+        <button type="button" class="btn btn--secondary btn--sm" onclick="window.TillerApp.saveToProject('${calcId}')">
+          💾 Save to Project
+        </button>
+      `;
+
+      // Get pro tip for this calculator type
+      const tip = getProTip(calcId);
+      const proTipHtml = tip ? `
+        <div class="result-pro-tip">
+          <div class="result-pro-tip__header">
+            <span class="result-pro-tip__icon">💡</span>
+            <span class="result-pro-tip__label">Pro Tip</span>
+          </div>
+          <p class="result-pro-tip__text">${tip.tip}</p>
+        </div>
+      ` : '';
+
       return `
         <div class="calc-results">
           <h4 class="calc-results__title">Results</h4>
@@ -3245,13 +3633,16 @@
           ${results.assumptions?.length ? `<details class="calc-results__assumptions"><summary>Assumptions</summary><ul>${results.assumptions.map(a => `<li>${a}</li>`).join('')}</ul></details>` : ''}
           ${results.warnings?.length ? `<div class="calc-results__warnings">${results.warnings.map(w => `<p class="calc-results__warning">⚠️ ${w}</p>`).join('')}</div>` : ''}
           ${results.notes?.length ? `<details class="calc-results__notes"><summary>Notes</summary><ul>${results.notes.map(n => `<li>${n}</li>`).join('')}</ul></details>` : ''}
+          ${proTipHtml}
+          ${shopLinksHtml}
           <div class="mt-lg calc-results__actions">
-            <button type="button" class="btn btn--secondary btn--sm" onclick="window.TillerApp.saveToProject('${calcId}')">
-              💾 Save to Project
-            </button>
+            ${autoSaveHtml}
             <button type="button" class="btn btn--ghost btn--sm" onclick="window.TillerApp.downloadCalcPDF('${calcId}')" title="Download PDF">
               📄 Export PDF
             </button>
+            <a href="#/projects" class="btn btn--ghost btn--sm" title="View Project">
+              📁 View Project
+            </a>
           </div>
         </div>
       `;
@@ -3297,6 +3688,12 @@
             const results = calcFn(inputs);
             if (results) {
               AppState.calculatorResults[calcId] = results;
+              
+              // AUTO-SAVE to project (new feature)
+              if (AppState.settings.autoSave) {
+                App.autoSaveToProject(calcId, inputs, results);
+              }
+              
               Toast.show('Calculation complete', 'success');
             } else {
               Toast.show('Please fill in required fields', 'warning');
@@ -3830,6 +4227,229 @@
       }
     },
 
+    // AUTO-SAVE: Automatically save calculation to project
+    autoSaveToProject(calcId, inputs, results) {
+      // Create project if none exists
+      if (!AppState.activeProject && AppState.settings.autoCreateProject) {
+        const today = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        const project = Projects.create(`Project ${today}`);
+        AppState.activeProject = project.id;
+        Projects.updateCount();
+      }
+      
+      if (!AppState.activeProject) return;
+      
+      const project = Projects.get(AppState.activeProject);
+      if (!project) return;
+      
+      if (!project.calculations) project.calculations = {};
+      
+      // Save calculation with metadata
+      project.calculations[calcId] = {
+        inputs,
+        results,
+        savedAt: new Date().toISOString(),
+        shopLinksClicked: []
+      };
+      
+      // Update project totals based on calculator type
+      this.updateProjectTotals(project, calcId, inputs, results);
+      
+      // Generate/update shopping list
+      this.updateShoppingList(project);
+      
+      Projects.update(AppState.activeProject, project);
+      AppState.lastAutoSave = new Date().toISOString();
+      
+      // Show subtle auto-save indicator
+      this.showAutoSaveIndicator(calcId);
+    },
+    
+    // Update project totals from calculation
+    updateProjectTotals(project, calcId, inputs, results) {
+      if (!project.totals) {
+        project.totals = {
+          area: 0,
+          materials: {},
+          estimatedCost: 0
+        };
+      }
+      
+      // Update area from tile calculator
+      if (calcId === 'tile' && inputs.area) {
+        project.totals.area = parseFloat(inputs.area) || 0;
+        project.totalArea = project.totals.area;
+      }
+      
+      // Track materials
+      if (results) {
+        const materialMap = {
+          tile: { key: 'tiles', unit: results.boxes ? 'boxes' : 'tiles', value: results.boxes || results.tilesNeeded },
+          mortar: { key: 'mortar', unit: 'bags', value: results.bags },
+          grout: { key: 'grout', unit: 'bags', value: results.bags },
+          leveling: { key: 'leveling', unit: 'bags', value: results.bags },
+          waterproof: { key: 'waterproof', unit: 'gal', value: results.gallons },
+          sealant: { key: 'sealant', unit: 'tubes', value: results.tubes },
+          sealer: { key: 'sealer', unit: 'gal', value: results.gallons }
+        };
+        
+        const material = materialMap[calcId];
+        if (material && material.value) {
+          project.totals.materials[material.key] = {
+            quantity: material.value,
+            unit: material.unit
+          };
+        }
+      }
+    },
+    
+    // Generate shopping list from all calculations
+    updateShoppingList(project) {
+      if (!project.calculations) return;
+      
+      const shoppingList = [];
+      const calcNames = {
+        tile: 'Tile',
+        mortar: 'Thin-Set Mortar',
+        grout: 'Grout',
+        leveling: 'Self-Leveling Compound',
+        waterproof: 'Waterproofing Membrane',
+        sealant: 'Caulk/Sealant',
+        sealer: 'Sealer',
+        primer: 'Primer',
+        'deck-mud': 'Deck Mud'
+      };
+      
+      Object.entries(project.calculations).forEach(([calcId, data]) => {
+        if (!data.results) return;
+        
+        const results = data.results;
+        const inputs = data.inputs || {};
+        
+        // Map calculator results to shopping items
+        if (calcId === 'tile' && results.tilesNeeded) {
+          const size = inputs.tileWidth && inputs.tileHeight ? `${inputs.tileWidth}×${inputs.tileHeight}` : '';
+          shoppingList.push({
+            item: size ? `${size} Tile` : 'Tile',
+            quantity: results.boxes || Math.ceil(results.tilesNeeded / 10),
+            unit: results.boxes ? 'boxes' : 'tiles',
+            source: calcId,
+            spec: results.note || ''
+          });
+        }
+        
+        if (calcId === 'mortar' && results.bags) {
+          shoppingList.push({
+            item: inputs.backButter ? 'LFT Thin-Set Mortar' : 'Thin-Set Mortar',
+            quantity: results.bags,
+            unit: 'bags (50 lb)',
+            source: calcId
+          });
+        }
+        
+        if (calcId === 'grout' && results.bags) {
+          const jointSize = inputs.jointWidth || 0.125;
+          shoppingList.push({
+            item: jointSize > 0.125 ? 'Sanded Grout' : 'Unsanded Grout',
+            quantity: results.bags,
+            unit: 'bags',
+            source: calcId
+          });
+        }
+        
+        if (calcId === 'leveling' && results.bags) {
+          shoppingList.push({
+            item: 'Self-Leveling Underlayment',
+            quantity: results.bags,
+            unit: 'bags (50 lb)',
+            source: calcId
+          });
+        }
+        
+        if (calcId === 'waterproof' && results.gallons) {
+          shoppingList.push({
+            item: 'Waterproofing Membrane',
+            quantity: results.gallons,
+            unit: 'gallons',
+            source: calcId
+          });
+        }
+        
+        if (calcId === 'sealant' && results.tubes) {
+          shoppingList.push({
+            item: 'Silicone Caulk',
+            quantity: results.tubes,
+            unit: 'tubes',
+            source: calcId
+          });
+        }
+        
+        if (calcId === 'sealer' && results.gallons) {
+          shoppingList.push({
+            item: 'Grout/Stone Sealer',
+            quantity: results.gallons,
+            unit: 'gallons',
+            source: calcId
+          });
+        }
+      });
+      
+      project.shoppingList = shoppingList;
+    },
+    
+    // Show auto-save indicator animation
+    showAutoSaveIndicator(calcId) {
+      const indicator = document.getElementById(`autosave-${calcId}`);
+      if (indicator) {
+        indicator.classList.add('is-saving');
+        setTimeout(() => {
+          indicator.classList.remove('is-saving');
+        }, 2000);
+      }
+    },
+    
+    // Track shop link clicks
+    trackShopClick(retailerId, calcId) {
+      AppState.shopLinksClicked.push({
+        retailer: retailerId,
+        calculator: calcId,
+        timestamp: new Date().toISOString()
+      });
+      
+      // Also save to project if active
+      if (AppState.activeProject) {
+        const project = Projects.get(AppState.activeProject);
+        if (project) {
+          if (!project.retailerClicks) project.retailerClicks = [];
+          project.retailerClicks.push({
+            retailer: retailerId,
+            product: calcId,
+            timestamp: new Date().toISOString()
+          });
+          
+          // Update shop links clicked in calculation
+          if (project.calculations && project.calculations[calcId]) {
+            if (!project.calculations[calcId].shopLinksClicked) {
+              project.calculations[calcId].shopLinksClicked = [];
+            }
+            if (!project.calculations[calcId].shopLinksClicked.includes(retailerId)) {
+              project.calculations[calcId].shopLinksClicked.push(retailerId);
+            }
+          }
+          
+          Projects.update(AppState.activeProject, project);
+        }
+      }
+    },
+    
+    // Find local tile suppliers
+    findLocalSuppliers(calcId) {
+      const searchTermFn = SHOP_SEARCH_TERMS[calcId];
+      const searchTerm = searchTermFn ? searchTermFn(AppState.calculatorInputs[calcId] || {}) : 'tile store';
+      const mapsUrl = `https://www.google.com/maps/search/tile+store+${encodeURIComponent(searchTerm)}+near+me`;
+      window.open(mapsUrl, '_blank', 'noopener');
+    },
+
     clearCalculator(calcId) {
       AppState.calculatorInputs[calcId] = {};
       AppState.calculatorResults[calcId] = null;
@@ -3975,6 +4595,10 @@
     clearCalculator: (calcId) => App.clearCalculator(calcId),
     updateSetting: (key, value) => App.updateSetting(key, value),
     clearAllData: () => App.clearAllData(),
+    // Auto-save and shop link methods
+    autoSaveToProject: (calcId, inputs, results) => App.autoSaveToProject(calcId, inputs, results),
+    trackShopClick: (retailerId, calcId) => App.trackShopClick(retailerId, calcId),
+    findLocalSuppliers: (calcId) => App.findLocalSuppliers(calcId),
     // Toolkit sync methods
     syncToToolkit: () => App.syncToToolkit(),
     importFromToolkit: () => App.importFromToolkit(),
@@ -4044,8 +4668,12 @@
       }
       const activeProject = AppState.activeProject ? Projects.get(AppState.activeProject) : null;
       const projectName = activeProject ? activeProject.name : 'Quick Estimate';
+      
+      // Include shopping list in PDF export
+      const shoppingList = activeProject?.shoppingList || [];
+      
       Toast.show('Generating PDF...', 'info');
-      const result = await window.TillerPDF.downloadQuickEstimate(calcId, inputs, results, projectName);
+      const result = await window.TillerPDF.downloadQuickEstimate(calcId, inputs, results, projectName, shoppingList);
       if (result.success) {
         Toast.show(`Downloaded: ${result.filename}`, 'success');
       } else {
