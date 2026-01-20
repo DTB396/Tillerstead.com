@@ -1,5 +1,5 @@
 /**
- * TillerCalc Pro - Web Application
+ * TillerPro - Web Application
  * Modular architecture with client-side routing
  * Integrates with tillerstead-toolkit backend when available
  */
@@ -22,15 +22,18 @@
     API_RETRY_ATTEMPTS: 2
   };
 
-  // Calculator definitions
+  // Calculator definitions - TillerPro suite
   const CALCULATORS = [
-    { id: 'tile', name: 'Tile Quantity', icon: '🧱', desc: 'Calculate tiles and boxes needed' },
-    { id: 'mortar', name: 'Mortar Coverage', icon: '🔧', desc: 'Thin-set mortar requirements' },
-    { id: 'grout', name: 'Grout Calculator', icon: '🪣', desc: 'Grout quantity and coverage' },
-    { id: 'leveling', name: 'Self-Leveling', icon: '📏', desc: 'Leveling compound amounts' },
-    { id: 'slope', name: 'Shower Slope', icon: '📐', desc: 'Pre-slope calculations' },
-    { id: 'waterproof', name: 'Waterproofing', icon: '💧', desc: 'Membrane requirements' },
-    { id: 'labor', name: 'Labor Estimate', icon: '⏱️', desc: 'Time and scheduling' }
+    { id: 'tile', name: 'Tile Quantity', icon: '🧱', desc: 'Calculate tiles and boxes needed', category: 'tile' },
+    { id: 'mortar', name: 'Mortar Coverage', icon: '🔧', desc: 'Thin-set mortar requirements', category: 'tile' },
+    { id: 'grout', name: 'Grout Calculator', icon: '🪣', desc: 'Grout quantity and coverage', category: 'tile' },
+    { id: 'leveling', name: 'Self-Leveling', icon: '📏', desc: 'Leveling compound amounts', category: 'prep' },
+    { id: 'slope', name: 'Shower Slope', icon: '📐', desc: 'Pre-slope calculations', category: 'prep' },
+    { id: 'waterproof', name: 'Waterproofing', icon: '💧', desc: 'Membrane requirements', category: 'prep' },
+    { id: 'crown', name: 'Crown Molding', icon: '👑', desc: 'Ceiling trim & corners', category: 'trim' },
+    { id: 'baseboard', name: 'Baseboard & Chair Rail', icon: '📋', desc: 'Wall base and mid-panel framing', category: 'trim' },
+    { id: 'quarter', name: 'Quarter Round', icon: '🔘', desc: 'Floor trim & shoe molding', category: 'trim' },
+    { id: 'labor', name: 'Labor Estimate', icon: '⏱️', desc: 'Time and scheduling', category: 'general' }
   ];
 
   // ============================================
@@ -92,6 +95,59 @@
 
   // Self-leveler coverage: 0.45 cu ft per 50 lb bag (conservative avg per TDS)
   const LEVELER_COVERAGE = 0.45;
+
+  // ============================================
+  // TRIM & MOLDING PRESETS
+  // ============================================
+
+  // Crown molding profiles with standard dimensions and pricing tiers
+  const CROWN_PRESETS = [
+    { id: '2.25-finger', name: '2-1/4" Finger-Joint Pine', size: 2.25, material: 'pine', pricePerFt: 1.25, paintGrade: true },
+    { id: '3.25-mdf', name: '3-1/4" MDF', size: 3.25, material: 'mdf', pricePerFt: 1.50, paintGrade: true },
+    { id: '3.625-pine', name: '3-5/8" Pine', size: 3.625, material: 'pine', pricePerFt: 2.00, paintGrade: true },
+    { id: '4.625-pine', name: '4-5/8" Pine', size: 4.625, material: 'pine', pricePerFt: 3.25, paintGrade: true },
+    { id: '5.25-poplar', name: '5-1/4" Poplar', size: 5.25, material: 'poplar', pricePerFt: 4.50, paintGrade: true },
+    { id: '4.5-oak', name: '4-1/2" Red Oak', size: 4.5, material: 'oak', pricePerFt: 6.50, stainGrade: true },
+    { id: 'custom', name: 'Custom Size', size: 0, isCustom: true }
+  ];
+
+  // Baseboard and chair rail profiles
+  const BASEBOARD_PRESETS = [
+    { id: '3.25-mdf', name: '3-1/4" MDF Baseboard', size: 3.25, type: 'baseboard', pricePerFt: 0.85 },
+    { id: '4.25-mdf', name: '4-1/4" MDF Baseboard', size: 4.25, type: 'baseboard', pricePerFt: 1.10 },
+    { id: '5.25-mdf', name: '5-1/4" MDF Baseboard', size: 5.25, type: 'baseboard', pricePerFt: 1.35 },
+    { id: '6-mdf', name: '6" MDF Baseboard', size: 6, type: 'baseboard', pricePerFt: 1.65 },
+    { id: '7.25-mdf', name: '7-1/4" MDF Baseboard', size: 7.25, type: 'baseboard', pricePerFt: 2.10 },
+    { id: '2.5-chair', name: '2-1/2" Chair Rail', size: 2.5, type: 'chair', pricePerFt: 1.75 },
+    { id: '3-chair', name: '3" Chair Rail', size: 3, type: 'chair', pricePerFt: 2.25 },
+    { id: 'custom', name: 'Custom Size', size: 0, isCustom: true }
+  ];
+
+  // Quarter round and shoe molding
+  const QUARTER_PRESETS = [
+    { id: '0.5-pine', name: '1/2" Pine Quarter Round', size: 0.5, material: 'pine', pricePerFt: 0.45 },
+    { id: '0.75-pine', name: '3/4" Pine Quarter Round', size: 0.75, material: 'pine', pricePerFt: 0.65 },
+    { id: '0.75-mdf', name: '3/4" MDF Quarter Round', size: 0.75, material: 'mdf', pricePerFt: 0.55 },
+    { id: '0.5-shoe', name: '1/2" × 3/4" Shoe Molding', size: 0.5, material: 'pine', pricePerFt: 0.55, isShoe: true },
+    { id: '0.75-oak', name: '3/4" Red Oak Quarter Round', size: 0.75, material: 'oak', pricePerFt: 1.85 },
+    { id: 'custom', name: 'Custom Size', size: 0, isCustom: true }
+  ];
+
+  // Standard trim lengths (for calculating pieces needed)
+  const TRIM_LENGTHS = [
+    { id: '8', name: '8 ft', length: 8 },
+    { id: '10', name: '10 ft', length: 10 },
+    { id: '12', name: '12 ft', length: 12 },
+    { id: '16', name: '16 ft', length: 16 }
+  ];
+
+  // Waste factors for trim work
+  const TRIM_WASTE = {
+    simple: 0.10,      // Straight runs, few corners
+    moderate: 0.15,    // Standard room with corners
+    complex: 0.20,     // Many corners, angles, returns
+    coffered: 0.25     // Coffered ceilings, wainscoting panels
+  };
 
   // ============================================
   // STATE MANAGEMENT
@@ -653,7 +709,7 @@
         text += `NOTES:\n${project.notes}\n`;
       }
 
-      text += '\n---\nGenerated by TillerCalc Pro | tillerstead.com/tools/app/';
+      text += '\n---\nGenerated by TillerPro | tillerstead.com/tools/app/';
       return text;
     }
   };
@@ -911,6 +967,194 @@
         rate: `${baseRate} sq ft/hour`,
         note: 'Estimate only - varies by conditions'
       };
+    },
+
+    // ============================================
+    // TRIM CALCULATORS
+    // ============================================
+
+    /**
+     * Crown Molding Calculator
+     * Calculates linear feet, pieces, inside/outside corners
+     */
+    crown(inputs) {
+      const { perimeter, roomLength, roomWidth, profile, stockLength, complexity, insideCorners, outsideCorners } = inputs;
+      
+      // Calculate perimeter from L×W or use direct input
+      let totalPerimeter = parseFloat(perimeter) || 0;
+      if (!totalPerimeter && roomLength && roomWidth) {
+        totalPerimeter = 2 * (parseFloat(roomLength) + parseFloat(roomWidth));
+      }
+      
+      if (totalPerimeter <= 0) return null;
+
+      const crownProfile = CROWN_PRESETS.find(c => c.id === profile) || CROWN_PRESETS[1];
+      const stockLen = parseFloat(stockLength) || 12;
+      const wasteFactor = TRIM_WASTE[complexity] || TRIM_WASTE.moderate;
+      
+      // Linear feet with waste
+      const linearFtWithWaste = totalPerimeter * (1 + wasteFactor);
+      
+      // Pieces needed (round up)
+      const piecesNeeded = Math.ceil(linearFtWithWaste / stockLen);
+      
+      // Calculate corners
+      const inCorners = parseInt(insideCorners) || 4; // Standard room has 4
+      const outCorners = parseInt(outsideCorners) || 0;
+      
+      // Corner blocks (if using) - alternative to coping/mitering
+      const cornerBlocksNeeded = inCorners + outCorners;
+      
+      // Material cost estimate
+      const materialCost = linearFtWithWaste * (crownProfile.pricePerFt || 2.00);
+      
+      // Build notes
+      const notes = [];
+      notes.push(`${crownProfile.name} @ ${stockLen}' lengths`);
+      if (inCorners > 0) notes.push(`${inCorners} inside corners (cope or miter)`);
+      if (outCorners > 0) notes.push(`${outCorners} outside corners (miter)`);
+      if (crownProfile.paintGrade) notes.push('Paint grade - prime before install');
+
+      return {
+        perimeter: totalPerimeter.toFixed(1),
+        linearFt: linearFtWithWaste.toFixed(1),
+        pieces: piecesNeeded,
+        insideCorners: inCorners,
+        outsideCorners: outCorners,
+        cornerBlocks: cornerBlocksNeeded,
+        wastePercent: Math.round(wasteFactor * 100),
+        materialCost: materialCost.toFixed(2),
+        note: notes.join('. ')
+      };
+    },
+
+    /**
+     * Baseboard & Chair Rail Calculator
+     * Includes wainscoting panel framing calculations
+     */
+    baseboard(inputs) {
+      const { perimeter, roomLength, roomWidth, profile, stockLength, complexity, 
+              doorOpenings, windowOpenings, includePanels, panelHeight, panelWidth, panelCount } = inputs;
+      
+      // Calculate perimeter
+      let totalPerimeter = parseFloat(perimeter) || 0;
+      if (!totalPerimeter && roomLength && roomWidth) {
+        totalPerimeter = 2 * (parseFloat(roomLength) + parseFloat(roomWidth));
+      }
+      
+      if (totalPerimeter <= 0) return null;
+
+      const baseProfile = BASEBOARD_PRESETS.find(b => b.id === profile) || BASEBOARD_PRESETS[1];
+      const stockLen = parseFloat(stockLength) || 12;
+      const wasteFactor = TRIM_WASTE[complexity] || TRIM_WASTE.moderate;
+      
+      // Subtract door openings (typical 3' each)
+      const doorDeduction = (parseInt(doorOpenings) || 0) * 3;
+      // Windows don't deduct from baseboard (they're above it)
+      
+      const netPerimeter = Math.max(0, totalPerimeter - doorDeduction);
+      const linearFtWithWaste = netPerimeter * (1 + wasteFactor);
+      const piecesNeeded = Math.ceil(linearFtWithWaste / stockLen);
+      
+      // Wainscoting panel framing calculation
+      let panelFramingFt = 0;
+      let panelDetails = null;
+      
+      if (includePanels && panelCount > 0) {
+        const pHeight = parseFloat(panelHeight) || 24; // inches
+        const pWidth = parseFloat(panelWidth) || 18;   // inches
+        const pCount = parseInt(panelCount) || 0;
+        
+        // Each panel frame: 2 vertical stiles + 2 horizontal rails
+        const panelPerimeter = 2 * (pHeight + pWidth) / 12; // convert to feet
+        panelFramingFt = panelPerimeter * pCount * (1 + TRIM_WASTE.coffered);
+        
+        panelDetails = {
+          count: pCount,
+          framePerPanel: panelPerimeter.toFixed(1),
+          totalFraming: panelFramingFt.toFixed(1)
+        };
+      }
+      
+      const totalLinearFt = linearFtWithWaste + panelFramingFt;
+      const totalPieces = Math.ceil(totalLinearFt / stockLen);
+      const materialCost = totalLinearFt * (baseProfile.pricePerFt || 1.10);
+      
+      // Build notes
+      const notes = [];
+      notes.push(`${baseProfile.name} @ ${stockLen}' lengths`);
+      if (doorDeduction > 0) notes.push(`${doorOpenings} door(s) deducted (${doorDeduction} ft)`);
+      if (panelDetails) notes.push(`${panelDetails.count} wainscot panels (${panelDetails.totalFraming} ft framing)`);
+
+      return {
+        grossPerimeter: totalPerimeter.toFixed(1),
+        netPerimeter: netPerimeter.toFixed(1),
+        linearFt: linearFtWithWaste.toFixed(1),
+        panelFramingFt: panelFramingFt.toFixed(1),
+        totalLinearFt: totalLinearFt.toFixed(1),
+        pieces: piecesNeeded,
+        totalPieces,
+        wastePercent: Math.round(wasteFactor * 100),
+        materialCost: materialCost.toFixed(2),
+        panelDetails,
+        note: notes.join('. ')
+      };
+    },
+
+    /**
+     * Quarter Round & Shoe Molding Calculator
+     * For flooring transitions and baseboards
+     */
+    quarter(inputs) {
+      const { perimeter, roomLength, roomWidth, profile, stockLength, complexity,
+              doorOpenings, cabinetRuns, transitionStrips } = inputs;
+      
+      // Calculate perimeter
+      let totalPerimeter = parseFloat(perimeter) || 0;
+      if (!totalPerimeter && roomLength && roomWidth) {
+        totalPerimeter = 2 * (parseFloat(roomLength) + parseFloat(roomWidth));
+      }
+      
+      if (totalPerimeter <= 0) return null;
+
+      const quarterProfile = QUARTER_PRESETS.find(q => q.id === profile) || QUARTER_PRESETS[1];
+      const stockLen = parseFloat(stockLength) || 8; // Quarter round typically 8'
+      const wasteFactor = TRIM_WASTE[complexity] || TRIM_WASTE.moderate;
+      
+      // Deductions
+      const doorDeduction = (parseInt(doorOpenings) || 0) * 3;      // 3' per door opening
+      const cabinetDeduction = parseFloat(cabinetRuns) || 0;        // Linear ft of cabinets
+      const transitionDeduction = (parseInt(transitionStrips) || 0) * 3; // 3' per transition
+      
+      const totalDeductions = doorDeduction + cabinetDeduction + transitionDeduction;
+      const netPerimeter = Math.max(0, totalPerimeter - totalDeductions);
+      const linearFtWithWaste = netPerimeter * (1 + wasteFactor);
+      const piecesNeeded = Math.ceil(linearFtWithWaste / stockLen);
+      
+      const materialCost = linearFtWithWaste * (quarterProfile.pricePerFt || 0.55);
+      
+      // Build notes
+      const notes = [];
+      notes.push(`${quarterProfile.name} @ ${stockLen}' lengths`);
+      if (quarterProfile.isShoe) notes.push('Shoe molding - flexible for uneven floors');
+      if (totalDeductions > 0) {
+        const deductItems = [];
+        if (doorDeduction > 0) deductItems.push(`${doorOpenings} doors`);
+        if (cabinetDeduction > 0) deductItems.push(`${cabinetDeduction} ft cabinets`);
+        if (transitionDeduction > 0) deductItems.push(`${transitionStrips} transitions`);
+        notes.push(`Deducted: ${deductItems.join(', ')} (${totalDeductions.toFixed(1)} ft)`);
+      }
+
+      return {
+        grossPerimeter: totalPerimeter.toFixed(1),
+        deductions: totalDeductions.toFixed(1),
+        netPerimeter: netPerimeter.toFixed(1),
+        linearFt: linearFtWithWaste.toFixed(1),
+        pieces: piecesNeeded,
+        wastePercent: Math.round(wasteFactor * 100),
+        materialCost: materialCost.toFixed(2),
+        note: notes.join('. ')
+      };
     }
   };
 
@@ -931,7 +1175,7 @@
           <!-- Hero Section -->
           <div class="dashboard__hero">
             <div class="dashboard__hero-content">
-              <h2 class="dashboard__hero-title">TillerCalc Pro</h2>
+              <h2 class="dashboard__hero-title">TillerPro</h2>
               <p class="dashboard__hero-subtitle">Professional tile calculators built by a licensed NJ contractor</p>
               <div class="dashboard__hero-actions">
                 <button class="btn btn--primary btn--lg" onclick="window.TillerApp.Router.navigate('calculators')">
@@ -962,7 +1206,7 @@
           <div class="dashboard__section">
             <div class="dashboard__section-header">
               <h3 class="dashboard__section-title">Quick Access</h3>
-              <span class="dashboard__section-badge">7 calculators</span>
+              <span class="dashboard__section-badge">${CALCULATORS.length} calculators</span>
             </div>
             <div class="calc-grid">
               ${CALCULATORS.map(calc => `
@@ -1346,6 +1590,240 @@
               </div>
             </div>
           </div>
+        `,
+
+        // ============================================
+        // TRIM CALCULATOR FORMS
+        // ============================================
+
+        crown: `
+          <div class="form-section">
+            <div class="form-section__title">Room Dimensions</div>
+            <p class="form-help mb-md">Enter perimeter directly OR room length × width</p>
+            <div class="form-grid form-grid--3col">
+              <div class="form-field">
+                <label class="form-label">Ceiling Perimeter</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="perimeter" value="${inputs.perimeter || ''}" min="1" step="0.5" placeholder="Direct entry">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Room Length</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="roomLength" value="${inputs.roomLength || ''}" min="1" step="0.5" placeholder="e.g. 15">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Room Width</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="roomWidth" value="${inputs.roomWidth || ''}" min="1" step="0.5" placeholder="e.g. 12">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-grid form-grid--2col">
+            <div class="form-field">
+              <label class="form-label">Crown Profile</label>
+              <select class="form-select" name="profile">
+                ${CROWN_PRESETS.map(c => `<option value="${c.id}" ${inputs.profile === c.id ? 'selected' : ''}>${c.name}${c.pricePerFt ? ' (~$' + c.pricePerFt + '/ft)' : ''}</option>`).join('')}
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Stock Length</label>
+              <select class="form-select" name="stockLength">
+                ${TRIM_LENGTHS.map(l => `<option value="${l.length}" ${inputs.stockLength == l.length ? 'selected' : ''}>${l.name}</option>`).join('')}
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Job Complexity</label>
+              <select class="form-select" name="complexity">
+                <option value="simple" ${inputs.complexity === 'simple' ? 'selected' : ''}>Simple – Few corners (+10% waste)</option>
+                <option value="moderate" ${inputs.complexity === 'moderate' || !inputs.complexity ? 'selected' : ''}>Standard Room (+15% waste)</option>
+                <option value="complex" ${inputs.complexity === 'complex' ? 'selected' : ''}>Complex – Many angles (+20% waste)</option>
+                <option value="coffered" ${inputs.complexity === 'coffered' ? 'selected' : ''}>Coffered Ceiling (+25% waste)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="form-section__title">Corners</div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-label">Inside Corners</label>
+                <input type="number" class="form-input" name="insideCorners" value="${inputs.insideCorners || 4}" min="0" max="50">
+                <p class="form-help">Standard room = 4</p>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Outside Corners</label>
+                <input type="number" class="form-input" name="outsideCorners" value="${inputs.outsideCorners || 0}" min="0" max="50">
+                <p class="form-help">Soffits, bump-outs, etc.</p>
+              </div>
+            </div>
+          </div>
+        `,
+
+        baseboard: `
+          <div class="form-section">
+            <div class="form-section__title">Room Dimensions</div>
+            <p class="form-help mb-md">Enter perimeter directly OR room length × width</p>
+            <div class="form-grid form-grid--3col">
+              <div class="form-field">
+                <label class="form-label">Wall Perimeter</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="perimeter" value="${inputs.perimeter || ''}" min="1" step="0.5" placeholder="Direct entry">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Room Length</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="roomLength" value="${inputs.roomLength || ''}" min="1" step="0.5" placeholder="e.g. 15">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Room Width</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="roomWidth" value="${inputs.roomWidth || ''}" min="1" step="0.5" placeholder="e.g. 12">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-grid form-grid--2col">
+            <div class="form-field">
+              <label class="form-label">Profile Type</label>
+              <select class="form-select" name="profile">
+                ${BASEBOARD_PRESETS.map(b => `<option value="${b.id}" ${inputs.profile === b.id ? 'selected' : ''}>${b.name}${b.pricePerFt ? ' (~$' + b.pricePerFt + '/ft)' : ''}</option>`).join('')}
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Stock Length</label>
+              <select class="form-select" name="stockLength">
+                ${TRIM_LENGTHS.map(l => `<option value="${l.length}" ${inputs.stockLength == l.length ? 'selected' : ''}>${l.name}</option>`).join('')}
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Job Complexity</label>
+              <select class="form-select" name="complexity">
+                <option value="simple" ${inputs.complexity === 'simple' ? 'selected' : ''}>Simple (+10% waste)</option>
+                <option value="moderate" ${inputs.complexity === 'moderate' || !inputs.complexity ? 'selected' : ''}>Standard (+15% waste)</option>
+                <option value="complex" ${inputs.complexity === 'complex' ? 'selected' : ''}>Complex (+20% waste)</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Door Openings</label>
+              <input type="number" class="form-input" name="doorOpenings" value="${inputs.doorOpenings || 0}" min="0" max="20">
+              <p class="form-help">Deducts 3 ft per door</p>
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="form-section__title">Wainscoting Panels (Optional)</div>
+            <div class="form-field">
+              <label class="form-checkbox">
+                <input type="checkbox" name="includePanels" ${inputs.includePanels ? 'checked' : ''}>
+                <span>Include panel framing calculation</span>
+              </label>
+            </div>
+            <div class="form-grid form-grid--3col mt-md">
+              <div class="form-field">
+                <label class="form-label">Panel Height</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="panelHeight" value="${inputs.panelHeight || 24}" min="6" max="48" ${!inputs.includePanels ? 'disabled' : ''}>
+                  <span class="input-group__suffix">in</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Panel Width</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="panelWidth" value="${inputs.panelWidth || 18}" min="6" max="48" ${!inputs.includePanels ? 'disabled' : ''}>
+                  <span class="input-group__suffix">in</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Number of Panels</label>
+                <input type="number" class="form-input" name="panelCount" value="${inputs.panelCount || 0}" min="0" max="100" ${!inputs.includePanels ? 'disabled' : ''}>
+              </div>
+            </div>
+          </div>
+        `,
+
+        quarter: `
+          <div class="form-section">
+            <div class="form-section__title">Room Dimensions</div>
+            <p class="form-help mb-md">Enter perimeter directly OR room length × width</p>
+            <div class="form-grid form-grid--3col">
+              <div class="form-field">
+                <label class="form-label">Floor Perimeter</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="perimeter" value="${inputs.perimeter || ''}" min="1" step="0.5" placeholder="Direct entry">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Room Length</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="roomLength" value="${inputs.roomLength || ''}" min="1" step="0.5" placeholder="e.g. 15">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Room Width</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="roomWidth" value="${inputs.roomWidth || ''}" min="1" step="0.5" placeholder="e.g. 12">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-grid form-grid--2col">
+            <div class="form-field">
+              <label class="form-label">Profile Type</label>
+              <select class="form-select" name="profile">
+                ${QUARTER_PRESETS.map(q => `<option value="${q.id}" ${inputs.profile === q.id ? 'selected' : ''}>${q.name}${q.pricePerFt ? ' (~$' + q.pricePerFt + '/ft)' : ''}</option>`).join('')}
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Stock Length</label>
+              <select class="form-select" name="stockLength">
+                <option value="8" ${inputs.stockLength == 8 || !inputs.stockLength ? 'selected' : ''}>8 ft (standard)</option>
+                ${TRIM_LENGTHS.filter(l => l.length !== 8).map(l => `<option value="${l.length}" ${inputs.stockLength == l.length ? 'selected' : ''}>${l.name}</option>`).join('')}
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Job Complexity</label>
+              <select class="form-select" name="complexity">
+                <option value="simple" ${inputs.complexity === 'simple' ? 'selected' : ''}>Simple (+10% waste)</option>
+                <option value="moderate" ${inputs.complexity === 'moderate' || !inputs.complexity ? 'selected' : ''}>Standard (+15% waste)</option>
+                <option value="complex" ${inputs.complexity === 'complex' ? 'selected' : ''}>Complex (+20% waste)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="form-section__title">Deductions</div>
+            <div class="form-grid form-grid--3col">
+              <div class="form-field">
+                <label class="form-label">Door Openings</label>
+                <input type="number" class="form-input" name="doorOpenings" value="${inputs.doorOpenings || 0}" min="0" max="20">
+                <p class="form-help">-3 ft each</p>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Cabinet Runs</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="cabinetRuns" value="${inputs.cabinetRuns || 0}" min="0" step="0.5">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+                <p class="form-help">Base cabinets, etc.</p>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Transitions</label>
+                <input type="number" class="form-input" name="transitionStrips" value="${inputs.transitionStrips || 0}" min="0" max="20">
+                <p class="form-help">T-molds, thresholds</p>
+              </div>
+            </div>
+          </div>
         `
       };
 
@@ -1404,6 +1882,29 @@
           { key: 'hours', label: 'Est. Hours' },
           { key: 'days', label: 'Est. Days', highlight: true },
           { key: 'rate', label: 'Production Rate' }
+        ],
+        // Trim calculator results
+        crown: [
+          { key: 'perimeter', label: 'Ceiling Perimeter', suffix: ' ft' },
+          { key: 'linearFt', label: 'Linear Ft (w/ waste)', suffix: ' ft' },
+          { key: 'pieces', label: 'Pieces Needed', highlight: true },
+          { key: 'insideCorners', label: 'Inside Corners' },
+          { key: 'outsideCorners', label: 'Outside Corners' },
+          { key: 'materialCost', label: 'Est. Material', prefix: '$' }
+        ],
+        baseboard: [
+          { key: 'netPerimeter', label: 'Net Perimeter', suffix: ' ft' },
+          { key: 'linearFt', label: 'Baseboard (w/ waste)', suffix: ' ft' },
+          { key: 'panelFramingFt', label: 'Panel Framing', suffix: ' ft' },
+          { key: 'totalPieces', label: 'Total Pieces', highlight: true },
+          { key: 'materialCost', label: 'Est. Material', prefix: '$' }
+        ],
+        quarter: [
+          { key: 'grossPerimeter', label: 'Gross Perimeter', suffix: ' ft' },
+          { key: 'deductions', label: 'Deductions', suffix: ' ft' },
+          { key: 'linearFt', label: 'Linear Ft (w/ waste)', suffix: ' ft' },
+          { key: 'pieces', label: 'Pieces Needed', highlight: true },
+          { key: 'materialCost', label: 'Est. Material', prefix: '$' }
         ]
       };
 
@@ -1417,12 +1918,13 @@
               <div class="calc-result">
                 <div class="calc-result__label">${f.label}</div>
                 <div class="calc-result__value ${f.highlight ? 'calc-result__value--highlight' : ''}">
-                  ${results[f.key] || '—'}${f.suffix || ''}
+                  ${f.prefix || ''}${results[f.key] || '—'}${f.suffix || ''}
                 </div>
               </div>
             `).join('')}
           </div>
           ${results.note ? `<p class="calc-results__note">${results.note}</p>` : ''}
+          ${results.warning ? `<p class="calc-results__warning">⚠️ ${results.warning}</p>` : ''}
           <div class="mt-lg calc-results__actions">
             <button type="button" class="btn btn--secondary btn--sm" onclick="window.TillerApp.saveToProject('${calcId}')">
               💾 Save to Project
@@ -1597,7 +2099,7 @@
           <div class="view-header">
             <div class="view-header__info">
               <h2 class="view-header__title">Settings</h2>
-              <p class="view-header__subtitle">Configure your TillerCalc Pro experience</p>
+              <p class="view-header__subtitle">Configure your TillerPro experience</p>
             </div>
           </div>
 
@@ -1705,7 +2207,7 @@
             <section class="settings-card">
               <div class="settings-card__header">
                 <span class="settings-card__icon">ℹ️</span>
-                <h3 class="settings-card__title">About TillerCalc Pro</h3>
+                <h3 class="settings-card__title">About TillerPro</h3>
               </div>
               <div class="settings-card__body">
                 <div class="about-info">
