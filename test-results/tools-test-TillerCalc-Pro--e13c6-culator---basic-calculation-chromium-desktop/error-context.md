@@ -1,0 +1,122 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - paragraph [ref=e4]: Loading TillerCalc...
+  - generic [ref=e5]:
+    - complementary [ref=e6]:
+      - link "TillerCalc PRO" [ref=e8] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e9]:
+          - generic [ref=e10]: TillerCalc
+          - generic [ref=e11]: PRO
+      - navigation "Main navigation" [ref=e12]:
+        - link "Dashboard" [ref=e13] [cursor=pointer]:
+          - /url: "#/dashboard"
+          - img [ref=e14]
+          - generic [ref=e19]: Dashboard
+        - link "Calculators" [active] [ref=e20] [cursor=pointer]:
+          - /url: "#/calculators"
+          - img [ref=e21]
+          - generic [ref=e23]: Calculators
+        - link "Projects" [ref=e24] [cursor=pointer]:
+          - /url: "#/projects"
+          - img [ref=e25]
+          - generic [ref=e27]: Projects
+        - link "Settings" [ref=e28] [cursor=pointer]:
+          - /url: "#/settings"
+          - img [ref=e29]
+          - generic [ref=e32]: Settings
+      - generic [ref=e33]:
+        - link "Back to Home" [ref=e34] [cursor=pointer]:
+          - /url: /
+          - img [ref=e35]
+          - generic [ref=e37]: Back to Home
+        - generic [ref=e38]:
+          - generic [ref=e39]: v1.0.0
+          - generic [ref=e40]: Online
+    - main [ref=e42]:
+      - generic [ref=e43]:
+        - heading "Calculators" [level=1] [ref=e44]
+        - generic [ref=e45]:
+          - generic "Offline Mode (Local Calculations)" [ref=e46]:
+            - generic [ref=e48]: Offline
+          - button "New project" [ref=e49] [cursor=pointer]:
+            - img [ref=e50]
+          - button "Save" [ref=e51] [cursor=pointer]:
+            - img [ref=e52]
+      - generic [ref=e57]:
+        - tablist [ref=e58]:
+          - tab "🧱 Tile Quantity" [selected] [ref=e59] [cursor=pointer]:
+            - generic [ref=e60]: 🧱
+            - generic [ref=e61]: Tile Quantity
+          - tab "🔧 Mortar Coverage" [ref=e62] [cursor=pointer]:
+            - generic [ref=e63]: 🔧
+            - generic [ref=e64]: Mortar Coverage
+          - tab "🪣 Grout Calculator" [ref=e65] [cursor=pointer]:
+            - generic [ref=e66]: 🪣
+            - generic [ref=e67]: Grout Calculator
+          - tab "📏 Self-Leveling" [ref=e68] [cursor=pointer]:
+            - generic [ref=e69]: 📏
+            - generic [ref=e70]: Self-Leveling
+          - tab "📐 Shower Slope" [ref=e71] [cursor=pointer]:
+            - generic [ref=e72]: 📐
+            - generic [ref=e73]: Shower Slope
+          - tab "💧 Waterproofing" [ref=e74] [cursor=pointer]:
+            - generic [ref=e75]: 💧
+            - generic [ref=e76]: Waterproofing
+          - tab "⏱️ Labor Estimate" [ref=e77] [cursor=pointer]:
+            - generic [ref=e78]: ⏱️
+            - generic [ref=e79]: Labor Estimate
+        - tabpanel [ref=e80]:
+          - generic [ref=e81]:
+            - heading "🧱 Tile Quantity" [level=2] [ref=e82]
+            - paragraph [ref=e83]: Calculate tiles and boxes needed
+          - generic [ref=e84]:
+            - generic [ref=e85]:
+              - generic [ref=e86]:
+                - generic [ref=e87]: Total Area (sq ft) *
+                - spinbutton [ref=e88]
+              - generic [ref=e89]:
+                - generic [ref=e90]: Tile Size
+                - combobox [ref=e91] [cursor=pointer]:
+                  - option "1×1 Mosaic" [selected]
+                  - option "2×2 Mosaic"
+                  - option "3×6 Subway"
+                  - option "4×4"
+                  - option "6×6"
+                  - option "6×24 Plank"
+                  - option "12×12"
+                  - option "12×24"
+                  - option "24×24"
+                  - option "Custom Size"
+              - generic [ref=e92]:
+                - generic [ref=e93]: Layout Pattern
+                - combobox [ref=e94] [cursor=pointer]:
+                  - option "Straight (10%)" [selected]
+                  - option "1/3 Offset (12%)"
+                  - option "50% Offset (15%)"
+                  - option "Diagonal (18%)"
+                  - option "Herringbone (25%)"
+              - generic [ref=e95]:
+                - generic [ref=e96]: Waste Factor (%)
+                - spinbutton [ref=e97]: "12"
+              - generic [ref=e98]:
+                - generic [ref=e99]: Tiles per Box
+                - spinbutton [ref=e100]
+              - generic [ref=e101]:
+                - generic [ref=e102]: Sq Ft per Box
+                - spinbutton [ref=e103]
+            - generic [ref=e105] [cursor=pointer]:
+              - checkbox "Add attic stock (+5% or 1 box)" [ref=e106]
+              - generic [ref=e107]: Add attic stock (+5% or 1 box)
+            - generic [ref=e108]:
+              - button "⚡ Calculate" [ref=e109] [cursor=pointer]:
+                - generic [ref=e110]: ⚡
+                - text: Calculate
+              - button "🔄 Clear" [ref=e111] [cursor=pointer]:
+                - generic [ref=e112]: 🔄
+                - text: Clear
+        - text: "* * * * * *"
+  - status
+```

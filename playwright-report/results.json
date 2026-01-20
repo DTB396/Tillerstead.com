@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 3
+      "actualWorkers": 1
     },
     "preserveOutput": "always",
     "reporter": [
@@ -43,7 +43,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 3
+          "actualWorkers": 1
         },
         "id": "chromium-desktop",
         "name": "chromium-desktop",
@@ -59,7 +59,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 3
+          "actualWorkers": 1
         },
         "id": "chromium-mobile",
         "name": "chromium-mobile",
@@ -75,7 +75,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 3
+          "actualWorkers": 1
         },
         "id": "chromium-tablet",
         "name": "chromium-tablet",
@@ -102,21 +102,21 @@
   },
   "suites": [
     {
-      "title": "mobile-nav.spec.js",
-      "file": "mobile-nav.spec.js",
+      "title": "tools-test.spec.js",
+      "file": "tools-test.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Mobile Navigation Drawer",
-          "file": "mobile-nav.spec.js",
-          "line": 16,
+          "title": "TillerCalc Pro App",
+          "file": "tools-test.spec.js",
+          "line": 4,
           "column": 6,
           "specs": [
             {
-              "title": "should open drawer when hamburger clicked",
-              "ok": true,
+              "title": "App loads with dashboard view",
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -129,47 +129,68 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3625,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
+                      "status": "failed",
+                      "duration": 12076,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                          "column": 16,
+                          "line": 9
                         },
+                        "snippet": "\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
                         {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                            "column": 16,
+                            "line": 9
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n\n\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16\u001b[22m"
                         }
                       ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T10:09:12.884Z",
+                      "startTime": "2026-01-20T02:07:09.741Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro-App-App-loads-with-dashboard-view-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro-App-App-loads-with-dashboard-view-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro-App-App-loads-with-dashboard-view-chromium-desktop\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                        "column": 16,
+                        "line": 9
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
-              "id": "2658a5cb0a709a925606-8c784fe1d01e13b2633f",
-              "file": "mobile-nav.spec.js",
-              "line": 34,
+              "id": "4879bb04630d395fe8dd-589b7d6b282dd6fcb9ce",
+              "file": "tools-test.spec.js",
+              "line": 12,
               "column": 3
             },
             {
-              "title": "should show backdrop when drawer opens",
-              "ok": true,
+              "title": "Navigation works - sidebar and bottom nav",
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -180,49 +201,70 @@
                   "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4016,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
+                      "status": "failed",
+                      "duration": 13186,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                          "column": 16,
+                          "line": 9
                         },
+                        "snippet": "\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
                         {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                            "column": 16,
+                            "line": 9
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n\n\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16\u001b[22m"
                         }
                       ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T10:09:16.895Z",
+                      "startTime": "2026-01-20T02:07:23.856Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--29495-ks---sidebar-and-bottom-nav-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--29495-ks---sidebar-and-bottom-nav-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--29495-ks---sidebar-and-bottom-nav-chromium-desktop\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                        "column": 16,
+                        "line": 9
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
-              "id": "2658a5cb0a709a925606-0b04e191f9cac4e05b23",
-              "file": "mobile-nav.spec.js",
-              "line": 57,
+              "id": "4879bb04630d395fe8dd-f4b83e1ad92207b77826",
+              "file": "tools-test.spec.js",
+              "line": 21,
               "column": 3
             },
             {
-              "title": "should close drawer when backdrop clicked",
-              "ok": true,
+              "title": "Tile Calculator - basic calculation",
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -233,52 +275,70 @@
                   "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 2,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4415,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
+                      "status": "failed",
+                      "duration": 11887,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                          "column": 16,
+                          "line": 9
                         },
+                        "snippet": "\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
                         {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Close clicked\n"
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                            "column": 16,
+                            "line": 9
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n\n\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16\u001b[22m"
                         }
                       ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T10:09:20.961Z",
+                      "startTime": "2026-01-20T02:07:38.891Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--e13c6-culator---basic-calculation-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--e13c6-culator---basic-calculation-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--e13c6-culator---basic-calculation-chromium-desktop\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                        "column": 16,
+                        "line": 9
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
-              "id": "2658a5cb0a709a925606-296b8795eb8dc5d70e77",
-              "file": "mobile-nav.spec.js",
-              "line": 74,
+              "id": "4879bb04630d395fe8dd-951aeab98a93cfc5c062",
+              "file": "tools-test.spec.js",
+              "line": 39,
               "column": 3
             },
             {
-              "title": "should close drawer when X button clicked",
-              "ok": true,
+              "title": "Mortar Calculator - basic calculation",
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -289,52 +349,70 @@
                   "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3758,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
+                      "status": "failed",
+                      "duration": 11901,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                          "column": 16,
+                          "line": 9
                         },
+                        "snippet": "\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
                         {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Close clicked\n"
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                            "column": 16,
+                            "line": 9
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n\n\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16\u001b[22m"
                         }
                       ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T10:09:25.412Z",
+                      "startTime": "2026-01-20T02:07:52.657Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--f96e7-culator---basic-calculation-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--f96e7-culator---basic-calculation-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--f96e7-culator---basic-calculation-chromium-desktop\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                        "column": 16,
+                        "line": 9
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
-              "id": "2658a5cb0a709a925606-907c5e71bfe9fecfe042",
-              "file": "mobile-nav.spec.js",
-              "line": 111,
+              "id": "4879bb04630d395fe8dd-14538b9b272cce83e7e2",
+              "file": "tools-test.spec.js",
+              "line": 61,
               "column": 3
             },
             {
-              "title": "should close drawer when ESC key pressed",
-              "ok": true,
+              "title": "Grout Calculator - basic calculation",
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -345,52 +423,70 @@
                   "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 4,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4047,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
+                      "status": "failed",
+                      "duration": 11944,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                          "column": 16,
+                          "line": 9
                         },
+                        "snippet": "\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
                         {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Close clicked\n"
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                            "column": 16,
+                            "line": 9
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n\n\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16\u001b[22m"
                         }
                       ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T10:09:29.201Z",
+                      "startTime": "2026-01-20T02:08:06.334Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--8ccc9-culator---basic-calculation-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--8ccc9-culator---basic-calculation-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--8ccc9-culator---basic-calculation-chromium-desktop\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                        "column": 16,
+                        "line": 9
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
-              "id": "2658a5cb0a709a925606-6c31528c5c867bf75799",
-              "file": "mobile-nav.spec.js",
-              "line": 129,
+              "id": "4879bb04630d395fe8dd-e93daac4037ffecda61c",
+              "file": "tools-test.spec.js",
+              "line": 80,
               "column": 3
             },
             {
-              "title": "should display correct menu items",
-              "ok": true,
+              "title": "Leveling Calculator - basic calculation",
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -401,49 +497,70 @@
                   "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4078,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
+                      "status": "failed",
+                      "duration": 11974,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                          "column": 16,
+                          "line": 9
                         },
+                        "snippet": "\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
                         {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                            "column": 16,
+                            "line": 9
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n\n\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16\u001b[22m"
                         }
                       ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T10:09:33.288Z",
+                      "startTime": "2026-01-20T02:08:20.841Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--e911a-culator---basic-calculation-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--e911a-culator---basic-calculation-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--e911a-culator---basic-calculation-chromium-desktop\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                        "column": 16,
+                        "line": 9
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
-              "id": "2658a5cb0a709a925606-77cbefec894cd1064cae",
-              "file": "mobile-nav.spec.js",
-              "line": 146,
+              "id": "4879bb04630d395fe8dd-409f14af8b378d93ec1b",
+              "file": "tools-test.spec.js",
+              "line": 101,
               "column": 3
             },
             {
-              "title": "should display CTA buttons",
-              "ok": true,
+              "title": "Slope Calculator - basic calculation",
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -454,49 +571,70 @@
                   "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 6,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3663,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
+                      "status": "failed",
+                      "duration": 12026,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                          "column": 16,
+                          "line": 9
                         },
+                        "snippet": "\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
                         {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                            "column": 16,
+                            "line": 9
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n\n\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16\u001b[22m"
                         }
                       ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T10:09:37.405Z",
+                      "startTime": "2026-01-20T02:08:34.586Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--db1f5-culator---basic-calculation-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--db1f5-culator---basic-calculation-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--db1f5-culator---basic-calculation-chromium-desktop\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                        "column": 16,
+                        "line": 9
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
-              "id": "2658a5cb0a709a925606-121b6fd49a0b42f736f3",
-              "file": "mobile-nav.spec.js",
-              "line": 171,
+              "id": "4879bb04630d395fe8dd-d16caa8167a071e43d2c",
+              "file": "tools-test.spec.js",
+              "line": 120,
               "column": 3
             },
             {
-              "title": "should lock body scroll when drawer is open",
-              "ok": true,
+              "title": "Waterproof Calculator - basic calculation",
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -507,52 +645,70 @@
                   "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 7,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5962,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
+                      "status": "failed",
+                      "duration": 12385,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                          "column": 16,
+                          "line": 9
                         },
+                        "snippet": "\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
                         {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Close clicked\n"
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                            "column": 16,
+                            "line": 9
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n\n\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16\u001b[22m"
                         }
                       ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T10:09:41.121Z",
+                      "startTime": "2026-01-20T02:08:48.239Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--271f5-culator---basic-calculation-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--271f5-culator---basic-calculation-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--271f5-culator---basic-calculation-chromium-desktop\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                        "column": 16,
+                        "line": 9
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
-              "id": "2658a5cb0a709a925606-672f0a1fa102aed108e4",
-              "file": "mobile-nav.spec.js",
-              "line": 190,
+              "id": "4879bb04630d395fe8dd-fad16b39c9a458cd6c08",
+              "file": "tools-test.spec.js",
+              "line": 140,
               "column": 3
             },
             {
-              "title": "should have proper ARIA attributes",
-              "ok": true,
+              "title": "Labor Calculator - basic calculation",
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -563,49 +719,70 @@
                   "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 8,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4270,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
+                      "status": "failed",
+                      "duration": 12362,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                          "column": 16,
+                          "line": 9
                         },
+                        "snippet": "\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
                         {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                            "column": 16,
+                            "line": 9
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n\n\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16\u001b[22m"
                         }
                       ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T10:09:47.119Z",
+                      "startTime": "2026-01-20T02:09:02.364Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--f5402-culator---basic-calculation-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--f5402-culator---basic-calculation-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--f5402-culator---basic-calculation-chromium-desktop\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                        "column": 16,
+                        "line": 9
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
-              "id": "2658a5cb0a709a925606-3a2d3f921d5c99bddcac",
-              "file": "mobile-nav.spec.js",
-              "line": 220,
+              "id": "4879bb04630d395fe8dd-76f082cd9d5fcdb8a93a",
+              "file": "tools-test.spec.js",
+              "line": 160,
               "column": 3
             },
             {
-              "title": "should be keyboard navigable",
-              "ok": true,
+              "title": "Project creation and persistence",
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -616,1137 +793,221 @@
                   "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 9,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4390,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
+                      "status": "failed",
+                      "duration": 12173,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                          "column": 16,
+                          "line": 9
                         },
+                        "snippet": "\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
                         {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Close clicked\n"
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                            "column": 16,
+                            "line": 9
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n\n\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16\u001b[22m"
                         }
                       ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T10:09:51.438Z",
+                      "startTime": "2026-01-20T02:09:16.330Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--aaadc-ct-creation-and-persistence-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--aaadc-ct-creation-and-persistence-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--aaadc-ct-creation-and-persistence-chromium-desktop\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                        "column": 16,
+                        "line": 9
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
-              "id": "2658a5cb0a709a925606-b7fe38d5ec143f576112",
-              "file": "mobile-nav.spec.js",
-              "line": 240,
+              "id": "4879bb04630d395fe8dd-c4b746a5096eaf2073e8",
+              "file": "tools-test.spec.js",
+              "line": 180,
               "column": 3
             },
             {
-              "title": "should open drawer when hamburger clicked",
-              "ok": true,
+              "title": "Calculator clear button works",
+              "ok": false,
               "tags": [],
               "tests": [
                 {
                   "timeout": 60000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 6330,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 12072,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                          "column": 16,
+                          "line": 9
                         },
+                        "snippet": "\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
                         {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                            "column": 16,
+                            "line": 9
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.app-header') to be visible\u001b[22m\n\n\n\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[90m// Wait for app to initialize\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.app-header'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m   test(\u001b[32m'App loads with dashboard view'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:9:16\u001b[22m"
                         }
                       ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T10:09:12.864Z",
+                      "startTime": "2026-01-20T02:09:30.318Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro-App-Calculator-clear-button-works-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro-App-Calculator-clear-button-works-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro-App-Calculator-clear-button-works-chromium-desktop\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                        "column": 16,
+                        "line": 9
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
-              "id": "2658a5cb0a709a925606-444cb4474c1a21420386",
-              "file": "mobile-nav.spec.js",
-              "line": 34,
+              "id": "4879bb04630d395fe8dd-70e7258d7f24ff563739",
+              "file": "tools-test.spec.js",
+              "line": 197,
               "column": 3
-            },
+            }
+          ]
+        },
+        {
+          "title": "TillerCalc Pro - Mobile",
+          "file": "tools-test.spec.js",
+          "line": 214,
+          "column": 6,
+          "specs": [
             {
-              "title": "should show backdrop when drawer opens",
-              "ok": true,
+              "title": "Bottom navigation works on mobile",
+              "ok": false,
               "tags": [],
               "tests": [
                 {
                   "timeout": 60000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 6410,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 12256,
+                      "error": {
+                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.bottom-nav') to be visible\u001b[22m\n",
+                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.bottom-nav') to be visible\u001b[22m\n\n    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:219:16",
+                        "location": {
+                          "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                          "column": 16,
+                          "line": 219
                         },
+                        "snippet": "\u001b[0m \u001b[90m 217 |\u001b[39m   test(\u001b[32m'Bottom navigation works on mobile'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 218 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 219 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.bottom-nav'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 220 |\u001b[39m     \n \u001b[90m 221 |\u001b[39m     \u001b[90m// Bottom nav should be visible\u001b[39m\n \u001b[90m 222 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.bottom-nav'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
                         {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
+                          "location": {
+                            "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                            "column": 16,
+                            "line": 219
+                          },
+                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.bottom-nav') to be visible\u001b[22m\n\n\n\u001b[0m \u001b[90m 217 |\u001b[39m   test(\u001b[32m'Bottom navigation works on mobile'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 218 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/tools/'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 219 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.bottom-nav'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 220 |\u001b[39m     \n \u001b[90m 221 |\u001b[39m     \u001b[90m// Bottom nav should be visible\u001b[39m\n \u001b[90m 222 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.bottom-nav'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js:219:16\u001b[22m"
                         }
                       ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-19T10:09:19.440Z",
+                      "startTime": "2026-01-20T02:09:44.124Z",
                       "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-bedcee948df68afca0a5",
-              "file": "mobile-nav.spec.js",
-              "line": 57,
-              "column": 3
-            },
-            {
-              "title": "should close drawer when backdrop clicked",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 6883,
-                      "errors": [],
-                      "stdout": [
+                      "attachments": [
                         {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--ac776--navigation-works-on-mobile-chromium-desktop\\test-failed-1.png"
                         },
                         {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--ac776--navigation-works-on-mobile-chromium-desktop\\video.webm"
                         },
                         {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Close clicked\n"
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\web-dev\\github-repos\\Tillerstead.com\\test-results\\tools-test-TillerCalc-Pro--ac776--navigation-works-on-mobile-chromium-desktop\\error-context.md"
                         }
                       ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T10:09:25.896Z",
-                      "annotations": [],
-                      "attachments": []
+                      "errorLocation": {
+                        "file": "C:\\web-dev\\github-repos\\Tillerstead.com\\tests\\tools-test.spec.js",
+                        "column": 16,
+                        "line": 219
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
-              "id": "2658a5cb0a709a925606-3403f2e01448b2e3c574",
-              "file": "mobile-nav.spec.js",
-              "line": 74,
-              "column": 3
-            },
-            {
-              "title": "should close drawer when X button clicked",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 6058,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Close clicked\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T10:09:32.825Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-2f51bd71a49206190bc9",
-              "file": "mobile-nav.spec.js",
-              "line": 111,
-              "column": 3
-            },
-            {
-              "title": "should close drawer when ESC key pressed",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 7642,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Close clicked\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T10:09:38.930Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-6c19e9dd7749c3455ce7",
-              "file": "mobile-nav.spec.js",
-              "line": 129,
-              "column": 3
-            },
-            {
-              "title": "should display correct menu items",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 6227,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T10:09:46.627Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-bc0369bb819bc61e2412",
-              "file": "mobile-nav.spec.js",
-              "line": 146,
-              "column": 3
-            },
-            {
-              "title": "should display CTA buttons",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 5716,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T10:09:52.905Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-10fbf528a9347d619a84",
-              "file": "mobile-nav.spec.js",
-              "line": 171,
-              "column": 3
-            },
-            {
-              "title": "should lock body scroll when drawer is open",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 3115,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Close clicked\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T10:09:58.677Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-8e38452c92c1ef3d9eac",
-              "file": "mobile-nav.spec.js",
-              "line": 190,
-              "column": 3
-            },
-            {
-              "title": "should have proper ARIA attributes",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 2783,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T10:10:01.832Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-3df4268af7f10094e230",
-              "file": "mobile-nav.spec.js",
-              "line": 220,
-              "column": 3
-            },
-            {
-              "title": "should be keyboard navigable",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-mobile",
-                  "projectName": "chromium-mobile",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 2369,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: coarse pointer (touch device)\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: no hover capability\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Close clicked\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T10:10:04.649Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-fcfa9b6e684bbc35b4f5",
-              "file": "mobile-nav.spec.js",
-              "line": 240,
-              "column": 3
-            },
-            {
-              "title": "should open drawer when hamburger clicked",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-tablet",
-                  "projectName": "chromium-tablet",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 3772,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T10:09:12.841Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-6864dc9cf47a711fedaf",
-              "file": "mobile-nav.spec.js",
-              "line": 34,
-              "column": 3
-            },
-            {
-              "title": "should show backdrop when drawer opens",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-tablet",
-                  "projectName": "chromium-tablet",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 4347,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T10:09:16.955Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-ba399f4cef0a29ac1c14",
-              "file": "mobile-nav.spec.js",
-              "line": 57,
-              "column": 3
-            },
-            {
-              "title": "should close drawer when backdrop clicked",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-tablet",
-                  "projectName": "chromium-tablet",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 4584,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Close clicked\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T10:09:21.336Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-383c82018c018b15a1cb",
-              "file": "mobile-nav.spec.js",
-              "line": 74,
-              "column": 3
-            },
-            {
-              "title": "should close drawer when X button clicked",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-tablet",
-                  "projectName": "chromium-tablet",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 3815,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Close clicked\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T10:09:25.990Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-b65e733d2b34841fa662",
-              "file": "mobile-nav.spec.js",
-              "line": 111,
-              "column": 3
-            },
-            {
-              "title": "should close drawer when ESC key pressed",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-tablet",
-                  "projectName": "chromium-tablet",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 4040,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Close clicked\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T10:09:29.846Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-864a1bafa945d6036916",
-              "file": "mobile-nav.spec.js",
-              "line": 129,
-              "column": 3
-            },
-            {
-              "title": "should display correct menu items",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-tablet",
-                  "projectName": "chromium-tablet",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 3848,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T10:09:33.920Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-3eddfe91cc0ce4d82010",
-              "file": "mobile-nav.spec.js",
-              "line": 146,
-              "column": 3
-            },
-            {
-              "title": "should display CTA buttons",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-tablet",
-                  "projectName": "chromium-tablet",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 3934,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T10:09:37.800Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-552201c96c1cfae0f5f2",
-              "file": "mobile-nav.spec.js",
-              "line": 171,
-              "column": 3
-            },
-            {
-              "title": "should lock body scroll when drawer is open",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-tablet",
-                  "projectName": "chromium-tablet",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 5999,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Close clicked\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T10:09:41.766Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-d0b47aa4e4e5e1de2dd6",
-              "file": "mobile-nav.spec.js",
-              "line": 190,
-              "column": 3
-            },
-            {
-              "title": "should have proper ARIA attributes",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-tablet",
-                  "projectName": "chromium-tablet",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 4252,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T10:09:47.808Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-5ab93d3c89b2510823ab",
-              "file": "mobile-nav.spec.js",
-              "line": 220,
-              "column": 3
-            },
-            {
-              "title": "should be keyboard navigable",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium-tablet",
-                  "projectName": "chromium-tablet",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 4404,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "[BROWSER LOG][log] ✨ Professional features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Detected: prefers-reduced-transparency\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Text-to-Speech initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [A11Y] Accessibility features initialized\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [SW] Registered: http://localhost:4000/\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Toggle clicked - opening\n"
-                        },
-                        {
-                          "text": "[BROWSER LOG][log] [MobileNav] Close clicked\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-19T10:09:52.127Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2658a5cb0a709a925606-fa795ebba6bb21b6a1e0",
-              "file": "mobile-nav.spec.js",
-              "line": 240,
+              "id": "4879bb04630d395fe8dd-78fc0dcbe1dcd51116bb",
+              "file": "tools-test.spec.js",
+              "line": 217,
               "column": 3
             }
           ]
@@ -1756,11 +1017,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-19T10:09:10.441Z",
-    "duration": 57117.361999999994,
-    "expected": 30,
+    "startTime": "2026-01-20T02:07:06.666Z",
+    "duration": 170201.179,
+    "expected": 0,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 12,
     "flaky": 0
   }
 }

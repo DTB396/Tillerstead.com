@@ -11,6 +11,8 @@
   // CONSTANTS & CONFIGURATION
   // ============================================
 
+  // TCNA defines Large Format Tile (LFT) as any tile with any side ≥15"
+  // LFT requires 95% mortar coverage, proper trowel selection, and back-buttering
   const TILE_PRESETS = [
     { id: 'mosaic-1x1', name: '1×1 Mosaic (12×12 sheet)', width: 1, height: 1, isMosaic: true, sheetCoverage: 1 },
     { id: 'mosaic-2x2', name: '2×2 Mosaic (12×12 sheet)', width: 2, height: 2, isMosaic: true, sheetCoverage: 1 },
@@ -18,47 +20,58 @@
     { id: '4x4', name: '4×4', width: 4, height: 4 },
     { id: '4x12', name: '4×12', width: 4, height: 12 },
     { id: '6x6', name: '6×6', width: 6, height: 6 },
-    { id: '6x24', name: '6×24 Plank', width: 6, height: 24, isPlank: true },
+    { id: '6x24', name: '6×24 Plank', width: 6, height: 24, isPlank: true, isLargeFormat: true },
     { id: '8x48', name: '8×48 Plank', width: 8, height: 48, isPlank: true, isLargeFormat: true },
     { id: '12x12', name: '12×12', width: 12, height: 12 },
-    { id: '12x24', name: '12×24', width: 12, height: 24 },
+    { id: '12x24', name: '12×24', width: 12, height: 24, isLargeFormat: true },
     { id: '12x48', name: '12×48 Plank', width: 12, height: 48, isPlank: true, isLargeFormat: true },
     { id: '24x24', name: '24×24', width: 24, height: 24, isLargeFormat: true },
     { id: '24x48', name: '24×48', width: 24, height: 48, isLargeFormat: true },
     { id: 'custom', name: 'Custom Size', width: 0, height: 0, isCustom: true }
   ];
 
+  // Layout patterns with waste factors
+  // TCNA restricts LFT offset to maximum 33% to minimize lippage risk
   const LAYOUT_PRESETS = [
     { id: 'straight', name: 'Straight / Stacked', wasteFactor: 0.10, wasteRange: '10%' },
-    { id: 'subway-33', name: '1/3 Offset (Recommended)', wasteFactor: 0.12, wasteRange: '12%' },
-    { id: 'subway-50', name: '50% Offset (Brick)', wasteFactor: 0.15, wasteRange: '15%', lippageRisk: true },
+    { id: 'subway-33', name: '1/3 Offset (Recommended for LFT)', wasteFactor: 0.12, wasteRange: '12%', lftSafe: true },
+    { id: 'subway-50', name: '50% Offset (Brick)', wasteFactor: 0.15, wasteRange: '15%', lippageRisk: true, lftWarning: 'NOT recommended for LFT—max 33% offset per TCNA' },
     { id: 'brick', name: 'Running Bond', wasteFactor: 0.12, wasteRange: '12%' },
     { id: 'diagonal', name: 'Diagonal', wasteFactor: 0.18, wasteRange: '15–20%' },
     { id: 'herringbone', name: 'Herringbone', wasteFactor: 0.25, wasteRange: '20–30%' },
     { id: 'mosaic', name: 'Mosaic Sheet', wasteFactor: 0.12, wasteRange: '10–15%' }
   ];
 
+  // Joint width presets per ANSI A108.02
+  // Minimum joint = 3× tile facial dimensional variation
   const JOINT_PRESETS = [
-    { id: '1/16', name: '1/16"', size: 0.0625 },
-    { id: '1/8', name: '1/8"', size: 0.125 },
-    { id: '3/16', name: '3/16"', size: 0.1875 },
-    { id: '1/4', name: '1/4"', size: 0.25 },
+    { id: '1/16', name: '1/16" (minimum)', size: 0.0625, note: 'Absolute minimum per ANSI' },
+    { id: '1/8', name: '1/8" (rectified)', size: 0.125, note: 'Standard for rectified tile' },
+    { id: '3/16', name: '3/16" (calibrated)', size: 0.1875, note: 'Standard for calibrated (non-rectified)' },
+    { id: '1/4', name: '1/4" (rustic/handmade)', size: 0.25, note: 'Handmade/high-variation tile' },
     { id: 'custom', name: 'Custom', size: 0, isCustom: true }
   ];
 
+  // Trowel presets with TDS-verified coverage per 50 lb bag
+  // Source: Custom Building Products VersaBond LFT TDS-132 (verified Jan 2026)
   const TROWEL_PRESETS = [
-    { id: '3/16-v', name: '3/16" V-Notch', coverageMin: 95, coverageMax: 120 },
-    { id: '1/4-sq', name: '1/4" × 1/4" Square', coverageMin: 70, coverageMax: 95 },
-    { id: '1/4x3/8-sq', name: '1/4" × 3/8" Square', coverageMin: 50, coverageMax: 70 },
-    { id: '1/2-sq', name: '1/2" × 1/2" Square', coverageMin: 35, coverageMax: 50 }
+    { id: '3/16-v', name: '3/16" V-Notch', coverageMin: 100, coverageMax: 130, forTiles: 'mosaic, small wall' },
+    { id: '1/4-sq', name: '1/4" × 1/4" Square', coverageMin: 90, coverageMax: 100, forTiles: 'up to 8×8' },
+    { id: '1/4x3/8-sq', name: '1/4" × 3/8" Square', coverageMin: 60, coverageMax: 67, forTiles: '8×8 to 13×13' },
+    { id: '1/2-sq', name: '1/2" × 1/2" Square', coverageMin: 42, coverageMax: 47, forTiles: 'not recommended for LFT', notForLFT: true },
+    { id: '3/4-u-45', name: '3/4" × 9/16" U-Notch @ 45°', coverageMin: 34, coverageMax: 38, forTiles: 'LFT ≥15"', forLFT: true },
+    { id: '3/4-u-30', name: '3/4" × 9/16" U-Notch @ 30°', coverageMin: 42, coverageMax: 47, forTiles: 'LFT ≥15" (best)', forLFT: true, recommended: true }
   ];
 
-  const GROUT_COVERAGE = {
-    cement: 25, // approx lbs per 100 sq ft per 1/8" joint (baseline)
-    epoxy: 20   // epoxy tends to have lower coverage
-  };
+  // Grout density constant: ~1.86 lbs per cubic inch for sanded cement grout
+  // This enables the standard grout formula: Area × (L+W)/(L×W) × T × J × 1.86
+  const GROUT_DENSITY_LBS_PER_CUIN = 1.86;
 
-  const LEVELER_COVERAGE = 0.45; // cu ft per 50 lb bag at 1" depth (conservative)
+  // Self-leveler coverage (cu ft per 50 lb bag)
+  // Mapei Self-Leveler Plus: 0.5 cu ft (48 sq ft @ 1/8")
+  // ARDEX K 15: 0.4 cu ft (44 sq ft @ 1/8")
+  // Using 0.45 as conservative average per TDS data
+  const LEVELER_COVERAGE = 0.45;
 
   const STORAGE_KEY = 'tillerstead_tools_project';
 
@@ -235,14 +248,17 @@
    */
   function getTilePreset(presetId, customWidth, customHeight) {
     if (presetId === 'custom') {
+      const w = parseFloat(customWidth) || 12;
+      const h = parseFloat(customHeight) || 12;
+      const largestSide = Math.max(w, h);
       return {
         id: 'custom',
-        name: `${customWidth}×${customHeight} Custom`,
-        width: parseFloat(customWidth) || 12,
-        height: parseFloat(customHeight) || 12,
+        name: `${w}×${h} Custom`,
+        width: w,
+        height: h,
         isCustom: true,
-        isLargeFormat: Math.max(customWidth, customHeight) >= 24,
-        isPlank: customHeight >= 24 || customWidth >= 24
+        isLargeFormat: largestSide >= 15, // TCNA defines LFT as any side ≥15"
+        isPlank: h >= 24 || w >= 24
       };
     }
     return TILE_PRESETS.find(t => t.id === presetId) || TILE_PRESETS[8]; // default to 12x12
@@ -324,45 +340,57 @@
 
   /**
    * Auto-recommend trowel notch based on tile size and substrate
+   * Uses TCNA/manufacturer recommendations (CBP TDS-132)
    */
   function getRecommendedTrowel(tile, substrate) {
     const smallestSide = Math.min(tile.width, tile.height);
     const largestSide = Math.max(tile.width, tile.height);
+    const isLFT = tile.isLargeFormat || largestSide >= 15; // TCNA defines LFT as any side ≥15"
 
     let result = {
       trowelId: '1/4-sq',
       backButter: false,
-      note: ''
+      note: '',
+      warning: ''
     };
 
-    // Mosaic or very small tile
+    // Mosaic or very small tile (≤2")
     if (tile.isMosaic || smallestSide <= 2) {
       result.trowelId = '3/16-v';
-      result.note = 'Small tile/mosaic: 3/16" V-notch is a common starting point for thin mosaics.';
+      result.note = 'Small tile/mosaic: 3/16" V-notch is standard for thin mosaics.';
     }
-    // Up to 12x12
-    else if (largestSide <= 12) {
+    // Small to medium tile (up to 8×8)
+    else if (largestSide <= 8) {
       result.trowelId = '1/4-sq';
-      result.note = '1/4" × 1/4" square notch is typical for tiles up to 12×12.';
+      result.note = '1/4" × 1/4" square notch per CBP TDS: 90-100 sq ft/bag coverage.';
     }
-    // Up to 12x24
-    else if (largestSide <= 24 && smallestSide <= 12) {
+    // Medium tile (8×8 to 13×13)
+    else if (largestSide <= 13) {
       result.trowelId = '1/4x3/8-sq';
-      result.backButter = substrate !== 'smooth';
-      result.note = '1/4" × 3/8" square notch with back-buttering helps achieve full coverage.';
+      result.note = '1/4" × 3/8" square notch per CBP TDS: 60-67 sq ft/bag coverage.';
     }
-    // Large format (any side >= 24")
-    else {
-      result.trowelId = '1/2-sq';
+    // Large format tile (any side ≥15")
+    else if (isLFT) {
+      // CBP recommends U-notch for LFT, NOT 1/2" square
+      result.trowelId = '3/4-u-30';
       result.backButter = true;
-      result.note = 'Large-format tile: 1/2" × 1/2" square with back-buttering recommended for maximum coverage.';
+      result.note = 'Large-format tile: 3/4"×9/16" U-notch @ 30° recommended per CBP TDS-132. Back-butter required for 95% coverage.';
+      result.warning = 'CBP does NOT recommend 1/2"×1/2" square notch for LFT—spacing makes it difficult to achieve proper coverage.';
+    }
+    // Transitional sizes (13" to 15")
+    else {
+      result.trowelId = '1/4x3/8-sq';
+      result.backButter = true;
+      result.note = '1/4" × 3/8" square notch with back-buttering for this tile size.';
     }
 
     // Substrate adjustment - increase notch size if substrate needs work
     if (substrate === 'needs-flattening') {
-      const currentIndex = TROWEL_PRESETS.findIndex(t => t.id === result.trowelId);
-      if (currentIndex < TROWEL_PRESETS.length - 1) {
-        result.trowelId = TROWEL_PRESETS[currentIndex + 1].id;
+      // Find next larger trowel
+      const trowelOrder = ['3/16-v', '1/4-sq', '1/4x3/8-sq', '3/4-u-30', '3/4-u-45'];
+      const currentIndex = trowelOrder.indexOf(result.trowelId);
+      if (currentIndex >= 0 && currentIndex < trowelOrder.length - 1) {
+        result.trowelId = trowelOrder[currentIndex + 1];
       }
       result.note += ' Substrate may need flattening—larger notch helps but doesn\'t replace proper substrate prep.';
     }
@@ -424,48 +452,57 @@
   }
 
   /**
-   * Calculate grout quantity
+   * Calculate grout quantity using industry-standard formula
+   * Formula: Area × (L + W) / (L × W) × T × J × K
+   * L/W = tile length/width in inches
+   * T = tile thickness in inches
+   * J = joint width in inches
+   * K = density constant (1.86 for lbs per cu in sanded grout)
    */
   function calculateGrout(areaSqFt, tileLength, tileWidth, tileThicknessMm, jointSizeIn, groutType, isMosaic) {
-    if (!areaSqFt || !tileLength || !tileWidth) {
+    if (!areaSqFt || !tileLength || !tileWidth || !jointSizeIn || !tileThicknessMm) {
       return { quantity: 0, unit: 'lbs', note: 'Enter all values to calculate' };
     }
 
-    // Grout formula: (L + W) / (L × W) × T × J × Area × K
-    // Where L/W = tile dimensions in inches
-    // T = tile thickness in inches
-    // J = joint width in inches
-    // K = constant (~1.86 for lbs per cu in of grout)
-    
+    // Convert thickness from mm to inches
     const tileThicknessIn = tileThicknessMm / 25.4;
-    const tileSqIn = tileLength * tileWidth;
-    const jointPerimeter = (tileLength + tileWidth) * 2;
     
-    // Joint volume per tile (cu inches)
-    const jointVolumePerTile = (jointPerimeter / 2) * jointSizeIn * tileThicknessIn;
+    // Standard grout formula (converts to lbs/sq ft)
+    // (L + W) / (L × W) gives joint linear feet per sq ft of tile
+    // × thickness × joint width gives volume
+    // × 1.86 converts cu in to lbs (grout density)
+    const L = parseFloat(tileLength);
+    const W = parseFloat(tileWidth);
+    const T = parseFloat(tileThicknessIn);
+    const J = parseFloat(jointSizeIn);
     
-    // Tiles per sq ft
-    const tilesPerSqFt = 144 / tileSqIn;
+    // Calculate lbs per sq ft: (L + W) / (L × W) × T × J × 1.86
+    const K_SANDED = 1.86; // lbs per cu in for sanded cement grout
+    const K_EPOXY = 2.0;   // lbs per cu in for epoxy grout (slightly denser)
     
-    // Total joint volume (cu ft)
-    const totalJointVolume = (jointVolumePerTile * tilesPerSqFt * areaSqFt) / 1728;
+    const K = groutType === 'epoxy' ? K_EPOXY : K_SANDED;
+    const lbsPerSqFt = ((L + W) / (L * W)) * T * J * K;
     
-    // Grout weight (approx 100 lbs per cu ft for cement grout)
-    let groutLbs = totalJointVolume * (groutType === 'epoxy' ? 110 : 100);
+    // Base grout weight
+    let groutLbs = lbsPerSqFt * areaSqFt;
     
-    // Mosaic multiplier (more joints = more grout)
-    if (isMosaic) {
-      groutLbs *= 1.5;
-    }
+    // Mosaic tiles have significantly more joints (small tile area, more perimeter)
+    // Formula already accounts for this via (L+W)/(L×W), but add note
+    const mosaicNote = isMosaic ? ' Mosaic tiles require more grout due to additional joints.' : '';
     
     // Add 10% for waste
     groutLbs *= 1.1;
 
+    // Calculate volume for reference (cu ft)
+    const volumeCuIn = ((L + W) / (L * W)) * T * J * areaSqFt * 144; // 144 converts sq ft to sq in
+    const volumeCuFt = (volumeCuIn / 1728) * 1.1; // Include waste factor
+
     return {
       quantity: roundUp(groutLbs),
       unit: 'lbs',
-      volume: (totalJointVolume * 1.1).toFixed(2),
-      note: isMosaic ? 'Mosaic tiles use significantly more grout due to additional joints.' : ''
+      volume: volumeCuFt.toFixed(3),
+      lbsPerSqFt: lbsPerSqFt.toFixed(3),
+      note: `Coverage: ~${lbsPerSqFt.toFixed(2)} lbs/sq ft.${mosaicNote}`
     };
   }
 
@@ -3906,14 +3943,18 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
         <span class="trowel-label">Recommended:</span>
         <span class="trowel-value">${escapeHtml(recommendedTrowel.name)}</span>
         <span class="trowel-note">${escapeHtml(recommendation.note || 'Starting point; verify coverage')}</span>
+        ${recommendation.warning ? `<span class="trowel-warning">⚠️ ${escapeHtml(recommendation.warning)}</span>` : ''}
       `;
 
       if (isOverride) {
         const selectedTrowel = getTrowelPreset(useTrowelId);
+        // Check if selected trowel is NOT recommended for this tile size
+        const isNotRecommended = selectedTrowel.notForLFT && tile.isLargeFormat;
         selectedDisplay.innerHTML = `
           <span class="trowel-label">Selected:</span>
           <span class="trowel-value trowel-value--override">${escapeHtml(selectedTrowel.name)}</span>
           <span class="trowel-note trowel-note--override">↑ Override</span>
+          ${isNotRecommended ? `<span class="trowel-warning">⚠️ CBP does NOT recommend ${escapeHtml(selectedTrowel.name)} for large format tile</span>` : ''}
         `;
         selectedDisplay.hidden = false;
         if (overrideReasonField) overrideReasonField.hidden = false;
@@ -3939,12 +3980,13 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
       recEl.hidden = false;
     }
 
-    // Auto-suggest back-butter for large format tiles (any side ≥ 24")
-    if ((tile.width >= 24 || tile.height >= 24) && !backButter) {
+    // Auto-suggest back-butter for large format tiles (TCNA: any side ≥15")
+    const isLFT = tile.isLargeFormat || Math.max(tile.width, tile.height) >= 15;
+    if (isLFT && !backButter) {
       const bbCheckbox = document.getElementById('mortar-backbutter');
       if (bbCheckbox) {
         bbCheckbox.checked = true;
-        showToast('Back-buttering auto-enabled for large format tile');
+        showToast('Back-buttering auto-enabled for large format tile (TCNA requirement: 95% coverage)');
       }
     }
 
@@ -4804,36 +4846,38 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
   }
 
   /**
-   * Waterproofing system specifications
+   * Waterproofing system specifications (verified against manufacturer TDS Jan 2026)
+   * Coverage values represent total area at proper film thickness for ANSI A118.10 compliance
    */
   const WP_SYSTEMS = {
     'schluter-kerdi': {
       name: 'Schluter KERDI',
       unit: 'roll (54.5 sf)',
-      coverage: 54.5,
-      tapePerCorner: 2, // feet
-      accessories: ['KERDI-BAND', 'KERDI-SEAL', 'KERDI-DRAIN']
+      coverage: 54.5, // TDS: 8 mil sheet, 2" overlap at seams
+      tapePerCorner: 2, // feet of KERDI-BAND
+      accessories: ['KERDI-BAND', 'KERDI-SEAL', 'KERDI-DRAIN'],
+      thinsetNote: 'MUST use unmodified thinset (ANSI A118.1)'
     },
     'laticrete': {
       name: 'LATICRETE Hydro Ban',
-      unit: 'gallon (covers 50-60 sf)',
-      coverage: 55,
+      unit: 'gallon (covers 50 sf @ 2 coats)',
+      coverage: 50, // TDS: 50 sq ft/gal at 2 coats (20-30 mils cured)
       liquidCoats: 2,
       accessories: ['Hydro Ban Board', 'Seam Tape']
     },
     'custom-redgard': {
       name: 'Custom RedGard',
       unit: 'gallon (covers 55 sf @ 2 coats)',
-      coverage: 55,
+      coverage: 55, // TDS-104: 55 sq ft/gal for waterproof membrane
       liquidCoats: 2,
       accessories: ['Mesh Tape', 'Corners']
     },
     'mapei-aquadefense': {
       name: 'Mapei AquaDefense',
       unit: 'gallon (covers 50 sf @ 2 coats)',
-      coverage: 50,
+      coverage: 50, // TDS: 2 coats at 25 mil wet film each
       liquidCoats: 2,
-      accessories: ['Fabric Tape']
+      accessories: ['Reinforcing Fabric', 'Mapeband']
     },
     'go-board': {
       name: 'GoBoard',

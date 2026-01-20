@@ -51,6 +51,19 @@
   ],
   "shortcuts": [
     {
+      "name": "TillerCalc Pro",
+      "short_name": "Calculator",
+      "url": "/tools/",
+      "description": "Open the tile calculator app",
+      "icons": [{ "src": "/assets/icons/android-chrome-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Tile Calculator",
+      "short_name": "Tile Calc",
+      "url": "/tools/#/calculators",
+      "description": "Calculate tile quantities"
+    },
+    {
       "name": "View Portfolio",
       "short_name": "Portfolio",
       "url": "/portfolio/",
