@@ -23,28 +23,43 @@
   };
 
   // Calculator definitions - TillerPro suite
+  // status: 'ready' = implemented, 'coming' = planned
   const CALCULATORS = [
-    { id: 'tile', name: 'Tile Quantity', icon: '🧱', desc: 'Calculate tiles and boxes needed', category: 'tile' },
-    { id: 'mortar', name: 'Mortar Coverage', icon: '🔧', desc: 'Thin-set mortar requirements', category: 'tile' },
-    { id: 'grout', name: 'Grout Calculator', icon: '🪣', desc: 'Grout quantity and coverage', category: 'tile' },
-    { id: 'leveling', name: 'Self-Leveling', icon: '📏', desc: 'Leveling compound amounts', category: 'prep' },
-    { id: 'slope', name: 'Shower Slope', icon: '📐', desc: 'Pre-slope calculations', category: 'prep' },
-    { id: 'waterproof', name: 'Waterproofing', icon: '💧', desc: 'Membrane requirements', category: 'prep' },
-    { id: 'movement', name: 'Movement Joints', icon: '↔️', desc: 'TCNA EJ171 spacing & soft joints', category: 'standards' },
-    { id: 'deflection', name: 'Structure Deflection', icon: '🏗️', desc: 'L/360 ceramic, L/720 stone check', category: 'standards' },
-    { id: 'heated-floor', name: 'Heated Floor Load', icon: '♨️', desc: 'Watts, amps, breaker/relay sizing', category: 'electrical' },
-    { id: 'moisture', name: 'Moisture / RH', icon: '💨', desc: 'ASTM F1869 / F2170 gating', category: 'prep' },
-    { id: 'thinset-mix', name: 'Thinset Mixing', icon: '🌀', desc: 'Water, yield, pot life', category: 'tile' },
-    { id: 'sealer', name: 'Sealer Coverage', icon: '🛡️', desc: 'Porosity-based gallons', category: 'finishes' },
-    { id: 'deck-mud', name: 'Deck Mud', icon: '🪣', desc: 'Shower pan volume & bags', category: 'prep' },
-    { id: 'primer', name: 'Primer / SLU', icon: '🧴', desc: 'Porous vs non-porous coats', category: 'prep' },
-    { id: 'sealant', name: 'Sealant / Caulk', icon: '🧵', desc: 'Bead length to tubes', category: 'finishes' },
-    { id: 'bath-layout', name: 'Bath Layout', icon: '🛁', desc: 'Check clearances for tub, shower, toilet, vanity', category: 'layout' },
-    { id: 'crown', name: 'Crown Molding', icon: '👑', desc: 'Ceiling trim & corners', category: 'trim' },
-    { id: 'baseboard', name: 'Baseboard & Chair Rail', icon: '📋', desc: 'Wall base and mid-panel framing', category: 'trim' },
-    { id: 'quarter', name: 'Quarter Round', icon: '🔘', desc: 'Floor trim & shoe molding', category: 'trim' },
-    { id: 'labor', name: 'Labor Estimate', icon: '⏱️', desc: 'Time and scheduling', category: 'general' }
+    // Tile & Mortar (Core)
+    { id: 'tile', name: 'Tile Quantity', icon: '🧱', desc: 'Tiles and boxes needed', category: 'coverage', status: 'ready' },
+    { id: 'mortar', name: 'Mortar Coverage', icon: '🔧', desc: 'Thin-set bags needed', category: 'coverage', status: 'ready' },
+    { id: 'grout', name: 'Grout Calculator', icon: '🪣', desc: 'Grout volume & bags', category: 'coverage', status: 'ready' },
+    { id: 'waterproof', name: 'Waterproofing', icon: '💧', desc: 'Membrane coverage', category: 'coverage', status: 'ready' },
+    // Structural & Load
+    { id: 'slope', name: 'Shower Slope', icon: '📐', desc: 'Pre-slope rise & volume', category: 'structural', status: 'ready' },
+    { id: 'deflection', name: 'Structure Deflection', icon: '🏗️', desc: 'L/360 or L/720 check', category: 'structural', status: 'ready' },
+    { id: 'heated-floor', name: 'Heated Floor Load', icon: '♨️', desc: 'Watts, amps, breaker', category: 'structural', status: 'ready' },
+    // Prep & Finishing
+    { id: 'thinset-mix', name: 'Thinset Mixing', icon: '🌀', desc: 'Water and yield', category: 'prepfinish', status: 'ready' },
+    { id: 'primer', name: 'Primer / SLU', icon: '🧴', desc: 'Porous vs non-porous coats', category: 'prepfinish', status: 'ready' },
+    { id: 'sealant', name: 'Sealant / Caulk', icon: '🧵', desc: 'Bead length to tubes', category: 'prepfinish', status: 'ready' },
+    { id: 'deck-mud', name: 'Deck Mud', icon: '🪣', desc: 'Pan volume & bags', category: 'prepfinish', status: 'ready' },
+    { id: 'sealer', name: 'Sealer Coverage', icon: '🛡️', desc: 'Porosity-based gallons', category: 'prepfinish', status: 'ready' },
+    // Other / Planning
+    { id: 'movement', name: 'Movement Joints', icon: '↔️', desc: 'EJ171 spacing grid', category: 'other', status: 'ready' },
+    { id: 'moisture', name: 'Moisture / RH', icon: '💨', desc: 'ASTM F1869 / F2170', category: 'other', status: 'ready' },
+    { id: 'bath-layout', name: 'Bath Layout', icon: '🛁', desc: 'Fixture clearances', category: 'other', status: 'ready' },
+    { id: 'labor', name: 'Labor Estimate', icon: '⏱️', desc: 'Time and scheduling', category: 'other', status: 'ready' },
+    // Surface Prep
+    { id: 'leveling', name: 'Self-Leveling', icon: '📏', desc: 'Leveling compound amounts', category: 'prepfinish', status: 'ready' },
+    // Trim & Molding
+    { id: 'crown', name: 'Crown Molding', icon: '👑', desc: 'Ceiling trim & corners', category: 'other', status: 'ready' },
+    { id: 'baseboard', name: 'Baseboard', icon: '📋', desc: 'Wall base and chair rail', category: 'other', status: 'ready' },
+    { id: 'quarter', name: 'Quarter Round', icon: '🔘', desc: 'Floor trim & shoe molding', category: 'other', status: 'ready' }
   ];
+
+  // Category metadata for grouping
+  const CATEGORIES = {
+    coverage: { name: 'Surface Coverage', icon: '🧱', order: 1, desc: 'Tile, mortar, grout, waterproofing' },
+    structural: { name: 'Structural Calculations', icon: '🏗️', order: 2, desc: 'Slope, deflection, heated floors' },
+    prepfinish: { name: 'Prep & Finishing', icon: '🧴', order: 3, desc: 'Mixing, primers, sealants, sealer' },
+    other: { name: 'Other Tools', icon: '🧭', order: 4, desc: 'Layout, labor, movement, trim' }
+  };
 
   // ============================================
   // CONSTANTS - Synced with tools.js (TDS-verified)
@@ -168,6 +183,7 @@
     projects: [],
     activeProject: null,
     activeCalculator: 'tile',
+    searchQuery: '',
     settings: {
       autoSave: true,
       notifications: true,
@@ -1409,14 +1425,14 @@
             </div>
           </div>
 
-          <!-- Quick Calculator Grid -->
+          <!-- Quick Calculator Grid - Ready calculators only -->
           <div class="dashboard__section">
             <div class="dashboard__section-header">
               <h3 class="dashboard__section-title">Quick Access</h3>
-              <span class="dashboard__section-badge">${CALCULATORS.length} calculators</span>
+              <span class="dashboard__section-badge">${CALCULATORS.filter(c => c.status === 'ready').length} ready</span>
             </div>
             <div class="calc-grid">
-              ${CALCULATORS.map(calc => `
+              ${CALCULATORS.filter(c => c.status === 'ready').map(calc => `
                 <button class="calc-card" data-calc="${calc.id}">
                   <span class="calc-card__icon">${calc.icon}</span>
                   <span class="calc-card__name">${calc.name}</span>
@@ -1425,6 +1441,26 @@
               `).join('')}
             </div>
           </div>
+
+          <!-- Coming Soon -->
+          ${CALCULATORS.filter(c => c.status === 'coming').length > 0 ? `
+          <div class="dashboard__section dashboard__section--muted">
+            <div class="dashboard__section-header">
+              <h3 class="dashboard__section-title">Coming Soon</h3>
+              <span class="dashboard__section-badge dashboard__section-badge--muted">${CALCULATORS.filter(c => c.status === 'coming').length} planned</span>
+            </div>
+            <div class="calc-grid calc-grid--coming">
+              ${CALCULATORS.filter(c => c.status === 'coming').map(calc => `
+                <div class="calc-card calc-card--coming" aria-disabled="true">
+                  <span class="calc-card__icon">${calc.icon}</span>
+                  <span class="calc-card__name">${calc.name}</span>
+                  <span class="calc-card__desc">${calc.desc}</span>
+                  <span class="calc-card__badge">Coming Soon</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+          ` : ''}
 
           <!-- Recent Projects -->
           <div class="dashboard__section">
@@ -1475,33 +1511,75 @@
     calculators() {
       const content = document.getElementById('app-content');
       if (!content) return;
+      const sortedCategories = Object.entries(CATEGORIES).sort((a, b) => a[1].order - b[1].order);
+      const filteredCalcs = CALCULATORS.filter(calc => {
+        if (!AppState.searchQuery) return true;
+        const q = AppState.searchQuery.toLowerCase();
+        return calc.name.toLowerCase().includes(q) || (calc.desc && calc.desc.toLowerCase().includes(q));
+      });
       const activeCalc = AppState.activeCalculator;
-      const activeData = CALCULATORS.find(c => c.id === activeCalc);
+      let activeData = CALCULATORS.find(c => c.id === activeCalc);
+      if (!activeData) {
+        const fallback = filteredCalcs[0] || CALCULATORS[0];
+        AppState.activeCalculator = fallback.id;
+        activeData = fallback;
+      }
 
       content.innerHTML = `
+        <div class="calc-sticky-nav" aria-label="Calculator navigation">
+          <div class="calc-sticky-nav__wrap">
+            <div class="calc-sticky-nav__links">
+              ${sortedCategories.map(([catId, cat]) => `
+                <button class="calc-sticky-nav__link" data-target="calc-cat-${catId}">
+                  <span class="calc-sticky-nav__icon">${cat.icon}</span>
+                  <span class="calc-sticky-nav__label">${cat.name}</span>
+                </button>
+              `).join('')}
+            </div>
+            <div class="calc-sticky-nav__search">
+              <label class="sr-only" for="calc-search-input">Search calculators</label>
+              <input id="calc-search-input" class="calc-search__input" type="search" placeholder="Search by name or purpose" value="${AppState.searchQuery || ''}">
+              <span class="calc-search__icon">🔍</span>
+            </div>
+          </div>
+        </div>
         <div class="calculators-layout">
           <!-- Calculator Selector Panel -->
           <aside class="calc-selector">
             <div class="calc-selector__header">
               <h2 class="calc-selector__title">Calculators</h2>
-              <p class="calc-selector__subtitle">Select a calculator below</p>
+              <p class="calc-selector__subtitle">Grouped by purpose for fast access</p>
             </div>
             <nav class="calc-selector__list" role="tablist" aria-label="Calculator selection">
-              ${CALCULATORS.map(calc => `
-                <button class="calc-selector__item ${calc.id === activeCalc ? 'is-active' : ''}" 
-                        role="tab" 
-                        aria-selected="${calc.id === activeCalc}"
-                        data-calc="${calc.id}">
-                  <span class="calc-selector__icon">${calc.icon}</span>
-                  <div class="calc-selector__info">
-                    <span class="calc-selector__name">${calc.name}</span>
-                    <span class="calc-selector__desc">${calc.desc}</span>
+              ${sortedCategories.map(([catId, cat]) => {
+                const catCalcs = filteredCalcs.filter(c => c.category === catId);
+                if (catCalcs.length === 0) return '';
+                return `
+                  <div class="calc-selector__group" id="calc-cat-${catId}">
+                    <div class="calc-selector__group-header">
+                      <div>
+                        <div class="calc-selector__group-title">${cat.icon} ${cat.name}</div>
+                        ${cat.desc ? `<div class="calc-selector__group-desc">${cat.desc}</div>` : ''}
+                      </div>
+                      <span class="calc-selector__group-count">${catCalcs.length}</span>
+                    </div>
+                    ${catCalcs.map(calc => `
+                      <button class="calc-selector__item ${calc.id === activeCalc ? 'is-active' : ''} ${calc.status === 'coming' ? 'is-coming' : ''}" 
+                              role="tab" 
+                              aria-selected="${calc.id === activeCalc}"
+                              ${calc.status === 'coming' ? 'disabled aria-disabled="true"' : ''}
+                              data-calc="${calc.id}">
+                        <span class="calc-selector__icon">${calc.icon}</span>
+                        <div class="calc-selector__info">
+                          <span class="calc-selector__name">${calc.name}</span>
+                          ${calc.status === 'coming' ? '<span class="calc-selector__badge">Soon</span>' : `<span class="calc-selector__desc">${calc.desc}</span>`}
+                        </div>
+                        ${calc.status === 'ready' ? `<svg class="calc-selector__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>` : ''}
+                      </button>
+                    `).join('')}
                   </div>
-                  <svg class="calc-selector__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 18l6-6-6-6"/>
-                  </svg>
-                </button>
-              `).join('')}
+                `;
+              }).join('')}
             </nav>
           </aside>
 
@@ -1524,9 +1602,17 @@
         <div class="calc-mobile-select">
           <label class="form-label">Select Calculator</label>
           <select class="form-select calc-mobile-dropdown" aria-label="Select calculator">
-            ${CALCULATORS.map(calc => `
-              <option value="${calc.id}" ${calc.id === activeCalc ? 'selected' : ''}>${calc.icon} ${calc.name}</option>
-            `).join('')}
+            ${sortedCategories.map(([catId, cat]) => {
+              const catCalcs = filteredCalcs.filter(c => c.category === catId && c.status === 'ready');
+              if (catCalcs.length === 0) return '';
+              return `
+                <optgroup label="${cat.name}">
+                  ${catCalcs.map(calc => `
+                    <option value="${calc.id}" ${calc.id === activeCalc ? 'selected' : ''}>${calc.icon} ${calc.name}</option>
+                  `).join('')}
+                </optgroup>
+              `;
+            }).join('')}
           </select>
         </div>
       `;
@@ -1536,6 +1622,33 @@
         item.addEventListener('click', () => {
           AppState.activeCalculator = item.dataset.calc;
           this.calculators();
+        });
+      });
+
+      // Search input
+      const searchInput = content.querySelector('#calc-search-input');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          AppState.searchQuery = e.target.value;
+          // Keep active calculator visible; if filtered out, pick first available
+          const visibleCalcs = CALCULATORS.filter(calc => {
+            if (!AppState.searchQuery) return true;
+            const q = AppState.searchQuery.toLowerCase();
+            return calc.name.toLowerCase().includes(q) || (calc.desc && calc.desc.toLowerCase().includes(q));
+          });
+          if (!visibleCalcs.some(c => c.id === AppState.activeCalculator) && visibleCalcs.length > 0) {
+            AppState.activeCalculator = visibleCalcs[0].id;
+          }
+          this.calculators();
+        });
+      }
+
+      // Sticky nav links
+      content.querySelectorAll('.calc-sticky-nav__link').forEach(link => {
+        link.addEventListener('click', () => {
+          const targetId = link.dataset.target;
+          const el = document.getElementById(targetId);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       });
 
@@ -2194,9 +2307,28 @@
         `
       };
 
+      // Check if calculator is implemented
+      const calcData = CALCULATORS.find(c => c.id === calcId);
+      const isComingSoon = calcData?.status === 'coming' || !forms[calcId];
+
+      if (isComingSoon) {
+        return `
+          <div class="calc-coming-soon">
+            <div class="calc-coming-soon__icon">🚧</div>
+            <h3 class="calc-coming-soon__title">${calcData?.name || 'Calculator'} Coming Soon</h3>
+            <p class="calc-coming-soon__text">This calculator is under development. We're working on TCNA-compliant formulas and will release it soon.</p>
+            <div class="calc-coming-soon__actions">
+              <button type="button" class="btn btn--secondary" onclick="window.TillerApp.Router.navigate('calculators'); window.TillerApp.State.activeCalculator = 'tile';">
+                ← Try Tile Calculator
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
       return `
         <form class="calc-form" data-calc="${calcId}">
-          ${forms[calcId] || '<p>Calculator not available</p>'}
+          ${forms[calcId]}
           <div class="mt-xl" style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <button type="submit" class="btn btn--calculate">
               <span>⚡</span> Calculate
