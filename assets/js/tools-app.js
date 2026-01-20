@@ -24,41 +24,236 @@
 
   // Calculator definitions - TillerPro suite
   // status: 'ready' = implemented, 'coming' = planned
+  // Organized by logical workflow: Coverage → Structural → Prep/Finish → Planning
   const CALCULATORS = [
-    // Tile & Mortar (Core)
-    { id: 'tile', name: 'Tile Quantity', icon: '🧱', desc: 'Tiles and boxes needed', category: 'coverage', status: 'ready' },
-    { id: 'mortar', name: 'Mortar Coverage', icon: '🔧', desc: 'Thin-set bags needed', category: 'coverage', status: 'ready' },
-    { id: 'grout', name: 'Grout Calculator', icon: '🪣', desc: 'Grout volume & bags', category: 'coverage', status: 'ready' },
-    { id: 'waterproof', name: 'Waterproofing', icon: '💧', desc: 'Membrane coverage', category: 'coverage', status: 'ready' },
-    // Structural & Load
-    { id: 'slope', name: 'Shower Slope', icon: '📐', desc: 'Pre-slope rise & volume', category: 'structural', status: 'ready' },
-    { id: 'deflection', name: 'Structure Deflection', icon: '🏗️', desc: 'L/360 or L/720 check', category: 'structural', status: 'ready' },
-    { id: 'heated-floor', name: 'Heated Floor Load', icon: '♨️', desc: 'Watts, amps, breaker', category: 'structural', status: 'ready' },
-    // Prep & Finishing
-    { id: 'thinset-mix', name: 'Thinset Mixing', icon: '🌀', desc: 'Water and yield', category: 'prepfinish', status: 'ready' },
-    { id: 'primer', name: 'Primer / SLU', icon: '🧴', desc: 'Porous vs non-porous coats', category: 'prepfinish', status: 'ready' },
-    { id: 'sealant', name: 'Sealant / Caulk', icon: '🧵', desc: 'Bead length to tubes', category: 'prepfinish', status: 'ready' },
-    { id: 'deck-mud', name: 'Deck Mud', icon: '🪣', desc: 'Pan volume & bags', category: 'prepfinish', status: 'ready' },
-    { id: 'sealer', name: 'Sealer Coverage', icon: '🛡️', desc: 'Porosity-based gallons', category: 'prepfinish', status: 'ready' },
-    // Other / Planning
-    { id: 'movement', name: 'Movement Joints', icon: '↔️', desc: 'EJ171 spacing grid', category: 'other', status: 'ready' },
-    { id: 'moisture', name: 'Moisture / RH', icon: '💨', desc: 'ASTM F1869 / F2170', category: 'other', status: 'ready' },
-    { id: 'bath-layout', name: 'Bath Layout', icon: '🛁', desc: 'Fixture clearances', category: 'other', status: 'ready' },
-    { id: 'labor', name: 'Labor Estimate', icon: '⏱️', desc: 'Time and scheduling', category: 'other', status: 'ready' },
-    // Surface Prep
-    { id: 'leveling', name: 'Self-Leveling', icon: '📏', desc: 'Leveling compound amounts', category: 'prepfinish', status: 'ready' },
+    // ═══════════════════════════════════════════════════════════════════
+    // SURFACE COVERAGE: Calculate materials for tile installation
+    // ═══════════════════════════════════════════════════════════════════
+    { 
+      id: 'tile', 
+      name: 'Tile Quantity', 
+      icon: '🧱', 
+      desc: 'Tiles and boxes needed',
+      tooltip: 'Calculate exact tile count with waste factors for different layouts. Supports mosaic sheets and large-format tile (LFT).',
+      category: 'coverage', 
+      status: 'ready' 
+    },
+    { 
+      id: 'mortar', 
+      name: 'Mortar Coverage', 
+      icon: '🔧', 
+      desc: 'Thin-set bags needed',
+      tooltip: 'Estimate mortar bags based on trowel size. Automatically adds 25% for back-buttering LFT per TCNA standards.',
+      category: 'coverage', 
+      status: 'ready' 
+    },
+    { 
+      id: 'grout', 
+      name: 'Grout Calculator', 
+      icon: '🪣', 
+      desc: 'Grout volume & bags',
+      tooltip: 'Calculate grout needed based on tile size, joint width, and depth using TCNA formula. 10% waste included.',
+      category: 'coverage', 
+      status: 'ready' 
+    },
+    { 
+      id: 'waterproof', 
+      name: 'Waterproofing', 
+      icon: '💧', 
+      desc: 'Membrane coverage',
+      tooltip: 'Calculate liquid membrane gallons and reinforcing band feet for showers, tub surrounds, and wet areas.',
+      category: 'coverage', 
+      status: 'ready' 
+    },
+
+    // ═══════════════════════════════════════════════════════════════════
+    // STRUCTURAL/LOAD: Verify substrate and electrical requirements
+    // ═══════════════════════════════════════════════════════════════════
+    { 
+      id: 'slope', 
+      name: 'Shower Slope', 
+      icon: '📐', 
+      desc: 'Pre-slope rise & volume',
+      tooltip: 'Calculate shower floor pre-slope dimensions and deck mud volume. Standard is ¼" per foot to drain.',
+      category: 'structural', 
+      status: 'ready' 
+    },
+    { 
+      id: 'deflection', 
+      name: 'Structure Deflection', 
+      icon: '🏗️', 
+      desc: 'L/360 or L/720 check',
+      tooltip: 'Verify floor joist deflection meets TCNA requirements. Natural stone requires L/720, ceramic L/360.',
+      category: 'structural', 
+      status: 'ready' 
+    },
+    { 
+      id: 'heated-floor', 
+      name: 'Heated Floor Load', 
+      icon: '♨️', 
+      desc: 'Watts, amps, breaker',
+      tooltip: 'Calculate electrical load for radiant floor heating. Determines amp draw and breaker/thermostat requirements.',
+      category: 'structural', 
+      status: 'ready' 
+    },
+
+    // ═══════════════════════════════════════════════════════════════════
+    // PREP & FINISHING: Surface preparation and finishing materials
+    // ═══════════════════════════════════════════════════════════════════
+    { 
+      id: 'leveling', 
+      name: 'Self-Leveling', 
+      icon: '📏', 
+      desc: 'SLU compound amounts',
+      tooltip: 'Calculate self-leveling underlayment (SLU) bags needed based on pour depth and area.',
+      category: 'prepfinish', 
+      status: 'ready' 
+    },
+    { 
+      id: 'thinset-mix', 
+      name: 'Thinset Mixing', 
+      icon: '🌀', 
+      desc: 'Water ratio & yield',
+      tooltip: 'Calculate water-to-powder ratio and batch yield per TDS specs. Includes pot life guidance.',
+      category: 'prepfinish', 
+      status: 'ready' 
+    },
+    { 
+      id: 'primer', 
+      name: 'Primer / SLU Prep', 
+      icon: '🧴', 
+      desc: 'Coat coverage',
+      tooltip: 'Estimate primer gallons for porous vs non-porous substrates. Supports double-priming calculations.',
+      category: 'prepfinish', 
+      status: 'ready' 
+    },
+    { 
+      id: 'deck-mud', 
+      name: 'Deck Mud', 
+      icon: '🏔️', 
+      desc: 'Pan volume & bags',
+      tooltip: 'Calculate dry-pack mortar for shower pans and beds. Accounts for slope and minimum thickness.',
+      category: 'prepfinish', 
+      status: 'ready' 
+    },
+    { 
+      id: 'sealant', 
+      name: 'Sealant / Caulk', 
+      icon: '🧵', 
+      desc: 'Tubes needed',
+      tooltip: 'Calculate caulk/sealant tubes based on linear feet and bead diameter. Supports 10.1oz and 28oz sizes.',
+      category: 'prepfinish', 
+      status: 'ready' 
+    },
+    { 
+      id: 'sealer', 
+      name: 'Sealer Coverage', 
+      icon: '🛡️', 
+      desc: 'Gallons by porosity',
+      tooltip: 'Estimate sealer gallons based on surface porosity (natural stone, grout, concrete) and coat count.',
+      category: 'prepfinish', 
+      status: 'ready' 
+    },
+
+    // ═══════════════════════════════════════════════════════════════════
+    // PLANNING & LAYOUT: Project planning and trim work
+    // ═══════════════════════════════════════════════════════════════════
+    { 
+      id: 'movement', 
+      name: 'Movement Joints', 
+      icon: '↔️', 
+      desc: 'EJ171 spacing grid',
+      tooltip: 'Calculate expansion joint spacing per TCNA EJ171. Accounts for interior/exterior exposure and temperature swing.',
+      category: 'other', 
+      status: 'ready' 
+    },
+    { 
+      id: 'moisture', 
+      name: 'Moisture / RH', 
+      icon: '💨', 
+      desc: 'ASTM F1869/F2170',
+      tooltip: 'Evaluate moisture vapor emission rate (MVER) and relative humidity (RH) against adhesive/coating limits.',
+      category: 'other', 
+      status: 'ready' 
+    },
+    { 
+      id: 'bath-layout', 
+      name: 'Bath Layout', 
+      icon: '🛁', 
+      desc: 'Fixture clearances',
+      tooltip: 'Plan bathroom fixture placement with IPC code-compliant clearances for tub, toilet, vanity, and shower.',
+      category: 'other', 
+      status: 'ready' 
+    },
+    { 
+      id: 'labor', 
+      name: 'Labor Estimate', 
+      icon: '⏱️', 
+      desc: 'Time & scheduling',
+      tooltip: 'Estimate installation time based on area, complexity, and additional work (prep, demo).',
+      category: 'other', 
+      status: 'ready' 
+    },
     // Trim & Molding
-    { id: 'crown', name: 'Crown Molding', icon: '👑', desc: 'Ceiling trim & corners', category: 'other', status: 'ready' },
-    { id: 'baseboard', name: 'Baseboard', icon: '📋', desc: 'Wall base and chair rail', category: 'other', status: 'ready' },
-    { id: 'quarter', name: 'Quarter Round', icon: '🔘', desc: 'Floor trim & shoe molding', category: 'other', status: 'ready' }
+    { 
+      id: 'crown', 
+      name: 'Crown Molding', 
+      icon: '👑', 
+      desc: 'Trim & corners',
+      tooltip: 'Calculate crown molding pieces, inside/outside corners, and material costs by profile size.',
+      category: 'other', 
+      status: 'ready' 
+    },
+    { 
+      id: 'baseboard', 
+      name: 'Baseboard', 
+      icon: '📋', 
+      desc: 'Wall base & chair rail',
+      tooltip: 'Calculate baseboard with door/window deductions. Includes wainscoting panel framing option.',
+      category: 'other', 
+      status: 'ready' 
+    },
+    { 
+      id: 'quarter', 
+      name: 'Quarter Round', 
+      icon: '🔘', 
+      desc: 'Floor trim',
+      tooltip: 'Calculate quarter round or shoe molding with deductions for doors, cabinets, and transitions.',
+      category: 'other', 
+      status: 'ready' 
+    }
   ];
 
-  // Category metadata for grouping
+  // Category metadata for grouping with enhanced descriptions
   const CATEGORIES = {
-    coverage: { name: 'Surface Coverage', icon: '🧱', order: 1, desc: 'Tile, mortar, grout, waterproofing' },
-    structural: { name: 'Structural Calculations', icon: '🏗️', order: 2, desc: 'Slope, deflection, heated floors' },
-    prepfinish: { name: 'Prep & Finishing', icon: '🧴', order: 3, desc: 'Mixing, primers, sealants, sealer' },
-    other: { name: 'Other Tools', icon: '🧭', order: 4, desc: 'Layout, labor, movement, trim' }
+    coverage: { 
+      name: 'Surface Coverage', 
+      icon: '🧱', 
+      order: 1, 
+      desc: 'Calculate tile, mortar, grout, and waterproofing materials',
+      longDesc: 'Essential calculators for determining material quantities with built-in waste factors and TCNA compliance.'
+    },
+    structural: { 
+      name: 'Structural & Load', 
+      icon: '🏗️', 
+      order: 2, 
+      desc: 'Verify substrate requirements and electrical loads',
+      longDesc: 'Check floor deflection, shower slopes, and heated floor electrical requirements before installation.'
+    },
+    prepfinish: { 
+      name: 'Prep & Finishing', 
+      icon: '🧴', 
+      order: 3, 
+      desc: 'Surface prep, mixing ratios, and finishing products',
+      longDesc: 'Calculate leveling compound, mixing ratios, primers, sealants, and sealers for proper surface preparation.'
+    },
+    other: { 
+      name: 'Planning & Layout', 
+      icon: '📐', 
+      order: 4, 
+      desc: 'Project planning, layout, and trim work',
+      longDesc: 'Plan bathroom layouts, movement joints, moisture testing, labor estimates, and trim/molding calculations.'
+    }
   };
 
   // ============================================
@@ -1392,6 +1587,7 @@
       const recentProjects = Projects.getRecent(5);
       const totalProjects = AppState.projects.length;
       const totalArea = AppState.projects.reduce((sum, p) => sum + (p.totalArea || 0), 0);
+      const sortedCategories = Object.entries(CATEGORIES).sort((a, b) => a[1].order - b[1].order);
 
       content.innerHTML = `
         <div class="dashboard">
@@ -1402,10 +1598,10 @@
               <p class="dashboard__hero-subtitle">Professional tile calculators built by a licensed NJ contractor</p>
               <div class="dashboard__hero-actions">
                 <button class="btn btn--primary btn--lg" onclick="window.TillerApp.Router.navigate('calculators')">
-                  <span>🧮</span> Start Calculating
+                  <span aria-hidden="true">🧮</span> Start Calculating
                 </button>
                 <button class="btn btn--secondary btn--lg" onclick="window.TillerApp.createNewProject()">
-                  <span>📁</span> New Project
+                  <span aria-hidden="true">📁</span> New Project
                 </button>
               </div>
             </div>
@@ -1415,7 +1611,7 @@
                 <div class="hero-stat__label">Projects</div>
               </div>
               <div class="hero-stat">
-                <div class="hero-stat__value">${CALCULATORS.length}</div>
+                <div class="hero-stat__value">${CALCULATORS.filter(c => c.status === 'ready').length}</div>
                 <div class="hero-stat__label">Tools</div>
               </div>
               <div class="hero-stat">
@@ -1425,26 +1621,41 @@
             </div>
           </div>
 
-          <!-- Quick Calculator Grid - Ready calculators only -->
-          <div class="dashboard__section">
-            <div class="dashboard__section-header">
-              <h3 class="dashboard__section-title">Quick Access</h3>
-              <span class="dashboard__section-badge">${CALCULATORS.filter(c => c.status === 'ready').length} ready</span>
-            </div>
-            <div class="calc-grid">
-              ${CALCULATORS.filter(c => c.status === 'ready').map(calc => `
-                <button class="calc-card" data-calc="${calc.id}">
-                  <span class="calc-card__icon">${calc.icon}</span>
-                  <span class="calc-card__name">${calc.name}</span>
-                  <span class="calc-card__desc">${calc.desc}</span>
-                </button>
-              `).join('')}
-            </div>
-          </div>
+          <!-- Calculator Sections by Category -->
+          ${sortedCategories.map(([catId, cat]) => {
+            const catCalcs = CALCULATORS.filter(c => c.category === catId && c.status === 'ready');
+            if (catCalcs.length === 0) return '';
+            return `
+              <section class="dashboard__section dashboard__section--category" id="dash-cat-${catId}">
+                <div class="dashboard__section-header">
+                  <div class="dashboard__section-header-info">
+                    <h3 class="dashboard__section-title">
+                      <span class="dashboard__section-icon" aria-hidden="true">${cat.icon}</span>
+                      ${cat.name}
+                    </h3>
+                    <p class="dashboard__section-desc">${cat.longDesc || cat.desc}</p>
+                  </div>
+                  <span class="dashboard__section-badge">${catCalcs.length} tools</span>
+                </div>
+                <div class="calc-grid calc-grid--${catId}">
+                  ${catCalcs.map(calc => `
+                    <button class="calc-card" data-calc="${calc.id}" title="${calc.tooltip || calc.desc}">
+                      <span class="calc-card__icon" aria-hidden="true">${calc.icon}</span>
+                      <div class="calc-card__content">
+                        <span class="calc-card__name">${calc.name}</span>
+                        <span class="calc-card__desc">${calc.desc}</span>
+                      </div>
+                      <svg class="calc-card__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                  `).join('')}
+                </div>
+              </section>
+            `;
+          }).join('')}
 
           <!-- Coming Soon -->
           ${CALCULATORS.filter(c => c.status === 'coming').length > 0 ? `
-          <div class="dashboard__section dashboard__section--muted">
+          <section class="dashboard__section dashboard__section--muted">
             <div class="dashboard__section-header">
               <h3 class="dashboard__section-title">Coming Soon</h3>
               <span class="dashboard__section-badge dashboard__section-badge--muted">${CALCULATORS.filter(c => c.status === 'coming').length} planned</span>
@@ -1452,42 +1663,48 @@
             <div class="calc-grid calc-grid--coming">
               ${CALCULATORS.filter(c => c.status === 'coming').map(calc => `
                 <div class="calc-card calc-card--coming" aria-disabled="true">
-                  <span class="calc-card__icon">${calc.icon}</span>
-                  <span class="calc-card__name">${calc.name}</span>
-                  <span class="calc-card__desc">${calc.desc}</span>
+                  <span class="calc-card__icon" aria-hidden="true">${calc.icon}</span>
+                  <div class="calc-card__content">
+                    <span class="calc-card__name">${calc.name}</span>
+                    <span class="calc-card__desc">${calc.desc}</span>
+                  </div>
                   <span class="calc-card__badge">Coming Soon</span>
                 </div>
               `).join('')}
             </div>
-          </div>
+          </section>
           ` : ''}
 
           <!-- Recent Projects -->
-          <div class="dashboard__section">
+          <section class="dashboard__section">
             <div class="dashboard__section-header">
-              <h3 class="dashboard__section-title">Recent Projects</h3>
+              <h3 class="dashboard__section-title">
+                <span class="dashboard__section-icon" aria-hidden="true">📋</span>
+                Recent Projects
+              </h3>
               ${recentProjects.length > 0 ? `<a href="#/projects" class="dashboard__section-action">View All →</a>` : ''}
             </div>
             ${recentProjects.length > 0 ? `
               <ul class="recent-list">
                 ${recentProjects.map(p => `
                   <li class="recent-list__item" data-project-id="${p.id}">
-                    <div class="recent-list__icon">📋</div>
+                    <div class="recent-list__icon" aria-hidden="true">📋</div>
                     <div class="recent-list__content">
                       <div class="recent-list__name">${this.escapeHtml(p.name)}</div>
                       <div class="recent-list__meta">Updated ${this.formatDate(p.updatedAt)}</div>
                     </div>
+                    <svg class="recent-list__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
                   </li>
                 `).join('')}
               </ul>
             ` : `
               <div class="empty-state">
-                <div class="empty-state__icon">📋</div>
+                <div class="empty-state__icon" aria-hidden="true">📋</div>
                 <h4 class="empty-state__title">No projects yet</h4>
                 <p class="empty-state__text">Start calculating to create your first project.</p>
               </div>
             `}
-          </div>
+          </section>
         </div>
       `;
 
@@ -1515,7 +1732,9 @@
       const filteredCalcs = CALCULATORS.filter(calc => {
         if (!AppState.searchQuery) return true;
         const q = AppState.searchQuery.toLowerCase();
-        return calc.name.toLowerCase().includes(q) || (calc.desc && calc.desc.toLowerCase().includes(q));
+        return calc.name.toLowerCase().includes(q) || 
+               (calc.desc && calc.desc.toLowerCase().includes(q)) ||
+               (calc.tooltip && calc.tooltip.toLowerCase().includes(q));
       });
       const activeCalc = AppState.activeCalculator;
       let activeData = CALCULATORS.find(c => c.id === activeCalc);
@@ -1526,11 +1745,12 @@
       }
 
       content.innerHTML = `
-        <div class="calc-sticky-nav" aria-label="Calculator navigation">
+        <!-- Sticky Section Navigation -->
+        <div class="calc-sticky-nav" aria-label="Calculator navigation" role="navigation">
           <div class="calc-sticky-nav__wrap">
             <div class="calc-sticky-nav__links">
               ${sortedCategories.map(([catId, cat]) => `
-                <button class="calc-sticky-nav__link" data-target="calc-cat-${catId}">
+                <button class="calc-sticky-nav__link" data-target="calc-cat-${catId}" title="${cat.longDesc || cat.desc}">
                   <span class="calc-sticky-nav__icon">${cat.icon}</span>
                   <span class="calc-sticky-nav__label">${cat.name}</span>
                 </button>
@@ -1538,17 +1758,19 @@
             </div>
             <div class="calc-sticky-nav__search">
               <label class="sr-only" for="calc-search-input">Search calculators</label>
-              <input id="calc-search-input" class="calc-search__input" type="search" placeholder="Search by name or purpose" value="${AppState.searchQuery || ''}">
-              <span class="calc-search__icon">🔍</span>
+              <input id="calc-search-input" class="calc-search__input" type="search" placeholder="Search calculators..." value="${AppState.searchQuery || ''}" aria-describedby="search-hint">
+              <span class="calc-search__icon" aria-hidden="true">🔍</span>
+              <span id="search-hint" class="sr-only">Search by name, description, or function</span>
             </div>
           </div>
         </div>
+
         <div class="calculators-layout">
           <!-- Calculator Selector Panel -->
-          <aside class="calc-selector">
+          <aside class="calc-selector" aria-label="Calculator list">
             <div class="calc-selector__header">
               <h2 class="calc-selector__title">Calculators</h2>
-              <p class="calc-selector__subtitle">Grouped by purpose for fast access</p>
+              <p class="calc-selector__subtitle">${CALCULATORS.filter(c => c.status === 'ready').length} tools • Grouped by workflow</p>
             </div>
             <nav class="calc-selector__list" role="tablist" aria-label="Calculator selection">
               ${sortedCategories.map(([catId, cat]) => {
@@ -1556,27 +1778,31 @@
                 if (catCalcs.length === 0) return '';
                 return `
                   <div class="calc-selector__group" id="calc-cat-${catId}">
-                    <div class="calc-selector__group-header">
-                      <div>
-                        <div class="calc-selector__group-title">${cat.icon} ${cat.name}</div>
-                        ${cat.desc ? `<div class="calc-selector__group-desc">${cat.desc}</div>` : ''}
+                    <button class="calc-selector__group-header" aria-expanded="true" data-collapse="${catId}">
+                      <div class="calc-selector__group-info">
+                        <span class="calc-selector__group-title">${cat.icon} ${cat.name}</span>
+                        <span class="calc-selector__group-desc">${cat.desc}</span>
                       </div>
                       <span class="calc-selector__group-count">${catCalcs.length}</span>
+                      <svg class="calc-selector__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="calc-selector__group-items" data-group="${catId}">
+                      ${catCalcs.map(calc => `
+                        <button class="calc-selector__item ${calc.id === activeCalc ? 'is-active' : ''} ${calc.status === 'coming' ? 'is-coming' : ''}" 
+                                role="tab" 
+                                aria-selected="${calc.id === activeCalc}"
+                                ${calc.status === 'coming' ? 'disabled aria-disabled="true"' : ''}
+                                data-calc="${calc.id}"
+                                title="${calc.tooltip || calc.desc}">
+                          <span class="calc-selector__icon">${calc.icon}</span>
+                          <div class="calc-selector__info">
+                            <span class="calc-selector__name">${calc.name}</span>
+                            ${calc.status === 'coming' ? '<span class="calc-selector__badge">Soon</span>' : `<span class="calc-selector__desc">${calc.desc}</span>`}
+                          </div>
+                          ${calc.status === 'ready' ? `<svg class="calc-selector__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>` : ''}
+                        </button>
+                      `).join('')}
                     </div>
-                    ${catCalcs.map(calc => `
-                      <button class="calc-selector__item ${calc.id === activeCalc ? 'is-active' : ''} ${calc.status === 'coming' ? 'is-coming' : ''}" 
-                              role="tab" 
-                              aria-selected="${calc.id === activeCalc}"
-                              ${calc.status === 'coming' ? 'disabled aria-disabled="true"' : ''}
-                              data-calc="${calc.id}">
-                        <span class="calc-selector__icon">${calc.icon}</span>
-                        <div class="calc-selector__info">
-                          <span class="calc-selector__name">${calc.name}</span>
-                          ${calc.status === 'coming' ? '<span class="calc-selector__badge">Soon</span>' : `<span class="calc-selector__desc">${calc.desc}</span>`}
-                        </div>
-                        ${calc.status === 'ready' ? `<svg class="calc-selector__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>` : ''}
-                      </button>
-                    `).join('')}
                   </div>
                 `;
               }).join('')}
@@ -1584,31 +1810,48 @@
           </aside>
 
           <!-- Active Calculator Panel -->
-          <main class="calc-workspace">
-            <div class="calc-panel is-active" id="calc-panel-${activeCalc}" role="tabpanel">
+          <main class="calc-workspace" id="calc-workspace">
+            <div class="calc-panel is-active" id="calc-panel-${activeCalc}" role="tabpanel" aria-labelledby="calc-panel-title">
               <div class="calc-panel__header">
-                <div class="calc-panel__badge">${activeData.icon}</div>
-                <div>
-                  <h2 class="calc-panel__title">${activeData.name} Calculator</h2>
+                <div class="calc-panel__badge" aria-hidden="true">${activeData.icon}</div>
+                <div class="calc-panel__header-content">
+                  <h2 class="calc-panel__title" id="calc-panel-title">${activeData.name}</h2>
                   <p class="calc-panel__desc">${activeData.desc}</p>
                 </div>
+                ${activeData.tooltip ? `
+                  <button class="calc-panel__help" type="button" aria-label="Show help" title="More information">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                  </button>
+                ` : ''}
               </div>
-              ${this.renderCalculatorForm(activeCalc)}
+              ${activeData.tooltip ? `
+                <div class="calc-panel__tooltip" role="note" aria-label="Calculator guidance" hidden>
+                  <div class="calc-panel__tooltip-content">
+                    <strong>💡 Tip:</strong> ${activeData.tooltip}
+                  </div>
+                  <button class="calc-panel__tooltip-close" type="button" aria-label="Close tip">×</button>
+                </div>
+              ` : ''}
+              <div class="calc-panel__body">
+                ${this.renderCalculatorForm(activeCalc)}
+              </div>
             </div>
           </main>
         </div>
 
         <!-- Mobile Calculator Dropdown (shown only on small screens) -->
-        <div class="calc-mobile-select">
-          <label class="form-label">Select Calculator</label>
-          <select class="form-select calc-mobile-dropdown" aria-label="Select calculator">
+        <div class="calc-mobile-select" aria-label="Mobile calculator selection">
+          <label class="form-label" for="calc-mobile-dropdown">Select Calculator</label>
+          <select class="form-select calc-mobile-dropdown" id="calc-mobile-dropdown" aria-label="Select calculator">
             ${sortedCategories.map(([catId, cat]) => {
               const catCalcs = filteredCalcs.filter(c => c.category === catId && c.status === 'ready');
               if (catCalcs.length === 0) return '';
               return `
-                <optgroup label="${cat.name}">
+                <optgroup label="${cat.icon} ${cat.name}">
                   ${catCalcs.map(calc => `
-                    <option value="${calc.id}" ${calc.id === activeCalc ? 'selected' : ''}>${calc.icon} ${calc.name}</option>
+                    <option value="${calc.id}" ${calc.id === activeCalc ? 'selected' : ''}>${calc.name}</option>
                   `).join('')}
                 </optgroup>
               `;
@@ -1622,24 +1865,69 @@
         item.addEventListener('click', () => {
           AppState.activeCalculator = item.dataset.calc;
           this.calculators();
+          // Scroll workspace into view on mobile
+          const workspace = document.getElementById('calc-workspace');
+          if (workspace && window.innerWidth < 900) {
+            workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         });
       });
 
-      // Search input
+      // Collapsible category groups
+      content.querySelectorAll('.calc-selector__group-header[data-collapse]').forEach(header => {
+        header.addEventListener('click', () => {
+          const catId = header.dataset.collapse;
+          const items = content.querySelector(`.calc-selector__group-items[data-group="${catId}"]`);
+          const isExpanded = header.getAttribute('aria-expanded') === 'true';
+          header.setAttribute('aria-expanded', !isExpanded);
+          if (items) {
+            items.classList.toggle('is-collapsed', isExpanded);
+          }
+        });
+      });
+
+      // Help tooltip toggle
+      const helpBtn = content.querySelector('.calc-panel__help');
+      const tooltip = content.querySelector('.calc-panel__tooltip');
+      if (helpBtn && tooltip) {
+        helpBtn.addEventListener('click', () => {
+          tooltip.hidden = !tooltip.hidden;
+        });
+        const closeBtn = tooltip.querySelector('.calc-panel__tooltip-close');
+        if (closeBtn) {
+          closeBtn.addEventListener('click', () => {
+            tooltip.hidden = true;
+          });
+        }
+      }
+
+      // Search input with debounce
       const searchInput = content.querySelector('#calc-search-input');
       if (searchInput) {
+        let searchTimeout;
         searchInput.addEventListener('input', (e) => {
-          AppState.searchQuery = e.target.value;
-          // Keep active calculator visible; if filtered out, pick first available
-          const visibleCalcs = CALCULATORS.filter(calc => {
-            if (!AppState.searchQuery) return true;
-            const q = AppState.searchQuery.toLowerCase();
-            return calc.name.toLowerCase().includes(q) || (calc.desc && calc.desc.toLowerCase().includes(q));
-          });
-          if (!visibleCalcs.some(c => c.id === AppState.activeCalculator) && visibleCalcs.length > 0) {
-            AppState.activeCalculator = visibleCalcs[0].id;
-          }
-          this.calculators();
+          clearTimeout(searchTimeout);
+          searchTimeout = setTimeout(() => {
+            AppState.searchQuery = e.target.value;
+            // Keep active calculator visible; if filtered out, pick first available
+            const visibleCalcs = CALCULATORS.filter(calc => {
+              if (!AppState.searchQuery) return true;
+              const q = AppState.searchQuery.toLowerCase();
+              return calc.name.toLowerCase().includes(q) || 
+                     (calc.desc && calc.desc.toLowerCase().includes(q)) ||
+                     (calc.tooltip && calc.tooltip.toLowerCase().includes(q));
+            });
+            if (!visibleCalcs.some(c => c.id === AppState.activeCalculator) && visibleCalcs.length > 0) {
+              AppState.activeCalculator = visibleCalcs[0].id;
+            }
+            this.calculators();
+            // Refocus search input
+            const newSearchInput = document.getElementById('calc-search-input');
+            if (newSearchInput) {
+              newSearchInput.focus();
+              newSearchInput.setSelectionRange(newSearchInput.value.length, newSearchInput.value.length);
+            }
+          }, 200);
         });
       }
 
@@ -2304,6 +2592,471 @@
               </div>
             </div>
           </div>
+        `,
+
+        // ═══════════════════════════════════════════════════════════════════
+        // DEFLECTION CALCULATOR (Structural - L/360 or L/720)
+        // ═══════════════════════════════════════════════════════════════════
+        deflection: `
+          <div class="form-section">
+            <div class="form-section__title">Joist Specifications</div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-label form-label--required">Joist Span</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="spanFeet" value="${inputs.spanFeet || ''}" min="1" max="30" step="0.5" placeholder="e.g. 12">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+                <p class="form-help">Clear span between supports</p>
+              </div>
+              <div class="form-field">
+                <label class="form-label form-label--required">Joist Spacing</label>
+                <select class="form-select" name="joistSpacingInches">
+                  <option value="12" ${inputs.joistSpacingInches == 12 ? 'selected' : ''}>12" O.C.</option>
+                  <option value="16" ${inputs.joistSpacingInches == 16 || !inputs.joistSpacingInches ? 'selected' : ''}>16" O.C. (typical)</option>
+                  <option value="19.2" ${inputs.joistSpacingInches == 19.2 ? 'selected' : ''}>19.2" O.C.</option>
+                  <option value="24" ${inputs.joistSpacingInches == 24 ? 'selected' : ''}>24" O.C.</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-grid form-grid--3col">
+              <div class="form-field">
+                <label class="form-label form-label--required">Joist Size</label>
+                <select class="form-select" name="joistSize" onchange="
+                  const sizes = {'2x6':[1.5,5.5],'2x8':[1.5,7.25],'2x10':[1.5,9.25],'2x12':[1.5,11.25],'lvl-9.5':[1.75,9.5],'lvl-11.875':[1.75,11.875],'i-joist-9.5':[1.75,9.5],'i-joist-11.875':[1.75,11.875]};
+                  const s = sizes[this.value];
+                  if(s){document.querySelector('[name=joistWidthInches]').value=s[0];document.querySelector('[name=joistDepthInches]').value=s[1];}
+                ">
+                  <option value="2x6" ${inputs.joistSize === '2x6' ? 'selected' : ''}>2×6 SPF</option>
+                  <option value="2x8" ${inputs.joistSize === '2x8' ? 'selected' : ''}>2×8 SPF</option>
+                  <option value="2x10" ${inputs.joistSize === '2x10' || !inputs.joistSize ? 'selected' : ''}>2×10 SPF</option>
+                  <option value="2x12" ${inputs.joistSize === '2x12' ? 'selected' : ''}>2×12 SPF</option>
+                  <option value="lvl-9.5" ${inputs.joistSize === 'lvl-9.5' ? 'selected' : ''}>LVL 1.75×9.5</option>
+                  <option value="lvl-11.875" ${inputs.joistSize === 'lvl-11.875' ? 'selected' : ''}>LVL 1.75×11.875</option>
+                  <option value="i-joist-9.5" ${inputs.joistSize === 'i-joist-9.5' ? 'selected' : ''}>I-Joist 9.5"</option>
+                  <option value="i-joist-11.875" ${inputs.joistSize === 'i-joist-11.875' ? 'selected' : ''}>I-Joist 11.875"</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Width</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="joistWidthInches" value="${inputs.joistWidthInches || 1.5}" min="0.5" max="4" step="0.25" readonly>
+                  <span class="input-group__suffix">in</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Depth</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="joistDepthInches" value="${inputs.joistDepthInches || 9.25}" min="3" max="16" step="0.125" readonly>
+                  <span class="input-group__suffix">in</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="form-section__title">Load & Material</div>
+            <div class="form-grid form-grid--3col">
+              <div class="form-field">
+                <label class="form-label">Live Load</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="liveLoadPsft" value="${inputs.liveLoadPsft || 40}" min="10" max="100">
+                  <span class="input-group__suffix">psf</span>
+                </div>
+                <p class="form-help">Residential: 40 psf</p>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Dead Load</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="deadLoadPsft" value="${inputs.deadLoadPsft || 10}" min="5" max="50">
+                  <span class="input-group__suffix">psf</span>
+                </div>
+                <p class="form-help">Tile: ~15 psf</p>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Modulus (E)</label>
+                <select class="form-select" name="modulusPsi">
+                  <option value="1400000" ${inputs.modulusPsi == 1400000 ? 'selected' : ''}>SPF #2 (1.4M psi)</option>
+                  <option value="1600000" ${inputs.modulusPsi == 1600000 || !inputs.modulusPsi ? 'selected' : ''}>SPF #1 (1.6M psi)</option>
+                  <option value="1900000" ${inputs.modulusPsi == 1900000 ? 'selected' : ''}>LVL (1.9M psi)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        `,
+
+        // ═══════════════════════════════════════════════════════════════════
+        // HEATED FLOOR LOAD CALCULATOR (Electrical)
+        // ═══════════════════════════════════════════════════════════════════
+        'heated-floor': `
+          <div class="form-section">
+            <div class="form-section__title">Heated Area</div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-label form-label--required">Area to Heat</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="areaSqFt" value="${inputs.areaSqFt || ''}" min="1" max="500" step="1" placeholder="e.g. 60">
+                  <span class="input-group__suffix">sq ft</span>
+                </div>
+                <p class="form-help">Heated area only (exclude under fixtures)</p>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Watts per Sq Ft</label>
+                <select class="form-select" name="wattsPerSqFt">
+                  <option value="10" ${inputs.wattsPerSqFt == 10 ? 'selected' : ''}>10 W/sf (supplemental)</option>
+                  <option value="12" ${inputs.wattsPerSqFt == 12 || !inputs.wattsPerSqFt ? 'selected' : ''}>12 W/sf (standard)</option>
+                  <option value="15" ${inputs.wattsPerSqFt == 15 ? 'selected' : ''}>15 W/sf (cold climate/primary)</option>
+                </select>
+                <p class="form-help">Per heating mat specs</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="form-section__title">Electrical Configuration</div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-label">Voltage</label>
+                <select class="form-select" name="voltage">
+                  <option value="120" ${inputs.voltage == 120 || !inputs.voltage ? 'selected' : ''}>120V (typical)</option>
+                  <option value="240" ${inputs.voltage == 240 ? 'selected' : ''}>240V (larger areas)</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Thermostat Limit</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="thermostatMaxAmps" value="${inputs.thermostatMaxAmps || 15}" min="10" max="20">
+                  <span class="input-group__suffix">A</span>
+                </div>
+                <p class="form-help">15A typical; above needs relay</p>
+              </div>
+            </div>
+          </div>
+        `,
+
+        // ═══════════════════════════════════════════════════════════════════
+        // THINSET MIXING CALCULATOR
+        // ═══════════════════════════════════════════════════════════════════
+        'thinset-mix': `
+          <div class="form-section">
+            <div class="form-section__title">Product Specs (from TDS)</div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-label">Bag Weight</label>
+                <select class="form-select" name="bagWeightLbs">
+                  <option value="25" ${inputs.bagWeightLbs == 25 ? 'selected' : ''}>25 lb bag</option>
+                  <option value="50" ${inputs.bagWeightLbs == 50 || !inputs.bagWeightLbs ? 'selected' : ''}>50 lb bag</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Yield per Bag</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="yieldCuFtPerBag" value="${inputs.yieldCuFtPerBag || 0.45}" min="0.1" max="1" step="0.01">
+                  <span class="input-group__suffix">cu ft</span>
+                </div>
+                <p class="form-help">~0.45 cu ft typical for 50 lb</p>
+              </div>
+            </div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-label">Water Range (Min)</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="waterQuartsPerBagMin" value="${inputs.waterQuartsPerBagMin || 5}" min="1" max="10" step="0.25">
+                  <span class="input-group__suffix">qt</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Water Range (Max)</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="waterQuartsPerBagMax" value="${inputs.waterQuartsPerBagMax || 6}" min="1" max="10" step="0.25">
+                  <span class="input-group__suffix">qt</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="form-section__title">Batch Size (Optional)</div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-label">Batch Weight</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="batchWeightLbs" value="${inputs.batchWeightLbs || ''}" min="1" max="50" step="1" placeholder="Leave blank for full bag">
+                  <span class="input-group__suffix">lbs</span>
+                </div>
+                <p class="form-help">For partial batches</p>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Pot Life</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="potLifeMinutes" value="${inputs.potLifeMinutes || 120}" min="30" max="240">
+                  <span class="input-group__suffix">min</span>
+                </div>
+                <p class="form-help">Working time (~2 hrs typical)</p>
+              </div>
+            </div>
+          </div>
+        `,
+
+        // ═══════════════════════════════════════════════════════════════════
+        // PRIMER / SLU PREP CALCULATOR
+        // ═══════════════════════════════════════════════════════════════════
+        primer: `
+          <div class="form-section">
+            <div class="form-section__title">Surface Details</div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-label form-label--required">Area to Prime</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="areaSqFt" value="${inputs.areaSqFt || ''}" min="1" max="5000" step="1" placeholder="e.g. 200">
+                  <span class="input-group__suffix">sq ft</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Surface Porosity</label>
+                <select class="form-select" name="porosity">
+                  <option value="porous" ${inputs.porosity === 'porous' || !inputs.porosity ? 'selected' : ''}>Porous (concrete, plywood)</option>
+                  <option value="nonPorous" ${inputs.porosity === 'nonPorous' ? 'selected' : ''}>Non-Porous (VCT, sealed)</option>
+                </select>
+                <p class="form-help">Affects absorption rate</p>
+              </div>
+            </div>
+            <div class="form-field">
+              <label class="form-label">
+                <input type="checkbox" name="doublePrime" ${inputs.doublePrime ? 'checked' : ''}>
+                Double Prime (2 coats)
+              </label>
+              <p class="form-help">Recommended for very porous substrates</p>
+            </div>
+          </div>
+        `,
+
+        // ═══════════════════════════════════════════════════════════════════
+        // DECK MUD CALCULATOR (Shower Pan Volume)
+        // ═══════════════════════════════════════════════════════════════════
+        'deck-mud': `
+          <div class="form-section">
+            <div class="form-section__title">Shower Pan Dimensions</div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-label form-label--required">Pan Area</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="areaSqFt" value="${inputs.areaSqFt || ''}" min="1" max="100" step="0.5" placeholder="e.g. 12">
+                  <span class="input-group__suffix">sq ft</span>
+                </div>
+                <p class="form-help">L × W of shower floor</p>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Run to Drain</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="runFeet" value="${inputs.runFeet || ''}" min="0.5" max="10" step="0.5" placeholder="Auto from area">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+                <p class="form-help">Distance from perimeter to drain</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="form-section__title">Mud Bed Specs (TCNA B415/B421)</div>
+            <div class="form-grid form-grid--3col">
+              <div class="form-field">
+                <label class="form-label">Min Thickness (at drain)</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="minThicknessInches" value="${inputs.minThicknessInches || 1.25}" min="0.75" max="2" step="0.25">
+                  <span class="input-group__suffix">in</span>
+                </div>
+                <p class="form-help">Min 1.25" per TCNA</p>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Slope</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="slopeInchesPerFoot" value="${inputs.slopeInchesPerFoot || 0.25}" min="0.125" max="0.5" step="0.125">
+                  <span class="input-group__suffix">in/ft</span>
+                </div>
+                <p class="form-help">¼"/ft standard</p>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Bag Yield</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="bagYieldCuFt" value="${inputs.bagYieldCuFt || 0.5}" min="0.3" max="0.7" step="0.05">
+                  <span class="input-group__suffix">cu ft</span>
+                </div>
+                <p class="form-help">Per 50 lb bag (~0.5)</p>
+              </div>
+            </div>
+          </div>
+        `,
+
+        // ═══════════════════════════════════════════════════════════════════
+        // SEALANT / CAULK CALCULATOR
+        // ═══════════════════════════════════════════════════════════════════
+        sealant: `
+          <div class="form-section">
+            <div class="form-section__title">Joint Details</div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-label form-label--required">Linear Feet of Joints</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="linearFeet" value="${inputs.linearFeet || ''}" min="1" max="500" step="1" placeholder="e.g. 50">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+                <p class="form-help">Total caulk line length</p>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Bead Diameter</label>
+                <select class="form-select" name="beadDiameterInches">
+                  <option value="0.125" ${inputs.beadDiameterInches == 0.125 ? 'selected' : ''}>⅛" (thin)</option>
+                  <option value="0.1875" ${inputs.beadDiameterInches == 0.1875 ? 'selected' : ''}>3/16" (standard)</option>
+                  <option value="0.25" ${inputs.beadDiameterInches == 0.25 || !inputs.beadDiameterInches ? 'selected' : ''}>¼" (typical)</option>
+                  <option value="0.375" ${inputs.beadDiameterInches == 0.375 ? 'selected' : ''}>⅜" (wide joints)</option>
+                </select>
+                <p class="form-help">Joint width after tooling</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="form-section__title">Tube Size</div>
+            <div class="form-field" style="max-width: 300px;">
+              <label class="form-label">Cartridge Size</label>
+              <select class="form-select" name="tubeVolumeOz">
+                <option value="10.1" ${inputs.tubeVolumeOz == 10.1 || !inputs.tubeVolumeOz ? 'selected' : ''}>10.1 oz (standard)</option>
+                <option value="28" ${inputs.tubeVolumeOz == 28 ? 'selected' : ''}>28 oz (sausage)</option>
+              </select>
+            </div>
+          </div>
+        `,
+
+        // ═══════════════════════════════════════════════════════════════════
+        // SEALER COVERAGE CALCULATOR
+        // ═══════════════════════════════════════════════════════════════════
+        sealer: `
+          <div class="form-section">
+            <div class="form-section__title">Surface to Seal</div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-label form-label--required">Area</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="areaSqFt" value="${inputs.areaSqFt || ''}" min="1" max="5000" step="1" placeholder="e.g. 150">
+                  <span class="input-group__suffix">sq ft</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Surface Type</label>
+                <select class="form-select" name="surface">
+                  <option value="polished" ${inputs.surface === 'polished' ? 'selected' : ''}>Polished Porcelain / Dense Stone</option>
+                  <option value="semi_porcelain" ${inputs.surface === 'semi_porcelain' ? 'selected' : ''}>Semi-Porous Porcelain</option>
+                  <option value="natural_stone" ${inputs.surface === 'natural_stone' || !inputs.surface ? 'selected' : ''}>Natural Stone (honed/rough)</option>
+                  <option value="concrete" ${inputs.surface === 'concrete' ? 'selected' : ''}>Concrete / Broom Finish</option>
+                </select>
+                <p class="form-help">Affects absorption/coverage</p>
+              </div>
+            </div>
+            <div class="form-field" style="max-width: 200px;">
+              <label class="form-label">Number of Coats</label>
+              <select class="form-select" name="coats">
+                <option value="1" ${inputs.coats == 1 ? 'selected' : ''}>1 coat</option>
+                <option value="2" ${inputs.coats == 2 || !inputs.coats ? 'selected' : ''}>2 coats</option>
+                <option value="3" ${inputs.coats == 3 ? 'selected' : ''}>3 coats</option>
+              </select>
+            </div>
+          </div>
+        `,
+
+        // ═══════════════════════════════════════════════════════════════════
+        // MOVEMENT JOINTS CALCULATOR (TCNA EJ171)
+        // ═══════════════════════════════════════════════════════════════════
+        movement: `
+          <div class="form-section">
+            <div class="form-section__title">Floor Dimensions</div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-label form-label--required">Length</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="lengthFt" value="${inputs.lengthFt || ''}" min="1" max="500" step="0.5" placeholder="e.g. 40">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label form-label--required">Width</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="widthFt" value="${inputs.widthFt || ''}" min="1" max="500" step="0.5" placeholder="e.g. 30">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="form-section__title">Exposure Conditions</div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-label">Exposure Type</label>
+                <select class="form-select" name="exposure">
+                  <option value="interior" ${inputs.exposure === 'interior' || !inputs.exposure ? 'selected' : ''}>Interior (conditioned)</option>
+                  <option value="exterior" ${inputs.exposure === 'exterior' ? 'selected' : ''}>Exterior</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Temperature Swing</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="tempSwingF" value="${inputs.tempSwingF || 30}" min="0" max="100">
+                  <span class="input-group__suffix">°F</span>
+                </div>
+                <p class="form-help">Annual max-min difference</p>
+              </div>
+            </div>
+            <div class="form-field">
+              <label class="form-label">
+                <input type="checkbox" name="isSunExposed" ${inputs.isSunExposed ? 'checked' : ''}>
+                Sun-exposed or heated slab
+              </label>
+              <p class="form-help">Reduces joint spacing (8–12 ft grid)</p>
+            </div>
+          </div>
+        `,
+
+        // ═══════════════════════════════════════════════════════════════════
+        // MOISTURE / RH CALCULATOR (ASTM F1869/F2170)
+        // ═══════════════════════════════════════════════════════════════════
+        moisture: `
+          <div class="form-section">
+            <div class="form-section__title">Moisture Test Results</div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-label form-label--required">MVER (ASTM F1869)</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="mverLbs" value="${inputs.mverLbs || ''}" min="0" max="30" step="0.5" placeholder="e.g. 3">
+                  <span class="input-group__suffix">lbs/1000sf/24h</span>
+                </div>
+                <p class="form-help">Calcium chloride test result</p>
+              </div>
+              <div class="form-field">
+                <label class="form-label form-label--required">RH % (ASTM F2170)</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="rhPercent" value="${inputs.rhPercent || ''}" min="0" max="100" step="1" placeholder="e.g. 75">
+                  <span class="input-group__suffix">%</span>
+                </div>
+                <p class="form-help">In-situ probe at 40% depth</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="form-section__title">Product Limits (from TDS)</div>
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-label">MVER Limit</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="productLimitMver" value="${inputs.productLimitMver || 5}" min="1" max="10" step="0.5">
+                  <span class="input-group__suffix">lbs</span>
+                </div>
+                <p class="form-help">Most SLU/adhesive: 3–5 lbs</p>
+              </div>
+              <div class="form-field">
+                <label class="form-label">RH Limit</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" name="productLimitRh" value="${inputs.productLimitRh || 75}" min="50" max="99" step="1">
+                  <span class="input-group__suffix">%</span>
+                </div>
+                <p class="form-help">Typical adhesive limit: 75–80%</p>
+              </div>
+            </div>
+          </div>
         `
       };
 
@@ -2412,10 +3165,67 @@
           { key: 'linearFt', label: 'Linear Ft (w/ waste)', suffix: ' ft' },
           { key: 'pieces', label: 'Pieces Needed', highlight: true },
           { key: 'materialCost', label: 'Est. Material', prefix: '$' }
+        ],
+        // Advanced calculators
+        deflection: [
+          { key: 'deflectionRatio', label: 'Deflection Ratio', prefix: 'L/' },
+          { key: 'passesCeramic', label: 'Ceramic (L/360)', transform: v => v ? '✅ Pass' : '❌ Fail' },
+          { key: 'passesStone', label: 'Stone (L/720)', transform: v => v ? '✅ Pass' : '❌ Fail', highlight: true },
+          { key: 'deltaInches', label: 'Max Deflection', suffix: '"' }
+        ],
+        'heated-floor': [
+          { key: 'totalWatts', label: 'Total Watts', suffix: ' W' },
+          { key: 'amps', label: 'Amp Draw', suffix: ' A', highlight: true },
+          { key: 'breakerAmps', label: 'Breaker Size', suffix: ' A' },
+          { key: 'circuits', label: 'Circuits Needed' },
+          { key: 'needsRelay', label: 'External Relay', transform: v => v ? '⚠️ Yes' : 'No' }
+        ],
+        'thinset-mix': [
+          { key: 'batchWeightLbs', label: 'Batch Weight', suffix: ' lbs' },
+          { key: 'waterQuartsRange', label: 'Water Range', transform: v => v ? `${v[0]}–${v[1]} qt` : '—', highlight: true },
+          { key: 'estimatedYieldCuFt', label: 'Est. Yield', suffix: ' cu ft' },
+          { key: 'potLifeMinutes', label: 'Pot Life', suffix: ' min' }
+        ],
+        primer: [
+          { key: 'gallons', label: 'Primer Needed', suffix: ' gal', highlight: true },
+          { key: 'coats', label: 'Coats' },
+          { key: 'coverageUsed', label: 'Coverage Used', suffix: ' sf/gal' }
+        ],
+        'deck-mud': [
+          { key: 'volumeCuFt', label: 'Volume', suffix: ' cu ft' },
+          { key: 'bags', label: 'Bags (50 lb)', highlight: true },
+          { key: 'avgThicknessInches', label: 'Avg Thickness', suffix: '"' }
+        ],
+        sealant: [
+          { key: 'tubes', label: 'Tubes Needed', highlight: true },
+          { key: 'totalVolumeCuIn', label: 'Total Volume', suffix: ' cu in' }
+        ],
+        sealer: [
+          { key: 'gallons', label: 'Sealer Needed', suffix: ' gal', highlight: true },
+          { key: 'coverageUsedSqFtPerGal', label: 'Coverage Rate', suffix: ' sf/gal' }
+        ],
+        movement: [
+          { key: 'spacingFt', label: 'Joint Spacing', suffix: ' ft', highlight: true },
+          { key: 'jointsLong', label: 'Joints (Length)' },
+          { key: 'jointsShort', label: 'Joints (Width)' },
+          { key: 'totalJoints', label: 'Total Joints' }
+        ],
+        moisture: [
+          { key: 'mverPass', label: 'MVER Test', transform: v => v ? '✅ Pass' : '❌ Fail' },
+          { key: 'rhPass', label: 'RH Test', transform: v => v ? '✅ Pass' : '❌ Fail' },
+          { key: 'requiresMitigation', label: 'Needs Mitigation', transform: v => v ? '⚠️ Yes' : '✅ No', highlight: true }
         ]
       };
 
       const fields = resultFields[calcId] || [];
+
+      // Helper to get display value with optional transform
+      const getDisplayValue = (f) => {
+        const rawValue = results[f.key];
+        if (rawValue === undefined || rawValue === null) return '—';
+        if (f.transform) return f.transform(rawValue);
+        return `${f.prefix || ''}${rawValue}${f.suffix || ''}`;
+      };
 
       return `
         <div class="calc-results">
@@ -2425,13 +3235,16 @@
               <div class="calc-result">
                 <div class="calc-result__label">${f.label}</div>
                 <div class="calc-result__value ${f.highlight ? 'calc-result__value--highlight' : ''}">
-                  ${f.prefix || ''}${results[f.key] || '—'}${f.suffix || ''}
+                  ${getDisplayValue(f)}
                 </div>
               </div>
             `).join('')}
           </div>
           ${results.note ? `<p class="calc-results__note">${results.note}</p>` : ''}
           ${results.warning ? `<p class="calc-results__warning">⚠️ ${results.warning}</p>` : ''}
+          ${results.assumptions?.length ? `<details class="calc-results__assumptions"><summary>Assumptions</summary><ul>${results.assumptions.map(a => `<li>${a}</li>`).join('')}</ul></details>` : ''}
+          ${results.warnings?.length ? `<div class="calc-results__warnings">${results.warnings.map(w => `<p class="calc-results__warning">⚠️ ${w}</p>`).join('')}</div>` : ''}
+          ${results.notes?.length ? `<details class="calc-results__notes"><summary>Notes</summary><ul>${results.notes.map(n => `<li>${n}</li>`).join('')}</ul></details>` : ''}
           <div class="mt-lg calc-results__actions">
             <button type="button" class="btn btn--secondary btn--sm" onclick="window.TillerApp.saveToProject('${calcId}')">
               💾 Save to Project

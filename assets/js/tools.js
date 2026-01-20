@@ -75,6 +75,503 @@
 
   const STORAGE_KEY = 'tillerstead_tools_project';
 
+  // ============================================
+  // ADVANCED FORMULAS LIBRARY (TillersteadFormulas)
+  // Exposed on window for tools-app.js
+  // Covers: movement joints, deflection, heated floor, moisture,
+  // thinset mix, sealer, deck mud, primer, sealant, bath layout
+  // ============================================
+
+  const MOVEMENT_JOINT_SPACING = {
+    interior: { standard: 24, highTemp: 20 }, // ft
+    exterior: { standard: 12, highTemp: 8 }
+  };
+
+  const SEALER_COVERAGE = {
+    polished: { min: 800, max: 1000, note: 'Polished porcelain / dense stone' },
+    semi_porcelain: { min: 400, max: 600, note: 'Semi-porous porcelain/ceramic' },
+    natural_stone: { min: 200, max: 400, note: 'Honed/rough natural stone' },
+    concrete: { min: 150, max: 250, note: 'Broom finish or open concrete' }
+  };
+
+  const PRIMER_COVERAGE = {
+    porous: { min: 200, max: 300 },      // sf/gal (concrete, plywood)
+    nonPorous: { min: 300, max: 400 }    // sf/gal (VCT, sealed surfaces)
+  };
+
+  function roundUp(value) {
+    return Math.ceil(value);
+  }
+
+  function roundToDecimals(value, decimals) {
+    const factor = Math.pow(10, decimals);
+    return Math.round(value * factor) / factor;
+  }
+
+  function validatePositiveNumber(value, fieldName) {
+    const num = parseFloat(value);
+    if (isNaN(num) || num <= 0) {
+      return { valid: false, error: `${fieldName} must be a positive number` };
+    }
+    return { valid: true, value: num };
+  }
+
+  function validateNonNegativeNumber(value, fieldName) {
+    const num = parseFloat(value);
+    if (isNaN(num) || num < 0) {
+      return { valid: false, error: `${fieldName} must be zero or positive` };
+    }
+    return { valid: true, value: num };
+  }
+
+  /**
+   * Movement Joint Spacing per TCNA EJ171
+   */
+  function calculateMovementJoints({ lengthFt, widthFt, exposure = 'interior', tempSwingF = 30, isSunExposed = false }) {
+    const errors = [];
+    const assumptions = [];
+
+    const lengthVal = validatePositiveNumber(lengthFt, 'Length');
+    const widthVal = validatePositiveNumber(widthFt, 'Width');
+    const tempVal = validateNonNegativeNumber(tempSwingF, 'Temperature swing');
+
+    if (!lengthVal.valid) errors.push(lengthVal.error);
+    if (!widthVal.valid) errors.push(widthVal.error);
+    if (!tempVal.valid) errors.push(tempVal.error);
+
+    if (errors.length > 0) {
+      return { valid: false, errors, spacingFt: 0, jointsLong: 0, jointsShort: 0, totalJoints: 0, assumptions };
+    }
+
+    const isExterior = exposure === 'exterior' || isSunExposed;
+    const spacing = tempVal.value >= 40
+      ? (isExterior ? MOVEMENT_JOINT_SPACING.exterior.highTemp : MOVEMENT_JOINT_SPACING.interior.highTemp)
+      : (isExterior ? MOVEMENT_JOINT_SPACING.exterior.standard : MOVEMENT_JOINT_SPACING.interior.standard);
+
+    const jointsLong = Math.max(0, roundUp(lengthVal.value / spacing) - 1);
+    const jointsShort = Math.max(0, roundUp(widthVal.value / spacing) - 1);
+    const totalJoints = jointsLong + jointsShort;
+
+    assumptions.push(`Exposure: ${isExterior ? 'Exterior/Sun/Heated' : 'Interior (conditioned)'}`);
+    assumptions.push(`Temperature swing: ${tempVal.value}°F`);
+    assumptions.push(`Spacing target per EJ171: ${spacing} ft grid`);
+
+    return { valid: true, errors: [], spacingFt: spacing, jointsLong, jointsShort, totalJoints, assumptions };
+  }
+
+  /**
+   * Deflection Check (L/360, L/720) using beam formula
+   */
+  function calculateDeflection({ spanFeet, joistSpacingInches, joistWidthInches, joistDepthInches, modulusPsi = 1600000, liveLoadPsft = 40, deadLoadPsft = 10 }) {
+    const errors = [];
+    const assumptions = [];
+
+    const spanVal = validatePositiveNumber(spanFeet, 'Span');
+    const spacingVal = validatePositiveNumber(joistSpacingInches, 'Joist spacing');
+    const widthVal = validatePositiveNumber(joistWidthInches, 'Joist width');
+    const depthVal = validatePositiveNumber(joistDepthInches, 'Joist depth');
+    const modulusVal = validatePositiveNumber(modulusPsi, 'Modulus');
+
+    if (!spanVal.valid) errors.push(spanVal.error);
+    if (!spacingVal.valid) errors.push(spacingVal.error);
+    if (!widthVal.valid) errors.push(widthVal.error);
+    if (!depthVal.valid) errors.push(depthVal.error);
+    if (!modulusVal.valid) errors.push(modulusVal.error);
+
+    if (errors.length > 0) {
+      return { valid: false, errors, deflectionRatio: 0, passesCeramic: false, passesStone: false, deltaInches: 0, assumptions };
+    }
+
+    const L = spanVal.value * 12; // inches
+    const I = (widthVal.value * Math.pow(depthVal.value, 3)) / 12; // in^4
+    const uniformLoadPsf = liveLoadPsft + deadLoadPsft;
+    const wPlf = uniformLoadPsf * (spacingVal.value / 12); // pounds per linear foot
+    const wPerInch = wPlf / 12; // pounds per inch
+
+    const delta = (5 * wPerInch * Math.pow(L, 4)) / (384 * modulusVal.value * I);
+    const deflectionRatio = L / delta;
+
+    assumptions.push(`Load: ${uniformLoadPsf} psf (live + dead)`);
+    assumptions.push(`Modulus: ${modulusVal.value.toLocaleString()} psi`);
+    assumptions.push(`Section I: ${roundToDecimals(I, 2)} in^4`);
+
+    return {
+      valid: true,
+      errors: [],
+      deflectionRatio: roundToDecimals(deflectionRatio, 0),
+      passesCeramic: deflectionRatio >= 360,
+      passesStone: deflectionRatio >= 720,
+      deltaInches: roundToDecimals(delta, 3),
+      assumptions
+    };
+  }
+
+  /**
+   * Heated Floor Electrical Load
+   */
+  function calculateHeatedFloorLoad({ areaSqFt, wattsPerSqFt = 12, voltage = 120, thermostatMaxAmps = 15 }) {
+    const errors = [];
+    const assumptions = [];
+
+    const areaVal = validatePositiveNumber(areaSqFt, 'Area');
+    const wattVal = validatePositiveNumber(wattsPerSqFt, 'Watts per sq ft');
+    const voltVal = validatePositiveNumber(voltage, 'Voltage');
+
+    if (!areaVal.valid) errors.push(areaVal.error);
+    if (!wattVal.valid) errors.push(wattVal.error);
+    if (!voltVal.valid) errors.push(voltVal.error);
+
+    if (errors.length > 0) {
+      return { valid: false, errors, totalWatts: 0, amps: 0, breakerAmps: 0, circuits: 0, needsRelay: false, assumptions };
+    }
+
+    const totalWatts = areaVal.value * wattVal.value;
+    const amps = totalWatts / voltVal.value;
+
+    // NEC continuous load sizing @125%
+    const breakerAmpRaw = amps * 1.25;
+    const breakerAmps = breakerAmpRaw <= 15 ? 15 : breakerAmpRaw <= 20 ? 20 : 30;
+    const circuits = Math.max(1, roundUp(breakerAmpRaw / breakerAmps));
+    const needsRelay = amps > thermostatMaxAmps;
+
+    assumptions.push(`Continuous load factor 125% applied per NEC`);
+    assumptions.push(`Thermostat relay limit ${thermostatMaxAmps} A`);
+
+    return {
+      valid: true,
+      errors: [],
+      totalWatts: roundToDecimals(totalWatts, 1),
+      amps: roundToDecimals(amps, 2),
+      breakerAmps,
+      circuits,
+      needsRelay,
+      assumptions
+    };
+  }
+
+  /**
+   * Moisture Emission / RH Check (ASTM F1869 / F2170)
+   */
+  function evaluateMoistureReadings({ mverLbs, rhPercent, productLimitMver = 5, productLimitRh = 75 }) {
+    const errors = [];
+    const assumptions = [];
+
+    const mverVal = validateNonNegativeNumber(mverLbs, 'MVER');
+    const rhVal = validateNonNegativeNumber(rhPercent, 'RH');
+
+    if (!mverVal.valid) errors.push(mverVal.error);
+    if (!rhVal.valid) errors.push(rhVal.error);
+
+    if (errors.length > 0) {
+      return { valid: false, errors, mverPass: false, rhPass: false, requiresMitigation: false, assumptions };
+    }
+
+    const mverPass = mverVal.value <= productLimitMver;
+    const rhPass = rhVal.value <= productLimitRh;
+    const requiresMitigation = !(mverPass && rhPass);
+
+    assumptions.push(`Product limits: ${productLimitMver} lbs MVER, ${productLimitRh}% RH`);
+
+    return { valid: true, errors: [], mverPass, rhPass, requiresMitigation, assumptions };
+  }
+
+  /**
+   * Thinset Mixing Ratios
+   */
+  function calculateThinsetMix({ bagWeightLbs = 50, waterQuartsPerBagMin = 5, waterQuartsPerBagMax = 6, batchWeightLbs, potLifeMinutes = 120, yieldCuFtPerBag = 0.45 }) {
+    const errors = [];
+    const assumptions = [];
+
+    const bagVal = validatePositiveNumber(bagWeightLbs, 'Bag weight');
+    const waterMinVal = validatePositiveNumber(waterQuartsPerBagMin, 'Water (min)');
+    const waterMaxVal = validatePositiveNumber(waterQuartsPerBagMax, 'Water (max)');
+    const yieldVal = validatePositiveNumber(yieldCuFtPerBag, 'Yield');
+
+    if (!bagVal.valid) errors.push(bagVal.error);
+    if (!waterMinVal.valid) errors.push(waterMinVal.error);
+    if (!waterMaxVal.valid) errors.push(waterMaxVal.error);
+    if (!yieldVal.valid) errors.push(yieldVal.error);
+
+    const batchVal = batchWeightLbs ? validatePositiveNumber(batchWeightLbs, 'Batch weight') : null;
+    if (batchVal && !batchVal.valid) errors.push(batchVal.error);
+
+    if (errors.length > 0) {
+      return { valid: false, errors, waterQuartsRange: [0, 0], batchWeightLbs: 0, potLifeMinutes: 0, estimatedYieldCuFt: 0, assumptions };
+    }
+
+    const batchWeight = batchVal?.value || bagVal.value;
+    const ratio = batchWeight / bagVal.value;
+    const waterQuartsRange = [
+      roundToDecimals(waterMinVal.value * ratio, 2),
+      roundToDecimals(waterMaxVal.value * ratio, 2)
+    ];
+
+    assumptions.push('Linear water scaling used for partial batches');
+    assumptions.push('Yield is approximate; verify with product TDS');
+
+    return {
+      valid: true,
+      errors: [],
+      waterQuartsRange,
+      batchWeightLbs: batchWeight,
+      potLifeMinutes,
+      estimatedYieldCuFt: roundToDecimals(yieldVal.value * ratio, 2),
+      assumptions
+    };
+  }
+
+  /**
+   * Sealer Coverage Estimator
+   */
+  function estimateSealer({ areaSqFt, surface = 'natural_stone', coats = 2 }) {
+    const errors = [];
+    const assumptions = [];
+
+    const areaVal = validatePositiveNumber(areaSqFt, 'Area');
+    const coatsVal = validatePositiveNumber(coats, 'Coats');
+
+    if (!areaVal.valid) errors.push(areaVal.error);
+    if (!coatsVal.valid) errors.push(coatsVal.error);
+
+    const coverage = SEALER_COVERAGE[surface];
+    if (!coverage) errors.push(`Unknown surface: ${surface}`);
+
+    if (errors.length > 0) {
+      return { valid: false, errors, gallons: 0, coverageUsedSqFtPerGal: 0, assumptions };
+    }
+
+    // Use conservative (min) coverage to avoid shortage
+    const gallons = roundToDecimals((areaVal.value * coatsVal.value) / coverage.min, 2);
+
+    assumptions.push(`Surface: ${coverage.note}`);
+    assumptions.push(`Using conservative coverage: ${coverage.min} sf/gal`);
+    assumptions.push(`${coatsVal.value} coat(s) applied`);
+
+    return { valid: true, errors: [], gallons, coverageUsedSqFtPerGal: coverage.min, assumptions };
+  }
+
+  /**
+   * Deck Mud Calculator (Shower Pan Volume)
+   */
+  function calculateDeckMud({ areaSqFt, runFeet, minThicknessInches = 1.25, slopeInchesPerFoot = 0.25, bagYieldCuFt = 0.5 }) {
+    const errors = [];
+    const assumptions = [];
+
+    const areaVal = validatePositiveNumber(areaSqFt, 'Area');
+
+    if (!areaVal.valid) errors.push(areaVal.error);
+
+    if (errors.length > 0) {
+      return { valid: false, errors, volumeCuFt: 0, bags: 0, assumptions };
+    }
+
+    // Calculate average thickness: minThickness + (slopeInchesPerFoot * runFeet / 2)
+    const run = runFeet || Math.sqrt(areaVal.value); // default run = side of square
+    const maxThicknessInches = minThicknessInches + (slopeInchesPerFoot * run);
+    const avgThicknessInches = (minThicknessInches + maxThicknessInches) / 2;
+    const avgThicknessFt = avgThicknessInches / 12;
+
+    const volumeCuFt = areaVal.value * avgThicknessFt;
+    const bags = roundUp(volumeCuFt / bagYieldCuFt);
+
+    assumptions.push(`Min thickness at drain: ${minThicknessInches}"`);
+    assumptions.push(`Slope: ${slopeInchesPerFoot}" per foot`);
+    assumptions.push(`Avg thickness: ${roundToDecimals(avgThicknessInches, 2)}"`);
+    assumptions.push(`Bag yield: ${bagYieldCuFt} cu ft per 50 lb bag`);
+
+    return { valid: true, errors: [], volumeCuFt: roundToDecimals(volumeCuFt, 2), bags, avgThicknessInches: roundToDecimals(avgThicknessInches, 2), assumptions };
+  }
+
+  /**
+   * Primer / SLU Prep Estimator
+   */
+  function estimatePrimer({ areaSqFt, porosity = 'porous', doublePrime = false }) {
+    const errors = [];
+    const assumptions = [];
+
+    const areaVal = validatePositiveNumber(areaSqFt, 'Area');
+
+    if (!areaVal.valid) errors.push(areaVal.error);
+
+    const coverage = porosity === 'porous' ? PRIMER_COVERAGE.porous : PRIMER_COVERAGE.nonPorous;
+
+    if (errors.length > 0) {
+      return { valid: false, errors, gallons: 0, assumptions };
+    }
+
+    const coats = doublePrime ? 2 : 1;
+    const gallons = roundToDecimals((areaVal.value * coats) / coverage.min, 2);
+
+    assumptions.push(`Surface porosity: ${porosity}`);
+    assumptions.push(`Using conservative coverage: ${coverage.min} sf/gal`);
+    assumptions.push(`${coats} coat(s)`);
+
+    return { valid: true, errors: [], gallons, coats, coverageUsed: coverage.min, assumptions };
+  }
+
+  /**
+   * Sealant / Caulk Tubes Estimator
+   */
+  function estimateSealantTubes({ linearFeet, beadDiameterInches = 0.25, tubeVolumeOz = 10.1 }) {
+    const errors = [];
+    const assumptions = [];
+
+    const linearVal = validatePositiveNumber(linearFeet, 'Linear feet');
+    const beadVal = validatePositiveNumber(beadDiameterInches, 'Bead diameter');
+
+    if (!linearVal.valid) errors.push(linearVal.error);
+    if (!beadVal.valid) errors.push(beadVal.error);
+
+    if (errors.length > 0) {
+      return { valid: false, errors, tubes: 0, assumptions };
+    }
+
+    // Bead cross-section area (circular): π × r²
+    const radiusInches = beadVal.value / 2;
+    const crossSectionSqIn = Math.PI * radiusInches * radiusInches;
+    const linearInches = linearVal.value * 12;
+    const totalVolumeCuIn = crossSectionSqIn * linearInches;
+
+    // 10.1 oz tube ≈ 18.3 cubic inches (1 oz ≈ 1.81 cu in)
+    const tubeVolumeCuIn = tubeVolumeOz * 1.81;
+    const tubes = roundUp(totalVolumeCuIn / tubeVolumeCuIn);
+
+    assumptions.push(`Bead diameter: ${beadVal.value}"`);
+    assumptions.push(`Tube size: ${tubeVolumeOz} oz (~${roundToDecimals(tubeVolumeCuIn, 1)} cu in)`);
+    assumptions.push(`Total volume needed: ${roundToDecimals(totalVolumeCuIn, 1)} cu in`);
+
+    return { valid: true, errors: [], tubes, totalVolumeCuIn: roundToDecimals(totalVolumeCuIn, 1), assumptions };
+  }
+
+  /**
+   * Bath Layout Calculator
+   */
+  function calculateBathLayout(params) {
+    const errors = [];
+    const warnings = [];
+    const notes = [];
+    const assumptions = [];
+
+    const {
+      roomLengthFt,
+      roomWidthFt,
+      doorWidthIn = 32,
+      walkwayMinIn = 30,
+      includeTub = true,
+      tubLengthIn = 60,
+      tubWidthIn = 30,
+      tubFrontClearIn = 30,
+      includeShower = true,
+      showerWidthIn = 36,
+      showerDepthIn = 36,
+      showerFrontClearIn = 30,
+      includeToilet = true,
+      toiletSideClearIn = 15,
+      toiletDepthIn = 28,
+      toiletFrontClearIn = 24,
+      includeVanity = true,
+      vanityWidthIn = 48,
+      vanityDepthIn = 22,
+      vanityFrontClearIn = 30
+    } = params;
+
+    const roomLengthVal = validatePositiveNumber(roomLengthFt, 'Room length');
+    const roomWidthVal = validatePositiveNumber(roomWidthFt, 'Room width');
+    const doorWidthVal = validatePositiveNumber(doorWidthIn, 'Door width');
+    const walkwayVal = validatePositiveNumber(walkwayMinIn, 'Walkway minimum');
+
+    [roomLengthVal, roomWidthVal, doorWidthVal, walkwayVal].forEach(v => {
+      if (!v.valid) errors.push(v.error);
+    });
+
+    if (errors.length > 0) {
+      return { valid: false, errors, availableWallIn: 0, requiredWallIn: 0, fitsLinear: 'No', walkwayWidthIn: 0, walkwayPass: 'No', maxDepthClearIn: 0, assumptions, warnings, notes };
+    }
+
+    if (!includeTub && !includeShower && !includeToilet && !includeVanity) {
+      return { valid: false, errors: ['Select at least one fixture to place'], availableWallIn: 0, requiredWallIn: 0, fitsLinear: 'No', walkwayWidthIn: 0, walkwayPass: 'No', maxDepthClearIn: 0, assumptions, warnings, notes };
+    }
+
+    const fixtures = [];
+
+    if (includeTub) {
+      fixtures.push({ type: 'tub', width: tubLengthIn, depth: tubWidthIn + tubFrontClearIn });
+      if (tubWidthIn < 30) warnings.push('Tub width under 30" may feel tight.');
+      notes.push(`Tub front clearance: ${tubFrontClearIn}"`);
+    }
+
+    if (includeShower) {
+      fixtures.push({ type: 'shower', width: showerWidthIn, depth: showerDepthIn + showerFrontClearIn });
+      if (showerWidthIn < 30 || showerDepthIn < 30) warnings.push('Shower minimum is 30" x 30" per IPC; aim for 36" x 36".');
+      notes.push(`Shower front clearance: ${showerFrontClearIn}"`);
+    }
+
+    if (includeToilet) {
+      const toiletZoneWidth = Math.max(30, toiletSideClearIn * 2);
+      fixtures.push({ type: 'toilet', width: toiletZoneWidth, depth: toiletDepthIn + toiletFrontClearIn });
+      if (toiletSideClearIn < 15) warnings.push('Toilet side clearance below 15" violates IPC/IRC.');
+      if (toiletFrontClearIn < 21) warnings.push('Toilet front clearance below 21" may violate code; 24"+ recommended.');
+      notes.push(`Toilet zone width uses ${toiletSideClearIn}" side clearances (30" min). Front clearance: ${toiletFrontClearIn}"`);
+    }
+
+    if (includeVanity) {
+      fixtures.push({ type: 'vanity', width: vanityWidthIn, depth: vanityDepthIn + vanityFrontClearIn });
+      notes.push(`Vanity front clearance: ${vanityFrontClearIn}"`);
+    }
+
+    const primaryWallIsLength = roomLengthVal.value >= roomWidthVal.value;
+    const primaryWallIn = (primaryWallIsLength ? roomLengthVal.value : roomWidthVal.value) * 12;
+    const crossWallIn = (primaryWallIsLength ? roomWidthVal.value : roomLengthVal.value) * 12;
+
+    const availableWallIn = Math.max(0, primaryWallIn - doorWidthVal.value);
+    const requiredWallIn = fixtures.reduce((sum, f) => sum + f.width, 0);
+    const maxDepthClearIn = fixtures.reduce((max, f) => Math.max(max, f.depth), 0);
+    const walkwayWidthIn = crossWallIn - maxDepthClearIn;
+    const walkwayPassBool = walkwayWidthIn >= walkwayVal.value;
+    const fitsLinearBool = requiredWallIn <= availableWallIn;
+
+    assumptions.push(`Primary layout wall: ${primaryWallIsLength ? 'length' : 'width'} side`);
+    assumptions.push(`Door width deducted: ${doorWidthVal.value}"`);
+    assumptions.push(`Walkway minimum target: ${walkwayVal.value}"`);
+
+    if (!fitsLinearBool) warnings.push('Fixtures exceed available wall length—consider re-orienting or reducing widths.');
+    if (!walkwayPassBool) warnings.push(`Clear path under ${walkwayVal.value}" — increase room width or reduce front clearances.`);
+
+    return {
+      valid: true,
+      errors: [],
+      availableWallIn: roundToDecimals(availableWallIn, 1),
+      requiredWallIn: roundToDecimals(requiredWallIn, 1),
+      fitsLinear: fitsLinearBool ? 'Yes' : 'No',
+      walkwayWidthIn: roundToDecimals(walkwayWidthIn, 1),
+      walkwayPass: walkwayPassBool ? 'Yes' : 'No',
+      maxDepthClearIn: roundToDecimals(maxDepthClearIn, 1),
+      assumptions,
+      warnings,
+      notes
+    };
+  }
+
+  // Expose TillersteadFormulas on window for tools-app.js
+  if (typeof window !== 'undefined') {
+    window.TillersteadFormulas = {
+      calculateMovementJoints,
+      calculateDeflection,
+      calculateHeatedFloorLoad,
+      evaluateMoistureReadings,
+      calculateThinsetMix,
+      estimateSealer,
+      calculateDeckMud,
+      estimatePrimer,
+      estimateSealantTubes,
+      calculateBathLayout,
+      // Constants for reference
+      MOVEMENT_JOINT_SPACING,
+      SEALER_COVERAGE,
+      PRIMER_COVERAGE
+    };
+  }
+
   // Surface type configurations
   const SURFACE_CONFIGS = {
     floor: {
