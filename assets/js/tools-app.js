@@ -1345,11 +1345,18 @@
 
     attachCalculatorListeners() {
       document.querySelectorAll('.calc-form').forEach(form => {
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
           e.preventDefault();
           const calcId = form.dataset.calc;
+          const submitBtn = form.querySelector('.btn--calculate');
           const formData = new FormData(form);
           const inputs = {};
+
+          // Show calculating state
+          if (submitBtn) {
+            submitBtn.classList.add('is-calculating');
+            submitBtn.innerHTML = '<span>⏳</span> Calculating...';
+          }
 
           formData.forEach((value, key) => {
             if (form.querySelector(`[name="${key}"]`)?.type === 'checkbox') {
@@ -1368,6 +1375,9 @@
 
           AppState.calculatorInputs[calcId] = inputs;
           
+          // Brief delay for visual feedback
+          await new Promise(r => setTimeout(r, 150));
+
           const calcFn = Calculations[calcId];
           if (calcFn) {
             const results = calcFn(inputs);
@@ -1399,56 +1409,86 @@
       const projects = AppState.projects;
 
       content.innerHTML = `
-        <div class="projects">
-          <div class="projects__header">
-            <h2 class="projects__title">Your Projects (${projects.length})</h2>
-            <div class="projects__actions">
+        <div class="projects-view">
+          <!-- Header -->
+          <div class="view-header">
+            <div class="view-header__info">
+              <h2 class="view-header__title">Projects</h2>
+              <p class="view-header__subtitle">${projects.length} saved project${projects.length !== 1 ? 's' : ''}</p>
+            </div>
+            <div class="view-header__actions">
               <button class="btn btn--primary" onclick="window.TillerApp.createNewProject()">
-                ➕ New Project
+                <span>➕</span> New Project
               </button>
               <button class="btn btn--secondary" onclick="document.getElementById('import-input').click()">
-                📥 Import
+                <span>📥</span> Import
               </button>
               <input type="file" id="import-input" accept=".json" hidden onchange="window.TillerApp.Storage.importData(this.files[0])">
+              ${projects.length > 0 ? `
+                <button class="btn btn--secondary" onclick="window.TillerApp.Storage.exportData()">
+                  <span>📤</span> Export All
+                </button>
+              ` : ''}
             </div>
           </div>
 
-          <div class="project-grid">
-            ${projects.length > 0 ? projects.map(p => `
-              <div class="project-card" data-project-id="${p.id}">
-                <div class="project-card__header">
-                  <h3 class="project-card__name">${this.escapeHtml(p.name)}</h3>
-                  <div class="project-card__meta">Updated ${this.formatDate(p.updatedAt)}</div>
-                </div>
-                <div class="project-card__body">
-                  <div class="project-card__stats">
-                    <div class="project-card__stat">
-                      <div class="project-card__stat-value">${p.totalArea || 0}</div>
-                      <div class="project-card__stat-label">Sq Ft</div>
-                    </div>
-                    <div class="project-card__stat">
-                      <div class="project-card__stat-value">${Object.keys(p.calculations || {}).length}</div>
-                      <div class="project-card__stat-label">Calculations</div>
+          ${projects.length > 0 ? `
+            <!-- Project Grid -->
+            <div class="project-grid">
+              ${projects.map(p => `
+                <article class="project-card" data-project-id="${p.id}">
+                  <div class="project-card__header">
+                    <div class="project-card__icon">📋</div>
+                    <div class="project-card__info">
+                      <h3 class="project-card__name">${this.escapeHtml(p.name)}</h3>
+                      <time class="project-card__date">Updated ${this.formatDate(p.updatedAt)}</time>
                     </div>
                   </div>
-                </div>
-                <div class="project-card__footer">
-                  <button class="project-card__btn project-card__btn--primary" onclick="window.TillerApp.openProject('${p.id}')">Open</button>
-                  <button class="project-card__btn" onclick="window.TillerApp.downloadProjectPDF('${p.id}')" title="Download PDF">📄</button>
-                  <button class="project-card__btn" onclick="window.TillerApp.Projects.exportToClipboard('${p.id}')">📋</button>
-                  <button class="project-card__btn" onclick="window.TillerApp.Projects.duplicate('${p.id}'); window.TillerApp.Views.projects();">📑</button>
-                  <button class="project-card__btn project-card__btn--danger" onclick="window.TillerApp.deleteProject('${p.id}')">🗑</button>
-                </div>
-              </div>
-            `).join('') : `
-              <div class="projects__empty">
-                <div class="projects__empty-icon">📁</div>
-                <h3 class="projects__empty-title">No projects yet</h3>
-                <p class="projects__empty-text">Create your first project to save calculations and export estimates.</p>
-                <button class="btn btn--primary" onclick="window.TillerApp.createNewProject()">Create Project</button>
-              </div>
-            `}
-          </div>
+                  
+                  <div class="project-card__stats">
+                    <div class="project-card__stat">
+                      <span class="project-card__stat-value">${p.totalArea || 0}</span>
+                      <span class="project-card__stat-label">sq ft</span>
+                    </div>
+                    <div class="project-card__stat">
+                      <span class="project-card__stat-value">${Object.keys(p.calculations || {}).length}</span>
+                      <span class="project-card__stat-label">calcs</span>
+                    </div>
+                  </div>
+
+                  <div class="project-card__actions">
+                    <button class="btn btn--primary btn--sm" onclick="window.TillerApp.openProject('${p.id}')">
+                      Open
+                    </button>
+                    <div class="project-card__tools">
+                      <button class="icon-btn" onclick="window.TillerApp.downloadProjectPDF('${p.id}')" title="Download PDF">
+                        <span>📄</span>
+                      </button>
+                      <button class="icon-btn" onclick="window.TillerApp.Projects.exportToClipboard('${p.id}')" title="Copy to clipboard">
+                        <span>📋</span>
+                      </button>
+                      <button class="icon-btn" onclick="window.TillerApp.Projects.duplicate('${p.id}'); window.TillerApp.Views.projects();" title="Duplicate">
+                        <span>📑</span>
+                      </button>
+                      <button class="icon-btn icon-btn--danger" onclick="window.TillerApp.deleteProject('${p.id}')" title="Delete">
+                        <span>🗑️</span>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              `).join('')}
+            </div>
+          ` : `
+            <!-- Empty State -->
+            <div class="empty-state empty-state--large">
+              <div class="empty-state__icon">📁</div>
+              <h3 class="empty-state__title">No projects yet</h3>
+              <p class="empty-state__text">Create your first project to save calculations, track materials, and export professional estimates.</p>
+              <button class="btn btn--primary btn--lg" onclick="window.TillerApp.createNewProject()">
+                <span>➕</span> Create First Project
+              </button>
+            </div>
+          `}
         </div>
       `;
     },
@@ -1460,111 +1500,145 @@
       const apiConnected = API.isConnected;
 
       content.innerHTML = `
-        <div class="settings">
-          <div class="settings__section">
-            <div class="settings__section-header">
-              <h3 class="settings__section-title">Preferences</h3>
-            </div>
-            <div class="settings__section-body">
-              <div class="settings__item">
-                <div>
-                  <div class="settings__item-label">Auto-save</div>
-                  <div class="settings__item-desc">Automatically save changes</div>
-                </div>
-                <label class="toggle">
-                  <input type="checkbox" ${settings.autoSave ? 'checked' : ''} onchange="window.TillerApp.updateSetting('autoSave', this.checked)">
-                  <span class="toggle__slider"></span>
-                </label>
-              </div>
-              <div class="settings__item">
-                <div>
-                  <div class="settings__item-label">Notifications</div>
-                  <div class="settings__item-desc">Show toast notifications</div>
-                </div>
-                <label class="toggle">
-                  <input type="checkbox" ${settings.notifications ? 'checked' : ''} onchange="window.TillerApp.updateSetting('notifications', this.checked)">
-                  <span class="toggle__slider"></span>
-                </label>
-              </div>
+        <div class="settings-view">
+          <!-- Header -->
+          <div class="view-header">
+            <div class="view-header__info">
+              <h2 class="view-header__title">Settings</h2>
+              <p class="view-header__subtitle">Configure your TillerCalc Pro experience</p>
             </div>
           </div>
 
-          <div class="settings__section">
-            <div class="settings__section-header">
-              <h3 class="settings__section-title">
-                <span>Toolkit Integration</span>
-                <span class="settings__badge ${apiConnected ? 'settings__badge--success' : 'settings__badge--muted'}">
-                  ${apiConnected ? 'Connected' : 'Offline'}
+          <div class="settings-grid">
+            <!-- Preferences -->
+            <section class="settings-card">
+              <div class="settings-card__header">
+                <span class="settings-card__icon">⚙️</span>
+                <h3 class="settings-card__title">Preferences</h3>
+              </div>
+              <div class="settings-card__body">
+                <div class="setting-row">
+                  <div class="setting-row__info">
+                    <div class="setting-row__label">Auto-save</div>
+                    <div class="setting-row__desc">Automatically save changes to localStorage</div>
+                  </div>
+                  <label class="toggle">
+                    <input type="checkbox" ${settings.autoSave ? 'checked' : ''} onchange="window.TillerApp.updateSetting('autoSave', this.checked)">
+                    <span class="toggle__track"></span>
+                  </label>
+                </div>
+                <div class="setting-row">
+                  <div class="setting-row__info">
+                    <div class="setting-row__label">Notifications</div>
+                    <div class="setting-row__desc">Show toast notifications for actions</div>
+                  </div>
+                  <label class="toggle">
+                    <input type="checkbox" ${settings.notifications ? 'checked' : ''} onchange="window.TillerApp.updateSetting('notifications', this.checked)">
+                    <span class="toggle__track"></span>
+                  </label>
+                </div>
+              </div>
+            </section>
+
+            <!-- Toolkit Integration -->
+            <section class="settings-card">
+              <div class="settings-card__header">
+                <span class="settings-card__icon">🔌</span>
+                <h3 class="settings-card__title">Toolkit Integration</h3>
+                <span class="settings-card__badge ${apiConnected ? 'settings-card__badge--success' : ''}">
+                  ${apiConnected ? '● Connected' : '○ Offline'}
                 </span>
-              </h3>
-            </div>
-            <div class="settings__section-body">
-              <p class="settings__info">
-                ${apiConnected 
-                  ? 'Connected to Tillerstead Toolkit API. Calculations use server-side formulas and project data can be synced.'
-                  : 'Toolkit API not available. Calculations run locally in your browser. Start the backend with <code>uvicorn app.main:app --reload</code>'}
-              </p>
-              <div class="settings__item">
-                <div>
-                  <div class="settings__item-label">Sync to Toolkit</div>
-                  <div class="settings__item-desc">Upload local projects to the backend</div>
-                </div>
-                <button class="btn btn--secondary btn--sm" onclick="window.TillerApp.syncToToolkit()" ${!apiConnected ? 'disabled' : ''}>
-                  Sync →
-                </button>
               </div>
-              <div class="settings__item">
-                <div>
-                  <div class="settings__item-label">Import from Toolkit</div>
-                  <div class="settings__item-desc">Download jobs from the backend</div>
+              <div class="settings-card__body">
+                <p class="settings-card__text">
+                  Connect to the Tillerstead Toolkit backend for enhanced calculations and cloud sync.
+                </p>
+                <div class="setting-row">
+                  <div class="setting-row__info">
+                    <div class="setting-row__label">API Endpoint</div>
+                    <div class="setting-row__desc">${CONFIG.API_BASE_URL || 'Not configured'}</div>
+                  </div>
+                  <button class="btn btn--sm btn--secondary" onclick="window.TillerApp.API.checkHealth().then(() => window.TillerApp.Views.settings())">
+                    Test Connection
+                  </button>
                 </div>
-                <button class="btn btn--secondary btn--sm" onclick="window.TillerApp.importFromToolkit()" ${!apiConnected ? 'disabled' : ''}>
-                  ← Import
-                </button>
+                ${apiConnected ? `
+                  <div class="setting-actions">
+                    <button class="btn btn--sm btn--secondary" onclick="window.TillerApp.syncToToolkit()">
+                      <span>⬆️</span> Push to Toolkit
+                    </button>
+                    <button class="btn btn--sm btn--secondary" onclick="window.TillerApp.syncFromToolkit()">
+                      <span>⬇️</span> Pull from Toolkit
+                    </button>
+                  </div>
+                ` : ''}
               </div>
-              <div class="settings__item">
-                <div>
-                  <div class="settings__item-label">API Endpoint</div>
-                  <div class="settings__item-desc">${CONFIG.API_BASE_URL}</div>
-                </div>
-                <button class="btn btn--ghost btn--sm" onclick="window.TillerApp.API.checkHealth().then(c => { window.TillerApp.Views.settings(); window.TillerApp.Toast.show(c ? 'Connected!' : 'Not available', c ? 'success' : 'warning'); })">
-                  Test
-                </button>
-              </div>
-            </div>
-          </div>
+            </section>
 
-          <div class="settings__section">
-            <div class="settings__section-header">
-              <h3 class="settings__section-title">Data</h3>
-            </div>
-            <div class="settings__section-body">
-              <div class="settings__item">
-                <div>
-                  <div class="settings__item-label">Export All Data</div>
-                  <div class="settings__item-desc">Download as JSON file</div>
-                </div>
-                <button class="btn btn--secondary btn--sm" onclick="window.TillerApp.Storage.exportData()">Export</button>
+            <!-- Data Management -->
+            <section class="settings-card">
+              <div class="settings-card__header">
+                <span class="settings-card__icon">💾</span>
+                <h3 class="settings-card__title">Data Management</h3>
               </div>
-              <div class="settings__item">
-                <div>
-                  <div class="settings__item-label">Clear All Data</div>
-                  <div class="settings__item-desc">Delete all projects and reset</div>
+              <div class="settings-card__body">
+                <div class="setting-row">
+                  <div class="setting-row__info">
+                    <div class="setting-row__label">Local Storage</div>
+                    <div class="setting-row__desc">${AppState.projects.length} projects saved locally</div>
+                  </div>
                 </div>
-                <button class="btn btn--danger btn--sm" onclick="window.TillerApp.clearAllData()">Clear</button>
+                <div class="setting-actions">
+                  <button class="btn btn--sm btn--secondary" onclick="window.TillerApp.Storage.exportData()">
+                    <span>📤</span> Export Data
+                  </button>
+                  <button class="btn btn--sm btn--secondary" onclick="document.getElementById('settings-import').click()">
+                    <span>📥</span> Import Data
+                  </button>
+                  <input type="file" id="settings-import" accept=".json" hidden onchange="window.TillerApp.Storage.importData(this.files[0])">
+                </div>
+                <div class="setting-row setting-row--danger">
+                  <div class="setting-row__info">
+                    <div class="setting-row__label">Clear All Data</div>
+                    <div class="setting-row__desc">Permanently delete all projects and settings</div>
+                  </div>
+                  <button class="btn btn--sm btn--danger" onclick="if(confirm('Delete all data? This cannot be undone.')){window.TillerApp.Storage.clearAll(); window.TillerApp.Views.settings();}">
+                    Clear Data
+                  </button>
+                </div>
               </div>
-            </div>
-          </div>
+            </section>
 
-          <div class="settings__section">
-            <div class="settings__section-header">
-              <h3 class="settings__section-title">About</h3>
-            </div>
-            <div class="settings__section-body">
-              <p class="text-muted">TillerCalc Pro v${CONFIG.VERSION}</p>
-              <p class="text-muted">Built by <a href="https://tillerstead.com">Tillerstead LLC</a></p>
-              <p class="text-muted">NJ HIC #13VH10808800</p>
-            </div>
+            <!-- About -->
+            <section class="settings-card">
+              <div class="settings-card__header">
+                <span class="settings-card__icon">ℹ️</span>
+                <h3 class="settings-card__title">About TillerCalc Pro</h3>
+              </div>
+              <div class="settings-card__body">
+                <div class="about-info">
+                  <div class="about-info__row">
+                    <span>Version</span>
+                    <span>1.0.0</span>
+                  </div>
+                  <div class="about-info__row">
+                    <span>Developer</span>
+                    <span>Tillerstead LLC</span>
+                  </div>
+                  <div class="about-info__row">
+                    <span>NJ HIC License</span>
+                    <span>#13VH10808800</span>
+                  </div>
+                  <div class="about-info__row">
+                    <span>Standards</span>
+                    <span>TCNA 2024 Compliant</span>
+                  </div>
+                </div>
+                <p class="settings-card__text" style="margin-top: var(--space-lg);">
+                  Professional tile calculators built by a licensed contractor in New Jersey.
+                </p>
+              </div>
+            </section>
           </div>
         </div>
       `;
