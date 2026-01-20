@@ -1314,6 +1314,47 @@
 
     grid.innerHTML = html || '<p class="area-summary__empty">Select surfaces in rooms to see area calculations.</p>';
     totalEl.textContent = formatNumber(totalArea, 1);
+    
+    // Sync total area to all calculator inputs
+    syncAreaToCalculators(totalArea);
+  }
+
+  /**
+   * Sync total area from room builder to all calculator area inputs
+   */
+  function syncAreaToCalculators(totalArea) {
+    // Only sync if we have a valid area
+    if (totalArea <= 0) return;
+    
+    // List of all calculator area input IDs
+    const areaInputs = [
+      'calc-area',        // Tile calculator
+      'mortar-area',      // Mortar calculator
+      'grout-area',       // Grout calculator
+      'leveler-area',     // Leveling calculator
+      'slope-area',       // Slope calculator
+      'waterproof-area',  // Waterproofing calculator
+      'labor-area'        // Labor calculator
+    ];
+    
+    areaInputs.forEach(inputId => {
+      const input = document.getElementById(inputId);
+      if (input) {
+        // Only update if input is empty or has the previous synced value
+        const currentVal = parseFloat(input.value) || 0;
+        const roundedTotal = Math.round(totalArea * 10) / 10;
+        
+        // Update if empty, zero, or if the field hasn't been manually edited
+        // (check if value matches a previous sync)
+        if (currentVal === 0 || input.dataset.synced === 'true') {
+          input.value = roundedTotal;
+          input.dataset.synced = 'true';
+          
+          // Trigger change event to update any dependent calculations
+          input.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      }
+    });
   }
 
   // ============================================
@@ -1560,7 +1601,9 @@
       if (needsAttention) {
         needsAttention.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
-      showToast('Please fix errors before generating output');
+      // More specific error message
+      const firstError = validation.errors[0]?.message || 'Missing required fields';
+      showToast(`Cannot generate: ${firstError}`, 'error');
       return;
     }
 
@@ -1904,7 +1947,8 @@
   }
 
   /**
-   * Download as .doc (HTML-based)
+   * Download as branded .doc (Word-compatible HTML)
+   * Professional template with Tillerstead branding, tables, and proper formatting
    */
   function downloadDoc() {
     const options = {
@@ -1916,11 +1960,11 @@
       includeDisclaimers: document.getElementById('output-disclaimers').checked
     };
 
-    const html = generateHtmlOutput(options);
+    const html = generateBrandedDocx(options);
     const blob = new Blob([html], { type: 'application/msword' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
-    const filename = `${(state.project.name || 'tile-project').replace(/[^a-z0-9]/gi, '-')}-spec.doc`;
+    const filename = `${(state.project.name || 'tile-project').replace(/[^a-z0-9]/gi, '-')}-specification.doc`;
     
     a.href = url;
     a.download = filename;
@@ -1929,7 +1973,557 @@
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 
-    showToast('Downloaded! Open in Word or Google Docs.');
+    showToast('Word document downloaded! Open in Microsoft Word or Google Docs.');
+  }
+
+  /**
+   * Generate professionally branded Word-compatible document
+   * Uses MS Office HTML format with proper styling for print
+   */
+  function generateBrandedDocx(options) {
+    const date = new Date().toLocaleDateString('en-US', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
+    const projectName = state.project.name || 'Tile Project Specification';
+    
+    // Calculate all project totals
+    let totalGross = 0, totalDeductions = 0, totalNet = 0;
+    state.rooms.forEach(room => {
+      if (!room.surfaces) return;
+      Object.values(room.surfaces).forEach(s => {
+        if (s.selected) {
+          totalGross += (s.grossArea || s.area || 0);
+          totalDeductions += (s.deductions || []).reduce((sum, d) => sum + (d.area || 0), 0);
+          totalNet += (s.netArea || s.area || 0);
+        }
+      });
+    });
+
+    const tile = getTilePreset(state.defaults.tilePreset, state.defaults.customTileWidth, state.defaults.customTileHeight);
+    const layout = getLayoutPreset(state.defaults.layout);
+    const joint = getJointPreset(state.defaults.jointSize);
+    const wasteFactor = state.defaults.wasteFactor || 10;
+    const areaWithWaste = totalNet * (1 + wasteFactor / 100);
+
+    // Build the Word document
+    return `<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="TillerCalc™ by Tillerstead LLC">
+  <!--[if gte mso 9]>
+  <xml>
+    <w:WordDocument>
+      <w:View>Print</w:View>
+      <w:Zoom>100</w:Zoom>
+      <w:DoNotOptimizeForBrowser/>
+    </w:WordDocument>
+  </xml>
+  <![endif]-->
+  <title>${escapeHtml(projectName)}</title>
+  <style>
+    /* Page Setup */
+    @page {
+      size: 8.5in 11in;
+      margin: 0.75in 0.75in 1in 0.75in;
+      mso-header-margin: 0.5in;
+      mso-footer-margin: 0.5in;
+    }
+    @page Section1 {
+      mso-header: h1;
+      mso-footer: f1;
+    }
+    div.Section1 { page: Section1; }
+
+    /* Base Typography */
+    body {
+      font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+      font-size: 11pt;
+      line-height: 1.5;
+      color: #1a1a1a;
+      background: #fff;
+    }
+
+    /* Header Styling */
+    .doc-header {
+      border-bottom: 3px solid #0d4b3b;
+      padding-bottom: 16pt;
+      margin-bottom: 20pt;
+    }
+    .doc-header table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .doc-header td {
+      vertical-align: top;
+      padding: 0;
+    }
+    .brand-cell {
+      width: 60%;
+    }
+    .brand-name {
+      font-size: 24pt;
+      font-weight: bold;
+      color: #0d4b3b;
+      margin: 0;
+      letter-spacing: -0.5pt;
+    }
+    .brand-tagline {
+      font-size: 9pt;
+      color: #666;
+      margin: 4pt 0 0 0;
+    }
+    .project-info-cell {
+      width: 40%;
+      text-align: right;
+    }
+    .project-title {
+      font-size: 14pt;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin: 0;
+    }
+    .project-meta {
+      font-size: 9pt;
+      color: #666;
+      margin: 4pt 0 0 0;
+    }
+
+    /* Section Headers */
+    .section-title {
+      font-size: 13pt;
+      font-weight: bold;
+      color: #0d4b3b;
+      border-bottom: 1.5pt solid #d4a84b;
+      padding-bottom: 4pt;
+      margin: 20pt 0 12pt 0;
+    }
+
+    /* Tables */
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12pt 0 16pt 0;
+      font-size: 10pt;
+    }
+    table.data-table th {
+      background: #0d4b3b;
+      color: #fff;
+      font-weight: 600;
+      padding: 8pt 10pt;
+      text-align: left;
+      border: 1pt solid #0d4b3b;
+    }
+    table.data-table th.num {
+      text-align: right;
+    }
+    table.data-table td {
+      padding: 6pt 10pt;
+      border: 0.5pt solid #ccc;
+      vertical-align: top;
+    }
+    table.data-table td.num {
+      text-align: right;
+      font-family: 'Consolas', 'Courier New', monospace;
+    }
+    table.data-table tr.totals-row td {
+      background: #f5f5f5;
+      font-weight: bold;
+      border-top: 2pt solid #0d4b3b;
+    }
+    table.data-table tr.alt-row td {
+      background: #fafafa;
+    }
+    .room-name {
+      font-weight: 600;
+      color: #0d4b3b;
+    }
+    .material-detail {
+      font-size: 9pt;
+      color: #666;
+      display: block;
+    }
+    .material-note {
+      font-size: 9pt;
+      color: #888;
+      font-style: italic;
+    }
+
+    /* Summary Box */
+    .summary-box {
+      background: #f8f9fa;
+      border: 1pt solid #d4a84b;
+      border-left: 4pt solid #d4a84b;
+      padding: 12pt 16pt;
+      margin: 16pt 0;
+    }
+    .summary-box p {
+      margin: 4pt 0;
+    }
+    .summary-highlight {
+      font-size: 18pt;
+      font-weight: bold;
+      color: #0d4b3b;
+    }
+
+    /* Assumptions/Exclusions Columns */
+    .two-col-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .two-col-table td {
+      width: 50%;
+      vertical-align: top;
+      padding: 0 12pt 0 0;
+    }
+    .two-col-table td:last-child {
+      padding: 0 0 0 12pt;
+    }
+    .two-col-table h4 {
+      font-size: 11pt;
+      font-weight: 600;
+      color: #0d4b3b;
+      margin: 0 0 8pt 0;
+    }
+    .two-col-table ul {
+      margin: 0;
+      padding-left: 18pt;
+    }
+    .two-col-table li {
+      margin: 4pt 0;
+      font-size: 10pt;
+    }
+
+    /* Disclaimers */
+    .disclaimers {
+      background: #fffef0;
+      border: 0.5pt solid #d4a84b;
+      padding: 12pt 16pt;
+      margin: 20pt 0;
+      font-size: 9pt;
+    }
+    .disclaimers p {
+      margin: 6pt 0;
+    }
+    .disclaimers strong {
+      color: #0d4b3b;
+    }
+
+    /* Footer */
+    .doc-footer {
+      border-top: 2pt solid #0d4b3b;
+      padding-top: 12pt;
+      margin-top: 24pt;
+    }
+    .doc-footer table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .doc-footer td {
+      vertical-align: middle;
+      padding: 0;
+    }
+    .footer-brand {
+      font-size: 10pt;
+      color: #0d4b3b;
+      font-weight: 600;
+    }
+    .footer-info {
+      font-size: 8pt;
+      color: #666;
+      text-align: right;
+    }
+
+    /* Print Styles */
+    @media print {
+      .page-break { page-break-before: always; }
+    }
+  </style>
+</head>
+<body>
+<div class="Section1">
+
+  <!-- Document Header -->
+  <div class="doc-header">
+    <table>
+      <tr>
+        <td class="brand-cell">
+          <p class="brand-name">🛡️ TILLERSTEAD</p>
+          <p class="brand-tagline">TCNA-Compliant Tile & Stone Installation • South Jersey</p>
+        </td>
+        <td class="project-info-cell">
+          <p class="project-title">${escapeHtml(projectName)}</p>
+          <p class="project-meta">
+            ${state.project.client ? `Prepared for: ${escapeHtml(state.project.client)}<br>` : ''}
+            ${state.project.address ? `${escapeHtml(state.project.address)}<br>` : ''}
+            Generated: ${date}
+          </p>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Project Summary Box -->
+  <div class="summary-box">
+    <p><strong>Project Overview:</strong> ${state.rooms.filter(r => r.name).length} room${state.rooms.filter(r => r.name).length !== 1 ? 's' : ''} • ${escapeHtml(tile.name)} tile • ${escapeHtml(layout?.name || 'Standard')} pattern</p>
+    <p><span class="summary-highlight">${formatNumber(totalNet, 0)} SF</span> total tile area (${formatNumber(areaWithWaste, 0)} SF with ${wasteFactor}% waste)</p>
+  </div>
+
+${options.includeScope ? generateDocxScopeSection() : ''}
+${options.includeMeasurements ? generateDocxMeasurementsSection(totalGross, totalDeductions, totalNet) : ''}
+${options.includeTile || options.includeMortar ? generateDocxMaterialsSection(totalNet, tile, joint, wasteFactor) : ''}
+${options.includeAssumptions ? generateDocxAssumptionsSection(wasteFactor, tile, layout) : ''}
+${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
+
+  <!-- Document Footer -->
+  <div class="doc-footer">
+    <table>
+      <tr>
+        <td class="footer-brand">
+          ⚒️ Generated by TillerCalc™ | Professional Tile Calculators
+        </td>
+        <td class="footer-info">
+          Tillerstead LLC • NJ HIC #13VH10808800 • tillerstead.com/tools
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+</body>
+</html>`;
+  }
+
+  /**
+   * Generate scope section for branded document
+   */
+  function generateDocxScopeSection() {
+    const roomCount = state.rooms.filter(r => r.name).length;
+    const surfaces = [];
+    let totalArea = 0;
+
+    state.rooms.forEach(room => {
+      Object.entries(room.surfaces || {}).forEach(([id, s]) => {
+        if (s.selected) {
+          const label = id.replace(/-/g, ' ');
+          if (!surfaces.includes(label)) surfaces.push(label);
+          totalArea += (s.netArea || s.area || 0);
+        }
+      });
+    });
+
+    const tile = getTilePreset(state.defaults.tilePreset, state.defaults.customTileWidth, state.defaults.customTileHeight);
+    const layout = getLayoutPreset(state.defaults.layout);
+
+    let html = '<h2 class="section-title">📋 Scope of Work</h2>';
+    html += '<p>This specification covers tile installation for ';
+    html += `<strong>${roomCount} room${roomCount !== 1 ? 's' : ''}</strong>, `;
+    html += `including ${surfaces.join(', ')} surfaces, totaling approximately `;
+    html += `<strong>${formatNumber(totalArea, 0)} square feet</strong> of tile coverage.</p>`;
+
+    html += `<p><strong>Tile Selection:</strong> ${escapeHtml(tile.name)}`;
+    if (tile.isLargeFormat) html += ' (Large Format — requires 95% minimum coverage)';
+    html += '</p>';
+
+    if (layout) {
+      html += `<p><strong>Pattern:</strong> ${escapeHtml(layout.name)}`;
+      if (layout.lippageRisk) html += ' ⚠️ <em>Lippage risk — requires flatness verification</em>';
+      html += '</p>';
+    }
+
+    if (state.systems.waterproofing !== 'none') {
+      html += `<p><strong>Waterproofing:</strong> ${state.systems.waterproofing === 'liquid' ? 'Liquid membrane system (RedGard, Hydroban, or equivalent)' : 'Sheet membrane system (Kerdi, NobleSeal, or equivalent)'}</p>`;
+    }
+
+    if (state.systems.heating === 'electric') {
+      html += '<p><strong>Floor Heating:</strong> Electric radiant heat system included</p>';
+    }
+
+    return html;
+  }
+
+  /**
+   * Generate measurements table for branded document
+   */
+  function generateDocxMeasurementsSection(totalGross, totalDeductions, totalNet) {
+    let html = '<h2 class="section-title">📐 Measurements Detail</h2>';
+    html += '<table class="data-table">';
+    html += '<thead><tr><th>Room</th><th>Surface</th><th class="num">Gross (SF)</th><th class="num">Deductions</th><th class="num">Net Area</th></tr></thead>';
+    html += '<tbody>';
+
+    let rowIdx = 0;
+    state.rooms.filter(r => r.name).forEach(room => {
+      const surfaces = Object.entries(room.surfaces || {}).filter(([, s]) => s.selected);
+      if (surfaces.length === 0) return;
+
+      surfaces.forEach(([surfaceId, surface], idx) => {
+        const config = SURFACE_CONFIGS[surfaceId] || { label: surfaceId };
+        const gross = surface.grossArea || surface.area || 0;
+        const deductionsTotal = (surface.deductions || []).reduce((sum, d) => sum + (d.area || 0), 0);
+        const net = surface.netArea || (gross - deductionsTotal);
+
+        html += `<tr class="${rowIdx % 2 === 1 ? 'alt-row' : ''}">`;
+        if (idx === 0) {
+          html += `<td rowspan="${surfaces.length}" class="room-name">${escapeHtml(room.name)}${room.locked ? ' 🔒' : ''}</td>`;
+        }
+        html += `<td>${escapeHtml(config.label)}</td>`;
+        html += `<td class="num">${formatNumber(gross, 1)}</td>`;
+        html += `<td class="num">${deductionsTotal > 0 ? '−' + formatNumber(deductionsTotal, 1) : '—'}</td>`;
+        html += `<td class="num">${formatNumber(net, 1)}</td>`;
+        html += '</tr>';
+        rowIdx++;
+      });
+    });
+
+    html += '</tbody>';
+    html += '<tfoot><tr class="totals-row">';
+    html += '<td colspan="2"><strong>PROJECT TOTAL</strong></td>';
+    html += `<td class="num"><strong>${formatNumber(totalGross, 1)}</strong></td>`;
+    html += `<td class="num"><strong>−${formatNumber(totalDeductions, 1)}</strong></td>`;
+    html += `<td class="num"><strong>${formatNumber(totalNet, 1)} SF</strong></td>`;
+    html += '</tr></tfoot>';
+    html += '</table>';
+
+    return html;
+  }
+
+  /**
+   * Generate materials table for branded document
+   */
+  function generateDocxMaterialsSection(totalArea, tile, joint, wasteFactor) {
+    const areaWithWaste = totalArea * (1 + wasteFactor / 100);
+    
+    // Calculate quantities
+    const tileCalc = calculateTileQuantity(totalArea, tile, wasteFactor);
+    const trowelRec = getRecommendedTrowel(tile, 'smooth');
+    const mortarCalc = calculateMortarBags(totalArea, trowelRec.trowelId, trowelRec.backButter);
+    const groutCalc = calculateGrout(totalArea, tile.width, tile.height, 8, parseFloat(joint.size) || 0.125, 'cement', tile.isMosaic);
+
+    let html = '<h2 class="section-title">🧱 Material Takeoff</h2>';
+    html += '<table class="data-table">';
+    html += '<thead><tr><th>Material</th><th class="num">Quantity</th><th>Specification</th><th>Notes</th></tr></thead>';
+    html += '<tbody>';
+
+    // Tile
+    html += '<tr>';
+    html += '<td><strong>Tile</strong></td>';
+    html += `<td class="num">${formatNumber(areaWithWaste, 0)} SF</td>`;
+    html += `<td>${escapeHtml(tile.name)}</td>`;
+    html += `<td class="material-note">Includes ${wasteFactor}% waste factor</td>`;
+    html += '</tr>';
+
+    // Thinset
+    html += '<tr class="alt-row">';
+    html += '<td><strong>Thinset Mortar</strong></td>';
+    html += `<td class="num">${mortarCalc.min}–${mortarCalc.max} bags</td>`;
+    html += `<td>50 lb bags<br><span class="material-detail">${escapeHtml(getTrowelPreset(trowelRec.trowelId).name)} trowel</span></td>`;
+    html += `<td class="material-note">${trowelRec.backButter ? 'Back-butter required' : 'Standard application'}</td>`;
+    html += '</tr>';
+
+    // Grout
+    html += '<tr>';
+    html += '<td><strong>Grout</strong></td>';
+    html += `<td class="num">~${groutCalc.quantity} lbs</td>`;
+    html += `<td>${escapeHtml(joint.name)} joints<br><span class="material-detail">Sanded cement grout</span></td>`;
+    html += '<td class="material-note">Actual may vary by joint consistency</td>';
+    html += '</tr>';
+
+    // Backer Board
+    if (state.systems.underlayment === 'cement-board') {
+      const sheets = Math.ceil(totalArea / 15);
+      html += '<tr class="alt-row">';
+      html += '<td><strong>Cement Board</strong></td>';
+      html += `<td class="num">${sheets} sheets</td>`;
+      html += '<td>3×5 ft × 1/2" thick</td>';
+      html += '<td class="material-note">+ CBU screws & alkali-resistant tape</td>';
+      html += '</tr>';
+    }
+
+    // Waterproofing
+    if (state.systems.waterproofing === 'liquid') {
+      const gallons = Math.ceil(totalArea / 50);
+      html += '<tr>';
+      html += '<td><strong>Waterproofing</strong></td>';
+      html += `<td class="num">~${gallons} gal</td>`;
+      html += '<td>Liquid membrane<br><span class="material-detail">RedGard, Hydroban, or equiv.</span></td>';
+      html += '<td class="material-note">2 coats required + corners/curbs</td>';
+      html += '</tr>';
+    } else if (state.systems.waterproofing === 'sheet') {
+      html += '<tr>';
+      html += '<td><strong>Waterproofing</strong></td>';
+      html += `<td class="num">${formatNumber(areaWithWaste * 1.1, 0)} SF</td>`;
+      html += '<td>Sheet membrane<br><span class="material-detail">Kerdi, NobleSeal, or equiv.</span></td>';
+      html += '<td class="material-note">Include seam tape, corners, curbs</td>';
+      html += '</tr>';
+    }
+
+    // Uncoupling
+    if (state.systems.underlayment === 'uncoupling') {
+      html += '<tr class="alt-row">';
+      html += '<td><strong>Uncoupling Membrane</strong></td>';
+      html += `<td class="num">${formatNumber(areaWithWaste, 0)} SF</td>`;
+      html += '<td>DITRA or equivalent</td>';
+      html += '<td class="material-note">Use unmodified thinset!</td>';
+      html += '</tr>';
+    }
+
+    html += '</tbody></table>';
+    return html;
+  }
+
+  /**
+   * Generate assumptions/exclusions for branded document
+   */
+  function generateDocxAssumptionsSection(wasteFactor, tile, layout) {
+    let html = '<h2 class="section-title">📌 Assumptions & Exclusions</h2>';
+    html += '<table class="two-col-table"><tr><td>';
+
+    // Assumptions column
+    html += '<h4>✓ Assumptions</h4><ul>';
+    html += '<li>Quantities are estimates; order extra for cuts and waste</li>';
+    html += '<li>Trowel size is a starting point — verify coverage per manufacturer</li>';
+    html += `<li>Waste factor: ${wasteFactor}% (adjust for complex layouts)</li>`;
+    html += '<li>Substrate assumed level within TCNA tolerance (1/4" in 10 ft)</li>';
+    if (tile.isLargeFormat) {
+      html += '<li>Large format tile requires minimum 95% mortar coverage</li>';
+    }
+    if (layout && layout.id.includes('herringbone')) {
+      html += '<li>Herringbone pattern requires additional perimeter cuts</li>';
+    }
+    html += '</ul></td><td>';
+
+    // Exclusions column
+    html += '<h4>✗ Exclusions (unless noted)</h4><ul>';
+    html += '<li>Labor and installation costs</li>';
+    html += '<li>Permits and inspections</li>';
+    html += '<li>Subfloor repairs or leveling compound</li>';
+    html += '<li>Plumbing/electrical modifications</li>';
+    html += '<li>Furniture removal/replacement</li>';
+    html += '<li>Debris hauling and disposal</li>';
+    html += '</ul></td></tr></table>';
+
+    return html;
+  }
+
+  /**
+   * Generate disclaimers for branded document
+   */
+  function generateDocxDisclaimersSection() {
+    let html = '<h2 class="section-title">⚖️ Important Notices</h2>';
+    html += '<div class="disclaimers">';
+
+    html += '<p><strong>FOR ESTIMATION PURPOSES ONLY.</strong> This document provides preliminary estimates based on the information entered. Actual material requirements may vary based on site conditions, final tile selection, installation method, and other project-specific factors. Tillerstead recommends professional on-site measurement and consultation before purchasing materials.</p>';
+
+    html += '<p><strong>TROWEL & COVERAGE:</strong> Trowel recommendations are starting points based on tile size and substrate type. Always verify with tile and mortar manufacturer specifications. Confirm minimum 80% coverage (95% for wet areas and large format tile) through field testing.</p>';
+
+    html += '<p><strong>WARRANTY:</strong> Material estimates do not constitute a contract, proposal, or warranty. All installations should follow TCNA Handbook guidelines and manufacturer specifications.</p>';
+
+    html += '<p style="margin-top: 12pt; border-top: 0.5pt solid #d4a84b; padding-top: 8pt; font-size: 8pt;"><strong>Tillerstead LLC</strong> • NJ Registered Home Improvement Contractor #13VH10808800 • (609) 862-8808 • info@tillerstead.com</p>';
+
+    html += '</div>';
+    return html;
   }
 
   /**
@@ -1950,6 +2544,44 @@
     URL.revokeObjectURL(url);
 
     showToast('Text file downloaded!');
+  }
+
+  /**
+   * Print the output preview with professional styling
+   * Opens a print-optimized window with the branded specification
+   */
+  function printOutput() {
+    const options = {
+      includeScope: document.getElementById('output-scope').checked,
+      includeMeasurements: document.getElementById('output-measurements').checked,
+      includeTile: document.getElementById('output-tile').checked,
+      includeMortar: document.getElementById('output-mortar').checked,
+      includeAssumptions: document.getElementById('output-assumptions').checked,
+      includeDisclaimers: document.getElementById('output-disclaimers').checked
+    };
+
+    // Generate the branded HTML document (same as Word export)
+    const printHtml = generateBrandedDocx(options);
+
+    // Open print window
+    const printWindow = window.open('', '_blank', 'width=800,height=900');
+    if (!printWindow) {
+      showToast('Pop-up blocked! Allow pop-ups to print.');
+      return;
+    }
+
+    printWindow.document.write(printHtml);
+    printWindow.document.close();
+
+    // Wait for content to load, then trigger print
+    printWindow.onload = function() {
+      setTimeout(() => {
+        printWindow.focus();
+        printWindow.print();
+      }, 250);
+    };
+
+    showToast('Print dialog opening...');
   }
 
   /**
@@ -3048,17 +3680,19 @@
 
   /**
    * Show toast notification
+   * @param {string} message - Toast message
+   * @param {string} type - 'success' | 'error' | 'warning' (default: success)
    */
-  function showToast(message) {
+  function showToast(message, type = 'success') {
     // Remove existing toast
     const existing = document.querySelector('.toast');
     if (existing) existing.remove();
 
     const toast = document.createElement('div');
-    toast.className = 'toast';
+    toast.className = `toast toast--${type}`;
     toast.textContent = message;
-    toast.setAttribute('role', 'status');
-    toast.setAttribute('aria-live', 'polite');
+    toast.setAttribute('role', type === 'error' ? 'alert' : 'status');
+    toast.setAttribute('aria-live', type === 'error' ? 'assertive' : 'polite');
     document.body.appendChild(toast);
 
     // Trigger animation
@@ -3066,11 +3700,12 @@
       toast.classList.add('toast--visible');
     });
 
-    // Remove after delay
+    // Remove after delay (longer for errors)
+    const duration = type === 'error' ? 5000 : 3000;
     setTimeout(() => {
       toast.classList.remove('toast--visible');
       setTimeout(() => toast.remove(), 300);
-    }, 3000);
+    }, duration);
   }
 
   // ============================================
@@ -3449,6 +4084,7 @@
     });
     document.getElementById('generate-output-btn').addEventListener('click', showOutputPreview);
     document.getElementById('copy-output-btn').addEventListener('click', copyOutput);
+    document.getElementById('print-output-btn').addEventListener('click', printOutput);
     document.getElementById('download-doc-btn').addEventListener('click', downloadDoc);
     document.getElementById('download-txt-btn').addEventListener('click', downloadTxt);
     document.getElementById('download-pdf-btn').addEventListener('click', downloadPdfBuildGuide);
@@ -3899,6 +4535,12 @@
   function handleInput(e) {
     const target = e.target;
     const roomCard = target.closest('.room-card');
+    
+    // Clear synced flag if user manually edits a calculator area input
+    const areaInputIds = ['calc-area', 'mortar-area', 'grout-area', 'leveler-area', 'slope-area', 'waterproof-area', 'labor-area'];
+    if (areaInputIds.includes(target.id)) {
+      target.dataset.synced = 'false';
+    }
 
     if (roomCard) {
       const roomId = roomCard.dataset.roomId;

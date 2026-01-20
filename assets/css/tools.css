@@ -1088,6 +1088,16 @@ html {
   opacity: 100%;
 }
 
+.toast--error {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.toast--warning {
+  background: #f59e0b;
+  color: #000000;
+}
+
 /* ============================================
    PRINT STYLES
    ============================================ */

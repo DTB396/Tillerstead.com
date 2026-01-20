@@ -112,7 +112,8 @@
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Logo image inside picture element */
+/* Logo image - direct img element with ts-header__logo class */
+.ts-header__logo.logo-image,
 .ts-header__logo .logo-image {
   display: block;
   width: auto;
@@ -126,6 +127,7 @@
 }
 
 /* Gold glow on hover */
+.ts-header__logo.logo-image:hover,
 .ts-header__logo .logo-image:hover {
   filter: brightness(1.2) drop-shadow(0 6px 20px rgb(201 162 39 / 70%));
 }
@@ -198,6 +200,7 @@
   gap: 0.5rem;
 }
 
+.ts-header--minimized .ts-header__logo.logo-image,
 .ts-header--minimized .ts-header__logo .logo-image {
   height: 56px;
   max-height: 56px;
@@ -1169,12 +1172,14 @@ body.nav-open .mobile-nav__toggle {
   }
   
   /* Tablet logo sizing - increased for wordmark readability */
+  .ts-header__logo.logo-image,
   .ts-header__logo .logo-image {
     height: 50px;
     max-height: 50px;
   }
   
   /* Minimized state on tablets */
+  .ts-header--minimized .ts-header__logo.logo-image,
   .ts-header--minimized .ts-header__logo .logo-image {
     height: 40px;
     max-height: 40px;
@@ -1236,12 +1241,14 @@ body.nav-open .mobile-nav__toggle {
   }
   
 /* Small phone logo sizing - increased for wordmark readability */
+  .ts-header__logo.logo-image,
   .ts-header__logo .logo-image {
     height: 45px;
     max-height: 45px;
   }
 
   /* Very compact minimized on small phones */
+  .ts-header--minimized .ts-header__logo.logo-image,
   .ts-header--minimized .ts-header__logo .logo-image {
     height: 35px;
     max-height: 35px;
@@ -1291,11 +1298,13 @@ body.nav-open .mobile-nav__toggle {
 
 /* Very small phones */
 @media (max-width: 360px) {
+  .ts-header__logo.logo-image,
   .ts-header__logo .logo-image {
     height: 40px;
     max-height: 40px;
   }
 
+  .ts-header--minimized .ts-header__logo.logo-image,
   .ts-header--minimized .ts-header__logo .logo-image {
     height: 30px;
     max-height: 30px;
