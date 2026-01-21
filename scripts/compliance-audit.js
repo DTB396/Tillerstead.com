@@ -130,9 +130,9 @@ function auditTCNACompliance() {
 
   // Check for TCNA references on key pages
   const keyPages = [
-    'index.html',
-    'pages/services.html',
-    'pages/build/index.md',
+    'index.md',
+    'services.html',
+    'build.html',
   ];
   let tcnaFound = 0;
 
@@ -152,8 +152,8 @@ function auditTCNACompliance() {
 
   // Check Build Phase guides for TCNA references
   try {
-    const buildDir = join(ROOT, '_build');
-    const files = readdirSync(buildDir).filter((f) => f.endsWith('.md'));
+    const buildDir = join(ROOT, 'build');
+    const files = readdirSync(buildDir).filter((f) => f.endsWith('.md') || f.endsWith('.html'));
 
     files.forEach((file) => {
       const content = readFileSync(join(buildDir, file), 'utf-8');
@@ -162,7 +162,7 @@ function auditTCNACompliance() {
       if (tcnaRefs === 0) {
         findings.push({
           level: 'warning',
-          file: '_build/' + file,
+          file: 'build/' + file,
           message:
             'No TCNA references found - Build guides should reference applicable standards',
         });
@@ -196,9 +196,9 @@ function auditNJHICCompliance() {
   // Check for license number presence
   try {
     const files = [
-      'index.html',
-      'pages/services.html',
-      'pages/about.html',
+      'index.md',
+      'services.html',
+      'about.html',
       '_includes/footer.html',
     ];
 
@@ -275,9 +275,9 @@ function auditWCAGCompliance() {
 
   const findings = [];
 
-  // Check for common accessibility issues in HTML
+  // Check for common accessibility issues in HTML (check built site output)
   try {
-    const indexPath = join(ROOT, 'index.html');
+    const indexPath = join(ROOT, '_site', 'index.html');
     const content = readFileSync(indexPath, 'utf-8');
 
     // Check for alt attributes on images
@@ -333,7 +333,7 @@ function auditBuildPhaseCompliance() {
   console.log('🏗️  Auditing Build Phase content standards...');
 
   const findings = [];
-  const buildDir = join(ROOT, '_build');
+  const buildDir = join(ROOT, 'build');
 
   try {
     const files = readdirSync(buildDir).filter((f) => f.endsWith('.md'));
@@ -349,7 +349,7 @@ function auditBuildPhaseCompliance() {
       if (!frontMatterMatch) {
         findings.push({
           level: 'error',
-          file: '_build/' + file,
+          file: 'build/' + file,
           message: 'Missing YAML front matter',
         });
         return;
@@ -362,7 +362,7 @@ function auditBuildPhaseCompliance() {
         if (!frontMatter.includes(field)) {
           findings.push({
             level: 'error',
-            file: '_build/' + file,
+            file: 'build/' + file,
             message: 'Missing required front matter field: ' + field,
           });
         }
@@ -384,7 +384,7 @@ function auditBuildPhaseCompliance() {
         if (!explanationCheck) {
           findings.push({
             level: 'warning',
-            file: '_build/' + file,
+            file: 'build/' + file,
             message:
               'Contains technical terms but may lack explanations for homeowners',
           });
@@ -397,7 +397,7 @@ function auditBuildPhaseCompliance() {
       if (!hasInternalLinks) {
         findings.push({
           level: 'info',
-          file: '_build/' + file,
+          file: 'build/' + file,
           message: 'Consider adding links to related Build Phase guides',
         });
       }
@@ -424,7 +424,7 @@ function auditMetadata() {
   const findings = [];
 
   try {
-    const indexPath = join(ROOT, 'index.html');
+    const indexPath = join(ROOT, '_site', 'index.html');
     const content = readFileSync(indexPath, 'utf-8');
 
     // Check essential meta tags
@@ -485,14 +485,18 @@ function auditColorContrast() {
 
   const findings = [];
 
-  // Brand color combinations from tokens-modern.scss
+  // Brand color combinations from root-vars.css
+  // Note: Gold (#c9a227) is primarily used on DARK backgrounds, not white
+  // For white backgrounds, use --tiller-color-gold-wcag (#6f5f26) or --tiller-color-gold-deep (#5c4e20)
   const colorPairs = [
-    { fg: '#078930', bg: '#ffffff', name: 'Teal on White' }, // 8.2:1 - AAA
-    { fg: '#da121a', bg: '#ffffff', name: 'Red on White' }, // 6.3:1 - AAA
-    { fg: '#fcdd09', bg: '#ffffff', name: 'Gold on White' }, // 8.9:1 - AAA
-    { fg: '#1a1a1a', bg: '#ffffff', name: 'Charcoal on White' }, // 15.3:1 - AAA
-    { fg: '#ffffff', bg: '#078930', name: 'White on Teal' }, // 8.2:1 - AAA
-    { fg: '#ffffff', bg: '#1a1a1a', name: 'White on Charcoal' }, // 15.3:1 - AAA
+    { fg: '#078930', bg: '#ffffff', name: 'Teal on White' },
+    { fg: '#da121a', bg: '#ffffff', name: 'Red on White' },
+    { fg: '#c9a227', bg: '#1a1c1a', name: 'Gold on Dark (brand use)' }, // Primary brand usage
+    { fg: '#6f5f26', bg: '#ffffff', name: 'Accessible Gold on White' }, // WCAG AA+ compliant
+    { fg: '#5c4e20', bg: '#ffffff', name: 'Deep Gold on White' }, // WCAG AAA compliant
+    { fg: '#1a1a1a', bg: '#ffffff', name: 'Charcoal on White' },
+    { fg: '#ffffff', bg: '#078930', name: 'White on Teal' },
+    { fg: '#ffffff', bg: '#1a1a1a', name: 'White on Charcoal' },
   ];
 
   // Helper function to calculate contrast ratio

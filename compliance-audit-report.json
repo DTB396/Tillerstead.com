@@ -1,74 +1,79 @@
 {
-  "timestamp": "2026-01-19T19:55:37.049Z",
+  "timestamp": "2026-01-21T01:01:36.167Z",
   "siteUrl": "https://tillerstead.com",
   "complianceLicense": "13VH10808800",
   "results": {
     "tcna": {
-      "status": "warning",
-      "findings": [
-        {
-          "level": "warning",
-          "message": "Could not read index.html: ENOENT: no such file or directory, open 'C:\\web-dev\\github-repos\\Tillerstead.com\\index.html'"
-        },
-        {
-          "level": "warning",
-          "message": "Could not read pages/services.html: ENOENT: no such file or directory, open 'C:\\web-dev\\github-repos\\Tillerstead.com\\pages\\services.html'"
-        },
-        {
-          "level": "warning",
-          "message": "Could not read pages/build/index.md: ENOENT: no such file or directory, open 'C:\\web-dev\\github-repos\\Tillerstead.com\\pages\\build\\index.md'"
-        },
-        {
-          "level": "warning",
-          "message": "Could not audit Build Phase guides: ENOENT: no such file or directory, scandir 'C:\\web-dev\\github-repos\\Tillerstead.com\\_build'"
-        }
-      ],
-      "score": 0
+      "status": "pass",
+      "findings": [],
+      "score": 100
     },
     "njHic": {
-      "status": "fail",
-      "findings": [
-        {
-          "level": "error",
-          "message": "License number not found on any major pages - violates NJ HIC requirements"
-        },
-        {
-          "level": "warning",
-          "message": "HIC disclaimers found on fewer than 3 pages - recommend prominent display"
-        }
-      ],
-      "licenseDisplayed": false
+      "status": "pass",
+      "findings": [],
+      "licenseDisplayed": true
     },
     "wcag": {
-      "status": "fail",
-      "findings": [
-        {
-          "level": "error",
-          "message": "Could not audit WCAG compliance: ENOENT: no such file or directory, open 'C:\\web-dev\\github-repos\\Tillerstead.com\\index.html'"
-        }
-      ],
+      "status": "pass",
+      "findings": [],
       "targetLevel": "AAA"
     },
     "buildPhase": {
-      "status": "fail",
+      "status": "pass",
       "findings": [
         {
-          "level": "error",
-          "message": "Could not audit Build Phase guides: ENOENT: no such file or directory, scandir 'C:\\web-dev\\github-repos\\Tillerstead.com\\_build'"
+          "level": "info",
+          "file": "build/curbs-curbless.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "warning",
+          "file": "build/flood-testing.md",
+          "message": "Contains technical terms but may lack explanations for homeowners"
+        },
+        {
+          "level": "info",
+          "file": "build/flood-testing.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "info",
+          "file": "build/framing-benches-niches.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "info",
+          "file": "build/nj-codes-permits.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "info",
+          "file": "build/shower-pans-slopes-drains.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "info",
+          "file": "build/tile-installation-standards.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "warning",
+          "file": "build/waterproofing-systems.md",
+          "message": "Contains technical terms but may lack explanations for homeowners"
+        },
+        {
+          "level": "info",
+          "file": "build/waterproofing-systems.md",
+          "message": "Consider adding links to related Build Phase guides"
         }
       ]
     },
     "metadata": {
-      "status": "fail",
-      "findings": [
-        {
-          "level": "error",
-          "message": "Could not audit metadata: ENOENT: no such file or directory, open 'C:\\web-dev\\github-repos\\Tillerstead.com\\index.html'"
-        }
-      ]
+      "status": "pass",
+      "findings": []
     },
     "colors": {
-      "status": "fail",
+      "status": "pass",
       "findings": [
         {
           "level": "warning",
@@ -83,10 +88,10 @@
           "message": "Meets WCAG AA (4.5:1) but not AAA (7:1)"
         },
         {
-          "level": "error",
-          "colors": "Gold on White",
-          "ratio": "1.36:1",
-          "message": "Does not meet WCAG AA minimum (4.5:1)"
+          "level": "warning",
+          "colors": "Accessible Gold on White",
+          "ratio": "6.29:1",
+          "message": "Meets WCAG AA (4.5:1) but not AAA (7:1)"
         },
         {
           "level": "warning",
@@ -95,13 +100,13 @@
           "message": "Meets WCAG AA (4.5:1) but not AAA (7:1)"
         }
       ],
-      "totalPairsTested": 6
+      "totalPairsTested": 8
     }
   },
   "summary": {
     "totalChecks": 13,
-    "passed": 0,
-    "warnings": 1,
-    "failures": 5
+    "passed": 6,
+    "warnings": 0,
+    "failures": 0
   }
 }

@@ -1,6 +1,6 @@
 # Tillerstead Compliance Audit Report
 
-**Generated:** 2026-01-19T19:55:37.062Z
+**Generated:** 2026-01-21T01:01:36.931Z
 **License:** NJ HIC #13VH10808800
 **Site:** https://tillerstead.com
 
@@ -8,66 +8,62 @@
 
 | Category | Status |
 |----------|--------|
-| TCNA 2024 | WARNING |
-| NJ HIC | FAIL |
-| WCAG 2.1 | FAIL |
-| Build Phase | FAIL |
-| Metadata | FAIL |
-| Color Contrast | FAIL |
+| TCNA 2024 | PASS |
+| NJ HIC | PASS |
+| WCAG 2.1 | PASS |
+| Build Phase | PASS |
+| Metadata | PASS |
+| Color Contrast | PASS |
 
 **Total Checks:** 13
-**Passed:** 0
-**Warnings:** 1
-**Failures:** 5
+**Passed:** 6
+**Warnings:** 0
+**Failures:** 0
 
 ## Detailed Findings
 
 
 ### TCNA 2024 Handbook Compliance
-**Status:** WARNING
+**Status:** PASS
 
-#### Issues
-
-- **WARNING**: Could not read index.html: ENOENT: no such file or directory, open 'C:\web-dev\github-repos\Tillerstead.com\index.html'
-- **WARNING**: Could not read pages/services.html: ENOENT: no such file or directory, open 'C:\web-dev\github-repos\Tillerstead.com\pages\services.html'
-- **WARNING**: Could not read pages/build/index.md: ENOENT: no such file or directory, open 'C:\web-dev\github-repos\Tillerstead.com\pages\build\index.md'
-- **WARNING**: Could not audit Build Phase guides: ENOENT: no such file or directory, scandir 'C:\web-dev\github-repos\Tillerstead.com\_build'
+✅ No issues found
 
 ### undefined
-**Status:** FAIL
+**Status:** PASS
 
-#### Issues
-
-- **ERROR**: License number not found on any major pages - violates NJ HIC requirements
-- **WARNING**: HIC disclaimers found on fewer than 3 pages - recommend prominent display
+✅ No issues found
 
 ### WCAG 2.1 Accessibility
-**Status:** FAIL
+**Status:** PASS
+
+✅ No issues found
+
+### undefined
+**Status:** PASS
 
 #### Issues
 
-- **ERROR**: Could not audit WCAG compliance: ENOENT: no such file or directory, open 'C:\web-dev\github-repos\Tillerstead.com\index.html'
+- **INFO**: Consider adding links to related Build Phase guides (build/curbs-curbless.md)
+- **WARNING**: Contains technical terms but may lack explanations for homeowners (build/flood-testing.md)
+- **INFO**: Consider adding links to related Build Phase guides (build/flood-testing.md)
+- **INFO**: Consider adding links to related Build Phase guides (build/framing-benches-niches.md)
+- **INFO**: Consider adding links to related Build Phase guides (build/nj-codes-permits.md)
+- **INFO**: Consider adding links to related Build Phase guides (build/shower-pans-slopes-drains.md)
+- **INFO**: Consider adding links to related Build Phase guides (build/tile-installation-standards.md)
+- **WARNING**: Contains technical terms but may lack explanations for homeowners (build/waterproofing-systems.md)
+- **INFO**: Consider adding links to related Build Phase guides (build/waterproofing-systems.md)
 
 ### undefined
-**Status:** FAIL
+**Status:** PASS
 
-#### Issues
-
-- **ERROR**: Could not audit Build Phase guides: ENOENT: no such file or directory, scandir 'C:\web-dev\github-repos\Tillerstead.com\_build'
+✅ No issues found
 
 ### undefined
-**Status:** FAIL
-
-#### Issues
-
-- **ERROR**: Could not audit metadata: ENOENT: no such file or directory, open 'C:\web-dev\github-repos\Tillerstead.com\index.html'
-
-### undefined
-**Status:** FAIL
+**Status:** PASS
 
 #### Issues
 
 - **WARNING**: Meets WCAG AA (4.5:1) but not AAA (7:1) — Teal on White [4.54:1]
 - **WARNING**: Meets WCAG AA (4.5:1) but not AAA (7:1) — Red on White [5.14:1]
-- **ERROR**: Does not meet WCAG AA minimum (4.5:1) — Gold on White [1.36:1]
+- **WARNING**: Meets WCAG AA (4.5:1) but not AAA (7:1) — Accessible Gold on White [6.29:1]
 - **WARNING**: Meets WCAG AA (4.5:1) but not AAA (7:1) — White on Teal [4.54:1]
