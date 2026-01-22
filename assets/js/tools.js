@@ -456,12 +456,13 @@
       roomLengthFt,
       roomWidthFt,
       doorWidthIn = 32,
+      doorWall = 'primary',
       walkwayMinIn = 30,
       includeTub = true,
       tubLengthIn = 60,
       tubWidthIn = 30,
       tubFrontClearIn = 30,
-      includeShower = true,
+      includeShower = false,
       showerWidthIn = 36,
       showerDepthIn = 36,
       showerFrontClearIn = 30,
@@ -519,33 +520,81 @@
       notes.push(`Vanity front clearance: ${vanityFrontClearIn}"`);
     }
 
-    const primaryWallIsLength = roomLengthVal.value >= roomWidthVal.value;
-    const primaryWallIn = (primaryWallIsLength ? roomLengthVal.value : roomWidthVal.value) * 12;
-    const crossWallIn = (primaryWallIsLength ? roomWidthVal.value : roomLengthVal.value) * 12;
+    const requiredWallInRaw = fixtures.reduce((sum, f) => sum + f.width, 0);
+    const maxDepthClearInRaw = fixtures.reduce((max, f) => Math.max(max, f.depth), 0);
 
-    const availableWallIn = Math.max(0, primaryWallIn - doorWidthVal.value);
-    const requiredWallIn = fixtures.reduce((sum, f) => sum + f.width, 0);
-    const maxDepthClearIn = fixtures.reduce((max, f) => Math.max(max, f.depth), 0);
-    const walkwayWidthIn = crossWallIn - maxDepthClearIn;
-    const walkwayPassBool = walkwayWidthIn >= walkwayVal.value;
-    const fitsLinearBool = requiredWallIn <= availableWallIn;
+    const primaryWall = roomLengthVal.value >= roomWidthVal.value ? 'length' : 'width';
+    const lengthWallIn = roomLengthVal.value * 12;
+    const widthWallIn = roomWidthVal.value * 12;
 
-    assumptions.push(`Primary layout wall: ${primaryWallIsLength ? 'length' : 'width'} side`);
-    assumptions.push(`Door width deducted: ${doorWidthVal.value}"`);
+    const resolveDoorDeductionIn = (fixtureWall) => {
+      if (doorWall === 'none') return 0;
+      if (doorWall === 'primary') return fixtureWall === primaryWall ? doorWidthVal.value : 0;
+      if (doorWall === 'length') return fixtureWall === 'length' ? doorWidthVal.value : 0;
+      if (doorWall === 'width') return fixtureWall === 'width' ? doorWidthVal.value : 0;
+      return doorWidthVal.value;
+    };
+
+    const evaluate = (fixtureWall) => {
+      const wallIn = fixtureWall === 'length' ? lengthWallIn : widthWallIn;
+      const crossWallIn = fixtureWall === 'length' ? widthWallIn : lengthWallIn;
+      const doorDeductIn = resolveDoorDeductionIn(fixtureWall);
+      const availableWallIn = Math.max(0, wallIn - doorDeductIn);
+      const walkwayWidthIn = crossWallIn - maxDepthClearInRaw;
+      const walkwayPassBool = walkwayWidthIn >= walkwayVal.value;
+      const fitsLinearBool = requiredWallInRaw <= availableWallIn;
+      return {
+        fixtureWall,
+        availableWallIn,
+        requiredWallIn: requiredWallInRaw,
+        maxDepthClearIn: maxDepthClearInRaw,
+        walkwayWidthIn,
+        walkwayPassBool,
+        fitsLinearBool,
+        doorDeductIn
+      };
+    };
+
+    const evalLength = evaluate('length');
+    const evalWidth = evaluate('width');
+
+    const score = (e) => {
+      const passScore = (e.fitsLinearBool ? 2 : 0) + (e.walkwayPassBool ? 1 : 0);
+      const walkwayOver = e.walkwayWidthIn - walkwayVal.value;
+      const wallSpare = e.availableWallIn - e.requiredWallIn;
+      return [passScore, walkwayOver, wallSpare];
+    };
+
+    const a = score(evalLength);
+    const b = score(evalWidth);
+    const selected =
+      a[0] !== b[0] ? (a[0] > b[0] ? evalLength : evalWidth) :
+      a[1] !== b[1] ? (a[1] > b[1] ? evalLength : evalWidth) :
+      (a[2] >= b[2] ? evalLength : evalWidth);
+
+    const alternate = selected.fixtureWall === 'length' ? evalWidth : evalLength;
+
+    assumptions.push(`Layout wall tested: length + width (best chosen)`);
+    assumptions.push(`Selected fixture wall: ${selected.fixtureWall}`);
+    assumptions.push(`Door wall setting: ${doorWall}`);
+    assumptions.push(`Door width deducted on selected wall: ${roundToDecimals(selected.doorDeductIn, 1)}"`);
     assumptions.push(`Walkway minimum target: ${walkwayVal.value}"`);
 
-    if (!fitsLinearBool) warnings.push('Fixtures exceed available wall length—consider re-orienting or reducing widths.');
-    if (!walkwayPassBool) warnings.push(`Clear path under ${walkwayVal.value}" — increase room width or reduce front clearances.`);
+    notes.push(`Alternate (${alternate.fixtureWall}) — Available wall: ${roundToDecimals(alternate.availableWallIn, 1)}", Clear path: ${roundToDecimals(alternate.walkwayWidthIn, 1)}"`);
+
+    if (!selected.fitsLinearBool) warnings.push('Fixtures exceed available wall length—consider switching walls or reducing widths.');
+    if (!selected.walkwayPassBool) warnings.push(`Clear path under ${walkwayVal.value}" — increase room width or reduce front clearances.`);
 
     return {
       valid: true,
       errors: [],
-      availableWallIn: roundToDecimals(availableWallIn, 1),
-      requiredWallIn: roundToDecimals(requiredWallIn, 1),
-      fitsLinear: fitsLinearBool ? 'Yes' : 'No',
-      walkwayWidthIn: roundToDecimals(walkwayWidthIn, 1),
-      walkwayPass: walkwayPassBool ? 'Yes' : 'No',
-      maxDepthClearIn: roundToDecimals(maxDepthClearIn, 1),
+      layoutWall: selected.fixtureWall,
+      availableWallIn: roundToDecimals(selected.availableWallIn, 1),
+      requiredWallIn: roundToDecimals(selected.requiredWallIn, 1),
+      fitsLinear: selected.fitsLinearBool ? 'Yes' : 'No',
+      walkwayWidthIn: roundToDecimals(selected.walkwayWidthIn, 1),
+      walkwayPass: selected.walkwayPassBool ? 'Yes' : 'No',
+      maxDepthClearIn: roundToDecimals(selected.maxDepthClearIn, 1),
       assumptions,
       warnings,
       notes
@@ -1200,6 +1249,11 @@
     const panel = document.getElementById('needs-attention');
     const list = document.getElementById('needs-attention-list');
     const badge = document.getElementById('needs-attention-badge');
+
+    // Defensive: legacy pages should include the panel, but never crash if markup is missing.
+    if (!panel || !list) {
+      return;
+    }
 
     // Update badge count
     const totalIssues = errors.length + warnings.length;
@@ -1870,13 +1924,15 @@
     
     // List of all calculator area input IDs
     const areaInputs = [
-      'calc-area',        // Tile calculator
-      'mortar-area',      // Mortar calculator
-      'grout-area',       // Grout calculator
-      'leveler-area',     // Leveling calculator
-      'slope-area',       // Slope calculator
-      'waterproof-area',  // Waterproofing calculator
-      'labor-area'        // Labor calculator
+      'calc-area',
+      'mortar-area',
+      'grout-area',
+      'level-area',
+      'labor-area',
+      // Legacy waterproofing calculator IDs (total and/or split floor/wall)
+      'wp-area',
+      'wp-floor-area',
+      'wp-wall-area'
     ];
     
     areaInputs.forEach(inputId => {
@@ -3072,20 +3128,79 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
    * Download as plain text file
    */
   function downloadTxt() {
-    const text = generatePlainTextOutput();
-    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     const filename = `${(state.project.name || 'tile-project').replace(/[^a-z0-9]/gi, '-')}-spec.txt`;
+
+    // Automation hook: record intent immediately.
+    if (typeof window !== 'undefined') {
+      window.__tillersteadLastDownload = {
+        kind: 'txt',
+        filename,
+        at: Date.now()
+      };
+    }
+    try {
+      document.documentElement.dataset.tillersteadLastDownload = filename;
+    } catch {
+      // ignore
+    }
+
+    // Prefer exporting what the user sees in the preview.
+    // This avoids edge cases where state-to-text generation could throw.
+    let text = '';
+    const outputContent = document.getElementById('output-content');
+    if (outputContent && typeof outputContent.textContent === 'string') {
+      text = outputContent.textContent.trim();
+    }
+    if (!text) {
+      text = generatePlainTextOutput();
+    }
+
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
     
     a.href = url;
     a.download = filename;
+    a.style.display = 'none';
     document.body.appendChild(a);
     a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+
+    // Keep the element + object URL alive long enough for the browser
+    // (and Playwright) to reliably register the download.
+    setTimeout(() => {
+      try {
+        if (a.parentNode) a.parentNode.removeChild(a);
+      } finally {
+        URL.revokeObjectURL(url);
+      }
+    }, 60000);
 
     showToast('Text file downloaded!');
+  }
+
+  /**
+   * Export project state as JSON (developer/debug utility)
+   */
+  function exportJson() {
+    const json = JSON.stringify(state, null, 2);
+    const blob = new Blob([json], { type: 'application/json;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const filename = `${(state.project.name || 'tile-project').replace(/[^a-z0-9]/gi, '-')}-export.json`;
+
+    a.href = url;
+    a.download = filename;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+
+    setTimeout(() => {
+      try {
+        if (a.parentNode) a.parentNode.removeChild(a);
+      } finally {
+        URL.revokeObjectURL(url);
+      }
+    }, 60000);
   }
 
   /**
@@ -4239,13 +4354,16 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
 
     // Trigger animation
     requestAnimationFrame(() => {
+      // Support both tools.css (toast--visible) and professional-features (visible)
       toast.classList.add('toast--visible');
+      toast.classList.add('visible');
     });
 
     // Remove after delay (longer for errors)
     const duration = type === 'error' ? 5000 : 3000;
     setTimeout(() => {
       toast.classList.remove('toast--visible');
+      toast.classList.remove('visible');
       setTimeout(() => toast.remove(), 300);
     }, duration);
   }
@@ -4610,59 +4728,85 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
     // Use event delegation for dynamic elements
     document.addEventListener('click', handleClick);
     document.addEventListener('change', handleChange);
-    document.addEventListener('input', debounce(handleInput, 200));
+    // Do not debounce at the document level.
+    // A global debounce drops earlier field updates when users (or Playwright) edit multiple inputs quickly.
+    document.addEventListener('input', handleInput);
 
     // Form submission prevention
-    document.getElementById('estimate-form').addEventListener('submit', e => e.preventDefault());
+    const estimateForm = document.getElementById('estimate-form');
+    if (estimateForm) {
+      estimateForm.addEventListener('submit', e => e.preventDefault());
+    }
 
     // Calculator buttons
-    document.getElementById('calc-tile-btn').addEventListener('click', calculateTile);
-    document.getElementById('calc-mortar-btn').addEventListener('click', calculateMortar);
-    document.getElementById('calc-grout-btn').addEventListener('click', calculateGroutQuantity);
-    document.getElementById('calc-level-btn').addEventListener('click', calculateLeveling);
+    const calcTileBtn = document.getElementById('calc-tile-btn');
+    if (calcTileBtn) calcTileBtn.addEventListener('click', calculateTile);
+    const calcMortarBtn = document.getElementById('calc-mortar-btn');
+    if (calcMortarBtn) calcMortarBtn.addEventListener('click', calculateMortar);
+    const calcGroutBtn = document.getElementById('calc-grout-btn');
+    if (calcGroutBtn) calcGroutBtn.addEventListener('click', calculateGroutQuantity);
+    const calcLevelBtn = document.getElementById('calc-level-btn');
+    if (calcLevelBtn) calcLevelBtn.addEventListener('click', calculateLeveling);
 
     // Output buttons
-    document.getElementById('generate-scope-btn').addEventListener('click', () => {
-      const errors = validateProject();
-      showValidationErrors(errors);
-      if (errors.length === 0) {
-        showOutputPreview();
-      }
-    });
-    document.getElementById('generate-output-btn').addEventListener('click', showOutputPreview);
-    document.getElementById('copy-output-btn').addEventListener('click', copyOutput);
-    document.getElementById('print-output-btn').addEventListener('click', printOutput);
-    document.getElementById('download-doc-btn').addEventListener('click', downloadDoc);
-    document.getElementById('download-txt-btn').addEventListener('click', downloadTxt);
-    document.getElementById('download-pdf-btn').addEventListener('click', downloadPdfBuildGuide);
+    const generateScopeBtn = document.getElementById('generate-scope-btn');
+    if (generateScopeBtn) {
+      generateScopeBtn.addEventListener('click', () => {
+        const errors = validateProject();
+        showValidationErrors(errors);
+        if (errors.length === 0) {
+          showOutputPreview();
+        }
+      });
+    }
+    const generateOutputBtn = document.getElementById('generate-output-btn');
+    if (generateOutputBtn) generateOutputBtn.addEventListener('click', showOutputPreview);
+    const copyOutputBtn = document.getElementById('copy-output-btn');
+    if (copyOutputBtn) copyOutputBtn.addEventListener('click', copyOutput);
+    const printOutputBtn = document.getElementById('print-output-btn');
+    if (printOutputBtn) printOutputBtn.addEventListener('click', printOutput);
+    const downloadDocBtn = document.getElementById('download-doc-btn');
+    if (downloadDocBtn) downloadDocBtn.addEventListener('click', downloadDoc);
+    const downloadPdfBtn = document.getElementById('download-pdf-btn');
+    if (downloadPdfBtn) downloadPdfBtn.addEventListener('click', downloadPdfBuildGuide);
 
     // Save/Load buttons
-    document.getElementById('save-project-btn').addEventListener('click', () => {
-      saveToStorage();
-      showToast('Project saved!');
-    });
-    document.getElementById('reset-project-btn').addEventListener('click', resetProject);
+    const saveProjectBtn = document.getElementById('save-project-btn');
+    if (saveProjectBtn) {
+      saveProjectBtn.addEventListener('click', () => {
+        saveToStorage();
+        showToast('Project saved!');
+      });
+    }
+    const resetProjectBtn = document.getElementById('reset-project-btn');
+    if (resetProjectBtn) resetProjectBtn.addEventListener('click', resetProject);
 
     // Add room button
-    document.getElementById('add-room-btn').addEventListener('click', () => {
-      createRoomCard();
-    });
+    const addRoomBtn = document.getElementById('add-room-btn');
+    if (addRoomBtn) {
+      addRoomBtn.addEventListener('click', () => {
+        createRoomCard();
+      });
+    }
 
     // Keyboard navigation for sticky nav
-    document.querySelector('.tools-nav__list').addEventListener('keydown', e => {
-      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-        const links = Array.from(document.querySelectorAll('.tools-nav__link'));
-        const current = document.activeElement;
-        const idx = links.indexOf(current);
-        if (idx > -1) {
-          e.preventDefault();
-          const next = e.key === 'ArrowRight' 
-            ? links[(idx + 1) % links.length]
-            : links[(idx - 1 + links.length) % links.length];
-          next.focus();
+    const navList = document.querySelector('.tools-nav__list');
+    if (navList) {
+      navList.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          const links = Array.from(document.querySelectorAll('.tools-nav__link'));
+          const current = document.activeElement;
+          const idx = links.indexOf(current);
+          if (idx > -1) {
+            e.preventDefault();
+            const next = e.key === 'ArrowRight'
+              ? links[(idx + 1) % links.length]
+              : links[(idx - 1 + links.length) % links.length];
+            next.focus();
+          }
         }
-      }
-    });
+      });
+    }
   }
 
   /**
@@ -4670,6 +4814,13 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
    */
   function handleClick(e) {
     const target = e.target;
+
+    // TXT export: use event delegation so it keeps working even if
+    // the output header gets re-rendered.
+    if (target.closest('#download-txt-btn')) {
+      downloadTxt();
+      return;
+    }
 
     // Remove room button
     if (target.closest('.room-remove-btn')) {
@@ -5084,7 +5235,7 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
     const roomCard = target.closest('.room-card');
     
     // Clear synced flag if user manually edits a calculator area input
-    const areaInputIds = ['calc-area', 'mortar-area', 'grout-area', 'leveler-area', 'slope-area', 'waterproof-area', 'labor-area'];
+    const areaInputIds = ['calc-area', 'mortar-area', 'grout-area', 'level-area', 'labor-area', 'wp-area', 'wp-floor-area', 'wp-wall-area'];
     if (areaInputIds.includes(target.id)) {
       target.dataset.synced = 'false';
     }
@@ -5403,7 +5554,28 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
    */
   function calculateWaterproofing() {
     const systemId = document.getElementById('wp-system')?.value || 'custom-redgard';
-    const area = parseFloat(document.getElementById('wp-area')?.value) || 72;
+    const location = document.getElementById('wp-location')?.value || 'shower';
+    const legacyTotalArea = parseFloat(document.getElementById('wp-area')?.value) || 0;
+    const floorArea = parseFloat(document.getElementById('wp-floor-area')?.value) || 0;
+    const wallArea = parseFloat(document.getElementById('wp-wall-area')?.value) || 0;
+
+    // Backward compatible: if split inputs exist, compute effective area by location.
+    // If split inputs do not exist, fall back to legacy total area.
+    let area = 0;
+    const hasSplitInputs = document.getElementById('wp-floor-area') || document.getElementById('wp-wall-area');
+    if (hasSplitInputs) {
+      if (location === 'shower') area = floorArea + wallArea;
+      else if (location === 'shower-walls' || location === 'tub-surround') area = wallArea;
+      else if (location === 'shower-floor' || location === 'bathroom-floor') area = floorArea;
+      else area = floorArea + wallArea;
+
+      if (area <= 0) area = legacyTotalArea;
+    } else {
+      area = legacyTotalArea;
+    }
+
+    // Sensible fallback
+    if (area <= 0) area = 72;
     const corners = parseInt(document.getElementById('wp-corners')?.value) || 4;
     const niches = parseInt(document.getElementById('wp-niches')?.value) || 1;
     
@@ -5588,6 +5760,92 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
     
     // Labor calculator
     document.getElementById('calc-labor-btn')?.addEventListener('click', calculateLaborTime);
+  }
+
+  // ============================================
+  // LEGACY SQ FT HELPER (W×L×H)
+  // ============================================
+
+  function initSqFtHelpersLegacy(root = document) {
+    const helpers = root.querySelectorAll('[data-sqft-helper]');
+    if (!helpers.length) return;
+
+    helpers.forEach(helper => {
+      if (helper.dataset.sqftHelperInit === 'true') return;
+      helper.dataset.sqftHelperInit = 'true';
+
+      const widthInput = helper.querySelector('[data-sqft="width"]');
+      const lengthInput = helper.querySelector('[data-sqft="length"]');
+      const heightInput = helper.querySelector('[data-sqft="height"]');
+
+      const floorOut = helper.querySelector('[data-sqft-output="floor"]');
+      const wallsOut = helper.querySelector('[data-sqft-output="walls"]');
+
+      const useFloorBtn = helper.querySelector('[data-sqft-action="use-floor"]');
+      const useWallsBtn = helper.querySelector('[data-sqft-action="use-walls"]');
+
+      function readNumber(input) {
+        if (!input) return 0;
+        const value = parseFloat(input.value);
+        return Number.isFinite(value) ? value : 0;
+      }
+
+      function computeAreas() {
+        const widthFt = readNumber(widthInput);
+        const lengthFt = readNumber(lengthInput);
+        const heightFt = readNumber(heightInput);
+
+        const floorSqFt = (widthFt > 0 && lengthFt > 0) ? (widthFt * lengthFt) : 0;
+        const wallSqFt = (widthFt > 0 && lengthFt > 0 && heightFt > 0)
+          ? (2 * heightFt * (widthFt + lengthFt))
+          : 0;
+
+        return { floorSqFt, wallSqFt };
+      }
+
+      function writeOutputs() {
+        const { floorSqFt, wallSqFt } = computeAreas();
+        const floorText = floorSqFt > 0 ? formatNumber(floorSqFt, 1) : '—';
+        const wallText = wallSqFt > 0 ? formatNumber(wallSqFt, 1) : '—';
+
+        if (floorOut) floorOut.value = floorText;
+        if (wallsOut) wallsOut.value = wallText;
+
+        helper.dataset.floorSqFt = String(floorSqFt);
+        helper.dataset.wallSqFt = String(wallSqFt);
+
+        if (useFloorBtn) useFloorBtn.disabled = !(floorSqFt > 0 && helper.dataset.targetFloor);
+        if (useWallsBtn) useWallsBtn.disabled = !(wallSqFt > 0 && helper.dataset.targetWall);
+      }
+
+      function applyToTarget(selector, value) {
+        if (!selector) return;
+        const target = document.querySelector(selector);
+        if (!target) return;
+
+        target.value = String(roundToDecimals(value, 1));
+        target.dispatchEvent(new Event('input', { bubbles: true }));
+        target.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+
+      widthInput?.addEventListener('input', writeOutputs);
+      lengthInput?.addEventListener('input', writeOutputs);
+      heightInput?.addEventListener('input', writeOutputs);
+
+      useFloorBtn?.addEventListener('click', () => {
+        const value = parseFloat(helper.dataset.floorSqFt);
+        if (!Number.isFinite(value) || value <= 0) return;
+        applyToTarget(helper.dataset.targetFloor, value);
+      });
+
+      useWallsBtn?.addEventListener('click', () => {
+        const value = parseFloat(helper.dataset.wallSqFt);
+        if (!Number.isFinite(value) || value <= 0) return;
+        applyToTarget(helper.dataset.targetWall, value);
+      });
+
+      writeOutputs();
+    });
   }
 
   // ============================================
@@ -5883,6 +6141,7 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
     initActiveNavHighlight();
     initBackToTop();
     initNewCalculators();
+    initSqFtHelpersLegacy();
     initCollapsibleCards();
     initAutoCalculate();
 

@@ -24,12 +24,83 @@
     COMPANY: {
       name: 'Tillerstead LLC',
       license: 'NJ HIC #13VH10808800',
-      phone: '(609) 500-1555',
+      phone: '(609) 862-8808',
       email: 'info@tillerstead.com',
       website: 'tillerstead.com',
       serviceArea: 'South Jersey & Shore Communities'
     }
   };
+
+  // ============================================
+  // SQ FT HELPER (W×L×H)
+  // ============================================
+
+  function initSqFtHelpers(root = document) {
+    if (!root || !root.querySelectorAll) return;
+
+    root.querySelectorAll('[data-sqft-helper]').forEach(helper => {
+      if (helper.dataset.sqftBound === '1') return;
+      helper.dataset.sqftBound = '1';
+
+      const form = helper.closest('form') || root;
+      const widthEl = helper.querySelector('[data-sqft="width"]');
+      const lengthEl = helper.querySelector('[data-sqft="length"]');
+      const heightEl = helper.querySelector('[data-sqft="height"]');
+
+      const floorOut = helper.querySelector('[data-sqft-output="floor"]');
+      const wallsOut = helper.querySelector('[data-sqft-output="walls"]');
+
+      const targetFloorName = helper.dataset.targetFloor || '';
+      const targetWallName = helper.dataset.targetWall || '';
+
+      const readNumber = (el) => {
+        if (!el) return null;
+        const n = parseFloat(el.value);
+        return Number.isFinite(n) && n > 0 ? n : null;
+      };
+
+      const compute = () => {
+        const w = readNumber(widthEl);
+        const l = readNumber(lengthEl);
+        const h = readNumber(heightEl);
+
+        const floorSqFt = (w && l) ? (w * l) : null;
+        const wallSqFt = (w && l && h) ? (2 * h * (w + l)) : null;
+
+        if (floorOut) floorOut.value = floorSqFt ? floorSqFt.toFixed(1) : '—';
+        if (wallsOut) wallsOut.value = wallSqFt ? wallSqFt.toFixed(1) : '—';
+
+        return { floorSqFt, wallSqFt };
+      };
+
+      const setTarget = (targetName, value) => {
+        if (!targetName || !value || !Number.isFinite(value)) return;
+        const target = form.querySelector(`[name="${targetName}"]`);
+        if (!target) return;
+        target.value = value.toFixed(1);
+        target.dispatchEvent(new Event('input', { bubbles: true }));
+        target.dispatchEvent(new Event('change', { bubbles: true }));
+        target.focus();
+      };
+
+      const onInput = () => compute();
+      if (widthEl) widthEl.addEventListener('input', onInput);
+      if (lengthEl) lengthEl.addEventListener('input', onInput);
+      if (heightEl) heightEl.addEventListener('input', onInput);
+
+      helper.querySelectorAll('[data-sqft-action]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const { floorSqFt, wallSqFt } = compute();
+          const action = btn.dataset.sqftAction;
+          if (action === 'use-floor') setTarget(targetFloorName, floorSqFt);
+          if (action === 'use-walls') setTarget(targetWallName, wallSqFt);
+        });
+      });
+
+      // Initialize computed outputs
+      compute();
+    });
+  }
 
   // ============================================
   // TRUST SIGNALS & CREDENTIALS
@@ -1328,12 +1399,13 @@
         roomLengthFt: inputs.roomLengthFt,
         roomWidthFt: inputs.roomWidthFt,
         doorWidthIn: inputs.doorWidthIn ?? 32,
+        doorWall: inputs.doorWall ?? 'primary',
         walkwayMinIn: inputs.walkwayMinIn ?? 30,
         includeTub: inputs.includeTub ?? true,
         tubLengthIn: inputs.tubLengthIn ?? 60,
         tubWidthIn: inputs.tubWidthIn ?? 30,
         tubFrontClearIn: inputs.tubFrontClearIn ?? 30,
-        includeShower: inputs.includeShower ?? true,
+        includeShower: inputs.includeShower ?? false,
         showerWidthIn: inputs.showerWidthIn ?? 36,
         showerDepthIn: inputs.showerDepthIn ?? 36,
         showerFrontClearIn: inputs.showerFrontClearIn ?? 30,
@@ -2288,11 +2360,83 @@
 
       // Form submissions
       this.attachCalculatorListeners();
+
+      // Quick area helper (W×L×H)
+      initSqFtHelpers(content);
     },
 
     renderCalculatorForm(calcId) {
       const inputs = AppState.calculatorInputs[calcId] || {};
       const results = AppState.calculatorResults[calcId];
+
+      const renderSqFtHelper = ({
+        title = 'Sq Ft Helper (W×L×H)',
+        targetFloorName,
+        targetWallName,
+        includeHeight = true,
+        note
+      }) => {
+        const floorTargetAttr = targetFloorName ? ` data-target-floor="${targetFloorName}"` : '';
+        const wallTargetAttr = targetWallName ? ` data-target-wall="${targetWallName}"` : '';
+
+        return `
+          <div class="form-section sqft-helper" data-sqft-helper${floorTargetAttr}${wallTargetAttr}>
+            <div class="form-section__title">${title}</div>
+            <div class="form-grid form-grid--3col">
+              <div class="form-field">
+                <label class="form-label">Width</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" inputmode="decimal" data-sqft="width" min="0" step="0.1" placeholder="e.g. 8">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Length</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" inputmode="decimal" data-sqft="length" min="0" step="0.1" placeholder="e.g. 10">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+              </div>
+              ${includeHeight ? `
+              <div class="form-field">
+                <label class="form-label">Height</label>
+                <div class="input-group">
+                  <input type="number" class="form-input" inputmode="decimal" data-sqft="height" min="0" step="0.1" placeholder="e.g. 8">
+                  <span class="input-group__suffix">ft</span>
+                </div>
+              </div>
+              ` : ''}
+            </div>
+
+            <div class="form-grid form-grid--2col">
+              <div class="form-field">
+                <label class="form-label">Floor Area</label>
+                <div class="input-group">
+                  <input type="text" class="form-input" data-sqft-output="floor" value="—" readonly>
+                  <span class="input-group__suffix">sq ft</span>
+                </div>
+                <p class="form-help">≈ width × length</p>
+              </div>
+              ${includeHeight ? `
+              <div class="form-field">
+                <label class="form-label">Wall Area (4 walls)</label>
+                <div class="input-group">
+                  <input type="text" class="form-input" data-sqft-output="walls" value="—" readonly>
+                  <span class="input-group__suffix">sq ft</span>
+                </div>
+                <p class="form-help">≈ 2 × height × (width + length)</p>
+              </div>
+              ` : ''}
+            </div>
+
+            <div class="mt-lg" style="display:flex; gap: .75rem; flex-wrap: wrap;">
+              ${targetFloorName ? `<button type="button" class="btn btn--secondary btn--sm" data-sqft-action="use-floor">Use floor area</button>` : ''}
+              ${(targetWallName && includeHeight) ? `<button type="button" class="btn btn--secondary btn--sm" data-sqft-action="use-walls">Use wall area</button>` : ''}
+            </div>
+            ${note ? `<p class="form-help mt-sm">${note}</p>` : ''}
+          </div>
+        `;
+      };
 
       const forms = {
         tile: `
@@ -2327,6 +2471,7 @@
               <p class="form-help">Leave empty for auto based on layout</p>
             </div>
           </div>
+          ${renderSqFtHelper({ title: 'Sq Ft Helper (Room)', targetFloorName: 'area', includeHeight: false })}
           <div class="form-section">
             <div class="form-section__title">Box Packaging (Optional)</div>
             <div class="form-grid form-grid--2col">
@@ -2365,6 +2510,7 @@
               <p class="form-help">Larger tiles = larger trowel</p>
             </div>
           </div>
+          ${renderSqFtHelper({ title: 'Sq Ft Helper (Tile Area)', targetFloorName: 'area', includeHeight: false })}
           <div class="form-field mt-lg">
             <label class="form-checkbox">
               <input type="checkbox" name="backButter" ${inputs.backButter ? 'checked' : ''}>
@@ -2391,6 +2537,7 @@
               <p class="form-help">1/16" = 0.0625, 1/8" = 0.125</p>
             </div>
           </div>
+          ${renderSqFtHelper({ title: 'Sq Ft Helper (Tile Area)', targetFloorName: 'area', includeHeight: false })}
           <div class="form-section">
             <div class="form-section__title">Tile Dimensions</div>
             <div class="form-grid form-grid--3col">
@@ -2446,6 +2593,7 @@
               <p class="form-help">Deepest pour point</p>
             </div>
           </div>
+          ${renderSqFtHelper({ title: 'Sq Ft Helper (Floor)', targetFloorName: 'area', includeHeight: false })}
         `,
 
         slope: `
@@ -2498,6 +2646,7 @@
               <p class="form-help">Shower head, valve, etc.</p>
             </div>
           </div>
+          ${renderSqFtHelper({ title: 'Sq Ft Helper (Room)', targetWallName: 'wallArea', targetFloorName: 'floorArea', includeHeight: true, note: 'This estimates full-room wall area (4 walls). For a shower, adjust wall area for 3 walls and subtract openings.' })}
         `,
 
         labor: `
@@ -2518,6 +2667,7 @@
               </select>
             </div>
           </div>
+          ${renderSqFtHelper({ title: 'Sq Ft Helper (Area)', targetFloorName: 'area', includeHeight: false })}
           <div class="form-section">
             <div class="form-section__title">Additional Work</div>
             <div class="form-grid form-grid--2col">
@@ -2561,7 +2711,17 @@
                   <input type="number" class="form-input" name="doorWidthIn" value="${inputs.doorWidthIn ?? 32}" min="24" max="42" step="1">
                   <span class="input-group__suffix">in</span>
                 </div>
-                <p class="form-help">Deducted from primary wall</p>
+                <p class="form-help">Only deducted if door is on the selected wall</p>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Door Wall</label>
+                <select class="form-select" name="doorWall">
+                  <option value="primary" ${(!inputs.doorWall || inputs.doorWall === 'primary') ? 'selected' : ''}>Primary wall (legacy default)</option>
+                  <option value="length" ${inputs.doorWall === 'length' ? 'selected' : ''}>Length wall</option>
+                  <option value="width" ${inputs.doorWall === 'width' ? 'selected' : ''}>Width wall</option>
+                  <option value="none" ${inputs.doorWall === 'none' ? 'selected' : ''}>Not on fixture wall</option>
+                </select>
+                <p class="form-help">Which wall loses usable length due to the door opening</p>
               </div>
               <div class="form-field">
                 <label class="form-label">Walkway Minimum</label>
@@ -2608,7 +2768,7 @@
               </div>
               <div class="form-field">
                 <label class="form-checkbox">
-                  <input type="checkbox" name="includeShower" ${inputs.includeShower ?? true ? 'checked' : ''}>
+                  <input type="checkbox" name="includeShower" ${(inputs.includeShower ?? false) ? 'checked' : ''}>
                   <span>Include Shower</span>
                 </label>
                 <div class="form-grid form-grid--2col mt-sm">
@@ -3046,6 +3206,7 @@
                 <p class="form-help">Per heating mat specs</p>
               </div>
             </div>
+            ${renderSqFtHelper({ title: 'Sq Ft Helper (Heated Area)', targetFloorName: 'areaSqFt', includeHeight: false, note: 'Exclude area under vanity/toilet/tub where heat will not run.' })}
           </div>
           <div class="form-section">
             <div class="form-section__title">Electrical Configuration</div>
@@ -3155,6 +3316,7 @@
                 <p class="form-help">Affects absorption rate</p>
               </div>
             </div>
+            ${renderSqFtHelper({ title: 'Sq Ft Helper (Surface)', targetFloorName: 'areaSqFt', includeHeight: false })}
             <div class="form-field">
               <label class="form-label">
                 <input type="checkbox" name="doublePrime" ${inputs.doublePrime ? 'checked' : ''}>
@@ -3189,6 +3351,7 @@
                 <p class="form-help">Distance from perimeter to drain</p>
               </div>
             </div>
+            ${renderSqFtHelper({ title: 'Sq Ft Helper (Pan)', targetFloorName: 'areaSqFt', includeHeight: false, note: 'Use the inside pan dimensions (wall-to-wall). Curb thickness is separate.' })}
           </div>
           <div class="form-section">
             <div class="form-section__title">Mud Bed Specs (TCNA B415/B421)</div>
@@ -3285,6 +3448,7 @@
                 <p class="form-help">Affects absorption/coverage</p>
               </div>
             </div>
+            ${renderSqFtHelper({ title: 'Sq Ft Helper (Surface)', targetFloorName: 'areaSqFt', includeHeight: false })}
             <div class="form-field" style="max-width: 200px;">
               <label class="form-label">Number of Coats</label>
               <select class="form-select" name="coats">
@@ -3468,6 +3632,7 @@
           { key: 'coats', label: 'Coats Required' }
         ],
         'bath-layout': [
+          { key: 'layoutWall', label: 'Fixtures On' },
           { key: 'fitsLinear', label: 'Wall Fit' },
           { key: 'availableWallIn', label: 'Available Wall', suffix: ' in' },
           { key: 'requiredWallIn', label: 'Required Wall', suffix: ' in' },

@@ -303,6 +303,12 @@ body {
   border-radius: 2px;
 }
 
+.page-build-guide :focus-visible,
+.page-light :focus-visible,
+main.light-theme :focus-visible {
+  outline-color: var(--tiller-color-emerald-wcag, #006c47);
+}
+
 /* =========================================================
    UNIFIED LINK SYSTEM - WCAG AAA Compliant
    Contrast Ratios (on #000000 black):
@@ -334,6 +340,36 @@ a.is-active {
   text-shadow: 0 0 10px rgb(0 225 132 / 70%);
 }
 
+/* Light theme overrides (white/light backgrounds) */
+.page-build-guide a,
+.page-light a,
+main.light-theme a {
+  color: var(--tiller-color-emerald-accessible, #008f5d);
+  text-decoration-color: rgb(0 143 93 / 55%);
+  text-shadow: none;
+}
+
+.page-build-guide a:hover,
+.page-build-guide a:focus,
+.page-light a:hover,
+.page-light a:focus,
+main.light-theme a:hover,
+main.light-theme a:focus {
+  color: var(--tiller-color-gold-accessible, #8c6a12);
+  text-decoration-color: var(--tiller-color-gold-accessible, #8c6a12);
+  text-shadow: none;
+}
+
+.page-build-guide a:active,
+.page-build-guide a.is-active,
+.page-light a:active,
+.page-light a.is-active,
+main.light-theme a:active,
+main.light-theme a.is-active {
+  color: var(--tiller-color-emerald-wcag, #006c47);
+  text-shadow: none;
+}
+
 /* Nav links - no underline, handled separately */
 .desktop-nav__link,
 .mobile-nav__link,
@@ -346,6 +382,28 @@ a.is-active {
 h1, h2, h3, h4, h5, h6 {
   color: var(--tiller-color-emerald);
   text-shadow: 0 0 20px var(--tiller-color-emerald-glow);
+}
+
+.page-build-guide h1,
+.page-build-guide h2,
+.page-build-guide h3,
+.page-build-guide h4,
+.page-build-guide h5,
+.page-build-guide h6,
+.page-light h1,
+.page-light h2,
+.page-light h3,
+.page-light h4,
+.page-light h5,
+.page-light h6,
+main.light-theme h1,
+main.light-theme h2,
+main.light-theme h3,
+main.light-theme h4,
+main.light-theme h5,
+main.light-theme h6 {
+  color: var(--tiller-color-emerald-wcag, #006c47);
+  text-shadow: none;
 }
 
 h1 {

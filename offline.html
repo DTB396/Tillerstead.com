@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're Offline | Tillerstead LLC</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+      color: #f9fafb;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .offline-container {
+      text-align: center;
+      max-width: 500px;
+    }
+
+    .offline-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #10b981;
+    }
+
+    p {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: #9ca3af;
+      margin-bottom: 2rem;
+    }
+
+    .offline-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: #10b981;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #059669;
+      transform: scale(1.05);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #9ca3af;
+      border: 1px solid #374151;
+    }
+
+    .btn-secondary:hover {
+      border-color: #10b981;
+      color: #10b981;
+    }
+
+    .offline-content {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #374151;
+    }
+
+    .offline-content h2 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: #f9fafb;
+    }
+
+    .offline-list {
+      text-align: left;
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .offline-list li {
+      padding: 0.75rem;
+      margin-bottom: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      color: #d1d5db;
+    }
+
+    .offline-list li::before {
+      content: "✓ ";
+      color: #10b981;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .offline-icon {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-container">
+    <div class="offline-icon" aria-hidden="true">📡</div>
+    
+    <h1>You're Offline</h1>
+    
+    <p>
+      It looks like you've lost your internet connection. 
+      Don't worry — some features still work offline!
+    </p>
+
+    <div class="offline-actions">
+      <button class="btn btn-primary" onclick="window.location.reload()">
+        Try Again
+      </button>
+      <a href="/" class="btn btn-secondary">
+        Go to Homepage
+      </a>
+    </div>
+
+    <div class="offline-content">
+      <h2>What You Can Still Do:</h2>
+      <ul class="offline-list">
+        <li>Browse previously visited pages</li>
+        <li>View portfolio images you've seen</li>
+        <li>Use the tile calculator (if loaded)</li>
+        <li>Read cached articles and guides</li>
+      </ul>
+      
+      <p style="margin-top: 2rem; font-size: 0.875rem;">
+        Once you're back online, you'll have full access to all features,
+        including contact forms and live pricing.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Auto-retry when connection is restored
+    window.addEventListener('online', () => {
+      window.location.reload();
+    });
+
+    // Check connection status periodically
+    setInterval(() => {
+      if (navigator.onLine) {
+        fetch('/').then(() => {
+          window.location.reload();
+        }).catch(() => {
+          // Still offline
+        });
+      }
+    }, 5000);
+  </script>
+</body>
+</html>

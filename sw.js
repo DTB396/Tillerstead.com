@@ -2,10 +2,12 @@
  * Service Worker for Tillerstead.com
  * Implements cache-first strategy for static assets, network-first for HTML
  * 2026 Web Standards: Offline-capable PWA with intelligent caching
+ * Enhanced with background sync and advanced PWA features
  */
 
-const STATIC_CACHE = 'tillerstead-static-v1';
-const DYNAMIC_CACHE = 'tillerstead-dynamic-v1';
+const STATIC_CACHE = 'tillerstead-static-v2';
+const DYNAMIC_CACHE = 'tillerstead-dynamic-v2';
+const OFFLINE_CACHE = 'tillerstead-offline-v1';
 
 // Core assets to cache immediately on install
 const CORE_ASSETS = [
@@ -20,11 +22,17 @@ const CORE_ASSETS = [
   '/assets/css/retro-enhancements.css',
   '/assets/css/navigation.css',
   '/assets/css/nav-drawer.css',
+  '/assets/css/mobile-app.css',
   '/assets/js/main.js',
   '/assets/js/lazy-loading.js',
+  '/assets/js/mobile-app.js',
+  '/assets/js/haptics.js',
+  '/assets/js/pwa-features.js',
+  '/assets/js/gestures.js',
   '/manifest.webmanifest',
   '/assets/icons/favicon-32x32.png',
-  '/assets/icons/apple-touch-icon.png'
+  '/assets/icons/apple-touch-icon.png',
+  '/offline.html'
 ];
 
 // Install: Cache core assets
@@ -46,7 +54,7 @@ self.addEventListener('activate', (event) => {
       .then((cacheNames) => {
         return Promise.all(
           cacheNames
-            .filter((name) => name !== STATIC_CACHE && name !== DYNAMIC_CACHE)
+            .filter((name) => name !== STATIC_CACHE && name !== DYNAMIC_CACHE && name !== OFFLINE_CACHE)
             .map((name) => {
               console.log('[SW] Deleting old cache:', name);
               return caches.delete(name);
@@ -55,6 +63,63 @@ self.addEventListener('activate', (event) => {
       })
       .then(() => self.clients.claim())
   );
+});
+
+// Background Sync: Form submission when back online
+self.addEventListener('sync', (event) => {
+  if (event.tag === 'form-sync') {
+    event.waitUntil(syncForms());
+  }
+});
+
+async function syncForms() {
+  try {
+    const queue = await getFormQueue();
+    
+    for (const item of queue) {
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(item.data)
+        });
+
+        if (response.ok) {
+          console.log('[SW] Form synced successfully:', item.timestamp);
+          await removeFromQueue(item.timestamp);
+        }
+      } catch (error) {
+        console.error('[SW] Form sync failed:', error);
+      }
+    }
+  } catch (error) {
+    console.error('[SW] Background sync failed:', error);
+  }
+}
+
+async function getFormQueue() {
+  // This would be replaced with IndexedDB in production
+  return [];
+}
+
+async function removeFromQueue(timestamp) {
+  // This would be replaced with IndexedDB in production
+  console.log('[SW] Removed item from queue:', timestamp);
+}
+
+// Message handler for cache refresh
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'REFRESH_CACHE') {
+    event.waitUntil(
+      caches.keys().then((cacheNames) => {
+        return Promise.all(
+          cacheNames
+            .filter((name) => name === DYNAMIC_CACHE)
+            .map((name) => caches.delete(name))
+        );
+      })
+    );
+  }
 });
 
 // Fetch: Intelligent caching strategy
@@ -76,7 +141,10 @@ self.addEventListener('fetch', (event) => {
           caches.open(DYNAMIC_CACHE).then((cache) => cache.put(request, clone));
           return response;
         })
-        .catch(() => caches.match(request).then((cached) => cached || caches.match('/')))
+        .catch(() => 
+          caches.match(request)
+            .then((cached) => cached || caches.match('/offline.html'))
+        )
     );
     return;
   }

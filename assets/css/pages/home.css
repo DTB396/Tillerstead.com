@@ -966,7 +966,7 @@
 /* CTA button overrides for contrast */
 .home-cta .btn--white {
   background: white;
-  color: var(--tiller-color-emerald, #10b981);
+  color: var(--tiller-color-emerald-accessible, #008f5d);
   font-weight: 700;
   box-shadow: 0 4px 20px rgb(255 255 255 / 25%);
 }
@@ -986,7 +986,7 @@
 
 .home-cta .btn--outline-white:hover {
   background: white;
-  color: var(--tiller-color-emerald, #10b981);
+  color: var(--tiller-color-emerald-accessible, #008f5d);
   transform: translateY(-3px);
 }
 

@@ -1,7 +1,8 @@
 import process from 'node:process';
 import { defineConfig, devices } from '@playwright/test';
 
-const PORT = process.env.PORT || 4000;
+// Use a dedicated port for Playwright so local dev on :4000 doesn't conflict.
+const PORT = process.env.PORT || 4173;
 const PROD_URL = process.env.BASE_URL || process.env.PROD_URL || '';
 const baseURL = PROD_URL ? PROD_URL : `http://localhost:${PORT}`;
 
@@ -51,7 +52,7 @@ export default defineConfig({
   webServer: PROD_URL
     ? undefined // Don't start local server if testing production
     : {
-      command: 'http-server _site -p 4000 -c-1',
+      command: 'npm run serve:test',
       url: baseURL,
       reuseExistingServer: !process.env.CI,
       timeout: 60000,

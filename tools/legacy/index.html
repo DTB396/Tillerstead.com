@@ -100,6 +100,8 @@
 <link rel="stylesheet" href="/assets/css/root-vars.css" />
 <link rel="stylesheet" href="/assets/css/mobile-optimizations.css" />
 <link rel="stylesheet" href="/assets/css/mobile-premium.css" />
+<link rel="stylesheet" href="/assets/css/mobile-app.css" />
+<link rel="stylesheet" href="/assets/css/mobile-personality.css" />
 <link rel="stylesheet" href="/assets/css/hero-patterns.css" />
 <link rel="stylesheet" href="/assets/css/tile-patterns.css" />
 <link rel="stylesheet" href="/assets/css/tile-integrations.css" />
@@ -1372,6 +1374,22 @@
   </div>
 </nav>
 
+
+  <!-- Needs Attention (validation summary) -->
+  <section class="needs-attention" id="needs-attention" hidden aria-label="Needs attention">
+    <div class="container">
+      <h2 class="needs-attention__title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <line x1="12" y1="16" x2="12.01" y2="16" />
+        </svg>
+        Needs Attention
+        <span id="needs-attention-badge" class="tools-badge tools-badge--gold" hidden>0</span>
+      </h2>
+      <ul class="needs-attention__list" id="needs-attention-list"></ul>
+    </div>
+  </section>
   
   <!-- Featured: Estimate Builder -->
   <!-- MODULE 1: ESTIMATE SPEC BUILDER -->
@@ -1659,7 +1677,7 @@
         
         <!-- Tile Calculator Card -->
         <article class="calc-app-card" id="tile-calc-card" data-calculator="tile">
-          <header class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="tile-calc-body">
+          <div class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="tile-calc-body">
             <div class="calc-app-card__icon">🧱</div>
             <div class="calc-app-card__title-group">
               <h3 class="calc-app-card__title">Tile Quantity</h3>
@@ -1670,7 +1688,7 @@
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
             </div>
-          </header>
+          </div>
           <div class="calc-app-card__preview" id="tile-calc-preview">
             <span class="calc-app-card__preview-label">Result:</span>
             <span class="calc-app-card__preview-empty">Enter values to calculate</span>
@@ -1708,6 +1726,58 @@
           </div>
         </div>
       </div>
+
+      
+
+
+
+<div class="sqft-helper" data-sqft-helper
+  data-target-floor="#calc-area"
+  >
+  <div class="tools-card">
+    <h4 class="calc-results__title">Sq Ft Helper (Room)</h4>
+
+    <div class="form-grid form-grid--3col">
+      <div class="form-field">
+        <label class="form-label">Width</label>
+        <div class="form-inline">
+          <input type="number" class="form-input" data-sqft="width" placeholder="e.g., 8" min="0" step="0.1">
+          <span class="form-inline__suffix">ft</span>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Length</label>
+        <div class="form-inline">
+          <input type="number" class="form-input" data-sqft="length" placeholder="e.g., 10" min="0" step="0.1">
+          <span class="form-inline__suffix">ft</span>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="form-grid form-grid--2col">
+      <div class="form-field">
+        <label class="form-label">Floor Area</label>
+        <div class="form-inline">
+          <input type="text" class="form-input" data-sqft-output="floor" value="—" readonly>
+          <span class="form-inline__suffix">sq ft</span>
+        </div>
+        <span class="form-hint">≈ width × length</span>
+      </div>
+      
+    </div>
+
+    <div class="form-actions">
+      <div class="btn-group btn-group--horizontal">
+        <button type="button" class="btn btn--primary" data-sqft-action="use-floor">Use floor area</button>
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
 
       <div class="form-grid form-grid--3col">
         <div class="form-field">
@@ -1779,7 +1849,7 @@
         
         <!-- Mortar Calculator Card -->
         <article class="calc-app-card" id="mortar-calc-card" data-calculator="mortar">
-          <header class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="mortar-calc-body">
+          <div class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="mortar-calc-body">
             <div class="calc-app-card__icon calc-app-card__icon--svg">
               <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
                 <path d="M18.5 2.5L22 6l-1.5 1.5-3.5-3.5L18.5 2.5zM3 21l1.5-5.5L16 4l3.5 3.5L8 19l-5 2zm3.5-3.5l8-8-1-1-8 8 1 1z"/>
@@ -1794,7 +1864,7 @@
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
             </div>
-          </header>
+          </div>
           <div class="calc-app-card__preview" id="mortar-calc-preview">
             <span class="calc-app-card__preview-label">Result:</span>
             <span class="calc-app-card__preview-empty">Enter values to calculate</span>
@@ -1832,6 +1902,58 @@
           </div>
         </div>
       </div>
+
+      
+
+
+
+<div class="sqft-helper" data-sqft-helper
+  data-target-floor="#mortar-area"
+  >
+  <div class="tools-card">
+    <h4 class="calc-results__title">Sq Ft Helper (Tile Area)</h4>
+
+    <div class="form-grid form-grid--3col">
+      <div class="form-field">
+        <label class="form-label">Width</label>
+        <div class="form-inline">
+          <input type="number" class="form-input" data-sqft="width" placeholder="e.g., 8" min="0" step="0.1">
+          <span class="form-inline__suffix">ft</span>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Length</label>
+        <div class="form-inline">
+          <input type="number" class="form-input" data-sqft="length" placeholder="e.g., 10" min="0" step="0.1">
+          <span class="form-inline__suffix">ft</span>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="form-grid form-grid--2col">
+      <div class="form-field">
+        <label class="form-label">Floor Area</label>
+        <div class="form-inline">
+          <input type="text" class="form-input" data-sqft-output="floor" value="—" readonly>
+          <span class="form-inline__suffix">sq ft</span>
+        </div>
+        <span class="form-hint">≈ width × length</span>
+      </div>
+      
+    </div>
+
+    <div class="form-actions">
+      <div class="btn-group btn-group--horizontal">
+        <button type="button" class="btn btn--primary" data-sqft-action="use-floor">Use floor area</button>
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
 
       <div class="form-grid form-grid--3col">
         <div class="form-field">
@@ -1937,7 +2059,7 @@
         
         <!-- Grout Calculator Card -->
         <article class="calc-app-card" id="grout-calc-card" data-calculator="grout">
-          <header class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="grout-calc-body">
+          <div class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="grout-calc-body">
             <div class="calc-app-card__icon calc-app-card__icon--svg">
               <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
                 <path d="M4 4h16v3H4V4zm0 5h16v2H4V9zm2 4h12l-1 7H7l-1-7zm3 2v3h2v-3H9zm4 0v3h2v-3h-2z"/>
@@ -1952,7 +2074,7 @@
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
             </div>
-          </header>
+          </div>
           <div class="calc-app-card__preview" id="grout-calc-preview">
             <span class="calc-app-card__preview-label">Result:</span>
             <span class="calc-app-card__preview-empty">Enter values to calculate</span>
@@ -1990,6 +2112,58 @@
           </div>
         </div>
       </div>
+
+      
+
+
+
+<div class="sqft-helper" data-sqft-helper
+  data-target-floor="#grout-area"
+  >
+  <div class="tools-card">
+    <h4 class="calc-results__title">Sq Ft Helper (Tile Area)</h4>
+
+    <div class="form-grid form-grid--3col">
+      <div class="form-field">
+        <label class="form-label">Width</label>
+        <div class="form-inline">
+          <input type="number" class="form-input" data-sqft="width" placeholder="e.g., 8" min="0" step="0.1">
+          <span class="form-inline__suffix">ft</span>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Length</label>
+        <div class="form-inline">
+          <input type="number" class="form-input" data-sqft="length" placeholder="e.g., 10" min="0" step="0.1">
+          <span class="form-inline__suffix">ft</span>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="form-grid form-grid--2col">
+      <div class="form-field">
+        <label class="form-label">Floor Area</label>
+        <div class="form-inline">
+          <input type="text" class="form-input" data-sqft-output="floor" value="—" readonly>
+          <span class="form-inline__suffix">sq ft</span>
+        </div>
+        <span class="form-hint">≈ width × length</span>
+      </div>
+      
+    </div>
+
+    <div class="form-actions">
+      <div class="btn-group btn-group--horizontal">
+        <button type="button" class="btn btn--primary" data-sqft-action="use-floor">Use floor area</button>
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
 
       <div class="form-grid form-grid--3col">
         <div class="form-field">
@@ -2056,7 +2230,7 @@
         
         <!-- Leveling Calculator Card -->
         <article class="calc-app-card" id="leveling-calc-card" data-calculator="leveling">
-          <header class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="leveling-calc-body">
+          <div class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="leveling-calc-body">
             <div class="calc-app-card__icon">📏</div>
             <div class="calc-app-card__title-group">
               <h3 class="calc-app-card__title">Self-Leveling</h3>
@@ -2067,7 +2241,7 @@
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
             </div>
-          </header>
+          </div>
           <div class="calc-app-card__preview" id="leveling-calc-preview">
             <span class="calc-app-card__preview-label">Result:</span>
             <span class="calc-app-card__preview-empty">Enter values to calculate</span>
@@ -2105,6 +2279,58 @@
           </div>
         </div>
       </div>
+
+      
+
+
+
+<div class="sqft-helper" data-sqft-helper
+  data-target-floor="#level-area"
+  >
+  <div class="tools-card">
+    <h4 class="calc-results__title">Sq Ft Helper (Floor)</h4>
+
+    <div class="form-grid form-grid--3col">
+      <div class="form-field">
+        <label class="form-label">Width</label>
+        <div class="form-inline">
+          <input type="number" class="form-input" data-sqft="width" placeholder="e.g., 8" min="0" step="0.1">
+          <span class="form-inline__suffix">ft</span>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Length</label>
+        <div class="form-inline">
+          <input type="number" class="form-input" data-sqft="length" placeholder="e.g., 10" min="0" step="0.1">
+          <span class="form-inline__suffix">ft</span>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="form-grid form-grid--2col">
+      <div class="form-field">
+        <label class="form-label">Floor Area</label>
+        <div class="form-inline">
+          <input type="text" class="form-input" data-sqft-output="floor" value="—" readonly>
+          <span class="form-inline__suffix">sq ft</span>
+        </div>
+        <span class="form-hint">≈ width × length</span>
+      </div>
+      
+    </div>
+
+    <div class="form-actions">
+      <div class="btn-group btn-group--horizontal">
+        <button type="button" class="btn btn--primary" data-sqft-action="use-floor">Use floor area</button>
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
 
       <div class="nudge nudge--info" id="leveling-nudge">
         <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2146,7 +2372,7 @@
         
         <!-- Slope Calculator Card -->
         <article class="calc-app-card" id="slope-calc-card" data-calculator="slope">
-          <header class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="slope-calc-body">
+          <div class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="slope-calc-body">
             <div class="calc-app-card__icon">📐</div>
             <div class="calc-app-card__title-group">
               <h3 class="calc-app-card__title">Shower Slope</h3>
@@ -2157,7 +2383,7 @@
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
             </div>
-          </header>
+          </div>
           <div class="calc-app-card__preview" id="slope-calc-preview">
             <span class="calc-app-card__preview-label">Result:</span>
             <span class="calc-app-card__preview-empty">Enter values to calculate</span>
@@ -2236,7 +2462,7 @@
         
         <!-- Waterproof Calculator Card -->
         <article class="calc-app-card" id="waterproof-calc-card" data-calculator="waterproof">
-          <header class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="waterproof-calc-body">
+          <div class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="waterproof-calc-body">
             <div class="calc-app-card__icon">💧</div>
             <div class="calc-app-card__title-group">
               <h3 class="calc-app-card__title">Waterproofing <span class="badge">TCNA</span></h3>
@@ -2247,7 +2473,7 @@
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
             </div>
-          </header>
+          </div>
           <div class="calc-app-card__preview" id="waterproof-calc-preview">
             <span class="calc-app-card__preview-label">Result:</span>
             <span class="calc-app-card__preview-empty">Enter values to calculate</span>
@@ -2288,9 +2514,16 @@
 
       <div class="form-grid form-grid--3col">
         <div class="form-field">
-          <label for="wp-area" class="form-label form-label--required">Total Area</label>
+          <label for="wp-floor-area" class="form-label">Floor Area</label>
           <div class="form-inline">
-            <input type="number" id="wp-area" class="form-input" placeholder="72" min="10" max="500" value="72">
+            <input type="number" id="wp-floor-area" class="form-input" placeholder="16" min="0" max="500" value="16">
+            <span class="form-inline__suffix">sq ft</span>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="wp-wall-area" class="form-label">Wall Area</label>
+          <div class="form-inline">
+            <input type="number" id="wp-wall-area" class="form-input" placeholder="72" min="0" max="2000" value="72">
             <span class="form-inline__suffix">sq ft</span>
           </div>
         </div>
@@ -2298,11 +2531,85 @@
           <label for="wp-corners" class="form-label">Inside Corners</label>
           <input type="number" id="wp-corners" class="form-input" placeholder="4" min="0" max="20" value="4">
         </div>
+      </div>
+
+      <div class="form-grid form-grid--3col">
         <div class="form-field">
           <label for="wp-niches" class="form-label">Niches/Benches</label>
           <input type="number" id="wp-niches" class="form-input" placeholder="1" min="0" max="5" value="1">
         </div>
       </div>
+
+      
+
+
+
+<div class="sqft-helper" data-sqft-helper
+  data-target-floor="#wp-floor-area"
+  data-target-wall="#wp-wall-area">
+  <div class="tools-card">
+    <h4 class="calc-results__title">Sq Ft Helper</h4>
+
+    <div class="form-grid form-grid--3col">
+      <div class="form-field">
+        <label class="form-label">Width</label>
+        <div class="form-inline">
+          <input type="number" class="form-input" data-sqft="width" placeholder="e.g., 8" min="0" step="0.1">
+          <span class="form-inline__suffix">ft</span>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Length</label>
+        <div class="form-inline">
+          <input type="number" class="form-input" data-sqft="length" placeholder="e.g., 10" min="0" step="0.1">
+          <span class="form-inline__suffix">ft</span>
+        </div>
+      </div>
+      
+        <div class="form-field">
+          <label class="form-label">Height</label>
+          <div class="form-inline">
+            <input type="number" class="form-input" data-sqft="height" placeholder="e.g., 8" min="0" step="0.1">
+            <span class="form-inline__suffix">ft</span>
+          </div>
+        </div>
+      
+    </div>
+
+    <div class="form-grid form-grid--2col">
+      <div class="form-field">
+        <label class="form-label">Floor Area</label>
+        <div class="form-inline">
+          <input type="text" class="form-input" data-sqft-output="floor" value="—" readonly>
+          <span class="form-inline__suffix">sq ft</span>
+        </div>
+        <span class="form-hint">≈ width × length</span>
+      </div>
+      
+        <div class="form-field">
+          <label class="form-label">Wall Area (4 walls)</label>
+          <div class="form-inline">
+            <input type="text" class="form-input" data-sqft-output="walls" value="—" readonly>
+            <span class="form-inline__suffix">sq ft</span>
+          </div>
+          <span class="form-hint">≈ 2 × height × (width + length)</span>
+        </div>
+      
+    </div>
+
+    <div class="form-actions">
+      <div class="btn-group btn-group--horizontal">
+        <button type="button" class="btn btn--primary" data-sqft-action="use-floor">Use floor area</button>
+        <button type="button" class="btn btn--primary" data-sqft-action="use-walls">Use wall area</button>
+      </div>
+    </div>
+
+    
+      <p class="form-hint">For Shower: fill both (floor + walls). For Bathroom Floor: fill floor only. Adjust for openings as needed.</p>
+    
+  </div>
+</div>
+
 
       <fieldset class="form-fieldset">
         <legend class="form-fieldset__legend">Include</legend>
@@ -2353,7 +2660,7 @@
         
         <!-- Labor Calculator Card -->
         <article class="calc-app-card" id="labor-calc-card" data-calculator="labor">
-          <header class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="labor-calc-body">
+          <div class="calc-app-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="labor-calc-body">
             <div class="calc-app-card__icon">⏱️</div>
             <div class="calc-app-card__title-group">
               <h3 class="calc-app-card__title">Labor Estimate</h3>
@@ -2364,7 +2671,7 @@
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
             </div>
-          </header>
+          </div>
           <div class="calc-app-card__preview" id="labor-calc-preview">
             <span class="calc-app-card__preview-label">Result:</span>
             <span class="calc-app-card__preview-empty">Enter values to calculate</span>
@@ -2431,6 +2738,58 @@
           </select>
         </div>
       </div>
+
+      
+
+
+
+<div class="sqft-helper" data-sqft-helper
+  data-target-floor="#labor-area"
+  >
+  <div class="tools-card">
+    <h4 class="calc-results__title">Sq Ft Helper</h4>
+
+    <div class="form-grid form-grid--3col">
+      <div class="form-field">
+        <label class="form-label">Width</label>
+        <div class="form-inline">
+          <input type="number" class="form-input" data-sqft="width" placeholder="e.g., 8" min="0" step="0.1">
+          <span class="form-inline__suffix">ft</span>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Length</label>
+        <div class="form-inline">
+          <input type="number" class="form-input" data-sqft="length" placeholder="e.g., 10" min="0" step="0.1">
+          <span class="form-inline__suffix">ft</span>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="form-grid form-grid--2col">
+      <div class="form-field">
+        <label class="form-label">Floor Area</label>
+        <div class="form-inline">
+          <input type="text" class="form-input" data-sqft-output="floor" value="—" readonly>
+          <span class="form-inline__suffix">sq ft</span>
+        </div>
+        <span class="form-hint">≈ width × length</span>
+      </div>
+      
+    </div>
+
+    <div class="form-actions">
+      <div class="btn-group btn-group--horizontal">
+        <button type="button" class="btn btn--primary" data-sqft-action="use-floor">Use floor area</button>
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
 
       <fieldset class="form-fieldset">
         <legend class="form-fieldset__legend">Prep Work Included</legend>
@@ -4037,7 +4396,41 @@
   defer
 ></script>
 
+<!-- Mobile App Features (PWA enhancements) -->
+<script
+  src="/assets/js/haptics.js?v=2026-01-18.1"
+  defer
+></script>
+<script
+  src="/assets/js/mobile-app.js?v=2026-01-18.1"
+  defer
+></script>
+<script
+  src="/assets/js/pwa-features.js?v=2026-01-18.1"
+  defer
+></script>
+<script
+  src="/assets/js/gestures.js?v=2026-01-18.1"
+  defer
+></script>
+<script
+  src="/assets/js/app-shell.js?v=2026-01-18.1"
+  defer
+></script>
+<script
+  src="/assets/js/mobile-personality.js?v=2026-01-18.1"
+  defer
+></script>
+
 <!-- Build Phase Calculators (conditionally loaded) -->
+
+
+<!-- Legacy Tools (Estimate Builder + Export) -->
+
+<script
+  src="/assets/js/tools.js?v=2026-01-18.1"
+  defer
+></script>
 
 <!-- Table of contents builder -->
 <script>

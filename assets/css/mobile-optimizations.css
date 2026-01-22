@@ -921,6 +921,9 @@
 
   a {
     text-decoration: underline;
+    color: #000000 !important;
+    text-shadow: none !important;
+    text-decoration-color: currentcolor;
   }
 }
 

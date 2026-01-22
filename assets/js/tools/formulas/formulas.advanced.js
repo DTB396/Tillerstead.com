@@ -787,12 +787,13 @@ export function calculateBathLayout(params) {
     roomLengthFt,
     roomWidthFt,
     doorWidthIn = 32,
+    doorWall = 'primary',
     walkwayMinIn = 30,
     includeTub = true,
     tubLengthIn = 60,
     tubWidthIn = 30,
     tubFrontClearIn = 30,
-    includeShower = true,
+    includeShower = false,
     showerWidthIn = 36,
     showerDepthIn = 36,
     showerFrontClearIn = 30,
@@ -890,33 +891,83 @@ export function calculateBathLayout(params) {
     notes.push(`Vanity front clearance: ${vanityFrontClearIn}"`);
   }
 
-  const primaryWallIsLength = roomLengthVal.value >= roomWidthVal.value;
-  const primaryWallIn = (primaryWallIsLength ? roomLengthVal.value : roomWidthVal.value) * 12;
-  const crossWallIn = (primaryWallIsLength ? roomWidthVal.value : roomLengthVal.value) * 12;
+  const requiredWallInRaw = fixtures.reduce((sum, f) => sum + f.width, 0);
+  const maxDepthClearInRaw = fixtures.reduce((max, f) => Math.max(max, f.depth), 0);
 
-  const availableWallIn = Math.max(0, primaryWallIn - doorWidthVal.value);
-  const requiredWallIn = fixtures.reduce((sum, f) => sum + f.width, 0);
-  const maxDepthClearIn = fixtures.reduce((max, f) => Math.max(max, f.depth), 0);
-  const walkwayWidthIn = crossWallIn - maxDepthClearIn;
-  const walkwayPassBool = walkwayWidthIn >= walkwayVal.value;
-  const fitsLinearBool = requiredWallIn <= availableWallIn;
+  const primaryWall = roomLengthVal.value >= roomWidthVal.value ? 'length' : 'width';
+  const lengthWallIn = roomLengthVal.value * 12;
+  const widthWallIn = roomWidthVal.value * 12;
 
-  assumptions.push(`Primary layout wall: ${primaryWallIsLength ? 'length' : 'width'} side`);
-  assumptions.push(`Door width deducted: ${doorWidthVal.value}"`);
+  const resolveDoorDeductionIn = (fixtureWall) => {
+    if (doorWall === 'none') return 0;
+    if (doorWall === 'primary') return fixtureWall === primaryWall ? doorWidthVal.value : 0;
+    if (doorWall === 'length') return fixtureWall === 'length' ? doorWidthVal.value : 0;
+    if (doorWall === 'width') return fixtureWall === 'width' ? doorWidthVal.value : 0;
+    return doorWidthVal.value; // fallback to legacy behavior
+  };
+
+  const evaluate = (fixtureWall) => {
+    const wallIn = fixtureWall === 'length' ? lengthWallIn : widthWallIn;
+    const crossWallIn = fixtureWall === 'length' ? widthWallIn : lengthWallIn;
+    const doorDeductIn = resolveDoorDeductionIn(fixtureWall);
+    const availableWallIn = Math.max(0, wallIn - doorDeductIn);
+    const walkwayWidthIn = crossWallIn - maxDepthClearInRaw;
+    const walkwayPassBool = walkwayWidthIn >= walkwayVal.value;
+    const fitsLinearBool = requiredWallInRaw <= availableWallIn;
+
+    return {
+      fixtureWall,
+      availableWallIn,
+      requiredWallIn: requiredWallInRaw,
+      maxDepthClearIn: maxDepthClearInRaw,
+      walkwayWidthIn,
+      walkwayPassBool,
+      fitsLinearBool,
+      doorDeductIn
+    };
+  };
+
+  const evalLength = evaluate('length');
+  const evalWidth = evaluate('width');
+
+  const score = (e) => {
+    // Prefer passing both checks; then maximize clear path; then maximize spare wall.
+    const passScore = (e.fitsLinearBool ? 2 : 0) + (e.walkwayPassBool ? 1 : 0);
+    const walkwayOver = e.walkwayWidthIn - walkwayVal.value;
+    const wallSpare = e.availableWallIn - e.requiredWallIn;
+    return [passScore, walkwayOver, wallSpare];
+  };
+
+  const a = score(evalLength);
+  const b = score(evalWidth);
+  const selected =
+    a[0] !== b[0] ? (a[0] > b[0] ? evalLength : evalWidth) :
+    a[1] !== b[1] ? (a[1] > b[1] ? evalLength : evalWidth) :
+    (a[2] >= b[2] ? evalLength : evalWidth);
+
+  const alternate = selected.fixtureWall === 'length' ? evalWidth : evalLength;
+
+  assumptions.push(`Layout wall tested: length + width (best chosen)`);
+  assumptions.push(`Selected fixture wall: ${selected.fixtureWall}`);
+  assumptions.push(`Door wall setting: ${doorWall}`);
+  assumptions.push(`Door width deducted on selected wall: ${roundToDecimals(selected.doorDeductIn, 1)}"`);
   assumptions.push(`Walkway minimum target: ${walkwayVal.value}"`);
 
-  if (!fitsLinearBool) warnings.push('Fixtures exceed available wall length—consider re-orienting or reducing widths.');
-  if (!walkwayPassBool) warnings.push(`Clear path under ${walkwayVal.value}" — increase room width or reduce front clearances.`);
+  notes.push(`Alternate (${alternate.fixtureWall}) — Available wall: ${roundToDecimals(alternate.availableWallIn, 1)}", Clear path: ${roundToDecimals(alternate.walkwayWidthIn, 1)}"`);
+
+  if (!selected.fitsLinearBool) warnings.push('Fixtures exceed available wall length—consider switching walls or reducing widths.');
+  if (!selected.walkwayPassBool) warnings.push(`Clear path under ${walkwayVal.value}" — increase room width or reduce front clearances.`);
 
   return {
     valid: true,
     errors: [],
-    availableWallIn: roundToDecimals(availableWallIn, 1),
-    requiredWallIn: roundToDecimals(requiredWallIn, 1),
-    fitsLinear: fitsLinearBool ? 'Yes' : 'No',
-    walkwayWidthIn: roundToDecimals(walkwayWidthIn, 1),
-    walkwayPass: walkwayPassBool ? 'Yes' : 'No',
-    maxDepthClearIn: roundToDecimals(maxDepthClearIn, 1),
+    layoutWall: selected.fixtureWall,
+    availableWallIn: roundToDecimals(selected.availableWallIn, 1),
+    requiredWallIn: roundToDecimals(selected.requiredWallIn, 1),
+    fitsLinear: selected.fitsLinearBool ? 'Yes' : 'No',
+    walkwayWidthIn: roundToDecimals(selected.walkwayWidthIn, 1),
+    walkwayPass: selected.walkwayPassBool ? 'Yes' : 'No',
+    maxDepthClearIn: roundToDecimals(selected.maxDepthClearIn, 1),
     assumptions,
     warnings,
     notes

@@ -608,7 +608,7 @@ body[class*="page-build"],
 
 .btn-light {
   background: #ffffff;
-  color: var(--tiller-color-emerald, #10b981) !important;
+  color: var(--tiller-color-emerald-accessible, #008f5d) !important;
 }
 
 .btn-light:hover {

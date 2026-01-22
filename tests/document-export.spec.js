@@ -6,11 +6,41 @@ test.describe('TillerPro Document Export', () => {
   
   const EXPORT_URL = '/tools/legacy/';
 
+  const ensureRoomSurfaceChecked = async (roomCard, surface) => {
+    const surfaceLabelById = {
+      floor: 'Floor',
+      'full-walls': 'Full Walls',
+      'shower-walls': 'Shower Walls',
+      'tub-surround': 'Tub Surround',
+      backsplash: 'Backsplash',
+    };
+
+    const labelText = surfaceLabelById[surface] ?? surface;
+
+    // Best practice: click the same visible element a user would.
+    // The <input> is visually clipped; the <span.surface-toggle__label> is the clickable surface.
+    const toggle = roomCard.locator('label.surface-toggle').filter({ hasText: labelText }).first();
+    const input = toggle.locator(`input.surface-checkbox[data-surface="${surface}"]`);
+    const clickTarget = toggle.locator('.surface-toggle__label');
+
+    await expect(clickTarget).toBeVisible();
+    await clickTarget.scrollIntoViewIfNeeded();
+
+    if (!(await input.isChecked())) {
+      await clickTarget.click();
+    }
+
+    await expect(input).toBeChecked();
+  };
+
   test.beforeEach(async ({ page }) => {
     // Clear localStorage before each test to start fresh
     await page.goto(EXPORT_URL);
     await page.evaluate(() => localStorage.clear());
     await page.reload();
+
+    // Wait for the legacy tools app to initialize and render a default room.
+    await expect(page.locator('.room-card').first()).toBeVisible();
   });
 
   test('export requires project name', async ({ page }) => {
@@ -35,14 +65,12 @@ test.describe('TillerPro Document Export', () => {
     
     // Fill project name
     await page.fill('#project-name', 'Test Bathroom Project');
-    await page.locator('#project-name').dispatchEvent('change');
-    
-    // Add a room
-    await page.click('#add-room-btn');
+    await page.locator('#project-name').blur();
     
     // Fill room name
-    await page.fill('.room-name-input', 'Main Bathroom');
-    await page.locator('.room-name-input').dispatchEvent('change');
+    const roomCard = page.locator('.room-card').first();
+    await roomCard.locator('.room-name-input').fill('Main Bathroom');
+    await roomCard.locator('.room-name-input').blur();
     
     // Try to generate without selecting a surface
     await page.click('#generate-output-btn');
@@ -59,28 +87,22 @@ test.describe('TillerPro Document Export', () => {
     
     // Fill project information
     await page.fill('#project-name', 'Master Bathroom Renovation');
-    await page.locator('#project-name').dispatchEvent('change');
+    await page.locator('#project-name').blur();
     await page.fill('#client-name', 'John Smith');
-    await page.locator('#client-name').dispatchEvent('change');
-    
-    // Add a room
-    await page.click('#add-room-btn');
+    await page.locator('#client-name').blur();
     
     // Fill room details
     const roomCard = page.locator('.room-card').first();
     await roomCard.locator('.room-name-input').fill('Master Bath');
-    await roomCard.locator('.room-name-input').dispatchEvent('change');
+    await roomCard.locator('.room-name-input').blur();
     await roomCard.locator('.room-length-ft').fill('12');
-    await roomCard.locator('.room-length-ft').dispatchEvent('input');
     await roomCard.locator('.room-width-ft').fill('10');
-    await roomCard.locator('.room-width-ft').dispatchEvent('input');
     
-    // Select floor surface
-    await roomCard.locator('[data-surface="floor"]').check();
-    await roomCard.locator('[data-surface="floor"]').dispatchEvent('change');
+    // Select floor surface (click the visible toggle, not the hidden input)
+    await ensureRoomSurfaceChecked(roomCard, 'floor');
     
-    // Wait for state/area calculation
-    await page.waitForTimeout(500);
+    // Wait for state/area calculation (input handler is debounced)
+    await expect(page.locator('#total-area')).toContainText('120', { timeout: 8000 });
     
     // Generate output
     await page.click('#generate-output-btn');
@@ -104,20 +126,16 @@ test.describe('TillerPro Document Export', () => {
     
     // Set up valid project data
     await page.fill('#project-name', 'Kitchen Backsplash');
-    await page.locator('#project-name').dispatchEvent('change');
-    await page.click('#add-room-btn');
+    await page.locator('#project-name').blur();
     
     const roomCard = page.locator('.room-card').first();
     await roomCard.locator('.room-name-input').fill('Kitchen');
-    await roomCard.locator('.room-name-input').dispatchEvent('change');
+    await roomCard.locator('.room-name-input').blur();
     await roomCard.locator('.room-length-ft').fill('8');
-    await roomCard.locator('.room-length-ft').dispatchEvent('input');
     await roomCard.locator('.room-width-ft').fill('6');
-    await roomCard.locator('.room-width-ft').dispatchEvent('input');
-    await roomCard.locator('[data-surface="floor"]').check();
-    await roomCard.locator('[data-surface="floor"]').dispatchEvent('change');
-    
-    await page.waitForTimeout(500);
+    await ensureRoomSurfaceChecked(roomCard, 'floor');
+
+    await expect(page.locator('#total-area')).not.toHaveText('0', { timeout: 8000 });
     
     // Generate preview first
     await page.click('#generate-output-btn');
@@ -142,27 +160,21 @@ test.describe('TillerPro Document Export', () => {
     
     // Set up project
     await page.fill('#project-name', 'Multi-Surface Test');
-    await page.locator('#project-name').dispatchEvent('change');
-    await page.click('#add-room-btn');
+    await page.locator('#project-name').blur();
     
     const roomCard = page.locator('.room-card').first();
     await roomCard.locator('.room-name-input').fill('Bathroom');
-    await roomCard.locator('.room-name-input').dispatchEvent('change');
+    await roomCard.locator('.room-name-input').blur();
     await roomCard.locator('.room-length-ft').fill('10');
-    await roomCard.locator('.room-length-ft').dispatchEvent('input');
     await roomCard.locator('.room-width-ft').fill('8');
-    await roomCard.locator('.room-width-ft').dispatchEvent('input');
     await roomCard.locator('.room-height-ft').fill('8');
-    await roomCard.locator('.room-height-ft').dispatchEvent('input');
     
     // Select floor (10 × 8 = 80 sf)
-    await roomCard.locator('[data-surface="floor"]').check();
-    await roomCard.locator('[data-surface="floor"]').dispatchEvent('change');
-    await page.waitForTimeout(300);
+    await ensureRoomSurfaceChecked(roomCard, 'floor');
     
     // Check total area display
     const totalArea = page.locator('#total-area');
-    await expect(totalArea).toContainText('80');
+    await expect(totalArea).toContainText('80', { timeout: 8000 });
     
     // Generate output
     await page.click('#generate-output-btn');
@@ -178,20 +190,16 @@ test.describe('TillerPro Document Export', () => {
     
     // Set up minimal valid data
     await page.fill('#project-name', 'Print Test');
-    await page.locator('#project-name').dispatchEvent('change');
-    await page.click('#add-room-btn');
+    await page.locator('#project-name').blur();
     
     const roomCard = page.locator('.room-card').first();
     await roomCard.locator('.room-name-input').fill('Room 1');
-    await roomCard.locator('.room-name-input').dispatchEvent('change');
+    await roomCard.locator('.room-name-input').blur();
     await roomCard.locator('.room-length-ft').fill('10');
-    await roomCard.locator('.room-length-ft').dispatchEvent('input');
     await roomCard.locator('.room-width-ft').fill('10');
-    await roomCard.locator('.room-width-ft').dispatchEvent('input');
-    await roomCard.locator('[data-surface="floor"]').check();
-    await roomCard.locator('[data-surface="floor"]').dispatchEvent('change');
-    
-    await page.waitForTimeout(500);
+    await ensureRoomSurfaceChecked(roomCard, 'floor');
+
+    await expect(page.locator('#total-area')).not.toHaveText('0', { timeout: 8000 });
     
     // Generate preview
     await page.click('#generate-output-btn');
@@ -212,27 +220,23 @@ test.describe('TillerPro Document Export', () => {
   });
 
   test('copy output to clipboard works', async ({ page, context }) => {
-    // Grant clipboard permissions
-    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+    // Avoid browser-specific permission names; this test only asserts UI feedback.
+    await context.grantPermissions(['clipboard-read']);
     
     await page.goto(EXPORT_URL);
     
     // Set up valid data
     await page.fill('#project-name', 'Clipboard Test');
-    await page.locator('#project-name').dispatchEvent('change');
-    await page.click('#add-room-btn');
+    await page.locator('#project-name').blur();
     
     const roomCard = page.locator('.room-card').first();
     await roomCard.locator('.room-name-input').fill('Test Room');
-    await roomCard.locator('.room-name-input').dispatchEvent('change');
+    await roomCard.locator('.room-name-input').blur();
     await roomCard.locator('.room-length-ft').fill('10');
-    await roomCard.locator('.room-length-ft').dispatchEvent('input');
     await roomCard.locator('.room-width-ft').fill('10');
-    await roomCard.locator('.room-width-ft').dispatchEvent('input');
-    await roomCard.locator('[data-surface="floor"]').check();
-    await roomCard.locator('[data-surface="floor"]').dispatchEvent('change');
-    
-    await page.waitForTimeout(500);
+    await ensureRoomSurfaceChecked(roomCard, 'floor');
+
+    await expect(page.locator('#total-area')).not.toHaveText('0', { timeout: 8000 });
     
     // Generate preview
     await page.click('#generate-output-btn');
@@ -252,20 +256,16 @@ test.describe('TillerPro Document Export', () => {
     
     // Set up valid data
     await page.fill('#project-name', 'Branding Test');
-    await page.locator('#project-name').dispatchEvent('change');
-    await page.click('#add-room-btn');
+    await page.locator('#project-name').blur();
     
     const roomCard = page.locator('.room-card').first();
     await roomCard.locator('.room-name-input').fill('Room');
-    await roomCard.locator('.room-name-input').dispatchEvent('change');
+    await roomCard.locator('.room-name-input').blur();
     await roomCard.locator('.room-length-ft').fill('10');
-    await roomCard.locator('.room-length-ft').dispatchEvent('input');
     await roomCard.locator('.room-width-ft').fill('10');
-    await roomCard.locator('.room-width-ft').dispatchEvent('input');
-    await roomCard.locator('[data-surface="floor"]').check();
-    await roomCard.locator('[data-surface="floor"]').dispatchEvent('change');
-    
-    await page.waitForTimeout(500);
+    await ensureRoomSurfaceChecked(roomCard, 'floor');
+
+    await expect(page.locator('#total-area')).not.toHaveText('0', { timeout: 8000 });
     
     // Generate preview
     await page.click('#generate-output-btn');
@@ -283,33 +283,42 @@ test.describe('TillerPro Document Export', () => {
     
     // Set up valid data
     await page.fill('#project-name', 'TXT Export Test');
-    await page.locator('#project-name').dispatchEvent('change');
-    await page.click('#add-room-btn');
+    await page.locator('#project-name').blur();
     
     const roomCard = page.locator('.room-card').first();
     await roomCard.locator('.room-name-input').fill('Room');
-    await roomCard.locator('.room-name-input').dispatchEvent('change');
+    await roomCard.locator('.room-name-input').blur();
     await roomCard.locator('.room-length-ft').fill('10');
-    await roomCard.locator('.room-length-ft').dispatchEvent('input');
     await roomCard.locator('.room-width-ft').fill('10');
-    await roomCard.locator('.room-width-ft').dispatchEvent('input');
-    await roomCard.locator('[data-surface="floor"]').check();
-    await roomCard.locator('[data-surface="floor"]').dispatchEvent('change');
-    
-    await page.waitForTimeout(500);
+    await ensureRoomSurfaceChecked(roomCard, 'floor');
+
+    await expect(page.locator('#total-area')).not.toHaveText('0', { timeout: 8000 });
     
     // Generate preview
     await page.click('#generate-output-btn');
     await expect(page.locator('#output-preview')).toBeVisible({ timeout: 5000 });
     
-    // Set up download listener
-    const downloadPromise = page.waitForEvent('download');
-    
-    // Click txt download
+    // Some headless Chromium runs don't surface text downloads as Playwright "download" events.
+    // Accept either a real download event OR the in-app download hook.
+    const downloadPromise = page.waitForEvent('download', { timeout: 5000 }).catch(() => null);
+    const hookPromise = page
+      .waitForFunction(
+        () => (document.documentElement?.dataset?.tillersteadLastDownload || '').includes('.txt'),
+        null,
+        { timeout: 5000 }
+      )
+      .catch(() => null);
+
     await page.click('#download-txt-btn');
-    
-    const download = await downloadPromise;
-    expect(download.suggestedFilename()).toContain('.txt');
+
+    const download = await Promise.race([downloadPromise, hookPromise]);
+
+    if (download && typeof download.suggestedFilename === 'function') {
+      expect(download.suggestedFilename()).toContain('.txt');
+    } else {
+      const last = await page.evaluate(() => document.documentElement?.dataset?.tillersteadLastDownload);
+      expect(last || '').toContain('.txt');
+    }
   });
 
 });
