@@ -31,6 +31,7 @@
   max-width: 280px;
   height: auto;
   margin: 0 auto var(--tiller-spacing-sm, 0.5rem);
+
   /* CRITICAL: Remove all background/border effects that create the black box */
   background: transparent !important;
   background-color: transparent !important;
@@ -38,6 +39,7 @@
   box-shadow: none !important;
   border: none !important;
   padding: 0;
+
   /* White solid bright with emerald glow */
   filter: brightness(1.1) drop-shadow(0 4px 12px rgb(16 185 129 / 40%));
   transition: transform 0.3s ease, filter 0.3s ease;
@@ -46,6 +48,7 @@
 .footer-logo:hover,
 .footer-logo--large:hover {
   transform: scale(1.05);
+
   /* Gold glow on hover */
   filter: brightness(1.2) drop-shadow(0 6px 20px rgb(201 162 39 / 70%));
 }
@@ -252,7 +255,7 @@
 
 /* Ensure stroke icons (like thumbtack) are visible */
 .footer-social a svg[stroke] {
-  stroke: currentColor;
+  stroke: currentcolor;
   fill: none;
 }
 

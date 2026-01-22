@@ -50,7 +50,7 @@
     padding: 12px 16px;
     font-size: 16px;
     border-radius: 8px;
-    -webkit-appearance: none;
+    appearance: none;
     appearance: none;
   }
 
@@ -175,7 +175,7 @@
     grid-template-columns: 1fr;
     gap: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid rgba(160, 32, 48, 0.1);
+    border-top: 1px solid rgb(160 32 48 / 10%);
   }
 
   .hero-highlights {
@@ -235,7 +235,7 @@
 
   .nav-drawer a:active,
   .nav-drawer a:hover {
-    background: rgba(160, 32, 48, 0.15);
+    background: rgb(160 32 48 / 15%);
   }
 
   .drawer-cta {
@@ -362,7 +362,7 @@
   .process-step:active,
   .material-card:active,
   .testimonial-card:active {
-    opacity: 0.8;
+    opacity: 80%;
   }
 
   /* Reduce shadows on mobile */
@@ -370,7 +370,7 @@
   .process-step,
   .material-card,
   .testimonial-card {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
   }
 }
 
@@ -399,7 +399,7 @@
 
   /* Ensure contrast ratio */
   body {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgb(255 255 255 / 90%);
     background: #0f1210;
   }
 }
@@ -567,7 +567,7 @@
 
   /* Better press feedback */
   .btn:active {
-    opacity: 0.8;
+    opacity: 80%;
     transform: scale(0.98);
   }
 }
@@ -762,11 +762,12 @@
 
   @keyframes fadeIn {
     from {
-      opacity: 0;
+      opacity: 0%;
       transform: translateY(8px);
     }
+
     to {
-      opacity: 1;
+      opacity: 100%;
       transform: translateY(0);
     }
   }
@@ -912,7 +913,7 @@
 
   /* Reduce compositor layers */
   * {
-    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     backface-visibility: hidden;
   }
 }

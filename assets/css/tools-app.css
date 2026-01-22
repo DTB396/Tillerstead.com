@@ -13,24 +13,24 @@
   --app-surface: #1a1c1a;
   --app-surface-2: #242624;
   --app-surface-3: #2e302e;
-  --app-border: rgba(255, 255, 255, 0.12);
-  --app-border-focus: rgba(16, 185, 129, 0.5);
+  --app-border: rgb(255 255 255 / 12%);
+  --app-border-focus: rgb(16 185 129 / 50%);
   --app-text: #ffffff;
-  --app-text-muted: rgba(255, 255, 255, 0.85);
-  --app-text-dim: rgba(255, 255, 255, 0.7);
+  --app-text-muted: rgb(255 255 255 / 85%);
+  --app-text-dim: rgb(255 255 255 / 70%);
   
   /* Brand colors */
   --app-primary: #10b981;
   --app-primary-hover: #0ea472;
-  --app-primary-muted: rgba(16, 185, 129, 0.15);
+  --app-primary-muted: rgb(16 185 129 / 15%);
   --app-gold: #c9a227;
-  --app-gold-muted: rgba(201, 162, 39, 0.15);
+  --app-gold-muted: rgb(201 162 39 / 15%);
   --app-danger: #ef4444;
-  --app-danger-muted: rgba(239, 68, 68, 0.15);
+  --app-danger-muted: rgb(239 68 68 / 15%);
   --app-warning: #f59e0b;
-  --app-warning-muted: rgba(245, 158, 11, 0.15);
+  --app-warning-muted: rgb(245 158 11 / 15%);
   --app-info: #3b82f6;
-  --app-info-muted: rgba(59, 130, 246, 0.15);
+  --app-info-muted: rgb(59 130 246 / 15%);
   
   /* Layout */
   --sidebar-width: 260px;
@@ -54,9 +54,9 @@
   --radius-full: 9999px;
   
   /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 30%);
+  --shadow-md: 0 4px 12px rgb(0 0 0 / 40%);
+  --shadow-lg: 0 8px 24px rgb(0 0 0 / 50%);
   
   /* Transitions */
   --transition-fast: 0.15s ease;
@@ -74,7 +74,7 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 14px;
   line-height: 1.5;
   background: var(--app-bg);
@@ -409,8 +409,8 @@ button {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%, 100% { opacity: 100%; }
+  50% { opacity: 50%; }
 }
 
 .api-status--offline {
@@ -427,7 +427,7 @@ button {
 .api-status--connected {
   background: var(--app-primary-muted);
   color: var(--app-primary);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  border: 1px solid rgb(16 185 129 / 30%);
 }
 
 .api-status--connected .api-status__dot {
@@ -438,7 +438,7 @@ button {
 .api-status--syncing {
   background: var(--app-warning-muted);
   color: var(--app-warning);
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  border: 1px solid rgb(245 158 11 / 30%);
 }
 
 .api-status--syncing .api-status__dot {
@@ -456,6 +456,7 @@ button {
   .api-status span:not(.api-status__dot) {
     display: none;
   }
+
   .api-status {
     padding: 0.5rem;
   }
@@ -545,8 +546,8 @@ button {
   grid-template-columns: 1fr auto;
   gap: var(--space-2xl);
   align-items: center;
-  background: linear-gradient(135deg, var(--app-primary-muted), rgba(201, 162, 39, 0.1));
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: linear-gradient(135deg, var(--app-primary-muted), rgb(201 162 39 / 10%));
+  border: 1px solid rgb(16 185 129 / 30%);
   border-radius: var(--radius-xl);
   padding: var(--space-2xl);
 }
@@ -563,7 +564,7 @@ button {
   font-weight: 800;
   margin: 0 0 var(--space-sm);
   background: linear-gradient(135deg, var(--app-text), var(--app-primary));
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
@@ -600,7 +601,7 @@ button {
 .hero-stat {
   text-align: center;
   padding: var(--space-lg);
-  background: rgba(0, 0, 0, 0.2);
+  background: rgb(0 0 0 / 20%);
   border-radius: var(--radius-lg);
   min-width: 80px;
 }
@@ -625,7 +626,7 @@ button {
 /* Coming Soon Cards */
 .calc-card--coming {
   cursor: not-allowed;
-  opacity: 0.6;
+  opacity: 60%;
   position: relative;
 }
 
@@ -651,7 +652,7 @@ button {
 }
 
 .calc-grid--coming {
-  opacity: 0.7;
+  opacity: 70%;
 }
 
 .dashboard__section--muted {
@@ -708,7 +709,7 @@ button {
 .empty-state__icon {
   font-size: 3rem;
   margin-bottom: var(--space-md);
-  opacity: 0.5;
+  opacity: 50%;
 }
 
 .empty-state__title {
@@ -909,7 +910,7 @@ button {
 }
 
 .calc-selector__item.is-active .calc-selector__arrow {
-  opacity: 1;
+  opacity: 100%;
   color: var(--app-primary);
 }
 
@@ -1012,7 +1013,7 @@ button {
 /* Coming Soon State */
 .calc-selector__item.is-coming {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 50%;
 }
 
 .calc-selector__item.is-coming:hover {
@@ -1068,7 +1069,7 @@ button {
 }
 
 .calc-selector__arrow {
-  opacity: 0;
+  opacity: 0%;
   transition: var(--transition-fast);
   flex-shrink: 0;
 }
@@ -1107,7 +1108,7 @@ button {
   border-radius: var(--radius-xl);
   padding: var(--space-2xl);
   display: none;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgb(0 0 0 / 20%);
   position: relative;
   overflow: hidden;
 }
@@ -1128,8 +1129,8 @@ button {
 }
 
 @keyframes slideIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0%; transform: translateY(20px); }
+  to { opacity: 100%; transform: translateY(0); }
 }
 
 .calc-panel__header {
@@ -1199,7 +1200,7 @@ button {
 .form-label {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #fff;
+  color: #ffffff;
   display: flex;
   align-items: center;
   gap: var(--space-sm);
@@ -1231,7 +1232,7 @@ button {
 
 .form-input:hover,
 .form-select:hover {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgb(255 255 255 / 20%);
 }
 
 .form-input:focus,
@@ -1243,7 +1244,7 @@ button {
 }
 
 .form-input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgb(255 255 255 / 40%);
 }
 
 .form-select {
@@ -1334,8 +1335,8 @@ button {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0%; transform: translateY(10px); }
+  to { opacity: 100%; transform: translateY(0); }
 }
 
 .calc-results__title {
@@ -1371,7 +1372,7 @@ button {
   right: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--app-primary), var(--app-gold));
-  opacity: 0.5;
+  opacity: 50%;
 }
 
 .calc-result__label {
@@ -1387,14 +1388,14 @@ button {
   font-weight: 700;
   line-height: 1.2;
   background: linear-gradient(135deg, var(--app-text), var(--app-text-muted));
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .calc-result__value--highlight {
   background: linear-gradient(135deg, var(--app-primary), #34d399);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
@@ -1693,7 +1694,7 @@ button {
 
 .icon-btn:hover {
   background: var(--app-surface-3);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgb(255 255 255 / 20%);
 }
 
 .icon-btn--danger:hover {
@@ -1729,7 +1730,7 @@ button {
 .project-card:hover {
   border-color: var(--app-primary);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 30%);
 }
 
 .project-card__header {
@@ -1956,7 +1957,7 @@ button {
 }
 
 .toggle input {
-  opacity: 0;
+  opacity: 0%;
   width: 0;
   height: 0;
 }
@@ -1983,7 +1984,7 @@ button {
   background: white;
   border-radius: 50%;
   transition: var(--transition-base);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
 }
 
 .toggle input:checked + .toggle__track {
@@ -2021,18 +2022,18 @@ button {
 .btn--primary {
   background: linear-gradient(135deg, var(--app-primary), var(--app-primary-hover));
   color: white;
-  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 4px 14px rgb(16 185 129 / 30%);
 }
 
 .btn--primary:hover {
   background: linear-gradient(135deg, var(--app-primary-hover), #047857);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 6px 20px rgb(16 185 129 / 40%);
 }
 
 .btn--primary:active {
   transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 2px 8px rgb(16 185 129 / 30%);
 }
 
 .btn--secondary {
@@ -2043,14 +2044,14 @@ button {
 
 .btn--secondary:hover {
   background: var(--app-surface-3);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgb(255 255 255 / 20%);
   transform: translateY(-1px);
 }
 
 .btn--danger {
   background: linear-gradient(135deg, var(--app-danger), #dc2626);
   color: white;
-  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.3);
+  box-shadow: 0 4px 14px rgb(239 68 68 / 30%);
 }
 
 .btn--danger:hover {
@@ -2072,12 +2073,12 @@ button {
 .btn--gold {
   background: linear-gradient(135deg, var(--app-gold), #d4a00a);
   color: #1a1c1a;
-  box-shadow: 0 4px 14px rgba(201, 162, 39, 0.3);
+  box-shadow: 0 4px 14px rgb(201 162 39 / 30%);
 }
 
 .btn--gold:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(201, 162, 39, 0.4);
+  box-shadow: 0 6px 20px rgb(201 162 39 / 40%);
 }
 
 .btn--calculate {
@@ -2087,7 +2088,7 @@ button {
   font-weight: 700;
   padding: var(--space-lg) var(--space-2xl);
   border-radius: var(--radius-lg);
-  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 20px rgb(16 185 129 / 40%);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   position: relative;
@@ -2101,13 +2102,13 @@ button {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 20%), transparent);
   transition: left 0.5s ease;
 }
 
 .btn--calculate:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 8px 30px rgb(16 185 129 / 50%);
 }
 
 .btn--calculate:hover::before {
@@ -2116,7 +2117,7 @@ button {
 
 .btn--calculate:active {
   transform: translateY(0);
-  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 2px 10px rgb(16 185 129 / 30%);
 }
 
 /* Calculating state */
@@ -2130,8 +2131,8 @@ button {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%, 100% { opacity: 100%; }
+  50% { opacity: 50%; }
 }
 
 .btn--lg {
@@ -2186,32 +2187,33 @@ button {
 @keyframes slideIn {
   from {
     transform: translateX(100%);
-    opacity: 0;
+    opacity: 0%;
   }
+
   to {
     transform: translateX(0);
-    opacity: 1;
+    opacity: 100%;
   }
 }
 
 .toast--success {
   border-left: 4px solid var(--app-primary);
-  background: linear-gradient(90deg, rgba(16, 185, 129, 0.15) 0%, var(--app-surface) 30%);
+  background: linear-gradient(90deg, rgb(16 185 129 / 15%) 0%, var(--app-surface) 30%);
 }
 
 .toast--error {
   border-left: 4px solid var(--app-danger);
-  background: linear-gradient(90deg, rgba(239, 68, 68, 0.15) 0%, var(--app-surface) 30%);
+  background: linear-gradient(90deg, rgb(239 68 68 / 15%) 0%, var(--app-surface) 30%);
 }
 
 .toast--warning {
   border-left: 4px solid var(--app-warning);
-  background: linear-gradient(90deg, rgba(245, 158, 11, 0.15) 0%, var(--app-surface) 30%);
+  background: linear-gradient(90deg, rgb(245 158 11 / 15%) 0%, var(--app-surface) 30%);
 }
 
 .toast--info {
   border-left: 4px solid var(--app-info);
-  background: linear-gradient(90deg, rgba(59, 130, 246, 0.15) 0%, var(--app-surface) 30%);
+  background: linear-gradient(90deg, rgb(59 130 246 / 15%) 0%, var(--app-surface) 30%);
 }
 
 .toast__icon {
@@ -2259,19 +2261,19 @@ button {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgb(0 0 0 / 70%);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 3000;
   padding: var(--space-lg);
-  opacity: 0;
+  opacity: 0%;
   visibility: hidden;
   transition: var(--transition-base);
 }
 
 .modal-overlay:not([hidden]) {
-  opacity: 1;
+  opacity: 100%;
   visibility: visible;
 }
 
@@ -2511,7 +2513,7 @@ button {
 
 .calc-selector__group-items.is-collapsed {
   max-height: 0 !important;
-  opacity: 0;
+  opacity: 0%;
   pointer-events: none;
 }
 
@@ -2593,7 +2595,7 @@ button {
   gap: var(--space-md);
   padding: var(--space-md) var(--space-lg);
   background: var(--app-info-muted);
-  border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+  border-bottom: 1px solid rgb(59 130 246 / 20%);
   animation: slideDown 0.2s ease-out;
 }
 
@@ -2629,7 +2631,7 @@ button {
 }
 
 .calc-panel__tooltip-close:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(255 255 255 / 10%);
   color: var(--app-text);
 }
 
@@ -2639,11 +2641,12 @@ button {
 
 @keyframes slideDown {
   from {
-    opacity: 0;
+    opacity: 0%;
     transform: translateY(-10px);
   }
+
   to {
-    opacity: 1;
+    opacity: 100%;
     transform: translateY(0);
   }
 }
@@ -2758,7 +2761,7 @@ button {
   background: var(--app-surface-3);
   border-color: var(--card-accent, var(--app-primary));
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
 }
 
 .calc-card:focus-visible {
@@ -2809,12 +2812,12 @@ button {
 .calc-card__arrow {
   flex-shrink: 0;
   color: var(--app-text-dim);
-  opacity: 0;
+  opacity: 0%;
   transition: var(--transition-fast);
 }
 
 .calc-card:hover .calc-card__arrow {
-  opacity: 1;
+  opacity: 100%;
   color: var(--card-accent, var(--app-primary));
 }
 
@@ -2833,7 +2836,7 @@ button {
 /* Coming Soon Cards */
 .calc-card--coming {
   cursor: not-allowed;
-  opacity: 0.6;
+  opacity: 60%;
 }
 
 .calc-card--coming:hover {
@@ -2871,12 +2874,12 @@ button {
 .recent-list__arrow {
   flex-shrink: 0;
   color: var(--app-text-dim);
-  opacity: 0;
+  opacity: 0%;
   transition: var(--transition-fast);
 }
 
 .recent-list__item:hover .recent-list__arrow {
-  opacity: 1;
+  opacity: 100%;
   color: var(--app-primary);
 }
 
@@ -3015,15 +3018,15 @@ button {
 .sidebar-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgb(0 0 0 / 50%);
   z-index: 999;
-  opacity: 0;
+  opacity: 0%;
   visibility: hidden;
   transition: var(--transition-base);
 }
 
 .sidebar-overlay.is-visible {
-  opacity: 1;
+  opacity: 100%;
   visibility: visible;
 }
 
@@ -3115,7 +3118,7 @@ button {
 
 .shop-link--local {
   background: var(--app-gold-muted);
-  border-color: rgba(201, 162, 39, 0.3);
+  border-color: rgb(201 162 39 / 30%);
   color: var(--app-gold);
 }
 
@@ -3128,25 +3131,25 @@ button {
 /* Retailer-specific hover colors */
 .shop-link[data-retailer="homedepot"]:hover {
   border-color: #f96302;
-  background: rgba(249, 99, 2, 0.15);
+  background: rgb(249 99 2 / 15%);
   color: #f96302;
 }
 
 .shop-link[data-retailer="lowes"]:hover {
   border-color: #004990;
-  background: rgba(0, 73, 144, 0.15);
+  background: rgb(0 73 144 / 15%);
   color: #6fa8dc;
 }
 
 .shop-link[data-retailer="flooranddecor"]:hover {
   border-color: #00a651;
-  background: rgba(0, 166, 81, 0.15);
+  background: rgb(0 166 81 / 15%);
   color: #00a651;
 }
 
 .shop-link[data-retailer="amazon"]:hover {
   border-color: #ff9900;
-  background: rgba(255, 153, 0, 0.15);
+  background: rgb(255 153 0 / 15%);
   color: #ff9900;
 }
 
@@ -3171,12 +3174,12 @@ button {
   color: var(--app-text-dim);
   background: var(--app-surface-2);
   border-radius: var(--radius-sm);
-  opacity: 0.7;
+  opacity: 70%;
   transition: all var(--transition-base);
 }
 
 .autosave-indicator.is-saving {
-  opacity: 1;
+  opacity: 100%;
   color: var(--app-primary);
   background: var(--app-primary-muted);
 }
@@ -3542,7 +3545,7 @@ button {
 .cta-card__text {
   font-size: 0.875rem;
   margin: 0;
-  opacity: 0.9;
+  opacity: 90%;
   line-height: 1.5;
 }
 
@@ -3568,7 +3571,7 @@ button {
 }
 
 .cta-card .btn--secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(255 255 255 / 10%);
 }
 
 /* Dashboard Section Variants */

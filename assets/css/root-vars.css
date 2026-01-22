@@ -246,7 +246,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizelegibility;
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   text-size-adjust: 100%;
   overflow-x: clip;
 
@@ -279,7 +279,7 @@ body {
   font-size: var(--tiller-font-size-base, 1rem);
   line-height: var(--tiller-line-height-normal, 1.5);
   overflow-x: clip;
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   text-size-adjust: 100%;
 
   /* Full-bleed: no horizontal restrictions */

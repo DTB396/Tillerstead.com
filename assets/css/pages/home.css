@@ -141,11 +141,11 @@
   right: 0;
   bottom: 0;
   background-image: 
-    linear-gradient(90deg, rgba(201, 162, 39, 0.08) 1px, transparent 1px),
-    linear-gradient(rgba(201, 162, 39, 0.08) 1px, transparent 1px);
+    linear-gradient(90deg, rgb(201 162 39 / 8%) 1px, transparent 1px),
+    linear-gradient(rgb(201 162 39 / 8%) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
-  opacity: 0.6;
+  opacity: 60%;
   z-index: 0;
 }
 

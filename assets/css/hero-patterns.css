@@ -14,7 +14,7 @@
     var(--tiller-color-green, #1a3d2e) 0%, 
     var(--tiller-color-green-dark, #0f2a1f) 100%);
   padding: clamp(3rem, 8vw, 5rem) 0;
-  color: #fff;
+  color: #ffffff;
   overflow: hidden;
 }
 
@@ -27,11 +27,11 @@
   right: 0;
   bottom: 0;
   background-image: 
-    linear-gradient(90deg, rgba(201, 162, 39, 0.08) 1px, transparent 1px),
-    linear-gradient(rgba(201, 162, 39, 0.08) 1px, transparent 1px);
+    linear-gradient(90deg, rgb(201 162 39 / 8%) 1px, transparent 1px),
+    linear-gradient(rgb(201 162 39 / 8%) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
-  opacity: 0.6;
+  opacity: 60%;
   z-index: 0;
   animation: pattern-shimmer 20s linear infinite;
 }
@@ -41,6 +41,7 @@
   0% {
     transform: translateX(0) translateY(0);
   }
+
   100% {
     transform: translateX(60px) translateY(60px);
   }
@@ -63,7 +64,7 @@
     var(--tiller-bg-dark, #1a1c1a) 0%, 
     var(--tiller-bg-stone, #222524) 100%);
   padding: clamp(3rem, 8vw, 5rem) 0;
-  color: #fff;
+  color: #ffffff;
   overflow: hidden;
 }
 
@@ -82,8 +83,8 @@
   letter-spacing: 0.1em;
   margin-bottom: 1rem;
   padding: 0.5rem 1rem;
-  background: rgba(201, 162, 39, 0.1);
-  border: 1px solid rgba(201, 162, 39, 0.3);
+  background: rgb(201 162 39 / 10%);
+  border: 1px solid rgb(201 162 39 / 30%);
   border-radius: 999px;
 }
 
@@ -92,14 +93,14 @@
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.5rem;
-  color: #fff;
-  text-shadow: 0 0 40px rgba(16, 185, 129, 0.3);
+  color: #ffffff;
+  text-shadow: 0 0 40px rgb(16 185 129 / 30%);
 }
 
 .crosshatch-hero__summary {
   font-size: clamp(1rem, 2.5vw, 1.25rem);
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255 255 255 / 90%);
   margin-bottom: 2rem;
 }
 
@@ -118,8 +119,8 @@
   border-radius: 999px;
   font-size: 0.8125rem;
   font-weight: 600;
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: rgb(16 185 129 / 15%);
+  border: 1px solid rgb(16 185 129 / 30%);
   color: var(--tiller-color-emerald, #10b981);
 }
 
@@ -150,8 +151,8 @@
 .hero__crosshatch-pattern--diagonal,
 .crosshatch-hero__pattern--diagonal {
   background-image: 
-    linear-gradient(45deg, rgba(201, 162, 39, 0.08) 1px, transparent 1px),
-    linear-gradient(-45deg, rgba(201, 162, 39, 0.08) 1px, transparent 1px);
+    linear-gradient(45deg, rgb(201 162 39 / 8%) 1px, transparent 1px),
+    linear-gradient(-45deg, rgb(201 162 39 / 8%) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -159,8 +160,8 @@
 .hero__crosshatch-pattern--emerald,
 .crosshatch-hero__pattern--emerald {
   background-image: 
-    linear-gradient(90deg, rgba(16, 185, 129, 0.08) 1px, transparent 1px),
-    linear-gradient(rgba(16, 185, 129, 0.08) 1px, transparent 1px);
+    linear-gradient(90deg, rgb(16 185 129 / 8%) 1px, transparent 1px),
+    linear-gradient(rgb(16 185 129 / 8%) 1px, transparent 1px);
 }
 
 /* ============================================
@@ -176,7 +177,7 @@
   .hero__crosshatch-pattern,
   .crosshatch-hero__pattern {
     background-size: 40px 40px;
-    opacity: 0.5;
+    opacity: 50%;
   }
 
   .crosshatch-hero__eyebrow {
@@ -219,9 +220,9 @@
   .hero__crosshatch-pattern,
   .crosshatch-hero__pattern {
     background-image: 
-      linear-gradient(90deg, rgba(201, 162, 39, 0.2) 2px, transparent 2px),
-      linear-gradient(rgba(201, 162, 39, 0.2) 2px, transparent 2px);
-    opacity: 0.8;
+      linear-gradient(90deg, rgb(201 162 39 / 20%) 2px, transparent 2px),
+      linear-gradient(rgb(201 162 39 / 20%) 2px, transparent 2px);
+    opacity: 80%;
   }
 }
 

@@ -15,12 +15,12 @@
   z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, var(--grid-line-color, rgba(201, 162, 39, 0.08)) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-line-color, rgba(201, 162, 39, 0.08)) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line-color, rgb(201 162 39 / 8%)) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-color, rgb(201 162 39 / 8%)) 1px, transparent 1px);
   background-size: var(--grid-size, 32px) var(--grid-size, 32px);
   border-radius: inherit;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%);
 }
 
 /* Ensure card contents stay above the grid */
@@ -41,17 +41,17 @@
 
 /* Variant: Gold grout lines (default, more visible) */
 .has-grid-bg--gold {
-  --grid-line-color: rgba(201, 162, 39, 0.12);
+  --grid-line-color: rgb(201 162 39 / 12%);
 }
 
 /* Variant: Subtle white lines */
 .has-grid-bg--subtle {
-  --grid-line-color: rgba(255, 255, 255, 0.04);
+  --grid-line-color: rgb(255 255 255 / 4%);
 }
 
 /* Variant: Emerald accent */
 .has-grid-bg--emerald {
-  --grid-line-color: rgba(16, 185, 129, 0.08);
+  --grid-line-color: rgb(16 185 129 / 8%);
 }
 
 /* Apply to all card grids by default */
@@ -70,12 +70,12 @@
   z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, rgba(201, 162, 39, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(201, 162, 39, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgb(201 162 39 / 6%) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(201 162 39 / 6%) 1px, transparent 1px);
   background-size: 32px 32px;
   border-radius: var(--tiller-border-radius-lg, 12px);
   mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, black 30%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, black 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, black 30%, transparent 100%);
 }
 
 /* Ensure cards stay above grid */

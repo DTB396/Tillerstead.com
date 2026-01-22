@@ -7,9 +7,9 @@
 
 /* Prevent text size adjustment on orientation change */
 html {
-  -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
 
@@ -46,9 +46,9 @@ body {
   will-change: transform;
   transform: translateZ(0);
   backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   perspective: 1000px;
-  -webkit-perspective: 1000px;
+  perspective: 1000px;
 }
 
 /* Optimize animations for 60fps */
@@ -155,8 +155,8 @@ body {
 @media (max-width: 768px) {
   body {
     text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   /* Prevent zoom on form inputs (iOS) */
@@ -168,7 +168,7 @@ body {
   textarea,
   select {
     font-size: 16px;
-    -webkit-appearance: none;
+    appearance: none;
     appearance: none;
   }
 
@@ -179,7 +179,7 @@ body {
   h1, h2, h3, h4, h5, h6 {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+    text-rendering: optimizelegibility;
   }
 }
 
@@ -276,7 +276,7 @@ img {
   .btn:focus-visible {
     outline: 4px solid var(--tiller-color-gold, #c9a227);
     outline-offset: 4px;
-    box-shadow: 0 0 0 8px rgba(201, 162, 39, 0.2);
+    box-shadow: 0 0 0 8px rgb(201 162 39 / 20%);
   }
 }
 
@@ -312,7 +312,7 @@ body {
 
 /* ===== HIGH PIXEL DENSITY DISPLAYS (Retina) ===== */
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   /* Sharper text rendering */
   body {
     -webkit-font-smoothing: subpixel-antialiased;
@@ -335,7 +335,7 @@ body {
   .btn:active,
   a.btn:active {
     transform: scale(0.97);
-    opacity: 0.9;
+    opacity: 90%;
     transition: transform 0.1s ease, opacity 0.1s ease;
   }
 
@@ -457,14 +457,14 @@ html {
 
   a {
     text-decoration: underline;
-    color: #000 !important;
+    color: #000000 !important;
   }
 
   /* Show URLs after links */
-  a[href]:after {
+  a[href]::after {
     content: " (" attr(href) ")";
     font-size: 10pt;
-    color: #666;
+    color: #666666;
   }
 }
 
@@ -473,12 +473,12 @@ html {
 @media (prefers-contrast: high) {
   /* Increase contrast ratios */
   body {
-    background: #000;
-    color: #fff;
+    background: #000000;
+    color: #ffffff;
   }
 
   .btn {
-    border: 2px solid currentColor;
+    border: 2px solid currentcolor;
   }
 
   :focus-visible {
@@ -521,7 +521,7 @@ html {
     border-radius: 8px;
     
     /* Optimize rendering */
-    -webkit-appearance: none;
+    appearance: none;
     appearance: none;
   }
 
@@ -550,7 +550,7 @@ html {
     
     /* Prevent text selection */
     user-select: none;
-    -webkit-user-select: none;
+    user-select: none;
     
     /* Fast tap response */
     touch-action: manipulation;
