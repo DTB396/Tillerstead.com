@@ -16,6 +16,8 @@
   padding: clamp(3rem, 8vw, 5rem) 0;
   color: #ffffff;
   overflow: hidden;
+  perspective: 1600px;
+  transform-style: preserve-3d;
 }
 
 /* Crosshatch/Tile Pattern Overlay */
@@ -34,6 +36,7 @@
   opacity: 60%;
   z-index: 0;
   animation: pattern-shimmer 20s linear infinite;
+  transform: translateZ(-40px);
 }
 
 /* Subtle shimmer animation for pattern */
@@ -52,6 +55,8 @@
 .crosshatch-hero__content {
   position: relative;
   z-index: 1;
+  transform: translateZ(60px);
+  filter: drop-shadow(0 10px 28px rgb(0 0 0 / 40%));
 }
 
 /* ============================================

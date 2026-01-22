@@ -1,0 +1,432 @@
+/* =========================================================
+   Tillerstead Brand Components
+   CSS for brand identity, trust bar, and pillars components
+   ========================================================= */
+
+/* ===================================
+   BRAND IDENTITY COMPONENT
+   =================================== */
+
+.ts-brand-identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--tiller-spacing-md);
+}
+
+/* Full variant */
+.ts-brand-identity--full {
+  padding: var(--tiller-spacing-lg);
+  text-align: center;
+}
+
+.ts-brand-identity__logo {
+  max-width: 300px;
+}
+
+.ts-brand-identity__logo--compact {
+  max-width: 150px;
+}
+
+.ts-brand-identity__tagline {
+  font-size: var(--tiller-font-size-lg);
+  font-weight: 500;
+  color: var(--tiller-color-emerald);
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.ts-brand-identity__tagline--inline {
+  font-size: var(--tiller-font-size-base);
+}
+
+.ts-brand-identity__tagline--quote {
+  font-style: italic;
+  color: var(--tiller-text-secondary);
+}
+
+.ts-brand-identity__credentials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--tiller-spacing-sm) var(--tiller-spacing-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ts-brand-identity__credential {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.ts-brand-identity__credential-label {
+  font-size: var(--tiller-font-size-xs);
+  color: var(--tiller-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ts-brand-identity__credential-value {
+  font-size: var(--tiller-font-size-sm);
+  font-weight: 600;
+  color: var(--tiller-text-primary);
+}
+
+.ts-brand-identity__contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--tiller-spacing-sm) var(--tiller-spacing-md);
+}
+
+.ts-brand-identity__contact a {
+  color: var(--tiller-color-emerald);
+  text-decoration: none;
+  transition: color var(--tiller-transition-fast) var(--tiller-ease-smooth);
+}
+
+.ts-brand-identity__contact a:hover,
+.ts-brand-identity__contact a:focus {
+  color: var(--tiller-color-emerald-light);
+  text-decoration: underline;
+}
+
+/* Compact variant */
+.ts-brand-identity--compact {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--tiller-spacing-sm);
+}
+
+/* Footer variant */
+.ts-brand-identity--footer {
+  gap: var(--tiller-spacing-sm);
+}
+
+.ts-brand-identity__license {
+  font-size: var(--tiller-font-size-sm);
+  color: var(--tiller-text-tertiary);
+  margin: 0;
+}
+
+.ts-brand-identity__social {
+  display: flex;
+  gap: var(--tiller-spacing-sm);
+}
+
+.ts-brand-identity__social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--tiller-bg-card);
+  color: var(--tiller-text-secondary);
+  transition: all var(--tiller-transition-fast) var(--tiller-ease-smooth);
+}
+
+.ts-brand-identity__social a:hover,
+.ts-brand-identity__social a:focus {
+  background: var(--tiller-color-emerald);
+  color: var(--tiller-text-primary);
+  transform: translateY(-2px);
+}
+
+/* Signature variant */
+.ts-brand-identity--signature {
+  align-items: flex-start;
+  text-align: left;
+  padding: var(--tiller-spacing-md);
+  border-left: 3px solid var(--tiller-color-gold);
+}
+
+.ts-brand-identity__name {
+  font-size: var(--tiller-font-size-lg);
+  font-weight: 700;
+  color: var(--tiller-text-primary);
+  margin: 0;
+}
+
+.ts-brand-identity__title {
+  font-size: var(--tiller-font-size-sm);
+  color: var(--tiller-text-secondary);
+  margin: 0;
+}
+
+/* ===================================
+   TRUST BAR COMPONENT
+   =================================== */
+
+.ts-trust-bar {
+  background: var(--tiller-bg-card);
+  border-top: 1px solid var(--tiller-border-color-light);
+  border-bottom: 1px solid var(--tiller-border-color-light);
+  padding: var(--tiller-spacing-sm) 0;
+  overflow: hidden;
+}
+
+.ts-trust-bar__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--tiller-spacing-sm) var(--tiller-spacing-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ts-trust-bar__item {
+  display: flex;
+  align-items: center;
+  gap: var(--tiller-spacing-xs);
+}
+
+.ts-trust-bar__icon {
+  font-size: 1.25rem;
+  color: var(--tiller-color-emerald);
+}
+
+.ts-trust-bar__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.ts-trust-bar__label {
+  font-size: var(--tiller-font-size-xs);
+  font-weight: 600;
+  color: var(--tiller-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.ts-trust-bar__value {
+  font-size: var(--tiller-font-size-xs);
+  color: var(--tiller-text-tertiary);
+}
+
+/* Compact style */
+.ts-trust-bar--compact .ts-trust-bar__text {
+  flex-direction: row;
+  gap: 0;
+}
+
+.ts-trust-bar--compact .ts-trust-bar__label::after {
+  content: ":";
+  margin-right: 0.25em;
+}
+
+/* Minimal style */
+.ts-trust-bar--minimal {
+  padding: var(--tiller-spacing-xs) 0;
+  background: transparent;
+  border: none;
+}
+
+.ts-trust-bar--minimal .ts-trust-bar__item {
+  font-size: var(--tiller-font-size-xs);
+  color: var(--tiller-text-tertiary);
+}
+
+.ts-trust-bar--minimal .ts-trust-bar__item::after {
+  content: "•";
+  margin-left: var(--tiller-spacing-sm);
+  color: var(--tiller-color-gold);
+}
+
+.ts-trust-bar--minimal .ts-trust-bar__item:last-child::after {
+  display: none;
+}
+
+/* Animated scroll (for many items) */
+.ts-trust-bar--animated .ts-trust-bar__list {
+  animation: trust-bar-scroll 30s linear infinite;
+}
+
+@keyframes trust-bar-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ts-trust-bar--animated .ts-trust-bar__list {
+    animation: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .ts-trust-bar__list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 var(--tiller-spacing-md);
+  }
+  
+  .ts-trust-bar__item {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+}
+
+/* ===================================
+   BRAND PILLARS COMPONENT
+   =================================== */
+
+.ts-brand-pillars {
+  padding: var(--tiller-spacing-xl) 0;
+}
+
+.ts-brand-pillars__heading {
+  text-align: center;
+  font-size: var(--tiller-font-size-3xl);
+  font-weight: 700;
+  color: var(--tiller-text-primary);
+  margin-bottom: var(--tiller-spacing-lg);
+}
+
+.ts-brand-pillars__list {
+  display: grid;
+  gap: var(--tiller-spacing-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Grid layout (default) */
+.ts-brand-pillars--grid .ts-brand-pillars__list {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Horizontal layout */
+.ts-brand-pillars--horizontal .ts-brand-pillars__list {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 992px) {
+  .ts-brand-pillars--horizontal .ts-brand-pillars__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .ts-brand-pillars--horizontal .ts-brand-pillars__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cards layout */
+.ts-brand-pillars--cards .ts-brand-pillars__item {
+  background: var(--tiller-bg-card);
+  border: 1px solid var(--tiller-border-color-light);
+  border-radius: var(--tiller-border-radius-lg);
+  padding: var(--tiller-spacing-lg);
+  transition: all var(--tiller-transition-normal) var(--tiller-ease-smooth);
+}
+
+.ts-brand-pillars--cards .ts-brand-pillars__item:hover {
+  border-color: var(--tiller-color-emerald);
+  box-shadow: var(--tiller-shadow-glow-emerald);
+  transform: translateY(-4px);
+}
+
+.ts-brand-pillars__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--tiller-spacing-sm);
+}
+
+.ts-brand-pillars__icon {
+  font-size: 2.5rem;
+  color: var(--tiller-color-emerald);
+  margin-bottom: var(--tiller-spacing-xs);
+}
+
+.ts-brand-pillars__name {
+  font-size: var(--tiller-font-size-xl);
+  font-weight: 700;
+  color: var(--tiller-text-primary);
+  margin: 0;
+}
+
+.ts-brand-pillars__description {
+  font-size: var(--tiller-font-size-base);
+  color: var(--tiller-text-secondary);
+  margin: 0;
+  line-height: var(--tiller-line-height-relaxed);
+}
+
+.ts-brand-pillars__cta {
+  text-align: center;
+  margin-top: var(--tiller-spacing-lg);
+}
+
+/* ===================================
+   BRAND PROMISE BANNER
+   =================================== */
+
+.ts-brand-promise {
+  background: linear-gradient(
+    135deg,
+    var(--tiller-color-green-dark) 0%,
+    var(--tiller-bg-dark) 100%
+  );
+  padding: var(--tiller-spacing-lg);
+  border-left: 4px solid var(--tiller-color-gold);
+  border-radius: var(--tiller-border-radius-md);
+}
+
+.ts-brand-promise__text {
+  font-size: var(--tiller-font-size-xl);
+  font-weight: 500;
+  color: var(--tiller-text-primary);
+  margin: 0;
+  line-height: var(--tiller-line-height-relaxed);
+}
+
+.ts-brand-promise__text em {
+  color: var(--tiller-color-emerald);
+  font-style: normal;
+}
+
+/* ===================================
+   BRAND BADGE (inline credentials)
+   =================================== */
+
+.ts-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.25em 0.75em;
+  background: var(--tiller-bg-card);
+  border: 1px solid var(--tiller-border-color-light);
+  border-radius: 100px;
+  font-size: var(--tiller-font-size-sm);
+  color: var(--tiller-text-secondary);
+  white-space: nowrap;
+}
+
+.ts-brand-badge__icon {
+  color: var(--tiller-color-emerald);
+}
+
+.ts-brand-badge--gold {
+  border-color: var(--tiller-color-gold);
+}
+
+.ts-brand-badge--gold .ts-brand-badge__icon {
+  color: var(--tiller-color-gold);
+}

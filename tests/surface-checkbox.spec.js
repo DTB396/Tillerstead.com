@@ -1,14 +1,17 @@
 import { test, expect } from '@playwright/test';
 
 test('Surface checkboxes work independently', async ({ page }) => {
-  await page.goto('/tools/');
-  
-  // Wait for room card to be created
-  await page.waitForSelector('.room-card');
+  await page.goto('/tools/legacy/');
+  await page.waitForSelector('#add-room-btn', { timeout: 15000 });
+
+  // Add a room to reveal surface toggles
+  await page.click('#add-room-btn');
+  const roomCard = page.locator('.room-card').first();
+  await expect(roomCard).toBeVisible();
   
   // Click the Floor label (not the hidden checkbox)
-  const floorLabel = page.locator('.surface-toggle').filter({ hasText: 'Floor' });
-  const backsplashLabel = page.locator('.surface-toggle').filter({ hasText: 'Backsplash' });
+  const floorLabel = roomCard.locator('.surface-toggle').filter({ hasText: 'Floor' });
+  const backsplashLabel = roomCard.locator('.surface-toggle').filter({ hasText: 'Backsplash' });
   
   // Get the actual checkbox inputs
   const floorCheckbox = floorLabel.locator('input[type="checkbox"]');

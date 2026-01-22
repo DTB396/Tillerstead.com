@@ -39,6 +39,295 @@
   z-index: 1;
 }
 
+/* =========================================================
+   DIMENSIONAL DEPTH SYSTEM (3D/4D CLARITY)
+   - Optional wrappers/classes for parallax depth and clarity glow
+   - Uses only brand tokens and respects reduced motion
+   ========================================================= */
+
+.page-depth {
+  position: relative;
+  background-color: var(--tiller-bg-darkest, #000000);
+  background-image:
+    radial-gradient(circle at 50% 18%, rgb(0 225 132 / 8%), transparent 42%),
+    radial-gradient(circle at 20% 70%, rgb(212 175 55 / 6%), transparent 45%),
+    radial-gradient(circle at 80% 40%, rgb(217 220 224 / 5%), transparent 50%);
+  perspective: 1400px;
+  transform-style: preserve-3d;
+  overflow-x: hidden;
+}
+
+.page-depth::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, rgb(212 175 55 / 4%) 1px, transparent 1px),
+    linear-gradient(0deg, rgb(0 225 132 / 4%) 1px, transparent 1px);
+  background-size: 120px 120px;
+  mix-blend-mode: screen;
+  opacity: 35%;
+  pointer-events: none;
+  z-index: 0;
+  filter: drop-shadow(0 0 18px rgb(0 225 132 / 18%));
+}
+
+.parallax-layer {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform: translateZ(var(--parallax-z, 0)) translateY(var(--parallax-y, 0));
+}
+
+.parallax-layer--back {
+  --parallax-z: -80px;
+  --parallax-y: -6px;
+
+  opacity: 70%;
+}
+
+.parallax-layer--mid {
+  --parallax-z: -40px;
+  --parallax-y: -2px;
+}
+
+.parallax-layer--front {
+  --parallax-z: 40px;
+  --parallax-y: 2px;
+}
+
+.hero-3d {
+  position: relative;
+  perspective: 1600px;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+.hero-3d::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 60% 20%, rgb(0 225 132 / 12%), transparent 45%),
+              radial-gradient(circle at 30% 70%, rgb(212 175 55 / 10%), transparent 50%);
+  filter: blur(18px);
+  opacity: 90%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-3d .hero__content,
+.hero-3d .crosshatch-hero__content,
+.hero-3d .ts-hero__inner {
+  position: relative;
+  z-index: 2;
+  transform: translateZ(64px);
+  filter: drop-shadow(0 12px 36px rgb(0 0 0 / 40%));
+}
+
+/* ===== TS HERO (Homepage unified hero) ===== */
+.ts-hero--home {
+  padding: clamp(2.75rem, 5vw, 5rem) 0;
+}
+
+.ts-hero--home .ts-hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.ts-hero--home .ts-hero__title {
+  font-size: clamp(2rem, 3.2vw, 3.5rem);
+  line-height: 1.1;
+  max-width: 24ch;
+  margin: 0 0 1rem;
+}
+
+.ts-hero--home .ts-hero__lede {
+  max-width: 70ch;
+}
+
+.ts-hero--home .ts-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin-top: 1.5rem;
+}
+
+.ts-hero--home .ts-hero__bullets {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1.25rem;
+}
+
+.ts-hero--home .ts-hero__bullet strong {
+  display: block;
+}
+
+.ts-hero--home .ts-hero__bullet span {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--tiller-text-secondary, rgb(255 255 255 / 85%));
+}
+
+.ts-hero--home .ts-hero__project {
+  margin: 0;
+}
+
+.ts-hero--home .ts-hero__project img {
+  width: 100%;
+  height: auto;
+  border-radius: clamp(16px, 2vw, 28px);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 35%);
+}
+
+.ts-hero--home .ts-hero__facts {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.ts-hero--home .ts-hero__fact {
+  background: var(--tiller-bg-stone, #222524);
+  border: 1px solid rgb(201 162 39 / 18%);
+  border-radius: 20px;
+  padding: 1rem 1.25rem;
+}
+
+.ts-hero--home .ts-hero__fact-label {
+  margin: 0;
+  font-weight: 700;
+}
+
+.ts-hero--home .ts-hero__fact-body {
+  margin: 0.25rem 0 0;
+  color: var(--tiller-text-secondary, rgb(255 255 255 / 85%));
+}
+
+.ts-hero--home .ts-hero__review-link {
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 1023px) {
+  .ts-hero--home .ts-hero__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .ts-hero--home .ts-hero__project img {
+    max-height: 420px;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 768px) {
+  .ts-hero--home {
+    padding: 2.5rem 0;
+  }
+
+  .ts-hero--home .ts-hero__actions {
+    flex-direction: column;
+  }
+
+  .ts-hero--home .ts-hero__actions .btn,
+  .ts-hero--home .ts-hero__review-link .btn {
+    width: 100%;
+  }
+
+  .ts-hero--home .ts-hero__bullets {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .ts-hero--home .ts-hero__project img {
+    max-height: 320px;
+  }
+}
+
+.hero-3d .hero__crosshatch-pattern,
+.hero-3d .crosshatch-hero__pattern {
+  transform: translateZ(-40px);
+  opacity: 70%;
+}
+
+.btn-3d,
+.card-3d {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.25s var(--tiller-ease-smooth, cubic-bezier(0.4, 0, 0.2, 1)),
+              box-shadow 0.25s var(--tiller-ease-smooth, cubic-bezier(0.4, 0, 0.2, 1));
+  will-change: transform, box-shadow;
+}
+
+.btn-3d:hover,
+.btn-3d:focus-visible,
+.card-3d:hover,
+.card-3d:focus-within {
+  transform: translateZ(14px) translateY(-2px);
+  box-shadow:
+    0 10px 24px rgb(0 0 0 / 40%),
+    0 0 22px var(--tiller-color-emerald-glow, rgb(0 225 132 / 70%)),
+    0 0 18px rgb(212 175 55 / 55%);
+}
+
+.btn-3d::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgb(255 255 255 / 12%) 45%, transparent 80%);
+  mix-blend-mode: screen;
+  opacity: 0%;
+  transition: opacity 0.25s var(--tiller-ease-smooth, cubic-bezier(0.4, 0, 0.2, 1));
+  pointer-events: none;
+}
+
+.btn-3d:hover::after,
+.btn-3d:focus-visible::after {
+  opacity: 100%;
+}
+
+.card-3d {
+  background: linear-gradient(180deg, rgb(22 22 22 / 92%), rgb(0 0 0 / 88%));
+  border: 1px solid var(--tiller-border-color-light, rgb(212 175 55 / 10%));
+  box-shadow:
+    0 8px 24px rgb(0 0 0 / 35%),
+    0 0 18px rgb(0 225 132 / 25%);
+}
+
+.card-3d::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  border: 1px solid rgb(217 220 224 / 12%);
+  box-shadow: inset 0 0 18px rgb(212 175 55 / 14%);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-depth,
+  .hero-3d,
+  .parallax-layer,
+  .btn-3d,
+  .card-3d {
+    perspective: none;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .page-depth::before,
+  .hero-3d::after,
+  .btn-3d::after {
+    display: none;
+  }
+}
+
 /* ===== TRUST INDICATOR ENHANCEMENTS ===== */
 
 /* Pulsing emerald dot for "active/verified" status */

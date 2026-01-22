@@ -11,7 +11,7 @@
     endpoint: '/.netlify/functions/contact',
     successMessage: {
       title: 'Message Sent Successfully!',
-        body: 'Thank you for contacting Tillerstead. We\\'ve received your inquiry and will respond within 48 hours. If you don\\'t hear from us, please text us at (609) 862-8808 to confirm we received your message.',
+      body: "Thank you for contacting Tillerstead. We've received your inquiry and will respond within 48 hours. If you don't hear from us, please text us at (609) 862-8808 to confirm we received your message.",
       confirmationSent: 'A confirmation email has been sent to your address.',
     },
     errorMessage: {

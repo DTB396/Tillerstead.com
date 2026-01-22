@@ -8,15 +8,14 @@
 /* Prevent text size adjustment on orientation change */
 html {
   text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  text-size-adjust: 100%;
+  color-scheme: dark;
 }
 
 /* Smooth momentum scrolling on iOS */
 body {
   -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: none;
+  overscroll-behavior-y: contain;
+  overscroll-behavior-x: none;
   position: relative;
 }
 
@@ -46,8 +45,6 @@ body {
   will-change: transform;
   transform: translateZ(0);
   backface-visibility: hidden;
-  backface-visibility: hidden;
-  perspective: 1000px;
   perspective: 1000px;
 }
 
@@ -68,12 +65,14 @@ body {
 
 /* ===== SAFE AREA INSETS - Notched Devices (iPhone X+) ===== */
 
-/* Universal safe area support */
-body {
-  padding-left: max(env(safe-area-inset-left), 0px);
-  padding-right: max(env(safe-area-inset-right), 0px);
-  padding-top: max(env(safe-area-inset-top), 0px);
-  padding-bottom: max(env(safe-area-inset-bottom), 0px);
+/* Safe area padding applied via @supports for notched devices */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: max(env(safe-area-inset-left), 0px);
+    padding-right: max(env(safe-area-inset-right), 0px);
+    padding-top: max(env(safe-area-inset-top), 0px);
+    padding-bottom: max(env(safe-area-inset-bottom), 0px);
+  }
 }
 
 /* Header with safe areas */
@@ -155,8 +154,6 @@ body {
 @media (max-width: 768px) {
   body {
     text-size-adjust: 100%;
-    text-size-adjust: 100%;
-    text-size-adjust: 100%;
   }
 
   /* Prevent zoom on form inputs (iOS) */
@@ -168,7 +165,6 @@ body {
   textarea,
   select {
     font-size: 16px;
-    appearance: none;
     appearance: none;
   }
 
@@ -282,11 +278,7 @@ img {
 
 /* ===== PULL-TO-REFRESH FIX ===== */
 
-/* Prevent pull-to-refresh on iOS */
-body {
-  overscroll-behavior-y: contain;
-  overscroll-behavior-x: none;
-}
+/* Pull-to-refresh prevention is handled by body overscroll-behavior above */
 
 /* ===== LANDSCAPE ORIENTATION OPTIMIZATIONS ===== */
 
@@ -312,7 +304,7 @@ body {
 
 /* ===== HIGH PIXEL DENSITY DISPLAYS (Retina) ===== */
 
-@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (min-resolution: 192dpi) {
   /* Sharper text rendering */
   body {
     -webkit-font-smoothing: subpixel-antialiased;
@@ -431,10 +423,7 @@ body {
   }
 }
 
-/* Force dark theme on all elements */
-html {
-  color-scheme: dark;
-}
+/* html color-scheme: dark is set at top of file */
 
 /* ===== PRINT STYLES ===== */
 
@@ -522,7 +511,6 @@ html {
     
     /* Optimize rendering */
     appearance: none;
-    appearance: none;
   }
 
   /* Auto-resize textarea */
@@ -549,7 +537,6 @@ html {
     padding: 12px 24px;
     
     /* Prevent text selection */
-    user-select: none;
     user-select: none;
     
     /* Fast tap response */

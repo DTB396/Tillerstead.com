@@ -51,7 +51,6 @@
     font-size: 16px;
     border-radius: 8px;
     appearance: none;
-    appearance: none;
   }
 
   textarea {
@@ -218,6 +217,34 @@
   }
 }
 
+/* ===== TRUST BAR - Wrap and reduce overflow on smaller screens ===== */
+@media (max-width: 1023px) {
+  /* Higher specificity so this beats later-loaded navigation.css */
+  .trust-bar .trust-bar__list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .trust-bar {
+    padding: 0.75rem 0;
+  }
+
+  .trust-bar .trust-bar__item {
+    font-size: 0.9375rem;
+  }
+}
+
+/* ===== COARSE POINTER (Tablet/handheld/console-like) ===== */
+@media (max-width: 1023px) {
+  html[data-pointer="coarse"] .btn {
+    min-height: 48px;
+    padding: 12px 18px;
+  }
+}
+
 /* ===== NAVIGATION DRAWER - Mobile Optimization ===== */
 @media (max-width: 768px) {
   .nav-drawer {
@@ -260,6 +287,15 @@
     margin-bottom: 1rem;
   }
 
+  /* Base label styles first */
+  label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  /* Then more specific .form-group label */
   .form-group label {
     display: block;
     margin-bottom: 0.5rem;
@@ -291,13 +327,6 @@
     height: 20px;
     margin-right: 0.75rem;
     cursor: pointer;
-  }
-
-  label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    user-select: none;
   }
 }
 
@@ -357,6 +386,14 @@
     }
   }
 
+  /* Reduce shadows on mobile - base styles first */
+  .service-card,
+  .process-step,
+  .material-card,
+  .testimonial-card {
+    box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  }
+
   /* Active states for touch */
   .service-card:active,
   .process-step:active,
@@ -364,20 +401,16 @@
   .testimonial-card:active {
     opacity: 80%;
   }
-
-  /* Reduce shadows on mobile */
-  .service-card,
-  .process-step,
-  .material-card,
-  .testimonial-card {
-    box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
-  }
 }
 
 /* ===== READABLE TEXT - Prevent Zoom ===== */
 @media (max-width: 768px) {
   body {
     font-size: clamp(14px, 2vw, 16px);
+
+    /* Ensure contrast ratio */
+    color: rgb(255 255 255 / 90%);
+    background: #0f1210;
   }
 
   h1 {
@@ -395,12 +428,6 @@
   p,
   li {
     font-size: clamp(0.9375rem, 2.5vw, 1rem);
-  }
-
-  /* Ensure contrast ratio */
-  body {
-    color: rgb(255 255 255 / 90%);
-    background: #0f1210;
   }
 }
 
@@ -757,10 +784,10 @@
 
   /* Smooth page transitions */
   .page-transition {
-    animation: fadeIn 0.3s ease;
+    animation: fade-in 0.3s ease;
   }
 
-  @keyframes fadeIn {
+  @keyframes fade-in {
     from {
       opacity: 0%;
       transform: translateY(8px);
@@ -855,8 +882,16 @@
   /* Spacing utilities */
   .mobile-mt-0 { margin-top: 0 !important; }
   .mobile-mb-0 { margin-bottom: 0 !important; }
-  .mobile-py-1 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
-  .mobile-px-1 { padding-left: 1rem !important; padding-right: 1rem !important; }
+  
+  .mobile-py-1 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  
+  .mobile-px-1 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
 
   /* Text utilities */
   .mobile-text-center { text-align: center !important; }
@@ -906,14 +941,10 @@
     contain-intrinsic-size: auto 500px;
   }
 
-  /* Optimize image decoding */
-  img {
-    decoding: async;
-  }
+  /* Note: img decoding attribute is HTML not CSS - set via HTML attribute instead */
 
-  /* Reduce compositor layers */
+  /* Reduce compositor layers for smoother animations */
   * {
-    backface-visibility: hidden;
     backface-visibility: hidden;
   }
 }

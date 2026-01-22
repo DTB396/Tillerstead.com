@@ -98,10 +98,10 @@ input.has-success::after {
   font-size: 0.875rem;
   color: #ef4444;
   margin-top: 0.25rem;
-  animation: slideDown 0.3s ease-out;
+  animation: slide-down 0.3s ease-out;
 }
 
-@keyframes slideDown {
+@keyframes slide-down {
   from {
     opacity: 0%;
     transform: translateY(-10px);
@@ -122,10 +122,10 @@ input.has-success::after {
   transform: translateY(-50%);
   color: var(--tiller-color-emerald, #10b981);
   opacity: 0%;
-  animation: scaleIn 0.3s ease-out forwards;
+  animation: scale-in 0.3s ease-out forwards;
 }
 
-@keyframes scaleIn {
+@keyframes scale-in {
   from {
     opacity: 0%;
     transform: translateY(-50%) scale(0);
@@ -146,10 +146,10 @@ input.has-success::after {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  animation: slideInDown 0.4s ease-out;
+  animation: slide-in-down 0.4s ease-out;
 }
 
-@keyframes slideInDown {
+@keyframes slide-in-down {
   from {
     opacity: 0%;
     transform: translateY(-20px);

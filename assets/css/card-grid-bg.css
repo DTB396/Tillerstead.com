@@ -20,7 +20,6 @@
   background-size: var(--grid-size, 32px) var(--grid-size, 32px);
   border-radius: inherit;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%);
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%);
 }
 
 /* Ensure card contents stay above the grid */
@@ -74,7 +73,6 @@
     linear-gradient(to bottom, rgb(201 162 39 / 6%) 1px, transparent 1px);
   background-size: 32px 32px;
   border-radius: var(--tiller-border-radius-lg, 12px);
-  mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, black 30%, transparent 100%);
   mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, black 30%, transparent 100%);
 }
 

@@ -656,6 +656,9 @@
     }
 
     setup() {
+      // Auto-wire premium effects onto common UI patterns
+      this.decorateDom();
+
       // Initialize all animation modules
       this.modules.scroll = new ScrollAnimations();
       this.modules.magnetic = new MagneticEffect();
@@ -663,10 +666,34 @@
       this.modules.spotlight = new SpotlightEffect();
       this.modules.counter = new CounterAnimation();
       this.modules.splitText = new SplitTextAnimation();
-      this.modules.ripple = new RippleEffect();
       this.modules.reveal = new SmoothReveal();
       this.modules.progress = new ScrollProgress();
       this.modules.parallax = new ParallaxElements();
+    }
+
+    decorateDom() {
+      // Buttons / CTAs
+      document.querySelectorAll('a.btn, button.btn, input.btn').forEach((el) => {
+        if (!el.hasAttribute('data-button-premium')) {
+          el.setAttribute('data-button-premium', '');
+        }
+        if (!el.hasAttribute('data-magnetic')) {
+          el.setAttribute('data-magnetic', '');
+        }
+        el.classList.add('ripple-effect');
+      });
+
+      // Common cards
+      document
+        .querySelectorAll(
+          '.ts-card, .card--post, .service-card, .plan-card, .testimonial-card, .card--review'
+        )
+        .forEach((el) => {
+          if (!el.hasAttribute('data-card-premium')) {
+            el.setAttribute('data-card-premium', '');
+          }
+          el.classList.add('card-spotlight');
+        });
 
       // Inject ripple keyframes
       this.injectStyles();

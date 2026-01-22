@@ -1805,7 +1805,7 @@
           <!-- Hero Section -->
           <div class="dashboard__hero">
             <div class="dashboard__hero-content">
-              <h2 class="dashboard__hero-title">TillerPro</h2>
+              <h2 class="dashboard__hero-title dashboard__welcome-title">Welcome to TillerPro</h2>
               <p class="dashboard__hero-subtitle">Professional tile calculators built by a licensed NJ contractor</p>
               <div class="dashboard__hero-actions">
                 <button class="btn btn--primary btn--lg" onclick="window.TillerApp.Router.navigate('calculators')">

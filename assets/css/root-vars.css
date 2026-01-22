@@ -6,48 +6,48 @@
 
 :root {
   /* ===== DARK THEME - Stone & Slate Backgrounds ===== */
-  --tiller-bg-darkest: #0a0c0a;
-  --tiller-bg-darker: #121414;
-  --tiller-bg-dark: #1a1c1a;
-  --tiller-bg-stone: #222524;
-  --tiller-bg-slate: #2a2d2c;
-  --tiller-bg-elevated: #323534;
-  --tiller-bg-card: #2a2d2c;
-  --tiller-bg-hover: #3a3d3c;
+  --tiller-bg-darkest: #000000;
+  --tiller-bg-darker: #000000;
+  --tiller-bg-dark: #000000;
+  --tiller-bg-stone: #000000;
+  --tiller-bg-slate: #000000;
+  --tiller-bg-elevated: #0f0f0f;
+  --tiller-bg-card: #161616;
+  --tiller-bg-hover: #222222;
   
   /* Main backgrounds - dark theme */
   --tiller-bg-main: var(--tiller-bg-dark);
   --tiller-bg-alt: var(--tiller-bg-stone);
   --tiller-bg-soft: var(--tiller-bg-slate);
   --tiller-header-bg: var(--tiller-bg-darker);
-  --tiller-bg-overlay: rgb(10 12 10 / 95%);
+  --tiller-bg-overlay: rgb(0 0 0 / 95%);
   
   /* ===== GOLD - Grout Lines & Accents ===== */
-  --tiller-color-gold: #c9a227;
-  --tiller-color-gold-dark: #9a7a1a;
-  --tiller-color-gold-light: #e8c848;
-  --tiller-color-gold-muted: #8a7830;
-  --tiller-color-gold-bright: #ffd700;
+  --tiller-color-gold: #d4af37;
+  --tiller-color-gold-dark: #9c7a14;
+  --tiller-color-gold-light: #f2d75c;
+  --tiller-color-gold-muted: #b3861d;
+  --tiller-color-gold-bright: #ffe585;
   
   /* WCAG AA Compliant Gold Variants (for use on white/light backgrounds) */
-  --tiller-color-gold-accessible: #8a7830;  /* 4.37:1 contrast on white - WCAG AA */
-  --tiller-color-gold-wcag: #6f5f26;        /* 6.29:1 contrast on white - WCAG AA+ */
-  --tiller-color-gold-deep: #5c4e20;        /* 8.18:1 contrast on white - WCAG AAA */
+  --tiller-color-gold-accessible: #8c6a12;  /* 4.5:1 contrast on white - WCAG AA */
+  --tiller-color-gold-wcag: #6f5410;        /* 6.8:1 contrast on white - WCAG AA+ */
+  --tiller-color-gold-deep: #5a420c;        /* 8.3:1 contrast on white - WCAG AAA */
   
   --tiller-grout: var(--tiller-color-gold);
-  --tiller-grout-subtle: rgb(201 162 39 / 15%);
-  --tiller-grout-faint: rgb(201 162 39 / 8%);
+  --tiller-grout-subtle: rgb(212 175 55 / 18%);
+  --tiller-grout-faint: rgb(212 175 55 / 10%);
   
   /* ===== EMERALD - Glowing Headers ===== */
-  --tiller-color-emerald: #10b981;
-  --tiller-color-emerald-dark: #059669;
-  --tiller-color-emerald-light: #34d399;
-  --tiller-color-emerald-bright: #4ade80;
-  --tiller-color-emerald-glow: rgb(16 185 129 / 50%);
+  --tiller-color-emerald: #00e184;
+  --tiller-color-emerald-dark: #00b46a;
+  --tiller-color-emerald-light: #3bf0aa;
+  --tiller-color-emerald-bright: #6cffc8;
+  --tiller-color-emerald-glow: rgb(0 225 132 / 70%);
   
   /* WCAG AA Compliant Emerald (for use on white/light backgrounds) */
-  --tiller-color-emerald-accessible: #059669;  /* 3.77:1 contrast on white - WCAG AA large text */
-  --tiller-color-emerald-wcag: #047857;         /* 4.64:1 contrast on white - WCAG AA */
+  --tiller-color-emerald-accessible: #008f5d;  /* 4.5:1 contrast on white - WCAG AA */
+  --tiller-color-emerald-wcag: #006c47;         /* 6.5:1 contrast on white - WCAG AA+ */
   
   /* Brand greens (deep forest) */
   --tiller-color-green: #0d2a1f;
@@ -76,11 +76,11 @@
   --tiller-color-info: #38bdf8;
 
   /* ===== METALLIC SILVER - Buttons & Accents ===== */
-  --tiller-color-silver: #c0c0c0;
-  --tiller-color-silver-dark: #8a8a8a;
-  --tiller-color-silver-light: #e8e8e8;
-  --tiller-color-silver-bright: #f5f5f5;
-  --tiller-color-silver-glow: rgb(192 192 192 / 50%);
+  --tiller-color-silver: #d7dadd;
+  --tiller-color-silver-dark: #8e9399;
+  --tiller-color-silver-light: #eef1f5;
+  --tiller-color-silver-bright: #f9fbff;
+  --tiller-color-silver-glow: rgb(217 220 224 / 60%);
 
   /* ===== 90s RETRO PALETTE - Nostalgic accents ===== */
 
@@ -128,8 +128,8 @@
   --tiller-shadow-lg: 0 10px 20px rgb(0 0 0 / 60%);
   --tiller-shadow-xl: 0 20px 40px rgb(0 0 0 / 70%);
   --tiller-shadow-glow-emerald: 0 0 20px var(--tiller-color-emerald-glow);
-  --tiller-shadow-glow-gold: 0 0 15px rgb(201 162 39 / 40%);
-  --tiller-shadow-glow-silver: 0 0 15px rgb(192 192 192 / 40%);
+  --tiller-shadow-glow-gold: 0 0 15px rgb(212 175 55 / 45%);
+  --tiller-shadow-glow-silver: 0 0 15px rgb(217 220 224 / 55%);
   --tiller-box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
 
   /* 90s-style offset shadows (no blur, hard edges) */
@@ -152,10 +152,10 @@
   --retro-border-thick: 4px;
   --retro-border-chunky: 5px;
 
-  /* Border Colors - Gold Gr(201 162 39 / 0.2);
-  --tiller-border-color-light: rgb(201 162 39 / 0.1);
-  --tiller-border-color-strong: rgb(201 162 39 /0.1);
-  --tiller-border-color-strong: rgba(201, 162, 39, 0.4);
+/* Border Colors - Gold */
+  --tiller-border-color-light: rgb(212 175 55 / 10%);
+  --tiller-border-color-medium: rgb(212 175 55 / 16%);
+  --tiller-border-color-strong: rgb(212 175 55 / 40%);
   --tiller-border-grout: var(--tiller-grout-subtle);
 
   /* ===== Spacing System (Fluid) ===== */
@@ -322,16 +322,16 @@ a {
 
 a:hover,
 a:focus {
-  color: var(--tiller-color-gold, #c9a227);
-  text-decoration-color: var(--tiller-color-gold, #c9a227);
-  text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%);
+  color: var(--tiller-color-gold, #d4af37);
+  text-decoration-color: var(--tiller-color-gold, #d4af37);
+  text-shadow: 0 0 8px rgb(212 175 55 / 65%), 0 0 24px rgb(212 175 55 / 45%);
 }
 
 /* Active/Visited can use Emerald for distinction */
 a:active,
 a.is-active {
-  color: var(--tiller-color-emerald, #10b981);
-  text-shadow: 0 0 8px rgb(16 185 129 / 60%);
+  color: var(--tiller-color-emerald, #00e184);
+  text-shadow: 0 0 10px rgb(0 225 132 / 70%);
 }
 
 /* Nav links - no underline, handled separately */
@@ -369,7 +369,7 @@ table {
 th, td {
   padding: 0.75rem 1rem;
   text-align: left;
-  border: 1px solid var(--tiller-grout-subtle, rgb(201 162 39 / 15%));
+  border: 1px solid var(--tiller-grout-subtle, rgb(212 175 55 / 18%));
 }
 
 th {
@@ -513,7 +513,7 @@ button:focus-visible {
   background: var(--tiller-color-gold-light);
   box-shadow: 
     var(--tiller-shadow-glow-gold),
-    0 4px 20px rgb(201 162 39 / 50%);
+    0 4px 20px rgb(212 175 55 / 55%);
 }
 
 /* Metallic Silver Button Variant */
@@ -545,7 +545,7 @@ button:focus-visible {
   background: linear-gradient(180deg, var(--tiller-color-gold-bright) 0%, var(--tiller-color-gold-light) 50%, var(--tiller-color-gold) 100%);
   box-shadow: 
     var(--tiller-shadow-glow-gold),
-    0 4px 20px rgb(201 162 39 / 60%);
+    0 4px 20px rgb(212 175 55 / 65%);
 }
 
 /* Shadows for Elements */
@@ -820,8 +820,8 @@ label {
 
 .footer-list a:hover,
 .footer-list a:focus {
-  color: var(--tiller-color-gold, #c9a227);
-  text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%);
+  color: var(--tiller-color-gold, #d4af37);
+  text-shadow: 0 0 10px rgb(212 175 55 / 65%), 0 0 24px rgb(212 175 55 / 45%);
 }
 
 .footer-contact {
@@ -869,8 +869,8 @@ label {
 .footer-contact-phone a:focus,
 .footer-contact-email a:hover,
 .footer-contact-email a:focus {
-  color: var(--tiller-color-gold, #c9a227);
-  text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%);
+  color: var(--tiller-color-gold, #d4af37);
+  text-shadow: 0 0 10px rgb(212 175 55 / 65%), 0 0 24px rgb(212 175 55 / 45%);
 }
 
 .footer-bottom {
@@ -932,8 +932,8 @@ label {
 
 .footer-legal a:hover,
 .footer-legal a:focus {
-  color: var(--tiller-color-gold, #c9a227);
-  text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%);
+  color: var(--tiller-color-gold, #d4af37);
+  text-shadow: 0 0 10px rgb(212 175 55 / 65%), 0 0 24px rgb(212 175 55 / 45%);
 }
 
 .footer-divider {

@@ -117,8 +117,11 @@
 .ts-header__logo .logo-image {
   display: block;
   width: auto;
-  height: 80px;
-  max-height: 80px;
+  height: 100px;
+  min-height: 80px;
+  min-width: 80px;
+  max-height: 100px;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
 
   /* White solid bright with emerald glow */
@@ -202,8 +205,11 @@
 
 .ts-header--minimized .ts-header__logo.logo-image,
 .ts-header--minimized .ts-header__logo .logo-image {
-  height: 56px;
-  max-height: 56px;
+  height: 72px;
+  min-height: 64px;
+  min-width: 64px;
+  max-height: 72px;
+  aspect-ratio: 1 / 1;
 }
 
 .ts-header--minimized .ts-header__branding {
@@ -823,8 +829,10 @@ body.nav-open .mobile-nav__toggle {
 }
 
 .mobile-nav__link:focus-visible {
-  outline: none;
+  outline: 2px solid var(--tiller-color-highlight, #2a7fff);
+  outline-offset: -2px;
   background: rgb(201 162 39 / 10%);
+  box-shadow: 0 0 0 4px rgb(42 127 255 / 20%);
 }
 
 .mobile-nav__link[aria-current="page"] {
@@ -866,10 +874,10 @@ body.nav-open .mobile-nav__toggle {
 }
 
 .mobile-nav__accordion:not([hidden]) {
-  animation: accordionSlideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: accordion-slide-down 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes accordionSlideDown {
+@keyframes accordion-slide-down {
   from {
     opacity: 0%;
     transform: translateY(-10px);
@@ -884,7 +892,7 @@ body.nav-open .mobile-nav__toggle {
 .mobile-nav__accordion-item {
   opacity: 0%;
   transform: translateX(10px);
-  animation: accordionItemFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: accordion-item-fade-in 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .mobile-nav__accordion:not([hidden]) .mobile-nav__accordion-item:nth-child(1) { animation-delay: 0.05s; }
@@ -896,7 +904,7 @@ body.nav-open .mobile-nav__toggle {
 .mobile-nav__accordion:not([hidden]) .mobile-nav__accordion-item:nth-child(7) { animation-delay: 0.35s; }
 .mobile-nav__accordion:not([hidden]) .mobile-nav__accordion-item:nth-child(8) { animation-delay: 0.4s; }
 
-@keyframes accordionItemFadeIn {
+@keyframes accordion-item-fade-in {
   to {
     opacity: 100%;
     transform: translateX(0);
@@ -1153,6 +1161,13 @@ body.nav-open .mobile-nav__toggle {
   .ts-header__container {
     padding: 0.625rem clamp(1rem, 4vw, 2rem);
   }
+
+  .ts-header__logo.logo-image,
+  .ts-header__logo .logo-image {
+    height: 72px;
+    min-height: 64px;
+    max-height: 72px;
+  }
   
   /* Branding stays on left on mobile */
   .ts-header__branding {
@@ -1354,7 +1369,7 @@ body.nav-open {
 }
 
 .trust-bar .container {
-  max-width: var(--tiller-max-width);
+  max-width: none;
   margin: 0 auto;
   display: flex;
   justify-content: center;
