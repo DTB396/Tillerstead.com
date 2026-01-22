@@ -246,6 +246,9 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizelegibility;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: clip;
 
   /* Eliminate white gutters on wide screens */
   background-color: var(--tiller-bg-darkest, #0a0c0a);
@@ -275,7 +278,9 @@ body {
   padding: 0;
   font-size: var(--tiller-font-size-base, 1rem);
   line-height: var(--tiller-line-height-normal, 1.5);
-  overflow-x: hidden;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 
   /* Full-bleed: no horizontal restrictions */
   min-width: 100%;

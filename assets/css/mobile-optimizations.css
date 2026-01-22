@@ -1,0 +1,918 @@
+/* =========================================================
+   Mobile Experience Optimizations - Tillerstead 2026
+   Enhanced touch targets, typography scaling, and performance
+   ========================================================= */
+
+/* ===== TOUCH TARGETS - WCAG AAA Standard (48px minimum) ===== */
+@media (max-width: 768px) {
+  /* All interactive elements get minimum 48px touch target */
+  button,
+  a,
+  [role="button"],
+  .btn,
+  .nav-toggle,
+  .nav-close,
+  [role="menuitem"],
+  [role="tab"],
+  .tab-button,
+  .calc-tab,
+  .app-sidebar-link,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  input[type="checkbox"],
+  input[type="radio"] {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 12px 16px;
+    touch-action: manipulation;
+  }
+
+  /* Button link padding optimization */
+  a.btn,
+  button.btn {
+    padding: 12px 24px;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Form inputs mobile friendly */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="search"],
+  textarea,
+  select {
+    min-height: 48px;
+    padding: 12px 16px;
+    font-size: 16px;
+    border-radius: 8px;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  /* Avoid 100vh issues on mobile browsers */
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    height: auto;
+  }
+}
+
+/* ===== TYPOGRAPHY SCALING - Mobile First ===== */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
+  body {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Hero Section */
+  .hero-title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .hero-summary {
+    font-size: 1rem;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+  }
+
+  /* Section Headers */
+  .section-title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  .section-eyebrow {
+    font-size: 0.75rem;
+  }
+
+  .section-summary {
+    font-size: 1rem;
+  }
+
+  /* Card Titles */
+  .service-title,
+  .process-step .step-title,
+  .material-title,
+  .testimonial-author {
+    font-size: 1.125rem;
+  }
+
+  .service-description,
+  .material-description,
+  .step-description {
+    font-size: 0.9375rem;
+  }
+
+  /* CTA Section */
+  .cta-title {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .cta-summary {
+    font-size: 1rem;
+  }
+}
+
+/* ===== SPACING & PADDING - Mobile Optimization ===== */
+@media (max-width: 768px) {
+  /* Reduce section padding on mobile */
+  .home-hero,
+  .home-services,
+  .home-process,
+  .home-materials,
+  .home-testimonials,
+  .home-cta {
+    padding: 2rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  /* Reduce gaps in grids */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .services-grid,
+  .materials-grid,
+  .process-steps {
+    gap: 1.5rem;
+  }
+
+  .hero-facts {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(160, 32, 48, 0.1);
+  }
+
+  .hero-highlights {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  /* Reduce card padding */
+  .service-card,
+  .process-step,
+  .material-card,
+  .testimonial-card,
+  .highlight-item {
+    padding: 1.5rem;
+  }
+
+  /* Reduce action button gaps */
+  .hero-actions,
+  .services-actions,
+  .cta-actions {
+    gap: 1rem;
+    flex-direction: column;
+  }
+
+  .hero-actions a,
+  .services-actions a,
+  .cta-actions a {
+    width: 100%;
+  }
+
+  /* Button block on mobile */
+  .btn--block,
+  .btn--primary,
+  .btn--secondary-outline,
+  .hero-actions .btn,
+  .services-actions .btn,
+  .cta-actions .btn {
+    width: 100%;
+  }
+}
+
+/* ===== NAVIGATION DRAWER - Mobile Optimization ===== */
+@media (max-width: 768px) {
+  .nav-drawer {
+    width: 90vw;
+    max-width: 320px;
+    padding: 1.5rem 1rem;
+  }
+
+  .nav-drawer a {
+    padding: 1rem;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-drawer a:active,
+  .nav-drawer a:hover {
+    background: rgba(160, 32, 48, 0.15);
+  }
+
+  .drawer-cta {
+    margin-top: 1.5rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .drawer-trust {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+}
+
+/* ===== FORMS - Mobile Friendly ===== */
+@media (max-width: 768px) {
+  .form-group,
+  .form-row {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  /* Full width inputs on mobile */
+  input,
+  textarea,
+  select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Prevent zoom on input focus (iOS) */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  textarea,
+  select {
+    font-size: 16px;
+  }
+
+  /* Better checkbox/radio touch targets */
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.75rem;
+    cursor: pointer;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+/* ===== IMAGE OPTIMIZATION ===== */
+@media (max-width: 768px) {
+  /* Prevent image overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .hero-image,
+  .service-image,
+  .portfolio-image {
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  picture,
+  picture img {
+    width: 100%;
+  }
+
+  /* SVG optimization */
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+  /* Reduce animations on mobile for performance */
+  .stagger-1,
+  .stagger-2,
+  .stagger-3,
+  .stagger-4 {
+    transition-delay: 0 !important;
+  }
+
+  /* Disable hover effects on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    .service-card:hover,
+    .process-step:hover,
+    .material-card:hover,
+    .testimonial-card:hover,
+    .highlight-item:hover,
+    .btn:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .service-card:hover::before,
+    .material-card:hover::after {
+      transform: none;
+    }
+  }
+
+  /* Active states for touch */
+  .service-card:active,
+  .process-step:active,
+  .material-card:active,
+  .testimonial-card:active {
+    opacity: 0.8;
+  }
+
+  /* Reduce shadows on mobile */
+  .service-card,
+  .process-step,
+  .material-card,
+  .testimonial-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* ===== READABLE TEXT - Prevent Zoom ===== */
+@media (max-width: 768px) {
+  body {
+    font-size: clamp(14px, 2vw, 16px);
+  }
+
+  h1 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  h2 {
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+  }
+
+  h3 {
+    font-size: clamp(1.1rem, 3vw, 1.25rem);
+  }
+
+  p,
+  li {
+    font-size: clamp(0.9375rem, 2.5vw, 1rem);
+  }
+
+  /* Ensure contrast ratio */
+  body {
+    color: rgba(255, 255, 255, 0.9);
+    background: #0f1210;
+  }
+}
+
+/* ===== VIEWPORT ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+  /* Safe area for notched devices */
+  body {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .site-header,
+  .app-header {
+    padding-left: max(0.75rem, env(safe-area-inset-left));
+    padding-right: max(0.75rem, env(safe-area-inset-right));
+    padding-top: max(0.5rem, env(safe-area-inset-top));
+  }
+
+  .nav-drawer,
+  .app-sidebar {
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-left: max(0.5rem, env(safe-area-inset-left));
+  }
+
+  /* Sticky elements respect safe area */
+  .sticky-cta,
+  .fixed-footer,
+  .app-footer {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  /* Container with safe areas */
+  .container,
+  .app-container {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
+
+/* ===== SMALL SCREENS (< 480px) ===== */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  /* Larger hero font sizes for readability */
+  .hero-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-summary {
+    font-size: 0.9375rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Reduce section padding */
+  .home-hero,
+  .home-services,
+  .home-process,
+  .home-materials,
+  .home-testimonials,
+  .home-cta {
+    padding: 1.5rem 0;
+  }
+
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  /* Single column layouts */
+  .hero-facts,
+  .hero-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  /* Reduce card padding further */
+  .service-card,
+  .process-step,
+  .material-card,
+  .testimonial-card {
+    padding: 1rem;
+  }
+
+  /* Smaller step numbers */
+  .step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+
+  /* Section title smaller */
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .cta-title {
+    font-size: 1.25rem;
+  }
+
+  /* Button padding reduction */
+  .btn {
+    padding: 10px 16px;
+    font-size: 0.9375rem;
+  }
+
+  /* Drawer full width */
+  .nav-drawer {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: -1rem;
+  }
+}
+
+/* ===== LANDSCAPE MODE (Mobile Horizontal) ===== */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Reduce vertical spacing in landscape */
+  .home-hero,
+  .home-services,
+  .home-process,
+  .home-cta {
+    padding: 1rem 0;
+  }
+
+  .hero-grid {
+    gap: 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-actions {
+    flex-direction: row;
+  }
+
+  .hero-actions a {
+    width: auto;
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+/* ===== POINTER & HOVER DEVICE DETECTION ===== */
+@media (pointer: coarse) {
+  /* Touch device adjustments */
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Remove :hover states on touch devices */
+  .btn:hover {
+    transform: none;
+  }
+
+  /* Better press feedback */
+  .btn:active {
+    opacity: 0.8;
+    transform: scale(0.98);
+  }
+}
+
+@media (pointer: fine) {
+  /* Desktop pointer behavior preserved */
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* ===== ACCESSIBILITY - FOCUS VISIBILITY ===== */
+@media (max-width: 768px) {
+  :focus-visible {
+    outline: 3px solid var(--tiller-color-gold, #C73A4F);
+    outline-offset: 4px;
+  }
+
+  /* Visible focus for keyboard navigation */
+  .btn:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 3px solid var(--tiller-color-gold, #C73A4F);
+    outline-offset: 2px;
+  }
+}
+
+/* ===== REDUCE MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== DARK MODE / LIGHT MODE SUPPORT ===== */
+@media (prefers-color-scheme: light) {
+  /* Ensure dark theme is maintained regardless of OS preference */
+  body {
+    background: #0f1210;
+    color: #ffffff;
+  }
+}
+
+/* ===== TOOLS PAGE MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+  /* App sidebar mobile */
+  .app-sidebar {
+    width: 100%;
+    max-width: 100vw;
+    position: fixed;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+
+  .app-sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Calculator inputs on mobile */
+  .calc-input,
+  .calc-field input,
+  .calc-field select {
+    font-size: 16px;
+    min-height: 48px;
+    padding: 12px 16px;
+  }
+
+  /* Results display */
+  .calc-result,
+  .result-card {
+    font-size: 1.125rem;
+    padding: 1rem;
+  }
+
+  /* Tab navigation */
+  .calc-tabs,
+  .app-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .calc-tabs::-webkit-scrollbar,
+  .app-tabs::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ===== IMPROVED SCROLLING ===== */
+@media (max-width: 768px) {
+  /* Smooth scrolling with momentum */
+  .scrollable,
+  .app-content,
+  .calc-results,
+  .modal-content {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+  }
+
+  /* Horizontal scroll containers */
+  .scroll-x,
+  .table-wrapper,
+  .chart-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+}
+
+/* ===== CARD & GRID OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+  /* All grids stack vertically */
+  .grid,
+  .card-grid,
+  .service-grid,
+  .feature-grid,
+  .calc-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Cards full width */
+  .card,
+  .service-card,
+  .calc-card,
+  .result-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* ===== ENHANCED BUTTON GROUPS ===== */
+@media (max-width: 768px) {
+  .btn-group,
+  .action-group,
+  .calc-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .btn-group .btn,
+  .action-group .btn,
+  .calc-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Horizontal button groups on larger mobile */
+  @media (min-width: 400px) {
+    .btn-group--horizontal {
+      flex-direction: row;
+    }
+
+    .btn-group--horizontal .btn {
+      flex: 1;
+    }
+  }
+}
+
+/* ===== PREMIUM ANIMATIONS ===== */
+@media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+  /* Subtle micro-interactions */
+  button:active,
+  .btn:active,
+  a.btn:active {
+    transform: scale(0.97);
+    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Card interactions */
+  .card:active,
+  .service-card:active,
+  .calc-card:active {
+    transform: scale(0.99);
+    transition: transform 0.15s ease;
+  }
+
+  /* Smooth page transitions */
+  .page-transition {
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ===== MODAL OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+  .modal,
+  .dialog,
+  .drawer {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    max-width: 100vw;
+    max-height: 100vh;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .modal-content,
+  .dialog-content {
+    max-height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ===== TABLE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+  /* Responsive tables */
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1rem -1rem;
+    padding: 0 1rem;
+  }
+
+  table {
+    min-width: 600px;
+  }
+
+  /* Stack table for very small screens */
+  @media (max-width: 400px) {
+    .table--stack thead {
+      display: none;
+    }
+
+    .table--stack tbody tr {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+      border: 1px solid var(--tiller-grout, #c9a227);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+
+    .table--stack td {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border: none;
+    }
+
+    .table--stack td::before {
+      content: attr(data-label);
+      font-weight: 600;
+      margin-right: 1rem;
+    }
+  }
+}
+
+/* ===== UTILITY CLASSES ===== */
+@media (max-width: 768px) {
+  /* Display utilities */
+  .mobile-hidden {
+    display: none !important;
+  }
+
+  .mobile-visible {
+    display: block !important;
+  }
+
+  /* Spacing utilities */
+  .mobile-mt-0 { margin-top: 0 !important; }
+  .mobile-mb-0 { margin-bottom: 0 !important; }
+  .mobile-py-1 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+  .mobile-px-1 { padding-left: 1rem !important; padding-right: 1rem !important; }
+
+  /* Text utilities */
+  .mobile-text-center { text-align: center !important; }
+  .mobile-text-sm { font-size: 0.875rem !important; }
+  .mobile-text-lg { font-size: 1.125rem !important; }
+
+  /* Width utilities */
+  .mobile-w-full { width: 100% !important; }
+  .mobile-w-auto { width: auto !important; }
+}
+
+/* ===== PRINT OPTIMIZATION ===== */
+@media print {
+  .nav-toggle,
+  .site-header,
+  .nav-drawer,
+  .cta-actions,
+  .app-sidebar,
+  .calc-tabs {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+  /* Contain layout to improve performance */
+  .card,
+  .service-card,
+  .calc-card,
+  .section {
+    contain: layout style paint;
+  }
+
+  /* Hint for content visibility */
+  .lazy-section,
+  .below-fold {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+  }
+
+  /* Optimize image decoding */
+  img {
+    decoding: async;
+  }
+
+  /* Reduce compositor layers */
+  * {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+}

@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Jekyll include: no DOCTYPE needed, ensure space indentation -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Security Headers (Client-Side) -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+<meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://formsubmit.co https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://formsubmit.co https://www.google-analytics.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;" />
+
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#10b981" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#059669" media="(prefers-color-scheme: dark)" />
+
+<!-- Early accessibility preference detection (runs before render to prevent flash) -->
+<script>
+(function(){
+  var d=document.documentElement,m=window.matchMedia;
+  // Reduced motion
+  if(m('(prefers-reduced-motion:reduce)').matches)d.classList.add('reduce-motion');
+  // High contrast / forced colors
+  if(m('(forced-colors:active)').matches||m('(prefers-contrast:more)').matches)d.setAttribute('data-high-contrast','true');
+  // Color scheme
+  if(m('(prefers-color-scheme:dark)').matches)d.setAttribute('data-color-scheme','dark');
+  // Touch device
+  if(m('(pointer:coarse)').matches){d.setAttribute('data-pointer','coarse');d.classList.add('touch-friendly');}
+  // No hover
+  if(m('(hover:none)').matches)d.setAttribute('data-hover','none');
+  // Reduced transparency
+  if(m('(prefers-reduced-transparency:reduce)').matches)d.setAttribute('data-reduced-transparency','true');
+  // Inverted colors
+  if(m('(inverted-colors:inverted)').matches)d.setAttribute('data-inverted-colors','true');
+  // Load saved user preferences
+  try{var p=JSON.parse(localStorage.getItem('tillerstead-a11y-prefs')||'{}');
+    if(p.highContrast)d.setAttribute('data-high-contrast','true');
+    if(p.textSize)d.setAttribute('data-text-size',p.textSize);
+    if(p.reducedMotion)d.classList.add('reduce-motion');
+  }catch(e){}
+})();
+</script>
+
+<title>Legal Disclaimer - Tillerstead Calculator Tools | Tillerstead LLC</title>
+
+
+<meta name="description" content="Expert TCNA-compliant tile and stone installation in South Jersey. Specializing in custom showers, heated floors, waterproof assemblies, and natural stone su..." />
+
+
+
+<meta name="keywords" content="TCNA-compliant tile installation South Jersey, Custom shower waterproofing New Jersey HIC contractor, Heated floor tile systems Atlantic County, Natural stone and marble tile New Jersey, Large format tile installation NJ, Licensed tile contractor Atlantic County, Owner-supervised tile projects NJ, Written scopes and change orders NJ, tile installer near me South Jersey, bathroom remodel Atlantic City NJ, tile contractor Ocean County NJ, Cape May County tile installation, Galloway NJ tile contractor, Egg Harbor Township tile installer, Margate tile and stone contractor, Ventnor bathroom tile installation, Brigantine custom tile work, Somers Point tile services, curbless shower installation NJ, walk-in shower tile contractor, bathroom floor heating installation, radiant floor tile NJ, Schluter system installer New Jersey, Kerdi waterproofing contractor, porcelain tile installation South Jersey, ceramic tile contractor Atlantic County, backsplash installation NJ, kitchen tile contractor South Jersey, fireplace tile surround NJ, outdoor tile patio installation, pool deck tile contractor NJ, insured tile contractor New Jersey, bonded tile installer NJ, professional tile setter South Jersey, expert tile craftsmanship NJ, warranty backed tile installation, transparent pricing tile contractor, best tile contractor Atlantic County reviews, affordable tile installation South Jersey, residential tile contractor near me, commercial tile installation NJ, bathroom renovation contractor South Jersey" />
+
+
+<meta name="author" content="Tillerstead LLC" />
+<meta name="robots" content="index, follow" />
+
+<!-- DNS Prefetch & Preconnect for external resources -->
+<link rel="dns-prefetch" href="//www.google-analytics.com" />
+<link rel="dns-prefetch" href="//formsubmit.co" />
+<link rel="preconnect" href="https://www.thumbtack.com" crossorigin />
+
+<!-- Favicons & App Icons -->
+<!-- Favicons & App Icons (v2026.01.19 - force Safari cache refresh) -->
+<!-- SVG favicon for modern browsers (scales perfectly at any size) -->
+<link rel="icon" type="image/svg+xml" href="/assets/img/tillerstead-favicon.svg?v=20260119">
+<!-- PNG fallbacks in descending size order -->
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/icons/favicon-48x48.png?v=20260119">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png?v=20260119">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png?v=20260119">
+<link rel="shortcut icon" href="/favicon.ico?v=20260119">
+
+<!-- Apple Touch Icons (for bookmarks and home screen) -->
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png?v=20260119">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png?v=20260119">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-touch-icon-152x152.png?v=20260119">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-touch-icon-120x120.png?v=20260119">
+<link rel="apple-touch-icon-precomposed" href="/assets/icons/apple-touch-icon-precomposed.png?v=20260119">
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.webmanifest?v=20260119">
+
+<!-- Safari Pinned Tab -->
+<!-- <link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg" color="#10b981"> -->
+
+<!-- Microsoft Tiles -->
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#10b981">
+
+<!-- Theme Color -->
+<meta name="theme-color" content="#10b981">
+
+
+<!-- Resource Hints: Preload critical CSS (render-blocking) -->
+<link rel="preload" href="/assets/css/root-vars.css" as="style" />
+<link rel="preload" href="/assets/css/main.css" as="style" />
+
+
+<!-- Core & Utility CSS: Load variables first, then base, then layout, then components, then page/utilities -->
+<link rel="stylesheet" href="/assets/css/root-vars.css" />
+<link rel="stylesheet" href="/assets/css/mobile-optimizations.css" />
+<link rel="stylesheet" href="/assets/css/mobile-premium.css" />
+<link rel="stylesheet" href="/assets/css/hero-patterns.css" />
+<link rel="stylesheet" href="/assets/css/tile-patterns.css" />
+<link rel="stylesheet" href="/assets/css/tile-integrations.css" />
+<link rel="stylesheet" href="/assets/css/retro-enhancements.css" />
+<link rel="stylesheet" href="/assets/css/logo-wolf-crest.css" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+<link rel="stylesheet" href="/assets/css/footer.css" />
+<link rel="stylesheet" href="/assets/css/visual-enhancements.css" />
+<link rel="stylesheet" href="/assets/css/accessibility.css" />
+<link rel="stylesheet" href="/assets/css/nav-drawer.css" />
+<link rel="stylesheet" href="/assets/css/navigation.css" />
+<link rel="stylesheet" href="/assets/css/animations.css" />
+<link rel="stylesheet" href="/assets/css/professional-features.css" />
+<link rel="stylesheet" href="/assets/css/carousel-premium.css" />
+<link rel="stylesheet" href="/assets/css/form-premium.css" />
+<link rel="stylesheet" href="/assets/css/page-theme.css" />
+<link rel="stylesheet" href="/assets/css/card-grid-bg.css" />
+
+
+<!-- Page-specific stylesheets -->
+
+
+<!-- Page-specific scripts -->
+
+
+<!-- Prefetch secondary pages for instant navigation -->
+
+
+<!-- Page-specific styles/scripts can be added below -->
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "@id": "https://tillerstead.com/#organization",
+  "name": "Tillerstead LLC",
+  "legalName": "Tillerstead LLC",
+  "url": "https://tillerstead.com",
+  "logo": "https://tillerstead.com/assets/img/logo/tillerstead_social_square_512.png",
+  "image": "https://tillerstead.com/assets/img/og.jpg",
+  "description": "Expert TCNA-compliant tile and stone installation in South Jersey. Specializing in custom showers, heated floors, waterproof assemblies, and natural stone surfaces. Licensed NJ contractor (HIC #13VH10808800) proudly serving Atlantic, Ocean, and Cape May Counties with precision craftsmanship, transparent pricing, and direct owner oversight on every project.",
+  "telephone": "+16098628808",
+  "email": "info@tillerstead.com",
+  "priceRange": "$$",
+  "paymentAccepted": "Cash, Check, Credit Card, Financing Available",
+  "currenciesAccepted": "USD",
+  "foundingDate": "2020",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "325 E. Jimmie Leeds Road, Suite 7-333",
+    "addressLocality": "",
+    "addressRegion": "NJ",
+    "postalCode": "08205",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "39.4784",
+    "longitude": "-74.4771"
+  },
+  "areaServed": [
+    {
+      "@type": "State",
+      "name": "New Jersey"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Atlantic County",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "New Jersey"
+      }
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Ocean County",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "New Jersey"
+      }
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Cape May County",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "New Jersey"
+      }
+    }
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "https://schema.org/Monday",
+        "https://schema.org/Tuesday",
+        "https://schema.org/Wednesday",
+        "https://schema.org/Thursday",
+        "https://schema.org/Friday"
+      ],
+      "opens": "07:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "https://schema.org/Saturday",
+      "opens": "08:00",
+      "closes": "16:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.thumbtack.com/nj/absecon/tile/tillerstead-llc/service/547437618353160199",
+    "https://www.facebook.com/people/Tillerstead-LLC/61580414460056/"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Tile & Remodeling Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Custom Tile Installation",
+          "description": "TCNA-compliant tile installation: showers, backsplashes, floors, and radiant heated systems. All work meets ANSI A108/A118 standards."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Waterproof Shower Systems",
+          "description": "Certified waterproof assemblies using Schluter, RedGard, and ANSI A118.10-compliant membranes. New Jersey HIC# 13VH10808800."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Natural Stone Installation",
+          "description": "Marble, granite, and natural stone set to TCNA guidelines. Professional fabrication coordination and substrate prep."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Bathroom Remodeling",
+          "description": "Complete bath renovations: tile, fixtures, waterproofing, and code-compliant upgrades. All work documented and warrantied."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Property Maintenance Plans",
+          "description": "Monthly property care: scheduled inspections, repairs, and maintenance logs. Transparent, contract-based service."
+        }
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "2",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "additionalType": [
+    "https://www.wikidata.org/wiki/Q1080313",
+    "https://www.wikidata.org/wiki/Q4287745"
+  ],
+  "knowsAbout": [
+    "TCNA Methods",
+    "ANSI A108/A118 Standards",
+    "Tile Installation",
+    "Waterproofing Systems",
+    "Bathroom Remodeling",
+    "Natural Stone Work",
+    "Heated Floors",
+    "Schluter Systems",
+    "Large Format Tile",
+    "Custom Showers"
+  ],
+  "slogan": "Expert Tile & Stone Installation. TCNA-Literate. New Jersey HIC# 13VH10808800.",
+  "howTo": {
+    "@type": "HowTo",
+    "name": "How to Install Tile",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "url": "/how-to-install-tile/step1",
+        "name": "Step 1: Prepare the Surface",
+        "description": "Make sure the surface is clean and smooth before starting the installation."
+      },
+      {
+        "@type": "HowToStep",
+        "url": "/how-to-install-tile/step2",
+        "name": "Step 2: Apply Adhesive",
+        "description": "Apply the right adhesive for the tile you're using and spread it evenly."
+      },
+      {
+        "@type": "HowToStep",
+        "url": "/how-to-install-tile/step3",
+        "name": "Step 3: Place the Tiles",
+        "description": "Place each tile correctly, leaving space for grout."
+      }
+    ]
+  },
+  "faqPage": {
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is TCNA-compliant tile installation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TCNA-compliant tile installation refers to tile installation methods that follow the guidelines and standards set by the Tile Council of North America (TCNA). This ensures the highest quality and durability of installations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What areas do you serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We serve Atlantic, Ocean, and Cape May counties in New Jersey."
+        }
+      }
+    ]
+  },
+  "schemaOrg": {
+    "@type": "TechArticle",
+    "headline": "Legal Disclaimer - Tillerstead Calculator Tools",
+    "description": null,
+    "url": "https://tillerstead.com/tillerstead-toolkit/LEGAL_DISCLAIMER/",
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@type": "CollectionPage",
+      "name": "Build Phase Guides",
+      "url": "https://tillerstead.com/build/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Tillerstead LLC",
+      "url": "https://tillerstead.com"
+    },
+    "datePublished": null,
+    "dateModified": null
+  }
+}
+</script>
+<!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tillerstead LLC" />
+  <meta property="og:title" content="Legal Disclaimer - Tillerstead Calculator Tools" />
+  <meta property="og:description" content="Expert TCNA-compliant tile and stone installation in South Jersey. Specializing in custom showers, heated floors, waterproof assemblies, and natural stone surfaces. Licensed NJ contractor (HIC #13V..." />
+  <meta property="og:url" content="https://tillerstead.com/tillerstead-toolkit/LEGAL_DISCLAIMER/" />
+  <meta property="og:image" content="https://tillerstead.com/assets/img/social/tillerstead-showcase.jpg" />
+  <meta property="og:locale" content="en_US" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@tillerstead" />
+  <meta name="twitter:title" content="Legal Disclaimer - Tillerstead Calculator Tools" />
+  <meta name="twitter:description" content="Expert TCNA-compliant tile and stone installation in South Jersey. Specializing in custom showers, heated floors, waterproof assemblies, and natural stone surfaces. Licensed NJ contractor (HIC #13V..." />
+  <meta name="twitter:image" content="https://tillerstead.com/assets/img/social/tillerstead-showcase.jpg" />
+  
+  <!-- Geo/Local SEO -->
+  <meta name="geo.region" content="US-NJ" />
+  <meta name="geo.placename" content="Galloway, New Jersey" />
+  <meta name="geo.position" content="39.4784;-74.4771" />
+  <meta name="ICBM" content="39.4784, -74.4771" />
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://tillerstead.com/tillerstead-toolkit/LEGAL_DISCLAIMER/" />
+  
+
+  
+  </head>
+
+<body class="ts-body">
+  <!-- Skip Links for Accessibility - Multiple Targets -->
+  <nav class="skip-links" aria-label="Skip navigation">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#footer-contact-heading" class="skip-link">Skip to contact</a>
+  </nav>
+
+  <!-- =========================================================
+     Site Header - 2026 Contractor UX
+     Sticky header with branding + navigation
+     ========================================================= -->
+<header class="ts-header" id="site-header" aria-label="Main Header">
+  <div class="ts-header__container">
+    <!-- Branding Section -->
+    <div class="ts-header__branding">
+      <!-- Wolf Crest Logo with link to home -->
+      <a href="/" class="ts-header__logo-link" aria-label="Tillerstead LLC - Where Craft Meets Accountability - Go to homepage">
+        <!-- 
+  Wolf Crest Logo Component
+  Responsive, optimized logo with WebP support and retina displays
+  
+  Usage: { % include components/logo-wolf-crest.html class="custom-class" % }
+-->
+
+
+
+<picture class="ts-header__logo">
+  <!-- Mobile: compact version -->
+  <source media="(max-width: 640px)" 
+          srcset="/assets/img/logo/logo-wolf-crest-compact.webp 1x,
+                  /assets/img/logo/logo-wolf-crest-compact@2x.webp 2x"
+          type="image/webp">
+  <source media="(max-width: 640px)" 
+          srcset="/assets/img/logo/logo-wolf-crest-compact.png 1x,
+                  /assets/img/logo/logo-wolf-crest-compact@2x.png 2x"
+          type="image/png">
+  
+  <!-- Desktop: full logo -->
+  <source srcset="/assets/img/logo/logo-wolf-crest-header.webp 1x,
+                  /assets/img/logo/logo-wolf-crest-header@2x.webp 2x"
+          type="image/webp">
+  <source srcset="/assets/img/logo/logo-wolf-crest-header.png 1x,
+                  /assets/img/logo/logo-wolf-crest-header@2x.png 2x"
+          type="image/png">
+  
+  <img src="/assets/img/logo/logo-wolf-crest-header.png"
+       alt="Tillerstead LLC - Where Craft Meets Accountability"
+       width="400"
+       height="120"
+       class="logo-image"
+       loading="eager">
+</picture>
+
+      </a>
+      <div class="ts-header__info">
+        <span class="ts-header__company">Tillerstead LLC</span>
+        <span class="ts-header__tagline">Where Craft Meets Accountability</span>
+        <span class="ts-header__region">South Jersey • <abbr title="New Jersey Home Improvement Contractor">NJ HIC</abbr> #13VH10808800</span>
+      </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <!-- =========================================================
+     Main Navigation - 2026 Contractor UX
+     Desktop: Hover dropdowns | Mobile: Full-screen drawer
+     Data source: _data/navigation.yml
+     Accessibility: WCAG 2.1 AA compliant
+     Note: Skip link handled by _layouts/default.html .skip-links
+     ========================================================= -->
+
+<!-- Desktop Navigation (≥1024px) -->
+<nav class="desktop-nav" aria-label="Primary Navigation">
+  <ul class="desktop-nav__list" role="menubar">
+    
+    <li class="desktop-nav__item" role="none">
+      
+      
+        <!-- Regular link -->
+        <a 
+          href="/services/" 
+          class="desktop-nav__link"
+          role="menuitem"
+          
+        >
+          Services
+        </a>
+      
+      
+    </li>
+    
+    <li class="desktop-nav__item" role="none">
+      
+      
+        <!-- Regular link -->
+        <a 
+          href="/portfolio/" 
+          class="desktop-nav__link"
+          role="menuitem"
+          
+        >
+          Our Work
+        </a>
+      
+      
+    </li>
+    
+    <li class="desktop-nav__item has-dropdown" role="none">
+      
+      
+        <!-- Dropdown trigger (button for accessibility) -->
+        <button 
+          type="button"
+          class="desktop-nav__link desktop-nav__trigger"
+          aria-expanded="false"
+          aria-controls="dropdown-build"
+          aria-haspopup="menu"
+          
+        >
+          Guides
+          <svg class="dropdown-icon" aria-hidden="true" width="12" height="12" viewBox="0 0 12 12">
+            <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </button>
+        
+        <!-- Dropdown menu -->
+        <ul 
+          id="dropdown-build"
+          class="desktop-nav__dropdown"
+          role="menu"
+          aria-label="Guides submenu"
+        >
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/build/nj-codes-permits/" role="menuitem">Codes & Permits</a>
+          </li>
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/build/shower-pans-slopes-drains/" role="menuitem">Shower Pans & Slopes</a>
+          </li>
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/build/waterproofing-systems/" role="menuitem">Waterproofing Systems</a>
+          </li>
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/build/curbs-curbless/" role="menuitem">Curbless Showers</a>
+          </li>
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/build/framing-benches-niches/" role="menuitem">Benches & Niches</a>
+          </li>
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/build/tile-installation-standards/" role="menuitem">Tile Standards (TCNA)</a>
+          </li>
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/build/flood-testing/" role="menuitem">Flood Testing</a>
+          </li>
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/build/common-build-failures/" role="menuitem">Common Build Failures</a>
+          </li>
+          
+        </ul>
+      
+      
+      
+    </li>
+    
+    <li class="desktop-nav__item" role="none">
+      
+      
+        <!-- Regular link -->
+        <a 
+          href="/blog/" 
+          class="desktop-nav__link"
+          role="menuitem"
+          
+        >
+          Blog
+        </a>
+      
+      
+    </li>
+    
+    <li class="desktop-nav__item" role="none">
+      
+      
+        <!-- Regular link -->
+        <a 
+          href="/reviews/" 
+          class="desktop-nav__link"
+          role="menuitem"
+          
+        >
+          Reviews
+        </a>
+      
+      
+    </li>
+    
+    <li class="desktop-nav__item" role="none">
+      
+      
+        <!-- Regular link -->
+        <a 
+          href="/tools/" 
+          class="desktop-nav__link"
+          role="menuitem"
+          
+        >
+          Tools
+        </a>
+      
+      
+    </li>
+    
+    <li class="desktop-nav__item has-dropdown" role="none">
+      
+      
+        <!-- Dropdown trigger (button for accessibility) -->
+        <button 
+          type="button"
+          class="desktop-nav__link desktop-nav__trigger"
+          aria-expanded="false"
+          aria-controls="dropdown-about"
+          aria-haspopup="menu"
+          aria-label="About Tillerstead"
+        >
+          About
+          <svg class="dropdown-icon" aria-hidden="true" width="12" height="12" viewBox="0 0 12 12">
+            <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </button>
+        
+        <!-- Dropdown menu -->
+        <ul 
+          id="dropdown-about"
+          class="desktop-nav__dropdown"
+          role="menu"
+          aria-label="About submenu"
+        >
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/about/" role="menuitem">Our Story</a>
+          </li>
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/for-general-contractors/" role="menuitem">For Contractors</a>
+          </li>
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/faq/" role="menuitem">FAQ</a>
+          </li>
+          
+          <li class="desktop-nav__dropdown-item" role="none">
+            <a href="/products/" role="menuitem">Products We Use</a>
+          </li>
+          
+        </ul>
+      
+      
+      
+    </li>
+    
+    <li class="desktop-nav__item is-cta" role="none">
+      
+      
+        <!-- Regular link -->
+        <a 
+          href="/contact/" 
+          class="desktop-nav__link desktop-nav__cta"
+          role="menuitem"
+          
+        >
+          Get Estimate
+        </a>
+      
+      
+    </li>
+    
+  </ul>
+</nav>
+
+<!-- Mobile Navigation Toggle (≤1023px) -->
+<button 
+  type="button"
+  class="mobile-nav__toggle"
+  aria-expanded="false"
+  aria-controls="mobile-nav-drawer"
+  aria-label="Open navigation menu"
+>
+  <span class="hamburger-icon" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+</button>
+
+<!-- Mobile Navigation Drawer -->
+<div 
+  id="mobile-nav-drawer"
+  class="mobile-nav"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Navigation menu"
+  aria-hidden="true"
+>
+  <!-- Drawer Body (slides in from right) -->
+  <nav class="mobile-nav__body" aria-label="Mobile Navigation">
+    <!-- Drawer Header with Close Button -->
+    <div class="mobile-nav__header">
+      <button 
+        type="button"
+        class="mobile-nav__close"
+        aria-label="Close navigation menu"
+      >
+        <span class="close-x" aria-hidden="true">✕</span> Close
+      </button>
+    </div>
+    
+    <ul class="mobile-nav__list">
+      
+      <li class="mobile-nav__item">
+        
+        
+          <!-- Regular link -->
+          <a 
+            href="/services/" 
+            class="mobile-nav__link"
+            
+          >
+            
+              SERVICES
+            
+          </a>
+        
+        
+      </li>
+      
+      <li class="mobile-nav__item">
+        
+        
+          <!-- Regular link -->
+          <a 
+            href="/portfolio/" 
+            class="mobile-nav__link"
+            
+          >
+            
+              OUR WORK
+            
+          </a>
+        
+        
+      </li>
+      
+      <li class="mobile-nav__item has-accordion">
+        
+        
+          <!-- Accordion trigger -->
+          <button 
+            type="button"
+            class="mobile-nav__link mobile-nav__accordion-trigger"
+            aria-expanded="false"
+            aria-controls="mobile-accordion-build"
+          >
+            GUIDES
+            <span class="accordion-arrow" aria-hidden="true">▸</span>
+          </button>
+          
+          <!-- Accordion panel -->
+          <ul 
+            id="mobile-accordion-build"
+            class="mobile-nav__accordion"
+            role="region"
+            aria-label="Guides submenu"
+            hidden
+          >
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/build/nj-codes-permits/">Codes & Permits</a>
+            </li>
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/build/shower-pans-slopes-drains/">Shower Pans & Slopes</a>
+            </li>
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/build/waterproofing-systems/">Waterproofing Systems</a>
+            </li>
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/build/curbs-curbless/">Curbless Showers</a>
+            </li>
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/build/framing-benches-niches/">Benches & Niches</a>
+            </li>
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/build/tile-installation-standards/">Tile Standards (TCNA)</a>
+            </li>
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/build/flood-testing/">Flood Testing</a>
+            </li>
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/build/common-build-failures/">Common Build Failures</a>
+            </li>
+            
+          </ul>
+        
+        
+        
+      </li>
+      
+      <li class="mobile-nav__item">
+        
+        
+          <!-- Regular link -->
+          <a 
+            href="/blog/" 
+            class="mobile-nav__link"
+            
+          >
+            
+              BLOG
+            
+          </a>
+        
+        
+      </li>
+      
+      <li class="mobile-nav__item">
+        
+        
+          <!-- Regular link -->
+          <a 
+            href="/reviews/" 
+            class="mobile-nav__link"
+            
+          >
+            
+              REVIEWS
+            
+          </a>
+        
+        
+      </li>
+      
+      <li class="mobile-nav__item">
+        
+        
+          <!-- Regular link -->
+          <a 
+            href="/tools/" 
+            class="mobile-nav__link"
+            
+          >
+            
+              TOOLS
+            
+          </a>
+        
+        
+      </li>
+      
+      <li class="mobile-nav__item has-accordion">
+        
+        
+          <!-- Accordion trigger -->
+          <button 
+            type="button"
+            class="mobile-nav__link mobile-nav__accordion-trigger"
+            aria-expanded="false"
+            aria-controls="mobile-accordion-about"
+          >
+            ABOUT
+            <span class="accordion-arrow" aria-hidden="true">▸</span>
+          </button>
+          
+          <!-- Accordion panel -->
+          <ul 
+            id="mobile-accordion-about"
+            class="mobile-nav__accordion"
+            role="region"
+            aria-label="About submenu"
+            hidden
+          >
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/about/">Our Story</a>
+            </li>
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/for-general-contractors/">For Contractors</a>
+            </li>
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/faq/">FAQ</a>
+            </li>
+            
+            <li class="mobile-nav__accordion-item">
+              <a href="/products/">Products We Use</a>
+            </li>
+            
+          </ul>
+        
+        
+        
+      </li>
+      
+      <li class="mobile-nav__item">
+        
+        
+          <!-- Regular link -->
+          <a 
+            href="/contact/" 
+            class="mobile-nav__link mobile-nav__cta"
+            
+          >
+            
+              GET ESTIMATE
+            
+          </a>
+        
+        
+      </li>
+      
+    </ul>
+    
+    <!-- Mobile CTA -->
+    <a href="/contact/" class="mobile-nav__estimate-btn">
+      Get an Estimate
+    </a>
+    
+    <!-- For Contractors Link -->
+    <a href="/for-general-contractors/" class="mobile-nav__link">
+      FOR CONTRACTORS
+    </a>
+    
+    <!-- Trust signal -->
+    <div class="mobile-nav__trust">
+      <span class="mobile-nav__license">NJ HIC #13VH10808800</span>
+    </div>
+  </nav>
+</div>
+
+<!-- Navigation JavaScript (Progressive Enhancement) -->
+<script>
+(function() {
+  'use strict';
+  
+  // ===== DESKTOP NAVIGATION (≥1024px) =====
+  // Completely separate from mobile - only runs on desktop viewport
+  function initDesktopNav() {
+    const dropdownTriggers = document.querySelectorAll('.desktop-nav__trigger');
+    if (!dropdownTriggers.length) return;
+    
+    dropdownTriggers.forEach(trigger => {
+      const dropdown = document.getElementById(trigger.getAttribute('aria-controls'));
+      if (!dropdown) return;
+      
+      let closeTimeout;
+      
+      // Hover open (mouse)
+      trigger.parentElement.addEventListener('mouseenter', () => {
+        clearTimeout(closeTimeout);
+        openDropdown(trigger, dropdown);
+      });
+      
+      trigger.parentElement.addEventListener('mouseleave', () => {
+        closeTimeout = setTimeout(() => {
+          closeDropdown(trigger, dropdown);
+        }, 150);
+      });
+      
+      // Keyboard support (focus)
+      trigger.addEventListener('focus', () => {
+        openDropdown(trigger, dropdown);
+      });
+      
+      // Click toggle (for touch devices detecting as desktop)
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+        if (isExpanded) {
+          closeDropdown(trigger, dropdown);
+        } else {
+          closeAllDesktopDropdowns();
+          openDropdown(trigger, dropdown);
+        }
+      });
+      
+      // Keyboard navigation
+      trigger.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeDropdown(trigger, dropdown);
+          trigger.focus();
+        }
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          openDropdown(trigger, dropdown);
+          const firstItem = dropdown.querySelector('a');
+          if (firstItem) firstItem.focus();
+        }
+      });
+      
+      // Dropdown keyboard nav
+      dropdown.addEventListener('keydown', (e) => {
+        const items = dropdown.querySelectorAll('a');
+        const currentIndex = Array.from(items).indexOf(document.activeElement);
+        
+        if (e.key === 'Escape') {
+          closeDropdown(trigger, dropdown);
+          trigger.focus();
+        }
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          const nextIndex = (currentIndex + 1) % items.length;
+          items[nextIndex].focus();
+        }
+        if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          const prevIndex = currentIndex <= 0 ? items.length - 1 : currentIndex - 1;
+          items[prevIndex].focus();
+        }
+        if (e.key === 'Tab' && !e.shiftKey && currentIndex === items.length - 1) {
+          closeDropdown(trigger, dropdown);
+        }
+      });
+    });
+    
+    function openDropdown(trigger, dropdown) {
+      trigger.setAttribute('aria-expanded', 'true');
+      trigger.parentElement.classList.add('is-open');
+    }
+    
+    function closeDropdown(trigger, dropdown) {
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.parentElement.classList.remove('is-open');
+    }
+    
+    function closeAllDesktopDropdowns() {
+      dropdownTriggers.forEach(t => {
+        const d = document.getElementById(t.getAttribute('aria-controls'));
+        if (d) closeDropdown(t, d);
+      });
+    }
+    
+    // Close desktop dropdowns on outside click - but NOT on mobile nav elements
+    document.addEventListener('click', (e) => {
+      // Skip if clicking on mobile nav elements
+      if (e.target.closest('.mobile-nav') || e.target.closest('.mobile-nav__toggle')) {
+        return;
+      }
+      if (!e.target.closest('.has-dropdown')) {
+        closeAllDesktopDropdowns();
+      }
+    });
+  }
+  
+  // ===== MOBILE NAVIGATION (<1024px) =====
+  // Completely separate from desktop
+  function initMobileNav() {
+    const mobileToggle = document.querySelector('.mobile-nav__toggle');
+    const mobileClose = document.querySelector('.mobile-nav__close');
+    const mobileDrawer = document.getElementById('mobile-nav-drawer');
+    const body = document.body;
+    let scrollPosition = 0;
+    
+    // Exit if elements don't exist
+    if (!mobileToggle || !mobileDrawer || !mobileClose) {
+      console.warn('[MobileNav] Required elements not found');
+      return;
+    }
+    
+    // Open drawer function
+    function openMobileNav() {
+      scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      
+      mobileDrawer.setAttribute('aria-hidden', 'false');
+      mobileToggle.setAttribute('aria-expanded', 'true');
+      body.classList.add('nav-open');
+      body.style.overflow = 'hidden';
+      body.style.position = 'fixed';
+      body.style.top = `-${scrollPosition}px`;
+      body.style.width = '100%';
+      
+      // Focus close button after transition
+      setTimeout(() => {
+        mobileClose.focus();
+      }, 100);
+      
+      trapFocus(mobileDrawer);
+    }
+    
+    // Close drawer function
+    function closeMobileNav() {
+      mobileDrawer.setAttribute('aria-hidden', 'true');
+      mobileToggle.setAttribute('aria-expanded', 'false');
+      body.classList.remove('nav-open');
+      body.style.overflow = '';
+      body.style.position = '';
+      body.style.top = '';
+      body.style.width = '';
+      
+      // Restore scroll position
+      window.scrollTo(0, scrollPosition);
+      mobileToggle.focus();
+    }
+    
+    // Focus trap for modal accessibility
+    function trapFocus(element) {
+      const focusable = element.querySelectorAll('button, a, input, [tabindex]:not([tabindex="-1"])');
+      if (focusable.length === 0) return;
+      
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      
+      element.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') return;
+        
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      });
+    }
+    
+    // === Event Listeners ===
+    
+    // Open: Click
+    mobileToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log('[MobileNav] Toggle clicked - opening');
+      openMobileNav();
+    });
+    
+    // Open: Touch (iOS fallback)
+    mobileToggle.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log('[MobileNav] Toggle touchend - opening');
+      openMobileNav();
+    }, { passive: false });
+    
+    // Close: Click
+    mobileClose.addEventListener('click', (e) => {
+      console.log('[MobileNav] Close clicked');
+      e.preventDefault();
+      e.stopPropagation();
+      closeMobileNav();
+    });
+    
+    // Close: Touch (iOS fallback)
+    mobileClose.addEventListener('touchend', (e) => {
+      console.log('[MobileNav] Close touchend');
+      e.preventDefault();
+      e.stopPropagation();
+      closeMobileNav();
+    }, { passive: false });
+    
+    // Close: Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileDrawer.getAttribute('aria-hidden') === 'false') {
+        closeMobileNav();
+      }
+    });
+    
+    // Close: Backdrop click
+    mobileDrawer.addEventListener('click', (e) => {
+      if (e.target === mobileDrawer || !e.target.closest('.mobile-nav__body')) {
+        closeMobileNav();
+      }
+    });
+    
+    // Close: Backdrop touch (iOS)
+    mobileDrawer.addEventListener('touchend', (e) => {
+      if (e.target === mobileDrawer || !e.target.closest('.mobile-nav__body')) {
+        e.preventDefault();
+        closeMobileNav();
+      }
+    }, { passive: false });
+  }
+  
+  // ===== MOBILE ACCORDIONS =====
+  function initMobileAccordions() {
+    const accordionTriggers = document.querySelectorAll('.mobile-nav__accordion-trigger');
+    if (!accordionTriggers.length) return;
+    
+    accordionTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (!panel) return;
+        
+        const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+        
+        // Close other accordions (only one open at a time)
+        accordionTriggers.forEach(t => {
+          if (t !== trigger) {
+            t.setAttribute('aria-expanded', 'false');
+            t.classList.remove('is-expanded');
+            const otherPanel = document.getElementById(t.getAttribute('aria-controls'));
+            if (otherPanel) {
+              otherPanel.hidden = true;
+            }
+          }
+        });
+        
+        // Toggle current
+        if (isExpanded) {
+          trigger.setAttribute('aria-expanded', 'false');
+          trigger.classList.remove('is-expanded');
+          panel.hidden = true;
+        } else {
+          trigger.setAttribute('aria-expanded', 'true');
+          trigger.classList.add('is-expanded');
+          panel.hidden = false;
+        }
+      });
+    });
+  }
+  
+  // ===== INITIALIZE ALL NAVIGATION =====
+  // Run each init function independently so one failure doesn't break others
+  try { initDesktopNav(); } catch(e) { console.error('[DesktopNav]', e); }
+  try { initMobileNav(); } catch(e) { console.error('[MobileNav]', e); }
+  try { initMobileAccordions(); } catch(e) { console.error('[MobileAccordions]', e); }
+  
+})();
+</script>
+  </div>
+</header>
+
+<script>
+  (function () {
+    var header = document.getElementById('site-header');
+    var lastScroll = 0;
+    var scrollThreshold = 60;
+
+    function onScroll() {
+      var scrollY = window.scrollY || window.pageYOffset;
+
+      // Minimize header after scroll threshold
+      if (scrollY > scrollThreshold) {
+        header.classList.add('ts-header--minimized');
+      } else {
+        header.classList.remove('ts-header--minimized');
+      }
+
+      lastScroll = scrollY;
+    }
+
+    // Throttled scroll handler
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          onScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Initial state
+    document.addEventListener('DOMContentLoaded', onScroll);
+  })();
+</script>
+
+  
+  
+  
+
+  
+  
+
+  <main class="ts-main-content" role="main" id="main-content" aria-label="Main content">
+    
+    <h1 id="legal-disclaimer---tillerstead-calculator-tools">Legal Disclaimer - Tillerstead Calculator Tools</h1>
+
+<h2 id="️-not-a-binding-estimate-or-contract">⚖️ NOT A BINDING ESTIMATE OR CONTRACT</h2>
+
+<p><strong>IMPORTANT: READ BEFORE USING ANY CALCULATOR</strong></p>
+
+<p>These calculator tools are provided for <strong>ESTIMATION AND PLANNING PURPOSES ONLY</strong>. They do NOT constitute:</p>
+
+<ul>
+  <li>❌ Binding estimates</li>
+  <li>❌ Formal quotes</li>
+  <li>❌ Invoices</li>
+  <li>❌ Contracts or proposals</li>
+  <li>❌ Legal advice</li>
+  <li>❌ Financial advice</li>
+  <li>❌ Professional consultation</li>
+  <li>❌ Guarantee of pricing or results</li>
+</ul>
+
+<hr />
+
+<h2 id="-what-these-tools-are">📊 What These Tools Are</h2>
+
+<p>These calculators are <strong>educational and planning tools</strong> that provide:</p>
+
+<p>✅ <strong>Approximate calculations</strong> based on industry standards (TCNA, NJ HIC)<br />
+✅ <strong>Material estimates</strong> for planning purposes<br />
+✅ <strong>Cost ranges</strong> based on typical market rates<br />
+✅ <strong>Compliance guidance</strong> for NJ contractors<br />
+✅ <strong>Planning assistance</strong> for homeowners and contractors</p>
+
+<hr />
+
+<h2 id="-critical-disclaimers">🚨 Critical Disclaimers</h2>
+
+<h3 id="1-site-specific-variations">1. <strong>Site-Specific Variations</strong></h3>
+<p>Actual project costs <strong>WILL VARY</strong> based on:</p>
+<ul>
+  <li>Site conditions and accessibility</li>
+  <li>Hidden damage or unforeseen issues</li>
+  <li>Material availability and pricing</li>
+  <li>Labor market rates at time of work</li>
+  <li>Specific product selections</li>
+  <li>Local permit and inspection requirements</li>
+  <li>Weather and seasonal factors</li>
+  <li>Project complexity and timeline</li>
+</ul>
+
+<h3 id="2-no-guarantee-of-accuracy">2. <strong>No Guarantee of Accuracy</strong></h3>
+<p>While we strive for accuracy using TCNA standards and NJ market data:</p>
+<ul>
+  <li>Calculations are estimates only</li>
+  <li>Material coverage rates vary by product and application</li>
+  <li>Labor rates fluctuate with market conditions</li>
+  <li>Municipal fees and requirements change</li>
+  <li>Supplier pricing is not guaranteed</li>
+</ul>
+
+<h3 id="3-not-a-substitute-for-professional-assessment">3. <strong>Not a Substitute for Professional Assessment</strong></h3>
+<p>These calculators <strong>DO NOT REPLACE</strong>:</p>
+<ul>
+  <li>Professional site inspection</li>
+  <li>Licensed contractor evaluation</li>
+  <li>Engineer or architect consultation</li>
+  <li>Building code compliance review</li>
+  <li>Structural assessment</li>
+  <li>Hazardous material testing</li>
+</ul>
+
+<h3 id="4-legal-compliance">4. <strong>Legal Compliance</strong></h3>
+<ul>
+  <li><strong>NJ HIC Compliance:</strong> All referenced NJ Home Improvement Contractor Act requirements are educational only. Contractors are responsible for their own legal compliance.</li>
+  <li><strong>Contract Required:</strong> All actual work requires a separate, signed written contract.</li>
+  <li><strong>Not Legal Advice:</strong> This tool does not provide legal advice. Consult an attorney for contract preparation and legal matters.</li>
+</ul>
+
+<hr />
+
+<h2 id="️-for-official-estimates">🏗️ For Official Estimates</h2>
+
+<p>To receive a <strong>binding, site-specific estimate</strong> from Tillerstead LLC:</p>
+
+<ol>
+  <li><strong>Contact us directly:</strong>
+    <ul>
+      <li>Phone: [Contact Information]</li>
+      <li>Email: [Contact Information]</li>
+      <li>Website: [Contact Form]</li>
+    </ul>
+  </li>
+  <li><strong>Schedule a site visit:</strong>
+    <ul>
+      <li>Licensed professional inspection</li>
+      <li>Detailed measurements and assessment</li>
+      <li>Product selection and specifications</li>
+      <li>Written proposal with fixed pricing</li>
+    </ul>
+  </li>
+  <li><strong>Receive written contract:</strong>
+    <ul>
+      <li>NJ HIC compliant contract</li>
+      <li>Fixed pricing and payment schedule</li>
+      <li>Start and completion dates</li>
+      <li>Warranty information</li>
+      <li>All required disclosures</li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-nj-hic-license-information">📜 NJ HIC License Information</h2>
+
+<p><strong>Tillerstead LLC</strong><br />
+NJ Home Improvement Contractor License: <strong>#13VH10808800</strong></p>
+
+<p>This license does NOT mean:</p>
+<ul>
+  <li>Calculator results are binding quotes</li>
+  <li>Calculator use creates a contractor-client relationship</li>
+  <li>Calculator use obligates either party to any agreement</li>
+</ul>
+
+<p><strong>All work requires a separate signed contract</strong> that complies with:</p>
+<ul>
+  <li>N.J.S.A. 56:8-136 et seq. (NJ Home Improvement Contractor Act)</li>
+  <li>New Jersey Consumer Fraud Act</li>
+  <li>All applicable building codes and regulations</li>
+</ul>
+
+<hr />
+
+<h2 id="-business-and-financial-disclaimers">💼 Business and Financial Disclaimers</h2>
+
+<h3 id="competitive-bid-analyzer"><strong>Competitive Bid Analyzer:</strong></h3>
+<ul>
+  <li>Not a guarantee of bid success or contract award</li>
+  <li>Market data is approximate and varies by region</li>
+  <li>Business decisions are your responsibility</li>
+  <li>Not financial or business consulting</li>
+</ul>
+
+<h3 id="seasonal-pricing-optimizer"><strong>Seasonal Pricing Optimizer:</strong></h3>
+<ul>
+  <li>Based on historical NJ trends, not future guarantees</li>
+  <li>Demand varies by location, economy, and weather</li>
+  <li>Not predictive of actual market conditions</li>
+  <li>Not financial advice</li>
+</ul>
+
+<h3 id="permit-estimator"><strong>Permit Estimator:</strong></h3>
+<ul>
+  <li>Municipal fees subject to change without notice</li>
+  <li>Requirements vary by jurisdiction</li>
+  <li>Verify all information with local building department</li>
+  <li>Not official permit documentation</li>
+</ul>
+
+<hr />
+
+<h2 id="️-limitation-of-liability">🛡️ Limitation of Liability</h2>
+
+<p>By using these calculator tools, you acknowledge:</p>
+
+<ol>
+  <li><strong>No Warranty:</strong> Tools are provided “as is” without warranty of any kind</li>
+  <li><strong>No Guarantee:</strong> Results are estimates only, not guaranteed</li>
+  <li><strong>User Responsibility:</strong> You are responsible for verifying all information</li>
+  <li><strong>No Damages:</strong> Tillerstead LLC is not liable for decisions made based on calculator results</li>
+  <li><strong>Professional Advice:</strong> Seek professional consultation for actual projects</li>
+</ol>
+
+<hr />
+
+<h2 id="-data-and-privacy">📱 Data and Privacy</h2>
+
+<p>Calculator tools:</p>
+<ul>
+  <li>Do not store your calculation data (unless you create an account)</li>
+  <li>Do not create binding agreements through use</li>
+  <li>May collect anonymous usage statistics</li>
+  <li>See Privacy Policy for full details</li>
+</ul>
+
+<hr />
+
+<h2 id="-proper-use-of-these-tools">✅ Proper Use of These Tools</h2>
+
+<p><strong>DO use these calculators to:</strong></p>
+<ul>
+  <li>Get rough estimates for planning</li>
+  <li>Compare material options</li>
+  <li>Understand TCNA standards</li>
+  <li>Learn about NJ HIC requirements</li>
+  <li>Budget for potential projects</li>
+  <li>Prepare for contractor consultations</li>
+</ul>
+
+<p><strong>DO NOT use these calculators as:</strong></p>
+<ul>
+  <li>Binding quotes or estimates</li>
+  <li>Legal or financial advice</li>
+  <li>Substitute for professional inspection</li>
+  <li>Basis for legal claims</li>
+  <li>Official permit applications</li>
+  <li>Formal contracts</li>
+</ul>
+
+<hr />
+
+<h2 id="-questions-or-concerns">📞 Questions or Concerns?</h2>
+
+<p>For binding estimates or professional consultation:</p>
+
+<p><strong>Tillerstead LLC</strong><br />
+NJ HIC License #13VH10808800<br />
+[Contact Information]</p>
+
+<p>For calculator issues or feedback:<br />
+[Technical Support Contact]</p>
+
+<hr />
+
+<h2 id="️-legal-jurisdiction">🏛️ Legal Jurisdiction</h2>
+
+<p>These tools and disclaimers are governed by the laws of the State of New Jersey, United States of America.</p>
+
+<hr />
+
+<p><strong>Last Updated:</strong> January 21, 2026</p>
+
+<p><strong>IMPORTANT:</strong> By using any Tillerstead calculator tool, you acknowledge that you have read, understood, and agree to these terms and disclaimers. If you do not agree, do not use these tools.</p>
+
+<hr />
+
+<h2 id="-summary-plain-english">🎯 Summary (Plain English)</h2>
+
+<p><strong>These are rough estimate calculators, NOT official quotes.</strong></p>
+
+<ul>
+  <li>Numbers are ballpark estimates to help you plan</li>
+  <li>Actual costs will be different based on your specific project</li>
+  <li>You need a real contractor visit for accurate pricing</li>
+  <li>Using these tools doesn’t create any agreement or obligation</li>
+  <li>This is NOT legal, financial, or professional advice</li>
+  <li>We’re not responsible if your project costs more than the calculator suggested</li>
+</ul>
+
+<p><strong>Want a real estimate? Contact us for a site visit and written proposal.</strong></p>
+
+<hr />
+
+<p><em>Tillerstead LLC - Licensed &amp; Insured NJ Home Improvement Contractor</em><br />
+<em>NJ HIC #13VH10808800</em></p>
+
+    
+  </main>
+
+  
+  
+
+  
+
+<footer class="ts-footer" aria-label="Site Footer" role="contentinfo">
+  <div class="footer-main">
+    <!-- Logo Section -->
+    <div class="footer-logo-section">
+      <a href="/" aria-label="Tillerstead Home">
+        <img src="/assets/img/logo/tillerstead_social_circle_512.png" alt="Tillerstead LLC - Professional Tile and Stone Installation" class="footer-logo footer-logo--large" width="300" height="300" loading="lazy">
+      </a>
+      <p class="footer-tagline">Expert Tile & Stone Installation — South Jersey</p>
+    </div>
+
+    <!-- Footer Navigation - Custom Layout -->
+    <nav class="footer-nav-grid" aria-label="Footer navigation">
+      <!-- Service Areas - Top Row (wide, horizontal) -->
+      
+      <section class="footer-group footer-group--service-areas" aria-labelledby="tillerstead-toolkit-legal-disclaimer-footer-service-areas">
+        <h3 class="footer-group-title" id="tillerstead-toolkit-legal-disclaimer-footer-service-areas">Service Areas</h3>
+        <ul class="footer-list footer-list--horizontal" role="list">
+          <li><a href="/atlantic-county-nj/">Atlantic County</a></li>
+          <li><a href="/ocean-county-nj/">Ocean County</a></li>
+          <li><a href="/cape-may-county-nj/">Cape May County</a></li>
+        </ul>
+      </section>
+      
+
+      <!-- Bottom Row: Learn | Build Guides | Company -->
+      <div class="footer-columns">
+        <!-- Learn (left) -->
+        
+        <section class="footer-group footer-group--learn" aria-labelledby="tillerstead-toolkit-legal-disclaimer-footer-learn">
+          <h3 class="footer-group-title" id="tillerstead-toolkit-legal-disclaimer-footer-learn">Learn</h3>
+          <ul class="footer-list" role="list">
+            <li><a href="/faq/">FAQ</a></li>
+            <li><a href="/products/">Products</a></li>
+            <li><a href="/blog/">Blog</a></li>
+          </ul>
+        </section>
+        
+
+        <!-- Build Guides (center, largest) -->
+        
+        <section class="footer-group footer-group--build-guides" aria-labelledby="tillerstead-toolkit-legal-disclaimer-footer-build-guides">
+          <h3 class="footer-group-title" id="tillerstead-toolkit-legal-disclaimer-footer-build-guides">Build Guides</h3>
+          <ul class="footer-list footer-list--two-col" role="list">
+            <li><a href="/build/nj-codes-permits/">Codes & Permits</a></li>
+            <li><a href="/build/shower-pans-slopes-drains/">Shower Pans & Slopes</a></li>
+            <li><a href="/build/waterproofing-systems/">Waterproofing Systems</a></li>
+            <li><a href="/build/curbs-curbless/">Curbless Showers</a></li>
+            <li><a href="/build/framing-benches-niches/">Benches & Niches</a></li>
+            <li><a href="/build/tile-installation-standards/">Tile Standards (TCNA)</a></li>
+            <li><a href="/build/flood-testing/">Flood Testing</a></li>
+            <li><a href="/build/common-build-failures/">Common Build Failures</a></li>
+          </ul>
+        </section>
+        
+
+        <!-- Company (right) -->
+        
+        <section class="footer-group footer-group--company" aria-labelledby="tillerstead-toolkit-legal-disclaimer-footer-company">
+          <h3 class="footer-group-title" id="tillerstead-toolkit-legal-disclaimer-footer-company">Company</h3>
+          <ul class="footer-list" role="list">
+            <li><a href="/about/">About</a></li>
+            <li><a href="/for-general-contractors/">For Contractors</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </section>
+        
+      </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="footer-contact" aria-labelledby="tillerstead-toolkit-legal-disclaimer-footer-contact-heading">
+      <h3 class="footer-group-title" id="tillerstead-toolkit-legal-disclaimer-footer-contact-heading">Contact</h3>
+      <p class="footer-license">
+        <abbr title="New Jersey Home Improvement Contractor">NJ HIC</abbr> #13VH10808800
+      </p>
+      <address class="footer-address">
+        325 E. Jimmie Leeds Road, Suite 7-333<br>
+        Galloway, NJ 08205
+      </address>
+      <p class="footer-contact-phone">
+        <a href="tel:+16098628808" aria-label="Call us at (609) 862-8808">
+          (609) 862-8808
+        </a>
+      </p>
+      <p class="footer-contact-email">
+        <a href="mailto:info@tillerstead.com" aria-label="Email us at info@tillerstead.com">
+          info@tillerstead.com
+        </a>
+      </p>
+    </section>
+
+    <!-- Bottom Bar: Social + Legal + Compliance -->
+    <div class="footer-bottom">
+      <nav class="footer-social" aria-label="Social media links">
+        <a href="https://www.facebook.com/people/Tillerstead-LLC/61580414460056/" target="_blank" rel="noopener noreferrer" aria-label="Visit Tillerstead on Facebook (opens in new window)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://www.thumbtack.com/nj/absecon/tile/tillerstead-llc/service/547437618353160199?utm_medium=web&utm_source=txt&surface=sp" target="_blank" rel="noopener noreferrer" aria-label="View Tillerstead on Thumbtack (opens in new window)">
+          <!-- Thumbtack icon (actual push pin) -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M9 9V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"/>
+            <path d="M9 9h6"/>
+            <path d="M12 9v12"/>
+            <path d="m8 17 4 4 4-4"/>
+          </svg>
+        </a>
+      </nav>
+      
+      <!-- NJ HIC Compliance Badge -->
+      <div class="footer-compliance" aria-label="New Jersey Home Improvement Contractor License">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span>NJ HIC #13VH10808800</span>
+      </div>
+      
+      <nav class="footer-legal" aria-label="Legal links">
+        <a href="/privacy/">Privacy Policy</a>
+        <span class="footer-divider" aria-hidden="true">|</span>
+        <a href="/terms/">Terms of Service</a>
+        <span class="footer-divider" aria-hidden="true">|</span>
+        <span class="footer-copyright">&copy; 2026 Tillerstead LLC. All rights reserved.</span>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- Core JavaScript -->
+<script src="/assets/js/animation-engine.js" defer></script>
+<script src="/assets/js/professional-features.js" defer></script>
+<script src="/assets/js/accessibility.js" defer></script>
+
+
+
+  <!-- Accessibility Toolbar (enable with ?a11y-tools in URL) -->
+  <!--
+  Accessibility Toolbar Component
+  Provides user controls for accessibility preferences
+  
+  Features:
+  - High contrast mode toggle
+  - Text size adjustment
+  - Dyslexia-friendly font toggle
+  - Reading guide toggle
+  - Reduced motion toggle
+  
+  To enable by default, add ?a11y-tools to URL or set site.accessibility.toolbar: true
+-->
+
+
+
+<aside 
+  class="a11y-toolbar" 
+  id="a11y-toolbar"
+  role="region"
+  aria-label="Accessibility options"
+  hidden
+>
+  <button 
+    type="button"
+    class="a11y-toolbar__toggle"
+    id="a11y-toolbar-toggle"
+    aria-expanded="false"
+    aria-controls="a11y-toolbar-panel"
+    aria-label="Open accessibility options"
+  >
+    <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10"/>
+      <circle cx="12" cy="12" r="3"/>
+      <path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/>
+    </svg>
+    <span class="sr-only">Accessibility</span>
+  </button>
+
+  <div 
+    class="a11y-toolbar__panel" 
+    id="a11y-toolbar-panel"
+    role="group"
+    aria-label="Accessibility settings"
+    hidden
+  >
+    <h3 class="a11y-toolbar__title">Accessibility Options</h3>
+
+    <!-- Read Aloud (Text-to-Speech) -->
+    <button 
+      type="button"
+      class="a11y-toolbar__btn"
+      id="a11y-tts"
+      aria-pressed="false"
+      onclick="a11yToggleTextToSpeech(); this.setAttribute('aria-pressed', document.documentElement.hasAttribute('data-tts-active'))"
+    >
+      <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+      </svg>
+      <span>Read Aloud</span>
+    </button>
+
+    <!-- Stop Reading -->
+    <button 
+      type="button"
+      class="a11y-toolbar__btn"
+      id="a11y-tts-stop"
+      onclick="a11yStopReading()"
+    >
+      <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <rect x="6" y="6" width="12" height="12" rx="2"/>
+      </svg>
+      <span>Stop Reading</span>
+    </button>
+
+    <!-- High Contrast -->
+    <button 
+      type="button"
+      class="a11y-toolbar__btn"
+      id="a11y-contrast"
+      aria-pressed="false"
+      onclick="a11yToggleHighContrast()"
+    >
+      <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M12 2a10 10 0 0 1 0 20V2z"/>
+      </svg>
+      <span>High Contrast</span>
+    </button>
+
+    <!-- Text Size -->
+    <button 
+      type="button"
+      class="a11y-toolbar__btn"
+      id="a11y-textsize"
+      aria-pressed="false"
+      onclick="a11yToggleTextSize()"
+    >
+      <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <text x="3" y="20" font-size="12" fill="currentColor">A</text>
+        <text x="14" y="18" font-size="16" fill="currentColor">A</text>
+      </svg>
+      <span>Larger Text</span>
+    </button>
+
+    <!-- Scroll to Top -->
+    <button 
+      type="button"
+      class="a11y-toolbar__btn"
+      id="a11y-scroll-top"
+      onclick="window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); this.blur();"
+    >
+      <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 15l-6-6-6 6"/>
+      </svg>
+      <span>Back to Top</span>
+    </button>
+
+    <!-- Custom Cursor -->
+    <button 
+      type="button"
+      class="a11y-toolbar__btn"
+      id="a11y-cursor"
+      aria-pressed="false"
+      onclick="a11yToggleCustomCursor()"
+    >
+      <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="8"/>
+        <circle cx="12" cy="12" r="3"/>
+      </svg>
+      <span>Fancy Cursor</span>
+    </button>
+
+    <!-- Free Quote CTA -->
+    <a 
+      href="/contact/"
+      class="a11y-toolbar__btn a11y-toolbar__cta"
+      id="a11y-quote"
+    >
+      <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      <span>Free Quote</span>
+    </a>
+
+    <p class="a11y-toolbar__note">
+      <small>Settings are saved for your next visit</small>
+    </p>
+  </div>
+</aside>
+
+<script>
+(function() {
+  // Toolbar toggle
+  const toggle = document.getElementById('a11y-toolbar-toggle');
+  const panel = document.getElementById('a11y-toolbar-panel');
+  
+  if (toggle && panel) {
+    toggle.addEventListener('click', function() {
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !expanded);
+      panel.hidden = expanded;
+      
+      if (!expanded) {
+        panel.querySelector('button').focus();
+      }
+    });
+
+    // Close on escape
+    panel.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        toggle.setAttribute('aria-expanded', 'false');
+        panel.hidden = true;
+        toggle.focus();
+      }
+    });
+  }
+
+  // Show toolbar if URL param present
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has('a11y-tools') || urlParams.has('accessibility')) {
+    document.getElementById('a11y-toolbar').hidden = false;
+  }
+
+  // Keyboard shortcuts dialog
+  window.showKeyboardHelp = function() {
+    const dialog = document.getElementById('keyboard-help-dialog');
+    if (dialog && dialog.showModal) {
+      dialog.showModal();
+    }
+  };
+
+  // Update button states from preferences
+  document.addEventListener('DOMContentLoaded', function() {
+    try {
+      const prefs = JSON.parse(localStorage.getItem('tillerstead-a11y-prefs') || '{}');
+      
+      if (prefs.highContrast) {
+        document.getElementById('a11y-contrast')?.setAttribute('aria-pressed', 'true');
+      }
+      if (prefs.textSize && prefs.textSize !== 'normal') {
+        document.getElementById('a11y-textsize')?.setAttribute('aria-pressed', 'true');
+      }
+      if (prefs.customCursor) {
+        document.getElementById('a11y-cursor')?.setAttribute('aria-pressed', 'true');
+      }
+      if (prefs.showToolbar) {
+        document.getElementById('a11y-toolbar').hidden = false;
+      }
+    } catch (e) {
+      // localStorage not available
+    }
+  });
+})();
+</script>
+
+<style>
+/* Accessibility Toolbar Styles */
+.a11y-toolbar {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.a11y-toolbar__toggle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--tiller-color-primary, #1a2a3a), #2a3a4a);
+  color: #fff;
+  border: 2px solid rgba(201, 162, 39, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(16, 185, 129, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.a11y-toolbar__toggle svg {
+  transition: transform 0.3s ease;
+}
+
+.a11y-toolbar__toggle:hover,
+.a11y-toolbar__toggle:focus {
+  transform: translateY(-2px) scale(1.05);
+  background: linear-gradient(135deg, var(--tiller-color-gold, #c9a227), var(--tiller-color-gold-dark, #9a7a1a));
+  color: #000;
+  border-color: rgba(201, 162, 39, 0.6);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(201, 162, 39, 0.4);
+}
+
+.a11y-toolbar__toggle:hover svg {
+  transform: rotate(90deg);
+}
+
+.a11y-toolbar__toggle:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.a11y-toolbar__toggle:focus-visible {
+  outline: 3px solid var(--tiller-color-gold, #c9a227);
+  outline-offset: 4px;
+}
+
+/* Mobile optimizations - smaller, less intrusive */
+@media (max-width: 768px) {
+  .a11y-toolbar {
+    bottom: 0.75rem;
+    right: 0.75rem;
+  }
+  
+  .a11y-toolbar__toggle {
+    width: 48px;
+    height: 48px;
+    border-width: 1.5px;
+    box-shadow: 
+      0 3px 12px rgba(0, 0, 0, 0.25),
+      0 0 15px rgba(16, 185, 129, 0.1);
+  }
+  
+  .a11y-toolbar__toggle svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .a11y-toolbar__toggle:hover,
+  .a11y-toolbar__toggle:focus {
+    transform: translateY(-1px) scale(1.03);
+  }
+  
+  .a11y-toolbar__panel {
+    bottom: 56px;
+    width: min(250px, calc(100vw - 2rem));
+  }
+}
+
+/* Extra small mobile - even more compact */
+@media (max-width: 480px) {
+  .a11y-toolbar {
+    bottom: 0.625rem;
+    right: 0.625rem;
+  }
+  
+  .a11y-toolbar__toggle {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .a11y-toolbar__toggle svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.a11y-toolbar__panel {
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  width: 220px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+}
+
+.a11y-toolbar__title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+  color: var(--tiller-color-primary, #1a2a3a);
+}
+
+.a11y-toolbar__btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.625rem;
+  margin-bottom: 0.375rem;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  background: #f5f5f5;
+  color: #333;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.a11y-toolbar__btn:hover {
+  background: #e5e5e5;
+}
+
+.a11y-toolbar__btn:focus-visible {
+  outline: none;
+  border-color: var(--tiller-color-gold, #c9a227);
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.25);
+}
+
+.a11y-toolbar__btn[aria-pressed="true"] {
+  background: var(--tiller-color-gold, #c9a227);
+  color: #000;
+  font-weight: 600;
+}
+
+/* Free Quote CTA Button - standout styling */
+.a11y-toolbar__cta {
+  background: linear-gradient(135deg, var(--tiller-color-emerald, #10b981), var(--tiller-color-emerald-dark, #059669));
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  margin-top: 0.5rem;
+}
+
+.a11y-toolbar__cta:hover {
+  background: linear-gradient(135deg, var(--tiller-color-gold, #c9a227), var(--tiller-color-gold-dark, #9a7a1a));
+  color: #000;
+}
+
+.a11y-toolbar__cta:focus-visible {
+  outline: 3px solid var(--tiller-color-gold, #c9a227);
+  outline-offset: 2px;
+}
+
+.a11y-toolbar__note {
+  margin: 0.5rem 0 0;
+  color: #666;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* Keyboard Help Dialog */
+.a11y-keyboard-dialog {
+  max-width: 500px;
+  padding: 1.5rem;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+}
+
+.a11y-keyboard-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.a11y-keyboard-dialog header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #eee;
+}
+
+.a11y-keyboard-dialog h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.dialog-close {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: #f0f0f0;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-close:hover,
+.dialog-close:focus {
+  background: #e0e0e0;
+}
+
+.keyboard-shortcuts dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.keyboard-shortcuts dt {
+  font-weight: normal;
+}
+
+.keyboard-shortcuts dd {
+  margin: 0;
+  color: #555;
+}
+
+.keyboard-shortcuts kbd {
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  font-family: monospace;
+  font-size: 0.875em;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.keyboard-shortcuts h3 {
+  font-size: 1rem;
+  margin: 1rem 0 0.5rem;
+  color: var(--tiller-color-primary, #1a2a3a);
+}
+
+.a11y-keyboard-dialog footer {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #eee;
+  text-align: right;
+}
+
+.a11y-keyboard-dialog footer button {
+  padding: 0.5rem 1.5rem;
+  background: var(--tiller-color-primary, #1a2a3a);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.a11y-keyboard-dialog footer button:hover,
+.a11y-keyboard-dialog footer button:focus {
+  background: var(--tiller-color-gold, #c9a227);
+  color: #000;
+}
+
+/* High contrast mode adjustments for toolbar */
+[data-high-contrast="true"] .a11y-toolbar__panel {
+  background: #000;
+  border: 2px solid #fff;
+}
+
+[data-high-contrast="true"] .a11y-toolbar__title {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+[data-high-contrast="true"] .a11y-toolbar__btn {
+  background: #333;
+  color: #fff;
+  border-color: #fff;
+}
+
+[data-high-contrast="true"] .a11y-toolbar__btn[aria-pressed="true"] {
+  background: #ffff00;
+  color: #000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .a11y-toolbar__toggle {
+    transition: none;
+  }
+}
+</style>
+
+
+  <!-- Service Worker Registration for Offline Support -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('[SW] Registered:', reg.scope))
+          .catch(err => console.warn('[SW] Registration failed:', err));
+      });
+    }
+  </script>
+</body>
+
+</html>

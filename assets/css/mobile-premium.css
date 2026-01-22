@@ -1,0 +1,650 @@
+/* =========================================================
+   PREMIUM MOBILE EXPERIENCE OPTIMIZATIONS
+   Tillerstead.com - Professional Mobile-First Design
+   ========================================================= */
+
+/* ===== iOS SAFARI & MOBILE BROWSER FIXES ===== */
+
+/* Prevent text size adjustment on orientation change */
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Smooth momentum scrolling on iOS */
+body {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
+  position: relative;
+}
+
+/* Fix for 100vh on mobile browsers (address bar issue) */
+:root {
+  --vh-full: 100vh;
+  --vh-small: 100svh;
+  --vh-large: 100lvh;
+  --vh-dynamic: 100dvh;
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --vh-full: 100dvh;
+  }
+}
+
+/* ===== HARDWARE ACCELERATION & PERFORMANCE ===== */
+
+/* Enable GPU acceleration for smooth animations */
+.hero-title,
+.section-title,
+.btn,
+.card,
+.nav-drawer,
+.site-header {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+
+/* Optimize animations for 60fps */
+@media (max-width: 768px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Smooth scrolling with hardware acceleration */
+  .scrollable,
+  .nav-drawer,
+  .modal {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+}
+
+/* ===== SAFE AREA INSETS - Notched Devices (iPhone X+) ===== */
+
+/* Universal safe area support */
+body {
+  padding-left: max(env(safe-area-inset-left), 0px);
+  padding-right: max(env(safe-area-inset-right), 0px);
+  padding-top: max(env(safe-area-inset-top), 0px);
+  padding-bottom: max(env(safe-area-inset-bottom), 0px);
+}
+
+/* Header with safe areas */
+.site-header {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+  padding-top: max(0.5rem, env(safe-area-inset-top));
+}
+
+/* Navigation drawer safe areas */
+.nav-drawer {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* Footer safe areas */
+.ts-footer {
+  padding-left: max(2rem, env(safe-area-inset-left));
+  padding-right: max(2rem, env(safe-area-inset-right));
+  padding-bottom: max(2rem, env(safe-area-inset-bottom));
+}
+
+/* Fixed elements safe area handling */
+.sticky-header,
+.fixed-cta,
+.floating-action {
+  bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* ===== TOUCH OPTIMIZATION ===== */
+
+/* Enhanced touch targets - WCAG AAA (48x48) */
+@media (max-width: 768px) {
+  a,
+  button,
+  [role="button"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="checkbox"],
+  input[type="radio"],
+  .btn,
+  .nav-link {
+    min-height: 48px;
+    min-width: 48px;
+    position: relative;
+  }
+
+  /* Extend tap area with pseudo-element */
+  a::before,
+  button::before,
+  [role="button"]::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    z-index: -1;
+  }
+
+  /* Prevent double-tap zoom on buttons */
+  button,
+  .btn,
+  [role="button"] {
+    touch-action: manipulation;
+  }
+
+  /* Fast tap for links */
+  a {
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
+  }
+}
+
+/* ===== FONT RENDERING OPTIMIZATION ===== */
+
+/* Prevent font size inflation on mobile */
+@media (max-width: 768px) {
+  body {
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+  }
+
+  /* Prevent zoom on form inputs (iOS) */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="search"],
+  textarea,
+  select {
+    font-size: 16px;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* Optimize font rendering */
+  body,
+  .hero-title,
+  .section-title,
+  h1, h2, h3, h4, h5, h6 {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* ===== VIEWPORT UNITS FIX FOR iOS ===== */
+
+/* Use dvh for dynamic viewport height */
+@supports (height: 100dvh) {
+  .hero-section,
+  .full-screen-section {
+    min-height: 100dvh;
+  }
+}
+
+/* Fallback for browsers without dvh */
+@supports not (height: 100dvh) {
+  .hero-section,
+  .full-screen-section {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* ===== HORIZONTAL SCROLL PREVENTION ===== */
+
+/* Clip instead of hide to prevent layout issues */
+html,
+body {
+  overflow-x: clip;
+  max-width: 100vw;
+  position: relative;
+}
+
+/* Ensure all children respect parent width */
+* {
+  max-width: 100%;
+}
+
+img,
+video,
+iframe,
+embed {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== RESPONSIVE IMAGES & MEDIA ===== */
+
+/* Native lazy loading hint */
+img[loading="lazy"] {
+  content-visibility: auto;
+}
+
+/* Optimize image rendering */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Responsive video containers */
+.video-container,
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed,
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== IMPROVED FOCUS INDICATORS FOR MOBILE ===== */
+
+@media (max-width: 768px) {
+  /* Larger, more visible focus rings */
+  :focus-visible {
+    outline: 4px solid var(--tiller-color-emerald, #10b981);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  /* Enhanced button focus */
+  button:focus-visible,
+  .btn:focus-visible {
+    outline: 4px solid var(--tiller-color-gold, #c9a227);
+    outline-offset: 4px;
+    box-shadow: 0 0 0 8px rgba(201, 162, 39, 0.2);
+  }
+}
+
+/* ===== PULL-TO-REFRESH FIX ===== */
+
+/* Prevent pull-to-refresh on iOS */
+body {
+  overscroll-behavior-y: contain;
+  overscroll-behavior-x: none;
+}
+
+/* ===== LANDSCAPE ORIENTATION OPTIMIZATIONS ===== */
+
+@media (orientation: landscape) and (max-height: 600px) {
+  /* Compact header in landscape */
+  .site-header {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  /* Reduce hero padding */
+  .hero-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  /* Compact buttons */
+  .btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9375rem;
+  }
+}
+
+/* ===== HIGH PIXEL DENSITY DISPLAYS (Retina) ===== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Sharper text rendering */
+  body {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+
+  /* Optimize borders for high DPI */
+  .card,
+  .btn,
+  input,
+  textarea {
+    border-width: 0.5px;
+  }
+}
+
+/* ===== ACTIVE/PRESSED STATE FEEDBACK ===== */
+
+@media (max-width: 768px) {
+  /* Touch feedback */
+  button:active,
+  .btn:active,
+  a.btn:active {
+    transform: scale(0.97);
+    opacity: 0.9;
+    transition: transform 0.1s ease, opacity 0.1s ease;
+  }
+
+  /* Card press feedback */
+  .card:active {
+    transform: scale(0.99);
+    transition: transform 0.15s ease;
+  }
+}
+
+/* ===== REDUCED MOTION SUPPORT ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable hardware acceleration */
+  .hero-title,
+  .section-title,
+  .btn,
+  .card,
+  .nav-drawer,
+  .site-header {
+    will-change: auto;
+    transform: none;
+  }
+}
+
+/* ===== SCROLLBAR STYLING (Mobile WebKit) ===== */
+
+/* Hide scrollbars on mobile for cleaner UI */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+
+  /* Fallback for other browsers */
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+}
+
+/* ===== CONTAINER OPTIMIZATION FOR MOBILE ===== */
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  /* Full-width sections on mobile */
+  .full-bleed {
+    width: 100vw;
+    margin-left: calc(-1 * max(1rem, env(safe-area-inset-left)));
+    margin-right: calc(-1 * max(1rem, env(safe-area-inset-right)));
+  }
+}
+
+/* ===== LOADING PERFORMANCE HINTS ===== */
+
+/* Hint browsers to prioritize visible content */
+.above-fold,
+.hero-section,
+.hero-title,
+.hero-image {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+/* Defer offscreen content rendering */
+.below-fold,
+.footer-section {
+  content-visibility: auto;
+}
+
+/* ===== DARK MODE COLOR SCHEME ===== */
+
+/* Respect system dark mode but maintain brand */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* Force dark theme on all elements */
+html {
+  color-scheme: dark;
+}
+
+/* ===== PRINT STYLES ===== */
+
+@media print {
+  /* Remove unnecessary elements */
+  .nav-drawer,
+  .site-header,
+  .nav-toggle,
+  .btn,
+  .cta-section {
+    display: none !important;
+  }
+
+  /* Optimize for print */
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+  }
+
+  a {
+    text-decoration: underline;
+    color: #000 !important;
+  }
+
+  /* Show URLs after links */
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    color: #666;
+  }
+}
+
+/* ===== ACCESSIBILITY - CONTRAST ENHANCEMENT ===== */
+
+@media (prefers-contrast: high) {
+  /* Increase contrast ratios */
+  body {
+    background: #000;
+    color: #fff;
+  }
+
+  .btn {
+    border: 2px solid currentColor;
+  }
+
+  :focus-visible {
+    outline-width: 4px;
+    outline-offset: 4px;
+  }
+}
+
+/* ===== NETWORK-AWARE OPTIMIZATIONS ===== */
+
+/* Reduce animations on slow connections */
+@media (prefers-reduced-data: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Disable background images */
+  .hero-pattern,
+  .bg-pattern {
+    background-image: none !important;
+  }
+}
+
+/* ===== FORM INPUT OPTIMIZATION ===== */
+
+@media (max-width: 768px) {
+  /* Better mobile form UX */
+  input,
+  textarea,
+  select {
+    /* Prevent zoom on iOS */
+    font-size: max(16px, 1rem);
+    
+    /* Better touch targets */
+    min-height: 48px;
+    padding: 12px 16px;
+    
+    /* Smooth borders */
+    border-radius: 8px;
+    
+    /* Optimize rendering */
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* Auto-resize textarea */
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  /* Better select styling */
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+  }
+}
+
+/* ===== BUTTON OPTIMIZATION ===== */
+
+@media (max-width: 768px) {
+  .btn {
+    /* Better touch targets */
+    min-height: 48px;
+    padding: 12px 24px;
+    
+    /* Prevent text selection */
+    user-select: none;
+    -webkit-user-select: none;
+    
+    /* Fast tap response */
+    touch-action: manipulation;
+    
+    /* Smooth transitions */
+    transition: transform 0.15s ease, background-color 0.15s ease;
+  }
+
+  /* Stack buttons vertically on small screens */
+  .btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .btn-group .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ===== CARD STACK OPTIMIZATION ===== */
+
+@media (max-width: 768px) {
+  .card-grid,
+  .service-grid,
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .card {
+    /* Better card rendering */
+    contain: layout style paint;
+    content-visibility: auto;
+    
+    /* Smooth interactions */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+}
+
+/* ===== HERO SECTION MOBILE OPTIMIZATION ===== */
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: clamp(500px, 100vh, 800px);
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    line-height: 1.5;
+  }
+}
+
+/* ===== NAVIGATION DRAWER OPTIMIZATION ===== */
+
+@media (max-width: 768px) {
+  .nav-drawer {
+    /* Full screen on mobile */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    
+    /* Smooth animations */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-100%);
+    
+    /* Layer above content */
+    z-index: 9999;
+    
+    /* Enable scrolling */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-drawer.open {
+    transform: translateX(0);
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATION COMPLETE ===== */
