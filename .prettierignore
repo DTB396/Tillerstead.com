@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+vendor/
+_site/
+.jekyll-cache/
+
+# Build output
+dist/
+build/
+coverage/
+
+# Logs
+*.log
+logs/
+
+# Test output
+playwright-report/
+test-results/
+
+# Minified files
+*.min.js
+*.min.css
+
+# Generated files
+Gemfile.lock
+package-lock.json
+yarn.lock
+
+# Backups
+*.bak
+*.bak.*
+_backup/
+
+# OS files
+.DS_Store
+Thumbs.db

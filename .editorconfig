@@ -1,0 +1,78 @@
+# EditorConfig - Consistent coding styles across editors
+# https://editorconfig.org
+
+root = true
+
+# Default settings for all files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+# PowerShell scripts (Windows line endings)
+[*.ps1]
+end_of_line = crlf
+indent_size = 4
+
+# Binary files
+[*.{png,jpg,jpeg,webp,gif,ico,svg,pdf}]
+trim_trailing_whitespace = false
+insert_final_newline = false
+
+# Markdown (preserve trailing spaces for line breaks)
+[*.md]
+trim_trailing_whitespace = false
+insert_final_newline = true
+max_line_length = off
+
+# YAML
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# JSON
+[*.json]
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# CSS/SCSS
+[*.{css,scss,sass}]
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+max_line_length = 120
+
+# JavaScript
+[*.{js,mjs,cjs}]
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# HTML
+[*.html]
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+
+# Ruby
+[*.rb]
+indent_style = space
+indent_size = 2
+
+# Shell scripts
+[*.sh]
+end_of_line = lf
+indent_size = 2
+
+# Windows batch files
+[*.{bat,cmd}]
+end_of_line = crlf

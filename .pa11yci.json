@@ -1,0 +1,23 @@
+{
+  "defaults": {
+    "timeout": 30000,
+    "wait": 1000,
+    "standard": "WCAG2AA",
+    "runners": ["axe", "htmlcs"],
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox"]
+    },
+    "ignore": [
+      "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail"
+    ]
+  },
+  "urls": [
+    "http://127.0.0.1:4000/",
+    "http://127.0.0.1:4000/contact/",
+    "http://127.0.0.1:4000/services/",
+    "http://127.0.0.1:4000/portfolio/",
+    "http://127.0.0.1:4000/about/",
+    "http://127.0.0.1:4000/faq/",
+    "http://127.0.0.1:4000/pricing/"
+  ]
+}

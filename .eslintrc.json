@@ -1,0 +1,62 @@
+{
+  // Tillerstead.com ESLint configuration — see /.ai/OUTPUT_RULES.md for code quality standards
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["eslint:recommended"],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    // Warn on unused variables, but ignore those prefixed with _
+    "no-unused-vars": [
+      "warn",
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
+    ],
+    // Allow console for transparency and debugging (see /.ai/DOMAIN.md)
+    "no-console": "off",
+    // Enforce consistent 2-space indentation
+    "indent": ["warn", 2, { "SwitchCase": 1 }],
+    // Semicolons: warn only
+    "semi": ["warn", "always"],
+    // Quotes: warn only, allow double quotes
+    "quotes": ["warn", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
+    // Disallow trailing spaces
+    "no-trailing-spaces": "warn",
+    // Require newline at end of file
+    "eol-last": ["warn", "always"]
+  },
+  "overrides": [
+    {
+      // Node.js scripts (build, automation, etc.)
+      "files": ["scripts/**/*.js"],
+      "env": {
+        "node": true
+      },
+      "rules": {
+        "no-undef": "off"
+      }
+    },
+    {
+      // Jekyll includes and config JS (if any)
+      "files": ["_includes/**/*.js", "_config/**/*.js"],
+      "env": {
+        "browser": true
+      }
+    }
+  ],
+  "ignorePatterns": [
+    "_site/",
+    "_site_public/",
+    "test-results/",
+    "node_modules/",
+    "*.min.js",
+    "vendor/",
+    "dist/",
+    "coverage/",
+    "assets/**/*.js"
+  ]
+}

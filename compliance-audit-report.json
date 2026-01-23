@@ -1,0 +1,112 @@
+{
+  "timestamp": "2026-01-22T20:21:28.414Z",
+  "siteUrl": "https://tillerstead.com",
+  "complianceLicense": "13VH10808800",
+  "results": {
+    "tcna": {
+      "status": "pass",
+      "findings": [],
+      "score": 100
+    },
+    "njHic": {
+      "status": "pass",
+      "findings": [],
+      "licenseDisplayed": true
+    },
+    "wcag": {
+      "status": "pass",
+      "findings": [],
+      "targetLevel": "AAA"
+    },
+    "buildPhase": {
+      "status": "pass",
+      "findings": [
+        {
+          "level": "info",
+          "file": "build/curbs-curbless.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "warning",
+          "file": "build/flood-testing.md",
+          "message": "Contains technical terms but may lack explanations for homeowners"
+        },
+        {
+          "level": "info",
+          "file": "build/flood-testing.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "info",
+          "file": "build/framing-benches-niches.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "info",
+          "file": "build/nj-codes-permits.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "info",
+          "file": "build/shower-pans-slopes-drains.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "info",
+          "file": "build/tile-installation-standards.md",
+          "message": "Consider adding links to related Build Phase guides"
+        },
+        {
+          "level": "warning",
+          "file": "build/waterproofing-systems.md",
+          "message": "Contains technical terms but may lack explanations for homeowners"
+        },
+        {
+          "level": "info",
+          "file": "build/waterproofing-systems.md",
+          "message": "Consider adding links to related Build Phase guides"
+        }
+      ]
+    },
+    "metadata": {
+      "status": "pass",
+      "findings": []
+    },
+    "colors": {
+      "status": "pass",
+      "findings": [
+        {
+          "level": "warning",
+          "colors": "Teal on White",
+          "ratio": "4.54:1",
+          "message": "Meets WCAG AA (4.5:1) but not AAA (7:1)"
+        },
+        {
+          "level": "warning",
+          "colors": "Red on White",
+          "ratio": "5.14:1",
+          "message": "Meets WCAG AA (4.5:1) but not AAA (7:1)"
+        },
+        {
+          "level": "warning",
+          "colors": "Accessible Gold on White",
+          "ratio": "6.29:1",
+          "message": "Meets WCAG AA (4.5:1) but not AAA (7:1)"
+        },
+        {
+          "level": "warning",
+          "colors": "White on Teal",
+          "ratio": "4.54:1",
+          "message": "Meets WCAG AA (4.5:1) but not AAA (7:1)"
+        }
+      ],
+      "totalPairsTested": 8
+    }
+  },
+  "summary": {
+    "totalChecks": 13,
+    "passed": 6,
+    "warnings": 0,
+    "failures": 0
+  }
+}

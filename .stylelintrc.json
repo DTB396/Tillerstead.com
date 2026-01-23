@@ -1,0 +1,80 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "rules": {
+    "selector-class-pattern": [
+      "^[a-z0-9\\-]+(__[a-z0-9\\-]+)?(--[a-z0-9\\-]+)?$",
+      {
+        "message": "Use BEM-style class names: block__element--modifier (lowercase, hyphens only)"
+      }
+    ],
+    "custom-property-pattern": [
+      "^[a-z0-9]+-[a-z0-9\\-]+$",
+      {
+        "message": "Custom properties must include a lowercase namespace prefix (e.g., text-scale, tiller-color-primary)"
+      }
+    ],
+    "scss/dollar-variable-pattern": [
+      "^[a-z0-9]+-[a-z0-9\\-]+$",
+      {
+        "message": "SCSS variables must include a lowercase namespace prefix (e.g., $text-scale-base)"
+      }
+    ],
+    "color-function-notation": "modern",
+    "color-function-alias-notation": "without-alpha",
+    "alpha-value-notation": "percentage",
+    "property-no-vendor-prefix": [
+      true,
+      {
+        "ignoreProperties": ["backdrop-filter"]
+      }
+    ],
+    "value-keyword-case": "lower",
+    "color-hex-length": "long",
+    "custom-property-empty-line-before": null,
+    "media-feature-range-notation": "prefix",
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ],
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["tailwind", "apply", "layer"]
+      }
+    ],
+    "no-descending-specificity": null,
+    "declaration-block-no-redundant-longhand-properties": null,
+    "length-zero-no-unit": true,
+    "comment-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["stylelint-commands"]
+      }
+    ],
+    "rule-empty-line-before": [
+      "always-multi-line",
+      {
+        "except": ["first-nested"],
+        "ignore": ["after-comment"]
+      }
+    ],
+    "max-nesting-depth": [
+      3,
+      {
+        "ignore": ["blockless-at-rules"]
+      }
+    ],
+    "selector-max-id": 0,
+    "selector-max-type": 2,
+    "declaration-block-single-line-max-declarations": 1,
+    "no-duplicate-selectors": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ]
+  }
+}
