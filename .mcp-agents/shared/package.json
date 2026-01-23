@@ -1,0 +1,18 @@
+{
+  "name": "@tillerstead/shared",
+  "version": "1.0.0",
+  "description": "Shared utilities for Tillerstead MCP agents",
+  "type": "module",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rimraf build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3"
+  }
+}

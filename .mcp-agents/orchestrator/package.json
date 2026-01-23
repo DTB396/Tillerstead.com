@@ -1,0 +1,22 @@
+{
+  "name": "@tillerstead/orchestrator",
+  "version": "1.0.0",
+  "description": "Multi-agent orchestrator for Tillerstead.com MCP agents",
+  "type": "module",
+  "bin": {
+    "tillerstead-orchestrator": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rimraf build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "@tillerstead/shared": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3"
+  }
+}

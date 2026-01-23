@@ -278,6 +278,37 @@ exclude:
   - LICENSE
   - "*.ps1"
   - admin/
+  - "**/*-GUIDE.md"
+  - "**/*-COMPLETE.md"
+  - "**/*-QUICKSTART.md"
+  - "**/*-DOCS.md"
+  - "**/*-ARCHITECTURE.md"
+  - "**/*-REPORT.md"
+  - "**/*-IMPLEMENTATION.md"
+  - "**/*-CHEATSHEET.*"
+  - "**/*-IMPROVEMENTS.md"
+  - "**/*-SYSTEM*.md"
+  - "**/*-ANALYSIS.md"
+  - "**/*-DEPLOYED.md"
+  - "**/*-FIX.md"
+  - "**/*-REF.md"
+  - "**/*-STRATEGY.md"
+  - ACCESSIBILITY.md
+  - CONFIGURATION.md
+  - COMPLIANCE.md
+  - SECURITY-GUIDE.md
+  - BRAND-STRATEGY.md
+  - WORKFLOW-HEALTH-REPORT.md
+  - WEB-STANDARDS-COMPLIANCE-REPORT.md
+  - PREMIUM-UX-IMPLEMENTATION.md
+  - "*.md"
+  - "!index.md"
+
+# Include critical files for Netlify
+# ----------------------------
+include:
+  - _redirects
+  - .well-known
   - build/
   - dist/
   - logs/

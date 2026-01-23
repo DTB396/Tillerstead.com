@@ -1,0 +1,644 @@
+{
+  "Timestamp": "2026-01-23T17:42:47.5531838-05:00",
+  "TotalIncludes": 92,
+  "Duplicates": null,
+  "Unused": [
+    {
+      "Hash": "F5B44A949586F338BA3C33037CB693D4FE0C6DD4942BBC233D7D3342CFD04034",
+      "References": [],
+      "RelativePath": "footer.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\footer.html",
+      "Size": 4438
+    },
+    {
+      "Hash": "569F5960F241A7078C4890DA75E2033B330BB1EA5336E7F164BD301306A60CF6",
+      "References": [],
+      "RelativePath": "nav-drawer.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\nav-drawer.html",
+      "Size": 4351
+    },
+    {
+      "Hash": "5061CD7F74272270D91332C69CCFB4BCA41870C63E552A93BB7AFCE59D243484",
+      "References": [],
+      "RelativePath": "components\\a11y-toolbar.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\a11y-toolbar.html",
+      "Size": 14004
+    },
+    {
+      "Hash": "0EEA1F33C5656A8DF3772BA28F4ECC5571DCAA92DF683B9ED2223C87101213F0",
+      "References": [],
+      "RelativePath": "components\\build-phase-cta.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\build-phase-cta.html",
+      "Size": 3650
+    },
+    {
+      "Hash": "980E1CFEC7A5669550ED774776DF4368A86FE5608715DB047AF478EE4E294C2F",
+      "References": [],
+      "RelativePath": "components\\build-prev-next.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\build-prev-next.html",
+      "Size": 1457
+    },
+    {
+      "Hash": "92ACC1FDCFF7A4FDDC2E3B796A5AAD1BF85E306DA5D71C55418E4B8A53D831FF",
+      "References": [],
+      "RelativePath": "components\\build-sidebar.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\build-sidebar.html",
+      "Size": 414
+    },
+    {
+      "Hash": "4DE70BA12317A0D7F1E3041339DD7D60FF37D5E0215469690410DEE21C66B371",
+      "References": [],
+      "RelativePath": "components\\build-sidenav.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\build-sidenav.html",
+      "Size": 736
+    },
+    {
+      "Hash": "B215EDCA3699639B8141F260EF040352C3AB28F89790675BB46488AD224273C7",
+      "References": [],
+      "RelativePath": "components\\c-brand-identity.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\c-brand-identity.html",
+      "Size": 4191
+    },
+    {
+      "Hash": "1154E184072A92C5C73A7F38772ECE8ED4155B4F2D9D8ECDCC1EB6B9801BE478",
+      "References": [],
+      "RelativePath": "components\\c-brand-pillars.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\c-brand-pillars.html",
+      "Size": 1652
+    },
+    {
+      "Hash": "590330E5156514AF06310A7E26053DDD99BF6594A1A059F0CB9D048FFFF48389",
+      "References": [],
+      "RelativePath": "components\\c-sqft-helper.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\c-sqft-helper.html",
+      "Size": 2955
+    },
+    {
+      "Hash": "6A014D738BEF2B5860D3D641AF5DB2B78E43212A38CED38214ABEEA29252F987",
+      "References": [],
+      "RelativePath": "components\\c-trust-bar.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\c-trust-bar.html",
+      "Size": 1491
+    },
+    {
+      "Hash": "D26B8168F99AF36287CD46394EBAA1270DF6D038111CCF7E478511C7E64796F2",
+      "References": [],
+      "RelativePath": "components\\cta-estimate.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\cta-estimate.html",
+      "Size": 1294
+    },
+    {
+      "Hash": "505285B16B11E1613CCA49658FCE13062277E25EA9C296F9139A64388628C73F",
+      "References": [],
+      "RelativePath": "components\\logo-header.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\logo-header.html",
+      "Size": 1048
+    },
+    {
+      "Hash": "0405314499F80473C947B42BEFDA30DBC18FD9E1D520FCFF2A22DD0102DCAE4F",
+      "References": [],
+      "RelativePath": "components\\logo-sprite-inline.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\logo-sprite-inline.html",
+      "Size": 5110
+    },
+    {
+      "Hash": "9C7CF1808154CF288B07405F55E70F7096AF9FEC8D23AE4C8C1C5E1A7D7B5F98",
+      "References": [],
+      "RelativePath": "components\\logo-wolf-crest.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\logo-wolf-crest.html",
+      "Size": 3054
+    },
+    {
+      "Hash": "EF886B3A81748E186D98CFA7AEC9225E23ECEBC032D9DF397C486C5DA3EFCB13",
+      "References": [],
+      "RelativePath": "components\\nj-hic-verification.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\nj-hic-verification.html",
+      "Size": 2915
+    },
+    {
+      "Hash": "7EF596A745A8A790C88EC7C178B314431AE4EF4F225904631EB479048193B300",
+      "References": [],
+      "RelativePath": "components\\pattern-showcase.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\pattern-showcase.html",
+      "Size": 5432
+    },
+    {
+      "Hash": "6784559214D739B355924738127CA2EDA089F9A82F158675EF33AE9D07F96FF6",
+      "References": [],
+      "RelativePath": "components\\responsive-image.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\responsive-image.html",
+      "Size": 2783
+    },
+    {
+      "Hash": "7CC3D2F7C9717CD1BE6A5E43FFB3C15BD702440AA20D2A3F91EA9A9AC4FCE81A",
+      "References": [],
+      "RelativePath": "components\\reviews-highlights.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\reviews-highlights.html",
+      "Size": 3681
+    },
+    {
+      "Hash": "9749E24FDCE07BFF5235EC487C3722178670271A90106D670FEEF12023804067",
+      "References": [],
+      "RelativePath": "components\\social-links.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\social-links.html",
+      "Size": 3895
+    },
+    {
+      "Hash": "1C3D193C0559AF342F4B486585DE008C8D1004F1EDD714CC56B7E5622BCFAA41",
+      "References": [],
+      "RelativePath": "components\\ts-icon-sprite.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\ts-icon-sprite.html",
+      "Size": 9372
+    },
+    {
+      "Hash": "46E3D972D24E0B574261B6099BFD38F2A57ADB83832B113AC52C58BFC17BDB77",
+      "References": [],
+      "RelativePath": "components\\ts-icon.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\ts-icon.html",
+      "Size": 45
+    },
+    {
+      "Hash": "9EFC58E21D6770ED48196DD568079B8F8759B3B695068CDDFA6C86FF33E5697D",
+      "References": [],
+      "RelativePath": "components\\ts-peace-of-mind.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\ts-peace-of-mind.html",
+      "Size": 613
+    },
+    {
+      "Hash": "676F691F4F2EA68DA1B4DD96BF5C08A80B070D7E24D294272BE0E92CC7AAF467",
+      "References": [],
+      "RelativePath": "components\\ts-plans.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\ts-plans.html",
+      "Size": 5009
+    },
+    {
+      "Hash": "FCB1C3139171A96418B0443F2150CD5E0F70346D9B961C2E4D990ED3C93689F7",
+      "References": [],
+      "RelativePath": "components\\ts-portfolio.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\ts-portfolio.html",
+      "Size": 2719
+    },
+    {
+      "Hash": "1A4C10390712B793B5FD4510A4834E6AB5800161FCD77F55A5C6C9BAF2D82F3C",
+      "References": [],
+      "RelativePath": "components\\ts-service-card.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\ts-service-card.html",
+      "Size": 4664
+    },
+    {
+      "Hash": "A13706B0DC070298D4C29197053F256DE4CCC2BADAD8ADAA957F3B5071FA974C",
+      "References": [],
+      "RelativePath": "components\\ts-services.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\ts-services.html",
+      "Size": 123
+    },
+    {
+      "Hash": "5D44C08EF618CE5491C33C176E1A223FEF5D6A081A7C12F5E434F90F84E41053",
+      "References": [],
+      "RelativePath": "components\\warranty-info.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\components\\warranty-info.html",
+      "Size": 3246
+    },
+    {
+      "Hash": "C0DE6BA3A7049847F554AF932150E4B64AF66C2556CBA0787AA6FC9F1429C8D7",
+      "References": [],
+      "RelativePath": "forms\\contact-long.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\forms\\contact-long.html",
+      "Size": 234
+    },
+    {
+      "Hash": "A0DFC2EBBDE14BF3BF433A099109D34729DE507D3AC18D986E00F56AF99EBAD7",
+      "References": [],
+      "RelativePath": "forms\\contact-options.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\forms\\contact-options.html",
+      "Size": 1139
+    },
+    {
+      "Hash": "97821F27E436BBB21D5F5855F0D0110F028DF3A16F99CC58DFBCB67488AC27B3",
+      "References": [],
+      "RelativePath": "forms\\contact-page.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\forms\\contact-page.html",
+      "Size": 720
+    },
+    {
+      "Hash": "DF1E4351BCBA94607C30C2C2890AE8C0000B1016804A1ABDEBCA89F8F4871134",
+      "References": [],
+      "RelativePath": "forms\\contact.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\forms\\contact.html",
+      "Size": 4374
+    },
+    {
+      "Hash": "BCB3E1C3A858118CC8ED6EEEA8A3FF6429A90E64B373DF4CF30ACC2442EDC5B2",
+      "References": [],
+      "RelativePath": "hero\\crosshatch-hero.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\hero\\crosshatch-hero.html",
+      "Size": 3740
+    },
+    {
+      "Hash": "07B1481EF4026493AE3404E63D83DD625CAB7CC9F239EE8132BF803124A6CA14",
+      "References": [],
+      "RelativePath": "hero\\hero.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\hero\\hero.html",
+      "Size": 1959
+    },
+    {
+      "Hash": "F32318147AF3948EDB2746789007C6B95891E482249C8AE8F28904E87F791E8B",
+      "References": [],
+      "RelativePath": "hero\\page-hero.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\hero\\page-hero.html",
+      "Size": 369
+    },
+    {
+      "Hash": "B390980E06744277E4039F3AACA17C46E08D3F905B384EBB060FF65B52F3C546",
+      "References": [],
+      "RelativePath": "hero\\unified-hero-home.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\hero\\unified-hero-home.html",
+      "Size": 4415
+    },
+    {
+      "Hash": "AA986A87EE76BF470E032F7F74AAEEF0A12E62F3CCFEC4DB73A4D61A9D5B4A3E",
+      "References": [],
+      "RelativePath": "hero\\unified-hero.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\hero\\unified-hero.html",
+      "Size": 3877
+    },
+    {
+      "Hash": "129BEA296FC8A74948760FB92E3CF3467692901DE94A92347028350C93B3E6A1",
+      "References": [],
+      "RelativePath": "icons\\favicon-meta.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\icons\\favicon-meta.html",
+      "Size": 1648
+    },
+    {
+      "Hash": "200B1F1C164330A222A67CD90083F0A1EFD099C4331307F9B4EB04C2D7611CF1",
+      "References": [],
+      "RelativePath": "layout\\build-blocks.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\layout\\build-blocks.html",
+      "Size": 3810
+    },
+    {
+      "Hash": "5CD888E0DB61B87BEB34B4F6C579824745959AB6227E05DE414512ADA8825291",
+      "References": [],
+      "RelativePath": "layout\\footer.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\layout\\footer.html",
+      "Size": 12571
+    },
+    {
+      "Hash": "489F0CCBCA0D02CA62C8F3E8686D99A1ACD02F4545BE180619F64C3A96034BA4",
+      "References": [],
+      "RelativePath": "layout\\head.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\layout\\head.html",
+      "Size": 7703
+    },
+    {
+      "Hash": "42599469423DACD31180FB37A58D19367409CE5805049422ABE2709D1B8156D5",
+      "References": [],
+      "RelativePath": "layout\\header.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\layout\\header.html",
+      "Size": 202
+    },
+    {
+      "Hash": "5789E033F6A9B3B655F2FC4AEB3639048DD3DF84FAA51E14C2F0BDCF0EEC2557",
+      "References": [],
+      "RelativePath": "layout\\meta-canonical.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\layout\\meta-canonical.html",
+      "Size": 111
+    },
+    {
+      "Hash": "23E5F1E302523AEC06DCB2F9636DB903B341AB3AA64B4FF75552C73015B2A8C1",
+      "References": [],
+      "RelativePath": "layout\\meta-geo.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\layout\\meta-geo.html",
+      "Size": 232
+    },
+    {
+      "Hash": "8471C56C4E08CAD61AD91C64A59BB548F988A180E0212215B70B3FFDAEA5D865",
+      "References": [],
+      "RelativePath": "layout\\meta-open-graph.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\layout\\meta-open-graph.html",
+      "Size": 1207
+    },
+    {
+      "Hash": "475B8FB8583E11D98F3DF41EE6008245A55BB7739B23359D331C63192B8BC65A",
+      "References": [],
+      "RelativePath": "layout\\meta-success-confetti.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\layout\\meta-success-confetti.html",
+      "Size": 1967
+    },
+    {
+      "Hash": "7B0A2A0A642D68A93DF1BE3ABA93E83D563C0072EC858A84700B8B33F7A36C09",
+      "References": [],
+      "RelativePath": "layout\\page-shell.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\layout\\page-shell.html",
+      "Size": 2179
+    },
+    {
+      "Hash": "24BDE150F7261894DEFBCF0C9EA1B37A09FE822D8F0F04BB2F3B43EADB9E0210",
+      "References": [],
+      "RelativePath": "layout\\scripts.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\layout\\scripts.html",
+      "Size": 3505
+    },
+    {
+      "Hash": "EF93B81D621F5F0367D0D26CA2B1271F14038A86DBC3B1E8C4EB29DD3F7D8F42",
+      "References": [],
+      "RelativePath": "navigation\\breadcrumbs.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\navigation\\breadcrumbs.html",
+      "Size": 1490
+    },
+    {
+      "Hash": "470FAFB44D02E6DD5ED2CAFF71E8F3283096B5374F3D012082730793893DDE40",
+      "References": [],
+      "RelativePath": "navigation\\main-nav.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\navigation\\main-nav.html",
+      "Size": 14632
+    },
+    {
+      "Hash": "7F9BD8FEFD5BB43317705999AEA81EF79CE590B56C9141DEF38E9DFC6A6B4831",
+      "References": [],
+      "RelativePath": "navigation\\nav-drawer.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\navigation\\nav-drawer.html",
+      "Size": 5072
+    },
+    {
+      "Hash": "D5403F2C1BB3BBF1322787207D917621A8FD240407AE021B26C08DA93C783E83",
+      "References": [],
+      "RelativePath": "navigation\\toc.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\navigation\\toc.html",
+      "Size": 213
+    },
+    {
+      "Hash": "F851D69AF24F350B9B3AC353E30D156645557AFDFCA9921B7E79D6ABBE380038",
+      "References": [],
+      "RelativePath": "navigation\\ts-breadcrumbs.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\navigation\\ts-breadcrumbs.html",
+      "Size": 6949
+    },
+    {
+      "Hash": "745D7DD709241E4513B49802AAE62FB1C7EB382C3ABC7F88F1C6084A3B5B398B",
+      "References": [],
+      "RelativePath": "sections\\about-section.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\about-section.html",
+      "Size": 5833
+    },
+    {
+      "Hash": "A21D7D98334EC630E9EA65FEC3AB81BB8621596B37EFC83E71302D5501D3F5EE",
+      "References": [],
+      "RelativePath": "sections\\blog-highlights.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\blog-highlights.html",
+      "Size": 2879
+    },
+    {
+      "Hash": "DD8ED6B2248DB68B3B908580BDB38DD9C496B5A3ACDA491B1E26CB93317F86C2",
+      "References": [],
+      "RelativePath": "sections\\faq-section.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\faq-section.html",
+      "Size": 1836
+    },
+    {
+      "Hash": "C2C5D3581B38A51868804EBD34AE6222F147CDFEE33B4B5D642C5A9056E44F3F",
+      "References": [],
+      "RelativePath": "sections\\home-cta-final.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\home-cta-final.html",
+      "Size": 1244
+    },
+    {
+      "Hash": "34C4C49587A1D77701677007FB0B82F4E839E2493DAB5420C36D1A039BFF4690",
+      "References": [],
+      "RelativePath": "sections\\home-faq.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\home-faq.html",
+      "Size": 2406
+    },
+    {
+      "Hash": "51D75A6526A44A2050CADCD53CEAA54F0389934FD093DE74F03C9A7F0DE681B1",
+      "References": [],
+      "RelativePath": "sections\\home-materials.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\home-materials.html",
+      "Size": 1965
+    },
+    {
+      "Hash": "4EA72572A6D139210563E41239773BA9233B80F00324FC9AB2F53B14E33809F9",
+      "References": [],
+      "RelativePath": "sections\\home-portfolio-preview.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\home-portfolio-preview.html",
+      "Size": 1048
+    },
+    {
+      "Hash": "3672656100160762AC9BECD218D929923DCE2C8F6AB48CA01A1BE1E16F01D46C",
+      "References": [],
+      "RelativePath": "sections\\home-services-preview.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\home-services-preview.html",
+      "Size": 3235
+    },
+    {
+      "Hash": "37988412BB6CCA0EE060116F4B32EA867C1B799D5B1B0FF6ECFD69A21341B0EC",
+      "References": [],
+      "RelativePath": "sections\\home-simple.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\home-simple.html",
+      "Size": 6513
+    },
+    {
+      "Hash": "7A343C93A23D9E9DADC9AFFC3155A96047E986D3C0ACA211888A87626092171D",
+      "References": [],
+      "RelativePath": "sections\\home-trust-stats.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\home-trust-stats.html",
+      "Size": 1597
+    },
+    {
+      "Hash": "65C9CC545BADBF141F0E463A09B3C9DEB2AD92B44F65DFB9139BCAD8DB646E98",
+      "References": [],
+      "RelativePath": "sections\\portfolio-highlights.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\portfolio-highlights.html",
+      "Size": 3244
+    },
+    {
+      "Hash": "302000DED73CFA0656CB61091C438F3FCD676307115C6E91B74AA77DB045B030",
+      "References": [],
+      "RelativePath": "sections\\portfolio.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\portfolio.html",
+      "Size": 35
+    },
+    {
+      "Hash": "3A8099B09D918DC4E84C000B3DAB8E1281173547354E09A157CF07F9283B9CF9",
+      "References": [],
+      "RelativePath": "sections\\process.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\process.html",
+      "Size": 4053
+    },
+    {
+      "Hash": "8B2461309995E4B805F5B1C35E2CA3FCDE4C48E711587756991E42A58D3D4AAF",
+      "References": [],
+      "RelativePath": "sections\\section-cta.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\section-cta.html",
+      "Size": 871
+    },
+    {
+      "Hash": "DBEA7DAEC189D31A9BF6175A97A1FC388B83110F69B517C18F63FC8A08E2E06F",
+      "References": [],
+      "RelativePath": "sections\\section-materials.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\section-materials.html",
+      "Size": 1151
+    },
+    {
+      "Hash": "006DD6A7368ED03D1B82C81161202F04452E6CE2AA8A505E40D5D839120B4D1E",
+      "References": [],
+      "RelativePath": "sections\\section-portfolio-cta.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\section-portfolio-cta.html",
+      "Size": 552
+    },
+    {
+      "Hash": "6BF08386496EDDB3BEFC397C781AABFDACC438390A9D46BE2D40BF560DD48A78",
+      "References": [],
+      "RelativePath": "sections\\section-portfolio-gallery.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\section-portfolio-gallery.html",
+      "Size": 1987
+    },
+    {
+      "Hash": "97269DF5DA44EA2F4BC0DEE1B27A6BF5F26F7390E21A05E5E6BCF1FD23F9010B",
+      "References": [],
+      "RelativePath": "sections\\section-portfolio-hero.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\section-portfolio-hero.html",
+      "Size": 461
+    },
+    {
+      "Hash": "991D22CC1BF013860FF3947DCB3D4A46412588C9B5212B643614EAC1C78DC515",
+      "References": [],
+      "RelativePath": "sections\\section-process.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\section-process.html",
+      "Size": 1036
+    },
+    {
+      "Hash": "01507075DA701E5A9F333C39F566729288CD1ACE81DD2CA28B23F4054D7344D0",
+      "References": [],
+      "RelativePath": "sections\\section-services.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\section-services.html",
+      "Size": 1649
+    },
+    {
+      "Hash": "49EF1408BEE98831AD51EC0EC97E1AC5B900A431D849CA9127ADCAC357468B91",
+      "References": [],
+      "RelativePath": "sections\\section-testimonials.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\section-testimonials.html",
+      "Size": 1464
+    },
+    {
+      "Hash": "98FE02F817997153D06DAE769CB4E3003CDA5EEA04B91C43F53AFC19FEEB8939",
+      "References": [],
+      "RelativePath": "sections\\section-trust-bar.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\section-trust-bar.html",
+      "Size": 759
+    },
+    {
+      "Hash": "C128F543483E76DDC46059CA85C0C41311D616173868D91B88BF8F2F75C254DC",
+      "References": [],
+      "RelativePath": "sections\\ts-portfolio.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\ts-portfolio.html",
+      "Size": 4195
+    },
+    {
+      "Hash": "4DA484DAF21E33CED945364598F6098789D2C6C285E3AE5FC09BAADCC0AA67EB",
+      "References": [],
+      "RelativePath": "sections\\ts-services.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\sections\\ts-services.html",
+      "Size": 7666
+    },
+    {
+      "Hash": "23EDB0D57B5C877EBBB7CF1DB9E086A6C9BF6CD09129796DD30E8774E255C33A",
+      "References": [],
+      "RelativePath": "tools\\assumptions-panel.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\tools\\assumptions-panel.html",
+      "Size": 294
+    },
+    {
+      "Hash": "244E9DF953F000555408D549E85B5BC0DC43902020CE524037C4A73B5D6A1581",
+      "References": [],
+      "RelativePath": "tools\\cost-estimator.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\tools\\cost-estimator.html",
+      "Size": 7777
+    },
+    {
+      "Hash": "78D274417880DD218BBB8C9995353FEC34CA27F1BB4B6696DA3CA6B08FF1990D",
+      "References": [],
+      "RelativePath": "tools\\estimate-builder.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\tools\\estimate-builder.html",
+      "Size": 12691
+    },
+    {
+      "Hash": "9C2C1FD112831081796E7C82438B5D68FE5A471F3D8A24273164FEA8FE46B094",
+      "References": [],
+      "RelativePath": "tools\\grout-calculator.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\tools\\grout-calculator.html",
+      "Size": 4476
+    },
+    {
+      "Hash": "184FC431C251CC5A4C17C23E502DC454F31F03756BBF8A81C7E0DC73A6EC6C50",
+      "References": [],
+      "RelativePath": "tools\\guides-tips.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\tools\\guides-tips.html",
+      "Size": 8431
+    },
+    {
+      "Hash": "EF0FD3B33D0B934FA8F1D9B34DED27BEDE605647CC7C599411A7DAB2C6EB1CF8",
+      "References": [],
+      "RelativePath": "tools\\labor-calculator.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\tools\\labor-calculator.html",
+      "Size": 5619
+    },
+    {
+      "Hash": "3F68061FDA06BF7265BA859FDB3415C29A64FCF3142B6D719C0A48589E3C7A15",
+      "References": [],
+      "RelativePath": "tools\\leveling-calculator.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\tools\\leveling-calculator.html",
+      "Size": 3411
+    },
+    {
+      "Hash": "66C51C124FDFB1834223F01F6A5851E1E0ABD828104BA7759C1FB98BAB2A43E3",
+      "References": [],
+      "RelativePath": "tools\\mortar-calculator.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\tools\\mortar-calculator.html",
+      "Size": 7092
+    },
+    {
+      "Hash": "1AA55B25F4218F41AC1474C20FF6979F2F83207AD86D9754EB186D925F2020B2",
+      "References": [],
+      "RelativePath": "tools\\project-output.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\tools\\project-output.html",
+      "Size": 5506
+    },
+    {
+      "Hash": "0FB240F182E48AC3FC4E67D490957603073479597A6F6CDDABCFF903270BD1B8",
+      "References": [],
+      "RelativePath": "tools\\room-template.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\tools\\room-template.html",
+      "Size": 6630
+    },
+    {
+      "Hash": "7E2DDD7D222C0315D1A0E9A96A8D4B714509CF3686165A3FE271D50943B2E44A",
+      "References": [],
+      "RelativePath": "tools\\slope-calculator.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\tools\\slope-calculator.html",
+      "Size": 3397
+    },
+    {
+      "Hash": "A3265C864A7D106BBE3535950083003A1EE75009DFA86DEC6E3BABBADC5AE3B7",
+      "References": [],
+      "RelativePath": "tools\\tile-calculator.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\tools\\tile-calculator.html",
+      "Size": 4717
+    },
+    {
+      "Hash": "DFF873CE4CA077B6A9744E5D0824C70387CA59352D08E935B682FC82E9D494EB",
+      "References": [],
+      "RelativePath": "tools\\tools-nav.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\tools\\tools-nav.html",
+      "Size": 916
+    },
+    {
+      "Hash": "3E40F71E4711B513905D77C3C49DB552A466AA43E44F51F87155F67AEF9CEE17",
+      "References": [],
+      "RelativePath": "tools\\waterproof-calculator.html",
+      "Path": "C:\\web-dev\\github-repos\\Tillerstead.com\\_includes\\tools\\waterproof-calculator.html",
+      "Size": 5219
+    }
+  ]
+}

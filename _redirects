@@ -1,0 +1,26 @@
+# Netlify _redirects file
+# Fallback redirects for homepage and 404 handling
+# Auto-generated broken link fixes added: 2026-01-23
+
+# Build documentation pages (redirect to main build page)
+/build/nj-codes-permits              /build/                301
+/build/flood-testing                 /build/                301
+/build/waterproofing-systems         /build/                301
+/build/tile-installation-standards   /build/                301
+/build/curbs-curbless                /build/                301
+/build/shower-pans-slopes-drains     /build/                301
+/build/common-build-failures         /build/                301
+/build/framing-benches-niches        /build/                301
+
+# File extension fixes (remove .html)
+/contact.html                        /contact/              301
+/tile-visualizer.html                /tile-visualizer/      301
+
+# Page moves
+/nj-tile-guide                       /nj-tile-guide/        301
+
+# Homepage fallback - ensure index.html is served
+/  /index.html  200
+
+# Custom 404 page
+/*  /404/index.html  404

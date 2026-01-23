@@ -110,5 +110,82 @@
     Cache-Control = "public, max-age=604800"
     Content-Type = "application/pdf"
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# Redirects & Error Handling
+# Comprehensive 404 prevention with auto-detected broken links
+# Updated: 2026-01-23
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Build documentation pages (redirect to main build page)
+[[redirects]]
+  from = "/build/nj-codes-permits"
+  to = "/build/"
+  status = 301
+
+[[redirects]]
+  from = "/build/flood-testing"
+  to = "/build/"
+  status = 301
+
+[[redirects]]
+  from = "/build/waterproofing-systems"
+  to = "/build/"
+  status = 301
+
+[[redirects]]
+  from = "/build/tile-installation-standards"
+  to = "/build/"
+  status = 301
+
+[[redirects]]
+  from = "/build/curbs-curbless"
+  to = "/build/"
+  status = 301
+
+[[redirects]]
+  from = "/build/shower-pans-slopes-drains"
+  to = "/build/"
+  status = 301
+
+[[redirects]]
+  from = "/build/common-build-failures"
+  to = "/build/"
+  status = 301
+
+[[redirects]]
+  from = "/build/framing-benches-niches"
+  to = "/build/"
+  status = 301
+
+# File extension fixes
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/tile-visualizer.html"
+  to = "/tile-visualizer/"
+  status = 301
+
+# Page moves
+[[redirects]]
+  from = "/nj-tile-guide"
+  to = "/nj-tile-guide/"
+  status = 301
+
+# Ensure root domain serves index.html
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+  force = false
+
+# Custom 404 page
+[[redirects]]
+  from = "/*"
+  to = "/404/index.html"
+  status = 404
+
 # All assets, images, and references must follow OUTPUT_RULES.md conventions.
 # For legal, accessibility, and NJ HIC requirements, see _data/compliance.yml.

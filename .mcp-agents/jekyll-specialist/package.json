@@ -1,0 +1,23 @@
+{
+  "name": "@tillerstead/jekyll-specialist",
+  "version": "1.0.0",
+  "description": "Jekyll includes specialist MCP agent for Tillerstead.com",
+  "type": "module",
+  "bin": {
+    "tillerstead-jekyll": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rimraf build",
+    "test": "echo \"Tests not yet implemented\""
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "@tillerstead/shared": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3"
+  }
+}

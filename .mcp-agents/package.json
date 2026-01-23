@@ -1,0 +1,55 @@
+{
+  "name": "@tillerstead/mcp-agents",
+  "version": "1.0.0",
+  "description": "Expert AI agents for Tillerstead.com development using Model Context Protocol",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "build:jekyll": "npm run build -w jekyll-specialist",
+    "build:seo": "npm run build -w seo-specialist",
+    "build:design": "npm run build -w design-specialist",
+    "build:qa": "npm run build -w qa-specialist",
+    "build:calculator": "npm run build -w calculator-specialist",
+    "build:orchestrator": "npm run build -w orchestrator",
+    "dev": "npm run dev --workspaces",
+    "test": "npm test --workspaces",
+    "test:all": "npm run test",
+    "test:integration": "node --test integration-tests/*.test.js",
+    "clean": "rimraf */build */dist",
+    "lint": "eslint . --ext .ts,.js",
+    "format": "prettier --write \"**/*.{ts,js,json,md}\""
+  },
+  "workspaces": [
+    "shared",
+    "jekyll-specialist",
+    "seo-specialist",
+    "design-specialist",
+    "qa-specialist",
+    "calculator-specialist",
+    "orchestrator"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.4",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai-agents",
+    "copilot",
+    "jekyll",
+    "tillerstead"
+  ],
+  "author": "Tillerstead LLC",
+  "license": "MIT"
+}
