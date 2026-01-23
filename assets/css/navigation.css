@@ -280,6 +280,7 @@
   font-weight: 600;
   text-decoration: none !important;
   border: none;
+
   /* Header nav "white" buttons → emerald glowing text */
   color: var(--tiller-color-emerald-accessible, #008f5d) !important;
   text-shadow:
@@ -324,6 +325,7 @@
 .dropdown-icon {
   transition: transform 0.2s ease;
 }
+
 .has-dropdown.is-open .dropdown-icon {
   transform: rotate(180deg);
 }
@@ -332,6 +334,7 @@
 .desktop-nav__cta {
   background: var(--tiller-color-emerald, #10b981);
   color: #ffffff !important;
+
   /* Green buttons → white text with gold metallic glow */
   text-shadow:
     0 0 2px rgb(255 255 255 / 55%),
@@ -1051,7 +1054,6 @@ body.nav-open .mobile-nav__toggle {
     0 8px 25px rgb(16 185 129 / 50%),
     0 0 0 4px rgb(16 185 129 / 20%),
     inset 0 1px 0 rgb(255 255 255 / 25%);
-
   text-shadow:
     0 0 3px rgb(255 255 255 / 60%),
     0 0 12px rgb(201 162 39 / 80%),

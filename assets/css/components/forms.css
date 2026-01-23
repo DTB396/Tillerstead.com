@@ -1,0 +1,429 @@
+/* =========================================================
+   Tillerstead Premium Form System
+   Real-time validation, loading states, smooth interactions
+   ========================================================= */
+
+/* ===== FORM CONTAINER ===== */
+.ts-form {
+  --form-spacing: var(--tiller-spacing-md, 1rem);
+  --input-radius: var(--tiller-border-radius-md, 8px);
+  --input-border: 2px solid rgb(255 255 255 / 20%);
+  --input-focus-border: 2px solid var(--tiller-color-gold, #d4af37);
+  --input-error-border: 2px solid var(--tiller-color-error, #f87171);
+  --input-success-border: 2px solid var(--tiller-color-success, #00e184);
+  
+  display: flex;
+  flex-direction: column;
+  gap: var(--form-spacing);
+  max-width: 600px;
+  width: 100%;
+}
+
+/* ===== FORM GROUPS ===== */
+.ts-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.ts-form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--form-spacing);
+}
+
+/* ===== LABELS ===== */
+.ts-label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--tiller-text-primary, #ffffff);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.ts-label--required::after {
+  content: '*';
+  color: var(--tiller-color-error, #f87171);
+  margin-left: 0.125rem;
+}
+
+.ts-label__hint {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--tiller-text-tertiary, #9ca3af);
+  margin-left: 0.25rem;
+}
+
+/* ===== INPUT FIELDS ===== */
+.ts-input,
+.ts-textarea,
+.ts-select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--tiller-text-primary, #ffffff);
+  background: var(--tiller-bg-elevated, #0f0f0f);
+  border: var(--input-border);
+  border-radius: var(--input-radius);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.ts-input::placeholder,
+.ts-textarea::placeholder {
+  color: var(--tiller-text-muted, #6b7280);
+}
+
+/* Focus states */
+.ts-input:focus,
+.ts-textarea:focus,
+.ts-select:focus {
+  border-color: var(--tiller-color-gold, #d4af37);
+  background: var(--tiller-bg-card, #161616);
+  box-shadow: 0 0 0 3px rgb(212 175 55 / 10%);
+}
+
+/* Disabled state */
+.ts-input:disabled,
+.ts-textarea:disabled,
+.ts-select:disabled {
+  opacity: 50%;
+  cursor: not-allowed;
+  background: var(--tiller-bg-dark, #000000);
+}
+
+/* Textarea specific */
+.ts-textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* Select dropdown */
+.ts-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23d4af37' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 3rem;
+}
+
+/* ===== VALIDATION STATES ===== */
+
+/* Error state */
+.ts-form-group--error .ts-input,
+.ts-form-group--error .ts-textarea,
+.ts-form-group--error .ts-select {
+  border-color: var(--tiller-color-error, #f87171);
+  background: rgb(248 113 113 / 5%);
+}
+
+.ts-form-group--error .ts-input:focus,
+.ts-form-group--error .ts-textarea:focus,
+.ts-form-group--error .ts-select:focus {
+  box-shadow: 0 0 0 3px rgb(248 113 113 / 15%);
+}
+
+/* Success state */
+.ts-form-group--success .ts-input,
+.ts-form-group--success .ts-textarea,
+.ts-form-group--success .ts-select {
+  border-color: var(--tiller-color-success, #00e184);
+  background: rgb(0 225 132 / 5%);
+}
+
+.ts-form-group--success .ts-input:focus,
+.ts-form-group--success .ts-textarea:focus,
+.ts-form-group--success .ts-select:focus {
+  box-shadow: 0 0 0 3px rgb(0 225 132 / 15%);
+}
+
+/* ===== HELPER TEXT & ERRORS ===== */
+.ts-form-help {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--tiller-text-tertiary, #9ca3af);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.375rem;
+}
+
+.ts-form-error {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--tiller-color-error, #f87171);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.375rem;
+  animation: ts-form-error-slide-in 0.2s ease-out;
+}
+
+@keyframes ts-form-error-slide-in {
+  from {
+    opacity: 0%;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
+
+.ts-form-error::before {
+  content: '⚠';
+  flex-shrink: 0;
+}
+
+.ts-form-success {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--tiller-color-success, #00e184);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.375rem;
+}
+
+.ts-form-success::before {
+  content: '✓';
+  flex-shrink: 0;
+}
+
+/* ===== CHECKBOX & RADIO ===== */
+.ts-checkbox,
+.ts-radio {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+.ts-checkbox input[type="checkbox"],
+.ts-radio input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin: 0.125rem 0 0;
+  border: 2px solid rgb(255 255 255 / 30%);
+  border-radius: 4px;
+  background: var(--tiller-bg-elevated, #0f0f0f);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.ts-radio input[type="radio"] {
+  border-radius: 50%;
+}
+
+.ts-checkbox input[type="checkbox"]:checked,
+.ts-radio input[type="radio"]:checked {
+  background: var(--tiller-color-gold, #d4af37);
+  border-color: var(--tiller-color-gold, #d4af37);
+}
+
+.ts-checkbox input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 4px;
+  height: 8px;
+  border: solid var(--tiller-bg-dark, #000000);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.ts-radio input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: var(--tiller-bg-dark, #000000);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ts-checkbox input[type="checkbox"]:focus-visible,
+.ts-radio input[type="radio"]:focus-visible {
+  outline: 2px solid var(--tiller-color-highlight, #60a5fa);
+  outline-offset: 2px;
+}
+
+.ts-checkbox__label,
+.ts-radio__label {
+  font-size: 0.9375rem;
+  color: var(--tiller-text-secondary, #e5e7eb);
+  line-height: 1.5;
+}
+
+/* ===== FILE UPLOAD ===== */
+.ts-file-upload {
+  position: relative;
+}
+
+.ts-file-input {
+  display: none;
+}
+
+.ts-file-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2rem;
+  border: 2px dashed rgb(255 255 255 / 30%);
+  border-radius: var(--input-radius);
+  background: var(--tiller-bg-elevated, #0f0f0f);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.ts-file-label:hover,
+.ts-file-label:focus-within {
+  border-color: var(--tiller-color-gold, #d4af37);
+  background: var(--tiller-bg-card, #161616);
+}
+
+.ts-file-label__icon {
+  width: 48px;
+  height: 48px;
+  color: var(--tiller-color-gold, #d4af37);
+}
+
+.ts-file-label__text {
+  font-size: 0.9375rem;
+  color: var(--tiller-text-secondary, #e5e7eb);
+}
+
+.ts-file-label__hint {
+  font-size: 0.8125rem;
+  color: var(--tiller-text-muted, #6b7280);
+}
+
+/* Drag and drop states */
+.ts-file-upload--dragover .ts-file-label {
+  border-color: var(--tiller-color-emerald, #00e184);
+  background: rgb(0 225 132 / 5%);
+  transform: scale(1.02);
+}
+
+/* File list */
+.ts-file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.ts-file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  background: var(--tiller-bg-card, #161616);
+  border-radius: var(--tiller-border-radius-sm, 4px);
+  font-size: 0.875rem;
+  color: var(--tiller-text-secondary, #e5e7eb);
+}
+
+.ts-file-item__remove {
+  color: var(--tiller-color-error, #f87171);
+  cursor: pointer;
+  padding: 0.25rem;
+  border: none;
+  background: transparent;
+  font-size: 1.125rem;
+  transition: color 0.2s ease;
+}
+
+.ts-file-item__remove:hover {
+  color: var(--tiller-color-coral-dark, #ef4444);
+}
+
+/* ===== FORM ACTIONS ===== */
+.ts-form-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: var(--form-spacing);
+  flex-wrap: wrap;
+}
+
+/* ===== FORM MESSAGES ===== */
+.ts-form-message {
+  padding: 1rem;
+  border-radius: var(--input-radius);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  animation: ts-form-error-slide-in 0.3s ease-out;
+}
+
+.ts-form-message--success {
+  background: rgb(0 225 132 / 10%);
+  border: 1px solid var(--tiller-color-success, #00e184);
+  color: var(--tiller-color-emerald-light, #3bf0aa);
+}
+
+.ts-form-message--error {
+  background: rgb(248 113 113 / 10%);
+  border: 1px solid var(--tiller-color-error, #f87171);
+  color: var(--tiller-color-coral-light, #fca5a5);
+}
+
+.ts-form-message--info {
+  background: rgb(56 189 248 / 10%);
+  border: 1px solid var(--tiller-color-info, #38bdf8);
+  color: var(--tiller-color-info, #38bdf8);
+}
+
+/* ===== PROGRESS INDICATOR ===== */
+.ts-form-progress {
+  height: 4px;
+  background: rgb(255 255 255 / 10%);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: var(--form-spacing);
+}
+
+.ts-form-progress__bar {
+  height: 100%;
+  background: linear-gradient(90deg, 
+    var(--tiller-color-gold, #d4af37),
+    var(--tiller-color-emerald, #00e184)
+  );
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .ts-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .ts-form-actions {
+    flex-direction: column;
+  }
+
+  .ts-form-actions .ts-btn {
+    width: 100%;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  .ts-form-error,
+  .ts-form-message {
+    animation: none;
+  }
+}

@@ -98,6 +98,7 @@
 
 <!-- Core & Utility CSS: Load variables first, then base, then layout, then components, then page/utilities -->
 <link rel="stylesheet" href="/assets/css/root-vars.css" />
+<link rel="stylesheet" href="/assets/css/design-system.css" />
 <link rel="stylesheet" href="/assets/css/mobile-optimizations.css" />
 <link rel="stylesheet" href="/assets/css/mobile-premium.css" />
 <link rel="stylesheet" href="/assets/css/mobile-app.css" />
@@ -117,8 +118,12 @@
 <link rel="stylesheet" href="/assets/css/professional-features.css" />
 <link rel="stylesheet" href="/assets/css/carousel-premium.css" />
 <link rel="stylesheet" href="/assets/css/form-premium.css" />
+<link rel="stylesheet" href="/assets/css/components/service-cards.css" />
+<link rel="stylesheet" href="/assets/css/components/forms.css" />
 <link rel="stylesheet" href="/assets/css/page-theme.css" />
 <link rel="stylesheet" href="/assets/css/card-grid-bg.css" />
+
+
 
 
 <!-- Page-specific stylesheets -->
@@ -1319,7 +1324,7 @@ tests/tools/
 <p>Before adding any product, you MUST find the official Technical Data Sheet (TDS):</p>
 
 <ol>
-  <li>Go to the manufacturer’s website</li>
+  <li>Go to the manufacturer's website</li>
   <li>Find the product page</li>
   <li>Download the TDS/spec sheet (usually PDF)</li>
   <li>Extract these key values:
@@ -1612,7 +1617,7 @@ tests/tools/
 <span class="p">};</span>
 </code></pre></div></div>
 
-<h3 id="what-to-do-if-you-cant-find-a-source">What to Do If You Can’t Find a Source</h3>
+<h3 id="what-to-do-if-you-cant-find-a-source">What to Do If You Can't Find a Source</h3>
 
 <ol>
   <li><strong>DO NOT</strong> invent a value</li>
@@ -2494,6 +2499,12 @@ node <span class="nt">--experimental-vm-modules</span> tests/tools/formula-libra
 <script
   type="module"
   src="/assets/js/main.js?v=2026-01-18.1"
+></script>
+
+<!-- Premium UX Enhancements -->
+<script
+  src="/assets/js/premium-ux.js?v=2026-01-18.1"
+  defer
 ></script>
 
 <!-- Premium Animation Engine (vanilla, performance-focused) -->

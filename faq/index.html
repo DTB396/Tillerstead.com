@@ -98,6 +98,7 @@
 
 <!-- Core & Utility CSS: Load variables first, then base, then layout, then components, then page/utilities -->
 <link rel="stylesheet" href="/assets/css/root-vars.css" />
+<link rel="stylesheet" href="/assets/css/design-system.css" />
 <link rel="stylesheet" href="/assets/css/mobile-optimizations.css" />
 <link rel="stylesheet" href="/assets/css/mobile-premium.css" />
 <link rel="stylesheet" href="/assets/css/mobile-app.css" />
@@ -117,8 +118,12 @@
 <link rel="stylesheet" href="/assets/css/professional-features.css" />
 <link rel="stylesheet" href="/assets/css/carousel-premium.css" />
 <link rel="stylesheet" href="/assets/css/form-premium.css" />
+<link rel="stylesheet" href="/assets/css/components/service-cards.css" />
+<link rel="stylesheet" href="/assets/css/components/forms.css" />
 <link rel="stylesheet" href="/assets/css/page-theme.css" />
 <link rel="stylesheet" href="/assets/css/card-grid-bg.css" />
+
+
 
 
 <!-- Page-specific stylesheets -->
@@ -1372,7 +1377,7 @@
               <span>How do I request an estimate?</span>
               <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </summary>
-            <div class="faq-item__answer"><p>Use our <a href="/contact/">estimate request form</a> or call <a href="tel:+16098628808">(609) 862-8808</a>. We’ll visit your site, discuss your goals, and provide a free, detailed written estimate.</p>
+            <div class="faq-item__answer"><p>Use our <a href="/contact/">estimate request form</a> or call <a href="tel:+16098628808">(609) 862-8808</a>. We'll visit your site, discuss your goals, and provide a free, detailed written estimate.</p>
 </div>
           </details>
           
@@ -1381,7 +1386,7 @@
               <span>Do you handle permits?</span>
               <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </summary>
-            <div class="faq-item__answer"><p>Yes, when required. We manage the permit process and inspections for projects needing plumbing, structural, or electrical work. Cosmetic-only jobs may not need permits—we’ll clarify during your estimate. <a href="/build/nj-codes-permits/">Learn more about NJ codes and permits →</a></p>
+            <div class="faq-item__answer"><p>Yes, when required. We manage the permit process and inspections for projects needing plumbing, structural, or electrical work. Cosmetic-only jobs may not need permits—we'll clarify during your estimate. <a href="/build/nj-codes-permits/">Learn more about NJ codes and permits →</a></p>
 </div>
           </details>
           
@@ -1396,7 +1401,7 @@
   <li><strong>Shower rebuild:</strong> 1–2 weeks</li>
   <li><strong>Full remodel:</strong> 2–4 weeks</li>
 </ul>
-<p>You’ll get a specific schedule in your contract. We communicate proactively about any delays.</p>
+<p>You'll get a specific schedule in your contract. We communicate proactively about any delays.</p>
 </div>
           </details>
           
@@ -1463,7 +1468,7 @@
               <span>Can you install large-format tile?</span>
               <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </summary>
-            <div class="faq-item__answer"><p>Yes. Large-format tile (over 15”) needs:</p>
+            <div class="faq-item__answer"><p>Yes. Large-format tile (over 15") needs:</p>
 <ul>
   <li>Substrate flatness to ANSI specs (1/8" in 10')</li>
   <li>Full back-buttering</li>
@@ -1518,7 +1523,7 @@
   <li>Consistent color</li>
   <li>Superior durability in wet areas</li>
 </ul>
-<p>Cement grout is an option for some projects. We’ll review choices and maintenance with you.</p>
+<p>Cement grout is an option for some projects. We'll review choices and maintenance with you.</p>
 </div>
           </details>
           
@@ -1534,7 +1539,7 @@
   <li>Compatible setting materials</li>
   <li>Realistic maintenance expectations</li>
 </ul>
-<p>Some stones (like marble) are more porous and require more care. We’ll discuss details during your consultation.</p>
+<p>Some stones (like marble) are more porous and require more care. We'll discuss details during your consultation.</p>
 </div>
           </details>
           
@@ -2664,6 +2669,12 @@
 <script
   type="module"
   src="/assets/js/main.js?v=2026-01-18.1"
+></script>
+
+<!-- Premium UX Enhancements -->
+<script
+  src="/assets/js/premium-ux.js?v=2026-01-18.1"
+  defer
 ></script>
 
 <!-- Premium Animation Engine (vanilla, performance-focused) -->

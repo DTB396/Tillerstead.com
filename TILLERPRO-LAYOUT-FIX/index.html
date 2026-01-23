@@ -98,6 +98,7 @@
 
 <!-- Core & Utility CSS: Load variables first, then base, then layout, then components, then page/utilities -->
 <link rel="stylesheet" href="/assets/css/root-vars.css" />
+<link rel="stylesheet" href="/assets/css/design-system.css" />
 <link rel="stylesheet" href="/assets/css/mobile-optimizations.css" />
 <link rel="stylesheet" href="/assets/css/mobile-premium.css" />
 <link rel="stylesheet" href="/assets/css/mobile-app.css" />
@@ -117,8 +118,12 @@
 <link rel="stylesheet" href="/assets/css/professional-features.css" />
 <link rel="stylesheet" href="/assets/css/carousel-premium.css" />
 <link rel="stylesheet" href="/assets/css/form-premium.css" />
+<link rel="stylesheet" href="/assets/css/components/service-cards.css" />
+<link rel="stylesheet" href="/assets/css/components/forms.css" />
 <link rel="stylesheet" href="/assets/css/page-theme.css" />
 <link rel="stylesheet" href="/assets/css/card-grid-bg.css" />
+
+
 
 
 <!-- Page-specific stylesheets -->
@@ -1297,8 +1302,8 @@
 <ol>
   <li><strong>Misplaced Controls</strong> - Expand/Collapse buttons appeared before the Estimate Builder section, creating confusion about what they controlled</li>
   <li><strong>Grid Layout</strong> - Calculator cards were in a 2-3 column grid, making them fight for space and hard to use on different devices</li>
-  <li><strong>Poor Stacking</strong> - Cards couldn’t open/close properly when side-by-side</li>
-  <li><strong>Mobile Issues</strong> - Grid layout broke on smaller screens, controls didn’t stack well</li>
+  <li><strong>Poor Stacking</strong> - Cards couldn't open/close properly when side-by-side</li>
+  <li><strong>Mobile Issues</strong> - Grid layout broke on smaller screens, controls didn't stack well</li>
   <li><strong>Weak Transitions</strong> - Basic animations, no smooth expand/collapse effects</li>
 </ol>
 
@@ -2010,7 +2015,7 @@
 <h2 id="benefits">Benefits</h2>
 
 <h3 id="ux-improvements">UX Improvements</h3>
-<p>✅ <strong>Contextual Controls</strong> - Users see controls exactly where they’re needed<br />
+<p>✅ <strong>Contextual Controls</strong> - Users see controls exactly where they're needed<br />
 ✅ <strong>Full-Width Clarity</strong> - Each calculator gets maximum screen real estate<br />
 ✅ <strong>Perfect Stacking</strong> - Cards expand/collapse smoothly without interference<br />
 ✅ <strong>Visual Hierarchy</strong> - Section title + auto-calc badge + actions = clear purpose</p>
@@ -2098,7 +2103,7 @@
     <p><strong>Commit Changes</strong>
 \\ash
 git add tools.html assets/css/tools.css
-git commit -m “feat: redesign tools page layout with full-width cards and contextual controls”
+git commit -m "feat: redesign tools page layout with full-width cards and contextual controls"
 \\</p>
   </li>
   <li><strong>Test Live</strong>
@@ -2951,6 +2956,12 @@ git commit -m “feat: redesign tools page layout with full-width cards and cont
 <script
   type="module"
   src="/assets/js/main.js?v=2026-01-18.1"
+></script>
+
+<!-- Premium UX Enhancements -->
+<script
+  src="/assets/js/premium-ux.js?v=2026-01-18.1"
+  defer
 ></script>
 
 <!-- Premium Animation Engine (vanilla, performance-focused) -->

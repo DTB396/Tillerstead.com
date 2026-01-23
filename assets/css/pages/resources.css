@@ -1,0 +1,512 @@
+/**
+ * Homeowner Resources Page Styles
+ * Version: 1.0
+ */
+
+/* ==================================
+   Hero Section
+   ================================== */
+
+.page-resources .hero--compact {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 4rem 0 3rem;
+  text-align: center;
+}
+
+.page-resources .hero__eyebrow {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.page-resources .hero__title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.page-resources .hero__summary {
+  font-size: 1.125rem;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ==================================
+   Tools Grid
+   ================================== */
+
+.tools-quick-access {
+  padding: 4rem 0;
+  background: #f9fafb;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==================================
+   Tool Cards
+   ================================== */
+
+.tool-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tool-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.tool-card__icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.tool-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+}
+
+.tool-card__desc {
+  font-size: 0.9375rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.tool-card__btn {
+  padding: 0.75rem 1.5rem;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.tool-card__btn:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+}
+
+/* Featured Tool Card (Visualizer) */
+.tool-card--featured {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: 3px solid #10b981;
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-card--featured::before {
+  content: '⭐ New';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tool-card--featured .tool-card__title {
+  color: white;
+  font-size: 1.375rem;
+}
+
+.tool-card--featured .tool-card__desc {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.tool-card--featured .tool-card__btn--primary {
+  background: white;
+  color: #10b981;
+  font-weight: 700;
+  border: 2px solid transparent;
+}
+
+.tool-card--featured .tool-card__btn--primary:hover {
+  background: transparent;
+  color: white;
+  border-color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ==================================
+   Active Tool Container
+   ================================== */
+
+.active-tool {
+  padding: 3rem 0;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.active-tool__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #10b981;
+}
+
+.active-tool__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.active-tool__close {
+  background: #ef4444;
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.active-tool__close:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
+
+.active-tool__content {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+/* ==================================
+   Knowledge Base
+   ================================== */
+
+.knowledge-base {
+  padding: 4rem 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: #6b7280;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+}
+
+.article-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.article-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+.article-card h3 {
+  font-size: 1.25rem;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.article-card p {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.article-card .read-more {
+  color: #10b981;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: gap 0.2s ease;
+}
+
+.article-card .read-more:hover {
+  gap: 0.5rem;
+}
+
+/* ==================================
+   Downloads Section
+   ================================== */
+
+.downloads-section {
+  background: #f0fdf4;
+  padding: 3rem 0;
+}
+
+.downloads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.download-item {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.download-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.download-item__icon {
+  font-size: 2rem;
+}
+
+.download-item__content h4 {
+  font-size: 1rem;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+}
+
+.download-item__content p {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* ==================================
+   Local Resources
+   ================================== */
+
+.local-resources {
+  padding: 4rem 0;
+  background: #f9fafb;
+}
+
+.resource-category {
+  margin-bottom: 3rem;
+}
+
+.resource-category h3 {
+  font-size: 1.5rem;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #10b981;
+}
+
+.resource-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.resource-item {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.resource-item h4 {
+  font-size: 1.125rem;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.resource-item p {
+  font-size: 0.9375rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.resource-item a {
+  color: #10b981;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.resource-item a:hover {
+  text-decoration: underline;
+}
+
+/* ==================================
+   CTA Sections
+   ================================== */
+
+.cta-inline {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.cta-inline h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.cta-inline p {
+  font-size: 1.125rem;
+  opacity: 0.95;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-inline .btn {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  background: white;
+  color: #10b981;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.cta-inline .btn:hover {
+  background: transparent;
+  color: white;
+  border-color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ==================================
+   Responsive Design
+   ================================== */
+
+@media (max-width: 768px) {
+  .page-resources .hero__title {
+    font-size: 2rem;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .tool-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .active-tool__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .active-tool__close {
+    align-self: flex-end;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .downloads-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .cta-inline h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-resources .hero--compact {
+    padding: 3rem 0 2rem;
+  }
+
+  .page-resources .hero__title {
+    font-size: 1.75rem;
+  }
+
+  .tool-card--featured::before {
+    font-size: 0.625rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .active-tool {
+    padding: 2rem 0;
+  }
+
+  .active-tool__content {
+    padding: 1rem;
+  }
+}
