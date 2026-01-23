@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Tillerstead</title>
+  <link rel="stylesheet" href="/admin-styles.css">
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h1>🔧 Tillerstead</h1>
+      <p class="sidebar-subtitle">Admin Panel</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#dashboard" class="nav-item active" data-view="dashboard">
+        <span class="nav-icon">📊</span>
+        <span class="nav-label">Dashboard</span>
+      </a>
+      <a href="#calculators" class="nav-item" data-view="calculators">
+        <span class="nav-icon">🧮</span>
+        <span class="nav-label">Calculator Config</span>
+      </a>
+      <a href="#content" class="nav-item" data-view="content">
+        <span class="nav-icon">📝</span>
+        <span class="nav-label">Website Content</span>
+      </a>
+      <a href="#settings" class="nav-item" data-view="settings">
+        <span class="nav-icon">⚙️</span>
+        <span class="nav-label">Site Settings</span>
+      </a>
+      <a href="#toggles" class="nav-item" data-view="toggles">
+        <span class="nav-icon">🎛️</span>
+        <span class="nav-label">Feature Toggles</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-info">
+        <span id="username">Admin</span>
+      </div>
+      <button class="btn-logout" id="logoutBtn">Logout</button>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <!-- Dashboard View -->
+    <div id="view-dashboard" class="view active">
+      <header class="page-header">
+        <h2>Dashboard</h2>
+        <p class="page-subtitle">Welcome to Tillerstead Admin Panel</p>
+      </header>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">🧮</div>
+          <h3>Calculators</h3>
+          <p>Manage tile, grout, mortar calculator presets and formulas</p>
+          <a href="#calculators" class="card-link" data-view="calculators">Configure →</a>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📝</div>
+          <h3>Website Content</h3>
+          <p>Edit services, portfolio, FAQs, and other YAML data files</p>
+          <a href="#content" class="card-link" data-view="content">Edit Content →</a>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">⚙️</div>
+          <h3>Site Settings</h3>
+          <p>Configure Jekyll site settings and global options</p>
+          <a href="#settings" class="card-link" data-view="settings">Manage →</a>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🎛️</div>
+          <h3>Feature Toggles</h3>
+          <p>Enable/disable site features with simple toggles</p>
+          <a href="#toggles" class="card-link" data-view="toggles">Toggle →</a>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h4>Data Files</h4>
+          <div class="stat-value" id="stat-files">-</div>
+        </div>
+        <div class="stat-card">
+          <h4>Last Updated</h4>
+          <div class="stat-value" id="stat-updated">-</div>
+        </div>
+        <div class="stat-card">
+          <h4>Status</h4>
+          <div class="stat-value">✅ Online</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calculator Config View -->
+    <div id="view-calculators" class="view">
+      <header class="page-header">
+        <h2>Calculator Configuration</h2>
+        <p class="page-subtitle">Edit tile presets, layouts, joints, and trowel sizes</p>
+      </header>
+
+      <div class="editor-section">
+        <div class="section-header">
+          <h3>Tile Presets</h3>
+          <button class="btn btn-primary" onclick="addPreset('tile')">Add Tile Preset</button>
+        </div>
+        <div id="tile-presets-container" class="presets-container"></div>
+      </div>
+
+      <div class="editor-section">
+        <div class="section-header">
+          <h3>Layout Patterns</h3>
+          <button class="btn btn-primary" onclick="addPreset('layout')">Add Layout</button>
+        </div>
+        <div id="layout-presets-container" class="presets-container"></div>
+      </div>
+
+      <div class="editor-section">
+        <div class="section-header">
+          <h3>Joint Width Presets</h3>
+          <button class="btn btn-primary" onclick="addPreset('joint')">Add Joint Preset</button>
+        </div>
+        <div id="joint-presets-container" class="presets-container"></div>
+      </div>
+
+      <div class="editor-section">
+        <div class="section-header">
+          <h3>Trowel Sizes</h3>
+          <button class="btn btn-primary" onclick="addPreset('trowel')">Add Trowel</button>
+        </div>
+        <div id="trowel-presets-container" class="presets-container"></div>
+      </div>
+
+      <div class="action-bar">
+        <button class="btn btn-success btn-lg" id="saveCalculatorConfig">Save All Changes</button>
+      </div>
+    </div>
+
+    <!-- Website Content View -->
+    <div id="view-content" class="view">
+      <header class="page-header">
+        <h2>Website Content</h2>
+        <p class="page-subtitle">Edit YAML data files for services, portfolio, FAQs, etc.</p>
+      </header>
+
+      <div class="content-layout">
+        <aside class="file-list">
+          <h3>Data Files</h3>
+          <div id="data-files-list" class="files-container">
+            <div class="loading">Loading files...</div>
+          </div>
+        </aside>
+
+        <div class="editor-panel">
+          <div class="editor-header">
+            <h3 id="current-file-name">Select a file</h3>
+            <button class="btn btn-success" id="saveContentFile" disabled>Save File</button>
+          </div>
+          <textarea id="content-editor" class="code-editor" placeholder="Select a file to edit..."></textarea>
+          <div class="editor-status" id="editor-status"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings View -->
+    <div id="view-settings" class="view">
+      <header class="page-header">
+        <h2>Site Settings</h2>
+        <p class="page-subtitle">Configure Jekyll _config.yml settings</p>
+      </header>
+
+      <div class="editor-panel">
+        <div class="editor-header">
+          <h3>_config.yml</h3>
+          <button class="btn btn-success" id="saveSettings">Save Settings</button>
+        </div>
+        <textarea id="settings-editor" class="code-editor" placeholder="Loading configuration..."></textarea>
+        <div class="alert alert-warning">
+          ⚠️ Changes to _config.yml require restarting Jekyll to take effect.
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature Toggles View -->
+    <div id="view-toggles" class="view">
+      <header class="page-header">
+        <h2>Feature Toggles</h2>
+        <p class="page-subtitle">Enable or disable site features</p>
+      </header>
+
+      <div class="toggles-grid">
+        <div class="toggle-card">
+          <div class="toggle-header">
+            <h3>🎨 Premium Features</h3>
+            <label class="switch">
+              <input type="checkbox" id="toggle-premium" data-config="features.premium_enabled">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <p>Enable premium animations, micro-interactions, and enhanced UI</p>
+        </div>
+
+        <div class="toggle-card">
+          <div class="toggle-header">
+            <h3>📱 PWA Features</h3>
+            <label class="switch">
+              <input type="checkbox" id="toggle-pwa" data-config="features.pwa_enabled">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <p>Enable Progressive Web App functionality (offline, install prompt)</p>
+        </div>
+
+        <div class="toggle-card">
+          <div class="toggle-header">
+            <h3>🔍 SEO Enhancements</h3>
+            <label class="switch">
+              <input type="checkbox" id="toggle-seo" data-config="features.seo_enhanced">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <p>Enable advanced schema markup and SEO optimizations</p>
+        </div>
+
+        <div class="toggle-card">
+          <div class="toggle-header">
+            <h3>📊 Analytics</h3>
+            <label class="switch">
+              <input type="checkbox" id="toggle-analytics" data-config="features.analytics_enabled">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <p>Enable Google Analytics or similar tracking</p>
+        </div>
+
+        <div class="toggle-card">
+          <div class="toggle-header">
+            <h3>💬 Contact Forms</h3>
+            <label class="switch">
+              <input type="checkbox" id="toggle-forms" data-config="features.forms_enabled">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <p>Enable/disable contact and quote request forms</p>
+        </div>
+
+        <div class="toggle-card">
+          <div class="toggle-header">
+            <h3>🧮 Calculators</h3>
+            <label class="switch">
+              <input type="checkbox" id="toggle-calculators" data-config="features.calculators_enabled" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+          <p>Show/hide all calculator tools on the site</p>
+        </div>
+      </div>
+
+      <div class="action-bar">
+        <button class="btn btn-success btn-lg" id="saveToggles">Save Toggle Settings</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Toast Notifications -->
+  <div id="toast-container"></div>
+
+  <script src="/admin-app.js"></script>
+</body>
+</html>

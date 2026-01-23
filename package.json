@@ -8,6 +8,9 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "admin": "node admin/server.js",
+    "admin:dev": "nodemon admin/server.js",
+    "admin:verify": "node admin/verify-installation.js",
     "clean": "bundle exec jekyll clean",
     "build:clean": "npm run clean && npm run build",
     "dev:clean": "npm run clean && npm run dev",
@@ -100,14 +103,18 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
+    "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.8",
     "commander": "^14.0.2",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
     "gsap": "^3.14.2",
     "imagemin": "^9.0.1",
     "imagemin-svgo": "^11.0.1",
     "jspdf": "^2.5.2",
     "jspdf-autotable": "^3.8.4",
     "lighthouse": "^13.0.1",
+    "nodemon": "^3.0.2",
     "puppeteer": "^24.35.0",
     "swiper": "^12.0.3"
   }
