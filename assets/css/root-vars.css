@@ -279,6 +279,7 @@ body {
   font-size: var(--tiller-font-size-base, 1rem);
   line-height: var(--tiller-line-height-normal, 1.5);
   overflow-x: clip;
+  overflow-y: auto; /* Ensure vertical scroll is always enabled */
   text-size-adjust: 100%;
   text-size-adjust: 100%;
 
