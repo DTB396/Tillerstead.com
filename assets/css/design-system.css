@@ -1,7 +1,24 @@
+/* ===== COLOR SYSTEM: Emerald Green & Gold ===== */
+:root {
+  --tiller-color-emerald: #009B6B;
+  --tiller-color-emerald-dark: #00724C;
+  --tiller-color-emerald-light: #3bf0aa;
+  --tiller-color-gold: #FFD700;
+  --tiller-color-gold-dark: #B89B0A;
+  --tiller-color-gold-bright: #FFF9D6;
+  --tiller-bg-light: #FAFAF8;
+  --tiller-bg-dark: #181A1B;
+  --tiller-bg-darker: #121414;
+  --tiller-text-primary: #181A1B;
+  --tiller-text-light: #FFFFFF;
+  --tiller-text-secondary: #555555;
+  --tiller-color-highlight: var(--tiller-color-emerald);
+}
+
 /* =========================================================
-   Tillerstead Premium Design System
-   Unified button, component, and interaction library
-   ========================================================= */
+  Tillerstead Premium Design System
+  Unified button, component, and interaction library
+  ========================================================= */
 
 /* ===== BUTTON SYSTEM ===== */
 
@@ -335,8 +352,16 @@
   to { transform: rotate(360deg); }
 }
 
-.ts-spinner--sm { width: 1em; height: 1em; border-width: 2px; }
-.ts-spinner--lg { width: 3em; height: 3em; border-width: 4px; }
+.ts-spinner--sm {
+  width: 1em;
+  height: 1em;
+  border-width: 2px;
+}
+.ts-spinner--lg {
+  width: 3em;
+  height: 3em;
+  border-width: 4px;
+}
 
 /* ===== TRANSITIONS & ANIMATIONS ===== */
 
@@ -431,7 +456,6 @@
       var(--tiller-color-gold, #d4af37) 100%
     );
     background-size: 200% auto;
-    background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: ts-shimmer 3s linear infinite;
