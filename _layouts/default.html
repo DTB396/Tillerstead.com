@@ -7,13 +7,25 @@
 {%- else -%}
   {%- assign show_breadcrumbs = true -%}
 {%- endif -%}
+
 {%- capture build_content -%}
   {% comment %} Build Guide Hero - opt-in via front matter build_guide: true {% endcomment %}
   {% if page.build_guide %}{{ build_hero }}{% endif %}
 
+  <div class="contractor-credentials mt-2 scroll-fade-in" style="text-align:center;">
+    <span class="badge badge--trust" title="Licensed NJ Contractor">NJ HIC #13VH10808800</span>
+    <span class="badge badge--compliance" title="TCNA Compliant">TCNA-Compliant Methods</span>
+    <span class="badge badge--reviews" title="5-Star Reviews">★ 5.0 Google & Thumbtack</span>
+  </div>
+
   {{ build_toc_and_body }}
 
   {{ build_phase_nav }}
+
+  <div class="default-cta text-center scroll-fade-in premium-cta mt-4">
+    <a href="/contact/" class="btn btn--primary btn--lg btn--pulse mr-2" data-magnetic>Request an Estimate</a>
+    <a href="tel:+16098628808" class="btn btn--ghost btn--lg">Call (609) 862-8808</a>
+  </div>
 
   {{ build_cta }}
 {%- endcapture -%}

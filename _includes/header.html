@@ -2,30 +2,37 @@
      Site Header - 2026 Contractor UX
      Centered logo with animated scroll bounce
      ========================================================= -->
-<header class="ts-header" id="site-header" aria-label="Main Header">
-  <div class="ts-header__container">
+<header class="ts-header scroll-fade-in premium-header" id="site-header" aria-label="Main Header" tabindex="0">
+  <div class="ts-header__container" tabindex="0">
     <!-- Branding Section - HORIZONTAL SLIM -->
-    <div class="ts-header__branding">
+    <div class="ts-header__branding" tabindex="0">
       <!-- Logo with link to home -->
       <a href="/" class="ts-header__logo-link" aria-label="Tillerstead LLC - Go to homepage">
         <img 
           src="/assets/img/logo/logo-header@2x.webp" 
           alt="Tillerstead Logo" 
-          class="ts-header__logo logo-image"
+          class="ts-header__logo logo-image gradient-animated"
           id="header-logo"
           width="100"
           height="100"
           loading="eager"
+          decoding="async"
+          fetchpriority="high"
         />
       </a>
       <div class="ts-header__info">
         <span class="ts-header__company">Tillerstead LLC</span>
         <span class="ts-header__region">South Jersey • <abbr title="NJ Home Improvement Contractor">NJ HIC</abbr></span>
+        <span class="ts-header__badge badge badge--trust ml-2">Licensed & Insured</span>
       </div>
     </div>
 
     <!-- Main Navigation -->
     {% include navigation/main-nav.html %}
+  </div>
+  <div class="ts-header__cta scroll-fade-in">
+    <a href="/contact/" class="btn btn--primary btn--sm btn--pulse" data-magnetic>Request Estimate</a>
+    <a href="tel:+16098628808" class="btn btn--ghost btn--sm ml-2">Call (609) 862-8808</a>
   </div>
 </header>
 

@@ -10,7 +10,7 @@ body_class: page-build-guide
 {%- assign phases = site.data.build_phases.build_phases | sort: "order" -%}
 {%- assign prev_phase = phases | where: "order", phase_order | first -%}
 
-<section class="build-guide-hero bg-gradient-primary">
+<section class="build-guide-hero bg-gradient-primary scroll-fade-in premium-hero">
   <div class="container">
     <nav class="build-breadcrumb" aria-label="Breadcrumb">
       <a href="/build/">Build Guides</a>
@@ -18,12 +18,17 @@ body_class: page-build-guide
       <span>Phase {{ phase_order }}</span>
     </nav>
     <span class="phase-badge">Phase {{ phase_order }} of 8</span>
-    <h1 class="build-guide-title">{{ page.build_title | default: page.title }}</h1>
-    <p class="build-guide-description">{{ page.description }}</p>
+    <h1 class="build-guide-title heading-1 text-shadow">{{ page.build_title | default: page.title }}</h1>
+    <p class="build-guide-description lead text-white-80">{{ page.description }}</p>
+    <div class="contractor-credentials mt-2">
+      <span class="badge badge--trust" title="Licensed NJ Contractor">NJ HIC #13VH10808800</span>
+      <span class="badge badge--compliance" title="TCNA Compliant">TCNA-Compliant Methods</span>
+      <span class="badge badge--reviews" title="5-Star Reviews">★ 5.0 Google & Thumbtack</span>
+    </div>
   </div>
 </section>
 
-<section class="build-guide-content ts-section">
+<section class="build-guide-content ts-section scroll-fade-in">
   <div class="container">
     <div class="guide-layout {% if page.toc %}has-toc{% endif %}">
       {% if page.toc %}
@@ -45,24 +50,24 @@ body_class: page-build-guide
 
       <div class="phase-nav-links">
         {% if prev_phase %}
-        <a href="{{ prev_phase.url | relative_url }}" class="phase-nav-link phase-nav-prev">
+        <a href="{{ prev_phase.url | relative_url }}" class="phase-nav-link phase-nav-prev btn btn--ghost">
           <span class="phase-nav-label">← Previous</span>
           <span class="phase-nav-title">Phase {{ prev_phase.order }}: {{ prev_phase.title }}</span>
         </a>
         {% else %}
-        <a href="/build/" class="phase-nav-link phase-nav-prev">
+        <a href="/build/" class="phase-nav-link phase-nav-prev btn btn--ghost">
           <span class="phase-nav-label">← Back</span>
           <span class="phase-nav-title">All Build Guides</span>
         </a>
         {% endif %}
 
         {% if next_phase %}
-        <a href="{{ next_phase.url | relative_url }}" class="phase-nav-link phase-nav-next">
+        <a href="{{ next_phase.url | relative_url }}" class="phase-nav-link phase-nav-next btn btn--primary">
           <span class="phase-nav-label">Next →</span>
           <span class="phase-nav-title">Phase {{ next_phase.order }}: {{ next_phase.title }}</span>
         </a>
         {% else %}
-        <a href="/contact/" class="phase-nav-link phase-nav-next phase-nav-cta">
+        <a href="/contact/" class="phase-nav-link phase-nav-next phase-nav-cta btn btn--primary btn--pulse" data-magnetic>
           <span class="phase-nav-label">Ready to Build?</span>
           <span class="phase-nav-title">Request an Estimate</span>
         </a>
@@ -72,16 +77,16 @@ body_class: page-build-guide
   </div>
 </section>
 
-<section class="build-guide-cta bg-gradient-primary ts-section">
+<section class="build-guide-cta bg-gradient-primary ts-section scroll-fade-in premium-cta">
   <div class="container text-center">
-    <h2 class="text-white">Ready to Start Your Project?</h2>
-    <p class="text-white-80">Get a detailed estimate for your bathroom or shower remodel from a licensed NJ contractor who follows these standards.</p>
-    <div class="cta-buttons">
-      <a href="/contact/" class="btn btn-light btn-lg">Request an Estimate</a>
-      <a href="tel:+16098628808" class="btn btn-outline-light btn-lg">Call (609) 862-8808</a>
+    <h2 class="text-white heading-2">Ready to Start Your Project?</h2>
+    <p class="text-white-80 lead">Get a detailed estimate for your bathroom or shower remodel from a licensed NJ contractor who follows these standards.</p>
+    <div class="cta-buttons flex flex-center gap-cta-btns mt-2">
+      <a href="/contact/" class="btn btn--primary btn--lg btn--pulse" data-magnetic>Request an Estimate</a>
+      <a href="tel:+16098628808" class="btn btn--ghost btn--lg">Call (609) 862-8808</a>
     </div>
-    <p class="cta-credential text-white-60">
-      <small>NJ HIC #13VH10808800 • TCNA-Compliant Methods</small>
+    <p class="cta-credential text-white-60 mt-2">
+      <small><span class="badge badge--trust">NJ HIC #13VH10808800</span> <span class="badge badge--compliance">TCNA-Compliant</span> <span class="badge badge--reviews">★ 5.0 Reviews</span></small>
     </p>
   </div>
 </section>

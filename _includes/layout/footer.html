@@ -8,8 +8,8 @@
 {% assign footer_groups = site.data.navigation.footer %}
 {% assign footer_uid = page.url | slugify | default: "home" %}
 
-<footer class="ts-footer" aria-label="Site Footer" role="contentinfo" itemscope itemtype="https://schema.org/WPFooter">
-  <div class="footer-main">
+<footer class="ts-footer scroll-fade-in premium-footer" aria-label="Site Footer" role="contentinfo" itemscope itemtype="https://schema.org/WPFooter">
+  <div class="footer-main" tabindex="0">
     
     <!-- Brand Identity Section -->
     <div class="footer-brand">
@@ -22,16 +22,18 @@
           width="200" 
           height="200" 
           loading="lazy"
+          decoding="async"
+          fetchpriority="low"
         >
       </a>
       <div class="footer-brand-text">
-        <p class="footer-tagline">{{ brand.messaging.tagline }}</p>
+        <p class="footer-tagline gradient-animated">{{ brand.messaging.tagline }}</p>
         <p class="footer-service-tagline">{{ brand.messaging.service_tagline }}</p>
       </div>
     </div>
 
     <!-- Footer Navigation Grid -->
-    <nav class="footer-nav" aria-label="Footer navigation">
+    <nav class="footer-nav" aria-label="Footer navigation" tabindex="0">
       
       <!-- Service Areas - Full Width -->
       {% for group in footer_groups %}
@@ -108,7 +110,7 @@
     </nav>
 
     <!-- Contact & Credentials Section -->
-    <section class="footer-contact" aria-labelledby="{{ footer_uid }}-footer-contact" itemscope itemtype="https://schema.org/LocalBusiness">
+    <section class="footer-contact scroll-fade-in" aria-labelledby="{{ footer_uid }}-footer-contact" itemscope itemtype="https://schema.org/LocalBusiness">
       <meta itemprop="name" content="{{ brand.company.legal_name }}">
       <meta itemprop="image" content="{{ site.url }}/assets/img/logo/logo-optimized.png">>
       
@@ -117,7 +119,7 @@
         Contact Us
       </h3>
       
-      <div class="footer-contact-grid">
+      <div class="footer-contact-grid" tabindex="0">
         <!-- License Badge -->
         <div class="footer-credential footer-credential--license">
           <svg class="footer-credential-icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
@@ -153,10 +155,10 @@
     </section>
 
     <!-- Bottom Bar -->
-    <div class="footer-bottom">
+    <div class="footer-bottom" tabindex="0">
       
       <!-- Social Links -->
-      <nav class="footer-social" aria-label="Social media">
+      <nav class="footer-social" aria-label="Social media" tabindex="0">
         {% if brand.social.links.facebook %}
         <a href="{{ brand.social.links.facebook }}" target="_blank" rel="noopener noreferrer" aria-label="Tillerstead on Facebook" class="footer-social-link">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -178,7 +180,7 @@
       </nav>
 
       <!-- Trust Badges -->
-      <div class="footer-trust">
+      <div class="footer-trust scroll-fade-in">
         <span class="footer-trust-badge">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           Fully Insured
@@ -194,7 +196,7 @@
       </div>
 
       <!-- Legal Links -->
-      <nav class="footer-legal" aria-label="Legal">
+      <nav class="footer-legal" aria-label="Legal" tabindex="0">
         <a href="/privacy/">Privacy Policy</a>
         <span class="footer-divider" aria-hidden="true">·</span>
         <a href="/terms/">Terms of Service</a>
@@ -209,7 +211,7 @@
 </footer>
 
 <!-- Core JavaScript (deferred for performance) -->
-<script src="{{ '/assets/js/animation-engine.js' | relative_url }}" defer></script>
-<script src="{{ '/assets/js/professional-features.js' | relative_url }}" defer></script>
-<script src="{{ '/assets/js/accessibility.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/animation-engine.js' | relative_url }}" defer fetchpriority="low"></script>
+<script src="{{ '/assets/js/professional-features.js' | relative_url }}" defer fetchpriority="low"></script>
+<script src="{{ '/assets/js/accessibility.js' | relative_url }}" defer fetchpriority="low"></script>
 

@@ -1,59 +1,58 @@
-{%- capture post_body -%}
-<main class="ts-section ts-main-content" role="main">
-  <div class="container container-wide shell">
-    <article class="ts-surface blog-post" itemscope itemtype="https://schema.org/BlogPosting" tabindex="-1">
 
+{%- capture post_body -%}
+<main class="ts-section ts-main-content scroll-fade-in" role="main">
+  <div class="container container-wide shell">
+    <article class="ts-surface blog-post premium-article" itemscope itemtype="https://schema.org/BlogPosting" tabindex="-1">
       <!-- SEO & Schema.org metadata -->
       <meta itemprop="headline" content="{{ page.title }}" />
       <meta itemprop="datePublished" content="{{ page.date | date: '%Y-%m-%dT%H:%M:%SZ' }}" />
-
       {% if page.date_modified %}
       <meta itemprop="dateModified" content="{{ page.date_modified | date: '%Y-%m-%dT%H:%M:%SZ' }}" />
       {% endif %}
-
       {% if page.author %}
       <meta itemprop="author" content="{{ page.author }}" />
       {% endif %}
-
       {% if page.description %}
       <meta itemprop="description" content="{{ page.description }}" />
       {% endif %}
-
       {% if page.featured_image %}
       <meta itemprop="image" content="{{ page.featured_image | absolute_url }}" />
       {% endif %}
-
       <!-- Post Header -->
       <header class="post-header stack-md">
-        <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
-
+        <h1 class="post-title heading-1 text-shadow" itemprop="headline">{{ page.title }}</h1>
         <div class="post-meta" role="doc-credits">
           <time class="post-date" datetime="{{ page.date | date: '%Y-%m-%d' }}" itemprop="datePublished">
             {{ page.date | date: "%B %-d, %Y" }}
           </time>
-
           {% if page.author %}
           <span class="post-author" itemprop="author">By <strong>{{ page.author }}</strong></span>
           {% endif %}
         </div>
+        <div class="contractor-credentials mt-2">
+          <span class="badge badge--trust" title="Licensed NJ Contractor">NJ HIC #13VH10808800</span>
+          <span class="badge badge--compliance" title="TCNA Compliant">TCNA-Compliant Methods</span>
+          <span class="badge badge--reviews" title="5-Star Reviews">★ 5.0 Google & Thumbtack</span>
+        </div>
       </header>
-
       <!-- Post Content -->
       <div class="post-content">
         {{ content }}
       </div>
-
       <!-- Post Footer Navigation -->
-      <footer class="post-footer">
-        <a href="/blog/" class="post-footer__link">
-          <span class="post-footer__icon">←</span>
-          View Other Articles
-        </a>
+      <footer class="post-footer scroll-fade-in">
+        <a href="/contact/" class="btn btn--primary btn--lg btn--pulse mr-2" data-magnetic>Request an Estimate</a>
+        <a href="tel:+16098628808" class="btn btn--ghost btn--lg">Call (609) 862-8808</a>
+        <div class="mt-3">
+          <a href="/blog/" class="post-footer__link">
+            <span class="post-footer__icon">←</span>
+            View Other Articles
+          </a>
+        </div>
       </footer>
     </article>
   </div>
 </main>
-
 <style>
 /* Post Footer Navigation */
 .post-footer {
@@ -62,7 +61,6 @@
   border-top: 1px solid rgba(201, 162, 39, 0.2);
   text-align: center;
 }
-
 .post-footer__link {
   display: inline-flex;
   align-items: center;
@@ -74,14 +72,12 @@
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   background: rgba(16, 185, 129, 0.1);
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(.4,1.4,.6,1);
 }
-
 .post-footer__link:hover {
   background: rgba(16, 185, 129, 0.2);
   color: var(--tiller-color-gold, #c9a227);
 }
-
 .post-footer__icon {
   font-size: 1.25rem;
 }

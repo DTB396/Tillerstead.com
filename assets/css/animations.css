@@ -260,19 +260,41 @@ html {
   }
 }
 
-/* ========== ENHANCED TRANSITIONS ========== */
 
-/* Global smooth transitions */
+/* ========== ENHANCED TRANSITIONS (2026 Modernized) ========== */
 * {
-  transition-property: color, background-color, border-color, box-shadow, opacity, transform;
-  transition-duration: 0.3s;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: color, background-color, border-color, box-shadow, opacity, transform, filter;
+  transition-duration: 0.18s;
+  transition-timing-function: var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1));
+  will-change: transform, opacity, filter;
 }
 
-/* Disable transitions on elements that shouldn't animate */
 .no-transition,
 .no-transition * {
   transition: none !important;
+}
+
+/* Subtle 3D pop for cards and buttons */
+.ts-card, .card, button, .btn, a[data-button-premium] {
+  box-shadow: 0 2px 8px rgb(16 185 129 / 10%), 0 8px 32px rgb(201 162 39 / 10%);
+  transition: box-shadow 0.18s var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)), transform 0.18s var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1));
+}
+.ts-card:hover, .card:hover, button:hover, .btn:hover, a[data-button-premium]:hover {
+  transform: translateY(-4px) scale(1.03) perspective(600px) rotateX(2deg);
+  box-shadow: 0 8px 32px rgb(16 185 129 / 18%), 0 16px 48px rgb(201 162 39 / 18%);
+  filter: brightness(1.08) saturate(1.1);
+}
+.ts-card:active, .card:active, button:active, .btn:active, a[data-button-premium]:active {
+  transform: scale(0.98) perspective(600px) rotateX(0deg);
+  box-shadow: 0 2px 8px rgb(16 185 129 / 10%), 0 8px 32px rgb(201 162 39 / 10%);
+}
+
+/* Modern scroll-driven fade/scale/slide (progressive enhancement) */
+@supports (animation-timeline: scroll()) {
+  .scroll-fade-in, .scroll-scale-in, .scroll-slide-left, .scroll-slide-right {
+    animation-timing-function: var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1));
+    animation-duration: 0.7s;
+  }
 }
 
 /* ========== VIEW TRANSITIONS API (Cutting-edge) ========== */
@@ -311,12 +333,13 @@ html {
 
 [data-magnetic] {
   position: relative;
-  transition: transform 0.3s var(--ease-out-quint);
+  transition: transform 0.3s var(--ease-out-quint, cubic-bezier(0.23,1,0.32,1));
+  will-change: transform;
+  z-index: 2;
 }
-
 [data-magnetic]:hover {
-  /* JavaScript handles the actual magnetic effect */
-  transform: translate(var(--magnetic-x, 0), var(--magnetic-y, 0));
+  /* JS will handle transform for magnetic effect */
+  filter: brightness(1.08) saturate(1.1);
 }
 
 /* ========== BUTTON ENHANCEMENTS ========== */
@@ -1710,18 +1733,28 @@ select:focus {
   animation: scroll-indicator 2s ease-in-out infinite;
 }
 
+/* ===== PREMIUM NAVIGATION EFFECTS ===== */
+
+.btn--pulse {
+
 /* Global scroll progress bar */
 .ts-scroll-progress {
-  position: fixed;
-  inset: 0 auto auto 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(
-    90deg,
-    var(--tiller-color-emerald, #10b981),
-    var(--tiller-color-gold, #c9a227)
-  );
-  transform: scaleX(0);
+}
+@keyframes btn-pulse {
+  0% { box-shadow: 0 0 0 0 rgb(16 185 129 / 18%); }
+  100% { box-shadow: 0 0 0 12px rgb(16 185 129 / 4%); }
+}
+[data-magnetic] {
+  position: relative;
+  transition: transform 0.3s var(--ease-out-quint, cubic-bezier(0.23,1,0.32,1));
+  will-change: transform;
+  z-index: 2;
+}
+[data-magnetic]:hover {
+  /* JS will handle transform for magnetic effect */
+  filter: brightness(1.08) saturate(1.1);
+}
+[data-magnetic]:hover {
   transform-origin: 0 50%;
   opacity: 85%;
   z-index: 9999;
@@ -1747,4 +1780,13 @@ select:focus {
 
 .mouse-scroll-indicator {
   animation: mouse-scroll 2.2s ease infinite;
+}
+
+/* ===== PREMIUM NAVIGATION EFFECTS ===== */
+.btn--pulse {
+  animation: btn-pulse 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+}
+@keyframes btn-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(16,185,129,0.18); }
+  100% { box-shadow: 0 0 0 12px rgba(16,185,129,0.04); }
 }

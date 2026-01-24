@@ -90,15 +90,7 @@ primary:
     match: "^/contact(/|$)"
     cta: true
 
-  # --- Ventures dropdown ---
-  # - id: ventures
-  #   title: "Ventures"
-  #   url: "/ventures/"
-  #   has_dropdown: true
-  #   children:
-  #     - id: barberx
-  #       title: "BarberX.info"
-  #       url: "https://barberx.info/"
+
 
 secondary:
   - id: privacy

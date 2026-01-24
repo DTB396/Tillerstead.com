@@ -7,7 +7,7 @@
      ========================================================= -->
 
 <!-- Desktop Navigation (≥1024px) -->
-<nav class="desktop-nav" aria-label="Primary Navigation">
+<nav class="desktop-nav scroll-fade-in premium-nav" aria-label="Primary Navigation">
   <ul class="desktop-nav__list" role="menubar">
     {% for item in site.data.navigation.primary %}
     <li class="desktop-nav__item{% if item.has_dropdown %} has-dropdown{% endif %}{% if item.cta %} is-cta{% endif %}" role="none">
@@ -16,13 +16,13 @@
         <!-- Dropdown trigger (button for accessibility) -->
         <button 
           type="button"
-          class="desktop-nav__link desktop-nav__trigger"
+          class="desktop-nav__link desktop-nav__trigger btn--nav-animated"
           aria-expanded="false"
           aria-controls="dropdown-{{ item.id }}"
           aria-haspopup="menu"
           {% if item.aria_label %}aria-label="{{ item.aria_label }}"{% endif %}
         >
-          {{ item.title }}
+          <span class="nav-link-text">{{ item.title }}</span>
           <svg class="dropdown-icon" aria-hidden="true" width="12" height="12" viewBox="0 0 12 12">
             <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           </svg>
@@ -46,11 +46,11 @@
         <!-- Regular link -->
         <a 
           href="{{ item.url }}" 
-          class="desktop-nav__link{% if item.cta %} desktop-nav__cta{% endif %}"
+          class="desktop-nav__link{% if item.cta %} desktop-nav__cta btn--nav-cta{% endif %} btn--nav-animated"
           role="menuitem"
           {% if page.url == item.url %}aria-current="page"{% endif %}
         >
-          {{ item.title }}
+          <span class="nav-link-text">{{ item.title }}</span>
         </a>
       {% endif %}
       
@@ -62,10 +62,11 @@
 <!-- Mobile Navigation Toggle (≤1023px) -->
 <button 
   type="button"
-  class="mobile-nav__toggle"
+  class="mobile-nav__toggle btn--nav-animated"
   aria-expanded="false"
   aria-controls="mobile-nav-drawer"
   aria-label="Open navigation menu"
+  tabindex="0"
 >
   <span class="hamburger-icon" aria-hidden="true">
     <span></span>
@@ -77,20 +78,22 @@
 <!-- Mobile Navigation Drawer -->
 <div 
   id="mobile-nav-drawer"
-  class="mobile-nav"
+  class="mobile-nav premium-mobile-nav scroll-fade-in"
   role="dialog"
   aria-modal="true"
   aria-label="Navigation menu"
   aria-hidden="true"
+  tabindex="0"
 >
   <!-- Drawer Body (slides in from right) -->
-  <nav class="mobile-nav__body" aria-label="Mobile Navigation">
+  <nav class="mobile-nav__body" aria-label="Mobile Navigation" tabindex="0">
     <!-- Drawer Header with Close Button -->
     <div class="mobile-nav__header">
       <button 
         type="button"
-        class="mobile-nav__close"
+        class="mobile-nav__close btn--nav-animated"
         aria-label="Close navigation menu"
+        tabindex="0"
       >
         <span class="close-x" aria-hidden="true">✕</span> Close
       </button>
@@ -98,17 +101,18 @@
     
     <ul class="mobile-nav__list">
       {% for item in site.data.navigation.primary %}
-      <li class="mobile-nav__item{% if item.has_dropdown %} has-accordion{% endif %}">
+      <li class="mobile-nav__item{% if item.has_dropdown %} has-accordion{% endif %} btn--nav-animated">
         
         {% if item.has_dropdown %}
           <!-- Accordion trigger -->
           <button 
             type="button"
-            class="mobile-nav__link mobile-nav__accordion-trigger"
+            class="mobile-nav__link mobile-nav__accordion-trigger btn--nav-animated"
             aria-expanded="false"
             aria-controls="mobile-accordion-{{ item.id }}"
+            tabindex="0"
           >
-            {{ item.title | upcase }}
+            <span class="nav-link-text">{{ item.title | upcase }}</span>
             <span class="accordion-arrow" aria-hidden="true">▸</span>
           </button>
           
@@ -121,8 +125,8 @@
             hidden
           >
             {% for child in item.children %}
-            <li class="mobile-nav__accordion-item">
-              <a href="{{ child.url }}">{{ child.title }}</a>
+            <li class="mobile-nav__accordion-item btn--nav-animated">
+              <a href="{{ child.url }}" class="nav-link-text">{{ child.title }}</a>
             </li>
             {% endfor %}
           </ul>
@@ -131,14 +135,11 @@
           <!-- Regular link -->
           <a 
             href="{{ item.url }}" 
-            class="mobile-nav__link{% if item.cta %} mobile-nav__cta{% endif %}"
+            class="mobile-nav__link{% if item.cta %} mobile-nav__cta btn--nav-cta{% endif %} btn--nav-animated"
             {% if page.url == item.url %}aria-current="page"{% endif %}
+            tabindex="0"
           >
-            {% if item.cta %}
-              {{ item.title | upcase }}
-            {% else %}
-              {{ item.title | upcase }}
-            {% endif %}
+            <span class="nav-link-text">{{ item.title | upcase }}</span>
           </a>
         {% endif %}
         
@@ -147,17 +148,17 @@
     </ul>
     
     <!-- Mobile CTA -->
-    <a href="/contact/" class="mobile-nav__estimate-btn">
+    <a href="/contact/" class="mobile-nav__estimate-btn btn--primary btn--pulse" data-magnetic tabindex="0">
       Get an Estimate
     </a>
     
     <!-- For Contractors Link -->
-    <a href="/for-general-contractors/" class="mobile-nav__link">
+    <a href="/for-general-contractors/" class="mobile-nav__link btn--nav-animated" tabindex="0">
       FOR CONTRACTORS
     </a>
     
     <!-- Trust signal -->
-    <div class="mobile-nav__trust">
+    <div class="mobile-nav__trust scroll-fade-in">
       <span class="mobile-nav__license">NJ HIC #13VH10808800</span>
     </div>
   </nav>
