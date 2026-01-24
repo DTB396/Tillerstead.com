@@ -1,0 +1,23 @@
+# Railway.toml - Deployment configuration for Tillerstead Toolkit API
+
+[build]
+builder = "nixpacks"
+buildCommand = "pip install -r requirements.txt"
+
+[deploy]
+startCommand = "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+healthcheckPath = "/health"
+healthcheckTimeout = 100
+restartPolicyType = "on-failure"
+restartPolicyMaxRetries = 10
+
+[env]
+# Python environment
+PYTHONUNBUFFERED = "1"
+PYTHONDONTWRITEBYTECODE = "1"
+
+# Add these in Railway dashboard as secrets:
+# DATABASE_URL = postgresql://...
+# REDIS_URL = redis://...
+# SECRET_KEY = your-secret-key
+# ALLOWED_ORIGINS = https://tillerstead.com,https://www.tillerstead.com

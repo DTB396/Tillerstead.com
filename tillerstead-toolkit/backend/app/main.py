@@ -26,10 +26,18 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# CORS middleware for Next.js frontend
+# CORS middleware - allow production domains + local dev
+allowed_origins = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "https://tillerstead.com",
+    "https://www.tillerstead.com",
+    "https://tillerstead.github.io"  # GitHub Pages if using default domain
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
