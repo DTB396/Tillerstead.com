@@ -1,6 +1,10 @@
-  const PROJECTS = {{ projects | jsonify | replace: "</", "<\/" }}
+  // const PROJECTS = {{ projects | jsonify | replace: "</", "<\/" }}
   /* Image data – shared with slider and initial markup via _data/portfolio.yml */
-  const PROJECTS = {{ projects | jsonify | replace: '</', '<\/' }};
+  // const PROJECTS = {{ projects | jsonify | replace: '</', '<\/' }};
+  // The PROJECTS variable should be defined in the HTML template before this script is loaded.
+  // Example:
+  // <script>const PROJECTS = {{ projects | jsonify | replace: '</', '<\/' }};</script>
+  // This script will use the global PROJECTS variable if available.
 
   (function () {
     const $ = (s, c = document) => c.querySelector(s);

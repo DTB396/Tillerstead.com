@@ -147,7 +147,7 @@ export class PremiumContactForm {
 
     // Simulate submission (replace with actual API call)
     setTimeout(() => {
-      this.showSuccess('Thank you! We'll be in touch shortly.');
+        this.showSuccess("Thank you! We'll be in touch shortly.");
       this.form.reset();
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;
@@ -180,6 +180,7 @@ export class PremiumContactForm {
     const alert = document.createElement('div');
     alert.className = 'form-alert form-alert--success';
     alert.textContent = message;
+      alert.textContent = "Thank you! We'll be in touch shortly.";
     this.form.insertBefore(alert, this.form.firstChild);
 
     setTimeout(() => {
