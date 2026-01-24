@@ -111,6 +111,37 @@
     Content-Type = "application/pdf"
 
 # ═══════════════════════════════════════════════════════════════════════════════
+# Domain Configuration
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Redirect xtx396.com to tillerstead.com (canonical domain)
+# This ensures all traffic uses the branded domain
+[[redirects]]
+  from = "https://xtx396.com/*"
+  to = "https://tillerstead.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://xtx396.com/*"
+  to = "https://tillerstead.com/:splat"
+  status = 301
+  force = true
+
+# Redirect www to non-www (cleaner URLs)
+[[redirects]]
+  from = "https://www.tillerstead.com/*"
+  to = "https://tillerstead.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.xtx396.com/*"
+  to = "https://tillerstead.com/:splat"
+  status = 301
+  force = true
+
+# ═══════════════════════════════════════════════════════════════════════════════
 # Redirects & Error Handling
 # Comprehensive 404 prevention with auto-detected broken links
 # Updated: 2026-01-23
