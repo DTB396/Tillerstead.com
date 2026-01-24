@@ -1,0 +1,243 @@
+/* =========================================================
+   TILLERPRO APP - BUTTON & TEXT CONTRAST FIXES
+   Ensures all buttons, symbols, and text are readable
+   ========================================================= */
+
+/* ===== FORM LABELS - HIGH CONTRAST ===== */
+.form-label {
+  font-size: 0.9375rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important; /* White text for labels */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== BUTTON TEXT - ENSURE READABILITY ===== */
+
+/* Primary buttons - white text on emerald */
+.btn--primary,
+.btn--calculate {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn--primary:hover,
+.btn--calculate:hover {
+  color: #ffffff !important;
+}
+
+/* Secondary buttons - white text on dark background */
+.btn--secondary {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.btn--secondary:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Ghost buttons - light text, dark on hover */
+.btn--ghost {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+/* Gold buttons - dark text on gold background */
+.btn--gold {
+  color: #000000 !important; /* Black text on gold */
+  font-weight: 700 !important;
+}
+
+.btn--gold:hover {
+  color: #000000 !important;
+}
+
+/* Danger buttons - white text on red */
+.btn--danger {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+/* ===== BUTTON ICONS & SYMBOLS - HIGH VISIBILITY ===== */
+.btn svg,
+.icon-btn svg {
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.3));
+  stroke-width: 2.5 !important; /* Thicker strokes for visibility */
+}
+
+.btn--primary svg,
+.btn--calculate svg,
+.btn--danger svg {
+  stroke: #ffffff !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+}
+
+.btn--gold svg {
+  stroke: #000000 !important;
+}
+
+/* Icon buttons - ensure icons are visible */
+.icon-btn {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  color: var(--app-primary) !important;
+}
+
+/* ===== BACK TO HOME BUTTON - PROMINENT STYLING ===== */
+.app-sidebar__back--prominent {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  padding: 1rem !important;
+  background: linear-gradient(135deg, var(--app-primary), #059669) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.9375rem !important;
+  border-radius: var(--radius-lg) !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3) !important;
+  transition: all 0.2s ease !important;
+  text-decoration: none !important;
+  margin-bottom: 1rem !important;
+}
+
+.app-sidebar__back--prominent:hover {
+  background: linear-gradient(135deg, #34d399, var(--app-primary)) !important;
+  transform: translateX(-2px) !important;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  text-decoration: none !important;
+}
+
+.app-sidebar__back--prominent svg {
+  stroke: #ffffff !important;
+  stroke-width: 2.5 !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+/* ===== FORM INPUTS - BETTER CONTRAST ===== */
+.form-input::placeholder,
+.form-select option {
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-weight: 500 !important;
+}
+
+.form-input,
+.form-select {
+  color: #ffffff !important;
+  font-weight: 500 !important;
+}
+
+/* Input group suffixes */
+.input-group__suffix {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 600 !important;
+}
+
+/* ===== CALCULATOR RESULTS - HIGH CONTRAST VALUES ===== */
+.calc-result__value {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  filter: none !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: none !important;
+}
+
+.calc-result__value--highlight {
+  color: var(--app-primary) !important;
+  -webkit-text-fill-color: var(--app-primary) !important;
+  text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+.calc-result__label {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600 !important;
+}
+
+.calc-result__unit {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 500 !important;
+}
+
+/* ===== NAVIGATION LINKS - ENSURE VISIBILITY ===== */
+.app-nav__link {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.app-nav__link:hover {
+  color: #ffffff !important;
+}
+
+.app-nav__link.is-active {
+  color: var(--app-primary) !important;
+}
+
+.app-nav__link span {
+  font-weight: 600 !important;
+}
+
+/* ===== APP HEADER - READABLE TEXT ===== */
+.app-header__title {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== MOBILE BOTTOM NAV - HIGH CONTRAST ===== */
+@media (max-width: 1023px) {
+  .app-bottom-nav__link {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-weight: 600 !important;
+  }
+  
+  .app-bottom-nav__link.is-active,
+  .app-bottom-nav__link:hover {
+    color: var(--app-primary) !important;
+  }
+  
+  .app-bottom-nav__link svg {
+    stroke-width: 2.5 !important;
+  }
+}
+
+/* ===== ENSURE ALL TEXT IS READABLE ===== */
+body,
+.app-shell,
+.app-main {
+  color: #ffffff !important;
+}
+
+/* General text contrast improvements */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+p, span, div {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Muted text should still be readable */
+.app-text-muted,
+.form-help,
+.calc-result__label {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.app-text-dim {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
