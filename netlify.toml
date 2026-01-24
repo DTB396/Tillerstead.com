@@ -112,32 +112,14 @@
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # Domain Configuration
+# NOTE: tillerstead.com is owned by another Netlify project
+# We use xtx396.com as primary, configure tillerstead.com at DNS registrar level
 # ═══════════════════════════════════════════════════════════════════════════════
-
-# Redirect xtx396.com to tillerstead.com (canonical domain)
-# This ensures all traffic uses the branded domain
-[[redirects]]
-  from = "https://xtx396.com/*"
-  to = "https://tillerstead.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://xtx396.com/*"
-  to = "https://tillerstead.com/:splat"
-  status = 301
-  force = true
 
 # Redirect www to non-www (cleaner URLs)
 [[redirects]]
-  from = "https://www.tillerstead.com/*"
-  to = "https://tillerstead.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "https://www.xtx396.com/*"
-  to = "https://tillerstead.com/:splat"
+  to = "https://xtx396.com/:splat"
   status = 301
   force = true
 
