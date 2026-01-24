@@ -14,6 +14,16 @@
   JEKYLL_ENV = "production"      # Enables minification, accessibility, and compliance checks
 
 # ═══════════════════════════════════════════════════════════════════════════════
+# Forms Configuration - Netlify Forms (No Server Code Required)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Form spam protection and notification settings
+# Submissions visible in Netlify Dashboard > Forms
+# Email notifications configured in Netlify UI
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+
+# ═══════════════════════════════════════════════════════════════════════════════
 # HTTP Headers - 2026 Web Standards Compliance
 # Security, Performance, and Caching headers for optimal delivery
 # ═══════════════════════════════════════════════════════════════════════════════

@@ -1,7 +1,7 @@
 <!-- 
   _includes/forms/contact.html
   WCAG 2.1 AA/AAA Compliant Contact Form
-  Uses FormSubmit.co for direct email delivery to info@tillerstead.com
+  Uses Netlify Forms for automatic form handling (no server code needed)
   - Proper labels with for/id relationships
   - aria-required and aria-describedby for validation
   - Error messaging linked to fields
@@ -13,18 +13,19 @@
   name="contact"
   id="contact-form"
   method="POST"
-  action="https://formsubmit.co/info@tillerstead.com"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  action="/success/?form=contact"
   aria-label="Contact request form"
-  novalidate
 >
-  <!-- FormSubmit.co configuration -->
-  <input type="hidden" name="_subject" value="New Tillerstead LLC inquiry — TCNA/New Jersey HIC Compliant" />
-  <input type="hidden" name="_next" value="https://tillerstead.com/success/?form=contact" />
-  <input type="hidden" name="_template" value="table" />
-  <input type="hidden" name="_captcha" value="false" />
-
-  <!-- Honeypot field for spam protection - hidden from all users -->
-  <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+  <!-- Netlify form name (required for form detection) -->
+  <input type="hidden" name="form-name" value="contact" />
+  
+  <!-- Honeypot field for spam protection - hidden from real users -->
+  <p class="visually-hidden" aria-hidden="true">
+    <label for="bot-field">Don't fill this out if you're human:</label>
+    <input id="bot-field" name="bot-field" tabindex="-1" autocomplete="off" />
+  </p>
 
   <!-- Form error summary - populated by JS on validation errors -->
   <div 
