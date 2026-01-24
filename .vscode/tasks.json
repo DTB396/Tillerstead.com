@@ -372,6 +372,26 @@
 			"label": "Deploy to GitHub Pages (fixed)",
 			"type": "shell",
 			"command": "git add . && git commit -m \"Deploy: GitHub Pages and Railway migration\" || echo \"No changes to commit\" && git push origin main"
+		},
+		{
+			"label": "Build site",
+			"type": "shell",
+			"command": "npm run build:site"
+		},
+		{
+			"label": "Build site",
+			"type": "shell",
+			"command": "npm run build:site"
+		},
+		{
+			"label": "Build site",
+			"type": "shell",
+			"command": "npm run build:site"
+		},
+		{
+			"label": "Build site",
+			"type": "shell",
+			"command": "npm run build:site"
 		}
 	]
 }
