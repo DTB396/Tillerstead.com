@@ -17,9 +17,9 @@
       <div class="footer-group footer-group--service-areas">
         <h3 class="footer-group-title">{{ service_areas.group }}</h3>
         <ul class="footer-list footer-list--horizontal">
-          {% for item in service_areas.items %}
-          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-          {% endfor %}
+            {% for item in service_areas.items %}
+              <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+            {% endfor %}
         </ul>
       </div>
       {% endif %}
@@ -30,9 +30,9 @@
       <div class="footer-group footer-group--learn">
         <h3 class="footer-group-title">{{ learn_group.group }}</h3>
         <ul class="footer-list">
-          {% for item in learn_group.items %}
-          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-          {% endfor %}
+            {% for item in learn_group.items %}
+              <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+            {% endfor %}
         </ul>
       </div>
       {% endif %}
@@ -43,9 +43,9 @@
       <div class="footer-group footer-group--build-guides">
         <h3 class="footer-group-title">{{ build_group.group }}</h3>
         <ul class="footer-list footer-list--two-col">
-          {% for item in build_group.items %}
-          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-          {% endfor %}
+            {% for item in build_group.items %}
+              <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+            {% endfor %}
         </ul>
       </div>
       {% endif %}
@@ -56,9 +56,9 @@
       <div class="footer-group footer-group--company">
         <h3 class="footer-group-title">{{ company_group.group }}</h3>
         <ul class="footer-list">
-          {% for item in company_group.items %}
-          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-          {% endfor %}
+            {% for item in company_group.items %}
+              <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+            {% endfor %}
         </ul>
       </div>
       {% endif %}

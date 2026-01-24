@@ -8,7 +8,7 @@
   font-size: 0.9375rem !important;
   font-weight: 700 !important;
   color: #ffffff !important; /* White text for labels */
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 2px rgb(0 0 0 / 30%);
 }
 
 /* ===== BUTTON TEXT - ENSURE READABILITY ===== */
@@ -18,7 +18,7 @@
 .btn--calculate {
   color: #ffffff !important;
   font-weight: 700 !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 2px rgb(0 0 0 / 20%);
 }
 
 .btn--primary:hover,
@@ -29,23 +29,23 @@
 /* Secondary buttons - white text on dark background */
 .btn--secondary {
   color: #ffffff !important;
-  background: rgba(255, 255, 255, 0.1) !important;
-  border-color: rgba(255, 255, 255, 0.2) !important;
+  background: rgb(255 255 255 / 10%) !important;
+  border-color: rgb(255 255 255 / 20%) !important;
 }
 
 .btn--secondary:hover {
   color: #ffffff !important;
-  background: rgba(255, 255, 255, 0.15) !important;
-  border-color: rgba(255, 255, 255, 0.3) !important;
+  background: rgb(255 255 255 / 15%) !important;
+  border-color: rgb(255 255 255 / 30%) !important;
 }
 
 /* Ghost buttons - light text, dark on hover */
 .btn--ghost {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: rgb(255 255 255 / 80%) !important;
 }
 
 .btn--ghost:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
+  background: rgb(255 255 255 / 10%) !important;
   color: #ffffff !important;
 }
 
@@ -68,7 +68,7 @@
 /* ===== BUTTON ICONS & SYMBOLS - HIGH VISIBILITY ===== */
 .btn svg,
 .icon-btn svg {
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 30%));
   stroke-width: 2.5 !important; /* Thicker strokes for visibility */
 }
 
@@ -76,7 +76,7 @@
 .btn--calculate svg,
 .btn--danger svg {
   stroke: #ffffff !important;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 40%));
 }
 
 .btn--gold svg {
@@ -86,13 +86,13 @@
 /* Icon buttons - ensure icons are visible */
 .icon-btn {
   color: #ffffff !important;
-  background: rgba(255, 255, 255, 0.1) !important;
-  border-color: rgba(255, 255, 255, 0.2) !important;
+  background: rgb(255 255 255 / 10%) !important;
+  border-color: rgb(255 255 255 / 20%) !important;
 }
 
 .icon-btn:hover {
-  background: rgba(255, 255, 255, 0.15) !important;
-  border-color: rgba(16, 185, 129, 0.5) !important;
+  background: rgb(255 255 255 / 15%) !important;
+  border-color: rgb(16 185 129 / 50%) !important;
   color: var(--app-primary) !important;
 }
 
@@ -107,8 +107,8 @@
   font-weight: 700 !important;
   font-size: 0.9375rem !important;
   border-radius: var(--radius-lg) !important;
-  border: 2px solid rgba(255, 255, 255, 0.2) !important;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3) !important;
+  border: 2px solid rgb(255 255 255 / 20%) !important;
+  box-shadow: 0 4px 12px rgb(16 185 129 / 30%) !important;
   transition: all 0.2s ease !important;
   text-decoration: none !important;
   margin-bottom: 1rem !important;
@@ -117,21 +117,21 @@
 .app-sidebar__back--prominent:hover {
   background: linear-gradient(135deg, #34d399, var(--app-primary)) !important;
   transform: translateX(-2px) !important;
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4) !important;
-  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 6px 20px rgb(16 185 129 / 40%) !important;
+  border-color: rgb(255 255 255 / 30%) !important;
   text-decoration: none !important;
 }
 
 .app-sidebar__back--prominent svg {
   stroke: #ffffff !important;
   stroke-width: 2.5 !important;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 30%));
 }
 
 /* ===== FORM INPUTS - BETTER CONTRAST ===== */
 .form-input::placeholder,
 .form-select option {
-  color: rgba(255, 255, 255, 0.5) !important;
+  color: rgb(255 255 255 / 50%) !important;
   font-weight: 500 !important;
 }
 
@@ -143,7 +143,7 @@
 
 /* Input group suffixes */
 .input-group__suffix {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: rgb(255 255 255 / 80%) !important;
   font-weight: 600 !important;
 }
 
@@ -151,7 +151,7 @@
 .calc-result__value {
   color: #ffffff !important;
   font-weight: 800 !important;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 4px rgb(0 0 0 / 30%);
   filter: none !important;
   -webkit-text-fill-color: #ffffff !important;
   background: none !important;
@@ -160,22 +160,22 @@
 .calc-result__value--highlight {
   color: var(--app-primary) !important;
   -webkit-text-fill-color: var(--app-primary) !important;
-  text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+  text-shadow: 0 0 20px rgb(16 185 129 / 50%);
 }
 
 .calc-result__label {
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: rgb(255 255 255 / 90%) !important;
   font-weight: 600 !important;
 }
 
 .calc-result__unit {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: rgb(255 255 255 / 80%) !important;
   font-weight: 500 !important;
 }
 
 /* ===== NAVIGATION LINKS - ENSURE VISIBILITY ===== */
 .app-nav__link {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: rgb(255 255 255 / 70%) !important;
 }
 
 .app-nav__link:hover {
@@ -194,13 +194,13 @@
 .app-header__title {
   color: #ffffff !important;
   font-weight: 700 !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 2px rgb(0 0 0 / 20%);
 }
 
 /* ===== MOBILE BOTTOM NAV - HIGH CONTRAST ===== */
 @media (max-width: 1023px) {
   .app-bottom-nav__link {
-    color: rgba(255, 255, 255, 0.7) !important;
+    color: rgb(255 255 255 / 70%) !important;
     font-weight: 600 !important;
   }
   
@@ -228,16 +228,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p, span, div {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255 255 255 / 90%);
 }
 
 /* Muted text should still be readable */
 .app-text-muted,
 .form-help,
 .calc-result__label {
-  color: rgba(255, 255, 255, 0.75) !important;
+  color: rgb(255 255 255 / 75%) !important;
 }
 
 .app-text-dim {
-  color: rgba(255, 255, 255, 0.6) !important;
+  color: rgb(255 255 255 / 60%) !important;
 }

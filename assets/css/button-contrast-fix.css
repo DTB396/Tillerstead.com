@@ -12,12 +12,6 @@
 }
 
 /* Alternative: If you prefer white text on darker emerald */
-.btn--primary:hover,
-.btn--primary:focus {
-  background: linear-gradient(135deg, #34d399 0%, var(--tiller-color-emerald, #10b981) 100%);
-  color: #ffffff; /* White text on emerald gradient */
-  box-shadow: 0 8px 25px rgb(16 185 129 / 45%);
-}
 
 /* Ghost button - Ensure contrast when background fills */
 .btn--ghost:hover,
