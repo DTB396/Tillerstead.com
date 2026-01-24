@@ -139,6 +139,7 @@
 <!-- Page-specific styles/scripts can be added below -->
 
 
+
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -389,62 +390,38 @@
 
   
   
+  <link rel="stylesheet" href="/assets/css/components/sticky-mobile-cta.css">
 </head>
 <body class="ts-body">
   <nav class="skip-links" aria-label="Skip navigation">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <a href="#footer-contact-heading" class="skip-link">Skip to contact</a>
   </nav>
-
   <div class="ts-scroll-progress" aria-hidden="true" data-scroll-progress></div>
-
   <!-- =========================================================
      Site Header - 2026 Contractor UX
-     Centered logo with animated scroll bounce
      ========================================================= -->
-<<<<<<< HEAD
 <header class="ts-header scroll-fade-in premium-header" id="site-header" aria-label="Main Header" tabindex="0">
   <div class="ts-header__container" tabindex="0">
-    <!-- Branding Section - HORIZONTAL SLIM -->
     <div class="ts-header__branding" tabindex="0">
-=======
-<header class="ts-header" id="site-header" aria-label="Main Header">
-  <div class="ts-header__container">
-    <!-- Branding Section - HORIZONTAL SLIM -->
-    <div class="ts-header__branding">
->>>>>>> 6f26b33d (x)
-      <!-- Logo with link to home -->
       <a href="/" class="ts-header__logo-link" aria-label="Tillerstead LLC - Go to homepage">
         <img 
           src="/assets/img/logo/logo-header@2x.webp" 
           alt="Tillerstead Logo" 
-<<<<<<< HEAD
           class="ts-header__logo logo-image gradient-animated"
-=======
-          class="ts-header__logo logo-image"
->>>>>>> 6f26b33d (x)
           id="header-logo"
           width="100"
           height="100"
           loading="eager"
-<<<<<<< HEAD
           decoding="async"
           fetchpriority="high"
-=======
->>>>>>> 6f26b33d (x)
         />
       </a>
       <div class="ts-header__info">
         <span class="ts-header__company">Tillerstead LLC</span>
         <span class="ts-header__region">South Jersey • <abbr title="NJ Home Improvement Contractor">NJ HIC</abbr></span>
-<<<<<<< HEAD
         <span class="ts-header__badge badge badge--trust ml-2">Licensed & Insured</span>
-=======
->>>>>>> 6f26b33d (x)
       </div>
     </div>
-
-    <!-- Main Navigation -->
     <!-- =========================================================
      Main Navigation - 2026 Contractor UX
      Desktop: Hover dropdowns | Mobile: Full-screen drawer
@@ -1485,13 +1462,10 @@
   
 })();
 </script>
-<<<<<<< HEAD
   </div>
   <div class="ts-header__cta scroll-fade-in">
     <a href="/contact/" class="btn btn--primary btn--sm btn--pulse" data-magnetic>Request Estimate</a>
     <a href="tel:+16098628808" class="btn btn--ghost btn--sm ml-2">Call (609) 862-8808</a>
-=======
->>>>>>> 6f26b33d (x)
   </div>
 </header>
 
@@ -1507,30 +1481,23 @@
     function onScroll() {
       var scrollY = window.scrollY || window.pageYOffset;
       var scrollingUp = scrollY < lastScroll;
-
-      // Minimize header after scroll threshold
       if (scrollY > scrollThreshold) {
         header.classList.add('ts-header--minimized');
-        
-        // Bounce animation when scrolling back up near top
         if (scrollingUp && !isScrollingUp && scrollY < 200) {
           triggerBounce();
         }
       } else {
         if (header.classList.contains('ts-header--minimized')) {
-          // Trigger bounce when expanding back to full size
           triggerBounce();
         }
         header.classList.remove('ts-header--minimized');
       }
-
       isScrollingUp = scrollingUp;
       lastScroll = scrollY;
     }
 
     function triggerBounce() {
-      if (bounceTimeout) return; // Prevent rapid bouncing
-      
+      if (bounceTimeout) return;
       logo.classList.add('bounce');
       bounceTimeout = setTimeout(function() {
         logo.classList.remove('bounce');
@@ -1538,7 +1505,6 @@
       }, 600);
     }
 
-    // Add bounce on logo click
     if (logo) {
       logo.addEventListener('click', function(e) {
         if (window.scrollY < 10) {
@@ -1547,7 +1513,6 @@
       });
     }
 
-    // Throttled scroll handler
     var ticking = false;
     window.addEventListener('scroll', function() {
       if (!ticking) {
@@ -1559,24 +1524,19 @@
       }
     }, { passive: true });
 
-    // Initial state
     document.addEventListener('DOMContentLoaded', function() {
       onScroll();
-      // Initial entrance bounce
       setTimeout(triggerBounce, 500);
     });
   })();
 </script>
 
   
-  
-  
-
   <main class="ts-main-content" role="main" id="main-content" aria-label="Main content">
     
   
 
-
+  
 <div class="sei-product-page bg-gray-900 text-white">
   
   <!-- Hero Section -->
@@ -2222,22 +2182,21 @@
 
 
 
+  
 
+  <div class="default-cta text-center scroll-fade-in premium-cta mt-4">
+    <a href="/contact/" class="btn btn--primary btn--lg btn--pulse mr-2" data-magnetic>Request an Estimate</a>
+    <a href="tel:+16098628808" class="btn btn--ghost btn--lg">Call (609) 862-8808</a>
+  </div>
 
-<div class="default-cta text-center scroll-fade-in premium-cta mt-4">
-  <a href="/contact/" class="btn btn--primary btn--lg btn--pulse mr-2" data-magnetic>Request an Estimate</a>
-  <a href="tel:+16098628808" class="btn btn--ghost btn--lg">Call (609) 862-8808</a>
-</div>
+  <div class="contractor-credentials mt-2 scroll-fade-in" style="text-align:center;">
+    <span class="badge badge--trust" title="Licensed NJ Contractor">NJ HIC #13VH10808800</span>
+    <span class="badge badge--compliance" title="TCNA Compliant">TCNA-Compliant Methods</span>
+    <span class="badge badge--reviews" title="5-Star Reviews">★ 5.0 Google & Thumbtack</span>
+  </div>
 
-<div class="contractor-credentials mt-2 scroll-fade-in" style="text-align:center;">
-  <span class="badge badge--trust" title="Licensed NJ Contractor">NJ HIC #13VH10808800</span>
-  <span class="badge badge--compliance" title="TCNA Compliant">TCNA-Compliant Methods</span>
-  <span class="badge badge--reviews" title="5-Star Reviews">★ 5.0 Google & Thumbtack</span>
-</div>
-
-
+  
   </main>
-
   
 
 
@@ -2554,6 +2513,32 @@
 <script src="/assets/js/accessibility.js" defer></script>
 >>>>>>> 6f26b33d (x)
 
+
+  
+<div class="sticky-cta-bar" id="sticky-mobile-cta" role="region" aria-label="Quick contact actions">
+  <a href="tel:+16098628808" class="sticky-cta-btn sticky-cta-btn--call" aria-label="Call now">
+    <svg class="sticky-cta-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </svg>
+    <span class="sticky-cta-text">Call Now</span>
+  </a>
+  <a href="sms:+16098628808" class="sticky-cta-btn sticky-cta-btn--text">
+    <svg class="sticky-cta-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+    <span class="sticky-cta-text">Text Us</span>
+  </a>
+  <a href="/contact/" class="sticky-cta-btn sticky-cta-btn--form">
+    <svg class="sticky-cta-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+      <polyline points="22,6 12,13 2,6"/>
+    </svg>
+    <span class="sticky-cta-text">Get Quote</span>
+  </a>
+</div>
+<script>
+(function(){var b=document.getElementById('sticky-mobile-cta');if(!b)return;function c(){if(window.innerWidth>768){b.style.display='none';return}b.style.display='flex'}var t=false;window.addEventListener('scroll',function(){if(!t){window.requestAnimationFrame(function(){c();t=false});t=true}},{passive:true});window.addEventListener('resize',c);c()})();
+</script>
 
   <!--
   Accessibility Toolbar Component
@@ -3207,16 +3192,8 @@
 
 
 
-
-  <!-- Service Worker Registration for Offline Support -->
   <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(reg => console.log('[SW] Registered:', reg.scope))
-          .catch(err => console.warn('[SW] Registration failed:', err));
-      });
-    }
+    if('serviceWorker'in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js').catch(err=>console.warn('[SW] Registration failed:',err))})}
   </script>
 </body>
 </html>
