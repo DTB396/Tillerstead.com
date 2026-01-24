@@ -1,3 +1,23 @@
+/* === TILLERSTEAD: Always allow vertical scrolling unless modal is open === */
+html, body {
+  overflow-y: auto !important;
+  overscroll-behavior-y: contain;
+}
+
+body.modal-open, body[aria-modal="true"] {
+  overflow-y: hidden !important;
+}
+
+/* === TILLERSTEAD: Speed up all transitions and animations for snappier UI === */
+*, *::before, *::after {
+  transition-duration: 0.12s !important;
+  animation-duration: 0.18s !important;
+}
+
+button, .btn, a, [role="button"] {
+  transition-duration: 0.10s !important;
+  animation-duration: 0.15s !important;
+}
 /**
  * ============================================================================
  * TILLERSTEAD ACCESSIBILITY SYSTEM

@@ -1,19 +1,21 @@
 /* ===== COLOR SYSTEM: Emerald Green & Gold ===== */
+
 :root {
-  --tiller-color-emerald: #009B6B;
-  --tiller-color-emerald-dark: #00724C;
+  --tiller-color-emerald: #00e184;
+  --tiller-color-emerald-dark: #00b46a;
   --tiller-color-emerald-light: #3bf0aa;
-  --tiller-color-gold: #FFD700;
-  --tiller-color-gold-dark: #B89B0A;
-  --tiller-color-gold-bright: #FFF9D6;
-  --tiller-bg-light: #FAFAF8;
-  --tiller-bg-dark: #181A1B;
+  --tiller-color-gold: #d4af37;
+  --tiller-color-gold-dark: #9c7a14;
+  --tiller-color-gold-bright: #ffe585;
+  --tiller-bg-light: #f9fafb;
+  --tiller-bg-dark: #181a1b;
   --tiller-bg-darker: #121414;
-  --tiller-text-primary: #181A1B;
-  --tiller-text-light: #FFFFFF;
-  --tiller-text-secondary: #555555;
+  --tiller-text-primary: #ffffff;
+  --tiller-text-light: #f9fafb;
+  --tiller-text-secondary: #e5e7eb;
   --tiller-color-highlight: var(--tiller-color-emerald);
 }
+
 
 /* =========================================================
   Tillerstead Premium Design System

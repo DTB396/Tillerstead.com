@@ -403,25 +403,28 @@
      Site Header - 2026 Contractor UX
      Centered logo with animated scroll bounce
      ========================================================= -->
-<header class="ts-header" id="site-header" aria-label="Main Header">
-  <div class="ts-header__container">
+<header class="ts-header scroll-fade-in premium-header" id="site-header" aria-label="Main Header" tabindex="0">
+  <div class="ts-header__container" tabindex="0">
     <!-- Branding Section - HORIZONTAL SLIM -->
-    <div class="ts-header__branding">
+    <div class="ts-header__branding" tabindex="0">
       <!-- Logo with link to home -->
       <a href="/" class="ts-header__logo-link" aria-label="Tillerstead LLC - Go to homepage">
         <img 
           src="/assets/img/logo/logo-header@2x.webp" 
           alt="Tillerstead Logo" 
-          class="ts-header__logo logo-image"
+          class="ts-header__logo logo-image gradient-animated"
           id="header-logo"
           width="100"
           height="100"
           loading="eager"
+          decoding="async"
+          fetchpriority="high"
         />
       </a>
       <div class="ts-header__info">
         <span class="ts-header__company">Tillerstead LLC</span>
         <span class="ts-header__region">South Jersey • <abbr title="NJ Home Improvement Contractor">NJ HIC</abbr></span>
+        <span class="ts-header__badge badge badge--trust ml-2">Licensed & Insured</span>
       </div>
     </div>
 
@@ -435,7 +438,7 @@
      ========================================================= -->
 
 <!-- Desktop Navigation (≥1024px) -->
-<nav class="desktop-nav" aria-label="Primary Navigation">
+<nav class="desktop-nav scroll-fade-in premium-nav" aria-label="Primary Navigation">
   <ul class="desktop-nav__list" role="menubar">
     
     <li class="desktop-nav__item" role="none">
@@ -444,11 +447,11 @@
         <!-- Regular link -->
         <a 
           href="/services/" 
-          class="desktop-nav__link"
+          class="desktop-nav__link btn--nav-animated"
           role="menuitem"
           
         >
-          Services
+          <span class="nav-link-text">Services</span>
         </a>
       
       
@@ -460,11 +463,11 @@
         <!-- Regular link -->
         <a 
           href="/portfolio/" 
-          class="desktop-nav__link"
+          class="desktop-nav__link btn--nav-animated"
           role="menuitem"
           
         >
-          Our Work
+          <span class="nav-link-text">Our Work</span>
         </a>
       
       
@@ -476,13 +479,13 @@
         <!-- Dropdown trigger (button for accessibility) -->
         <button 
           type="button"
-          class="desktop-nav__link desktop-nav__trigger"
+          class="desktop-nav__link desktop-nav__trigger btn--nav-animated"
           aria-expanded="false"
           aria-controls="dropdown-build"
           aria-haspopup="menu"
           
         >
-          Guides
+          <span class="nav-link-text">Guides</span>
           <svg class="dropdown-icon" aria-hidden="true" width="12" height="12" viewBox="0 0 12 12">
             <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           </svg>
@@ -540,11 +543,11 @@
         <!-- Regular link -->
         <a 
           href="/blog/" 
-          class="desktop-nav__link"
+          class="desktop-nav__link btn--nav-animated"
           role="menuitem"
           
         >
-          Blog
+          <span class="nav-link-text">Blog</span>
         </a>
       
       
@@ -556,11 +559,11 @@
         <!-- Regular link -->
         <a 
           href="/reviews/" 
-          class="desktop-nav__link"
+          class="desktop-nav__link btn--nav-animated"
           role="menuitem"
           
         >
-          Reviews
+          <span class="nav-link-text">Reviews</span>
         </a>
       
       
@@ -572,11 +575,11 @@
         <!-- Regular link -->
         <a 
           href="/tools/" 
-          class="desktop-nav__link"
+          class="desktop-nav__link btn--nav-animated"
           role="menuitem"
           
         >
-          Tools
+          <span class="nav-link-text">Tools</span>
         </a>
       
       
@@ -588,13 +591,13 @@
         <!-- Dropdown trigger (button for accessibility) -->
         <button 
           type="button"
-          class="desktop-nav__link desktop-nav__trigger"
+          class="desktop-nav__link desktop-nav__trigger btn--nav-animated"
           aria-expanded="false"
           aria-controls="dropdown-about"
           aria-haspopup="menu"
           aria-label="About Tillerstead"
         >
-          About
+          <span class="nav-link-text">About</span>
           <svg class="dropdown-icon" aria-hidden="true" width="12" height="12" viewBox="0 0 12 12">
             <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           </svg>
@@ -636,11 +639,11 @@
         <!-- Regular link -->
         <a 
           href="/contact/" 
-          class="desktop-nav__link desktop-nav__cta"
+          class="desktop-nav__link desktop-nav__cta btn--nav-cta btn--nav-animated"
           role="menuitem"
           
         >
-          Get Estimate
+          <span class="nav-link-text">Get Estimate</span>
         </a>
       
       
@@ -652,10 +655,11 @@
 <!-- Mobile Navigation Toggle (≤1023px) -->
 <button 
   type="button"
-  class="mobile-nav__toggle"
+  class="mobile-nav__toggle btn--nav-animated"
   aria-expanded="false"
   aria-controls="mobile-nav-drawer"
   aria-label="Open navigation menu"
+  tabindex="0"
 >
   <span class="hamburger-icon" aria-hidden="true">
     <span></span>
@@ -667,20 +671,22 @@
 <!-- Mobile Navigation Drawer -->
 <div 
   id="mobile-nav-drawer"
-  class="mobile-nav"
+  class="mobile-nav premium-mobile-nav scroll-fade-in"
   role="dialog"
   aria-modal="true"
   aria-label="Navigation menu"
   aria-hidden="true"
+  tabindex="0"
 >
   <!-- Drawer Body (slides in from right) -->
-  <nav class="mobile-nav__body" aria-label="Mobile Navigation">
+  <nav class="mobile-nav__body" aria-label="Mobile Navigation" tabindex="0">
     <!-- Drawer Header with Close Button -->
     <div class="mobile-nav__header">
       <button 
         type="button"
-        class="mobile-nav__close"
+        class="mobile-nav__close btn--nav-animated"
         aria-label="Close navigation menu"
+        tabindex="0"
       >
         <span class="close-x" aria-hidden="true">✕</span> Close
       </button>
@@ -688,51 +694,50 @@
     
     <ul class="mobile-nav__list">
       
-      <li class="mobile-nav__item">
+      <li class="mobile-nav__item btn--nav-animated">
         
         
           <!-- Regular link -->
           <a 
             href="/services/" 
-            class="mobile-nav__link"
+            class="mobile-nav__link btn--nav-animated"
             
+            tabindex="0"
           >
-            
-              SERVICES
-            
+            <span class="nav-link-text">SERVICES</span>
           </a>
         
         
       </li>
       
-      <li class="mobile-nav__item">
+      <li class="mobile-nav__item btn--nav-animated">
         
         
           <!-- Regular link -->
           <a 
             href="/portfolio/" 
-            class="mobile-nav__link"
+            class="mobile-nav__link btn--nav-animated"
             
+            tabindex="0"
           >
-            
-              OUR WORK
-            
+            <span class="nav-link-text">OUR WORK</span>
           </a>
         
         
       </li>
       
-      <li class="mobile-nav__item has-accordion">
+      <li class="mobile-nav__item has-accordion btn--nav-animated">
         
         
           <!-- Accordion trigger -->
           <button 
             type="button"
-            class="mobile-nav__link mobile-nav__accordion-trigger"
+            class="mobile-nav__link mobile-nav__accordion-trigger btn--nav-animated"
             aria-expanded="false"
             aria-controls="mobile-accordion-build"
+            tabindex="0"
           >
-            GUIDES
+            <span class="nav-link-text">GUIDES</span>
             <span class="accordion-arrow" aria-hidden="true">▸</span>
           </button>
           
@@ -745,36 +750,36 @@
             hidden
           >
             
-            <li class="mobile-nav__accordion-item">
-              <a href="/build/nj-codes-permits/">Codes & Permits</a>
+            <li class="mobile-nav__accordion-item btn--nav-animated">
+              <a href="/build/nj-codes-permits/" class="nav-link-text">Codes & Permits</a>
             </li>
             
-            <li class="mobile-nav__accordion-item">
-              <a href="/build/shower-pans-slopes-drains/">Shower Pans & Slopes</a>
+            <li class="mobile-nav__accordion-item btn--nav-animated">
+              <a href="/build/shower-pans-slopes-drains/" class="nav-link-text">Shower Pans & Slopes</a>
             </li>
             
-            <li class="mobile-nav__accordion-item">
-              <a href="/build/waterproofing-systems/">Waterproofing Systems</a>
+            <li class="mobile-nav__accordion-item btn--nav-animated">
+              <a href="/build/waterproofing-systems/" class="nav-link-text">Waterproofing Systems</a>
             </li>
             
-            <li class="mobile-nav__accordion-item">
-              <a href="/build/curbs-curbless/">Curbless Showers</a>
+            <li class="mobile-nav__accordion-item btn--nav-animated">
+              <a href="/build/curbs-curbless/" class="nav-link-text">Curbless Showers</a>
             </li>
             
-            <li class="mobile-nav__accordion-item">
-              <a href="/build/framing-benches-niches/">Benches & Niches</a>
+            <li class="mobile-nav__accordion-item btn--nav-animated">
+              <a href="/build/framing-benches-niches/" class="nav-link-text">Benches & Niches</a>
             </li>
             
-            <li class="mobile-nav__accordion-item">
-              <a href="/build/tile-installation-standards/">Tile Standards (TCNA)</a>
+            <li class="mobile-nav__accordion-item btn--nav-animated">
+              <a href="/build/tile-installation-standards/" class="nav-link-text">Tile Standards (TCNA)</a>
             </li>
             
-            <li class="mobile-nav__accordion-item">
-              <a href="/build/flood-testing/">Flood Testing</a>
+            <li class="mobile-nav__accordion-item btn--nav-animated">
+              <a href="/build/flood-testing/" class="nav-link-text">Flood Testing</a>
             </li>
             
-            <li class="mobile-nav__accordion-item">
-              <a href="/build/common-build-failures/">Common Build Failures</a>
+            <li class="mobile-nav__accordion-item btn--nav-animated">
+              <a href="/build/common-build-failures/" class="nav-link-text">Common Build Failures</a>
             </li>
             
           </ul>
@@ -783,68 +788,66 @@
         
       </li>
       
-      <li class="mobile-nav__item">
+      <li class="mobile-nav__item btn--nav-animated">
         
         
           <!-- Regular link -->
           <a 
             href="/blog/" 
-            class="mobile-nav__link"
+            class="mobile-nav__link btn--nav-animated"
             
+            tabindex="0"
           >
-            
-              BLOG
-            
+            <span class="nav-link-text">BLOG</span>
           </a>
         
         
       </li>
       
-      <li class="mobile-nav__item">
+      <li class="mobile-nav__item btn--nav-animated">
         
         
           <!-- Regular link -->
           <a 
             href="/reviews/" 
-            class="mobile-nav__link"
+            class="mobile-nav__link btn--nav-animated"
             
+            tabindex="0"
           >
-            
-              REVIEWS
-            
+            <span class="nav-link-text">REVIEWS</span>
           </a>
         
         
       </li>
       
-      <li class="mobile-nav__item">
+      <li class="mobile-nav__item btn--nav-animated">
         
         
           <!-- Regular link -->
           <a 
             href="/tools/" 
-            class="mobile-nav__link"
+            class="mobile-nav__link btn--nav-animated"
             
+            tabindex="0"
           >
-            
-              TOOLS
-            
+            <span class="nav-link-text">TOOLS</span>
           </a>
         
         
       </li>
       
-      <li class="mobile-nav__item has-accordion">
+      <li class="mobile-nav__item has-accordion btn--nav-animated">
         
         
           <!-- Accordion trigger -->
           <button 
             type="button"
-            class="mobile-nav__link mobile-nav__accordion-trigger"
+            class="mobile-nav__link mobile-nav__accordion-trigger btn--nav-animated"
             aria-expanded="false"
             aria-controls="mobile-accordion-about"
+            tabindex="0"
           >
-            ABOUT
+            <span class="nav-link-text">ABOUT</span>
             <span class="accordion-arrow" aria-hidden="true">▸</span>
           </button>
           
@@ -857,20 +860,20 @@
             hidden
           >
             
-            <li class="mobile-nav__accordion-item">
-              <a href="/about/">Our Story</a>
+            <li class="mobile-nav__accordion-item btn--nav-animated">
+              <a href="/about/" class="nav-link-text">Our Story</a>
             </li>
             
-            <li class="mobile-nav__accordion-item">
-              <a href="/for-general-contractors/">For Contractors</a>
+            <li class="mobile-nav__accordion-item btn--nav-animated">
+              <a href="/for-general-contractors/" class="nav-link-text">For Contractors</a>
             </li>
             
-            <li class="mobile-nav__accordion-item">
-              <a href="/faq/">FAQ</a>
+            <li class="mobile-nav__accordion-item btn--nav-animated">
+              <a href="/faq/" class="nav-link-text">FAQ</a>
             </li>
             
-            <li class="mobile-nav__accordion-item">
-              <a href="/products/">Products We Use</a>
+            <li class="mobile-nav__accordion-item btn--nav-animated">
+              <a href="/products/" class="nav-link-text">Products We Use</a>
             </li>
             
           </ul>
@@ -879,18 +882,17 @@
         
       </li>
       
-      <li class="mobile-nav__item">
+      <li class="mobile-nav__item btn--nav-animated">
         
         
           <!-- Regular link -->
           <a 
             href="/contact/" 
-            class="mobile-nav__link mobile-nav__cta"
+            class="mobile-nav__link mobile-nav__cta btn--nav-cta btn--nav-animated"
             
+            tabindex="0"
           >
-            
-              GET ESTIMATE
-            
+            <span class="nav-link-text">GET ESTIMATE</span>
           </a>
         
         
@@ -899,17 +901,17 @@
     </ul>
     
     <!-- Mobile CTA -->
-    <a href="/contact/" class="mobile-nav__estimate-btn">
+    <a href="/contact/" class="mobile-nav__estimate-btn btn--primary btn--pulse" data-magnetic tabindex="0">
       Get an Estimate
     </a>
     
     <!-- For Contractors Link -->
-    <a href="/for-general-contractors/" class="mobile-nav__link">
+    <a href="/for-general-contractors/" class="mobile-nav__link btn--nav-animated" tabindex="0">
       FOR CONTRACTORS
     </a>
     
     <!-- Trust signal -->
-    <div class="mobile-nav__trust">
+    <div class="mobile-nav__trust scroll-fade-in">
       <span class="mobile-nav__license">NJ HIC #13VH10808800</span>
     </div>
   </nav>
@@ -1204,6 +1206,10 @@
 })();
 </script>
   </div>
+  <div class="ts-header__cta scroll-fade-in">
+    <a href="/contact/" class="btn btn--primary btn--sm btn--pulse" data-magnetic>Request Estimate</a>
+    <a href="tel:+16098628808" class="btn btn--ghost btn--sm ml-2">Call (609) 862-8808</a>
+  </div>
 </header>
 
 <script>
@@ -1288,6 +1294,12 @@
     
   
 
+  <div class="contractor-credentials mt-2 scroll-fade-in" style="text-align:center;">
+    <span class="badge badge--trust" title="Licensed NJ Contractor">NJ HIC #13VH10808800</span>
+    <span class="badge badge--compliance" title="TCNA Compliant">TCNA-Compliant Methods</span>
+    <span class="badge badge--reviews" title="5-Star Reviews">★ 5.0 Google & Thumbtack</span>
+  </div>
+
   
 <section class="crosshatch-hero" aria-label="Page hero">
   <div class="crosshatch-hero__pattern" aria-hidden="true"></div>
@@ -1345,6 +1357,11 @@
 
   
 
+  <div class="default-cta text-center scroll-fade-in premium-cta mt-4">
+    <a href="/contact/" class="btn btn--primary btn--lg btn--pulse mr-2" data-magnetic>Request an Estimate</a>
+    <a href="tel:+16098628808" class="btn btn--ghost btn--lg">Call (609) 862-8808</a>
+  </div>
+
   
   </main>
 
@@ -1354,8 +1371,8 @@
 
 
 
-<footer class="ts-footer" aria-label="Site Footer" role="contentinfo" itemscope itemtype="https://schema.org/WPFooter">
-  <div class="footer-main">
+<footer class="ts-footer scroll-fade-in premium-footer" aria-label="Site Footer" role="contentinfo" itemscope itemtype="https://schema.org/WPFooter">
+  <div class="footer-main" tabindex="0">
     
     <!-- Brand Identity Section -->
     <div class="footer-brand">
@@ -1368,16 +1385,18 @@
           width="200" 
           height="200" 
           loading="lazy"
+          decoding="async"
+          fetchpriority="low"
         >
       </a>
       <div class="footer-brand-text">
-        <p class="footer-tagline">Where Craft Meets Accountability</p>
+        <p class="footer-tagline gradient-animated">Where Craft Meets Accountability</p>
         <p class="footer-service-tagline">TCNA-Compliant Tile & Stone Installation — South Jersey</p>
       </div>
     </div>
 
     <!-- Footer Navigation Grid -->
-    <nav class="footer-nav" aria-label="Footer navigation">
+    <nav class="footer-nav" aria-label="Footer navigation" tabindex="0">
       
       <!-- Service Areas - Full Width -->
       
@@ -1512,7 +1531,7 @@
     </nav>
 
     <!-- Contact & Credentials Section -->
-    <section class="footer-contact" aria-labelledby="atlantic-county-nj-footer-contact" itemscope itemtype="https://schema.org/LocalBusiness">
+    <section class="footer-contact scroll-fade-in" aria-labelledby="atlantic-county-nj-footer-contact" itemscope itemtype="https://schema.org/LocalBusiness">
       <meta itemprop="name" content="Tillerstead LLC">
       <meta itemprop="image" content="https://tillerstead.com/assets/img/logo/logo-optimized.png">>
       
@@ -1521,7 +1540,7 @@
         Contact Us
       </h3>
       
-      <div class="footer-contact-grid">
+      <div class="footer-contact-grid" tabindex="0">
         <!-- License Badge -->
         <div class="footer-credential footer-credential--license">
           <svg class="footer-credential-icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
@@ -1557,10 +1576,10 @@
     </section>
 
     <!-- Bottom Bar -->
-    <div class="footer-bottom">
+    <div class="footer-bottom" tabindex="0">
       
       <!-- Social Links -->
-      <nav class="footer-social" aria-label="Social media">
+      <nav class="footer-social" aria-label="Social media" tabindex="0">
         
         <a href="https://www.facebook.com/share/17ZQCR2zdZ/" target="_blank" rel="noopener noreferrer" aria-label="Tillerstead on Facebook" class="footer-social-link">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -1582,7 +1601,7 @@
       </nav>
 
       <!-- Trust Badges -->
-      <div class="footer-trust">
+      <div class="footer-trust scroll-fade-in">
         <span class="footer-trust-badge">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           Fully Insured
@@ -1598,7 +1617,7 @@
       </div>
 
       <!-- Legal Links -->
-      <nav class="footer-legal" aria-label="Legal">
+      <nav class="footer-legal" aria-label="Legal" tabindex="0">
         <a href="/privacy/">Privacy Policy</a>
         <span class="footer-divider" aria-hidden="true">·</span>
         <a href="/terms/">Terms of Service</a>
@@ -1613,9 +1632,9 @@
 </footer>
 
 <!-- Core JavaScript (deferred for performance) -->
-<script src="/assets/js/animation-engine.js" defer></script>
-<script src="/assets/js/professional-features.js" defer></script>
-<script src="/assets/js/accessibility.js" defer></script>
+<script src="/assets/js/animation-engine.js" defer fetchpriority="low"></script>
+<script src="/assets/js/professional-features.js" defer fetchpriority="low"></script>
+<script src="/assets/js/accessibility.js" defer fetchpriority="low"></script>
 
 
   <!--
