@@ -8,6 +8,25 @@
 */
 (() => {
   // =========================
+  // SCROLL FIX - ENSURE PAGE IS ALWAYS SCROLLABLE
+  // - Reset any stuck overflow:hidden from navigation/modals
+  // =========================
+  const ensureScrollable = () => {
+    // Only reset if no modal/nav is actually open
+    const isNavOpen = document.querySelector('.mobile-nav.is-open, .mobile-nav-shell.is-open');
+    const isModalOpen = document.querySelector('[role="dialog"][aria-hidden="false"]');
+    if (!isNavOpen && !isModalOpen) {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+  };
+
+  // Run on load and after a short delay to catch any late JS
+  ensureScrollable();
+  setTimeout(ensureScrollable, 500);
+  window.addEventListener('resize', ensureScrollable);
+
+  // =========================
   // HIGH CONTRAST MODE - PERMANENTLY ENABLED
   // - Class is set in HTML, this ensures it stays enabled
   // =========================
