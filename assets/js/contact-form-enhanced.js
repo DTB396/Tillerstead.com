@@ -242,7 +242,7 @@
       submitBtn.textContent = 'Sent!';
 
       showNotification(
-        'Message sent successfully! We'll get back to you soon.',
+        "Message sent successfully! We'll get back to you soon.",
         'success',
       );
 

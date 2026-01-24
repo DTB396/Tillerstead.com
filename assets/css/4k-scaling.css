@@ -72,15 +72,13 @@
 }
 
 /* ===== HIGH-DPI SCREENS (Retina, 4K) ===== */
-@media (-webkit-min-device-pixel-ratio: 2),
-       (min-resolution: 192dpi),
+@media (min-resolution: 192dpi),
        (min-resolution: 2dppx) {
-  
   /* Use sharper rendering for text */
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+    text-rendering: optimizelegibility;
   }
   
   /* Sharper borders */
@@ -88,7 +86,6 @@
   *::before,
   *::after {
     backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
   }
   
   /* High-DPI optimized shadows */
