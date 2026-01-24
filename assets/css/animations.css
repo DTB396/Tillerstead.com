@@ -1733,32 +1733,24 @@ select:focus {
   animation: scroll-indicator 2s ease-in-out infinite;
 }
 
-/* ===== PREMIUM NAVIGATION EFFECTS ===== */
+/* ===== PREMIUM NAVIGATION EFFECTS (deduplicated, modernized) ===== */
+.ts-scroll-progress {}
 
-.btn--pulse {
-
-/* Global scroll progress bar */
-.ts-scroll-progress {
-}
 @keyframes btn-pulse {
   0% { box-shadow: 0 0 0 0 rgb(16 185 129 / 18%); }
   100% { box-shadow: 0 0 0 12px rgb(16 185 129 / 4%); }
 }
+
 [data-magnetic] {
   position: relative;
   transition: transform 0.3s var(--ease-out-quint, cubic-bezier(0.23,1,0.32,1));
   will-change: transform;
   z-index: 2;
 }
+
 [data-magnetic]:hover {
   /* JS will handle transform for magnetic effect */
   filter: brightness(1.08) saturate(1.1);
-}
-[data-magnetic]:hover {
-  transform-origin: 0 50%;
-  opacity: 85%;
-  z-index: 9999;
-  pointer-events: none;
 }
 
 /* Mouse scroll wheel animation */
@@ -1780,10 +1772,9 @@ select:focus {
 
 .mouse-scroll-indicator {
   animation: mouse-scroll 2.2s ease infinite;
-}
 
 /* ===== PREMIUM NAVIGATION EFFECTS ===== */
-.btn--pulse {
+
   animation: btn-pulse 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
 }
 @keyframes btn-pulse {

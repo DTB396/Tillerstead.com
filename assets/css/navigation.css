@@ -173,11 +173,7 @@
   line-height: 1.2;
 }
 
-.ts-header__company {
-.btn--nav-cta:hover, .btn--nav-cta:focus-visible {
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--tiller-color-emerald, #10b981);
+/* Removed broken .ts-header__company block. .btn--nav-cta:hover is defined in premium nav section. */
   letter-spacing: -0.01em;
   text-shadow: 0 0 10px rgb(16 185 129 / 80%), 0 0 25px rgb(16 185 129 / 60%), 0 0 40px rgb(16 185 129 / 40%);
 }
