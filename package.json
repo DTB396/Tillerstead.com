@@ -100,7 +100,7 @@
     "webpack-cli": "^6.0.1"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=22.19.0"
   },
   "dependencies": {
     "aos": "^2.3.4",
