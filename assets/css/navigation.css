@@ -136,16 +136,22 @@
 }
 
 @keyframes logo-glow {
+<<<<<<< HEAD
 /* ===== PREMIUM NAVIGATION CLASSES (2026) ===== */
 
 .premium-nav {
+=======
+>>>>>>> 6f26b33d (x)
   0%, 100% {
     filter: drop-shadow(0 2px 8px rgb(16 185 129 / 30%));
   }
 
   50% {
     filter: drop-shadow(0 2px 16px rgb(16 185 129 / 50%));
+<<<<<<< HEAD
 .premium-mobile-nav {
+=======
+>>>>>>> 6f26b33d (x)
   }
 }
 
@@ -153,19 +159,28 @@
 .ts-header__logo.bounce {
   animation: logo-bounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+<<<<<<< HEAD
 .btn--nav-animated {
+=======
+>>>>>>> 6f26b33d (x)
 
 @keyframes logo-bounce {
   0% { transform: scale(1) translateY(0); }
   30% { transform: scale(0.9) translateY(4px); }
   50% { transform: scale(1.15) translateY(-8px); }
   70% { transform: scale(0.95) translateY(2px); }
+<<<<<<< HEAD
 .btn--nav-animated:hover, .btn--nav-animated:focus-visible {
+=======
+>>>>>>> 6f26b33d (x)
   100% { transform: scale(1) translateY(0); }
 }
 
 .ts-header__info {
+<<<<<<< HEAD
 .btn--nav-cta {
+=======
+>>>>>>> 6f26b33d (x)
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -173,17 +188,32 @@
   line-height: 1.2;
 }
 
+<<<<<<< HEAD
 /* Removed broken .ts-header__company block. .btn--nav-cta:hover is defined in premium nav section. */
+=======
+.ts-header__company {
+<<<<<<< HEAD
+.btn--nav-cta:hover, .btn--nav-cta:focus-visible {
+=======
+>>>>>>> 6f26b33d (x)
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--tiller-color-emerald, #10b981);
+>>>>>>> 3f2c5bfa (x)
   letter-spacing: -0.01em;
   text-shadow: 0 0 10px rgb(16 185 129 / 80%), 0 0 25px rgb(16 185 129 / 60%), 0 0 40px rgb(16 185 129 / 40%);
 }
+<<<<<<< HEAD
 .nav-link-text {
 }
+=======
+>>>>>>> 6f26b33d (x)
 
 .ts-header__tagline {
   font-size: 0.75rem;
   color: var(--tiller-text-secondary, rgb(255 255 255 / 70%));
   font-weight: 500;
+<<<<<<< HEAD
 }
 .mobile-nav__item.btn--nav-animated, .mobile-nav__accordion-item.btn--nav-animated {
   display: none; /* Hide for slim header */
@@ -195,6 +225,11 @@
   color: #10b981;
   box-shadow: 0 2px 8px rgb(16 185 129 / 10%);
 }
+=======
+  display: none; /* Hide for slim header */
+}
+
+>>>>>>> 6f26b33d (x)
 .ts-header__region {
   font-size: 0.6875rem;
   color: #ffffff !important;
@@ -1318,7 +1353,14 @@ body.nav-open .mobile-nav__toggle {
   .ts-header--minimized .ts-header__logo .logo-image {
     height: 35px;
     max-height: 35px;
+<<<<<<< HEAD
     font-size: 0.75rem;
+=======
+  }
+  
+  .ts-header--minimized .ts-header__company {
+    font-size: 0.6875rem;
+>>>>>>> 6f26b33d (x)
   }
   
   .ts-header--minimized .mobile-nav__toggle {
@@ -1456,6 +1498,7 @@ body.nav-open {
   margin-top: var(--tiller-spacing-sm);
   display: block;
 }
+<<<<<<< HEAD
 
 /* ===== PREMIUM NAVIGATION CLASSES (2026) ===== */
 .premium-nav {
@@ -1509,3 +1552,5 @@ body.nav-open {
   color: #10b981;
   box-shadow: 0 2px 8px rgb(16 185 129 / 10%);
 }
+=======
+>>>>>>> 6f26b33d (x)

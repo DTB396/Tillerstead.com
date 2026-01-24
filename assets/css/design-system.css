@@ -1,4 +1,5 @@
 /* ===== COLOR SYSTEM: Emerald Green & Gold ===== */
+<<<<<<< HEAD
 
 :root {
   --tiller-color-emerald: #00e184;
@@ -17,6 +18,24 @@
 }
 
 
+=======
+:root {
+  --tiller-color-emerald: #009B6B;
+  --tiller-color-emerald-dark: #00724C;
+  --tiller-color-emerald-light: #3bf0aa;
+  --tiller-color-gold: #FFD700;
+  --tiller-color-gold-dark: #B89B0A;
+  --tiller-color-gold-bright: #FFF9D6;
+  --tiller-bg-light: #FAFAF8;
+  --tiller-bg-dark: #181A1B;
+  --tiller-bg-darker: #121414;
+  --tiller-text-primary: #181A1B;
+  --tiller-text-light: #FFFFFF;
+  --tiller-text-secondary: #555555;
+  --tiller-color-highlight: var(--tiller-color-emerald);
+}
+
+>>>>>>> 6f26b33d (x)
 /* =========================================================
   Tillerstead Premium Design System
   Unified button, component, and interaction library

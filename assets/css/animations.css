@@ -260,6 +260,7 @@ html {
   }
 }
 
+<<<<<<< HEAD
 
 /* ========== ENHANCED TRANSITIONS (2026 Modernized) ========== */
 * {
@@ -269,11 +270,24 @@ html {
   will-change: transform, opacity, filter;
 }
 
+=======
+/* ========== ENHANCED TRANSITIONS ========== */
+
+/* Global smooth transitions */
+* {
+  transition-property: color, background-color, border-color, box-shadow, opacity, transform;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Disable transitions on elements that shouldn't animate */
+>>>>>>> 6f26b33d (x)
 .no-transition,
 .no-transition * {
   transition: none !important;
 }
 
+<<<<<<< HEAD
 /* Subtle 3D pop for cards and buttons */
 .ts-card, .card, button, .btn, a[data-button-premium] {
   box-shadow: 0 2px 8px rgb(16 185 129 / 10%), 0 8px 32px rgb(201 162 39 / 10%);
@@ -297,6 +311,8 @@ html {
   }
 }
 
+=======
+>>>>>>> 6f26b33d (x)
 /* ========== VIEW TRANSITIONS API (Cutting-edge) ========== */
 
 /* Progressive enhancement for page transitions */
@@ -333,6 +349,7 @@ html {
 
 [data-magnetic] {
   position: relative;
+<<<<<<< HEAD
   transition: transform 0.3s var(--ease-out-quint, cubic-bezier(0.23,1,0.32,1));
   will-change: transform;
   z-index: 2;
@@ -340,6 +357,14 @@ html {
 [data-magnetic]:hover {
   /* JS will handle transform for magnetic effect */
   filter: brightness(1.08) saturate(1.1);
+=======
+  transition: transform 0.3s var(--ease-out-quint);
+}
+
+[data-magnetic]:hover {
+  /* JavaScript handles the actual magnetic effect */
+  transform: translate(var(--magnetic-x, 0), var(--magnetic-y, 0));
+>>>>>>> 6f26b33d (x)
 }
 
 /* ========== BUTTON ENHANCEMENTS ========== */
@@ -1733,8 +1758,13 @@ select:focus {
   animation: scroll-indicator 2s ease-in-out infinite;
 }
 
+<<<<<<< HEAD
 /* ===== PREMIUM NAVIGATION EFFECTS (deduplicated, modernized) ===== */
 .ts-scroll-progress {}
+=======
+<<<<<<< HEAD
+/* ===== PREMIUM NAVIGATION EFFECTS ===== */
+>>>>>>> 3f2c5bfa (x)
 
 @keyframes btn-pulse {
   0% { box-shadow: 0 0 0 0 rgb(16 185 129 / 18%); }
@@ -1752,6 +1782,29 @@ select:focus {
   /* JS will handle transform for magnetic effect */
   filter: brightness(1.08) saturate(1.1);
 }
+<<<<<<< HEAD
+=======
+[data-magnetic]:hover {
+=======
+/* Global scroll progress bar */
+.ts-scroll-progress {
+  position: fixed;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--tiller-color-emerald, #10b981),
+    var(--tiller-color-gold, #c9a227)
+  );
+  transform: scaleX(0);
+>>>>>>> 6f26b33d (x)
+  transform-origin: 0 50%;
+  opacity: 85%;
+  z-index: 9999;
+  pointer-events: none;
+}
+>>>>>>> 3f2c5bfa (x)
 
 /* Mouse scroll wheel animation */
 @keyframes mouse-scroll {
@@ -1772,6 +1825,11 @@ select:focus {
 
 .mouse-scroll-indicator {
   animation: mouse-scroll 2.2s ease infinite;
+<<<<<<< HEAD
+=======
+}
+<<<<<<< HEAD
+>>>>>>> 3f2c5bfa (x)
 
 /* ===== PREMIUM NAVIGATION EFFECTS ===== */
 
@@ -1781,3 +1839,5 @@ select:focus {
   0% { box-shadow: 0 0 0 0 rgba(16,185,129,0.18); }
   100% { box-shadow: 0 0 0 12px rgba(16,185,129,0.04); }
 }
+=======
+>>>>>>> 6f26b33d (x)
