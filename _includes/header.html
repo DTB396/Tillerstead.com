@@ -1,58 +1,33 @@
 <!-- =========================================================
      Site Header - 2026 Contractor UX
-     Centered logo with animated scroll bounce
      ========================================================= -->
-<<<<<<< HEAD
 <header class="ts-header scroll-fade-in premium-header" id="site-header" aria-label="Main Header" tabindex="0">
   <div class="ts-header__container" tabindex="0">
-    <!-- Branding Section - HORIZONTAL SLIM -->
     <div class="ts-header__branding" tabindex="0">
-=======
-<header class="ts-header" id="site-header" aria-label="Main Header">
-  <div class="ts-header__container">
-    <!-- Branding Section - HORIZONTAL SLIM -->
-    <div class="ts-header__branding">
->>>>>>> 6f26b33d (x)
-      <!-- Logo with link to home -->
       <a href="/" class="ts-header__logo-link" aria-label="Tillerstead LLC - Go to homepage">
         <img 
           src="/assets/img/logo/logo-header@2x.webp" 
           alt="Tillerstead Logo" 
-<<<<<<< HEAD
           class="ts-header__logo logo-image gradient-animated"
-=======
-          class="ts-header__logo logo-image"
->>>>>>> 6f26b33d (x)
           id="header-logo"
           width="100"
           height="100"
           loading="eager"
-<<<<<<< HEAD
           decoding="async"
           fetchpriority="high"
-=======
->>>>>>> 6f26b33d (x)
         />
       </a>
       <div class="ts-header__info">
         <span class="ts-header__company">Tillerstead LLC</span>
         <span class="ts-header__region">South Jersey • <abbr title="NJ Home Improvement Contractor">NJ HIC</abbr></span>
-<<<<<<< HEAD
         <span class="ts-header__badge badge badge--trust ml-2">Licensed & Insured</span>
-=======
->>>>>>> 6f26b33d (x)
       </div>
     </div>
-
-    <!-- Main Navigation -->
     {% include navigation/main-nav.html %}
-<<<<<<< HEAD
   </div>
   <div class="ts-header__cta scroll-fade-in">
     <a href="/contact/" class="btn btn--primary btn--sm btn--pulse" data-magnetic>Request Estimate</a>
     <a href="tel:+16098628808" class="btn btn--ghost btn--sm ml-2">Call (609) 862-8808</a>
-=======
->>>>>>> 6f26b33d (x)
   </div>
 </header>
 
@@ -68,30 +43,23 @@
     function onScroll() {
       var scrollY = window.scrollY || window.pageYOffset;
       var scrollingUp = scrollY < lastScroll;
-
-      // Minimize header after scroll threshold
       if (scrollY > scrollThreshold) {
         header.classList.add('ts-header--minimized');
-        
-        // Bounce animation when scrolling back up near top
         if (scrollingUp && !isScrollingUp && scrollY < 200) {
           triggerBounce();
         }
       } else {
         if (header.classList.contains('ts-header--minimized')) {
-          // Trigger bounce when expanding back to full size
           triggerBounce();
         }
         header.classList.remove('ts-header--minimized');
       }
-
       isScrollingUp = scrollingUp;
       lastScroll = scrollY;
     }
 
     function triggerBounce() {
-      if (bounceTimeout) return; // Prevent rapid bouncing
-      
+      if (bounceTimeout) return;
       logo.classList.add('bounce');
       bounceTimeout = setTimeout(function() {
         logo.classList.remove('bounce');
@@ -99,7 +67,6 @@
       }, 600);
     }
 
-    // Add bounce on logo click
     if (logo) {
       logo.addEventListener('click', function(e) {
         if (window.scrollY < 10) {
@@ -108,7 +75,6 @@
       });
     }
 
-    // Throttled scroll handler
     var ticking = false;
     window.addEventListener('scroll', function() {
       if (!ticking) {
@@ -120,10 +86,8 @@
       }
     }, { passive: true });
 
-    // Initial state
     document.addEventListener('DOMContentLoaded', function() {
       onScroll();
-      // Initial entrance bounce
       setTimeout(triggerBounce, 500);
     });
   })();

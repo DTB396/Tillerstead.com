@@ -1,112 +1,42 @@
-# OS / Editor
-.DS_Store
-Thumbs.db
-desktop.ini
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
-!.vscode/tasks.json
-.idea/
-.history/
-.gemini/
-*~
-
-# Ruby / Jekyll
+# Jekyll
 _site/
 .jekyll-cache/
 .jekyll-metadata
 .sass-cache/
-.bundle/
+
+# Dependencies
+node_modules/
 vendor/
-vendor/bundle/
+.bundle/
 Gemfile.lock
 
-# Node
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.npm/
-.yarn/
+# Visual Studio (LOCKED FILES)
+.vs/
+*.vsidx
+*.sln
+*.slnx
 
-# Build artifacts
-assets/css/style.css
-assets/css/style.css.map
-convert-pattern.js
+# MCP Agents (build artifacts)
+.mcp-agents/
+
+# Build directories
 dist/
-_archive/
 build/
-
-# Coverage and test output
-coverage/
-.nyc_output/
-*.lcov
-playwright-report/
-test-results/
-
-# Backups / temp
-_backup/
-_backup-*/
-_tmp/
-
-# Secrets & Environment Variables
-.env
-.env.local
-.env.*.local
-.env.production
-secrets.json
-*.key
-*.pem
-*.secret
-config/secrets.yml
-netlify-auth.json
-.backups/
-**/.backups/
-*.bak
-*.bak.*
-*.bak*
-**/*.bak*
-*.bak_keep_*
-*.orig
-*.swp
-*.tmp
-
-# Local audits / logs
 reports/
+test-results/
+playwright-report/
+
+# Backups
+_backup*/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Logs
 *.log
-logs/
-profile/
-
-# AI/Copilot artifacts
-.ai/
-.aider*
-.copilot/
-
-# Script "keep" copies
-*.bak_keep_*
-
-# Environment files (should never be committed)
-.env
-.env.local
-.env.*.local
-*.env
-
-# Admin sensitive data
-admin/.env
-admin/backups/*.json
-
-# macOS
-.AppleDouble
-.LSOverride
-Icon
-
-# Windows
-ehthumbs.db
-ehthumbs_vista.db
-*.stackdump
-
-# Security
-*.pem
-*.key
-*.cert
-*.crt

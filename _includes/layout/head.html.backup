@@ -133,4 +133,3 @@
 
 <!-- Page-specific styles/scripts can be added below -->
 {% if page.extra_head %}{{ page.extra_head }}{% endif %}
-

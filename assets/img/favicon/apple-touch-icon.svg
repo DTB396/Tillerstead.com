@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <rect width="180" height="180" fill="#181a1b" rx="20"/>
+  <defs>
+    <linearGradient id="blade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00e184"/>
+      <stop offset="100%" style="stop-color:#00b46a"/>
+    </linearGradient>
+    <linearGradient id="handle" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4af37"/>
+      <stop offset="100%" style="stop-color:#9c7a14"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Trowel Blade -->
+  <path d="M 90 30 L 145 110 L 90 135 L 35 110 Z" 
+        fill="url(#blade)" 
+        stroke="#00b46a" 
+        stroke-width="3"/>
+  
+  <!-- Center Line -->
+  <line x1="90" y1="30" x2="90" y2="125" 
+        stroke="#00b46a" 
+        stroke-width="2" 
+        opacity="0.4"/>
+  
+  <!-- Handle -->
+  <rect x="82" y="125" width="16" height="28" 
+        rx="2" 
+        fill="url(#handle)" 
+        stroke="#9c7a14" 
+        stroke-width="2"/>
+  
+  <!-- Grip Lines -->
+  <line x1="84" y1="133" x2="96" y2="133" stroke="#9c7a14" stroke-width="1.5" opacity="0.5"/>
+  <line x1="84" y1="141" x2="96" y2="141" stroke="#9c7a14" stroke-width="1.5" opacity="0.5"/>
+  <line x1="84" y1="149" x2="96" y2="149" stroke="#9c7a14" stroke-width="1.5" opacity="0.5"/>
+</svg>

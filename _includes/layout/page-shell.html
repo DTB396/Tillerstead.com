@@ -1,10 +1,3 @@
-{%- comment -%}
-  Canonical page shell: wraps content with head, header, breadcrumbs (optional), footer, and scripts.
-  Pass `body` to render pre-built content; falls back to `content` when omitted.
-  Optional params:
-    - show_breadcrumbs: true/false (default true)
-    - html_attrs: extra attributes for <html> (e.g., class="high-contrast" data-high-contrast="true")
-{%- endcomment -%}
 <!DOCTYPE html>
 <html lang="en"{% if include.html_attrs %} {{ include.html_attrs }}{% endif %}>
 <head>
@@ -14,42 +7,26 @@
   {% include layout/meta-geo.html %}
   {% include layout/meta-canonical.html %}
   {% include layout/meta-success-confetti.html %}
-  {% if page.url == "/contact/" %}
-  {% include forms/contact-page.html %}
-  {% endif %}
+  {% if page.url == "/contact/" %}{% include forms/contact-page.html %}{% endif %}
   {% if page.extra_head %}{{ page.extra_head }}{% endif %}
+  <link rel="stylesheet" href="/assets/css/components/sticky-mobile-cta.css">
 </head>
 <body class="ts-body{% if page.body_class %} {{ page.body_class }}{% endif %}{% if layout.body_class %} {{ layout.body_class }}{% endif %}{% if page.build_guide %} page-build-guide{% endif %}">
   <nav class="skip-links" aria-label="Skip navigation">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <a href="#footer-contact-heading" class="skip-link">Skip to contact</a>
   </nav>
-
   <div class="ts-scroll-progress" aria-hidden="true" data-scroll-progress></div>
-
   {% include header.html %}
-
-  {% if include.show_breadcrumbs != false %}
-  {% include navigation/ts-breadcrumbs.html %}
-  {% endif %}
-
+  {% if include.show_breadcrumbs != false %}{% include navigation/ts-breadcrumbs.html %}{% endif %}
   <main class="ts-main-content" role="main" id="main-content" aria-label="Main content">
     {{ include.body | default: content }}
   </main>
-
   {% include layout/footer.html %}
+  {% include components/c-sticky-mobile-cta.html %}
   {% include components/a11y-toolbar.html %}
   {% include layout/scripts.html %}
-
-  <!-- Service Worker Registration for Offline Support -->
   <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(reg => console.log('[SW] Registered:', reg.scope))
-          .catch(err => console.warn('[SW] Registration failed:', err));
-      });
-    }
+    if('serviceWorker'in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js').catch(err=>console.warn('[SW] Registration failed:',err))})}
   </script>
 </body>
 </html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favicon PNG Generator</title>
+    <style>
+        body { margin: 20px; font-family: Arial, sans-serif; background: #f0f0f0; }
+        .container { max-width: 800px; margin: 0 auto; }
+        canvas { border: 2px solid #333; margin: 10px; background: white; }
+        .info { background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+        button { padding: 10px 20px; background: #00e184; color: black; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #00b46a; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="info">
+            <h1>🎨 Trowel Favicon Generator</h1>
+            <p>Right-click each canvas and "Save Image As..." to download the PNG files.</p>
+            <button onclick="generateAll()">Generate All Sizes</button>
+        </div>
+        
+        <h3>16x16 (favicon.ico)</h3>
+        <canvas id="canvas16" width="16" height="16"></canvas>
+        
+        <h3>32x32 (favicon-32x32.png)</h3>
+        <canvas id="canvas32" width="32" height="32"></canvas>
+        
+        <h3>192x192 (android-chrome-192x192.png)</h3>
+        <canvas id="canvas192" width="192" height="192"></canvas>
+        
+        <h3>180x180 (apple-touch-icon.png)</h3>
+        <canvas id="canvas180" width="180" height="180"></canvas>
+    </div>
+
+    <script>
+        function drawTrowel(ctx, size) {
+            const scale = size / 32;
+            ctx.clearRect(0, 0, size, size);
+            
+            // Background (for apple touch icon)
+            if (size === 180) {
+                ctx.fillStyle = '#181a1b';
+                ctx.beginPath();
+                ctx.roundRect(0, 0, size, size, 20);
+                ctx.fill();
+            }
+            
+            // Blade gradient
+            const bladeGradient = ctx.createLinearGradient(0, 0, size, size);
+            bladeGradient.addColorStop(0, '#00e184');
+            bladeGradient.addColorStop(1, '#00b46a');
+            
+            // Trowel blade (triangle)
+            ctx.fillStyle = bladeGradient;
+            ctx.strokeStyle = '#00b46a';
+            ctx.lineWidth = Math.max(1, scale * 1);
+            
+            ctx.beginPath();
+            ctx.moveTo(size * 0.5, size * 0.125);  // Top
+            ctx.lineTo(size * 0.8125, size * 0.625); // Right
+            ctx.lineTo(size * 0.5, size * 0.75);     // Bottom
+            ctx.lineTo(size * 0.1875, size * 0.625); // Left
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+            
+            // Center line
+            ctx.strokeStyle = '#00b46a';
+            ctx.globalAlpha = 0.4;
+            ctx.lineWidth = Math.max(1, scale * 0.5);
+            ctx.beginPath();
+            ctx.moveTo(size * 0.5, size * 0.125);
+            ctx.lineTo(size * 0.5, size * 0.72);
+            ctx.stroke();
+            ctx.globalAlpha = 1;
+            
+            // Handle gradient
+            const handleGradient = ctx.createLinearGradient(0, size * 0.7, 0, size * 0.9);
+            handleGradient.addColorStop(0, '#d4af37');
+            handleGradient.addColorStop(1, '#9c7a14');
+            
+            // Handle
+            ctx.fillStyle = handleGradient;
+            ctx.strokeStyle = '#9c7a14';
+            ctx.lineWidth = Math.max(1, scale * 0.5);
+            
+            const handleX = size * 0.46875;
+            const handleY = size * 0.71875;
+            const handleWidth = size * 0.0625;
+            const handleHeight = size * 0.175;
+            
+            ctx.beginPath();
+            ctx.roundRect(handleX, handleY, handleWidth, handleHeight, scale * 0.5);
+            ctx.fill();
+            ctx.stroke();
+            
+            // Grip lines (only for larger sizes)
+            if (size >= 32) {
+                ctx.strokeStyle = '#9c7a14';
+                ctx.globalAlpha = 0.5;
+                ctx.lineWidth = Math.max(1, scale * 0.4);
+                
+                const gripY1 = size * 0.76;
+                const gripY2 = size * 0.82;
+                const gripY3 = size * 0.88;
+                const gripX1 = size * 0.47;
+                const gripX2 = size * 0.53;
+                
+                [gripY1, gripY2, gripY3].forEach(y => {
+                    ctx.beginPath();
+                    ctx.moveTo(gripX1, y);
+                    ctx.lineTo(gripX2, y);
+                    ctx.stroke();
+                });
+                ctx.globalAlpha = 1;
+            }
+        }
+        
+        function generateAll() {
+            ['16', '32', '192', '180'].forEach(size => {
+                const canvas = document.getElementById('canvas' + size);
+                const ctx = canvas.getContext('2d');
+                drawTrowel(ctx, parseInt(size));
+            });
+            alert('All favicons generated! Right-click each canvas to save.');
+        }
+        
+        // Auto-generate on load
+        window.onload = generateAll;
+    </script>
+</body>
+</html>
