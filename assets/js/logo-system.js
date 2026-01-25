@@ -543,11 +543,11 @@
       if (typeof console !== 'undefined') {
         if (typeof window !== 'undefined' && console.log.toString().includes('native')) {
           // Browser console with enhanced styling
-          // // // // // // console.log(`%c${prefix}%c ${message}`, styles[level] || styles.info, 'color: inherit;'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
+          // // // // // // // console.log(`%c${prefix}%c ${message}`, styles[level] || styles.info, 'color: inherit;'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
         } else {
           // Node.js or basic console
           const icons = { info: 'ℹ️', warn: '⚠️', error: '❌', success: '✅' };
-          // // // // // // console.log(`${icons[level] || ''} ${prefix} ${message}`); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
+          // // // // // // // console.log(`${icons[level] || ''} ${prefix} ${message}`); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
         }
       }
     }
@@ -562,22 +562,22 @@
       
       if (typeof window !== 'undefined' && console.log.toString().includes('native')) {
         // Rich browser console
-        // // // // // // console.log(
+        // // // // // // // console.log(
           `%c${this.config.ascii.compact}`,
           `color: ${isDark ? '#2dd4bf' : '#1a3d2e'}; font-family: monospace; font-size: 10px;`
-        ); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
-        // // // // // // console.log(
+        ); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
+        // // // // // // // console.log(
           `%c🔧 TillerPro v2.0 %c| Expert Tile Installation Tools`,
           'color: #c9a227; font-weight: bold; font-size: 12px;',
           'color: #6b7280; font-size: 11px;'
-        ); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
-        // // // // // // console.log(
-          `%c© ${new Date() // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED.getFullYear()} Tillerstead LLC | NJ HIC #13VH10808800`,
+        ); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
+        // // // // // // // console.log(
+          `%c© ${new Date() // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED.getFullYear()} Tillerstead LLC | NJ HIC #13VH10808800`,
           'color: #9ca3af; font-size: 10px;'
         );
       } else {
         // Node.js/CLI with ANSI colors
-        // // // // // // console.log(this.getColoredAscii(isDark) // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED);
+        // // // // // // // console.log(this.getColoredAscii(isDark) // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED);
       }
     }
 

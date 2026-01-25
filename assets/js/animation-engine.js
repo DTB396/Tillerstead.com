@@ -699,7 +699,7 @@
       this.injectStyles();
 
       if (CONFIG.debug) {
-        // // // // // // console.log('✨ Tillerstead Animation Engine initialized'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
+        // // // // // // // console.log('✨ Tillerstead Animation Engine initialized'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
       }
     }
 

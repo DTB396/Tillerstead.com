@@ -292,7 +292,7 @@
   const handleResize = debounce(() => {
     // Placeholder for recalculating size-dependent features
     // All recalculations must be TCNA/New Jersey HIC compliant
-    // // // // // // // console.log('Window resized, recalculating...'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
+    // // // // // // // // console.log('Window resized, recalculating...'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
   }, 250);
 
   window.addEventListener('resize', handleResize);

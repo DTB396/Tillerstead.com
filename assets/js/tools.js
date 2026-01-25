@@ -4379,7 +4379,7 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     } catch (e) {
-      // // // // // // console.warn('Could not save to localStorage:', e); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
+      // // // // // // // console.warn('Could not save to localStorage:', e); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
     }
   }, 500);
 
@@ -4402,7 +4402,7 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
         return true;
       }
     } catch (e) {
-      // // // // // // console.warn('Could not load from localStorage:', e); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
+      // // // // // // // console.warn('Could not load from localStorage:', e); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
     }
     return false;
   }
@@ -6077,7 +6077,7 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
           break;
       }
     } catch (e) {
-      // // // // // // console.warn('Auto-calculate error:', e); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
+      // // // // // // // console.warn('Auto-calculate error:', e); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
     }
     
     // Update preview if we have a result
@@ -6169,7 +6169,7 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
         exportJson,
         resetProject
       };
-      // // // // // // console.log('Tillerstead Tools loaded. Access via window.TillersteadTools'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
+      // // // // // // // console.log('Tillerstead Tools loaded. Access via window.TillersteadTools'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
     }
   }
 

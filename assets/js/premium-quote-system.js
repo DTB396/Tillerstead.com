@@ -438,7 +438,7 @@
 
     showToast(message, type = 'info') {
       // Use existing toast system or create simple one
-      // // // // // // console.log(`[${type}] ${message}`); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
+      // // // // // // // console.log(`[${type}] ${message}`); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
     }
   }
 

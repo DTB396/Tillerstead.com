@@ -289,7 +289,7 @@ class AppShell {
           const entries = list.getEntries();
           const lastEntry = entries[entries.length - 1];
           
-          // // // // // // console.log('[Performance] LCP:', lastEntry.renderTime || lastEntry.loadTime); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
+          // // // // // // // console.log('[Performance] LCP:', lastEntry.renderTime || lastEntry.loadTime); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
           
           if (typeof gtag !== 'undefined') {
             gtag('event', 'web_vitals', {
@@ -311,7 +311,7 @@ class AppShell {
         const inpObserver = new PerformanceObserver((list) => {
           const entries = list.getEntries();
           entries.forEach(entry => {
-            // // // // // // console.log('[Performance] INP:', entry.processingStart - entry.startTime); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
+            // // // // // // // console.log('[Performance] INP:', entry.processingStart - entry.startTime); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
           });
         });
         
@@ -330,7 +330,7 @@ class AppShell {
             }
           }
           
-          // // // // // // console.log('[Performance] CLS:', clsValue); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
+          // // // // // // // console.log('[Performance] CLS:', clsValue); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
         });
         
         clsObserver.observe({ entryTypes: ['layout-shift'] });
