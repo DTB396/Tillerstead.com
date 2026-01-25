@@ -12,7 +12,7 @@
     document.body.style.height = 'auto';
     document.body.style.touchAction = 'pan-y';
     
-    console.log('[SCROLL FIX] Scrolling enabled');
+    // console.log('[SCROLL FIX] Scrolling enabled'); // AUTO-DISABLED
   });
   
   // Prevent scripts from disabling scroll
@@ -20,7 +20,7 @@
   Event.prototype.preventDefault = function() {
     // Don't prevent scroll events
     if (this.type === 'wheel' || this.type === 'touchmove' || this.type === 'scroll') {
-      console.warn('[SCROLL FIX] Blocked preventDefault on scroll event');
+      // console.warn('[SCROLL FIX] Blocked preventDefault on scroll event'); // AUTO-DISABLED
       return;
     }
     return originalPreventDefault.apply(this, arguments);
@@ -38,5 +38,5 @@
     }
   });
   
-  console.log('[SCROLL FIX] Scroll enabler loaded');
+  // console.log('[SCROLL FIX] Scroll enabler loaded'); // AUTO-DISABLED
 })();

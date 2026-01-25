@@ -1,9 +1,4 @@
-/* =
-   Footer Styles - Tillerstead Design System
-   Modern, clean footer with seamless integration
-   = */
 
-/* Main Footer Container */
 .ts-footer {
   background: linear-gradient(180deg, var(--tiller-bg-stone, #222524) 0%, var(--tiller-bg-darker, #121414) 100%);
   padding: 2.5rem 0 1rem;
@@ -12,19 +7,15 @@
   color: #ffffff;
   font-size: 0.9375rem;
 }
-
 .footer-main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--tiller-spacing-md, 1rem);
 }
-
-/* Logo Section */
 .footer-logo-section {
   text-align: center;
   margin-bottom: var(--tiller-spacing-md, 1rem);
 }
-
 .footer-logo,
 .footer-logo--large {
   display: block;
@@ -33,49 +24,36 @@
   width: min(320px, 100%);
   object-fit: contain;
   margin: 0 auto var(--tiller-spacing-md, 1rem);
-
-  /* CRITICAL: Remove all background/border effects that create the black box */
   background: transparent !important;
   background-color: transparent !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   border: none !important;
   padding: 0;
-
-  /* White solid bright with emerald glow */
   filter: brightness(1.1) drop-shadow(0 4px 12px rgb(16 185 129 / 40%));
   transition: transform 0.3s ease, filter 0.3s ease;
 }
-
 .footer-logo:hover,
 .footer-logo--large:hover {
   transform: scale(1.05);
-
-  /* Gold glow on hover */
   filter: brightness(1.2) drop-shadow(0 6px 20px rgb(201 162 39 / 70%));
 }
-
 .footer-tagline {
   color: var(--tiller-color-gold, #c9a227);
   font-size: 1rem;
   font-weight: 500;
   margin: 0;
 }
-
-/* Navigation Grid */
 .footer-nav-grid {
   width: 100%;
   margin-bottom: var(--tiller-spacing-md, 1rem);
 }
-
-/* Service Areas - Full Width Top */
 .footer-group--service-areas {
   text-align: center;
   margin-bottom: var(--tiller-spacing-md, 1rem);
   padding-bottom: var(--tiller-spacing-sm, 0.5rem);
   border-bottom: 1px solid rgb(201 162 39 / 20%);
 }
-
 .footer-list--horizontal {
   display: flex;
   flex-wrap: wrap;
@@ -85,12 +63,9 @@
   margin: 0;
   list-style: none;
 }
-
 .footer-list--horizontal li {
   margin: 0;
 }
-
-/* Three Column Layout */
 .footer-columns {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -99,12 +74,9 @@
   max-width: 1000px;
   margin: 0 auto;
 }
-
-/* Individual Footer Groups */
 .footer-group {
   min-width: 0;
 }
-
 .footer-group-title {
   color: var(--tiller-color-gold, #c9a227);
   font-size: 1rem;
@@ -115,17 +87,12 @@
   padding-bottom: var(--tiller-spacing-xs, 0.25rem);
   border-bottom: 1px solid rgb(201 162 39 / 30%);
 }
-
-/* Learn Column - Left Aligned */
 .footer-group--learn {
   text-align: left;
 }
-
-/* Build Guides - Center */
 .footer-group--build-guides {
   text-align: center;
 }
-
 .footer-list--two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -134,57 +101,45 @@
   margin: 0;
   list-style: none;
 }
-
-/* Company Column - Right Aligned */
 .footer-group--company {
   text-align: right;
 }
-
-/* Standard Footer List */
 .footer-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .footer-list li {
   margin-bottom: var(--tiller-spacing-xs, 0.375rem);
 }
-
 .footer-list a {
   color: #ffffff;
   text-decoration: none;
   transition: color 0.2s ease, text-shadow 0.2s ease;
   display: inline-block;
 }
-
 .footer-list a:hover,
 .footer-list a:focus {
   color: var(--tiller-color-gold, #c9a227);
   text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%);
   text-decoration: underline;
 }
-
-/* Contact Section */
 .footer-contact {
   text-align: center;
   padding: var(--tiller-spacing-md, 1rem) 0;
   border-top: 1px solid rgb(201 162 39 / 20%);
   margin-top: var(--tiller-spacing-md, 1rem);
 }
-
 .footer-contact .footer-group-title {
   border-bottom: none;
   margin-bottom: var(--tiller-spacing-xs, 0.25rem);
 }
-
 .footer-license {
   color: var(--tiller-color-emerald, #10b981);
   font-weight: 600;
   font-size: 0.9375rem;
   margin: 0 0 var(--tiller-spacing-sm, 0.5rem);
 }
-
 .footer-address {
   font-style: normal;
   color: var(--tiller-text-secondary, #e5e7eb);
@@ -192,12 +147,10 @@
   margin: 0 0 var(--tiller-spacing-sm, 0.5rem);
   line-height: 1.5;
 }
-
 .footer-contact-phone,
 .footer-contact-email {
   margin: var(--tiller-spacing-xs, 0.25rem) 0;
 }
-
 .footer-contact-phone a,
 .footer-contact-email a {
   color: #ffffff;
@@ -205,15 +158,12 @@
   text-decoration: none;
   transition: color 0.2s ease, text-shadow 0.2s ease;
 }
-
 .footer-contact-phone a:hover,
 .footer-contact-email a:hover {
   color: var(--tiller-color-gold, #c9a227);
   text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%);
   text-decoration: underline;
 }
-
-/* Bottom Bar */
 .footer-bottom {
   display: flex;
   flex-wrap: wrap;
@@ -224,13 +174,10 @@
   border-top: 1px solid rgb(201 162 39 / 20%);
   margin-top: var(--tiller-spacing-sm, 0.5rem);
 }
-
-/* Social Links */
 .footer-social {
   display: flex;
   gap: var(--tiller-spacing-md, 1rem);
 }
-
 .footer-social a {
   display: flex;
   align-items: center;
@@ -242,27 +189,21 @@
   color: var(--tiller-text-primary, #ffffff);
   transition: all 0.2s ease;
 }
-
 .footer-social a:hover,
 .footer-social a:focus {
   background: var(--tiller-color-gold, #c9a227);
   color: var(--tiller-bg-darkest, #0a0c0a);
   transform: translateY(-2px);
 }
-
 .footer-social svg {
   width: 20px;
   height: 20px;
   fill: currentcolor;
 }
-
-/* Ensure stroke icons (like thumbtack) are visible */
 .footer-social a svg[stroke] {
   stroke: currentcolor;
   fill: none;
 }
-
-/* Legal Links */
 .footer-legal {
   display: flex;
   flex-wrap: wrap;
@@ -271,8 +212,6 @@
   color: var(--tiller-text-muted, #6b7280);
   font-size: 0.8125rem;
 }
-
-/* NJ HIC Compliance Badge */
 .footer-compliance {
   display: flex;
   align-items: center;
@@ -285,161 +224,122 @@
   font-size: 0.8125rem;
   font-weight: 500;
 }
-
 .footer-compliance svg {
   width: 16px;
   height: 16px;
   color: var(--tiller-color-gold, #c9a227);
 }
-
 .footer-legal a {
   color: #ffffff;
   text-decoration: none;
   transition: color 0.2s ease, text-shadow 0.2s ease;
 }
-
 .footer-legal a:hover {
   color: var(--tiller-color-gold, #c9a227);
   text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%);
 }
-
 .footer-divider {
   color: var(--tiller-text-muted, #6b7280);
 }
-
 .footer-copyright {
   color: var(--tiller-text-muted, #6b7280);
 }
-
-/* =
-   Responsive Styles
-   = */
-
 @media (max-width: 900px) {
   .footer-columns {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--tiller-spacing-lg, 1.5rem);
+  grid-template-columns: 1fr 1fr;
+  gap: var(--tiller-spacing-lg, 1.5rem);
   }
-  
   .footer-group--learn {
-    text-align: left;
-    justify-self: end;
+  text-align: left;
+  justify-self: end;
   }
-  
   .footer-group--company {
-    text-align: left;
-    justify-self: start;
+  text-align: left;
+  justify-self: start;
   }
-  
   .footer-group--build-guides {
-    grid-column: 1 / -1;
-    text-align: center;
-    order: -1;
-    margin-bottom: var(--tiller-spacing-md, 1rem);
-    padding-bottom: var(--tiller-spacing-md, 1rem);
-    border-bottom: 1px solid rgb(201 162 39 / 15%);
+  grid-column: 1 / -1;
+  text-align: center;
+  order: -1;
+  margin-bottom: var(--tiller-spacing-md, 1rem);
+  padding-bottom: var(--tiller-spacing-md, 1rem);
+  border-bottom: 1px solid rgb(201 162 39 / 15%);
   }
-  
   .footer-logo--large {
-    max-width: 160px;
+  max-width: 160px;
   }
 }
-
 @media (max-width: 600px) {
   .ts-footer {
-    padding-top: var(--tiller-spacing-lg, 1.5rem);
+  padding-top: var(--tiller-spacing-lg, 1.5rem);
   }
-  
   .footer-main {
-    padding: 0 var(--tiller-spacing-md, 1rem);
+  padding: 0 var(--tiller-spacing-md, 1rem);
   }
-  
   .footer-columns {
-    grid-template-columns: 1fr;
-    gap: var(--tiller-spacing-lg, 1.5rem);
-    text-align: center;
+  grid-template-columns: 1fr;
+  gap: var(--tiller-spacing-lg, 1.5rem);
+  text-align: center;
   }
-  
   .footer-group--learn,
   .footer-group--company,
   .footer-group--build-guides {
-    text-align: center;
-    justify-self: center;
+  text-align: center;
+  justify-self: center;
   }
-  
   .footer-group--build-guides {
-    order: 0;
-    border-bottom: none;
+  order: 0;
+  border-bottom: none;
   }
-  
   .footer-list--horizontal {
-    flex-direction: column;
-    gap: var(--tiller-spacing-xs, 0.375rem);
+  flex-direction: column;
+  gap: var(--tiller-spacing-xs, 0.375rem);
   }
-  
   .footer-list--two-col {
-    grid-template-columns: 1fr;
-    text-align: center;
+  grid-template-columns: 1fr;
+  text-align: center;
   }
-  
   .footer-logo--large {
-    max-width: 140px;
+  max-width: 140px;
   }
-  
   .footer-bottom {
-    flex-direction: column;
-    text-align: center;
+  flex-direction: column;
+  text-align: center;
   }
-  
   .footer-legal {
-    justify-content: center;
+  justify-content: center;
   }
 }
-
-/* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   .footer-social a,
   .footer-list a,
   .footer-contact-phone a,
   .footer-contact-email a {
-    transition: none;
+  transition: none;
   }
-  
   .footer-social a:hover {
-    transform: none;
+  transform: none;
   }
 }
-
-/* =
-   Brand Section (Upgraded 2026)
-   = */
 .footer-brand {
   text-align: center;
   margin-bottom: var(--tiller-spacing-lg, 1.5rem);
 }
-
 .footer-logo-link {
   display: inline-block;
   transition: transform 0.3s ease;
 }
-
 .footer-logo-link:hover {
   transform: scale(1.03);
 }
-
 .footer-brand-text {
   margin-top: var(--tiller-spacing-sm, 0.5rem);
 }
-
 .footer-service-tagline {
   color: var(--tiller-text-secondary, #e5e7eb);
   font-size: 0.875rem;
   margin: var(--tiller-spacing-xs, 0.25rem) 0 0;
 }
-
-/* =
-   Footer Icons for Section Headers
-   = */
 .footer-icon {
   display: inline-block;
   width: 16px;
@@ -448,26 +348,16 @@
   vertical-align: middle;
   opacity: 80%;
 }
-
 .footer-group-title .footer-icon {
   color: var(--tiller-color-gold, #c9a227);
 }
-
-/* =
-   Footer Navigation (Upgraded)
-   = */
 .footer-nav {
   width: 100%;
   margin-bottom: var(--tiller-spacing-md, 1rem);
 }
-
 .footer-group--guides {
   text-align: center;
 }
-
-/* =
-   Contact Grid (Upgraded)
-   = */
 .footer-contact-grid {
   display: flex;
   flex-wrap: wrap;
@@ -476,7 +366,6 @@
   gap: var(--tiller-spacing-md, 1rem) var(--tiller-spacing-xl, 2rem);
   margin-top: var(--tiller-spacing-md, 1rem);
 }
-
 .footer-contact-link {
   display: inline-flex;
   align-items: center;
@@ -486,23 +375,16 @@
   text-decoration: none;
   transition: color 0.2s ease, text-shadow 0.2s ease;
 }
-
 .footer-contact-link:hover,
 .footer-contact-link:focus {
   color: var(--tiller-color-gold, #c9a227);
   text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%);
 }
-
-/* Address in contact grid uses flexbox layout */
 .footer-contact .footer-address {
   display: inline-flex;
   align-items: flex-start;
   gap: 0.5rem;
 }
-
-/* =
-   Credential Badge (License)
-   = */
 .footer-credential {
   display: inline-flex;
   align-items: center;
@@ -513,12 +395,10 @@
   border-radius: 6px;
   color: var(--tiller-color-emerald, #10b981);
 }
-
 .footer-credential-icon {
   color: var(--tiller-color-emerald, #10b981);
   flex-shrink: 0;
 }
-
 .footer-credential-label {
   display: block;
   font-size: 0.75rem;
@@ -526,23 +406,17 @@
   letter-spacing: 0.05em;
   opacity: 90%;
 }
-
 .footer-credential-value {
   display: block;
   font-weight: 700;
   font-size: 0.9375rem;
 }
-
-/* =
-   Trust Badges (New)
-   = */
 .footer-trust {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--tiller-spacing-sm, 0.5rem) var(--tiller-spacing-md, 1rem);
 }
-
 .footer-trust-badge {
   display: inline-flex;
   align-items: center;
@@ -557,15 +431,10 @@
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
-
 .footer-trust-badge svg {
   color: var(--tiller-color-gold, #c9a227);
   flex-shrink: 0;
 }
-
-/* =
-   Social Links (Upgraded)
-   = */
 .footer-social-link {
   display: flex;
   align-items: center;
@@ -577,50 +446,36 @@
   color: var(--tiller-text-secondary, #e5e7eb);
   transition: all 0.2s ease;
 }
-
 .footer-social-link:hover,
 .footer-social-link:focus {
   background: var(--tiller-color-gold, #c9a227);
   color: var(--tiller-bg-darkest, #0a0c0a);
   transform: translateY(-2px);
 }
-
-/* =
-   Responsive Upgrades
-   = */
 @media (max-width: 768px) {
   .footer-contact-grid {
-    flex-direction: column;
-    gap: var(--tiller-spacing-md, 1rem);
+  flex-direction: column;
+  gap: var(--tiller-spacing-md, 1rem);
   }
-  
   .footer-trust {
-    flex-direction: column;
-    align-items: center;
+  flex-direction: column;
+  align-items: center;
   }
-  
   .footer-credential {
-    flex-direction: column;
-    text-align: center;
+  flex-direction: column;
+  text-align: center;
   }
 }
-
 @media (max-width: 600px) {
   .footer-brand .footer-logo {
-    width: 160px;
-    height: 160px;
+  width: 160px;
+  height: 160px;
   }
-  
   .footer-trust-badge {
-    font-size: 0.6875rem;
-    padding: 0.25rem 0.5rem;
+  font-size: 0.6875rem;
+  padding: 0.25rem 0.5rem;
   }
 }
-
-/* =
-   CRITICAL OVERRIDES - FIX BLACK BOX ON LOGO
-   These override any compiled styles from main.css
-   = */
 .nav-logo,
 .footer-logo,
 img.footer-logo,

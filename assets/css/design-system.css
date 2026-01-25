@@ -1,4 +1,3 @@
-/* ===== COLOR SYSTEM: Emerald Green & Gold ===== */
 
 :root {
   --tiller-color-emerald: #00e184;
@@ -15,23 +14,12 @@
   --tiller-text-secondary: #e5e7eb;
   --tiller-color-highlight: var(--tiller-color-emerald);
 }
-
-
-/* =
-  Tillerstead Premium Design System
-  Unified button, component, and interaction library
-  = */
-
-/* ===== BUTTON SYSTEM ===== */
-
-/* Base button - all buttons inherit from this */
 .ts-btn {
   --btn-radius: var(--tiller-border-radius-md, 8px);
   --btn-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --btn-shadow: 0 1px 2px rgb(0 0 0 / 5%);
   --btn-shadow-hover: 0 4px 12px rgb(0 0 0 / 15%);
   --btn-shadow-active: 0 2px 4px rgb(0 0 0 / 10%);
-  
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -53,34 +41,25 @@
   position: relative;
   overflow: hidden;
 }
-
-/* Focus states for accessibility */
 .ts-btn:focus-visible {
   outline: 3px solid var(--tiller-color-highlight, #60a5fa);
   outline-offset: 2px;
 }
-
-/* Disabled state */
 .ts-btn:disabled,
 .ts-btn[aria-disabled="true"] {
   opacity: 50%;
   cursor: not-allowed;
   pointer-events: none;
 }
-
-/* Active/pressed state */
 .ts-btn:active:not(:disabled) {
   transform: translateY(1px) scale(0.98);
   box-shadow: var(--btn-shadow-active);
 }
-
-/* Loading state */
 .ts-btn--loading {
   position: relative;
   color: transparent !important;
   pointer-events: none;
 }
-
 .ts-btn--loading::after {
   content: '';
   position: absolute;
@@ -94,159 +73,119 @@
   border-right-color: transparent;
   animation: ts-btn-spin 0.6s linear infinite;
 }
-
 @keyframes ts-btn-spin {
   to { transform: rotate(360deg); }
 }
-
-/* ===== BUTTON VARIANTS ===== */
-
-/* Primary - main CTAs */
 .ts-btn--primary {
   background: linear-gradient(135deg, var(--tiller-color-gold, #d4af37) 0%, var(--tiller-color-gold-dark, #9c7a14) 100%);
   color: var(--tiller-text-primary, #000000);
   border-color: var(--tiller-color-gold-dark, #9c7a14);
 }
-
 .ts-btn--primary:hover:not(:disabled) {
   background: linear-gradient(135deg, var(--tiller-color-gold-bright, #ffe585) 0%, var(--tiller-color-gold, #d4af37) 100%);
   box-shadow: var(--btn-shadow-hover);
   transform: translateY(-2px);
 }
-
-/* Secondary - supporting actions */
 .ts-btn--secondary {
   background: var(--tiller-color-emerald, #00e184);
   color: var(--tiller-text-primary, #000000);
   border-color: var(--tiller-color-emerald-dark, #00b46a);
 }
-
 .ts-btn--secondary:hover:not(:disabled) {
   background: var(--tiller-color-emerald-light, #3bf0aa);
   box-shadow: var(--btn-shadow-hover);
   transform: translateY(-2px);
 }
-
-/* Ghost/Outline - tertiary actions */
 .ts-btn--ghost {
   background: transparent;
   color: var(--tiller-color-gold, #d4af37);
   border-color: var(--tiller-color-gold, #d4af37);
 }
-
 .ts-btn--ghost:hover:not(:disabled) {
   background: var(--tiller-color-gold, #d4af37);
   color: var(--tiller-text-primary, #000000);
   box-shadow: var(--btn-shadow-hover);
 }
-
-/* Outline light - for dark backgrounds */
 .ts-btn--outline-light {
   background: transparent;
   color: var(--tiller-text-light, #ffffff);
   border-color: var(--tiller-text-light, #ffffff);
 }
-
 .ts-btn--outline-light:hover:not(:disabled) {
   background: var(--tiller-text-light, #ffffff);
   color: var(--tiller-bg-dark, #000000);
   box-shadow: var(--btn-shadow-hover);
 }
-
-/* White buttons on dark backgrounds */
 .ts-btn--white {
   background: var(--tiller-text-light, #ffffff);
   color: var(--tiller-bg-dark, #000000);
   border-color: var(--tiller-text-light, #ffffff);
 }
-
 .ts-btn--white:hover:not(:disabled) {
   background: var(--tiller-color-gold-bright, #ffe585);
   color: var(--tiller-bg-dark, #000000);
   box-shadow: var(--btn-shadow-hover);
 }
-
-/* Danger/destructive actions */
 .ts-btn--danger {
   background: var(--tiller-color-error, #f87171);
   color: var(--tiller-text-light, #ffffff);
   border-color: var(--tiller-color-coral-dark, #ef4444);
 }
-
 .ts-btn--danger:hover:not(:disabled) {
   background: var(--tiller-color-coral-dark, #ef4444);
   box-shadow: var(--btn-shadow-hover);
   transform: translateY(-2px);
 }
-
-/* Success actions */
 .ts-btn--success {
   background: var(--tiller-color-success, #00e184);
   color: var(--tiller-text-primary, #000000);
   border-color: var(--tiller-color-emerald-dark, #00b46a);
 }
-
-/* ===== BUTTON SIZES ===== */
 .ts-btn--sm {
   padding: 0.5em 1.25em;
   font-size: 0.875rem;
 }
-
 .ts-btn--lg {
   padding: 1em 2.5em;
   font-size: 1.125rem;
 }
-
 .ts-btn--xl {
   padding: 1.25em 3em;
   font-size: 1.25rem;
 }
-
-/* Icon-only buttons */
 .ts-btn--icon {
   padding: 0.5em;
   aspect-ratio: 1;
   border-radius: 50%;
 }
-
-/* Full width on mobile */
 .ts-btn--full {
   width: 100%;
 }
-
 @media (max-width: 640px) {
   .ts-btn--full-mobile {
-    width: 100%;
+  width: 100%;
   }
 }
-
-/* ===== BUTTON GROUPS ===== */
 .ts-btn-group {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
 }
-
 .ts-btn-group--vertical {
   flex-direction: column;
 }
-
 .ts-btn-group--center {
   justify-content: center;
 }
-
 .ts-btn-group--end {
   justify-content: flex-end;
 }
-
-/* ===== CARD SYSTEM ===== */
 .ts-card {
   --card-bg: var(--tiller-bg-card, #161616);
   --card-radius: var(--tiller-border-radius-lg, 12px);
   --card-shadow: 0 1px 3px rgb(0 0 0 / 10%), 0 1px 2px rgb(0 0 0 / 6%);
   --card-shadow-hover: 0 10px 25px rgb(0 0 0 / 15%), 0 4px 10px rgb(0 0 0 / 10%);
   --card-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  
   background: var(--card-bg);
   border-radius: var(--card-radius);
   box-shadow: var(--card-shadow);
@@ -255,7 +194,6 @@
   position: relative;
   overflow: hidden;
 }
-
 .ts-card::before {
   content: '';
   position: absolute;
@@ -267,79 +205,60 @@
   opacity: 0%;
   transition: opacity 0.3s ease;
 }
-
 .ts-card:hover {
   box-shadow: var(--card-shadow-hover);
   transform: translateY(-4px);
 }
-
 .ts-card:hover::before {
   opacity: 100%;
 }
-
-/* Card with interactive states */
 .ts-card--interactive {
   cursor: pointer;
 }
-
 .ts-card--interactive:focus-within {
   outline: 3px solid var(--tiller-color-highlight, #60a5fa);
   outline-offset: 2px;
 }
-
-/* Card header/footer */
 .ts-card__header {
   margin-bottom: var(--tiller-spacing-md, 1rem);
 }
-
 .ts-card__footer {
   margin-top: auto;
   padding-top: var(--tiller-spacing-md, 1rem);
   border-top: 1px solid rgb(255 255 255 / 10%);
 }
-
-/* ===== LOADING STATES ===== */
-
-/* Skeleton screens */
 .ts-skeleton {
-  background: linear-gradient(90deg, 
-    var(--tiller-bg-hover, #222222) 0%,
-    var(--tiller-bg-elevated, #0f0f0f) 50%,
-    var(--tiller-bg-hover, #222222) 100%
+  background: linear-gradient(90deg,
+  var(--tiller-bg-hover, #222222) 0%,
+  var(--tiller-bg-elevated, #0f0f0f) 50%,
+  var(--tiller-bg-hover, #222222) 100%
   );
   background-size: 200% 100%;
   animation: ts-skeleton-loading 1.5s ease-in-out infinite;
   border-radius: 4px;
 }
-
 @keyframes ts-skeleton-loading {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
-
 .ts-skeleton--text {
   height: 1em;
   margin-bottom: 0.5em;
 }
-
 .ts-skeleton--title {
   height: 2em;
   width: 60%;
   margin-bottom: 1em;
 }
-
 .ts-skeleton--avatar {
   width: 48px;
   height: 48px;
   border-radius: 50%;
 }
-
 .ts-skeleton--card {
   height: 200px;
   width: 100%;
 }
-
-/* Spinner */
 .ts-spinner {
   display: inline-block;
   width: 2em;
@@ -349,11 +268,9 @@
   border-top-color: currentcolor;
   animation: ts-spinner-spin 0.8s linear infinite;
 }
-
 @keyframes ts-spinner-spin {
   to { transform: rotate(360deg); }
 }
-
 .ts-spinner--sm {
   width: 1em;
   height: 1em;
@@ -364,130 +281,93 @@
   height: 3em;
   border-width: 4px;
 }
-
-/* ===== TRANSITIONS & ANIMATIONS ===== */
-
-/* Smooth page transitions */
 @media (prefers-reduced-motion: no-preference) {
   .ts-fade-in {
-    animation: ts-fade-in 0.4s ease-out;
+  animation: ts-fade-in 0.4s ease-out;
   }
-
   @keyframes ts-fade-in {
-    from {
-      opacity: 0%;
-      transform: translateY(10px);
-    }
-
-    to {
-      opacity: 100%;
-      transform: translateY(0);
-    }
+  from {
+  opacity: 0%;
+  transform: translateY(10px);
   }
-
+  to {
+  opacity: 100%;
+  transform: translateY(0);
+  }
+  }
   .ts-slide-up {
-    animation: ts-slide-up 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: ts-slide-up 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
-
   @keyframes ts-slide-up {
-    from {
-      opacity: 0%;
-      transform: translateY(30px);
-    }
-
-    to {
-      opacity: 100%;
-      transform: translateY(0);
-    }
+  from {
+  opacity: 0%;
+  transform: translateY(30px);
+  }
+  to {
+  opacity: 100%;
+  transform: translateY(0);
+  }
   }
 }
-
-/* Scale on hover */
 .ts-hover-lift {
   transition: transform 0.2s ease;
 }
-
 .ts-hover-lift:hover {
   transform: translateY(-4px) scale(1.02);
 }
-
-/* ===== UTILITY CLASSES ===== */
-
-/* Focus ring utility */
 .ts-focus-ring:focus-visible {
   outline: 3px solid var(--tiller-color-highlight, #60a5fa);
   outline-offset: 2px;
   border-radius: 2px;
 }
-
-/* Smooth transitions */
 .ts-transition {
   transition: all 0.2s ease;
 }
-
 .ts-transition-fast {
   transition: all 0.1s ease;
 }
-
 .ts-transition-slow {
   transition: all 0.4s ease;
 }
-
-/* Interactive state utilities */
 .ts-interactive {
   cursor: pointer;
   user-select: none;
 }
-
 .ts-interactive:active {
   transform: scale(0.98);
 }
-
-/* Backdrop blur (for modals, tooltips) */
 .ts-backdrop {
   backdrop-filter: blur(8px) saturate(180%);
   background: rgb(0 0 0 / 40%);
 }
-
-/* Text shimmer effect */
 @media (prefers-reduced-motion: no-preference) {
   .ts-text-shimmer {
-    background: linear-gradient(90deg,
-      var(--tiller-color-gold, #d4af37) 0%,
-      var(--tiller-color-gold-bright, #ffe585) 50%,
-      var(--tiller-color-gold, #d4af37) 100%
-    );
-    background-size: 200% auto;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: ts-shimmer 3s linear infinite;
+  background: linear-gradient(90deg,
+  var(--tiller-color-gold, #d4af37) 0%,
+  var(--tiller-color-gold-bright, #ffe585) 50%,
+  var(--tiller-color-gold, #d4af37) 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: ts-shimmer 3s linear infinite;
   }
-
   @keyframes ts-shimmer {
-    to { background-position: 200% center; }
+  to { background-position: 200% center; }
   }
 }
-
-/* ===== RESPONSIVE UTILITIES ===== */
-
-/* Show/hide based on screen size */
 @media (max-width: 640px) {
   .ts-hide-mobile { display: none !important; }
 }
-
 @media (min-width: 641px) {
   .ts-show-mobile { display: none !important; }
 }
-
 @media (max-width: 768px) {
   .ts-hide-tablet { display: none !important; }
 }
-
 @media (min-width: 769px) {
   .ts-show-tablet { display: none !important; }
 }
-
-/* ===== BACK TO TOP BUTTON ===== */
 .ts-back-to-top {
   position: fixed;
   bottom: 2rem;
@@ -506,42 +386,32 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .ts-back-to-top:hover {
   transform: translateY(-4px) scale(1.05);
   box-shadow: 0 8px 20px rgb(0 0 0 / 40%);
 }
-
 .ts-back-to-top:active {
   transform: translateY(-2px) scale(1.02);
 }
-
 .ts-back-to-top svg {
   width: 24px;
   height: 24px;
 }
-
-/* ===== PAGE TRANSITIONS ===== */
 body {
   transition: opacity 0.3s ease;
 }
-
 body.page-transition-out {
   opacity: 0%;
 }
-
 body.page-transition-in {
   opacity: 0%;
   animation: ts-page-fade-in 0.3s ease-out forwards;
 }
-
 @keyframes ts-page-fade-in {
   to {
-    opacity: 100%;
+  opacity: 100%;
   }
 }
-
-/* ===== SCROLL PROGRESS BAR ===== */
 .ts-scroll-progress {
   position: fixed;
   top: 0;
@@ -553,24 +423,20 @@ body.page-transition-in {
   transition: width 0.1s ease-out;
   box-shadow: 0 0 10px currentcolor;
 }
-
-/* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
   }
-  
   .ts-back-to-top:hover {
-    transform: none;
+  transform: none;
   }
-  
   body.page-transition-out,
   body.page-transition-in {
-    animation: none;
-    opacity: 100%;
+  animation: none;
+  opacity: 100%;
   }
 }

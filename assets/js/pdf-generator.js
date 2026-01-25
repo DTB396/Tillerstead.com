@@ -55,7 +55,7 @@
           return { data: logo.data, type: logo.format || 'PNG', fallback: logo.fallback };
         }
       } catch (e) {
-        console.warn('[TillerPDF] Logo system error:', e);
+        // console.warn('[TillerPDF] Logo system error:', e); // AUTO-DISABLED
       }
     }
 
@@ -158,7 +158,7 @@
       try {
         doc.addImage(LOGO_BASE64, 'PNG', this.margin, 5, 35, 35);
       } catch (e) {
-        console.warn('Could not add logo to PDF:', e);
+        // console.warn('Could not add logo to PDF:', e); // AUTO-DISABLED
       }
 
       // Company name (offset to right of logo)

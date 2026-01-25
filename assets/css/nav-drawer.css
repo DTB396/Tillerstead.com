@@ -1,23 +1,9 @@
-/* =
-   Mobile Navigation Drawer - Tillerstead
-   Uses variables from root-vars.css
-   2026 Mobile-First Responsive Design
-   = */
 
 :root {
-  /* Drawer-specific variables */
   --mobile-nav-width: min(420px, 90vw);
   --drawer-shadow: -10px 0 60px rgb(0 0 0 / 15%);
   --drawer-transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* =
-   Mobile Navigation Drawer
-   = */
-
-/* Drawer base - LEGACY: styles now in navigation.css */
-
-/* .mobile-nav is handled by navigation.css */
 .nav-drawer {
   position: fixed;
   top: 0;
@@ -35,22 +21,14 @@
   transition: var(--drawer-transition);
   pointer-events: none;
 }
-
-/* Open state - only for .nav-drawer legacy class */
 .nav-drawer.is-open {
   transform: translateX(0);
   pointer-events: auto;
 }
-
-/* Prevent background scroll - SIMPLIFIED to avoid stacking context issues */
-
-/* Note: position: fixed on body was causing mobile nav to be hidden behind content */
 body.nav-open {
   overflow: hidden !important;
   touch-action: none;
 }
-
-/* Drawer Content */
 .mobile-nav-shell {
   display: flex;
   flex-direction: column;
@@ -59,7 +37,6 @@ body.nav-open {
   min-height: 100%;
   padding: var(--tiller-spacing-xl, 3rem) 0 env(safe-area-inset-bottom, 2rem);
 }
-
 .mobile-nav-list {
   list-style: none;
   padding: 0;
@@ -69,17 +46,13 @@ body.nav-open {
   flex-direction: column;
   gap: 0;
 }
-
 .mobile-nav-list li {
   width: 100%;
   border-bottom: 1px solid rgb(255 255 255 / 10%);
 }
-
 .mobile-nav-list li:last-child {
   border-bottom: none;
 }
-
-/* Links in Mobile Menu */
 .mobile-nav-list a {
   display: flex;
   align-items: center;
@@ -91,41 +64,29 @@ body.nav-open {
   text-decoration: none;
   border-left: 4px solid transparent;
   transition: all 0.2s ease;
-  min-height: 56px; /* Touch-friendly target size */
+  min-height: 56px;
   -webkit-tap-highlight-color: transparent;
 }
-
 .mobile-nav-list a:hover,
 .mobile-nav-list a:focus,
 .mobile-nav-list a.active {
   background: rgb(201 162 39 / 10%);
   border-left-color: var(--tiller-color-gold, #c9a227);
-  color: var(--tiller-color-gold, #c9a227);
   text-shadow: 0 0 8px rgb(201 162 39 / 50%);
 }
-
 .mobile-nav-list a:active {
   background: rgb(201 162 39 / 15%);
 }
-
-/* =
-   Desktop Navigation
-   = */
-
-/* Main menu links */
 .nav-menu a {
   color: #ffffff;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease, text-shadow 0.2s ease;
 }
-
 .nav-menu a:hover {
   color: var(--tiller-color-gold, #c9a227);
   text-shadow: 0 0 8px rgb(201 162 39 / 60%), 0 0 20px rgb(201 162 39 / 40%);
 }
-
-/* Nested menus in desktop navigation */
 .nav-menu .submenu {
   display: none;
   position: absolute;
@@ -136,38 +97,23 @@ body.nav-open {
   padding: 1rem;
   z-index: 950;
 }
-
 .nav-menu li:hover .submenu {
   display: block;
 }
-
 .submenu li {
   margin: 0;
 }
-
-/* Submenus for deeper levels */
 .nav-menu .submenu .submenu {
   left: 100%;
   top: 0;
 }
-
-/* =
-   Header & Branding
-   = */
-
 .site-header {
   position: relative;
   z-index: 900;
 }
-
 .site-branding {
   z-index: 901;
 }
-
-/* =
-   Hamburger Button
-   = */
-
 .nav-toggle {
   display: none;
   background: none;
@@ -176,13 +122,11 @@ body.nav-open {
   padding: 0.625rem;
   border-radius: 8px;
   min-width: 48px;
-  min-height: 48px; /* Touch-friendly */
+  min-height: 48px;
   transition: background 0.2s ease;
   position: relative;
   z-index: 10002;
 }
-
-/* Hamburger lines container */
 .hamburger-lines {
   display: flex;
   flex-direction: column;
@@ -190,8 +134,6 @@ body.nav-open {
   width: 24px;
   height: 18px;
 }
-
-/* Individual hamburger lines */
 .hamburger-line {
   display: block;
   width: 100%;
@@ -201,38 +143,28 @@ body.nav-open {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: center;
 }
-
-/* Hamburger hover state */
 .nav-toggle:hover .hamburger-line,
 .nav-toggle:focus .hamburger-line {
   background: var(--tiller-color-gold, #c9a227);
 }
-
 .nav-toggle:hover,
 .nav-toggle:focus {
   background: rgb(16 185 129 / 15%);
 }
-
 .nav-toggle:focus-visible {
   outline: 2px solid var(--tiller-color-emerald, #10b981);
   outline-offset: 2px;
 }
-
-/* Hamburger to X animation when menu is open */
 .nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
-
 .nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(2) {
   opacity: 0%;
   transform: scaleX(0);
 }
-
 .nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
-
-/* Close button in drawer */
 .nav-close {
   position: absolute;
   top: 1rem;
@@ -252,23 +184,16 @@ body.nav-open {
   transition: all 0.2s ease;
   z-index: 10;
 }
-
 .nav-close:hover,
 .nav-close:focus {
   background: var(--tiller-color-emerald, #10b981);
   border-color: var(--tiller-color-emerald, #10b981);
   transform: rotate(90deg);
 }
-
 .nav-close:focus-visible {
   outline: 2px solid var(--tiller-color-gold, #c9a227);
   outline-offset: 2px;
 }
-
-/* =
-   Overlay
-   = */
-
 .nav-overlay {
   position: fixed;
   top: 0;
@@ -283,97 +208,73 @@ body.nav-open {
   transition: opacity 0.3s ease, visibility 0.3s ease;
   pointer-events: none;
 }
-
 .nav-overlay.is-open {
   opacity: 100%;
   visibility: visible;
   pointer-events: auto;
 }
-
-/* =
-   Mobile-First Responsive Breakpoints
-   = */
-
-/* Tablet Landscape */
 @media (max-width: 1024px) {
   .nav-logo {
-    max-width: 140px;
-    max-height: 48px;
+  max-width: 140px;
+  max-height: 48px;
   }
 }
-
-/* Tablet Portrait */
 @media (max-width: 900px) {
   :root {
-    --mobile-nav-width: min(380px, 85vw);
+  --mobile-nav-width: min(380px, 85vw);
   }
-  
   .nav-logo {
-    max-width: 120px;
-    max-height: 40px;
+  max-width: 120px;
+  max-height: 40px;
   }
-
   .nav-menu {
-    flex-direction: column;
-    gap: var(--tiller-spacing-sm, 0.5rem);
+  flex-direction: column;
+  gap: var(--tiller-spacing-sm, 0.5rem);
   }
-  
   .mobile-nav-list a {
-    padding: 1rem 1.25rem;
-    font-size: 1rem;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
   }
 }
-
-/* Mobile Large */
 @media (max-width: 600px) {
   :root {
-    --mobile-nav-width: min(360px, 92vw);
+  --mobile-nav-width: min(360px, 92vw);
   }
-  
   .nav-logo {
-    max-width: 100px;
-    max-height: 36px;
+  max-width: 100px;
+  max-height: 36px;
   }
-
   .nav-menu {
-    flex-direction: column;
-    gap: var(--tiller-spacing-sm, 0.5rem);
-    display: none;
+  flex-direction: column;
+  gap: var(--tiller-spacing-sm, 0.5rem);
+  display: none;
   }
-
   .nav-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   }
-
   .nav-menu.active {
-    display: flex;
+  display: flex;
   }
-  
   .mobile-nav-list a {
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
-    min-height: 54px;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  min-height: 54px;
   }
-  
   .mobile-nav-shell {
-    padding: var(--tiller-spacing-lg, 2rem) 0 env(safe-area-inset-bottom, 1.5rem);
+  padding: var(--tiller-spacing-lg, 2rem) 0 env(safe-area-inset-bottom, 1.5rem);
   }
 }
-
-/* Mobile Small */
 @media (max-width: 400px) {
   :root {
-    --mobile-nav-width: 100vw;
+  --mobile-nav-width: 100vw;
   }
-  
   .nav-logo {
-    max-width: 80px;
-    max-height: 32px;
+  max-width: 80px;
+  max-height: 32px;
   }
-  
   .mobile-nav-list a {
-    padding: 0.875rem 1.25rem;
+  padding: 0.875rem 1.25rem;
   }
 }

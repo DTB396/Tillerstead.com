@@ -263,7 +263,7 @@ class GestureHandler {
 
   async share(data) {
     if (!navigator.share) {
-      console.log('[Gestures] Web Share API not supported');
+      // console.log('[Gestures] Web Share API not supported'); // AUTO-DISABLED
       return;
     }
 
@@ -274,7 +274,7 @@ class GestureHandler {
         url: data.url
       });
 
-      console.log('[Gestures] Shared successfully');
+      // console.log('[Gestures] Shared successfully'); // AUTO-DISABLED
       
       if (window.haptics) {
         window.haptics.trigger('success');
@@ -311,7 +311,7 @@ class GestureHandler {
         files: [file]
       });
 
-      console.log('[Gestures] Image shared successfully');
+      // console.log('[Gestures] Image shared successfully'); // AUTO-DISABLED
     } catch (error) {
       // Fallback to URL share
       this.share({

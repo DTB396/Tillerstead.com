@@ -1,15 +1,9 @@
-/* ================================================
-   VENTURES PAGE - ICON & LAYOUT FIXES
-   ================================================ */
 
-/* Fix oversized icons */
 .page-ventures img,
 .page-ventures svg {
   max-width: 100% !important;
   height: auto !important;
 }
-
-/* Specific icon size fixes */
 .page-ventures .icon,
 .page-ventures [class*="icon"] {
   width: 48px !important;
@@ -17,8 +11,6 @@
   max-width: 48px !important;
   max-height: 48px !important;
 }
-
-/* Card/feature icons */
 .page-ventures .feature-icon,
 .page-ventures .service-icon,
 .page-ventures .venture-icon {
@@ -26,23 +18,17 @@
   height: 64px !important;
   margin-bottom: 1rem;
 }
-
-/* Hero/large icons */
 .page-ventures .hero-icon,
 .page-ventures .large-icon {
   width: 80px !important;
   height: 80px !important;
 }
-
-/* Fix any FontAwesome or icon font sizes */
 .page-ventures .fa,
 .page-ventures .fas,
 .page-ventures .far,
 .page-ventures .fab {
   font-size: 2rem !important;
 }
-
-/* Grid layout fixes */
 .page-ventures .venture-grid,
 .page-ventures .service-grid {
   display: grid;
@@ -50,8 +36,6 @@
   gap: 2rem;
   margin: 2rem 0;
 }
-
-/* Card fixes */
 .page-ventures .venture-card,
 .page-ventures .service-card {
   padding: 2rem;
@@ -61,14 +45,11 @@
   text-align: center;
   transition: transform 0.2s;
 }
-
 .page-ventures .venture-card:hover,
 .page-ventures .service-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
-
-/* Image containers */
 .page-ventures .icon-container,
 .page-ventures .image-container {
   display: flex;
@@ -76,94 +57,71 @@
   align-items: center;
   margin-bottom: 1.5rem;
 }
-
-/* Typography fixes */
 .page-ventures h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
-
 .page-ventures h2 {
   font-size: 2rem;
   margin: 2rem 0 1rem;
 }
-
 .page-ventures h3 {
   font-size: 1.5rem;
   margin: 1rem 0 0.5rem;
 }
-
-/* Spacing fixes */
 .page-ventures section {
   margin: 3rem 0;
 }
-
 .page-ventures .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
-
-/* Mobile responsive */
 @media (max-width: 768px) {
   .page-ventures .icon,
   .page-ventures [class*="icon"] {
-    width: 40px !important;
-    height: 40px !important;
+  width: 40px !important;
+  height: 40px !important;
   }
-  
   .page-ventures .feature-icon,
   .page-ventures .service-icon,
   .page-ventures .venture-icon {
-    width: 56px !important;
-    height: 56px !important;
+  width: 56px !important;
+  height: 56px !important;
   }
-  
   .page-ventures h1 {
-    font-size: 2rem;
+  font-size: 2rem;
   }
-  
   .page-ventures h2 {
-    font-size: 1.75rem;
+  font-size: 1.75rem;
   }
-  
   .page-ventures .venture-grid,
   .page-ventures .service-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
   }
 }
-
-/* Fix any SVG scaling issues */
 .page-ventures svg {
   display: block;
   margin: 0 auto;
 }
-
 .page-ventures svg path,
 .page-ventures svg circle,
 .page-ventures svg rect {
   vector-effect: non-scaling-stroke;
 }
-
-/* Prevent image overflow */
 .page-ventures * {
   max-width: 100%;
 }
-
-/* Fix logo/brand images if present */
 .page-ventures .logo,
 .page-ventures .brand-logo {
   width: auto !important;
   max-width: 200px !important;
   height: auto !important;
 }
-
-/* Center content */
 .page-ventures .text-center {
   text-align: center;
 }
-
 .page-ventures .flex-center {
   display: flex;
   justify-content: center;

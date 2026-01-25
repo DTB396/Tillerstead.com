@@ -9,7 +9,7 @@
   {% include layout/meta-success-confetti.html %}
   {% if page.url == "/contact/" %}{% include forms/contact-page.html %}{% endif %}
   {% if page.extra_head %}{{ page.extra_head }}{% endif %}
-  <link rel="stylesheet" href="/assets/css/components/sticky-mobile-cta.css">
+  <link rel="stylesheet" href="/assets/css/components/sticky-mobile-cta.css" />
 </head>
 <body class="ts-body{% if page.body_class %} {{ page.body_class }}{% endif %}{% if layout.body_class %} {{ layout.body_class }}{% endif %}{% if page.build_guide %} page-build-guide{% endif %}">
   <nav class="skip-links" aria-label="Skip navigation">

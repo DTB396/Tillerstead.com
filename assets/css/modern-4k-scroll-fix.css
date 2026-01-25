@@ -1,119 +1,79 @@
-/* ================================================
-   NUCLEAR SCROLL FIX - FORCE ENABLE SCROLLING
-   ================================================ */
 
-/* CRITICAL: Force enable scroll on everything */
 html {
   overflow-y: scroll !important;
   overflow-x: hidden !important;
   height: 100% !important;
   scroll-behavior: smooth !important;
 }
-
 body {
   overflow-y: auto !important;
   overflow-x: hidden !important;
   height: auto !important;
   min-height: 100vh !important;
   position: relative !important;
-  /* Remove ANY fixed positioning that blocks scroll */
 }
-
-/* Remove overflow hidden from ANY element */
 * {
   overflow-y: visible !important;
 }
-
-/* Except these specific elements */
 .mobile-nav,
 .modal,
 .dropdown,
 .desktop-nav__dropdown {
   overflow-y: auto !important;
 }
-
-/* CRITICAL: Enable touch scrolling */
 html, body {
   -webkit-overflow-scrolling: touch !important;
   touch-action: pan-y pan-x !important;
   overscroll-behavior: contain !important;
 }
-
-/* Remove height restrictions */
 .ts-main-content,
 main,
 #main-content {
   min-height: auto !important;
-  height: auto !important;
   overflow: visible !important;
 }
-
-/* Fix any fixed elements blocking scroll */
 .ts-scroll-progress {
   pointer-events: none !important;
 }
-
-/* Sticky header shouldn't block scroll */
 .ts-header {
   position: sticky !important;
   top: 0 !important;
   pointer-events: auto !important;
 }
-
-/* Mobile nav shouldn't block scroll when closed */
 .mobile-nav[aria-hidden="true"] {
   pointer-events: none !important;
   display: none !important;
 }
-
 .mobile-nav[aria-hidden="false"] {
   pointer-events: auto !important;
   display: block !important;
 }
-
-/* ================================================
-   4K & HIGH DPI SUPPORT
-   ================================================ */
-
-/* Base font size for 4K displays */
 @media (min-width: 2560px) {
   html {
-    font-size: 18px; /* Larger base for 4K */
+  font-size: 18px;
   }
-  
   .ts-header__container {
-    max-width: 1800px;
+  max-width: 1800px;
   }
-  
   .container,
   .ts-main-content > * {
-    max-width: 1600px;
+  max-width: 1600px;
   }
 }
-
 @media (min-width: 3840px) {
   html {
-    font-size: 20px; /* Even larger for true 4K */
+  font-size: 20px;
   }
-  
   .ts-header__container {
-    max-width: 2400px;
+  max-width: 2400px;
   }
 }
-
-/* High DPI image optimization */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   img {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
   }
 }
-
-/* ================================================
-   PERFORMANCE OPTIMIZATIONS
-   ================================================ */
-
-/* GPU acceleration for smooth animations */
 .ts-header,
 .desktop-nav__dropdown,
 .mobile-nav,
@@ -124,46 +84,31 @@ main,
   backface-visibility: hidden;
   perspective: 1000px;
 }
-
-/* Optimize animations */
 * {
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
   }
 }
-
-/* Lazy loading optimization */
 img[loading="lazy"] {
   content-visibility: auto;
 }
-
-/* Modern layout with containment */
 .card,
 .section,
 article {
   contain: layout style paint;
 }
-
-/* ================================================
-   MODERN RESPONSIVE GRID (4K READY)
-   ================================================ */
-
 .responsive-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: clamp(1rem, 2vw, 2rem);
 }
-
-/* Fluid typography for all screens */
 :root {
   --fluid-min-width: 320;
   --fluid-max-width: 3840;
@@ -172,121 +117,78 @@ article {
   --fluid-min-ratio: 1.2;
   --fluid-max-ratio: 1.333;
 }
-
 h1 {
   font-size: clamp(2rem, 5vw, 4rem);
 }
-
 h2 {
   font-size: clamp(1.5rem, 4vw, 3rem);
 }
-
 h3 {
   font-size: clamp(1.25rem, 3vw, 2rem);
 }
-
 p, li {
   font-size: clamp(1rem, 1.5vw, 1.25rem);
   line-height: 1.6;
 }
-
-/* ================================================
-   SCROLL PERFORMANCE
-   ================================================ */
-
-/* Smooth scroll with hardware acceleration */
 html {
   scroll-padding-top: 100px;
 }
-
-/* Passive event listeners (better performance) */
 @supports (scroll-behavior: smooth) {
   html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
   }
 }
-
-/* Content visibility for off-screen content */
 .lazy-section {
   content-visibility: auto;
   contain-intrinsic-size: 0 500px;
 }
-
-/* ================================================
-   MODERN LAYOUT TECHNIQUES
-   ================================================ */
-
-/* CSS Grid for main layout */
 .page-layout {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
 }
-
-/* Flexbox for header */
 .ts-header__container {
   display: flex;
   flex-wrap: wrap;
   gap: clamp(1rem, 2vw, 2rem);
 }
-
-/* Modern aspect ratios */
 .video-container,
 .image-container {
   aspect-ratio: 16 / 9;
   width: 100%;
   object-fit: cover;
 }
-
-/* ================================================
-   ACCESSIBILITY IMPROVEMENTS
-   ================================================ */
-
-/* Focus visible for keyboard navigation */
 :focus-visible {
   outline: 3px solid #00e184;
   outline-offset: 2px;
   border-radius: 4px;
 }
-
-/* Remove default focus */
 :focus:not(:focus-visible) {
   outline: none;
 }
-
-/* Better contrast for text */
 body {
   color: #1a1a1a;
   background: #ffffff;
 }
-
-/* Dark mode support */
 @media (prefers-color-scheme: dark) {
   body {
-    color: #f0f0f0;
-    background: #1a1a1a;
+  color: #f0f0f0;
+  background: #1a1a1a;
   }
-  
   .ts-header {
-    background: linear-gradient(135deg, #00b46a 0%, #008855 100%);
+  background: linear-gradient(135deg, #00b46a 0%, #008855 100%);
   }
 }
-
-/* ================================================
-   PRINT STYLES
-   ================================================ */
-
 @media print {
   .ts-header,
   .ts-footer,
   .sticky-cta-bar,
   .mobile-nav {
-    display: none !important;
+  display: none !important;
   }
-  
   body {
-    overflow: visible !important;
-    background: white !important;
-    color: black !important;
+  overflow: visible !important;
+  background: white !important;
+  color: black !important;
   }
 }

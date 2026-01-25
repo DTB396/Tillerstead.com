@@ -475,7 +475,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('page-loaded');
   }, 100);
 
-  console.log('✨ Premium UX enhancements loaded');
+  // console.log('✨ Premium UX enhancements loaded'); // AUTO-DISABLED
 });
 
 // Export for use in other scripts

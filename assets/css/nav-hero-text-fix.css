@@ -1,9 +1,4 @@
-/* ============================================================
-   HERO TEXT VISIBILITY FIX ONLY
-   Nav styles handled by header-nav-fixed.css
-   ============================================================ */
 
-/* Hero heading - ensure black text is visible */
 .hero h1,
 .hero-section h1,
 .ts-hero h1 {
@@ -11,8 +6,6 @@
   font-weight: 900 !important;
   text-shadow: 0 2px 6px rgba(255,255,255,0.8) !important;
 }
-
-/* Hero lead text - black on light background */
 .hero .lead,
 .hero-section .lead,
 .ts-hero .lead {
@@ -24,8 +17,6 @@
   border-left: 5px solid #00a35c !important;
   text-shadow: 0 1px 3px rgba(255,255,255,0.6) !important;
 }
-
-/* Hero paragraphs - dark text */
 .hero p,
 .hero-section p,
 .ts-hero p {

@@ -1,4 +1,4 @@
-/* Header Styles - Fallback */
+
 .ts-header {
   background: linear-gradient(135deg, #00e184 0%, #00b46a 100%);
   padding: 1rem 0;
@@ -7,7 +7,6 @@
   top: 0;
   z-index: 1000;
 }
-
 .ts-header__container {
   max-width: 1200px;
   margin: 0 auto;
@@ -16,43 +15,36 @@
   justify-content: space-between;
   align-items: center;
 }
-
 .ts-header__branding {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-
 .ts-header__logo {
   width: 80px;
   height: auto;
 }
-
 .ts-header__info {
   color: white;
 }
-
 .ts-header__company {
   font-size: 1.5rem;
   font-weight: 700;
   display: block;
 }
-
 .ts-header__region {
   font-size: 0.9rem;
   opacity: 0.9;
 }
-
 .ts-header__cta {
   display: flex;
   gap: 1rem;
 }
-
 @media (max-width: 768px) {
   .ts-header__company {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
   }
   .ts-header__cta {
-    display: none;
+  display: none;
   }
 }

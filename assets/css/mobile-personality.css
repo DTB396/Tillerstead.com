@@ -1,11 +1,3 @@
-/**
- * Mobile Personality Styles
- * Delightful micro-interactions, persuasive elements, premium touches
- */
-
-/* =====
-   CONFETTI CELEBRATION
-   ===== */
 
 .confetti {
   position: fixed;
@@ -16,18 +8,12 @@
   animation: confettiFall linear forwards;
   pointer-events: none;
 }
-
 @keyframes confettiFall {
   to {
-    transform: translateY(100vh) rotate(720deg);
-    opacity: 0%;
+  transform: translateY(100vh) rotate(720deg);
+  opacity: 0%;
   }
 }
-
-/* =====
-   EMOJI REACTIONS
-   ===== */
-
 .emoji-reaction {
   position: fixed;
   font-size: 3rem;
@@ -35,28 +21,20 @@
   z-index: 10009;
   animation: emojiFloat 1s ease-out forwards;
 }
-
 @keyframes emojiFloat {
   0% {
-    transform: translateY(0) scale(0.5);
-    opacity: 0%;
+  transform: translateY(0) scale(0.5);
+  opacity: 0%;
   }
-
   50% {
-    transform: translateY(-50px) scale(1.2);
-    opacity: 100%;
+  transform: translateY(-50px) scale(1.2);
+  opacity: 100%;
   }
-
   100% {
-    transform: translateY(-100px) scale(0.8);
-    opacity: 0%;
+  transform: translateY(-100px) scale(0.8);
+  opacity: 0%;
   }
 }
-
-/* =====
-   MILESTONE TOASTS
-   ===== */
-
 .milestone-toast {
   position: fixed;
   bottom: calc(100px + env(safe-area-inset-bottom));
@@ -75,57 +53,40 @@
   opacity: 0%;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
 .milestone-toast.show {
   transform: translateX(-50%) translateY(0);
   opacity: 100%;
 }
-
 .milestone-emoji {
   font-size: 2rem;
   line-height: 1;
   animation: bounce 0.6s ease-in-out;
 }
-
 .milestone-message {
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.4;
 }
-
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
-
-/* =====
-   SOCIAL PROOF PULSE
-   ===== */
-
 .social-proof-pulse {
   animation: socialPulse 0.6s ease-out;
 }
-
 @keyframes socialPulse {
   0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgb(16 185 129 / 70%);
+  transform: scale(1);
+  box-shadow: 0 0 0 0 rgb(16 185 129 / 70%);
   }
-
   50% {
-    transform: scale(1.02);
+  transform: scale(1.02);
   }
-
   100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 15px rgb(16 185 129 / 0%);
+  transform: scale(1);
+  box-shadow: 0 0 0 15px rgb(16 185 129 / 0%);
   }
 }
-
-/* =====
-   AVAILABILITY INDICATOR
-   ===== */
-
 .availability-indicator {
   position: fixed;
   bottom: calc(160px + env(safe-area-inset-bottom));
@@ -144,19 +105,16 @@
   box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
   animation: slideInRight 0.5s ease-out;
 }
-
 @keyframes slideInRight {
   from {
-    transform: translateX(200px);
-    opacity: 0%;
+  transform: translateX(200px);
+  opacity: 0%;
   }
-
   to {
-    transform: translateX(0);
-    opacity: 100%;
+  transform: translateX(0);
+  opacity: 100%;
   }
 }
-
 .availability-dot {
   width: 8px;
   height: 8px;
@@ -164,23 +122,16 @@
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
 }
-
 @keyframes pulse {
   0%, 100% {
-    opacity: 100%;
-    transform: scale(1);
+  opacity: 100%;
+  transform: scale(1);
   }
-
   50% {
-    opacity: 50%;
-    transform: scale(1.2);
+  opacity: 50%;
+  transform: scale(1.2);
   }
 }
-
-/* =====
-   FLOATING TRUST BADGE
-   ===== */
-
 .trust-badge-float {
   position: fixed;
   top: calc(80px + env(safe-area-inset-top));
@@ -195,18 +146,15 @@
   opacity: 0%;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
 .trust-badge-float.show {
   transform: translateX(0);
   opacity: 100%;
 }
-
 .trust-badge-content {
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
-
 .trust-badge-icon {
   width: 32px;
   height: 32px;
@@ -219,47 +167,32 @@
   font-weight: bold;
   font-size: 1.25rem;
 }
-
 .trust-badge-text {
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
 }
-
 .trust-badge-text strong {
   font-size: 0.875rem;
   color: var(--color-text-primary, #111827);
 }
-
 .trust-badge-text small {
   font-size: 0.75rem;
   color: var(--color-text-secondary, #6b7280);
 }
-
-/* =====
-   FAB MESSAGE UPDATES
-   ===== */
-
 .fab-label.updating {
   animation: labelSwap 0.3s ease-in-out;
 }
-
 @keyframes labelSwap {
   0%, 100% {
-    opacity: 100%;
-    transform: scale(1);
+  opacity: 100%;
+  transform: scale(1);
   }
-
   50% {
-    opacity: 0%;
-    transform: scale(0.9);
+  opacity: 0%;
+  transform: scale(0.9);
   }
 }
-
-/* =====
-   PREMIUM TRANSITIONS
-   ===== */
-
 .premium-mode .card,
 .premium-mode .service-card,
 .premium-mode .portfolio-item {
@@ -267,16 +200,10 @@
   transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
 .premium-fade-in {
   opacity: 100% !important;
   transform: translateY(0) !important;
 }
-
-/* =====
-   QUALITY BADGE
-   ===== */
-
 .quality-badge {
   position: absolute;
   top: 1rem;
@@ -292,15 +219,9 @@
   pointer-events: none;
   z-index: 10;
 }
-
 .quality-badge:hover {
   transform: scale(1.05);
 }
-
-/* =====
-   KONAMI MESSAGE
-   ===== */
-
 .konami-message {
   position: fixed;
   top: 50%;
@@ -318,89 +239,62 @@
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
 }
-
 .konami-message.show {
   opacity: 100%;
   transform: translate(-50%, -50%) scale(1);
 }
-
 .konami-message h2 {
   margin-bottom: 1rem;
   color: var(--color-text-primary, #111827);
   font-size: 1.5rem;
 }
-
 .konami-message p {
   margin-bottom: 0.75rem;
   color: var(--color-text-secondary, #6b7280);
   font-size: 1rem;
 }
-
 .konami-message strong {
   color: var(--color-primary, #10b981);
   font-size: 1.25rem;
   letter-spacing: 2px;
 }
-
-/* =====
-   LOGO PARTY ANIMATION
-   ===== */
-
 .logo-party {
   animation: logoParty 2s ease-in-out;
 }
-
 @keyframes logoParty {
   0%, 100% {
-    transform: rotate(0deg) scale(1);
+  transform: rotate(0deg) scale(1);
   }
-
   10% {
-    transform: rotate(-10deg) scale(1.1);
+  transform: rotate(-10deg) scale(1.1);
   }
-
   20% {
-    transform: rotate(10deg) scale(1.1);
+  transform: rotate(10deg) scale(1.1);
   }
-
   30% {
-    transform: rotate(-10deg) scale(1.1);
+  transform: rotate(-10deg) scale(1.1);
   }
-
   40% {
-    transform: rotate(10deg) scale(1.1);
+  transform: rotate(10deg) scale(1.1);
   }
-
   50% {
-    transform: rotate(0deg) scale(1.2);
-    filter: hue-rotate(90deg);
+  transform: rotate(0deg) scale(1.2);
+  filter: hue-rotate(90deg);
   }
-
   60% {
-    transform: rotate(360deg) scale(1);
-    filter: hue-rotate(180deg);
+  transform: rotate(360deg) scale(1);
+  filter: hue-rotate(180deg);
   }
-
   80% {
-    filter: hue-rotate(0deg);
+  filter: hue-rotate(0deg);
   }
 }
-
-/* =====
-   SUCCESS TOAST (ENHANCED)
-   ===== */
-
 .success-toast {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   border: none;
   color: white;
   font-weight: 500;
 }
-
-/* =====
-   LOADING MESSAGE (PLAYFUL)
-   ===== */
-
 .loading-message {
   margin-bottom: 1rem;
   font-size: 1rem;
@@ -408,43 +302,29 @@
   color: var(--color-text-primary, #f9fafb);
   animation: loadingPulse 2s ease-in-out infinite;
 }
-
 @keyframes loadingPulse {
   0%, 100% {
-    opacity: 100%;
+  opacity: 100%;
   }
-
   50% {
-    opacity: 60%;
+  opacity: 60%;
   }
 }
-
-/* =====
-   PARALLAX ENHANCEMENT
-   ===== */
-
 .hero,
 [class*="hero"] {
   will-change: transform;
   transition: transform 0.1s ease-out;
 }
-
-/* =====
-   BUTTON PRESS EFFECT (PREMIUM)
-   ===== */
-
 .premium-mode button:not(.no-effect),
 .premium-mode .btn:not(.no-effect) {
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
 .premium-mode button:not(.no-effect):active,
 .premium-mode .btn:not(.no-effect):active {
   transform: scale(0.95);
 }
-
 .premium-mode button:not(.no-effect)::before,
 .premium-mode .btn:not(.no-effect)::before {
   content: '';
@@ -458,35 +338,23 @@
   transform: translate(-50%, -50%);
   transition: width 0.6s ease, height 0.6s ease;
 }
-
 .premium-mode button:not(.no-effect):hover::before,
 .premium-mode .btn:not(.no-effect):hover::before {
   width: 300px;
   height: 300px;
   opacity: 0%;
 }
-
-/* =====
-   CARD HOVER (PREMIUM)
-   ===== */
-
 .premium-mode .card,
 .premium-mode .service-card,
 .premium-mode .portfolio-item {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .premium-mode .card:hover,
 .premium-mode .service-card:hover,
 .premium-mode .portfolio-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 28px rgb(0 0 0 / 15%);
 }
-
-/* =====
-   REDUCED MOTION SUPPORT
-   ===== */
-
 @media (prefers-reduced-motion: reduce) {
   .confetti,
   .emoji-reaction,
@@ -495,43 +363,33 @@
   .logo-party,
   .loading-message,
   .social-proof-pulse {
-    animation: none !important;
+  animation: none !important;
   }
-  
   .milestone-toast,
   .trust-badge-float,
   .konami-message,
   .availability-indicator {
-    transition: opacity 0.3s ease !important;
+  transition: opacity 0.3s ease !important;
   }
-  
   .premium-mode .card,
   .premium-mode .service-card,
   .premium-mode .portfolio-item {
-    transition: none !important;
+  transition: none !important;
   }
 }
-
-/* =====
-   DARK MODE SUPPORT
-   ===== */
-
 @media (prefers-color-scheme: light) {
   .trust-badge-float {
-    background: white;
-    border-color: var(--color-primary, #10b981);
+  background: white;
+  border-color: var(--color-primary, #10b981);
   }
-  
   .trust-badge-text strong {
-    color: #111827;
+  color: #111827;
   }
-  
   .trust-badge-text small {
-    color: #6b7280;
+  color: #6b7280;
   }
-  
   .konami-message {
-    background: white;
-    border-color: var(--color-primary, #10b981);
+  background: white;
+  border-color: var(--color-primary, #10b981);
   }
 }

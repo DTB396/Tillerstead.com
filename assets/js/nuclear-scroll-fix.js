@@ -2,7 +2,7 @@
 (function() {
   'use strict';
   
-  console.log('[SCROLL FIX] Initializing nuclear scroll fix...');
+  // console.log('[SCROLL FIX] Initializing nuclear scroll fix...'); // AUTO-DISABLED
   
   // FORCE enable scrolling immediately
   function forceEnableScroll() {
@@ -23,7 +23,7 @@
       }
     });
     
-    console.log('[SCROLL FIX] Scroll enabled on body and html');
+    // console.log('[SCROLL FIX] Scroll enabled on body and html'); // AUTO-DISABLED
   }
   
   // Force enable on load
@@ -46,7 +46,7 @@
         // Don't let other scripts prevent default
         const originalPreventDefault = e.preventDefault;
         e.preventDefault = function() {
-          console.warn('[SCROLL FIX] Blocked preventDefault on', type);
+          // console.warn('[SCROLL FIX] Blocked preventDefault on', type); // AUTO-DISABLED
           // Don't actually prevent default for scroll events
         };
         
@@ -66,7 +66,7 @@
         const target = mutation.target;
         if (target === document.body || target === document.documentElement) {
           if (target.style.overflow === 'hidden') {
-            console.warn('[SCROLL FIX] Detected overflow:hidden, fixing...');
+            // console.warn('[SCROLL FIX] Detected overflow:hidden, fixing...'); // AUTO-DISABLED
             forceEnableScroll();
           }
         }
@@ -85,7 +85,7 @@
           e.target.closest('.mobile-nav__close')) {
         mobileNav.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = 'auto';
-        console.log('[SCROLL FIX] Mobile nav closed, scroll restored');
+        // console.log('[SCROLL FIX] Mobile nav closed, scroll restored'); // AUTO-DISABLED
       }
     }
   });
@@ -102,11 +102,11 @@
     }
   }, { passive: true });
   
-  console.log('[SCROLL FIX] Nuclear scroll fix active');
+  // console.log('[SCROLL FIX] Nuclear scroll fix active'); // AUTO-DISABLED
   
   // Debug info
-  console.log('[SCROLL FIX] html overflow:', getComputedStyle(document.documentElement).overflow);
-  console.log('[SCROLL FIX] body overflow:', getComputedStyle(document.body).overflow);
-  console.log('[SCROLL FIX] body height:', getComputedStyle(document.body).height);
+  // console.log('[SCROLL FIX] html overflow:', getComputedStyle(document.documentElement) // AUTO-DISABLED.overflow);
+  // console.log('[SCROLL FIX] body overflow:', getComputedStyle(document.body) // AUTO-DISABLED.overflow);
+  // console.log('[SCROLL FIX] body height:', getComputedStyle(document.body) // AUTO-DISABLED.height);
   
 })();

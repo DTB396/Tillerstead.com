@@ -1924,5 +1924,5 @@ function generateSpecTemplate() {
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Homeowner Resources loaded');
+  // console.log('Homeowner Resources loaded'); // AUTO-DISABLED
 });

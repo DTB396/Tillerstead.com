@@ -624,5 +624,5 @@ class TileVisualizer {
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   const visualizer = new TileVisualizer();
-  console.log('Tile Visualizer initialized');
+  // console.log('Tile Visualizer initialized'); // AUTO-DISABLED
 });

@@ -29,15 +29,15 @@
 
   // === ARIA Sync ===
   // Add logging to debug aria and mobile view
-  console.log('[DEBUG] Adding aria and mobile view logging');
+  // console.log('[DEBUG] Adding aria and mobile view logging'); // AUTO-DISABLED
 
   const syncAria = (open) => {
     const state = open ? 'true' : 'false';
-    console.log(`[DEBUG] syncAria called with state: ${state}`);
-    console.log('[DEBUG] navToggle:', navToggle);
-    console.log('[DEBUG] nav:', nav);
-    console.log('[DEBUG] navShell:', navShell);
-    console.log('[DEBUG] navOverlay:', navOverlay);
+    // console.log(`[DEBUG] syncAria called with state: ${state}`); // AUTO-DISABLED
+    // console.log('[DEBUG] navToggle:', navToggle); // AUTO-DISABLED
+    // console.log('[DEBUG] nav:', nav); // AUTO-DISABLED
+    // console.log('[DEBUG] navShell:', navShell); // AUTO-DISABLED
+    // console.log('[DEBUG] navOverlay:', navOverlay); // AUTO-DISABLED
 
     navToggle?.setAttribute('aria-expanded', state);
     navToggle?.setAttribute(
@@ -78,7 +78,7 @@
   };
 
   const openNav = () => {
-    console.log('[TEST] openNav called', { navShell, nav, navOverlay });
+    // console.log('[TEST] openNav called', { navShell, nav, navOverlay }); // AUTO-DISABLED
     if (!navShell || !nav) return;
     lastFocus = document.activeElement;
     navShell.classList.add('is-open');
@@ -128,11 +128,11 @@
   };
 
   // Add logging to debug event listeners
-  console.log('[DEBUG] Attaching event listeners');
+  // console.log('[DEBUG] Attaching event listeners'); // AUTO-DISABLED
 
   // Mobile nav toggle
   if (navToggle) {
-    console.log('[DEBUG] navToggle event listener attached');
+    // console.log('[DEBUG] navToggle event listener attached'); // AUTO-DISABLED
     navToggle.addEventListener('click', (e) => {
       e.stopPropagation();
       isNavOpen() ? closeNav() : openNav();
@@ -141,7 +141,7 @@
 
   // Close button
   if (navClose) {
-    console.log('[DEBUG] navClose event listener attached');
+    // console.log('[DEBUG] navClose event listener attached'); // AUTO-DISABLED
     navClose.addEventListener('click', (e) => {
       e.stopPropagation();
       closeNav();
@@ -150,7 +150,7 @@
 
   // Overlay click
   if (navOverlay) {
-    console.log('[DEBUG] navOverlay event listeners attached');
+    // console.log('[DEBUG] navOverlay event listeners attached'); // AUTO-DISABLED
     const closeViaEvent = (e) => {
       e.stopPropagation();
       closeNav();
@@ -161,7 +161,7 @@
 
   // Close on link click (mobile)
   if (nav) {
-    console.log('[DEBUG] nav link click listener attached');
+    // console.log('[DEBUG] nav link click listener attached'); // AUTO-DISABLED
     nav.addEventListener('click', (e) => {
       const link = e.target.closest('a');
       if (!link) return;
@@ -360,7 +360,7 @@
     handleScroll();
   } catch (err) {
     if (window?.console?.warn) {
-      console.warn('Navigation initialization error:', err);
+      // console.warn('Navigation initialization error:', err); // AUTO-DISABLED
     }
   }
 

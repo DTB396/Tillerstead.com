@@ -83,7 +83,7 @@
         return { success: true, method: 'netlify' };
       }
     } catch (e) {
-      console.warn('Netlify Forms failed, trying mailto fallback:', e);
+      // console.warn('Netlify Forms failed, trying mailto fallback:', e); // AUTO-DISABLED
     }
 
     // Fallback to Formspree or direct email
@@ -121,7 +121,7 @@ Submitted: ${new Date().toLocaleString()}
         return { success: true, method: 'formspree' };
       }
     } catch (e) {
-      console.warn('Formspree failed:', e);
+      // console.warn('Formspree failed:', e); // AUTO-DISABLED
     }
 
     // Last resort: mailto link

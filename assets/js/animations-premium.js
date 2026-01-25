@@ -224,7 +224,7 @@ export const initAllAnimations = () => {
   initTestimonialAnimations();
   initScrollProgressBar();
 
-  console.log('✓ Premium animations initialized');
+  // console.log('✓ Premium animations initialized'); // AUTO-DISABLED
 };
 
 // Auto-init on DOM ready

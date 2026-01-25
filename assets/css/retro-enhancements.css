@@ -1,27 +1,16 @@
-/* =
-   Tillerstead 90s Retro Enhancements
-   Modern clean design with nostalgic 90s aesthetic
-   Inspired by: Memphis design, Windows 95, 90s bathroom tile
-   Professional, subtle, and fun!
-   = */
-
-/* ===== 90s GRADIENT UTILITIES ===== */
 
 .retro-gradient-teal-purple {
   background: var(--retro-gradient-teal-purple);
   color: #ffffff;
 }
-
 .retro-gradient-salmon-mint {
   background: var(--retro-gradient-salmon-mint);
   color: var(--tiller-text-primary);
 }
-
 .retro-gradient-overlay-teal {
   position: relative;
   background: var(--tiller-bg-dark);
 }
-
 .retro-gradient-overlay-teal::before {
   content: '';
   position: absolute;
@@ -30,76 +19,53 @@
   opacity: 15%;
   pointer-events: none;
 }
-
 .retro-gradient-overlay-teal > * {
   position: relative;
   z-index: 1;
 }
-
-/* ===== 90s CHUNKY BORDERS ===== */
-
 .retro-border-chunky {
   border: var(--retro-border-chunky) solid currentcolor;
   border-radius: var(--tiller-border-radius-sm);
 }
-
 .retro-border-teal {
   border: var(--retro-border-thick) solid var(--retro-teal);
 }
-
 .retro-border-salmon {
   border: var(--retro-border-thick) solid var(--retro-salmon);
 }
-
 .retro-border-mint {
   border: var(--retro-border-thick) solid var(--retro-mint);
 }
-
 .retro-border-purple {
   border: var(--retro-border-thick) solid var(--retro-purple);
 }
-
-/* Double border effect (classic 90s) */
 .retro-border-double {
   border: var(--retro-border-medium) solid currentcolor;
-  box-shadow: 
-    inset 0 0 0 var(--retro-border-thin) var(--tiller-bg-dark),
-    inset 0 0 0 calc(var(--retro-border-thin) + 2px) currentcolor;
+  box-shadow:
+  inset 0 0 0 var(--retro-border-thin) var(--tiller-bg-dark),
+  inset 0 0 0 calc(var(--retro-border-thin) + 2px) currentcolor;
 }
-
-/* ===== 90s OFFSET SHADOWS (Hard edges, no blur) ===== */
-
 .retro-shadow-offset {
   box-shadow: var(--retro-shadow-offset-md);
 }
-
 .retro-shadow-offset-sm {
   box-shadow: var(--retro-shadow-offset-sm);
 }
-
 .retro-shadow-offset-lg {
   box-shadow: var(--retro-shadow-offset-lg);
 }
-
 .retro-shadow-teal {
   box-shadow: var(--retro-shadow-teal);
 }
-
 .retro-shadow-purple {
   box-shadow: var(--retro-shadow-purple);
 }
-
 .retro-shadow-salmon {
   box-shadow: var(--retro-shadow-salmon);
 }
-
-/* ===== MEMPHIS-STYLE GEOMETRIC ACCENTS ===== */
-
 .memphis-accent {
   position: relative;
 }
-
-/* Memphis squiggle */
 .memphis-accent::before {
   content: '';
   position: absolute;
@@ -107,14 +73,12 @@
   left: 0;
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, 
-    var(--retro-teal) 0%, 
-    var(--retro-purple) 50%, 
-    var(--retro-salmon) 100%);
+  background: linear-gradient(90deg,
+  var(--retro-teal) 0%,
+  var(--retro-purple) 50%,
+  var(--retro-salmon) 100%);
   border-radius: 2px;
 }
-
-/* Memphis triangle accent */
 .memphis-triangle::after {
   content: '';
   position: absolute;
@@ -127,8 +91,6 @@
   border-bottom: 35px solid var(--retro-teal);
   opacity: 20%;
 }
-
-/* Memphis circle accent */
 .memphis-circle::before {
   content: '';
   position: absolute;
@@ -141,55 +103,44 @@
   opacity: 30%;
   z-index: -1;
 }
-
-/* Memphis zigzag divider */
 .memphis-zigzag {
   height: 4px;
-  background: linear-gradient(135deg, 
-    var(--retro-teal) 25%, 
-    transparent 25%, 
-    transparent 50%, 
-    var(--retro-teal) 50%, 
-    var(--retro-teal) 75%, 
-    transparent 75%, 
-    transparent);
+  background: linear-gradient(135deg,
+  var(--retro-teal) 25%,
+  transparent 25%,
+  transparent 50%,
+  var(--retro-teal) 50%,
+  var(--retro-teal) 75%,
+  transparent 75%,
+  transparent);
   background-size: 20px 20px;
   margin: var(--tiller-spacing-lg) auto;
   max-width: 80%;
 }
-
-/* ===== 90s COLOR BLOCK SECTIONS ===== */
-
 .retro-block-teal {
   background: var(--retro-teal);
   color: #ffffff;
   padding: var(--tiller-spacing-lg);
   border-radius: var(--tiller-border-radius-md);
 }
-
 .retro-block-salmon {
   background: var(--retro-salmon);
   color: #ffffff;
   padding: var(--tiller-spacing-lg);
   border-radius: var(--tiller-border-radius-md);
 }
-
 .retro-block-mint {
   background: var(--retro-mint);
   color: var(--tiller-bg-darker);
   padding: var(--tiller-spacing-lg);
   border-radius: var(--tiller-border-radius-md);
 }
-
 .retro-block-purple {
   background: var(--retro-purple);
   color: #ffffff;
   padding: var(--tiller-spacing-lg);
   border-radius: var(--tiller-border-radius-md);
 }
-
-/* ===== 90s BUTTON VARIANTS ===== */
-
 .btn-retro-teal {
   background: var(--retro-teal);
   color: #ffffff;
@@ -200,18 +151,15 @@
   letter-spacing: 0.05em;
   transition: transform var(--tiller-transition-fast), box-shadow var(--tiller-transition-fast);
 }
-
 .btn-retro-teal:hover {
   background: var(--retro-teal-light);
   transform: translate(-1px, -1px);
   box-shadow: 5px 5px 0 var(--retro-teal-dark);
 }
-
 .btn-retro-teal:active {
   transform: translate(2px, 2px);
   box-shadow: 1px 1px 0 var(--retro-teal-dark);
 }
-
 .btn-retro-salmon {
   background: var(--retro-salmon);
   color: #ffffff;
@@ -222,20 +170,15 @@
   letter-spacing: 0.05em;
   transition: transform var(--tiller-transition-fast), box-shadow var(--tiller-transition-fast);
 }
-
 .btn-retro-salmon:hover {
   background: var(--retro-salmon-light);
   transform: translate(-1px, -1px);
   box-shadow: 5px 5px 0 var(--retro-salmon-dark);
 }
-
 .btn-retro-salmon:active {
   transform: translate(2px, 2px);
   box-shadow: 1px 1px 0 var(--retro-salmon-dark);
 }
-
-/* ===== 90s CARD VARIANTS ===== */
-
 .card-retro {
   background: var(--tiller-bg-slate);
   border: var(--retro-border-thick) solid var(--retro-teal);
@@ -244,117 +187,95 @@
   padding: var(--tiller-spacing-lg);
   transition: transform var(--tiller-transition-normal), box-shadow var(--tiller-transition-normal);
 }
-
 .card-retro:hover {
   transform: translate(-2px, -2px);
   box-shadow: 10px 10px 0 rgb(0 0 0 / 30%);
 }
-
 .card-retro-salmon {
   border-color: var(--retro-salmon);
   box-shadow: var(--retro-shadow-salmon);
 }
-
 .card-retro-mint {
   border-color: var(--retro-mint-dark);
   box-shadow: 4px 4px 0 var(--retro-mint-dark);
 }
-
 .card-retro-purple {
   border-color: var(--retro-purple);
   box-shadow: var(--retro-shadow-purple);
 }
-
-/* ===== 90s TILE PATTERN OVERLAYS ===== */
-
-/* Geometric 90s pattern overlay */
 .retro-pattern-geometric {
   position: relative;
 }
-
 .retro-pattern-geometric::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: 
-    repeating-linear-gradient(45deg, 
-      transparent,
-      transparent 10px,
-      rgb(0 128 128 / 3%) 10px,
-      rgb(0 128 128 / 3%) 20px
-    ),
-    repeating-linear-gradient(-45deg, 
-      transparent,
-      transparent 10px,
-      rgb(147 112 219 / 3%) 10px,
-      rgb(147 112 219 / 3%) 20px
-    );
+  background-image:
+  repeating-linear-gradient(45deg,
+  transparent,
+  transparent 10px,
+  rgb(0 128 128 / 3%) 10px,
+  rgb(0 128 128 / 3%) 20px
+  ),
+  repeating-linear-gradient(-45deg,
+  transparent,
+  transparent 10px,
+  rgb(147 112 219 / 3%) 10px,
+  rgb(147 112 219 / 3%) 20px
+  );
   pointer-events: none;
 }
-
-/* Pixel/grid pattern (8-bit style) */
 .retro-pattern-pixel {
   position: relative;
 }
-
 .retro-pattern-pixel::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: 
-    repeating-linear-gradient(90deg,
-      transparent,
-      transparent 8px,
-      rgb(0 128 128 / 5%) 8px,
-      rgb(0 128 128 / 5%) 16px
-    ),
-    repeating-linear-gradient(0deg,
-      transparent,
-      transparent 8px,
-      rgb(147 112 219 / 5%) 8px,
-      rgb(147 112 219 / 5%) 16px
-    );
+  background-image:
+  repeating-linear-gradient(90deg,
+  transparent,
+  transparent 8px,
+  rgb(0 128 128 / 5%) 8px,
+  rgb(0 128 128 / 5%) 16px
+  ),
+  repeating-linear-gradient(0deg,
+  transparent,
+  transparent 8px,
+  rgb(147 112 219 / 5%) 8px,
+  rgb(147 112 219 / 5%) 16px
+  );
   pointer-events: none;
   opacity: 50%;
 }
-
-/* ===== 90s GROUT COLORS ===== */
-
 .grout-teal {
-  background-image: 
-    linear-gradient(var(--retro-teal) 1px, transparent 1px),
-    linear-gradient(90deg, var(--retro-teal) 1px, transparent 1px);
+  background-image:
+  linear-gradient(var(--retro-teal) 1px, transparent 1px),
+  linear-gradient(90deg, var(--retro-teal) 1px, transparent 1px);
   background-size: 24px 24px;
   opacity: 15%;
 }
-
 .grout-salmon {
-  background-image: 
-    linear-gradient(var(--retro-salmon) 1px, transparent 1px),
-    linear-gradient(90deg, var(--retro-salmon) 1px, transparent 1px);
+  background-image:
+  linear-gradient(var(--retro-salmon) 1px, transparent 1px),
+  linear-gradient(90deg, var(--retro-salmon) 1px, transparent 1px);
   background-size: 24px 24px;
   opacity: 15%;
 }
-
 .grout-mint {
-  background-image: 
-    linear-gradient(var(--retro-mint-dark) 1px, transparent 1px),
-    linear-gradient(90deg, var(--retro-mint-dark) 1px, transparent 1px);
+  background-image:
+  linear-gradient(var(--retro-mint-dark) 1px, transparent 1px),
+  linear-gradient(90deg, var(--retro-mint-dark) 1px, transparent 1px);
   background-size: 24px 24px;
   opacity: 15%;
 }
-
-/* ===== 90s HERO ENHANCEMENTS ===== */
-
 .hero-retro {
   position: relative;
-  background: linear-gradient(135deg, 
-    var(--tiller-bg-dark) 0%, 
-    var(--tiller-bg-stone) 50%,
-    var(--tiller-bg-dark) 100%);
+  background: linear-gradient(135deg,
+  var(--tiller-bg-dark) 0%,
+  var(--tiller-bg-stone) 50%,
+  var(--tiller-bg-dark) 100%);
 }
-
-/* Teal/purple gradient accent */
 .hero-retro::before {
   content: '';
   position: absolute;
@@ -367,8 +288,6 @@
   pointer-events: none;
   clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
-
-/* Memphis geometric shapes accent */
 .hero-retro::after {
   content: '';
   position: absolute;
@@ -381,229 +300,86 @@
   border-radius: 50%;
   pointer-events: none;
 }
-
-/* ===== TEXT UTILITIES ===== */
-
 .text-retro-teal {
   color: var(--retro-teal);
   text-shadow: 2px 2px 0 var(--retro-teal-dark);
 }
-
 .text-retro-salmon {
   color: var(--retro-salmon);
   text-shadow: 2px 2px 0 var(--retro-salmon-dark);
 }
-
 .text-retro-purple {
   color: var(--retro-purple);
   text-shadow: 2px 2px 0 var(--retro-purple-dark);
 }
-
-/* ===== ACCENT BARS (90s style) ===== */
-
 .retro-accent-bar {
   height: 4px;
   background: linear-gradient(90deg,
-    var(--retro-teal) 0%,
-    var(--retro-purple) 33%,
-    var(--retro-salmon) 66%,
-    var(--retro-mint) 100%);
+  var(--retro-teal) 0%,
+  var(--retro-purple) 33%,
+  var(--retro-salmon) 66%,
+  var(--retro-mint) 100%);
   margin: var(--tiller-spacing-md) 0;
   border-radius: 2px;
 }
-
 .retro-accent-bar-vertical {
   width: 4px;
   height: 100%;
   background: linear-gradient(180deg,
-    var(--retro-teal) 0%,
-    var(--retro-purple) 33%,
-    var(--retro-salmon) 66%,
-    var(--retro-mint) 100%);
+  var(--retro-teal) 0%,
+  var(--retro-purple) 33%,
+  var(--retro-salmon) 66%,
+  var(--retro-mint) 100%);
   border-radius: 2px;
 }
-
-/* ===== RESPONSIVE ADJUSTMENTS ===== */
-
 @media (max-width: 900px) {
-  /* Reduce retro effects on mobile for performance */
   .retro-shadow-offset-lg {
-    box-shadow: var(--retro-shadow-offset-md);
+  box-shadow: var(--retro-shadow-offset-md);
   }
-  
   .retro-pattern-geometric::before,
   .retro-pattern-pixel::before {
-    opacity: 30%;
+  opacity: 30%;
   }
-  
   .memphis-triangle::after,
   .memphis-circle::before {
-    display: none;
+  display: none;
   }
 }
-
 @media (max-width: 600px) {
-  /* Simplify borders on small screens */
   .retro-border-chunky {
-    border-width: var(--retro-border-medium);
+  border-width: var(--retro-border-medium);
   }
-  
   .retro-border-double {
-    border-width: var(--retro-border-thin);
+  border-width: var(--retro-border-thin);
   }
-  
-  /* Reduce shadow on mobile */
   .retro-shadow-offset {
-    box-shadow: var(--retro-shadow-offset-sm);
+  box-shadow: var(--retro-shadow-offset-sm);
   }
 }
-
-/* ===== ACCESSIBILITY ===== */
-
-/* Respect reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   .btn-retro-teal,
   .btn-retro-salmon,
   .card-retro {
-    transition: none;
+  transition: none;
   }
-  
   .btn-retro-teal:hover,
   .btn-retro-salmon:hover,
   .card-retro:hover {
-    transform: none;
+  transform: none;
   }
 }
-
-/* High contrast mode support */
 @media (prefers-contrast: high) {
   .retro-pattern-geometric::before,
   .retro-pattern-pixel::before,
   .hero-retro::before,
   .hero-retro::after {
-    display: none;
+  display: none;
   }
-  
   .retro-border-chunky,
   .retro-border-teal,
   .retro-border-salmon,
   .retro-border-mint,
   .retro-border-purple {
-    border-width: calc(var(--retro-border-thick) * 1.5);
+  border-width: calc(var(--retro-border-thick) * 1.5);
   }
 }
-
-/* =
-   USAGE EXAMPLES & DOCUMENTATION
-   = */
-
-/*
-
-=== 90S DESIGN SYSTEM - QUICK REFERENCE ===
-
-1. GRADIENT BACKGROUNDS:
-   <div class="retro-gradient-teal-purple">
-     <!-- Teal to purple gradient -->
-   </div>
-   
-   <section class="retro-gradient-overlay-teal">
-     <!-- Subtle teal gradient overlay (15% opacity) -->
-   </section>
-
-2. CHUNKY BORDERS (90s style):
-   <div class="card retro-border-teal">
-     <!-- 4px solid teal border -->
-   </div>
-   
-   <div class="retro-border-double">
-     <!-- Double border effect -->
-   </div>
-
-3. OFFSET SHADOWS (Hard edges, no blur):
-   <div class="card retro-shadow-offset">
-     <!-- 5px offset shadow -->
-   </div>
-   
-   <div class="card retro-shadow-teal">
-     <!-- Teal offset shadow -->
-   </div>
-
-4. MEMPHIS GEOMETRIC ACCENTS:
-   <div class="section-header memphis-accent">
-     <!-- Colorful bar accent -->
-   </div>
-   
-   <div class="card memphis-triangle">
-     <!-- Triangle accent in corner -->
-   </div>
-   
-   <hr class="memphis-zigzag">
-
-5. COLOR BLOCK SECTIONS:
-   <section class="retro-block-teal">
-     <h2>Bold teal background</h2>
-   </section>
-
-6. 90S BUTTONS:
-   <button class="btn-retro-teal">Click Me</button>
-   <button class="btn-retro-salmon">Get Started</button>
-
-7. RETRO CARDS:
-   <div class="card-retro">
-     <!-- Chunky border + offset shadow -->
-   </div>
-   
-   <div class="card-retro card-retro-salmon">
-     <!-- Salmon accent -->
-   </div>
-
-8. PATTERN OVERLAYS:
-   <section class="retro-pattern-geometric">
-     <!-- Subtle geometric pattern -->
-   </section>
-   
-   <section class="retro-pattern-pixel">
-     <!-- 8-bit pixel grid -->
-   </section>
-
-9. 90S GROUT COLORS:
-   <div class="grout-teal">
-     <!-- Teal grout lines -->
-   </div>
-
-10. HERO WITH RETRO ACCENT:
-    <section class="home-hero hero-retro">
-      <!-- Gradient + geometric accents -->
-    </section>
-
-11. TEXT EFFECTS:
-    <h1 class="text-retro-teal">90s Vibes</h1>
-    <h2 class="text-retro-salmon">Nostalgic Design</h2>
-
-12. ACCENT BARS:
-    <div class="retro-accent-bar"></div>
-
-=== DESIGN PHILOSOPHY ===
-
-✅ PROFESSIONAL: Subtle use of retro colors (8-15% opacity overlays)
-✅ MODERN: Clean execution with CSS best practices
-✅ ACCESSIBLE: WCAG AA compliant, respects user preferences
-✅ PERFORMANT: CSS-only, no images, optimized for all devices
-✅ BRAND-ALIGNED: Retro accents complement existing dark theme
-
-=== 90S INSPIRATION ===
-
-🎨 COLOR: Windows 95, Memphis design, 90s bathroom tile
-🔲 SHAPES: Bold geometry, chunky borders, offset shadows
-📐 PATTERNS: Pixels, grids, diagonal lines, zigzags
-💫 STYLE: Nostalgic yet refined, fun yet professional
-
-=== INTEGRATION TIPS ===
-
-- Use retro colors as ACCENTS, not primary backgrounds
-- Apply 90s effects to CTAs, cards, and section dividers
-- Combine with existing emerald/gold brand colors
-- Layer retro patterns at 8-15% opacity
-- Keep text contrast at WCAG AA minimum (4.5:1)
-
-*/

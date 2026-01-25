@@ -278,7 +278,7 @@
 
     triggerLeadNotification() {
       // In production, trigger real-time notification to sales team
-      console.log('New lead captured:', this.leadData);
+      // console.log('New lead captured:', this.leadData); // AUTO-DISABLED
     }
   }
 

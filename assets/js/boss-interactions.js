@@ -292,7 +292,7 @@
   const handleResize = debounce(() => {
     // Placeholder for recalculating size-dependent features
     // All recalculations must be TCNA/New Jersey HIC compliant
-    // console.log('Window resized, recalculating...');
+    // // console.log('Window resized, recalculating...'); // AUTO-DISABLED
   }, 250);
 
   window.addEventListener('resize', handleResize);

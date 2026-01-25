@@ -1,41 +1,30 @@
-/* =
-   Tillerstead Tile Pattern Integrations
-   Practical applications of tile-inspired design to key site areas
-   = */
-
-/* ===== HERO SECTION ENHANCEMENTS ===== */
-
-/* Apply subtle grid pattern to hero backgrounds */
 
 .home-hero.ts-tiled-hero {
   background-color: var(--tiller-bg-main, #1a1c1a);
-  background-image: 
-    /* Ultra-subtle large-format tile grid */
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 349px,
-      rgb(201 162 39 / 8%) 349px,
-      rgb(201 162 39 / 8%) 350px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 349px,
-      rgb(201 162 39 / 8%) 349px,
-      rgb(201 162 39 / 8%) 350px
-    ),
-    linear-gradient(135deg, 
-      var(--tiller-bg-main, #1a1c1a) 0%, 
-      var(--tiller-bg-soft, #222524) 50%,
-      rgb(16 185 129 / 4%) 100%);
-  background-size: 
-    350px 100%,
-    100% 350px,
-    100% 100%;
+  background-image:
+  repeating-linear-gradient(
+  90deg,
+  transparent,
+  transparent 349px,
+  rgb(201 162 39 / 8%) 349px,
+  rgb(201 162 39 / 8%) 350px
+  ),
+  repeating-linear-gradient(
+  0deg,
+  transparent,
+  transparent 349px,
+  rgb(201 162 39 / 8%) 349px,
+  rgb(201 162 39 / 8%) 350px
+  ),
+  linear-gradient(135deg,
+  var(--tiller-bg-main, #1a1c1a) 0%,
+  var(--tiller-bg-soft, #222524) 50%,
+  rgb(16 185 129 / 4%) 100%);
+  background-size:
+  350px 100%,
+  100% 350px,
+  100% 100%;
 }
-
-/* Hero with diagonal herringbone accent */
 .home-hero.ts-herringbone-hero::before {
   content: '';
   position: absolute;
@@ -43,28 +32,24 @@
   right: 0;
   width: 40%;
   height: 100%;
-  background-image: 
-    linear-gradient(45deg, transparent 48%, rgb(201 162 39 / 10%) 48%, rgb(201 162 39 / 10%) 52%, transparent 52%),
-    linear-gradient(-45deg, transparent 48%, rgb(201 162 39 / 10%) 48%, rgb(201 162 39 / 10%) 52%, transparent 52%);
+  background-image:
+  linear-gradient(45deg, transparent 48%, rgb(201 162 39 / 10%) 48%, rgb(201 162 39 / 10%) 52%, transparent 52%),
+  linear-gradient(-45deg, transparent 48%, rgb(201 162 39 / 10%) 48%, rgb(201 162 39 / 10%) 52%, transparent 52%);
   background-size: 30px 30px;
   background-position: 0 0, 15px 15px;
   opacity: 30%;
   pointer-events: none;
   z-index: 0;
 }
-
-/* ===== SERVICE CARDS WITH TILE TEXTURE ===== */
-
 .service-card.ts-ceramic-card {
   background-color: var(--tiller-bg-slate, #2a2d2c);
   background-image: linear-gradient(135deg, rgb(255 255 255 / 3%) 0%, transparent 100%);
   border: 1px solid rgb(201 162 39 / 20%);
-  box-shadow: 
-    inset 0 1px 0 rgb(255 255 255 / 5%),
-    0 4px 16px rgb(0 0 0 / 30%);
+  box-shadow:
+  inset 0 1px 0 rgb(255 255 255 / 5%),
+  0 4px 16px rgb(0 0 0 / 30%);
   position: relative;
 }
-
 .service-card.ts-ceramic-card::before {
   content: '';
   position: absolute;
@@ -73,34 +58,30 @@
   right: 0;
   height: 4px;
   background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--tiller-color-emerald, #10b981) 20%,
-    var(--tiller-color-gold, #c9a227) 50%,
-    var(--tiller-color-emerald, #10b981) 80%,
-    transparent 100%
+  90deg,
+  transparent 0%,
+  var(--tiller-color-emerald, #10b981) 20%,
+  var(--tiller-color-gold, #c9a227) 50%,
+  var(--tiller-color-emerald, #10b981) 80%,
+  transparent 100%
   );
   opacity: 60%;
 }
-
 .service-card.ts-ceramic-card:hover {
   border-color: rgb(16 185 129 / 40%);
-  box-shadow: 
-    inset 0 1px 0 rgb(255 255 255 / 5%),
-    0 12px 32px rgb(0 0 0 / 40%),
-    0 0 30px rgb(16 185 129 / 15%);
+  box-shadow:
+  inset 0 1px 0 rgb(255 255 255 / 5%),
+  0 12px 32px rgb(0 0 0 / 40%),
+  0 0 30px rgb(16 185 129 / 15%);
 }
-
-/* Material cards with dark stone texture */
 .material-card.ts-stone-card {
   background-color: var(--tiller-bg-stone, #222524);
-  background-image: 
-    radial-gradient(circle at 20% 30%, rgb(255 255 255 / 2%) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgb(255 255 255 / 1.5%) 0%, transparent 60%);
+  background-image:
+  radial-gradient(circle at 20% 30%, rgb(255 255 255 / 2%) 0%, transparent 50%),
+  radial-gradient(circle at 80% 70%, rgb(255 255 255 / 1.5%) 0%, transparent 60%);
   border: 1px solid rgb(201 162 39 / 20%);
   position: relative;
 }
-
 .material-card.ts-stone-card::after {
   content: '';
   position: absolute;
@@ -109,45 +90,36 @@
   right: 0;
   height: 2px;
   background: linear-gradient(
-    90deg,
-    rgb(201 162 39 / 30%) 0%,
-    rgb(201 162 39 / 50%) 50%,
-    rgb(201 162 39 / 30%) 100%
+  90deg,
+  rgb(201 162 39 / 30%) 0%,
+  rgb(201 162 39 / 50%) 50%,
+  rgb(201 162 39 / 30%) 100%
   );
   opacity: 50%;
 }
-
-/* ===== PORTFOLIO GRID WITH GROUT-LINE GAPS ===== */
-
-/* Apply to portfolio sections */
 .ts-portfolio-tiled {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem; /* Clean gap between items */
+  gap: 1.5rem;
   background-color: transparent;
   padding: 0;
   border-radius: var(--tiller-border-radius-md, 8px);
 }
-
 @media (max-width: 1024px) {
   .ts-portfolio-tiled {
-    grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   }
 }
-
 @media (max-width: 640px) {
   .ts-portfolio-tiled {
-    grid-template-columns: 1fr;
+  grid-template-columns: 1fr;
   }
 }
-
 .ts-portfolio-tiled > * {
   background: var(--tiller-bg-slate, #2a2d2c);
   border-radius: 2px;
   overflow: hidden;
 }
-
-/* Three-column portfolio with subway tile effect */
 .ts-portfolio-subway {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -155,77 +127,64 @@
   background-color: var(--tiller-color-gold-muted, #8a7830);
   padding: 2px;
 }
-
 .ts-portfolio-subway > *:nth-child(odd) {
   grid-column: span 2;
 }
-
 .ts-portfolio-subway > *:nth-child(even) {
   grid-column: span 1;
 }
-
-/* ===== SECTION DIVIDERS & SEPARATORS ===== */
-
-/* Grout-line style section divider */
 .ts-section-separator {
   height: 2px;
   background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--tiller-color-gold-muted, #8a7830) 10%,
-    var(--tiller-color-gold, #c9a227) 30%,
-    var(--tiller-color-emerald, #10b981) 50%,
-    var(--tiller-color-gold, #c9a227) 70%,
-    var(--tiller-color-gold-muted, #8a7830) 90%,
-    transparent 100%
+  90deg,
+  transparent 0%,
+  var(--tiller-color-gold-muted, #8a7830) 10%,
+  var(--tiller-color-gold, #c9a227) 30%,
+  var(--tiller-color-emerald, #10b981) 50%,
+  var(--tiller-color-gold, #c9a227) 70%,
+  var(--tiller-color-gold-muted, #8a7830) 90%,
+  transparent 100%
   );
   margin: var(--tiller-spacing-xl, 4rem) auto;
   max-width: 60%;
   position: relative;
 }
-
-/* Decorative tile accent before section headings */
 .section-header.ts-tiled-header::before {
   content: '';
   display: block;
   width: 60px;
   height: 4px;
   background: linear-gradient(
-    90deg,
-    var(--tiller-color-emerald, #10b981) 0%,
-    var(--tiller-color-gold, #b8a040) 100%
+  90deg,
+  var(--tiller-color-emerald, #10b981) 0%,
+  var(--tiller-color-gold, #b8a040) 100%
   );
   margin: 0 auto var(--tiller-spacing-sm, 0.75rem);
   border-radius: 2px;
-  box-shadow: 
-    inset 0 -1px 0 rgb(0 0 0 / 20%),
-    0 1px 0 rgb(255 255 255 / 50%);
+  box-shadow:
+  inset 0 -1px 0 rgb(0 0 0 / 20%),
+  0 1px 0 rgb(255 255 255 / 50%);
 }
-
-/* ===== CTA SECTIONS WITH TILE BACKGROUNDS ===== */
-
 .section-cta.ts-tiled-cta {
   background-color: var(--tiller-color-emerald, #10b981);
-  background-image: 
-    /* Subtle grid overlay on dark background */
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 249px,
-      rgb(255 255 255 / 3%) 249px,
-      rgb(255 255 255 / 3%) 250px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 249px,
-      rgb(255 255 255 / 3%) 249px,
-      rgb(255 255 255 / 3%) 250px
-    );
+  background-image:
+  repeating-linear-gradient(
+  90deg,
+  transparent,
+  transparent 249px,
+  rgb(255 255 255 / 3%) 249px,
+  rgb(255 255 255 / 3%) 250px
+  ),
+  repeating-linear-gradient(
+  0deg,
+  transparent,
+  transparent 249px,
+  rgb(255 255 255 / 3%) 249px,
+  rgb(255 255 255 / 3%) 250px
+  );
   background-size: 250px 100%, 100% 250px;
   position: relative;
 }
-
 .section-cta.ts-tiled-cta::before {
   content: '';
   position: absolute;
@@ -233,23 +192,18 @@
   background: linear-gradient(135deg, rgb(26 61 46 / 90%) 0%, rgb(16 32 16 / 95%) 100%);
   pointer-events: none;
 }
-
 .section-cta.ts-tiled-cta > * {
   position: relative;
   z-index: 1;
 }
-
-/* ===== TESTIMONIAL/REVIEW CARDS ===== */
-
 .card--review.ts-tile-framed {
   background: var(--tiller-bg-slate, #2a2d2c);
   border: 2px solid rgb(201 162 39 / 25%);
-  box-shadow: 
-    inset 0 0 0 1px var(--tiller-bg-slate, #2a2d2c),
-    0 4px 16px rgb(0 0 0 / 30%);
+  box-shadow:
+  inset 0 0 0 1px var(--tiller-bg-slate, #2a2d2c),
+  0 4px 16px rgb(0 0 0 / 30%);
   position: relative;
 }
-
 .card--review.ts-tile-framed::before {
   content: '';
   position: absolute;
@@ -258,82 +212,68 @@
   width: 4px;
   height: 100%;
   background: linear-gradient(
-    180deg,
-    var(--tiller-color-gold, #b8a040) 0%,
-    var(--tiller-color-emerald, #10b981) 100%
+  180deg,
+  var(--tiller-color-gold, #b8a040) 0%,
+  var(--tiller-color-emerald, #10b981) 100%
   );
 }
-
-/* ===== FOOTER WITH TILE PATTERN ===== */
-
 .ts-footer.ts-tiled-footer {
   background-color: var(--tiller-color-emerald, #10b981);
-  background-image: 
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 99px,
-      rgb(255 255 255 / 2%) 99px,
-      rgb(255 255 255 / 2%) 100px
-    );
+  background-image:
+  repeating-linear-gradient(
+  0deg,
+  transparent,
+  transparent 99px,
+  rgb(255 255 255 / 2%) 99px,
+  rgb(255 255 255 / 2%) 100px
+  );
   background-size: 100% 100px;
   position: relative;
 }
-
-/* ===== PROCESS STEP CARDS ===== */
-
 .process-step.ts-plank-style {
   background-color: var(--tiller-bg-slate, #2a2d2c);
-  background-image: 
-    /* Horizontal plank lines */
-    linear-gradient(
-      0deg,
-      transparent 0%,
-      transparent calc(100% - 1px),
-      rgb(201 162 39 / 15%) calc(100% - 1px),
-      rgb(201 162 39 / 15%) 100%
-    ),
-    linear-gradient(135deg, rgb(255 255 255 / 3%) 0%, transparent 100%);
+  background-image:
+  linear-gradient(
+  0deg,
+  transparent 0%,
+  transparent calc(100% - 1px),
+  rgb(201 162 39 / 15%) calc(100% - 1px),
+  rgb(201 162 39 / 15%) 100%
+  ),
+  linear-gradient(135deg, rgb(255 255 255 / 3%) 0%, transparent 100%);
   border-left: 4px solid var(--tiller-color-emerald, #10b981);
-  box-shadow: 
-    inset -1px 0 0 rgb(255 255 255 / 5%),
-    0 4px 16px rgb(0 0 0 / 30%);
+  box-shadow:
+  inset -1px 0 0 rgb(255 255 255 / 5%),
+  0 4px 16px rgb(0 0 0 / 30%);
 }
-
-/* ===== STAT/FACT CARDS ===== */
-
 .card--stat.ts-mosaic-tile {
   background: linear-gradient(
-    135deg,
-    var(--tiller-color-gold, #b8a040) 0%,
-    var(--tiller-color-gold-dark, #8a7830) 100%
+  135deg,
+  var(--tiller-color-gold, #b8a040) 0%,
+  var(--tiller-color-gold-dark, #8a7830) 100%
   );
   border: 1px solid var(--tiller-grout-dark, #b8b3a8);
-  box-shadow: 
-    inset 0 1px 0 rgb(255 255 255 / 20%),
-    inset 0 -1px 0 rgb(0 0 0 / 10%),
-    0 4px 12px rgb(0 0 0 / 15%);
+  box-shadow:
+  inset 0 1px 0 rgb(255 255 255 / 20%),
+  inset 0 -1px 0 rgb(0 0 0 / 10%),
+  0 4px 12px rgb(0 0 0 / 15%);
   position: relative;
   overflow: hidden;
 }
-
 .card--stat.ts-mosaic-tile::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: 
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 10px,
-      rgb(255 255 255 / 3%) 10px,
-      rgb(255 255 255 / 3%) 20px
-    );
+  background-image:
+  repeating-linear-gradient(
+  45deg,
+  transparent,
+  transparent 10px,
+  rgb(255 255 255 / 3%) 10px,
+  rgb(255 255 255 / 3%) 20px
+  );
   pointer-events: none;
 }
-
-/* ===== IMAGE GALLERY TILES ===== */
-
 .ts-image-gallery-tiled {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -343,19 +283,16 @@
   border-radius: var(--tiller-border-radius-lg, 12px);
   overflow: hidden;
 }
-
 @media (max-width: 1024px) {
   .ts-image-gallery-tiled {
-    grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   }
 }
-
 @media (max-width: 640px) {
   .ts-image-gallery-tiled {
-    grid-template-columns: 1fr;
+  grid-template-columns: 1fr;
   }
 }
-
 .ts-image-gallery-tiled img {
   width: 100%;
   height: 100%;
@@ -364,136 +301,63 @@
   aspect-ratio: 1 / 1;
   transition: transform 0.3s var(--tiller-ease-smooth);
 }
-
 .ts-image-gallery-tiled img:hover {
   transform: scale(1.05);
   z-index: 1;
 }
-
-/* ===== RESPONSIVE ADJUSTMENTS ===== */
-
 @media (max-width: 900px) {
   .ts-portfolio-subway {
-    grid-template-columns: 1fr;
+  grid-template-columns: 1fr;
   }
-  
   .ts-portfolio-subway > * {
-    grid-column: span 1 !important;
+  grid-column: span 1 !important;
   }
-  
   .home-hero.ts-tiled-hero {
-    background-size: 
-      250px 100%,
-      100% 250px,
-      100% 100%;
+  background-size:
+  250px 100%,
+  100% 250px,
+  100% 100%;
   }
-  
   .section-cta.ts-tiled-cta {
-    background-size: 200px 100%, 100% 200px;
+  background-size: 200px 100%, 100% 200px;
   }
 }
-
 @media (max-width: 600px) {
   .home-hero.ts-tiled-hero {
-    background-size: 
-      150px 100%,
-      100% 150px,
-      100% 100%;
+  background-size:
+  150px 100%,
+  100% 150px,
+  100% 100%;
   }
-  
   .ts-portfolio-tiled {
-    gap: 2px;
-    padding: 2px;
+  gap: 2px;
+  padding: 2px;
   }
-  
   .section-cta.ts-tiled-cta {
-    background-size: 150px 100%, 100% 150px;
+  background-size: 150px 100%, 100% 150px;
   }
-  
-  /* Simplify patterns on mobile for performance */
   .ts-ceramic-card::before,
   .ts-stone-card::after {
-    display: none;
+  display: none;
   }
 }
-
-/* ===== UTILITY CLASSES ===== */
-
-/* Quick apply grout-line left border */
 .ts-grout-left {
   border-left: 3px solid var(--tiller-color-gold, #c9a227);
   padding-left: var(--tiller-spacing-md, 1rem);
 }
-
-/* Quick apply grout-line bottom border */
 .ts-grout-bottom {
   border-bottom: 2px solid var(--tiller-color-gold-muted, #8a7830);
   padding-bottom: var(--tiller-spacing-md, 1rem);
 }
-
-/* Tile texture overlay for any element */
 .ts-texture-ceramic {
   background-image: linear-gradient(135deg, rgb(255 255 255 / 3%) 0%, transparent 100%);
 }
-
 .ts-texture-natural {
   background-image: radial-gradient(circle at 30% 40%, rgb(0 0 0 / 1.5%) 0%, transparent 60%);
 }
-
-/* Frame element like installed tile */
 .ts-tile-frame {
   border: 2px solid rgb(201 162 39 / 25%);
-  box-shadow: 
-    inset 0 0 0 1px var(--tiller-bg-slate, #2a2d2c),
-    0 4px 16px rgb(0 0 0 / 30%);
+  box-shadow:
+  inset 0 0 0 1px var(--tiller-bg-slate, #2a2d2c),
+  0 4px 16px rgb(0 0 0 / 30%);
 }
-
-/* =
-   USAGE EXAMPLES IN HTML
-   = */
-
-/*
-
-1. HERO SECTION:
-<section class="home-hero ts-tiled-hero">
-  <div class="hero-grid">
-    <!-- Content -->
-  </div>
-</section>
-
-2. SERVICE CARDS:
-<div class="service-card ts-ceramic-card">
-  <h3 class="service-title">Tile Installation</h3>
-  <p>Professional ceramic tile installation...</p>
-</div>
-
-3. PORTFOLIO GRID:
-<div class="ts-portfolio-tiled">
-  <img src="project1.jpg" alt="Bathroom tile">
-  <img src="project2.jpg" alt="Kitchen backsplash">
-  <img src="project3.jpg" alt="Floor tile">
-</div>
-
-4. SECTION DIVIDER:
-<hr class="ts-section-separator">
-
-5. CTA WITH PATTERN:
-<section class="section-cta ts-tiled-cta">
-  <div class="container">
-    <h2>Ready to Transform Your Space?</h2>
-  </div>
-</section>
-
-6. MATERIAL CARDS:
-<div class="material-card ts-stone-card">
-  <h3>Natural Stone</h3>
-  <p>Marble, granite, travertine...</p>
-</div>
-
-7. REVIEW CARDS:
-<div class="card--review ts-tile-framed">
-  <div class="card-rating">⭐⭐⭐⭐⭐</div>
-  <p>"Excellent tile work!"</p>
-</div>
-
-*/
