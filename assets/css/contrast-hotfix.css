@@ -1,0 +1,141 @@
+/* =============================================================
+   Contrast Hotfix (Nav + Hero)
+   Loaded last to override existing styles
+   ============================================================= */
+
+/* Header background darker for contrast */
+.ts-header {
+  background: linear-gradient(135deg, #00512f 0%, #003a23 100%) !important;
+  border-bottom: 3px solid #d4af37 !important;
+}
+
+/* Desktop nav links */
+.desktop-nav__link,
+.desktop-nav__trigger {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  font-size: 1.05rem !important;
+  background: rgba(0, 0, 0, 0.25) !important;
+  border: 2px solid rgba(255, 255, 255, 0.35) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+  padding: 0.8rem 1.2rem !important;
+  border-radius: 10px !important;
+}
+
+.desktop-nav__link:hover,
+.desktop-nav__link:focus,
+.desktop-nav__trigger:hover,
+.desktop-nav__trigger:focus {
+  color: #ffd700 !important;
+  background: rgba(0, 0, 0, 0.45) !important;
+  border-color: #ffd700 !important;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.8) !important;
+  transform: translateY(-1px) !important;
+}
+
+.dropdown-arrow {
+  stroke: #ffffff !important;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6)) !important;
+}
+
+/* Dropdown items */
+.desktop-nav__dropdown {
+  border: 3px solid #006b3d !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35) !important;
+}
+
+.desktop-nav__dropdown a {
+  color: #0f0f0f !important;
+  background: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  border-radius: 8px !important;
+  border: 2px solid transparent !important;
+}
+
+.desktop-nav__dropdown a:hover {
+  background: #006b3d !important;
+  color: #ffffff !important;
+  border-color: #ffd700 !important;
+}
+
+/* Mobile nav */
+.mobile-nav__list > li > a,
+.mobile-nav__accordion-trigger {
+  color: #0f0f0f !important;
+  font-weight: 800 !important;
+  font-size: 1.05rem !important;
+  background: rgba(255,255,255,0.9) !important;
+  border: 2px solid #006b3d !important;
+}
+
+.mobile-nav__list > li > a:hover,
+.mobile-nav__accordion-trigger:hover {
+  background: #006b3d !important;
+  color: #ffffff !important;
+  border-color: #ffd700 !important;
+}
+
+/* Hero text */
+.hero h1,
+.hero-section h1,
+.ts-hero h1,
+[class*="hero"] h1 {
+  color: #0a0a0a !important;
+  font-weight: 900 !important;
+  text-shadow: 0 2px 8px rgba(255,255,255,0.9) !important;
+}
+
+.hero .lead,
+.hero-section .lead,
+.ts-hero .lead,
+[class*="hero"] .lead {
+  color: #0a0a0a !important;
+  font-weight: 800 !important;
+  font-size: clamp(1.4rem, 3vw, 2.2rem) !important;
+  background: rgba(255,255,255,0.78) !important;
+  padding: 1rem 1.5rem !important;
+  border-left: 6px solid #006b3d !important;
+  border-radius: 10px !important;
+  text-shadow: 0 1px 4px rgba(255,255,255,0.8) !important;
+}
+
+.hero p,
+.hero-section p,
+.ts-hero p,
+[class*="hero"] p {
+  color: #151515 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(255,255,255,0.8) !important;
+}
+
+/* Ensure header stays above hero */
+.ts-header { z-index: 1000 !important; }
+.hero,
+.hero-section,
+.ts-hero,
+[class*="hero"] { z-index: 0 !important; position: relative; }
+
+/* Global text contrast */
+body { color: #111111 !important; background: #ffffff !important; }
+
+/* Buttons */
+.btn--primary {
+  background: linear-gradient(135deg, #006b3d, #004d2b) !important;
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  border: 3px solid #003820 !important;
+}
+
+.btn--accent {
+  background: linear-gradient(135deg, #ffd700, #d4af37) !important;
+  color: #000000 !important;
+  font-weight: 900 !important;
+  border: 3px solid #9c7a14 !important;
+}
+
+/* Make sure nav is visible even if other CSS overrides */
+.desktop-nav,
+.desktop-nav__list,
+.desktop-nav__item,
+.desktop-nav__link { opacity: 1 !important; visibility: visible !important; }

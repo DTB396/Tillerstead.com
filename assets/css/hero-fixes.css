@@ -1,0 +1,111 @@
+/* ================================================
+   HERO SECTION - CONTRAST & SCROLL FIXES
+   ================================================ */
+
+/* Hero container - proper z-index layering */
+.hero,
+.hero-section,
+.ts-hero,
+[class*="hero"] {
+  position: relative;
+  z-index: 1; /* Behind header (z-index: 1000) */
+  background: #f8f7f5;
+}
+
+/* Hero text - high contrast */
+.hero h1,
+.hero-section h1,
+.ts-hero h1,
+[class*="hero"] h1 {
+  color: #1a1a1a !important;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.hero p,
+.hero-section p,
+.ts-hero p,
+[class*="hero"] p {
+  color: #2a2a2a !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+  font-weight: 600;
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.6;
+}
+
+/* Lead text - even higher contrast */
+.hero .lead,
+.hero-section .lead,
+.ts-hero .lead,
+[class*="hero"] .lead {
+  color: #1a1a1a !important;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+/* Hero on light backgrounds */
+.hero-light p,
+.hero-light h1,
+.hero-light .lead {
+  color: #1a1a1a !important;
+  text-shadow: none;
+}
+
+/* Hero on dark backgrounds */
+.hero-dark,
+.hero-dark p,
+.hero-dark h1,
+.hero-dark .lead {
+  background: #1a1a1a;
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Hero CTA buttons - high contrast */
+.hero .btn,
+.hero-section .btn,
+.ts-hero .btn {
+  font-weight: 700;
+  font-size: 1.125rem;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* Ensure content doesn't stick with header */
+main,
+.main-content,
+.ts-main-content {
+  position: relative;
+  z-index: 0; /* Below header */
+  background: #ffffff;
+  margin-top: 0; /* No gap */
+}
+
+/* Fix for sections immediately after header */
+section:first-of-type,
+.hero:first-child,
+main > *:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Smooth scroll behind header */
+html {
+  scroll-padding-top: 100px; /* Account for sticky header height */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .hero p,
+  .hero-section p,
+  .ts-hero p {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+  }
+  
+  .hero h1,
+  .hero-section h1,
+  .ts-hero h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+}
