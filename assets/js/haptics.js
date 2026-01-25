@@ -134,4 +134,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-export default haptics;
+haptics;

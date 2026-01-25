@@ -355,4 +355,4 @@ if (document.readyState === 'loading') {
   new GestureHandler();
 }
 
-export default GestureHandler;
+GestureHandler;

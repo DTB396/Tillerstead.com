@@ -277,4 +277,4 @@ if (document.readyState === 'loading') {
   new MobileAppFeatures();
 }
 
-export default MobileAppFeatures;
+MobileAppFeatures;

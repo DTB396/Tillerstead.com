@@ -350,4 +350,4 @@ if (document.readyState === 'loading') {
   window.appShell = new AppShell();
 }
 
-export default AppShell;
+AppShell;

@@ -329,4 +329,4 @@ if (document.readyState === 'loading') {
   window.pwaFeatures = new PWAFeatures();
 }
 
-export default PWAFeatures;
+PWAFeatures;

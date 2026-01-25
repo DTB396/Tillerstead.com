@@ -603,4 +603,4 @@ if (document.readyState === 'loading') {
   window.mobilePersonality = new MobilePersonality();
 }
 
-export default MobilePersonality;
+MobilePersonality;
