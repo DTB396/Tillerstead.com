@@ -1,1 +1,132 @@
-(function(){'use strict';console.log('[TILLERSTEAD] Initializing...');const d=document,w=window;function init(){initNav();initAnimations();initScroll();initPerformance();console.log('[TILLERSTEAD] ✅ Ready')}function initNav(){console.log('[NAV] Init dropdowns');const items=d.querySelectorAll('.desktop-nav__item--dropdown');console.log('[NAV] Found',items.length,'dropdowns');items.forEach((item,i)=>{const trigger=item.querySelector('.desktop-nav__trigger');const dropdown=item.querySelector('.desktop-nav__dropdown');if(!trigger||!dropdown)return;trigger.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();const isOpen=trigger.getAttribute('aria-expanded')==='true';items.forEach(other=>{if(other!==item){const t=other.querySelector('.desktop-nav__trigger');if(t)t.setAttribute('aria-expanded','false')}});trigger.setAttribute('aria-expanded',!isOpen?'true':'false');console.log('[NAV]',trigger.textContent.trim(),'→',!isOpen?'open':'closed')});if(w.innerWidth>768){item.addEventListener('mouseenter',()=>{trigger.setAttribute('aria-expanded','true')});item.addEventListener('mouseleave',()=>{trigger.setAttribute('aria-expanded','false')})}});d.addEventListener('click',e=>{if(!e.target.closest('.desktop-nav__item--dropdown')){items.forEach(item=>{const t=item.querySelector('.desktop-nav__trigger');if(t)t.setAttribute('aria-expanded','false')})}});const toggle=d.querySelector('.mobile-nav__toggle');const nav=d.getElementById('mobile-nav');const close=d.querySelector('.mobile-nav__close');function openNav(){if(nav){nav.setAttribute('aria-hidden','false');if(toggle)toggle.setAttribute('aria-expanded','true');d.body.style.overflow='hidden';console.log('[NAV] Mobile opened')}}function closeNav(){if(nav){nav.setAttribute('aria-hidden','true');if(toggle)toggle.setAttribute('aria-expanded','false');d.body.style.overflow='';console.log('[NAV] Mobile closed')}}if(toggle)toggle.addEventListener('click',openNav);if(close)close.addEventListener('click',closeNav);if(nav){nav.addEventListener('click',e=>{if(e.target.classList.contains('mobile-nav'))closeNav()})}const accordions=d.querySelectorAll('.mobile-nav__accordion-trigger');accordions.forEach(acc=>{acc.addEventListener('click',function(){const isOpen=this.getAttribute('aria-expanded')==='true';const panel=this.nextElementSibling;this.setAttribute('aria-expanded',!isOpen?'true':'false');if(panel)panel.hidden=isOpen})})}function initAnimations(){console.log('[ANIM] Init scroll animations');const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});d.querySelectorAll('.animate-on-scroll').forEach(el=>observer.observe(el));const header=d.getElementById('site-header');if(header){let lastScroll=0;w.addEventListener('scroll',()=>{const scrollY=w.pageYOffset;if(scrollY>100){header.classList.add('ts-header--scrolled')}else{header.classList.remove('ts-header--scrolled')}lastScroll=scrollY},{passive:true})}}function initScroll(){console.log('[SCROLL] Force enable');d.documentElement.style.overflow='auto';d.documentElement.style.overflowY='scroll';d.body.style.overflow='auto';d.body.style.overflowY='auto';d.body.style.height='auto';d.body.style.position='relative';const obs=new MutationObserver(muts=>{muts.forEach(mut=>{if(mut.type==='attributes'&&mut.attributeName==='style'){const t=mut.target;if(t===d.body||t===d.documentElement){if(t.style.overflow==='hidden'){console.warn('[SCROLL] Blocked overflow:hidden');d.documentElement.style.overflow='auto';d.body.style.overflow='auto'}}}})});obs.observe(d.documentElement,{attributes:true,attributeFilter:['style']});obs.observe(d.body,{attributes:true,attributeFilter:['style']});console.log('[SCROLL] ✅ Enabled')}function initPerformance(){if('requestIdleCallback'in w){w.requestIdleCallback(()=>{const links=d.querySelectorAll('a[href^="/"]');links.forEach(link=>{if(link.href){const url=new URL(link.href,w.location.origin);fetch(url.href,{method:'HEAD'}).catch(()=>{})}})})}let ticking=false;w.addEventListener('scroll',()=>{if(!ticking){w.requestAnimationFrame(()=>{ticking=false});ticking=true}},{passive:true})}if(d.readyState==='loading'){d.addEventListener('DOMContentLoaded',init)}else{init()}w.addEventListener('load',()=>{d.body.classList.add('loaded');console.log('[TILLERSTEAD] 🎉 Fully loaded')})})();
+(function() {
+  'use strict';
+  
+  console.log('[TILLERSTEAD] Initializing - No Bounce Edition');
+  
+  // Header scroll - NO BOUNCE
+  const header = document.getElementById('site-header');
+  if (header) {
+    let lastScroll = 0;
+    let ticking = false;
+    
+    function updateHeader() {
+      const scrollY = window.pageYOffset;
+      
+      // Only update class, not position
+      if (scrollY > 50) {
+        header.classList.add('ts-header--scrolled');
+      } else {
+        header.classList.remove('ts-header--scrolled');
+      }
+      
+      lastScroll = scrollY;
+      ticking = false;
+    }
+    
+    // Use requestAnimationFrame to prevent jank
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+  
+  // Rest of navigation code...
+  initNav();
+  initAnimations();
+  
+  function initNav() {
+    const dropdowns = document.querySelectorAll('.desktop-nav__item--dropdown');
+    
+    dropdowns.forEach(item => {
+      const trigger = item.querySelector('.desktop-nav__trigger');
+      if (!trigger) return;
+      
+      trigger.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        
+        dropdowns.forEach(other => {
+          if (other !== item) {
+            const t = other.querySelector('.desktop-nav__trigger');
+            if (t) t.setAttribute('aria-expanded', 'false');
+          }
+        });
+        
+        trigger.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+      });
+      
+      if (window.innerWidth > 768) {
+        item.addEventListener('mouseenter', () => {
+          trigger.setAttribute('aria-expanded', 'true');
+        });
+        item.addEventListener('mouseleave', () => {
+          trigger.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+    
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.desktop-nav__item--dropdown')) {
+        dropdowns.forEach(item => {
+          const t = item.querySelector('.desktop-nav__trigger');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+    
+    // Mobile nav
+    const toggle = document.querySelector('.mobile-nav__toggle');
+    const nav = document.getElementById('mobile-nav');
+    const close = document.querySelector('.mobile-nav__close');
+    
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+        nav.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+        document.body.style.overflow = isOpen ? '' : 'hidden';
+      });
+    }
+    
+    if (close && nav) {
+      close.addEventListener('click', () => {
+        nav.setAttribute('aria-hidden', 'true');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    }
+    
+    // Mobile accordions
+    const accordions = document.querySelectorAll('.mobile-nav__accordion-trigger');
+    accordions.forEach(acc => {
+      acc.addEventListener('click', function() {
+        const isOpen = this.getAttribute('aria-expanded') === 'true';
+        const panel = this.nextElementSibling;
+        this.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+        if (panel) panel.hidden = isOpen;
+      });
+    });
+  }
+  
+  function initAnimations() {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+  }
+  
+  // Force scroll enable
+  document.documentElement.style.overflowY = 'scroll';
+  document.body.style.overflowY = 'auto';
+  
+  console.log('[TILLERSTEAD] ✅ Ready - No Bounce!');
+})();
