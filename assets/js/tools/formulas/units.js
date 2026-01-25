@@ -7,9 +7,9 @@
  * @module units
  */
 
-// ============================================
+// ==
 // CONVERSION CONSTANTS (exact mathematical values)
-// ============================================
+// ==
 
 export const CONVERSIONS = {
   // Length
@@ -36,9 +36,9 @@ export const CONVERSIONS = {
   POUNDS_PER_KG: 2.20462
 };
 
-// ============================================
+// ==
 // CONVERSION FUNCTIONS
-// ============================================
+// ==
 
 /**
  * Convert inches to feet
@@ -173,9 +173,9 @@ export function kgToLbs(kg) {
   return kg * CONVERSIONS.POUNDS_PER_KG;
 }
 
-// ============================================
+// ==
 // VALIDATION HELPERS
-// ============================================
+// ==
 
 /**
  * Validate that a value is a positive number

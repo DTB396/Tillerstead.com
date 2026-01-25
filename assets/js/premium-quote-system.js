@@ -6,9 +6,9 @@
 (function() {
   'use strict';
 
-  // ============================================
+  // ==
   // PREMIUM QUOTE SYSTEM
-  // ============================================
+  // ==
 
   class PremiumQuoteSystem {
     constructor() {

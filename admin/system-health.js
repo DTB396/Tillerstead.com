@@ -7,9 +7,9 @@ import os from 'os';
 import fs from 'fs/promises';
 import path from 'path';
 
-// ============================================
+// ==
 // SYSTEM MONITOR
-// ============================================
+// ==
 
 class SystemMonitor {
   constructor() {
@@ -264,9 +264,9 @@ class SystemMonitor {
 
 export const systemMonitor = new SystemMonitor();
 
-// ============================================
+// ==
 // REQUEST TIMING MIDDLEWARE
-// ============================================
+// ==
 
 export function requestTimingMiddleware(req, res, next) {
   const startTime = Date.now();
@@ -283,9 +283,9 @@ export function requestTimingMiddleware(req, res, next) {
   next();
 }
 
-// ============================================
+// ==
 // HEALTH CHECK ENDPOINTS
-// ============================================
+// ==
 
 export function getHealthCheckData() {
   return {

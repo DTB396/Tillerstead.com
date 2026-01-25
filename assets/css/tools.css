@@ -3,9 +3,9 @@
  * Mobile-first, accessible, dark theme
  */
 
-/* ============================================
+/* ==
    CSS VARIABLES (inherit from root-vars)
-   ============================================ */
+   == */
 
 .tools-page {
   --tools-radius: 16px;
@@ -25,9 +25,9 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ============================================
+/* ==
    STICKY NAV
-   ============================================ */
+   == */
 
 .tools-nav {
   position: sticky;
@@ -96,9 +96,9 @@ html {
   background: linear-gradient(135deg, rgb(201 162 39 / 30%), rgb(201 162 39 / 20%));
 }
 
-/* ============================================
+/* ==
    PAGE HEADER
-   ============================================ */
+   == */
 
 .tools-header {
   padding: 3rem 0 2rem;
@@ -155,9 +155,9 @@ html {
   color: var(--tiller-color-gold, #c9a227);
 }
 
-/* ============================================
+/* ==
    SECTIONS
-   ============================================ */
+   == */
 
 .tools-section {
   padding: 3rem 0;
@@ -184,9 +184,9 @@ html {
   margin: 0;
 }
 
-/* ============================================
+/* ==
    CARDS
-   ============================================ */
+   == */
 
 .tools-card {
   background: var(--tiller-bg-dark, #1a1c1a);
@@ -232,9 +232,9 @@ html {
   border-style: dashed;
 }
 
-/* ============================================
+/* ==
    FORM ELEMENTS
-   ============================================ */
+   == */
 
 .form-grid {
   display: grid;
@@ -404,9 +404,9 @@ html {
   margin-top: 1.5rem;
 }
 
-/* ============================================
+/* ==
    SQ FT HELPER (W×L×H)
-   ============================================ */
+   == */
 
 .sqft-helper .tools-card {
   margin: 1rem 0;
@@ -416,9 +416,9 @@ html {
   margin: 0 0 0.75rem;
 }
 
-/* ============================================
+/* ==
    BUTTONS
-   ============================================ */
+   == */
 
 
 .btn {
@@ -542,9 +542,9 @@ html {
   flex-shrink: 0;
 }
 
-/* ============================================
+/* ==
    ROOMS
-   ============================================ */
+   == */
 
 .rooms-container {
   margin-bottom: var(--tools-gap);
@@ -677,9 +677,9 @@ html {
   margin-top: 0.75rem;
 }
 
-/* ============================================
+/* ==
    AREA SUMMARY
-   ============================================ */
+   == */
 
 .area-summary {
   background: rgb(16 185 129 / 10%);
@@ -746,9 +746,9 @@ html {
   color: var(--tiller-color-emerald, #10b981);
 }
 
-/* ============================================
+/* ==
    NUDGES & RECOMMENDATIONS
-   ============================================ */
+   == */
 
 .nudge {
   display: flex;
@@ -828,9 +828,9 @@ html {
   color: rgb(255 255 255 / 80%);
 }
 
-/* ============================================
+/* ==
    NEEDS ATTENTION PANEL
-   ============================================ */
+   == */
 
 .needs-attention {
   position: sticky;
@@ -916,9 +916,9 @@ html {
   }
 }
 
-/* ============================================
+/* ==
    CALCULATOR RESULTS
-   ============================================ */
+   == */
 
 .calc-results {
   margin-top: 1.5rem;
@@ -974,9 +974,9 @@ html {
   color: rgb(255 255 255 / 70%);
 }
 
-/* ============================================
+/* ==
    TIPS GRID
-   ============================================ */
+   == */
 
 .tips-grid {
   display: grid;
@@ -1079,9 +1079,9 @@ html {
   color: rgb(255 255 255 / 80%);
 }
 
-/* ============================================
+/* ==
    OUTPUT PREVIEW
-   ============================================ */
+   == */
 
 .output-options {
   border: none;
@@ -1135,9 +1135,9 @@ html {
   word-break: break-word;
 }
 
-/* ============================================
+/* ==
    ASSUMPTIONS PANEL
-   ============================================ */
+   == */
 
 .assumptions-panel {
   background: rgb(59 130 246 / 10%);
@@ -1164,9 +1164,9 @@ html {
   margin-bottom: 0.25rem;
 }
 
-/* ============================================
+/* ==
    TOAST NOTIFICATIONS
-   ============================================ */
+   == */
 
 .toast {
   position: fixed;
@@ -1200,9 +1200,9 @@ html {
   color: #000000;
 }
 
-/* ============================================
+/* ==
    PRINT STYLES
-   ============================================ */
+   == */
 
 @media print {
   .tools-nav,
@@ -1257,9 +1257,9 @@ html {
   }
 }
 
-/* ============================================
+/* ==
    RESPONSIVE ADJUSTMENTS
-   ============================================ */
+   == */
 
 @media (max-width: 640px) {
   .tools-header {
@@ -1313,9 +1313,9 @@ html {
   }
 }
 
-/* ============================================
+/* ==
    REDUCED MOTION
-   ============================================ */
+   == */
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -1327,9 +1327,9 @@ html {
   }
 }
 
-/* ============================================
+/* ==
    FOCUS VISIBLE (KEYBOARD ONLY)
-   ============================================ */
+   == */
 
 .form-input:focus:not(:focus-visible),
 .form-select:focus:not(:focus-visible),
@@ -1337,9 +1337,9 @@ html {
   box-shadow: none;
 }
 
-/* ============================================
+/* ==
    SCREEN READER ONLY
-   ============================================ */
+   == */
 
 .sr-only {
   position: absolute;
@@ -1353,9 +1353,9 @@ html {
   border: 0;
 }
 
-/* ============================================
+/* ==
    SURFACE DETAIL CARDS (Enhanced)
-   ============================================ */
+   == */
 
 .surface-details__grid {
   display: grid;
@@ -1492,9 +1492,9 @@ html {
   border-top: 1px solid rgb(255 255 255 / 10%);
 }
 
-/* ============================================
+/* ==
    VALIDATION STATES
-   ============================================ */
+   == */
 
 .is-invalid {
   border-color: #ef4444 !important;
@@ -1594,9 +1594,9 @@ html {
   margin-left: 0.5rem;
 }
 
-/* ============================================
+/* ==
    ROOM CARD LOCKED STATE
-   ============================================ */
+   == */
 
 .room-card--locked {
   border-color: rgb(34 197 94 / 30%);
@@ -1681,9 +1681,9 @@ html {
   color: rgb(255 255 255 / 70%);
 }
 
-/* ============================================
+/* ==
    TROWEL COMPARISON
-   ============================================ */
+   == */
 
 .trowel-comparison {
   background: linear-gradient(135deg, rgb(59 130 246 / 15%) 0%, rgb(59 130 246 / 8%) 100%);
@@ -1766,9 +1766,9 @@ html {
   50% { opacity: 60%; transform: scale(0.9); }
 }
 
-/* ============================================
+/* ==
    OUTPUT PACKET STYLES
-   ============================================ */
+   == */
 
 .output-packet {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -1986,9 +1986,9 @@ html {
   color: rgb(255 255 255 / 70%);
 }
 
-/* ============================================
+/* ==
    BACK TO TOP BUTTON
-   ============================================ */
+   == */
 
 .back-to-top {
   position: fixed;
@@ -2028,9 +2028,9 @@ html {
   outline-offset: 2px;
 }
 
-/* ============================================
+/* ==
    SKIP LINK
-   ============================================ */
+   == */
 
 .skip-link {
   position: absolute;
@@ -2050,9 +2050,9 @@ html {
   top: 0;
 }
 
-/* ============================================
+/* ==
    PRINT STYLES (Enhanced)
-   ============================================ */
+   == */
 
 @media print {
   body {
@@ -2134,9 +2134,9 @@ html {
   }
 }
 
-/* ============================================
+/* ==
    NEW CALCULATORS - COST, SLOPE, WATERPROOF, LABOR
-   ============================================ */
+   == */
 
 /* Cost Estimator Featured Section */
 .tools-section--featured {
@@ -2414,10 +2414,10 @@ html {
   }
 }
 
-/* ============================================
+/* ==
    APP-LIKE CALCULATOR GRID LAYOUT
    Smart collapsible sections with auto-features
-   ============================================ */
+   == */
 
 /* Tools App Grid Container - Full Width Stack */
 .tools-app-grid {
@@ -2994,9 +2994,9 @@ html {
   border-width: 2px;
 }
 
-/* ============================================
+/* ==
    OUTPUT FOOTER - Branded attribution
-   ============================================ */
+   == */
 .output-footer {
   margin-top: 2rem;
   padding: 1.25rem;

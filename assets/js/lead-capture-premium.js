@@ -6,9 +6,9 @@
 (function() {
   'use strict';
 
-  // ============================================
+  // ==
   // LEAD CAPTURE SYSTEM
-  // ============================================
+  // ==
 
   class LeadCaptureSystem {
     constructor() {
@@ -282,9 +282,9 @@
     }
   }
 
-  // ============================================
+  // ==
   // CONVERSION ANALYTICS
-  // ============================================
+  // ==
 
   class ConversionAnalytics {
     constructor() {

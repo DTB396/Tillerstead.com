@@ -11,9 +11,9 @@
 (function() {
   'use strict';
 
-  // ============================================
+  // ==
   // PROTECTED BRAND CONFIGURATION
-  // ============================================
+  // ==
   
   // Brand colors (encoded for IP protection)
   const _c = [26,61,46,201,162,39,33,37,41,108,117,125,248,249,250,255,255,255,206,212,218];
@@ -38,9 +38,9 @@
     appName: 'TillerPro'
   });
 
-  // ============================================
+  // ==
   // ADAPTIVE LOGO SYSTEM
-  // ============================================
+  // ==
 
   /**
    * Get logo for PDF rendering with fallbacks
@@ -701,9 +701,9 @@
       return materials;
     }
 
-    // ========================================
+    // =====
     // PUBLIC METHODS - PDF Generation
-    // ========================================
+    // =====
 
     /**
      * Generate full project summary PDF
@@ -1001,9 +1001,9 @@
     }
   }
 
-  // ========================================
+  // =====
   // EXPOSE TO WINDOW
-  // ========================================
+  // =====
 
   window.TillerPDF = {
     Generator: PDFGenerator,

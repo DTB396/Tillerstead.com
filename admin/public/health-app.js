@@ -4,9 +4,9 @@
 
 let autoRefreshInterval = null;
 
-// ============================================
+// ==
 // INITIALIZATION
-// ============================================
+// ==
 
 document.addEventListener('DOMContentLoaded', async () => {
   await checkAuth();
@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupAutoRefresh();
 });
 
-// ============================================
+// ==
 // AUTHENTICATION
-// ============================================
+// ==
 
 async function checkAuth() {
   try {
@@ -29,9 +29,9 @@ async function checkAuth() {
   }
 }
 
-// ============================================
+// ==
 // LOAD METRICS
-// ============================================
+// ==
 
 async function refreshMetrics() {
   try {
@@ -137,9 +137,9 @@ function updateProgressBar(id, value) {
   }
 }
 
-// ============================================
+// ==
 // AUTO REFRESH
-// ============================================
+// ==
 
 function setupAutoRefresh() {
   const checkbox = document.getElementById('auto-refresh');
@@ -168,9 +168,9 @@ function stopAutoRefresh() {
   }
 }
 
-// ============================================
+// ==
 // UTILITIES
-// ============================================
+// ==
 
 function formatBytes(bytes) {
   if (!bytes) return '—';

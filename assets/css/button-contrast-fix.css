@@ -1,7 +1,7 @@
-/* =========================================================
+/* =
    BUTTON CONTRAST FIX - WCAG AA Compliant
    Ensures all button text is readable on hover
-   ========================================================= */
+   = */
 
 /* Primary button - Keep text white/light on hover */
 .btn--primary:hover,

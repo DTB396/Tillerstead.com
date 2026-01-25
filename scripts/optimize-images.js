@@ -75,7 +75,7 @@ async function optimizeImage(imagePath) {
 
 async function main() {
   console.log('🎨 Tillerstead Image Optimization');
-  console.log('================================\n');
+  console.log('====\n');
 
   const images = await glob(`${INPUT_DIR}**/*.{jpg,jpeg,png}`, {
     ignore: ['**/node_modules/**', '**/optimized/**'],

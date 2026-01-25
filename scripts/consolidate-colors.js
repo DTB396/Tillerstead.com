@@ -170,7 +170,7 @@ const dryRun = args.includes('--dry-run');
 const projectRoot = path.resolve(__dirname, '..');
 
 console.log('🎨 CSS Color Consolidation Tool');
-console.log('================================\n');
+console.log('====\n');
 
 if (dryRun) {
   console.log('🔍 DRY RUN MODE - No files will be modified\n');
@@ -181,7 +181,7 @@ console.log(`📁 Processing directory: ${projectRoot}\n`);
 const results = processDirectory(projectRoot, dryRun);
 
 console.log('\n📊 Results:');
-console.log('===========');
+console.log('====');
 console.log(`Files processed: ${results.length}`);
 console.log(
   `Total replacements: ${results.reduce((sum, r) => sum + r.replacements, 0)}\n`,

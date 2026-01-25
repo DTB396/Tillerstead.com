@@ -1,7 +1,7 @@
-/* =========================================================
+/* =
    Footer Styles - Tillerstead Design System
    Modern, clean footer with seamless integration
-   ========================================================= */
+   = */
 
 /* Main Footer Container */
 .ts-footer {
@@ -311,9 +311,9 @@
   color: var(--tiller-text-muted, #6b7280);
 }
 
-/* =========================================================
+/* =
    Responsive Styles
-   ========================================================= */
+   = */
 
 @media (max-width: 900px) {
   .footer-columns {
@@ -410,9 +410,9 @@
   }
 }
 
-/* =========================================================
+/* =
    Brand Section (Upgraded 2026)
-   ========================================================= */
+   = */
 .footer-brand {
   text-align: center;
   margin-bottom: var(--tiller-spacing-lg, 1.5rem);
@@ -437,9 +437,9 @@
   margin: var(--tiller-spacing-xs, 0.25rem) 0 0;
 }
 
-/* =========================================================
+/* =
    Footer Icons for Section Headers
-   ========================================================= */
+   = */
 .footer-icon {
   display: inline-block;
   width: 16px;
@@ -453,9 +453,9 @@
   color: var(--tiller-color-gold, #c9a227);
 }
 
-/* =========================================================
+/* =
    Footer Navigation (Upgraded)
-   ========================================================= */
+   = */
 .footer-nav {
   width: 100%;
   margin-bottom: var(--tiller-spacing-md, 1rem);
@@ -465,9 +465,9 @@
   text-align: center;
 }
 
-/* =========================================================
+/* =
    Contact Grid (Upgraded)
-   ========================================================= */
+   = */
 .footer-contact-grid {
   display: flex;
   flex-wrap: wrap;
@@ -500,9 +500,9 @@
   gap: 0.5rem;
 }
 
-/* =========================================================
+/* =
    Credential Badge (License)
-   ========================================================= */
+   = */
 .footer-credential {
   display: inline-flex;
   align-items: center;
@@ -533,9 +533,9 @@
   font-size: 0.9375rem;
 }
 
-/* =========================================================
+/* =
    Trust Badges (New)
-   ========================================================= */
+   = */
 .footer-trust {
   display: flex;
   flex-wrap: wrap;
@@ -563,9 +563,9 @@
   flex-shrink: 0;
 }
 
-/* =========================================================
+/* =
    Social Links (Upgraded)
-   ========================================================= */
+   = */
 .footer-social-link {
   display: flex;
   align-items: center;
@@ -585,9 +585,9 @@
   transform: translateY(-2px);
 }
 
-/* =========================================================
+/* =
    Responsive Upgrades
-   ========================================================= */
+   = */
 @media (max-width: 768px) {
   .footer-contact-grid {
     flex-direction: column;
@@ -617,10 +617,10 @@
   }
 }
 
-/* =========================================================
+/* =
    CRITICAL OVERRIDES - FIX BLACK BOX ON LOGO
    These override any compiled styles from main.css
-   ========================================================= */
+   = */
 .nav-logo,
 .footer-logo,
 img.footer-logo,

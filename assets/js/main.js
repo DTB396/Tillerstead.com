@@ -7,10 +7,10 @@
   - All logic and markup meet TCNA 2024 and New Jersey HIC accessibility/legal standards
 */
 (() => {
-  // =========================
+  // ====
   // SCROLL FIX - ENSURE PAGE IS ALWAYS SCROLLABLE
   // - Reset any stuck overflow:hidden from navigation/modals
-  // =========================
+  // ====
   const ensureScrollable = () => {
     // Only reset if no modal/nav is actually open
     const isNavOpen = document.querySelector('.mobile-nav.is-open, .mobile-nav-shell.is-open');
@@ -26,17 +26,17 @@
   setTimeout(ensureScrollable, 500);
   window.addEventListener('resize', ensureScrollable);
 
-  // =========================
+  // ====
   // HIGH CONTRAST MODE - PERMANENTLY ENABLED
   // - Class is set in HTML, this ensures it stays enabled
-  // =========================
+  // ====
   document.documentElement.classList.add('high-contrast');
   document.documentElement.setAttribute('data-high-contrast', 'true');
 
-  // =========================
+  // ====
   // KEYBOARD SHORTCUTS
   // Alt+Shift+A : Toggle Audit Overlay (reload if enabling)
-  // =========================
+  // ====
   document.addEventListener('keydown', (e) => {
     if (!e.altKey || !e.shiftKey) return;
     if (e.code === 'KeyA') {
@@ -58,11 +58,11 @@
     }
   });
 
-  // =========================
+  // ====
   // SMOOTH SCROLL (anchors)
   // - Respects reduced motion (accessibility)
   // - Focuses target for screen readers (ARIA)
-  // =========================
+  // ====
   const prefersReduced =
     window.matchMedia &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -86,21 +86,21 @@
     setTimeout(() => target.removeAttribute('tabindex'), 1000);
   });
 
-  // =========================
+  // ====
   // FORM HANDLING (STATIC HOST)
   // - Ensures forms are accessible, TCNA/New Jersey HIC compliant
   // - Netlify passthrough supported
-  // =========================
+  // ====
   // (Add form handling logic here as needed, following OUTPUT_RULES.md)
 
-  // =========================
+  // ====
 
   // MOBILE NAVIGATION DRAWER
   // - Modal dialog pattern (ARIA compliant)
   // - ESC closes, backdrop click closes
   // - Scroll lock when open
   // - Focus management
-  // =========================
+  // ====
   const navToggle = document.querySelector('[data-nav-toggle]');
   const navClose = document.querySelector('[data-nav-close]');
   const navBackdrop = document.querySelector('[data-nav-overlay]');
@@ -180,11 +180,11 @@
     });
   }
 
-  // =========================
+  // ====
   // TESTIMONIAL READ MORE
   // - Expands truncated testimonials
   // - Accessible button toggle
-  // =========================
+  // ====
   document.querySelectorAll('[data-read-more]').forEach((button) => {
     button.addEventListener('click', function () {
       const quoteText = this.previousElementSibling;
@@ -200,11 +200,11 @@
     });
   });
 
-  // =========================
+  // ====
   // LOGO SMART CLICK
   // - If on homepage → go to /about/
   // - If on any other page → go to homepage
-  // =========================
+  // ====
   const logoLinks = document.querySelectorAll('[data-logo-link]');
   logoLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
@@ -221,12 +221,12 @@
     });
   });
 
-  // =========================
+  // ====
   // SCROLL-TRIGGERED ANIMATIONS
   // - Uses IntersectionObserver for performance
   // - Respects prefers-reduced-motion
   // - Staggered reveal for grid items
-  // =========================
+  // ====
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (!prefersReducedMotion) {
@@ -307,17 +307,17 @@
     });
   }
 
-  // =========================
+  // ====
   // SMOOTH SCROLL ENHANCEMENT
   // - Native CSS scroll-behavior with JS fallback
-  // =========================
+  // ====
   document.documentElement.style.scrollBehavior = 'smooth';
 })();
 
-// =========================================================
+// =
 // MODERN PREMIUM ANIMATIONS & INTERACTIONS
 // Conditionally import premium features for enhanced UX
-// =========================================================
+// =
 
 // Dynamic imports for optional premium features
 const initPremiumFeatures = async () => {

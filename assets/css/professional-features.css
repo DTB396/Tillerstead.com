@@ -1,9 +1,9 @@
-/* =========================================================
+/* =
    Professional Features - Additional Styles
    Companion CSS for professional-features.js
-   ========================================================= */
+   = */
 
-/* ========== COPY TO CLIPBOARD ANIMATION ========== */
+/* === COPY TO CLIPBOARD ANIMATION === */
 
 .copy-btn {
   position: relative;
@@ -28,7 +28,7 @@
   transform: translateY(0);
 }
 
-/* ========== TOOLTIP SYSTEM ========== */
+/* === TOOLTIP SYSTEM === */
 
 [data-tooltip] {
   position: relative;
@@ -96,14 +96,14 @@
   border-bottom-color: var(--tiller-bg-elevated, #323534);
 }
 
-/* ========== FOCUS RING STYLES ========== */
+/* === FOCUS RING STYLES === */
 
 :focus-visible {
   outline: 3px solid var(--tiller-color-emerald, #10b981);
   outline-offset: 3px;
 }
 
-/* ========== LOADING SPINNER ========== */
+/* === LOADING SPINNER === */
 
 .spinner-ring {
   display: inline-block;
@@ -126,7 +126,7 @@
   to { transform: rotate(360deg); }
 }
 
-/* ========== BADGE ANIMATIONS ========== */
+/* === BADGE ANIMATIONS === */
 
 .badge {
   display: inline-flex;
@@ -160,7 +160,7 @@
   color: var(--tiller-bg-darker, #121414);
 }
 
-/* ========== ACCORDION ANIMATIONS ========== */
+/* === ACCORDION ANIMATIONS === */
 
 .accordion-item {
   border-bottom: 1px solid rgb(255 255 255 / 10%);
@@ -212,7 +212,7 @@
   color: var(--tiller-text-secondary, #e5e7eb);
 }
 
-/* ========== TAB ANIMATIONS ========== */
+/* === TAB ANIMATIONS === */
 
 .tabs {
   display: flex;
@@ -277,7 +277,7 @@
   }
 }
 
-/* ========== MODAL ANIMATIONS ========== */
+/* === MODAL ANIMATIONS === */
 
 .modal-overlay {
   position: fixed;
@@ -354,7 +354,7 @@
   border-top: 1px solid rgb(255 255 255 / 10%);
 }
 
-/* ========== DROPDOWN ANIMATIONS ========== */
+/* === DROPDOWN ANIMATIONS === */
 
 .dropdown {
   position: relative;
@@ -402,14 +402,14 @@
   background: rgb(255 255 255 / 5%);
 }
 
-/* ========== COUNTER ANIMATION ========== */
+/* === COUNTER ANIMATION === */
 
 [data-count-to] {
   display: inline-block;
   font-variant-numeric: tabular-nums;
 }
 
-/* ========== MARQUEE ANIMATION ========== */
+/* === MARQUEE ANIMATION === */
 
 .marquee {
   overflow: hidden;
@@ -430,7 +430,7 @@
   animation-play-state: paused;
 }
 
-/* ========== NOTIFICATION DOT ========== */
+/* === NOTIFICATION DOT === */
 
 .has-notification {
   position: relative;
@@ -454,7 +454,7 @@
   50% { transform: scale(1.2); }
 }
 
-/* ========== SKELETON LOADING ========== */
+/* === SKELETON LOADING === */
 
 .skeleton {
   background: linear-gradient(
@@ -493,7 +493,7 @@
   100% { background-position: -200% 0; }
 }
 
-/* ========== RESPONSIVE VISIBILITY ========== */
+/* === RESPONSIVE VISIBILITY === */
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-content {

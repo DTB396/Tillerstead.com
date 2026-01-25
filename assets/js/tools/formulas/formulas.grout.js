@@ -10,9 +10,9 @@
 import { validatePositiveNumber, validatePercentage, mmToInches } from './units.js';
 import { roundUp } from './rounding.js';
 
-// ============================================
+// ==
 // GROUT FORMULA METADATA
-// ============================================
+// ==
 
 export const GROUT_FORMULA_INFO = {
   name: 'Grout Calculator',
@@ -44,9 +44,9 @@ export const GROUT_FORMULA_INFO = {
   ]
 };
 
-// ============================================
+// ==
 // GROUT CONSTANTS
-// ============================================
+// ==
 
 /**
  * Grout density values (lbs per cubic foot)
@@ -180,9 +180,9 @@ export const GROUT_PRO_TIPS = {
   ]
 };
 
-// ============================================
+// ==
 // MAIN CALCULATION FUNCTIONS
-// ============================================
+// ==
 
 /**
  * Calculate grout quantity needed

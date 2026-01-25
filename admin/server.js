@@ -52,9 +52,9 @@ app.use(security.auditMiddleware);
 // Request timing middleware for performance monitoring
 app.use(requestTimingMiddleware);
 
-// ============================================
+// ==
 // AUTHENTICATION MIDDLEWARE
-// ============================================
+// ==
 
 function requireAuth(req, res, next) {
   if (req.session && req.session.userId) {
@@ -64,9 +64,9 @@ function requireAuth(req, res, next) {
   }
 }
 
-// ============================================
+// ==
 // AUTHENTICATION ROUTES
-// ============================================
+// ==
 
 // Login with brute force protection
 app.post('/api/auth/login', security.authLimiter, security.checkBruteForce, async (req, res) => {
@@ -145,9 +145,9 @@ app.get('/api/auth/check', (req, res) => {
   }
 });
 
-// ============================================
+// ==
 // CALCULATOR API ROUTES
-// ============================================
+// ==
 
 // Get calculator configuration from tools.js
 app.get('/api/calculators/config', requireAuth, async (req, res) => {
@@ -186,9 +186,9 @@ app.put('/api/calculators/config', requireAuth, async (req, res) => {
   }
 });
 
-// ============================================
+// ==
 // WEBSITE CONTENT API ROUTES
-// ============================================
+// ==
 
 // List all data files
 app.get('/api/content/files', requireAuth, async (req, res) => {
@@ -270,9 +270,9 @@ app.put('/api/content/file/:filename', requireAuth, async (req, res) => {
   }
 });
 
-// ============================================
+// ==
 // SITE SETTINGS / TOGGLES API
-// ============================================
+// ==
 
 // Get site configuration
 app.get('/api/settings', requireAuth, async (req, res) => {
@@ -313,9 +313,9 @@ app.put('/api/settings', requireAuth, async (req, res) => {
   }
 });
 
-// ============================================
+// ==
 // UTILITY FUNCTIONS
-// ============================================
+// ==
 
 function extractCalculatorConfig(toolsContent) {
   const config = {
@@ -386,9 +386,9 @@ function updateCalculatorConfig(toolsContent, presets) {
   return updated;
 }
 
-// ============================================
+// ==
 // SECURITY API ROUTES
-// ============================================
+// ==
 
 // Security overview
 app.get('/api/security/overview', requireAuth, async (req, res) => {
@@ -594,9 +594,9 @@ app.delete('/api/security/ip-filter/blacklist/:ip', requireAuth, (req, res) => {
 // Roles management
 app
 
-// ============================================
+// ==
 // USER MANAGEMENT ROUTES
-// ============================================
+// ==
 
 // Get all users
 app.get('/api/users', requireAuth, (req, res) => {
@@ -713,9 +713,9 @@ app.post('/api/users/:username/change-password', requireAuth, async (req, res) =
   }
 });
 
-// ============================================
+// ==
 // HEALTH MONITORING ROUTES
-// ============================================
+// ==
 
 // Health check endpoint
 app.get('/api/health', requireAuth, (req, res) => {
@@ -737,9 +737,9 @@ app.get('/api/health/system', requireAuth, (req, res) => {
   res.json(sysInfo);
 });
 
-// ============================================
+// ==
 // NOTIFICATION ROUTES
-// ============================================
+// ==
 
 // Get notifications
 app.get('/api/notifications', requireAuth, (req, res) => {
@@ -769,9 +769,9 @@ app.delete('/api/notifications/:id', requireAuth, (req, res) => {
   res.json(roles);
 });
 
-// ============================================
+// ==
 // SERVE ADMIN PANEL HTML
-// ============================================
+// ==
 
 app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
@@ -793,9 +793,9 @@ app.get('/health', requireAuth, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'health.html'));
 });
 
-// ============================================
+// ==
 // START SERVER
-// ============================================
+// ==
 
 app.listen(PORT, () => {
   console.log(`\n🔧 Tillerstead Admin Panel`);

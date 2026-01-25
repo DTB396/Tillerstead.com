@@ -5,9 +5,9 @@
 
 import nodemailer from 'nodemailer';
 
-// ============================================
+// ==
 // EMAIL CONFIGURATION
-// ============================================
+// ==
 
 class EmailNotifier {
   constructor() {
@@ -86,9 +86,9 @@ class EmailNotifier {
     }
   }
 
-  // ============================================
+  // ==
   // NOTIFICATION TEMPLATES
-  // ============================================
+  // ==
 
   async notifyLoginFailure(username, ip, failedAttempts) {
     const subject = `🚨 Failed Login Attempt - ${username}`;
@@ -281,9 +281,9 @@ class EmailNotifier {
 
 export const emailNotifier = new EmailNotifier();
 
-// ============================================
+// ==
 // IN-APP NOTIFICATIONS
-// ============================================
+// ==
 
 class InAppNotifier {
   constructor() {

@@ -31,9 +31,9 @@ const __dirname = resolve(fileURLToPath(import.meta.url), '..');
 const ROOT = join(__dirname, '..');
 const DATA_DIR = join(ROOT, '_data');
 
-// ============================================
+// ==
 // AUDIT CONFIGURATION
-// ============================================
+// ==
 
 const COMPLIANCE_CHECKS = {
   TCNA: {
@@ -84,9 +84,9 @@ const COMPLIANCE_CHECKS = {
   },
 };
 
-// ============================================
+// ==
 // AUDIT REPOR
-// ============================================
+// ==
 
 const REPORT = {
   timestamp: new Date().toISOString(),
@@ -108,9 +108,9 @@ const REPORT = {
   },
 };
 
-// ============================================
+// ==
 // AUDIT FUNCTIONS
-// ============================================
+// ==
 
 /**
  * Check TCNA compliance in conten
@@ -552,9 +552,9 @@ function auditColorContrast() {
   };
 }
 
-// ============================================
+// ==
 // EXECUTION
-// ============================================
+// ==
 
 function runAudit() {
   console.log('🔍 Tillerstead Compliance Audit Started\n');

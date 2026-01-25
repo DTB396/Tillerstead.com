@@ -10,9 +10,9 @@
 import { validatePositiveNumber, validatePercentage } from './units.js';
 import { roundUp } from './rounding.js';
 
-// ============================================
+// ==
 // WATERPROOFING FORMULA METADATA
-// ============================================
+// ==
 
 export const WATERPROOFING_FORMULA_INFO = {
   name: 'Waterproofing Calculator',
@@ -57,9 +57,9 @@ export const WATERPROOFING_FORMULA_INFO = {
   ]
 };
 
-// ============================================
+// ==
 // WATERPROOFING PRODUCT DATABASE
-// ============================================
+// ==
 
 /**
  * Waterproofing product specifications from manufacturer TDS
@@ -159,9 +159,9 @@ export const WP_PRODUCTS = {
   }
 };
 
-// ============================================
+// ==
 // TCNA/ANSI WATERPROOFING REQUIREMENTS
-// ============================================
+// ==
 
 /**
  * TCNA Wet Area Requirements
@@ -255,9 +255,9 @@ export const WATERPROOF_MOVEMENT_JOINTS = {
   }
 };
 
-// ============================================
+// ==
 // MAIN CALCULATION FUNCTIONS
-// ============================================
+// ==
 
 /**
  * Calculate waterproofing materials needed

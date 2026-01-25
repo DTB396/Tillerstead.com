@@ -6,9 +6,9 @@
 (function() {
   'use strict';
 
-  // ============================================
+  // ==
   // STATE MANAGEMENT
-  // ============================================
+  // ==
 
   const state = {
     currentView: 'dashboard',
@@ -19,9 +19,9 @@
     isDirty: false
   };
 
-  // ============================================
+  // ==
   // INITIALIZATION
-  // ============================================
+  // ==
 
   async function init() {
     checkAuth();
@@ -47,9 +47,9 @@
     }
   }
 
-  // ============================================
+  // ==
   // NAVIGATION
-  // ============================================
+  // ==
 
   function setupNavigation() {
     const navItems = document.querySelectorAll('.nav-item, .card-link');
@@ -99,9 +99,9 @@
     }
   }
 
-  // ============================================
+  // ==
   // DASHBOARD
-  // ============================================
+  // ==
 
   async function loadDashboardStats() {
     try {
@@ -119,9 +119,9 @@
     }
   }
 
-  // ============================================
+  // ==
   // CALCULATOR CONFIGURATION
-  // ============================================
+  // ==
 
   async function loadCalculatorConfig() {
     try {
@@ -158,9 +158,9 @@
     showToast(`Add ${type} preset - functionality ready for implementation`, 'info');
   };
 
-  // ============================================
+  // ==
   // CONTENT EDITOR
-  // ============================================
+  // ==
 
   async function loadDataFiles() {
     try {
@@ -248,9 +248,9 @@
     }
   }
 
-  // ============================================
+  // ==
   // SETTINGS EDITOR
-  // ============================================
+  // ==
 
   async function loadSettings() {
     try {
@@ -295,9 +295,9 @@
     }
   }
 
-  // ============================================
+  // ==
   // FEATURE TOGGLES
-  // ============================================
+  // ==
 
   async function loadToggles() {
     try {
@@ -325,9 +325,9 @@
     showToast('Toggle settings saved', 'success');
   }
 
-  // ============================================
+  // ==
   // EVENT LISTENERS
-  // ============================================
+  // ==
 
   function setupEventListeners() {
     // Logout
@@ -367,9 +367,9 @@
     }
   }
 
-  // ============================================
+  // ==
   // TOAST NOTIFICATIONS
-  // ============================================
+  // ==
 
   function showToast(message, type = 'info') {
     const container = document.getElementById('toast-container');
@@ -395,9 +395,9 @@
     }, 3000);
   }
 
-  // ============================================
+  // ==
   // START APPLICATION
-  // ============================================
+  // ==
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

@@ -9,9 +9,9 @@ import { createHash, randomBytes } from 'crypto';
 import fs from 'fs/promises';
 import path from 'path';
 
-// ============================================
+// ==
 // RATE LIMITING
-// ============================================
+// ==
 
 // General API rate limiter
 export const apiLimiter = rateLimit({
@@ -38,9 +38,9 @@ export const modifyLimiter = rateLimit({
   message: 'Too many modification requests, please slow down.',
 });
 
-// ============================================
+// ==
 // BRUTE FORCE PROTECTION
-// ============================================
+// ==
 
 class BruteForceProtection {
   constructor() {
@@ -146,9 +146,9 @@ export function checkBruteForce(req, res, next) {
   next();
 }
 
-// ============================================
+// ==
 // SECURITY HEADERS
-// ============================================
+// ==
 
 export const securityHeaders = helmet({
   contentSecurityPolicy: {
@@ -177,9 +177,9 @@ export const securityHeaders = helmet({
   hidePoweredBy: true
 });
 
-// ============================================
+// ==
 // AUDIT LOGGING
-// ============================================
+// ==
 
 class AuditLogger {
   constructor() {
@@ -301,9 +301,9 @@ export function auditMiddleware(req, res, next) {
   next();
 }
 
-// ============================================
+// ==
 // INPUT VALIDATION & SANITIZATION
-// ============================================
+// ==
 
 export function sanitizeInput(input) {
   if (typeof input !== 'string') return input;
@@ -333,9 +333,9 @@ export function validateFilePath(filePath, allowedDir) {
   return normalized.startsWith(allowed);
 }
 
-// ============================================
+// ==
 // API KEY MANAGEMENT
-// ============================================
+// ==
 
 class APIKeyManager {
   constructor() {
@@ -442,9 +442,9 @@ export function requireAPIKey(req, res, next) {
   next();
 }
 
-// ============================================
+// ==
 // SESSION SECURITY
-// ============================================
+// ==
 
 export function secureSessionConfig() {
   return {
@@ -463,9 +463,9 @@ export function secureSessionConfig() {
   };
 }
 
-// ============================================
+// ==
 // IP WHITELIST/BLACKLIST
-// ============================================
+// ==
 
 class IPFilter {
   constructor() {
@@ -514,9 +514,9 @@ export function checkIPFilter(req, res, next) {
   next();
 }
 
-// ============================================
+// ==
 // EXPORT SECURITY BUNDLE
-// ============================================
+// ==
 
 export default {
   apiLimiter,

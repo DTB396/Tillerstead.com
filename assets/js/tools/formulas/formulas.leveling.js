@@ -9,9 +9,9 @@
 import { validatePositiveNumber, inchesToFeet } from './units.js';
 import { roundUp, formatNumber } from './rounding.js';
 
-// ============================================
+// ==
 // LEVELING FORMULA METADATA
-// ============================================
+// ==
 
 export const LEVELING_FORMULA_INFO = {
   name: 'Self-Leveling Calculator',
@@ -38,9 +38,9 @@ export const LEVELING_FORMULA_INFO = {
   ]
 };
 
-// ============================================
+// ==
 // LEVELING PRODUCT DATABASE
-// ============================================
+// ==
 
 /**
  * Self-leveling compound specifications
@@ -94,9 +94,9 @@ export const SLU_PRODUCTS = {
   }
 };
 
-// ============================================
+// ==
 // MAIN CALCULATION FUNCTIONS
-// ============================================
+// ==
 
 /**
  * Calculate self-leveling compound needed

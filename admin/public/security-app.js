@@ -2,17 +2,17 @@
  * Security Dashboard Frontend
  */
 
-// ============================================
+// ==
 // STATE
-// ============================================
+// ==
 
 let currentUser = null;
 let auditLogs = [];
 let apiKeys = [];
 
-// ============================================
+// ==
 // INITIALIZATION
-// ============================================
+// ==
 
 document.addEventListener('DOMContentLoaded', async () => {
   await checkAuth();
@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadRoles();
 });
 
-// ============================================
+// ==
 // AUTHENTICATION
-// ============================================
+// ==
 
 async function checkAuth() {
   try {
@@ -42,9 +42,9 @@ async function checkAuth() {
   }
 }
 
-// ============================================
+// ==
 // SECURITY OVERVIEW
-// ============================================
+// ==
 
 async function loadSecurityOverview() {
   try {
@@ -66,9 +66,9 @@ async function loadSecurityOverview() {
   }
 }
 
-// ============================================
+// ==
 // TWO-FACTOR AUTHENTICATION
-// ============================================
+// ==
 
 async function check2FAStatus() {
   try {
@@ -213,9 +213,9 @@ function close2FAModal() {
   document.getElementById('2fa-token').value = '';
 }
 
-// ============================================
+// ==
 // AUDIT LOGS
-// ============================================
+// ==
 
 async function loadAuditLogs(filter = 'all') {
   try {
@@ -251,9 +251,9 @@ function filterAuditLogs() {
   loadAuditLogs(filter);
 }
 
-// ============================================
+// ==
 // API KEYS
-// ============================================
+// ==
 
 async function loadAPIKeys() {
   try {
@@ -329,9 +329,9 @@ async function revokeAPIKey(hash) {
   }
 }
 
-// ============================================
+// ==
 // IP FILTER
-// ============================================
+// ==
 
 async function loadIPFilters() {
   try {
@@ -407,9 +407,9 @@ async function removeIP(type, ip) {
   }
 }
 
-// ============================================
+// ==
 // USER ROLES
-// ============================================
+// ==
 
 async function loadRoles() {
   try {
@@ -438,9 +438,9 @@ function displayRoles(roles) {
   `).join('');
 }
 
-// ============================================
+// ==
 // UTILITIES
-// ============================================
+// ==
 
 function showToast(message, type = 'info') {
   // Use existing toast system from admin-app.js if available

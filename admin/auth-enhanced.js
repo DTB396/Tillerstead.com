@@ -7,9 +7,9 @@ import speakeasy from 'speakeasy';
 import QRCode from 'qrcode';
 import { randomBytes } from 'crypto';
 
-// ============================================
+// ==
 // 2FA MANAGER
-// ============================================
+// ==
 
 class TwoFactorAuth {
   constructor() {
@@ -177,9 +177,9 @@ class TwoFactorAuth {
 
 export const twoFactorAuth = new TwoFactorAuth();
 
-// ============================================
+// ==
 // 2FA MIDDLEWARE
-// ============================================
+// ==
 
 export function require2FA(req, res, next) {
   if (!req.session || !req.session.userId) {
@@ -202,9 +202,9 @@ export function require2FA(req, res, next) {
   next();
 }
 
-// ============================================
+// ==
 // ROLE-BASED ACCESS CONTROL
-// ============================================
+// ==
 
 class RoleManager {
   constructor() {
@@ -326,9 +326,9 @@ class RoleManager {
 
 export const roleManager = new RoleManager();
 
-// ============================================
+// ==
 // PERMISSION MIDDLEWARE
-// ============================================
+// ==
 
 /**
  * Middleware to check permission
@@ -380,9 +380,9 @@ export function requireAnyPermission(permissions) {
   };
 }
 
-// ============================================
+// ==
 // EXPORT
-// ============================================
+// ==
 
 export default {
   twoFactorAuth,

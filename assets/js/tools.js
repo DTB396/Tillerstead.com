@@ -7,9 +7,9 @@
 (function() {
   'use strict';
 
-  // ============================================
+  // ==
   // CONSTANTS & CONFIGURATION
-  // ============================================
+  // ==
 
   // TCNA defines Large Format Tile (LFT) as any tile with any side ≥15"
   // LFT requires 95% mortar coverage, proper trowel selection, and back-buttering
@@ -75,12 +75,12 @@
 
   const STORAGE_KEY = 'tillerstead_tools_project';
 
-  // ============================================
+  // ==
   // ADVANCED FORMULAS LIBRARY (TillersteadFormulas)
   // Exposed on window for tools-app.js
   // Covers: movement joints, deflection, heated floor, moisture,
   // thinset mix, sealer, deck mud, primer, sealant, bath layout
-  // ============================================
+  // ==
 
   const MOVEMENT_JOINT_SPACING = {
     interior: { standard: 24, highTemp: 20 }, // ft
@@ -661,9 +661,9 @@
     WARNING: 'warning'
   };
 
-  // ============================================
+  // ==
   // STATE MANAGEMENT
-  // ============================================
+  // ==
 
   let state = {
     project: {
@@ -709,9 +709,9 @@
 
   let roomIdCounter = 0;
 
-  // ============================================
+  // ==
   // UTILITY FUNCTIONS
-  // ============================================
+  // ==
 
   /**
    * Generate unique ID
@@ -836,9 +836,9 @@
     return TROWEL_PRESETS.find(t => t.id === trowelId) || TROWEL_PRESETS[1];
   }
 
-  // ============================================
+  // ==
   // CALCULATION FUNCTIONS
-  // ============================================
+  // ==
 
   // Bridge to advanced formulas (mounted on window)
   const Advanced = window.TillersteadFormulas || window.TillersteadFormulasLibrary;
@@ -1089,9 +1089,9 @@
     };
   }
 
-  // ============================================
+  // ==
   // VALIDATION
-  // ============================================
+  // ==
 
   /**
    * Validate project data
@@ -1393,9 +1393,9 @@
     }).join('');
   }
 
-  // ============================================
+  // ==
   // NUDGES (Assist Messages)
-  // ============================================
+  // ==
 
   /**
    * Check for layout/tile combination issues
@@ -1467,9 +1467,9 @@
     }
   }
 
-  // ============================================
+  // ==
   // UI RENDERING
-  // ============================================
+  // ==
 
   /**
    * Populate select dropdowns with presets
@@ -1955,9 +1955,9 @@
     });
   }
 
-  // ============================================
+  // ==
   // SCOPE & OUTPUT GENERATION
-  // ============================================
+  // ==
 
   /**
    * Generate scope summary text
@@ -3583,10 +3583,10 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
   <meta charset="UTF-8">
   <title>Build Guide - ${escapeHtml(state.project.name || 'Your Project')} | Tillerstead</title>
   <style>
-    /* =============================================
+    /* ===
        TILLERSTEAD THEME - Print-Friendly Light Mode
        Colors: Gold accents, Emerald highlights, Stone neutrals
-       ============================================= */
+       === */
     
     @page {
       size: letter;
@@ -3991,7 +3991,7 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
 </head>
 <body>
 
-<!-- ==================== COVER PAGE ==================== -->
+<!-- ====== COVER PAGE ====== -->
 <div class="page cover">
   <img src="https://tillerstead.com/assets/img/logo/logo-wolf-crest.webp" 
        alt="Tillerstead Wolf Crest" 
@@ -4011,7 +4011,7 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
   </div>
 </div>
 
-<!-- ==================== PROJECT SPECIFICATIONS ==================== -->
+<!-- ====== PROJECT SPECIFICATIONS ====== -->
 <div class="page">
   <div class="header">
     <div class="header-brand">
@@ -4106,7 +4106,7 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
   </div>
 </div>
 
-<!-- ==================== MEASUREMENTS & MATERIALS ==================== -->
+<!-- ====== MEASUREMENTS & MATERIALS ====== -->
 <div class="page">
   <div class="header">
     <div class="header-brand">
@@ -4185,7 +4185,7 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
   </div>
 </div>
 
-<!-- ==================== BUILD GUIDES & CHECKLIST ==================== -->
+<!-- ====== BUILD GUIDES & CHECKLIST ====== -->
 <div class="page">
   <div class="header">
     <div class="header-brand">
@@ -4246,7 +4246,7 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
   </div>
 </div>
 
-<!-- ==================== DISCLAIMERS & CONTACT ==================== -->
+<!-- ====== DISCLAIMERS & CONTACT ====== -->
 <div class="page">
   <div class="header">
     <div class="header-brand">
@@ -4368,9 +4368,9 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
     }, duration);
   }
 
-  // ============================================
+  // ==
   // STORAGE
-  // ============================================
+  // ==
 
   /**
    * Save state to localStorage
@@ -4466,9 +4466,9 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
     showJointRecommendation();
   }
 
-  // ============================================
+  // ==
   // CALCULATOR MODULES
-  // ============================================
+  // ==
 
   /**
    * Handle tile calculator
@@ -4717,9 +4717,9 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
     document.getElementById('level-calc-results').hidden = false;
   }
 
-  // ============================================
+  // ==
   // EVENT HANDLERS
-  // ============================================
+  // ==
 
   /**
    * Initialize event listeners
@@ -5290,9 +5290,9 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
     }
   }
 
-  // ============================================
+  // ==
   // BACK TO TOP BUTTON
-  // ============================================
+  // ==
 
   function initBackToTop() {
     const btn = document.querySelector('.back-to-top');
@@ -5317,9 +5317,9 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
     }, { passive: true });
   }
 
-  // ============================================
+  // ==
   // SMOOTH SCROLL FOR NAV LINKS
-  // ============================================
+  // ==
 
   function initSmoothScroll() {
     document.querySelectorAll('.tools-nav__link').forEach(link => {
@@ -5341,9 +5341,9 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
     });
   }
 
-  // ============================================
+  // ==
   // NEW CALCULATORS - COST, SLOPE, WATERPROOF, LABOR
-  // ============================================
+  // ==
 
   /**
    * Cost Estimator Pricing Data (2025 South Jersey)
@@ -5762,9 +5762,9 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
     document.getElementById('calc-labor-btn')?.addEventListener('click', calculateLaborTime);
   }
 
-  // ============================================
+  // ==
   // LEGACY SQ FT HELPER (W×L×H)
-  // ============================================
+  // ==
 
   function initSqFtHelpersLegacy(root = document) {
     const helpers = root.querySelectorAll('[data-sqft-helper]');
@@ -5848,9 +5848,9 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
     });
   }
 
-  // ============================================
+  // ==
   // ACTIVE NAV HIGHLIGHTING
-  // ============================================
+  // ==
 
   function initActiveNavHighlight() {
     const sections = document.querySelectorAll('.tools-section[id]');
@@ -5872,9 +5872,9 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
     sections.forEach(section => observer.observe(section));
   }
 
-  // ============================================
+  // ==
   // APP-LIKE COLLAPSIBLE CALCULATOR CARDS
-  // ============================================
+  // ==
 
   function initCollapsibleCards() {
     const calcCards = document.querySelectorAll('.calc-app-card');
@@ -6117,9 +6117,9 @@ ${options.includeDisclaimers ? generateDocxDisclaimersSection() : ''}
   }
 
 
-  // ============================================
+  // ==
   // INITIALIZATION
-  // ============================================
+  // ==
 
   function init() {
     // Populate preset dropdowns

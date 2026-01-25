@@ -26,9 +26,9 @@ import { fileURLToPath } from 'url';
 const __dirname = resolve(fileURLToPath(import.meta.url), '..');
 const ROOT = join(__dirname, '..');
 
-// ============================================
+// ==
 // COLOR UTILITIES
-// ============================================
+// ==
 
 /**
  * Parse hex color to RGB array
@@ -87,9 +87,9 @@ function getWCAGLevel(ratio, isLargeText = false) {
   }
 }
 
-// ============================================
+// ==
 // TILLERSTEAD COLOR PALETTE
-// ============================================
+// ==
 
 const BRAND_COLORS = {
   // Teals
@@ -197,9 +197,9 @@ const COMMON_COMBINATIONS = [
   { fg: 'teal-800', bg: 'white', label: 'Link Hover' },
 ];
 
-// ============================================
+// ==
 // AUDIT REPORT
-// ============================================
+// ==
 
 const REPORT = {
   timestamp: new Date().toISOString(),
@@ -211,9 +211,9 @@ const REPORT = {
   results: [],
 };
 
-// ============================================
+// ==
 // EXECUTION
-// ============================================
+// ==
 
 function runContrastAudit() {
   console.log('🎨 WCAG 2.1 Contrast Audit Started\n');

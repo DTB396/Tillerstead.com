@@ -26,9 +26,9 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
-// ============================================
+// ==
 // COLOR CONTRAST UTILITIES
-// ============================================
+// ==
 
 function hexToRgb(hex) {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -69,9 +69,9 @@ function getLevel(ratio) {
   return '✗ FAIL';
 }
 
-// ============================================
+// ==
 // TOKENS UPDATER
-// ============================================
+// ==
 
 function updateTokensRadius() {
   const tokensPath = path.join(
@@ -158,9 +158,9 @@ function updateContainerRadius() {
   return changes;
 }
 
-// ============================================
+// ==
 // CONTRAST AUDITOR
-// ============================================
+// ==
 
 function auditContrast() {
   const tokensPath = path.join(
@@ -233,9 +233,9 @@ function auditContrast() {
   return results;
 }
 
-// ============================================
+// ==
 // REPORT GENERATION
-// ============================================
+// ==
 
 function generateReport() {
   const report = {
@@ -298,9 +298,9 @@ function generateReport() {
   console.log('  3. npm run audit:contrast\n');
 }
 
-// ============================================
+// ==
 // MAIN
-// ============================================
+// ==
 
 try {
   generateReport();

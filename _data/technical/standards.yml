@@ -1,5 +1,5 @@
 # Tillerstead Standards Reference
-# ================================
+# ====
 # 
 # Standards referenced in calculator formulas and product compliance.
 # This file provides context for standards citations, NOT the standards themselves.
@@ -17,9 +17,9 @@ metadata:
     Tillerstead does not claim authorship or republish copyrighted content.
     Always consult the current version from the official publisher.
 
-# ============================================
+# ==
 # ANSI STANDARDS (Tile Installation)
-# ============================================
+# ==
 ansi_standards:
   - id: "A108"
     full_name: "ANSI A108 - American National Standard Specifications for the Installation of Ceramic Tile"
@@ -141,9 +141,9 @@ ansi_standards:
       Acceptable lippage = inherent tile warpage (per A137.1) + installation tolerance.
       Installers cannot be held responsible for lippage caused by tile warpage within spec.
 
-# ============================================
+# ==
 # TCNA HANDBOOK
-# ============================================
+# ==
 tcna:
   - id: "handbook"
     full_name: "TCNA Handbook for Ceramic, Glass, and Stone Tile Installation"
@@ -179,9 +179,9 @@ tcna:
       All substrate movement joints MUST be honored through the tile installation.
       Crack isolation membranes help but do NOT eliminate movement joint requirements.
 
-# ============================================
+# ==
 # PLUMBING CODES
-# ============================================
+# ==
 plumbing_codes:
   - id: "IPC"
     full_name: "International Plumbing Code"
@@ -198,9 +198,9 @@ plumbing_codes:
     used_in_calculators:
       - "slope calculator"
 
-# ============================================
+# ==
 # ASTM STANDARDS
-# ============================================
+# ==
 astm_standards:
   - id: "C1708"
     full_name: "ASTM C1708 - Standard Guide for Self-Leveling Mortars"
@@ -222,9 +222,9 @@ astm_standards:
       Movement joints should be filled with ASTM C920 compliant sealants.
       Grout and thinset must NOT bridge movement joints.
 
-# ============================================
+# ==
 # DEFLECTION REQUIREMENTS
-# ============================================
+# ==
 deflection_requirements:
   ceramic_tile:
     maximum: "L/360"
@@ -239,9 +239,9 @@ deflection_requirements:
     Excessive deflection causes grout and tile cracking.
     Stone requires stricter deflection limits due to brittleness.
 
-# ============================================
+# ==
 # PRO NOTES: COMMON FAILURE POINTS
-# ============================================
+# ==
 pro_notes_failure_prevention:
   mortar_coverage:
     issue: "Insufficient mortar coverage leads to tile cracking and hollow spots"
@@ -278,9 +278,9 @@ pro_notes_failure_prevention:
       - "Flood test before tiling (per TCNA/manufacturer)"
       - "Extend membrane min 3\" beyond wet area"
 
-# ============================================
+# ==
 # HOW STANDARDS ARE USED IN CALCULATORS
-# ============================================
+# ==
 calculator_compliance_notes:
   mortar_calculator: >
     Trowel selection follows TCNA and CBP VersaBond LFT TDS recommendations.

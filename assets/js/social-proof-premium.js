@@ -6,9 +6,9 @@
 (function() {
   'use strict';
 
-  // ============================================
+  // ==
   // SOCIAL PROOF SYSTEM
-  // ============================================
+  // ==
 
   class SocialProofSystem {
     constructor() {
@@ -219,9 +219,9 @@
     }
   }
 
-  // ============================================
+  // ==
   // BEFORE/AFTER GALLERY ENHANCEMENT
-  // ============================================
+  // ==
 
   class BeforeAfterGallery {
     constructor() {
@@ -345,9 +345,9 @@
     }
   }
 
-  // ============================================
+  // ==
   // APPOINTMENT SCHEDULING SYSTEM
-  // ============================================
+  // ==
 
   class AppointmentScheduler {
     constructor() {

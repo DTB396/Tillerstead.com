@@ -2,10 +2,8 @@
 # Tillerstead Brand Variables - Single Source of Truth
 # NJ HIC #13VH10808800
 
-# ===================================
-# COMPANY IDENTITY
-# ===================================
-company:
+# # COMPANY IDENTITY
+# company:
   legal_name: "Tillerstead LLC"
   display_name: "Tillerstead"
   owner: "Tyler"
@@ -25,10 +23,8 @@ address:
   postal_code: "08205"
   country: "US"
 
-# ===================================
-# BRAND MESSAGING
-# ===================================
-messaging:
+# # BRAND MESSAGING
+# messaging:
   # Primary tagline (header, hero)
   tagline: "Where Craft Meets Accountability"
   
@@ -58,10 +54,8 @@ messaging:
     What makes us different? Owner on site, written scope before work starts, and photo
     documentation you can keep for warranty purposes.
 
-# ===================================
-# BRAND PILLARS (core values)
-# ===================================
-pillars:
+# # BRAND PILLARS (core values)
+# pillars:
   - name: "Technical Authority"
     description: "TCNA 2024, ANSI standards, manufacturer compliance"
     icon: "badge"
@@ -78,10 +72,8 @@ pillars:
     description: "Substrate prep, system-based waterproofing, planned layouts"
     icon: "tools"
 
-# ===================================
-# VALUE PROPOSITIONS
-# ===================================
-value_props:
+# # VALUE PROPOSITIONS
+# value_props:
   homeowners:
     - "Beautiful finishes start with invisible work"
     - "You don't need to speak 'construction' to hire well"
@@ -97,10 +89,8 @@ value_props:
     - "Written scopes, change orders, and warranties"
     - "Owner on site—no subcontracted labor"
 
-# ===================================
-# TRUST BADGES / CREDENTIALS
-# ===================================
-credentials:
+# # TRUST BADGES / CREDENTIALS
+# credentials:
   - label: "NJ HIC Licensed"
     value: "#13VH10808800"
     icon: "badge"
@@ -117,10 +107,8 @@ credentials:
     value: "Atlantic, Ocean & Cape May Counties"
     icon: "map"
 
-# ===================================
-# SERVICE AREAS
-# ===================================
-service_areas:
+# # SERVICE AREAS
+# service_areas:
   primary:
     - name: "Atlantic County"
       cities:
@@ -151,10 +139,8 @@ service_areas:
     - "Camden County"
     - "Gloucester County"
 
-# ===================================
-# SOCIAL MEDIA
-# ===================================
-social:
+# # SOCIAL MEDIA
+# social:
   handle: "tillerstead"
   links:
     website: "https://tillerstead.com"
@@ -165,10 +151,8 @@ social:
   # Standard bio for all platforms
   bio: "Licensed NJ tile contractor • HIC #13VH10808800 • TCNA methods • Atlantic, Ocean & Cape May Counties"
 
-# ===================================
-# BRAND COLORS
-# ===================================
-colors:
+# # BRAND COLORS
+# colors:
   # Primary palette
   primary:
     emerald: "#00e184"
@@ -207,10 +191,8 @@ colors:
     tertiary: "#9ca3af"
     muted: "#6b7280"
 
-# ===================================
-# BRAND VOICE
-# ===================================
-voice:
+# # BRAND VOICE
+# voice:
   characteristics:
     - trait: "Knowledgeable"
       description: "Expert without being condescending"
@@ -240,10 +222,8 @@ voice:
     - "Dismiss competitors—let work speak"
     - "Oversell or use superlatives carelessly"
 
-# ===================================
-# CTA LABELS
-# ===================================
-cta:
+# # CTA LABELS
+# cta:
   primary: "Request a Written Estimate"
   primary_alt: "Book a TCNA-Compliant Consultation"
   secondary: "View Portfolio"
@@ -251,10 +231,8 @@ cta:
   contact: "Get in Touch"
   learn_more: "Learn More"
 
-# ===================================
-# INDUSTRY STANDARDS
-# ===================================
-standards:
+# # INDUSTRY STANDARDS
+# standards:
   - name: "TCNA"
     full_name: "Tile Council of North America"
     version: "2024 Handbook"
@@ -269,10 +247,8 @@ standards:
     full_name: "New Jersey Home Improvement Contractor"
     license: "13VH10808800"
 
-# ===================================
-# SIGNATURE BLOCK
-# ===================================
-signature:
+# # SIGNATURE BLOCK
+# signature:
   template: |
     Tyler
     Owner/Operator, Tillerstead LLC

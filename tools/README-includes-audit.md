@@ -140,7 +140,7 @@ archive/
 
 ```
 🔍 Jekyll Includes Auditor v1.0
-================================
+====
 
 📋 Phase 1: Scanning _includes directory...
   Analyzing: components/card.html

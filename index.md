@@ -33,9 +33,9 @@ keywords: "tile contractor South Jersey, waterproofing contractor NJ, bathroom r
 ---
 
 {%- comment -%}
-  ============================================================
+  ====
   TILLERSTEAD HOMEPAGE - Conversion-Optimized Architecture
-  ============================================================
+  ====
   
   Performance & SEO Optimizations:
   - Critical CSS inlined via layout

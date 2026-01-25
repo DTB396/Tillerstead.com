@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* === TILLERSTEAD: Always allow vertical scrolling unless modal is open === */
 html, body {
   overflow-y: auto !important;
@@ -19,12 +18,10 @@ button, .btn, a, [role="button"] {
   transition-duration: 0.10s !important;
   animation-duration: 0.15s !important;
 }
-=======
->>>>>>> 6f26b33d (x)
 /**
- * ============================================================================
+ * ======
  * TILLERSTEAD ACCESSIBILITY SYSTEM
- * ============================================================================
+ * ======
  * Comprehensive accessibility support for all disability types:
  * - Visual: High contrast, screen readers, focus indicators, color blindness
  * - Motor: Keyboard navigation, large targets, reduced motion
@@ -32,12 +29,12 @@ button, .btn, a, [role="button"] {
  * - Hearing: Visual alternatives to audio cues
  * 
  * WCAG 2.1 AAA Compliance Target
- * ============================================================================
+ * ======
  */
 
-/* ==========================================================================
+/* ====
    1. SCREEN READER UTILITIES
-   ========================================================================== */
+   ==== */
 
 /**
  * Visually hidden but accessible to screen readers
@@ -81,9 +78,9 @@ button, .btn, a, [role="button"] {
   pointer-events: none;
 }
 
-/* ==========================================================================
+/* ====
    2. SKIP LINKS & NAVIGATION AIDS
-   ========================================================================== */
+   ==== */
 
 /**
  * Skip link - allows keyboard users to bypass navigation
@@ -146,9 +143,9 @@ button, .btn, a, [role="button"] {
   outline-offset: 2px;
 }
 
-/* ==========================================================================
+/* ====
    3. FOCUS INDICATORS - WCAG 2.4.7 & 2.4.11
-   ========================================================================== */
+   ==== */
 
 /**
  * Universal focus outline
@@ -204,9 +201,9 @@ textarea:focus-visible,
   box-shadow: 0 0 0 6px rgb(255 255 255 / 30%);
 }
 
-/* ==========================================================================
+/* ====
    4. REDUCED MOTION SUPPORT - WCAG 2.3.3
-   ========================================================================== */
+   ==== */
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -252,9 +249,9 @@ textarea:focus-visible,
   }
 }
 
-/* ==========================================================================
+/* ====
    5. HIGH CONTRAST MODE SUPPORT - WCAG 1.4.11
-   ========================================================================== */
+   ==== */
 
 /**
  * Windows High Contrast Mode support
@@ -374,9 +371,9 @@ textarea:focus-visible,
   box-shadow: 0 0 15px rgb(201 162 39 / 60%), 0 0 30px rgb(201 162 39 / 30%);
 }
 
-/* ==========================================================================
+/* ====
    5b. AUTO-DETECTED SYSTEM PREFERENCES
-   ========================================================================== */
+   ==== */
 
 /**
  * Inverted colors support (iOS/macOS accessibility setting)
@@ -592,9 +589,9 @@ textarea:focus-visible,
   box-shadow: 0 0 0 8px rgb(16 185 129 / 30%) !important;
 }
 
-/* ==========================================================================
+/* ====
    6. COLOR BLINDNESS SUPPORT
-   ========================================================================== */
+   ==== */
 
 /**
  * Never rely on color alone - add patterns/icons
@@ -640,9 +637,9 @@ a[href^="tel:"]::before {
   content: "☎ ";
 }
 
-/* ==========================================================================
+/* ====
    7. KEYBOARD NAVIGATION - WCAG 2.1.1, 2.1.2
-   ========================================================================== */
+   ==== */
 
 /**
  * Ensure all interactive elements are keyboard accessible
@@ -702,9 +699,9 @@ a.nav-link,
   opacity: 100%;
 }
 
-/* ==========================================================================
+/* ====
    8. TEXT & TYPOGRAPHY ACCESSIBILITY - WCAG 1.4.4, 1.4.8, 1.4.12
-   ========================================================================== */
+   ==== */
 
 /**
  * Respect user font size preferences
@@ -755,9 +752,9 @@ p + p {
   font-size: 150%;
 }
 
-/* ==========================================================================
+/* ====
    9. FORM ACCESSIBILITY - WCAG 1.3.5, 3.3.1, 3.3.2
-   ========================================================================== */
+   ==== */
 
 /**
  * Form field labels
@@ -863,9 +860,9 @@ input:-webkit-autofill {
   box-shadow: 0 0 0 1000px var(--tiller-bg-color, #ffffff) inset;
 }
 
-/* ==========================================================================
+/* ====
    10. LIVE REGIONS & ANNOUNCEMENTS
-   ========================================================================== */
+   ==== */
 
 /**
  * Screen reader announcement containers
@@ -898,9 +895,9 @@ input:-webkit-autofill {
   margin: 0.5rem 0;
 }
 
-/* ==========================================================================
+/* ====
    11. MODAL/DIALOG ACCESSIBILITY
-   ========================================================================== */
+   ==== */
 
 /**
  * Modal backdrop
@@ -939,9 +936,9 @@ body.modal-open > *:not([role="dialog"], .modal-backdrop) {
   justify-content: center;
 }
 
-/* ==========================================================================
+/* ====
    12. TABLE ACCESSIBILITY - WCAG 1.3.1
-   ========================================================================== */
+   ==== */
 
 table {
   border-collapse: collapse;
@@ -971,9 +968,9 @@ tbody tr:nth-child(even) {
   background: rgb(0 0 0 / 2%);
 }
 
-/* ==========================================================================
+/* ====
    13. IMAGE ACCESSIBILITY
-   ========================================================================== */
+   ==== */
 
 /**
  * Images without alt text warning (dev only)
@@ -1008,9 +1005,9 @@ figcaption {
   text-align: center;
 }
 
-/* ==========================================================================
+/* ====
    14. LOADING STATES
-   ========================================================================== */
+   ==== */
 
 /**
  * Loading indicator with screen reader text
@@ -1051,9 +1048,9 @@ figcaption {
   }
 }
 
-/* ==========================================================================
+/* ====
    15. PRINT ACCESSIBILITY
-   ========================================================================== */
+   ==== */
 
 @media print {
   /* Show link URLs */
@@ -1086,9 +1083,9 @@ figcaption {
   }
 }
 
-/* ==========================================================================
+/* ====
    16. ACCESSIBILITY PREFERENCES TOGGLE
-   ========================================================================== */
+   ==== */
 
 /**
  * Accessibility toolbar (optional)
@@ -1129,9 +1126,9 @@ figcaption {
   color: var(--tiller-color-primary, #1a2a3a);
 }
 
-/* ==========================================================================
+/* ====
    17. COGNITIVE ACCESSIBILITY
-   ========================================================================== */
+   ==== */
 
 /**
  * Consistent focus indicator
@@ -1166,9 +1163,9 @@ button:hover {
   outline: 2px solid rgb(255 255 0 / 50%);
 }
 
-/* ==========================================================================
+/* ====
    18. ICON ACCESSIBILITY
-   ========================================================================== */
+   ==== */
 
 /**
  * Ensure icons have accessible names
@@ -1192,9 +1189,9 @@ button:has(svg):not([aria-label], :has(.sr-only)) {
   /* Warning: Icon button needs accessible name */
 }
 
-/* ==========================================================================
+/* ====
    19. TEXT-TO-SPEECH (Read Aloud) STYLES
-   ========================================================================== */
+   ==== */
 
 /**
  * Currently being read element
@@ -1278,9 +1275,9 @@ button:has(svg):not([aria-label], :has(.sr-only)) {
   color: #ffffff;
 }
 
-/* ==========================================================================
+/* ====
    20. DEAF/HARD OF HEARING SUPPORT
-   ========================================================================== */
+   ==== */
 
 /**
  * Visual alert flash animation
@@ -1356,9 +1353,9 @@ video[muted]::before {
   font-size: 12px;
 }
 
-/* ==========================================================================
+/* ====
    21. SCREEN READER OPTIMIZATIONS
-   ========================================================================== */
+   ==== */
 
 /**
  * Ensure proper reading order
@@ -1393,9 +1390,9 @@ aside {
   }
 }
 
-/* ==========================================================================
+/* ====
    22. ASSISTIVE TECHNOLOGY SUPPORT
-   ========================================================================== */
+   ==== */
 
 /**
  * Ensure proper contrast for assistive tech overlays

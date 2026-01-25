@@ -1,0 +1,42 @@
+/* EMERGENCY SCROLL FIX */
+html, body {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  height: auto !important;
+  min-height: 100vh !important;
+  touch-action: pan-y !important;
+  -webkit-overflow-scrolling: touch !important;
+  scroll-behavior: smooth !important;
+}
+
+/* Remove any fixed overlays blocking scroll */
+.ts-scroll-progress {
+  pointer-events: none !important;
+}
+
+/* Ensure modals don't block scroll when closed */
+.mobile-nav[aria-hidden="true"],
+.modal[aria-hidden="true"] {
+  pointer-events: none !important;
+}
+
+/* Fix for sticky elements */
+.ts-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+}
+
+.sticky-cta-bar {
+  position: fixed !important;
+  bottom: 0 !important;
+  z-index: 999 !important;
+  pointer-events: auto !important;
+}
+
+/* Ensure main content is scrollable */
+.ts-main-content {
+  position: relative !important;
+  overflow-y: visible !important;
+  min-height: 100vh !important;
+}

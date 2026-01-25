@@ -9,9 +9,9 @@
 import { validatePositiveNumber } from './units.js';
 import { toFractionString } from './rounding.js';
 
-// ============================================
+// ==
 // SLOPE FORMULA METADATA
-// ============================================
+// ==
 
 export const SLOPE_FORMULA_INFO = {
   name: 'Shower Slope Calculator',
@@ -37,9 +37,9 @@ export const SLOPE_FORMULA_INFO = {
   ]
 };
 
-// ============================================
+// ==
 // SLOPE CONSTANTS
-// ============================================
+// ==
 
 /**
  * Slope requirements per IPC code
@@ -102,9 +102,9 @@ export const CONSTRUCTION_METHODS = {
   }
 };
 
-// ============================================
+// ==
 // MAIN CALCULATION FUNCTIONS
-// ============================================
+// ==
 
 /**
  * Calculate shower slope requirements

@@ -114,7 +114,7 @@ function refactorFile(filePath) {
  */
 async function main() {
   console.log(
-    'Tillerstead CSS Custom Property Refactor\n========================================\n',
+    'Tillerstead CSS Custom Property Refactor\n=====\n',
   );
 
   try {
@@ -134,7 +134,7 @@ async function main() {
       }
     }
 
-    console.log('\n========================================');
+    console.log('\n=====');
     console.log('✓ Refactor Complete');
     console.log(`  Files modified: ${filesModified}/${scssFiles.length}`);
     console.log(`  Total property updates: ${totalChanges}`);

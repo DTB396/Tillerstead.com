@@ -7,9 +7,9 @@
  * @module rounding
  */
 
-// ============================================
+// ==
 // ROUNDING FUNCTIONS
-// ============================================
+// ==
 
 /**
  * Round up to nearest integer (ceiling)
@@ -126,9 +126,9 @@ export function formatInches(inches) {
   return `${frac}"`;
 }
 
-// ============================================
+// ==
 // NUMBER FORMATTING
-// ============================================
+// ==
 
 /**
  * Format number with thousands separator

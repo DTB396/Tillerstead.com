@@ -1,8 +1,8 @@
-/* =========================================================
+/* =
    Tillerstead Design System - Root Variables
    DARK THEME - Stone, Gold Grout, Emerald Glow
    High contrast for accessibility
-   ========================================================= */
+   = */
 
 :root {
   /* ===== DARK THEME - Stone & Slate Backgrounds ===== */
@@ -310,13 +310,13 @@ main.light-theme :focus-visible {
   outline-color: var(--tiller-color-emerald-wcag, #006c47);
 }
 
-/* =========================================================
+/* =
    UNIFIED LINK SYSTEM - WCAG AAA Compliant
    Contrast Ratios (on #000000 black):
    - White #ffffff: 21:1 ✓ AAA
    - Gold #c9a227: 8.19:1 ✓ AAA  
    - Emerald #10b981: 8.59:1 ✓ AAA
-   ========================================================= */
+   = */
 
 /* Base Links - White on dark backgrounds */
 a {
@@ -643,7 +643,7 @@ button:focus-visible {
    Use .container for standard content width.
    Use .container--wide or .container-wide for wider layouts.
    Use .container--content for text-optimized (narrow) content.
-   ===================================== */
+   == */
 .container {
   --container-max: 72rem; /* 1152px - readable content width */
 
@@ -733,10 +733,10 @@ label {
   background: var(--tiller-bg-gradient-main);
 }
 
-/* =========================================================
+/* =
    Footer Styles - Dark Theme
    Stone background, gold accents, emerald glow
-   ========================================================= */
+   = */
 
 .ts-footer {
   background: #121414;
@@ -1049,10 +1049,10 @@ label {
   }
 }
 
-/* =========================================================
+/* =
    NJ HIC License Verification Component
    Official contractor license display with DCA verification link
-   ========================================================= */
+   = */
 
 .nj-hic-verification {
   background: var(--tiller-bg-stone);
@@ -1187,10 +1187,10 @@ label {
   text-decoration: underline;
 }
 
-/* =========================================================
+/* =
    Warranty Information Component
    Professional warranty display for NJ HIC compliance
-   ========================================================= */
+   = */
 
 .warranty-info {
   background: var(--tiller-bg-stone);

@@ -1,11 +1,10 @@
-/* =========================================================
+/* =
    Tillerstead Brand Components
    CSS for brand identity, trust bar, and pillars components
-   ========================================================= */
+   = */
 
-/* ===================================
-   BRAND IDENTITY COMPONENT
-   =================================== */
+/*    BRAND IDENTITY COMPONENT
+    */
 
 .ts-brand-identity {
   display: flex;
@@ -157,9 +156,8 @@
   margin: 0;
 }
 
-/* ===================================
-   TRUST BAR COMPONENT
-   =================================== */
+/*    TRUST BAR COMPONENT
+    */
 
 .ts-trust-bar {
   background: var(--tiller-bg-card);
@@ -280,9 +278,8 @@
   }
 }
 
-/* ===================================
-   BRAND PILLARS COMPONENT
-   =================================== */
+/*    BRAND PILLARS COMPONENT
+    */
 
 .ts-brand-pillars {
   padding: var(--tiller-spacing-xl) 0;
@@ -374,9 +371,8 @@
   margin-top: var(--tiller-spacing-lg);
 }
 
-/* ===================================
-   BRAND PROMISE BANNER
-   =================================== */
+/*    BRAND PROMISE BANNER
+    */
 
 .ts-brand-promise {
   background: linear-gradient(
@@ -402,9 +398,8 @@
   font-style: normal;
 }
 
-/* ===================================
-   BRAND BADGE (inline credentials)
-   =================================== */
+/*    BRAND BADGE (inline credentials)
+    */
 
 .ts-brand-badge {
   display: inline-flex;

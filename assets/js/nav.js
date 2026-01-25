@@ -27,7 +27,7 @@
   };
   const isNavOpen = () => navShell?.classList.contains('is-open');
 
-  // ========== ARIA Sync ==========
+  // === ARIA Sync ===
   // Add logging to debug aria and mobile view
   console.log('[DEBUG] Adding aria and mobile view logging');
 
@@ -50,7 +50,7 @@
     if (navOverlay) navOverlay.dataset.open = state;
   };
 
-  // ========== Mobile Navigation ==========
+  // === Mobile Navigation ===
   const handleEsc = (e) => {
     if (!isNavOpen()) return;
     if (e.key === 'Escape' || e.key === 'Esc') {
@@ -162,7 +162,7 @@
     });
   }
 
-  // ========== Mobile Submenus ==========
+  // === Mobile Submenus ===
   const mobileSubtoggles = $$('[data-mobile-subtoggle]');
   mobileSubtoggles.forEach((toggle) => {
     toggle.addEventListener('click', (e) => {
@@ -190,7 +190,7 @@
     });
   });
 
-  // ========== Desktop Dropdowns ==========
+  // === Desktop Dropdowns ===
   const dropdownToggles = $$('[data-dropdown-toggle]');
   let activeDropdown = null;
 
@@ -247,7 +247,7 @@
     }
   });
 
-  // ========== Mega Menu Hover (Desktop) ==========
+  // === Mega Menu Hover (Desktop) ===
   const megaItems = $$('.nav-item--mega');
   let megaTimeout;
 
@@ -290,7 +290,7 @@
     });
   });
 
-  // ========== Scroll Behavior ==========
+  // === Scroll Behavior ===
   let lastScrollY = 0;
   let ticking = false;
 
@@ -318,7 +318,7 @@
     { passive: true },
   );
 
-  // ========== Responsive Handling ==========
+  // === Responsive Handling ===
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
@@ -341,7 +341,7 @@
     });
   }
 
-  // ========== Init ==========
+  // === Init ===
   try {
     if (navShell && nav) {
       navShell.classList.remove('is-open');

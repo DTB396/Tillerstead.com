@@ -3,9 +3,9 @@
  * Delightful micro-interactions, persuasive elements, premium touches
  */
 
-/* ========================================
+/* =====
    CONFETTI CELEBRATION
-   ======================================== */
+   ===== */
 
 .confetti {
   position: fixed;
@@ -24,9 +24,9 @@
   }
 }
 
-/* ========================================
+/* =====
    EMOJI REACTIONS
-   ======================================== */
+   ===== */
 
 .emoji-reaction {
   position: fixed;
@@ -53,9 +53,9 @@
   }
 }
 
-/* ========================================
+/* =====
    MILESTONE TOASTS
-   ======================================== */
+   ===== */
 
 .milestone-toast {
   position: fixed;
@@ -98,9 +98,9 @@
   50% { transform: translateY(-10px); }
 }
 
-/* ========================================
+/* =====
    SOCIAL PROOF PULSE
-   ======================================== */
+   ===== */
 
 .social-proof-pulse {
   animation: socialPulse 0.6s ease-out;
@@ -122,9 +122,9 @@
   }
 }
 
-/* ========================================
+/* =====
    AVAILABILITY INDICATOR
-   ======================================== */
+   ===== */
 
 .availability-indicator {
   position: fixed;
@@ -177,9 +177,9 @@
   }
 }
 
-/* ========================================
+/* =====
    FLOATING TRUST BADGE
-   ======================================== */
+   ===== */
 
 .trust-badge-float {
   position: fixed;
@@ -236,9 +236,9 @@
   color: var(--color-text-secondary, #6b7280);
 }
 
-/* ========================================
+/* =====
    FAB MESSAGE UPDATES
-   ======================================== */
+   ===== */
 
 .fab-label.updating {
   animation: labelSwap 0.3s ease-in-out;
@@ -256,9 +256,9 @@
   }
 }
 
-/* ========================================
+/* =====
    PREMIUM TRANSITIONS
-   ======================================== */
+   ===== */
 
 .premium-mode .card,
 .premium-mode .service-card,
@@ -273,9 +273,9 @@
   transform: translateY(0) !important;
 }
 
-/* ========================================
+/* =====
    QUALITY BADGE
-   ======================================== */
+   ===== */
 
 .quality-badge {
   position: absolute;
@@ -297,9 +297,9 @@
   transform: scale(1.05);
 }
 
-/* ========================================
+/* =====
    KONAMI MESSAGE
-   ======================================== */
+   ===== */
 
 .konami-message {
   position: fixed;
@@ -342,9 +342,9 @@
   letter-spacing: 2px;
 }
 
-/* ========================================
+/* =====
    LOGO PARTY ANIMATION
-   ======================================== */
+   ===== */
 
 .logo-party {
   animation: logoParty 2s ease-in-out;
@@ -386,9 +386,9 @@
   }
 }
 
-/* ========================================
+/* =====
    SUCCESS TOAST (ENHANCED)
-   ======================================== */
+   ===== */
 
 .success-toast {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
@@ -397,9 +397,9 @@
   font-weight: 500;
 }
 
-/* ========================================
+/* =====
    LOADING MESSAGE (PLAYFUL)
-   ======================================== */
+   ===== */
 
 .loading-message {
   margin-bottom: 1rem;
@@ -419,9 +419,9 @@
   }
 }
 
-/* ========================================
+/* =====
    PARALLAX ENHANCEMENT
-   ======================================== */
+   ===== */
 
 .hero,
 [class*="hero"] {
@@ -429,9 +429,9 @@
   transition: transform 0.1s ease-out;
 }
 
-/* ========================================
+/* =====
    BUTTON PRESS EFFECT (PREMIUM)
-   ======================================== */
+   ===== */
 
 .premium-mode button:not(.no-effect),
 .premium-mode .btn:not(.no-effect) {
@@ -466,9 +466,9 @@
   opacity: 0%;
 }
 
-/* ========================================
+/* =====
    CARD HOVER (PREMIUM)
-   ======================================== */
+   ===== */
 
 .premium-mode .card,
 .premium-mode .service-card,
@@ -483,9 +483,9 @@
   box-shadow: 0 12px 28px rgb(0 0 0 / 15%);
 }
 
-/* ========================================
+/* =====
    REDUCED MOTION SUPPORT
-   ======================================== */
+   ===== */
 
 @media (prefers-reduced-motion: reduce) {
   .confetti,
@@ -512,9 +512,9 @@
   }
 }
 
-/* ========================================
+/* =====
    DARK MODE SUPPORT
-   ======================================== */
+   ===== */
 
 @media (prefers-color-scheme: light) {
   .trust-badge-float {

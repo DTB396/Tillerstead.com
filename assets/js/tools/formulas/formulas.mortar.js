@@ -10,9 +10,9 @@
 import { validatePositiveNumber, validatePercentage } from './units.js';
 import { roundUp, formatRange } from './rounding.js';
 
-// ============================================
+// ==
 // MORTAR FORMULA METADATA
-// ============================================
+// ==
 
 export const MORTAR_FORMULA_INFO = {
   name: 'Mortar/Thinset Calculator',
@@ -45,9 +45,9 @@ export const MORTAR_FORMULA_INFO = {
   ]
 };
 
-// ============================================
+// ==
 // TROWEL COVERAGE DATA
-// ============================================
+// ==
 
 /**
  * Trowel notch coverage rates per 50 lb bag
@@ -204,9 +204,9 @@ export const PRO_TIPS = {
   ]
 };
 
-// ============================================
+// ==
 // TROWEL RECOMMENDATION LOGIC
-// ============================================
+// ==
 
 /**
  * Get recommended trowel notch based on tile size
@@ -273,9 +273,9 @@ export function getRecommendedTrowel(tileWidthInches, tileHeightInches, substrat
   return result;
 }
 
-// ============================================
+// ==
 // MAIN CALCULATION FUNCTIONS
-// ============================================
+// ==
 
 /**
  * Calculate mortar/thinset bags needed

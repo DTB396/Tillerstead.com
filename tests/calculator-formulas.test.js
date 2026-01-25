@@ -102,12 +102,12 @@ function calcSlope(inputs) {
   return { riseInches, areaSqFt, volumeCuFt, bags60lb };
 }
 
-// ============================================
+// ==
 // TEST CASES
-// ============================================
+// ==
 
 console.log('TillerPro Formula Tests');
-console.log('========================\n');
+console.log('===\n');
 
 let passed = 0;
 let failed = 0;
@@ -190,7 +190,7 @@ result = calcSlope({ drainToWall: 3, slopeRatio: 0.25 });
 test('3ft radius = ~28.3 sqft', Math.abs(result.areaSqFt - 28.27) < 0.1, '~28.27', result.areaSqFt.toFixed(2));
 
 // Summary
-console.log('\n============================');
+console.log('\n');
 console.log(`Results: ${passed} passed, ${failed} failed`);
 
 if (failed > 0) {

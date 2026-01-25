@@ -11,9 +11,9 @@
 import { inchesToFeet, validatePositiveNumber, validateNonNegativeNumber, validatePercentage } from './units.js';
 import { roundUp, roundToDecimals, formatNumber } from './rounding.js';
 
-// ============================================
+// ==
 // CONSTANTS & LOOKUPS
-// ============================================
+// ==
 
 export const MOVEMENT_JOINT_INFO = {
   name: 'Movement Joint Spacing (TCNA EJ171)',
@@ -179,9 +179,9 @@ export const BATH_LAYOUT_INFO = {
   ]
 };
 
-// ============================================
+// ==
 // MOVEMENT JOINT CALCULATION
-// ============================================
+// ==
 
 /**
  * Calculate movement joint spacing and count based on TCNA EJ171 guidance.
@@ -233,9 +233,9 @@ export function calculateMovementJoints({
   return { valid: true, errors: [], spacingFt: spacing, jointsLong, jointsShort, totalJoints, assumptions };
 }
 
-// ============================================
+// ==
 // DEFLECTION CHECK (SPAN/JOIST)
-// ============================================
+// ==
 
 /**
  * Estimate deflection ratio using simple-span uniform load model.
@@ -302,9 +302,9 @@ export function calculateDeflection({
   };
 }
 
-// ============================================
+// ==
 // HEATED FLOOR ELECTRICAL LOAD
-// ============================================
+// ==
 
 /**
  * Calculate heated floor electrical load and breaker/relay needs.
@@ -361,9 +361,9 @@ export function calculateHeatedFloorLoad({
   };
 }
 
-// ============================================
+// ==
 // MOISTURE EMISSION / RH CHECK
-// ============================================
+// ==
 
 /**
  * Evaluate MVER/RH readings against product limits.
@@ -403,9 +403,9 @@ export function evaluateMoistureReadings({
   return { valid: true, errors: [], mverPass, rhPass, requiresMitigation, assumptions };
 }
 
-// ============================================
+// ==
 // THINSET MIXING / YIELD
-// ============================================
+// ==
 
 /**
  * Calculate thinset mixing water and estimated yield for partial batches.
@@ -468,9 +468,9 @@ export function calculateThinsetMix({
   };
 }
 
-// ============================================
+// ==
 // SEALER COVERAGE
-// ============================================
+// ==
 
 /**
  * Estimate sealer gallons needed by surface type.
@@ -512,9 +512,9 @@ export function estimateSealer({
   return { valid: true, errors: [], gallons, coverageUsedSqFtPerGal: coverageSqFtPerGal, assumptions };
 }
 
-// ============================================
+// ==
 // DECK MUD / SHOWER PAN VOLUME
-// ============================================
+// ==
 
 /**
  * Compute deck mud quantity based on plan area and slope.
@@ -571,9 +571,9 @@ export function calculateDeckMud({
   };
 }
 
-// ============================================
+// ==
 // PRIMER / SLU CONSUMPTION
-// ============================================
+// ==
 
 const PRIMER_COVERAGE = {
   porous: 200,
@@ -617,9 +617,9 @@ export function estimatePrimer({
   return { valid: true, errors: [], gallons, coverageSqFtPerGal: coverage, assumptions };
 }
 
-// ============================================
+// ==
 // SEALANT / CAULK BEAD ESTIMATOR
-// ============================================
+// ==
 
 /**
  * Estimate sealant tubes based on bead size and length.
@@ -663,9 +663,9 @@ export function estimateSealantTubes({
   return { valid: true, errors: [], tubes, volumePerTubeIn3: roundToDecimals(volumePerTubeIn3, 2), assumptions };
 }
 
-// ============================================
+// ==
 // LABOR RATE SENSITIVITY
-// ============================================
+// ==
 
 const COMPLEXITY_MULTIPLIERS = {
   standard: 1,
@@ -747,9 +747,9 @@ export function estimateLaborSensitivity({
   };
 }
 
-// ============================================
+// ==
 // BATH LAYOUT / CLEARANCES
-// ============================================
+// ==
 
 /**
  * Plan bathroom layout clearances for tub, shower, toilet, and vanity.
@@ -974,9 +974,9 @@ export function calculateBathLayout(params) {
   };
 }
 
-// ============================================
+// ==
 // MODULE INFO
-// ============================================
+// ==
 
 export const ADVANCED_FORMULA_INFO = {
   name: 'Advanced Installation Calculators',

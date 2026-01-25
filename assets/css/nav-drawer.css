@@ -1,8 +1,8 @@
-/* =========================================================
+/* =
    Mobile Navigation Drawer - Tillerstead
    Uses variables from root-vars.css
    2026 Mobile-First Responsive Design
-   ========================================================= */
+   = */
 
 :root {
   /* Drawer-specific variables */
@@ -11,9 +11,9 @@
   --drawer-transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* =========================================================
+/* =
    Mobile Navigation Drawer
-   ========================================================= */
+   = */
 
 /* Drawer base - LEGACY: styles now in navigation.css */
 
@@ -108,9 +108,9 @@ body.nav-open {
   background: rgb(201 162 39 / 15%);
 }
 
-/* =========================================================
+/* =
    Desktop Navigation
-   ========================================================= */
+   = */
 
 /* Main menu links */
 .nav-menu a {
@@ -151,9 +151,9 @@ body.nav-open {
   top: 0;
 }
 
-/* =========================================================
+/* =
    Header & Branding
-   ========================================================= */
+   = */
 
 .site-header {
   position: relative;
@@ -164,9 +164,9 @@ body.nav-open {
   z-index: 901;
 }
 
-/* =========================================================
+/* =
    Hamburger Button
-   ========================================================= */
+   = */
 
 .nav-toggle {
   display: none;
@@ -265,9 +265,9 @@ body.nav-open {
   outline-offset: 2px;
 }
 
-/* =========================================================
+/* =
    Overlay
-   ========================================================= */
+   = */
 
 .nav-overlay {
   position: fixed;
@@ -290,9 +290,9 @@ body.nav-open {
   pointer-events: auto;
 }
 
-/* =========================================================
+/* =
    Mobile-First Responsive Breakpoints
-   ========================================================= */
+   = */
 
 /* Tablet Landscape */
 @media (max-width: 1024px) {

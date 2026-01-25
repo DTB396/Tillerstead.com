@@ -3,9 +3,9 @@
  * Mobile-first, accessible, dark theme
  */
 
-/* ============================================
+/* ==
    CSS VARIABLES
-   ============================================ */
+   == */
 
 :root {
   /* Colors */
@@ -64,9 +64,9 @@
   --transition-slow: 0.3s ease;
 }
 
-/* ============================================
+/* ==
    RESET & BASE
-   ============================================ */
+   == */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -103,9 +103,9 @@ button {
   outline-offset: 2px;
 }
 
-/* ============================================
+/* ==
    APP SHELL LAYOUT
-   ============================================ */
+   == */
 
 .app-shell {
   display: flex;
@@ -116,9 +116,9 @@ button {
   display: flex;
 }
 
-/* ============================================
+/* ==
    SIDEBAR
-   ============================================ */
+   == */
 
 .app-sidebar {
   position: fixed;
@@ -213,9 +213,9 @@ button {
   }
 }
 
-/* ============================================
+/* ==
    NAVIGATION
-   ============================================ */
+   == */
 
 .app-nav {
   flex: 1;
@@ -316,9 +316,9 @@ button {
   background: var(--app-warning);
 }
 
-/* ============================================
+/* ==
    MAIN CONTENT
-   ============================================ */
+   == */
 
 .app-main {
   flex: 1;
@@ -489,9 +489,9 @@ button {
   margin: 0 auto;
 }
 
-/* ============================================
+/* ==
    BOTTOM NAV (Mobile)
-   ============================================ */
+   == */
 
 .app-bottom-nav {
   position: fixed;
@@ -531,9 +531,9 @@ button {
   text-decoration: none;
 }
 
-/* ============================================
+/* ==
    DASHBOARD VIEW
-   ============================================ */
+   == */
 
 .dashboard {
   display: grid;
@@ -785,18 +785,18 @@ button {
   color: var(--app-text-muted);
 }
 
-/* ============================================
+/* ==
    CALCULATORS VIEW
-   ============================================ */
+   == */
 
 .calculators {
   display: grid;
   gap: var(--space-lg);
 }
 
-/* ============================================
+/* ==
    CALCULATOR LAYOUT - Two Panel Design
-   ============================================ */
+   == */
 
 /* Main Layout Container */
 .calculators-layout {
@@ -1464,9 +1464,9 @@ button {
   flex-wrap: wrap;
 }
 
-/* ============================================
+/* ==
    PROJECTS VIEW
-   ============================================ */
+   == */
 
 .projects {
   display: grid;
@@ -1620,9 +1620,9 @@ button {
   margin: 0 0 var(--space-lg);
 }
 
-/* ============================================
+/* ==
    SHARED VIEW COMPONENTS
-   ============================================ */
+   == */
 
 /* View Header */
 .view-header {
@@ -1702,9 +1702,9 @@ button {
   border-color: var(--app-danger);
 }
 
-/* ============================================
+/* ==
    PROJECTS VIEW (Redesigned)
-   ============================================ */
+   == */
 
 .projects-view {
   display: grid;
@@ -1810,9 +1810,9 @@ button {
   margin-left: auto;
 }
 
-/* ============================================
+/* ==
    SETTINGS VIEW (Redesigned)
-   ============================================ */
+   == */
 
 .settings-view {
   display: grid;
@@ -1999,9 +1999,9 @@ button {
   box-shadow: 0 0 0 3px var(--app-primary-muted);
 }
 
-/* ============================================
+/* ==
    BUTTONS
-   ============================================ */
+   == */
 
 .btn {
   display: inline-flex;
@@ -2149,9 +2149,9 @@ button {
   width: 100%;
 }
 
-/* ============================================
+/* ==
    TOAST NOTIFICATIONS
-   ============================================ */
+   == */
 
 .toast-container {
   position: fixed;
@@ -2254,9 +2254,9 @@ button {
   color: var(--app-text);
 }
 
-/* ============================================
+/* ==
    MODAL
-   ============================================ */
+   == */
 
 .modal-overlay {
   position: fixed;
@@ -2341,9 +2341,9 @@ button {
   border-top: 1px solid var(--app-border);
 }
 
-/* ============================================
+/* ==
    ENHANCED STICKY NAVIGATION
-   ============================================ */
+   == */
 
 .calc-sticky-nav {
   position: sticky;
@@ -2448,9 +2448,9 @@ button {
   pointer-events: none;
 }
 
-/* ============================================
+/* ==
    COLLAPSIBLE CATEGORY GROUPS
-   ============================================ */
+   == */
 
 .calc-selector__group-header {
   display: flex;
@@ -2517,9 +2517,9 @@ button {
   pointer-events: none;
 }
 
-/* ============================================
+/* ==
    CALCULATOR PANEL ENHANCEMENTS
-   ============================================ */
+   == */
 
 .calc-panel__header {
   display: flex;
@@ -2651,9 +2651,9 @@ button {
   }
 }
 
-/* ============================================
+/* ==
    ENHANCED DASHBOARD SECTIONS
-   ============================================ */
+   == */
 
 .dashboard__section--category {
   background: var(--app-surface);
@@ -2715,9 +2715,9 @@ button {
   color: var(--app-text-muted);
 }
 
-/* ============================================
+/* ==
    IMPROVED CALCULATOR CARD GRID
-   ============================================ */
+   == */
 
 .calc-grid {
   display: grid;
@@ -2850,9 +2850,9 @@ button {
   background: var(--app-surface);
 }
 
-/* ============================================
+/* ==
    RECENT LIST ENHANCEMENTS
-   ============================================ */
+   == */
 
 .recent-list__item {
   display: flex;
@@ -2883,9 +2883,9 @@ button {
   color: var(--app-primary);
 }
 
-/* ============================================
+/* ==
    MOBILE CALCULATOR SELECT
-   ============================================ */
+   == */
 
 .calc-mobile-select {
   display: none;
@@ -2938,9 +2938,9 @@ button {
   box-shadow: 0 0 0 3px var(--app-primary-muted);
 }
 
-/* ============================================
+/* ==
    RESPONSIVE GRID ADJUSTMENTS
-   ============================================ */
+   == */
 
 @media (max-width: 600px) {
   .calc-grid {
@@ -2970,9 +2970,9 @@ button {
   }
 }
 
-/* ============================================
+/* ==
    UTILITIES
-   ============================================ */
+   == */
 
 .sr-only {
   position: absolute;
@@ -3036,9 +3036,9 @@ button {
   }
 }
 
-/* ============================================
+/* ==
    PRINT STYLES
-   ============================================ */
+   == */
 
 @media print {
   .app-sidebar,
@@ -3058,9 +3058,9 @@ button {
   }
 }
 
-/* ============================================
+/* ==
    SHOP LINKS
-   ============================================ */
+   == */
 
 .calc-results__shop {
   margin-top: var(--space-lg);
@@ -3160,9 +3160,9 @@ button {
   color: var(--app-info);
 }
 
-/* ============================================
+/* ==
    AUTO-SAVE INDICATOR
-   ============================================ */
+   == */
 
 .autosave-indicator {
   display: inline-flex;
@@ -3199,9 +3199,9 @@ button {
   100% { transform: scale(1); }
 }
 
-/* ============================================
+/* ==
    CALCULATOR RESULTS ACTIONS
-   ============================================ */
+   == */
 
 .calc-results__actions {
   display: flex;
@@ -3221,9 +3221,9 @@ button {
   background: var(--app-primary-muted);
 }
 
-/* ============================================
+/* ==
    SHOPPING LIST SUMMARY (in project view)
-   ============================================ */
+   == */
 
 .shopping-list {
   margin-top: var(--space-lg);
@@ -3273,9 +3273,9 @@ button {
   margin-left: 0.25rem;
 }
 
-/* ============================================
+/* ==
    RESPONSIVE ADJUSTMENTS
-   ============================================ */
+   == */
 
 @media (max-width: 480px) {
   .shop-links {
@@ -3303,14 +3303,14 @@ button {
   }
 }
 
-/* ===========================================================
+/* ===
    TRUST SIGNALS & DASHBOARD ENHANCEMENTS
    - Trust banner with credentials
    - Quick actions grid
    - Pro tips cards
    - Features grid
    - CTA section
-   =========================================================== */
+   === */
 
 /* Trust Banner */
 .trust-banner {

@@ -9,9 +9,9 @@
 
 import assert from 'assert';
 
-// ============================================
+// ==
 // UNIT CONVERSION TESTS
-// ============================================
+// ==
 
 import {
   inchesToFeet,
@@ -83,9 +83,9 @@ function testValidation() {
   console.log('  ✓ All validation tests passed');
 }
 
-// ============================================
+// ==
 // ROUNDING TESTS
-// ============================================
+// ==
 
 import {
   roundUp,
@@ -115,9 +115,9 @@ function testRounding() {
   console.log('  ✓ All rounding tests passed');
 }
 
-// ============================================
+// ==
 // TILE FORMULA TESTS
-// ============================================
+// ==
 
 import {
   calculateTileArea,
@@ -210,9 +210,9 @@ function testTileFormulas() {
   console.log('  ✓ All tile formula tests passed');
 }
 
-// ============================================
+// ==
 // MORTAR FORMULA TESTS
-// ============================================
+// ==
 
 import {
   calculateMortarBags,
@@ -284,9 +284,9 @@ function testMortarFormulas() {
   console.log('  ✓ All mortar formula tests passed');
 }
 
-// ============================================
+// ==
 // GROUT FORMULA TESTS
-// ============================================
+// ==
 
 import {
   calculateGrout,
@@ -334,9 +334,9 @@ function testGroutFormulas() {
   console.log('  ✓ All grout formula tests passed');
 }
 
-// ============================================
+// ==
 // WATERPROOFING FORMULA TESTS
-// ============================================
+// ==
 
 import {
   calculateWaterproofing,
@@ -382,9 +382,9 @@ function testWaterproofingFormulas() {
   console.log('  ✓ All waterproofing formula tests passed');
 }
 
-// ============================================
+// ==
 // LEVELING FORMULA TESTS
-// ============================================
+// ==
 
 import {
   calculateLeveler,
@@ -427,9 +427,9 @@ function testLevelingFormulas() {
   console.log('  ✓ All leveling formula tests passed');
 }
 
-// ============================================
+// ==
 // SLOPE FORMULA TESTS
-// ============================================
+// ==
 
 import {
   calculateSlope,
@@ -466,9 +466,9 @@ function testSlopeFormulas() {
   console.log('  ✓ All slope formula tests passed');
 }
 
-// ============================================
+// ==
 // ADVANCED FORMULA TESTS
-// ============================================
+// ==
 
 function testAdvancedFormulas() {
   console.log('Testing advanced formulas...');
@@ -580,14 +580,14 @@ function testBathLayout() {
   console.log('  ✓ Bath layout test passed');
 }
 
-// ============================================
+// ==
 // RUN ALL TESTS
-// ============================================
+// ==
 
 function runAllTests() {
-  console.log('\n========================================');
+  console.log('\n=====');
   console.log('Tillerstead Formula Library - Test Suite');
-  console.log('========================================\n');
+  console.log('=====\n');
 
   let passed = 0;
   let failed = 0;
@@ -617,9 +617,9 @@ function runAllTests() {
     }
   }
 
-  console.log('\n========================================');
+  console.log('\n=====');
   console.log(`Results: ${passed} passed, ${failed} failed`);
-  console.log('========================================\n');
+  console.log('=====\n');
 
   if (failed > 0) {
     process.exit(1);

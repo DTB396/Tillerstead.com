@@ -5,9 +5,9 @@
 let users = [];
 let editingUser = null;
 
-// ============================================
+// ==
 // INITIALIZATION
-// ============================================
+// ==
 
 document.addEventListener('DOMContentLoaded', async () => {
   await checkAuth();
@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadStats();
 });
 
-// ============================================
+// ==
 // AUTHENTICATION
-// ============================================
+// ==
 
 async function checkAuth() {
   try {
@@ -30,9 +30,9 @@ async function checkAuth() {
   }
 }
 
-// ============================================
+// ==
 // LOAD DATA
-// ============================================
+// ==
 
 async function loadUsers() {
   try {
@@ -59,9 +59,9 @@ async function loadStats() {
   }
 }
 
-// ============================================
+// ==
 // DISPLAY USERS
-// ============================================
+// ==
 
 function displayUsers(users) {
   const tbody = document.getElementById('users-tbody');
@@ -111,9 +111,9 @@ function displayUsers(users) {
   `).join('');
 }
 
-// ============================================
+// ==
 // USER MODAL
-// ============================================
+// ==
 
 function openCreateUserModal() {
   editingUser = null;
@@ -147,9 +147,9 @@ function closeUserModal() {
   editingUser = null;
 }
 
-// ============================================
+// ==
 // SAVE USER
-// ============================================
+// ==
 
 async function saveUser(event) {
   event.preventDefault();
@@ -198,9 +198,9 @@ async function saveUser(event) {
   }
 }
 
-// ============================================
+// ==
 // DELETE USER
-// ============================================
+// ==
 
 async function deleteUser(username) {
   if (!confirm(`Are you sure you want to delete user "${username}"?`)) {
@@ -225,9 +225,9 @@ async function deleteUser(username) {
   }
 }
 
-// ============================================
+// ==
 // TOGGLE USER STATUS
-// ============================================
+// ==
 
 async function toggleUserStatus(username, newStatus) {
   try {
@@ -250,9 +250,9 @@ async function toggleUserStatus(username, newStatus) {
   }
 }
 
-// ============================================
+// ==
 // UTILITIES
-// ============================================
+// ==
 
 function showToast(message, type = 'info') {
   // Create toast element

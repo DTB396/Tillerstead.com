@@ -1,8 +1,8 @@
-/* =========================================================
+/* =
    Visual Enhancements - Subtle Brand Elements
    Uses existing tile patterns and assets to create depth
    and visual interest that converts visitors to clients
-   ========================================================= */
+   = */
 
 /* ===== FOOTER TILE PATTERN OVERLAY ===== */
 .ts-footer {
@@ -40,11 +40,11 @@
   z-index: 1;
 }
 
-/* =========================================================
+/* =
    DIMENSIONAL DEPTH SYSTEM (3D/4D CLARITY)
    - Optional wrappers/classes for parallax depth and clarity glow
    - Uses only brand tokens and respects reduced motion
-   ========================================================= */
+   = */
 
 .page-depth {
   position: relative;

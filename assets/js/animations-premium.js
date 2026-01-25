@@ -10,9 +10,9 @@ import AOS from 'aos';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ============================================================
+// ====
 // SCROLL-TRIGGERED ANIMATIONS
-// ============================================================
+// ====
 
 export const initScrollAnimations = () => {
   // Hero section - staggered fade-in
@@ -82,9 +82,9 @@ export const initScrollAnimations = () => {
   });
 };
 
-// ============================================================
+// ====
 // BUTTON & INTERACTIVE HOVER EFFECTS
-// ============================================================
+// ====
 
 export const initButtonAnimations = () => {
   // Premium button shine effect
@@ -112,9 +112,9 @@ export const initButtonAnimations = () => {
   });
 };
 
-// ============================================================
+// ====
 // PARALLAX SCROLL EFFECTS
-// ============================================================
+// ====
 
 export const initParallaxHero = () => {
   const hero = document.querySelector('[data-parallax-hero]');
@@ -133,9 +133,9 @@ export const initParallaxHero = () => {
   });
 };
 
-// ============================================================
+// ====
 // STAGGERED LIST ANIMATIONS
-// ============================================================
+// ====
 
 export const initListAnimations = () => {
   gsap.from('[data-list-item]', {
@@ -151,9 +151,9 @@ export const initListAnimations = () => {
   });
 };
 
-// ============================================================
+// ====
 // TESTIMONIALS ROTATION WITH FADE
-// ============================================================
+// ====
 
 export const initTestimonialAnimations = () => {
   const testimonials = document.querySelectorAll('[data-testimonial]');
@@ -181,9 +181,9 @@ export const initTestimonialAnimations = () => {
   setInterval(rotateTestimonials, 7000);
 };
 
-// ============================================================
+// ====
 // SCROLL PROGRESS BAR
-// ============================================================
+// ====
 
 export const initScrollProgressBar = () => {
   const progressBar = document.querySelector('[data-scroll-progress]');
@@ -203,9 +203,9 @@ export const initScrollProgressBar = () => {
   });
 };
 
-// ============================================================
+// ====
 // INITIALIZE ALL ANIMATIONS
-// ============================================================
+// ====
 
 export const initAllAnimations = () => {
   // Initialize AOS for simpler animations

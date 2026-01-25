@@ -8,9 +8,9 @@ import { randomBytes } from 'crypto';
 import fs from 'fs/promises';
 import path from 'path';
 
-// ============================================
+// ==
 // USER MANAGER
-// ============================================
+// ==
 
 class UserManager {
   constructor() {
@@ -270,9 +270,9 @@ class UserManager {
 
 export const userManager = new UserManager();
 
-// ============================================
+// ==
 // SESSION MANAGER
-// ============================================
+// ==
 
 class SessionManager {
   constructor() {

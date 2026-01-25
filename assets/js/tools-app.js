@@ -7,9 +7,9 @@
 (function() {
   'use strict';
 
-  // ============================================
+  // ==
   // CONFIGURATION
-  // ============================================
+  // ==
 
   const CONFIG = {
     STORAGE_KEY: 'tillerstead_app_data',
@@ -31,9 +31,9 @@
     }
   };
 
-  // ============================================
+  // ==
   // SQ FT HELPER (W×L×H)
-  // ============================================
+  // ==
 
   function initSqFtHelpers(root = document) {
     if (!root || !root.querySelectorAll) return;
@@ -102,9 +102,9 @@
     });
   }
 
-  // ============================================
+  // ==
   // TRUST SIGNALS & CREDENTIALS
-  // ============================================
+  // ==
 
   const CREDENTIALS = {
     license: {
@@ -124,9 +124,9 @@
     }
   };
 
-  // ============================================
+  // ==
   // PRO TIPS - Educational content by calculator
-  // ============================================
+  // ==
 
   const PRO_TIPS = {
     tile: [
@@ -198,9 +198,9 @@
     return PRO_TIPS[calcId] || [];
   }
 
-  // ============================================
+  // ==
   // RETAILER CONFIGURATION - Shop Links
-  // ============================================
+  // ==
 
   const RETAILERS = {
     homedepot: {
@@ -535,9 +535,9 @@
     }
   };
 
-  // ============================================
+  // ==
   // CONSTANTS - Synced with tools.js (TDS-verified)
-  // ============================================
+  // ==
 
   // TCNA defines Large Format Tile (LFT) as any tile with any side ≥15"
   // LFT requires 95% mortar coverage, proper trowel selection, and back-buttering
@@ -595,9 +595,9 @@
   // Self-leveler coverage: 0.45 cu ft per 50 lb bag (conservative avg per TDS)
   const LEVELER_COVERAGE = 0.45;
 
-  // ============================================
+  // ==
   // TRIM & MOLDING PRESETS
-  // ============================================
+  // ==
 
   // Crown molding profiles with standard dimensions and pricing tiers
   const CROWN_PRESETS = [
@@ -648,9 +648,9 @@
     coffered: 0.25     // Coffered ceilings, wainscoting panels
   };
 
-  // ============================================
+  // ==
   // STATE MANAGEMENT
-  // ============================================
+  // ==
 
   const AppState = {
     currentRoute: 'dashboard',
@@ -671,9 +671,9 @@
     shopLinksClicked: []
   };
 
-  // ============================================
+  // ==
   // STORAGE
-  // ============================================
+  // ==
 
   const Storage = {
     save() {
@@ -742,9 +742,9 @@
     }
   };
 
-  // ============================================
+  // ==
   // API CLIENT - Toolkit Integration
-  // ============================================
+  // ==
 
   const API = {
     isConnected: false,
@@ -890,9 +890,9 @@
     }
   };
 
-  // ============================================
+  // ==
   // HYBRID CALCULATOR - API or Local Fallback
-  // ============================================
+  // ==
 
   const HybridCalculator = {
     // Map local calculator IDs to API types
@@ -1037,9 +1037,9 @@
     }
   };
 
-  // ============================================
+  // ==
   // ROUTER
-  // ============================================
+  // ==
 
   const Router = {
     routes: {
@@ -1091,9 +1091,9 @@
     }
   };
 
-  // ============================================
+  // ==
   // TOAST NOTIFICATIONS
-  // ============================================
+  // ==
 
   const Toast = {
     show(message, type = 'info', duration = CONFIG.TOAST_DURATION) {
@@ -1134,9 +1134,9 @@
     }
   };
 
-  // ============================================
+  // ==
   // MODAL
-  // ============================================
+  // ==
 
   const Modal = {
     show(options) {
@@ -1183,9 +1183,9 @@
     }
   };
 
-  // ============================================
+  // ==
   // PROJECTS
-  // ============================================
+  // ==
 
   const Projects = {
     create(name = 'New Project') {
@@ -1294,9 +1294,9 @@
     }
   };
 
-  // ============================================
+  // ==
   // CALCULATION FUNCTIONS (Harmonized with tools.js)
-  // ============================================
+  // ==
 
   const Calculations = {
     movement(inputs) {
@@ -1670,9 +1670,9 @@
       };
     },
 
-    // ============================================
+    // ==
     // TRIM CALCULATORS
-    // ============================================
+    // ==
 
     /**
      * Crown Molding Calculator
@@ -1859,9 +1859,9 @@
     }
   };
 
-  // ============================================
+  // ==
   // VIEWS
-  // ============================================
+  // ==
 
   const Views = {
     dashboard() {
@@ -2857,9 +2857,9 @@
           </div>
         `,
 
-        // ============================================
+        // ==
         // TRIM CALCULATOR FORMS
-        // ============================================
+        // ==
 
         crown: `
           <div class="form-section">
@@ -4139,9 +4139,9 @@
     }
   };
 
-  // ============================================
+  // ==
   // KEYBOARD SHORTCUTS
-  // ============================================
+  // ==
 
   const Keyboard = {
     init() {
@@ -4178,9 +4178,9 @@
     }
   };
 
-  // ============================================
+  // ==
   // SERVICE WORKER
-  // ============================================
+  // ==
 
   const ServiceWorkerManager = {
     register() {
@@ -4207,9 +4207,9 @@
     }
   };
 
-  // ============================================
+  // ==
   // APP INITIALIZATION
-  // ============================================
+  // ==
 
   // Helper to hide loading and show app (always runs, even on error)
   function showApp() {
@@ -4740,9 +4740,9 @@
     }
   };
 
-  // ============================================
+  // ==
   // EXPOSE API
-  // ============================================
+  // ==
 
   window.TillerApp = {
     Router,

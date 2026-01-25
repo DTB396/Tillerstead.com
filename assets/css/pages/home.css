@@ -1,14 +1,14 @@
-/* ============================================
+/* ==
    Homepage Styles - Tillerstead.com
    DARK THEME - Uses variables from root-vars.css
    
    Note: Container system is defined in root-vars.css.
    Homepage sections use .container from the global system.
-   ============================================ */
+   == */
 
-/* ============================================
+/* ==
    ANIMATIONS & KEYFRAMES
-   ============================================ */
+   == */
 @keyframes fade-in-up {
   from {
     opacity: 0%;
@@ -117,9 +117,9 @@
   color: white;
 }
 
-/* ============================================
+/* ==
    HERO SECTION - DARK THEME WITH CROSSHATCH PATTERN
-   ============================================ */
+   == */
 .home-hero {
   padding: 4rem 0;
   background: linear-gradient(135deg, var(--tiller-bg-dark, #1a1c1a) 0%, var(--tiller-bg-stone, #222524) 100%);
@@ -323,9 +323,9 @@
   color: var(--tiller-text-secondary, rgb(255 255 255 / 85%));
 }
 
-/* ============================================
+/* ==
    BUTTONS - DARK THEME WITH ANIMATIONS
-   ============================================ */
+   == */
 .btn {
   display: inline-block;
   padding: 0.875rem 1.75rem;
@@ -417,9 +417,9 @@
   background: rgb(255 255 255 / 10%);
 }
 
-/* ============================================
+/* ==
    SECTION HEADERS - DARK THEME
-   ============================================ */
+   == */
 .section-header {
   text-align: center;
   max-width: 800px;
@@ -460,9 +460,9 @@
   font-weight: 500;
 }
 
-/* ============================================
+/* ==
    SERVICES SECTION - DARK THEME
-   ============================================ */
+   == */
 .home-services {
   padding: 4rem 0;
   background: var(--tiller-bg-darker, #121414);
@@ -590,9 +590,9 @@
   margin: 0 auto;
 }
 
-/* ============================================
+/* ==
    PROCESS SECTION - DARK THEME
-   ============================================ */
+   == */
 .home-process {
   padding: 4rem 0;
   background: var(--tiller-bg-dark, #1a1c1a);
@@ -680,9 +680,9 @@
   border-left: 4px solid var(--tiller-color-gold, #c9a227);
 }
 
-/* ============================================
+/* ==
    MATERIALS SECTION - DARK THEME
-   ============================================ */
+   == */
 .home-materials {
   padding: 4rem 0;
   background: #121414;
@@ -817,9 +817,9 @@
   color: var(--tiller-text-muted, rgb(255 255 255 / 60%));
 }
 
-/* ============================================
+/* ==
    TESTIMONIALS SECTION - DARK THEME
-   ============================================ */
+   == */
 .home-testimonials {
   padding: 4rem 0;
   background: var(--tiller-bg-dark, #1a1c1a);
@@ -899,9 +899,9 @@
   color: var(--color-text-secondary);
 }
 
-/* ============================================
+/* ==
    CTA SECTION WITH ANIMATIONS
-   ============================================ */
+   == */
 .home-cta {
   padding: var(--spacing-xl) 0;
   position: relative;
@@ -995,9 +995,9 @@
   color: rgb(255 255 255 / 80%);
 }
 
-/* ============================================
+/* ==
    FOCUS STATES & ACCESSIBILITY
-   ============================================ */
+   == */
 .btn:focus-visible,
 .service-card:focus-visible,
 .testimonial-card:focus-visible,
@@ -1034,9 +1034,9 @@
   transform-origin: left;
 }
 
-/* ============================================
+/* ==
    REDUCED MOTION PREFERENCES
-   ============================================ */
+   == */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1057,9 +1057,9 @@
   }
 }
 
-/* ============================================
+/* ==
    RESPONSIVE STYLES
-   ============================================ */
+   == */
 @media (max-width: 768px) {
   .hero-grid {
     grid-template-columns: 1fr;

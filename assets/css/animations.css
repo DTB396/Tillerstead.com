@@ -1,293 +1,8 @@
-/* =========================================================
-   Tillerstead Premium Animation System
-   Modern, high-end web animations inspired by:
-   - Stripe, Linear, Vercel, Apple design systems
-   - GSAP, Framer Motion, Motion One patterns
-   - W3C Web Animations API standards
-   ========================================================= */
-
-/* ========== CUSTOM EASING FUNCTIONS ========== */
-
-/* Premium bezier curves for smooth, professional animations */
-
-:root {
-  /* Standard easings */
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
-  --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
-  
-  /* Spring-like easings (elastic feel) */
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --ease-spring-soft: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  
-  /* Smooth acceleration/deceleration */
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-smooth-in: cubic-bezier(0.4, 0, 1, 1);
-  --ease-smooth-out: cubic-bezier(0, 0, 0.2, 1);
-  
-  /* Animation durations */
-  --duration-instant: 100ms;
-  --duration-fast: 150ms;
-  --duration-normal: 300ms;
-  --duration-slow: 500ms;
-  --duration-slower: 700ms;
-  --duration-slowest: 1000ms;
-}
-
-/* ========== GRADIENT ANIMATIONS ========== */
-
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes gradient-rotate {
-  from {
-    background-position: 0deg;
-  }
-
-  to {
-    background-position: 360deg;
-  }
-}
-
-/* Premium aurora gradient - inspired by Linear.app */
-@keyframes aurora {
-  0%, 100% {
-    background-position: 0% 50%;
-    filter: hue-rotate(0deg);
-  }
-
-  25% {
-    background-position: 50% 0%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-    filter: hue-rotate(15deg);
-  }
-
-  75% {
-    background-position: 50% 100%;
-  }
-}
-
-/* Mesh gradient animation - inspired by Apple */
-@keyframes mesh-flow {
-  0%, 100% {
-    background-position: 0% 0%, 100% 100%, 50% 50%;
-  }
-
-  33% {
-    background-position: 100% 0%, 0% 100%, 100% 50%;
-  }
-
-  66% {
-    background-position: 50% 100%, 50% 0%, 0% 50%;
-  }
-}
-
-/* Animated gradient backgrounds */
-.gradient-animated {
-  background: linear-gradient(
-    -45deg,
-    var(--tiller-color-emerald, #10b981),
-    var(--tiller-color-gold, #c9a227),
-    var(--tiller-bg-darkest, #000000),
-    var(--tiller-color-emerald, #10b981)
-  );
-  background-size: 400% 400%;
-  animation: gradient-shift 8s ease infinite;
-}
-
-/* Aurora effect - premium sections */
-.aurora-bg {
-  background: 
-    linear-gradient(135deg, 
-      rgb(16 185 129 / 20%) 0%, 
-      transparent 50%,
-      rgb(201 162 39 / 15%) 100%
-    );
-  background-size: 200% 200%;
-  animation: aurora 12s ease infinite;
-}
-
-/* Mesh gradient effect */
-.mesh-gradient {
-  background:
-    radial-gradient(ellipse at 0% 0%, rgb(16 185 129 / 15%) 0%, transparent 50%),
-    radial-gradient(ellipse at 100% 100%, rgb(201 162 39 / 12%) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgb(16 185 129 / 8%) 0%, transparent 70%);
-  background-size: 100% 100%, 100% 100%, 100% 100%;
-  animation: mesh-flow 15s ease-in-out infinite;
-}
-
-/* For section headers */
-.header-gradient {
-  background: linear-gradient(
-    135deg,
-    rgb(16 185 129 / 10%) 0%,
-    rgb(201 162 39 / 5%) 100%
-  );
-  border-left: 4px solid var(--tiller-color-emerald, #10b981);
-  padding-left: 1.5rem;
-}
-
-/* ========== SMOOTH SCROLL BEHAVIOR ========== */
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-}
-
-/* Smooth scrolling fallback for older browsers */
-@supports not (scroll-behavior: smooth) {
-  html {
-    scroll-behavior: auto;
-  }
-}
-
-/* ========== SCROLL-SNAP BEHAVIOR ========== */
-
-.scroll-snap-container {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
-}
-
-.scroll-snap-child {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  min-height: 100vh;
-}
-
-/* ========== SCROLL-DRIVEN ANIMATIONS (Modern CSS) ========== */
-
-/* Progressive enhancement - falls back gracefully */
-
-@supports (animation-timeline: scroll()) {
-  .scroll-fade-in {
-    opacity: 0%;
-    transform: translateY(40px);
-    animation: scroll-reveal linear forwards;
-    animation-timeline: view();
-    animation-range: entry 0% entry 100%;
-  }
-
-  .scroll-scale-in {
-    opacity: 0%;
-    transform: scale(0.9);
-    animation: scroll-scale linear forwards;
-    animation-timeline: view();
-    animation-range: entry 0% entry 100%;
-  }
-
-  .scroll-slide-left {
-    opacity: 0%;
-    transform: translateX(-60px);
-    animation: scroll-slide-x linear forwards;
-    animation-timeline: view();
-    animation-range: entry 0% entry 100%;
-  }
-
-  .scroll-slide-right {
-    opacity: 0%;
-    transform: translateX(60px);
-    animation: scroll-slide-x-reverse linear forwards;
-    animation-timeline: view();
-    animation-range: entry 0% entry 100%;
-  }
-
-  @keyframes scroll-reveal {
-    to {
-      opacity: 100%;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes scroll-scale {
-    to {
-      opacity: 100%;
-      transform: scale(1);
-    }
-  }
-
-  @keyframes scroll-slide-x {
-    to {
-      opacity: 100%;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes scroll-slide-x-reverse {
-    to {
-      opacity: 100%;
-      transform: translateX(0);
-    }
-  }
-}
-
-/* Fallback for browsers without scroll-timeline support */
-@supports not (animation-timeline: scroll()) {
-  .scroll-fade-in,
-  .scroll-scale-in,
-  .scroll-slide-left,
-  .scroll-slide-right {
-    opacity: 0%;
-    transform: translateY(30px);
-    transition: 
-      opacity 0.6s var(--ease-out-quint),
-      transform 0.6s var(--ease-out-quint);
-  }
-
-  .scroll-fade-in.is-visible,
-  .scroll-scale-in.is-visible,
-  .scroll-slide-left.is-visible,
-  .scroll-slide-right.is-visible {
-    opacity: 100%;
-    transform: translateY(0) translateX(0) scale(1);
-  }
-}
-
-<<<<<<< HEAD
-
-/* ========== ENHANCED TRANSITIONS (2026 Modernized) ========== */
-* {
-  transition-property: color, background-color, border-color, box-shadow, opacity, transform, filter;
-  transition-duration: 0.18s;
-  transition-timing-function: var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1));
-  will-change: transform, opacity, filter;
-}
-
-=======
-/* ========== ENHANCED TRANSITIONS ========== */
-
-/* Global smooth transitions */
-* {
-  transition-property: color, background-color, border-color, box-shadow, opacity, transform;
-  transition-duration: 0.3s;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Disable transitions on elements that shouldn't animate */
->>>>>>> 6f26b33d (x)
-.no-transition,
+/* =.no-transition,
 .no-transition * {
   transition: none !important;
 }
 
-<<<<<<< HEAD
 /* Subtle 3D pop for cards and buttons */
 .ts-card, .card, button, .btn, a[data-button-premium] {
   box-shadow: 0 2px 8px rgb(16 185 129 / 10%), 0 8px 32px rgb(201 162 39 / 10%);
@@ -311,63 +26,9 @@ html {
   }
 }
 
-=======
->>>>>>> 6f26b33d (x)
-/* ========== VIEW TRANSITIONS API (Cutting-edge) ========== */
-
-/* Progressive enhancement for page transitions */
-
-@supports (view-transition-name: logo) {
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation-duration: 0.4s;
-    animation-timing-function: var(--ease-out-quint);
-  }
-
-  ::view-transition-old(root) {
-    animation-name: fade-out;
-  }
-
-  ::view-transition-new(root) {
-    animation-name: fade-in;
-  }
-
-  @keyframes fade-out {
-    from { opacity: 100%; }
-    to { opacity: 0%; }
-  }
-
-  @keyframes fade-in {
-    from { opacity: 0%; }
-    to { opacity: 100%; }
-  }
 }
 
-/* ========== MAGNETIC HOVER EFFECT ========== */
-
-/* Inspired by Stripe & Linear buttons */
-
-[data-magnetic] {
-  position: relative;
-<<<<<<< HEAD
-  transition: transform 0.3s var(--ease-out-quint, cubic-bezier(0.23,1,0.32,1));
-  will-change: transform;
-  z-index: 2;
-}
-[data-magnetic]:hover {
-  /* JS will handle transform for magnetic effect */
-  filter: brightness(1.08) saturate(1.1);
-=======
-  transition: transform 0.3s var(--ease-out-quint);
-}
-
-[data-magnetic]:hover {
-  /* JavaScript handles the actual magnetic effect */
-  transform: translate(var(--magnetic-x, 0), var(--magnetic-y, 0));
->>>>>>> 6f26b33d (x)
-}
-
-/* ========== BUTTON ENHANCEMENTS ========== */
+/* === BUTTON ENHANCEMENTS === */
 
 button[data-button-premium],
 a[data-button-premium] {
@@ -462,7 +123,7 @@ a[data-button-premium]:active {
   100% { background-position: 200% 50%; }
 }
 
-/* ========== 3D TILT EFFECT ========== */
+/* === 3D TILT EFFECT === */
 
 /* Inspired by Stripe's card hovers */
 
@@ -480,7 +141,7 @@ a[data-button-premium]:active {
   transform: translateZ(20px);
 }
 
-/* ========== LINK HOVER EFFECTS ========== */
+/* === LINK HOVER EFFECTS === */
 
 a[data-link-premium] {
   position: relative;
@@ -551,7 +212,7 @@ a[data-link-premium]:hover {
   background: rgb(16 185 129 / 15%);
 }
 
-/* ========== CARD HOVER EFFECTS ========== */
+/* === CARD HOVER EFFECTS === */
 
 [data-card-premium] {
   position: relative;
@@ -675,7 +336,7 @@ a[data-link-premium]:hover {
   transform: translateY(24px) scale(0.86);
 }
 
-/* ========== INPUT FOCUS EFFECTS ========== */
+/* === INPUT FOCUS EFFECTS === */
 
 input[type='text'],
 input[type='email'],
@@ -728,7 +389,7 @@ select:focus {
   color: var(--tiller-color-emerald);
 }
 
-/* ========== LOADING ANIMATIONS ========== */
+/* === LOADING ANIMATIONS === */
 
 @keyframes spin-smooth {
   from {
@@ -844,7 +505,7 @@ select:focus {
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
-/* ========== TEXT REVEAL ANIMATIONS ========== */
+/* === TEXT REVEAL ANIMATIONS === */
 
 [data-reveal-text] {
   opacity: 0%;
@@ -940,7 +601,7 @@ select:focus {
   }
 }
 
-/* ========== PARALLAX DEPTH ========== */
+/* === PARALLAX DEPTH === */
 
 [data-parallax-hero] {
   position: relative;
@@ -976,7 +637,7 @@ select:focus {
   transform: translateZ(0);
 }
 
-/* ========== MORPH ANIMATIONS ========== */
+/* === MORPH ANIMATIONS === */
 
 /* Organic shape morphing for backgrounds */
 
@@ -1040,7 +701,7 @@ select:focus {
   animation: orbit 20s linear infinite;
 }
 
-/* ========== BACKDROP BLUR EFFECTS ========== */
+/* === BACKDROP BLUR EFFECTS === */
 
 .blur-sm {
   backdrop-filter: blur(4px);
@@ -1062,7 +723,7 @@ select:focus {
   -webkit-backdrop-filter: blur(24px);
 }
 
-/* ========== GLASS-MORPHISM ========== */
+/* === GLASS-MORPHISM === */
 
 .glass {
   background: rgb(255 255 255 / 10%);
@@ -1104,7 +765,7 @@ select:focus {
   border-radius: 12px;
 }
 
-/* ========== NEUMORPHISM ========== */
+/* === NEUMORPHISM === */
 
 /* Soft UI shadows */
 
@@ -1124,7 +785,7 @@ select:focus {
     inset -4px -4px 8px rgb(255 255 255 / 5%);
 }
 
-/* ========== SHADOW EFFECTS ========== */
+/* === SHADOW EFFECTS === */
 
 .shadow-sm {
   box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
@@ -1194,7 +855,7 @@ select:focus {
     0 0 60px rgb(201 162 39 / 15%);
 }
 
-/* ========== BACKDROP BLOOM EFFECT ========== */
+/* === BACKDROP BLOOM EFFECT === */
 
 .bloom {
   filter: drop-shadow(0 0 30px rgb(16 185 129 / 40%));
@@ -1221,7 +882,7 @@ select:focus {
     0 0 40px var(--tiller-color-gold);
 }
 
-/* ========== SCALE & ZOOM ON HOVER ========== */
+/* === SCALE & ZOOM ON HOVER === */
 
 [data-hover-scale] {
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -1272,7 +933,7 @@ select:focus {
   animation: ken-burns 20s ease-out forwards;
 }
 
-/* ========== TEXT GRADIENT ========== */
+/* === TEXT GRADIENT === */
 
 .text-gradient {
   background: linear-gradient(
@@ -1299,7 +960,7 @@ select:focus {
   animation: gradient-shift 6s linear infinite;
 }
 
-/* ========== ENTRANCE ANIMATIONS ========== */
+/* === ENTRANCE ANIMATIONS === */
 
 /* Staggered, scroll-triggered animations */
 
@@ -1468,7 +1129,7 @@ select:focus {
 .delay-900 { animation-delay: 900ms; }
 .delay-1000 { animation-delay: 1000ms; }
 
-/* ========== ATTENTION SEEKERS ========== */
+/* === ATTENTION SEEKERS === */
 
 /* Subtle animations to draw attention */
 
@@ -1534,7 +1195,7 @@ select:focus {
   animation: heartbeat 1.5s ease-in-out infinite;
 }
 
-/* ========== ANIMATION PERFORMANCE ========== */
+/* === ANIMATION PERFORMANCE === */
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -1547,7 +1208,7 @@ select:focus {
   }
 }
 
-/* ========== WILL-CHANGE OPTIMIZATION ========== */
+/* === WILL-CHANGE OPTIMIZATION === */
 
 .animate-transform {
   will-change: transform;
@@ -1568,7 +1229,7 @@ select:focus {
   perspective: 1000px;
 }
 
-/* ========== INTERSECTION OBSERVER HELPERS ========== */
+/* === INTERSECTION OBSERVER HELPERS === */
 
 /* Classes for JS-triggered animations */
 
@@ -1608,7 +1269,7 @@ select:focus {
   transform: translateY(0);
 }
 
-/* ========== MICRO-INTERACTIONS ========== */
+/* === MICRO-INTERACTIONS === */
 
 /* Small, delightful animations for UI elements */
 
@@ -1693,7 +1354,7 @@ select:focus {
   animation: confetti-fall 3s ease-in-out forwards;
 }
 
-/* ========== HOVER STATE UTILITIES ========== */
+/* === HOVER STATE UTILITIES === */
 
 /* Lift on hover */
 .hover-lift {
@@ -1735,7 +1396,7 @@ select:focus {
   filter: saturate(1.2);
 }
 
-/* ========== SCROLL INDICATOR ========== */
+/* === SCROLL INDICATOR === */
 
 @keyframes scroll-indicator {
   0% {
@@ -1758,13 +1419,8 @@ select:focus {
   animation: scroll-indicator 2s ease-in-out infinite;
 }
 
-<<<<<<< HEAD
 /* ===== PREMIUM NAVIGATION EFFECTS (deduplicated, modernized) ===== */
 .ts-scroll-progress {}
-=======
-<<<<<<< HEAD
-/* ===== PREMIUM NAVIGATION EFFECTS ===== */
->>>>>>> 3f2c5bfa (x)
 
 @keyframes btn-pulse {
   0% { box-shadow: 0 0 0 0 rgb(16 185 129 / 18%); }
@@ -1782,29 +1438,11 @@ select:focus {
   /* JS will handle transform for magnetic effect */
   filter: brightness(1.08) saturate(1.1);
 }
-<<<<<<< HEAD
-=======
-[data-magnetic]:hover {
-=======
-/* Global scroll progress bar */
-.ts-scroll-progress {
-  position: fixed;
-  inset: 0 auto auto 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(
-    90deg,
-    var(--tiller-color-emerald, #10b981),
-    var(--tiller-color-gold, #c9a227)
-  );
-  transform: scaleX(0);
->>>>>>> 6f26b33d (x)
   transform-origin: 0 50%;
   opacity: 85%;
   z-index: 9999;
   pointer-events: none;
 }
->>>>>>> 3f2c5bfa (x)
 
 /* Mouse scroll wheel animation */
 @keyframes mouse-scroll {
@@ -1825,11 +1463,6 @@ select:focus {
 
 .mouse-scroll-indicator {
   animation: mouse-scroll 2.2s ease infinite;
-<<<<<<< HEAD
-=======
-}
-<<<<<<< HEAD
->>>>>>> 3f2c5bfa (x)
 
 /* ===== PREMIUM NAVIGATION EFFECTS ===== */
 
@@ -1839,5 +1472,3 @@ select:focus {
   0% { box-shadow: 0 0 0 0 rgba(16,185,129,0.18); }
   100% { box-shadow: 0 0 0 12px rgba(16,185,129,0.04); }
 }
-=======
->>>>>>> 6f26b33d (x)

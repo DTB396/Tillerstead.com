@@ -1,8 +1,8 @@
-/* =========================================================
+/* =
    Tillerstead Tile-Inspired Design System
    Subtle geometric patterns mimicking professional tile layouts
    Performance-optimized, WCAG AA compliant
-   ========================================================= */
+   = */
 
 :root {
   /* ===== Grout Line Colors (Subtle, Professional) ===== */
@@ -49,10 +49,10 @@
   --tiller-pattern-opacity-visible: 0.12;
 }
 
-/* =========================================================
+/* =
    SVG Pattern Definitions
    Lightweight, scalable tile patterns using CSS
-   ========================================================= */
+   = */
 
 /* === SUBWAY TILE PATTERN (Classic 1/3 offset) === */
 .ts-pattern-subway {
@@ -192,10 +192,10 @@
   position: relative;
 }
 
-/* =========================================================
+/* =
    Grout Line Effect Utilities
    Apply to borders, dividers, section separators
-   ========================================================= */
+   = */
 
 /* Horizontal grout line divider */
 .ts-grout-divider {
@@ -232,10 +232,10 @@
   position: relative;
 }
 
-/* =========================================================
+/* =
    Pattern Application Classes
    Apply tile patterns to specific elements
-   ========================================================= */
+   = */
 
 /* Hero section with subtle grid pattern */
 .ts-hero-tiled {
@@ -339,10 +339,10 @@
   z-index: 0;
 }
 
-/* =========================================================
+/* =
    Portfolio & Image Tile Frames
    Professional presentation inspired by tile installations
-   ========================================================= */
+   = */
 
 /* Image with tile border effect */
 .ts-image-tiled {
@@ -383,10 +383,10 @@
   border-radius: var(--tiller-border-radius-sm, 4px);
 }
 
-/* =========================================================
+/* =
    Responsive Pattern Scaling
    Patterns scale appropriately on different screen sizes
-   ========================================================= */
+   = */
 
 @media (max-width: 900px) {
   :root {
@@ -430,9 +430,9 @@
   }
 }
 
-/* =========================================================
+/* =
    Performance & Accessibility
-   ========================================================= */
+   = */
 
 /* Respect reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
@@ -475,9 +475,9 @@
   }
 }
 
-/* =========================================================
+/* =
    Usage Examples & Documentation
-   ========================================================= */
+   = */
 
 /*
 USAGE GUIDE:
@@ -529,10 +529,10 @@ TILE INDUSTRY STANDARDS REFLECTED:
 
 */
 
-/* =========================================================
+/* =
    90S RETRO TILE PATTERNS
    Inspired by classic 90s bathroom & kitchen tile designs
-   ========================================================= */
+   = */
 
 /* === 90S SALMON TILE PATTERN (Classic bathroom) === */
 .ts-pattern-retro-salmon {

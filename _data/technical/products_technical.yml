@@ -1,5 +1,5 @@
 # Tillerstead Technical Products Database
-# ========================================
+# =====
 # 
 # PURPOSE: Source-backed technical specifications for calculator formulas
 # WARNING: Do NOT modify coverage values without updating the source citation
@@ -22,9 +22,9 @@ metadata:
     Actual coverage varies by substrate condition, application technique, and environmental factors.
     Always verify with the specific product's current technical data sheet before purchasing.
 
-# ============================================
+# ==
 # THINSET MORTARS
-# ============================================
+# ==
 thinset_mortars:
   - id: versabond-lft
     brand: "Custom Building Products"
@@ -139,9 +139,9 @@ thinset_mortars:
       Unmodified thinset - required for use with Schluter KERDI membrane.
       Add latex additive for improved bond in wet areas.
 
-# ============================================
+# ==
 # WATERPROOFING MEMBRANES
-# ============================================
+# ==
 waterproofing_membranes:
   - id: redgard
     brand: "Custom Building Products"
@@ -264,9 +264,9 @@ waterproofing_membranes:
       MUST be set in unmodified thinset. Use KERDI-BAND for all seams and corners.
       Overlap seams by at least 2 inches. Use KERDI-KERECK for pre-formed corners.
 
-# ============================================
+# ==
 # GROUTS
-# ============================================
+# ==
 grouts:
   - id: polyblend-sanded
     brand: "Custom Building Products"
@@ -309,9 +309,9 @@ grouts:
       Use for joints less than 1/8". Also recommended for polished marble and soft stone
       to prevent scratching.
 
-# ============================================
+# ==
 # SELF-LEVELING COMPOUNDS
-# ============================================
+# ==
 self_levelers:
   - id: mapei-slf-plus
     brand: "Mapei"

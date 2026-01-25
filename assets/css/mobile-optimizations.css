@@ -1,7 +1,7 @@
-/* =========================================================
+/* =
    Mobile Experience Optimizations - Tillerstead 2026
    Enhanced touch targets, typography scaling, and performance
-   ========================================================= */
+   = */
 
 /* ===== TOUCH TARGETS - WCAG AAA Standard (48px minimum) ===== */
 @media (max-width: 768px) {

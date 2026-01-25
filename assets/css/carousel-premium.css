@@ -1,9 +1,9 @@
-/* =========================================================
+/* =
    Premium Carousel/Swiper Styles
    Touch-friendly, accessible, modern controls
-   ========================================================= */
+   = */
 
-/* ========== SWIPER CONTAINER ========== */
+/* === SWIPER CONTAINER === */
 
 .premium-carousel {
   position: relative;
@@ -31,7 +31,7 @@
   opacity: 60%;
 }
 
-/* ========== NAVIGATION BUTTONS ========== */
+/* === NAVIGATION BUTTONS === */
 
 .swiper-button-next,
 .swiper-button-prev {
@@ -96,7 +96,7 @@
   pointer-events: none;
 }
 
-/* ========== PAGINATION DOTS ========== */
+/* === PAGINATION DOTS === */
 
 .swiper-pagination {
   position: absolute;
@@ -131,7 +131,7 @@
   box-shadow: 0 0 12px rgb(16 185 129 / 60%);
 }
 
-/* ========== DYNAMIC BULLETS ========== */
+/* === DYNAMIC BULLETS === */
 
 .swiper-pagination-bullet-large {
   width: 18px;
@@ -143,7 +143,7 @@
   height: 20px;
 }
 
-/* ========== SLIDE CONTENT ========== */
+/* === SLIDE CONTENT === */
 
 .swiper-slide-content {
   padding: 2rem;
@@ -163,7 +163,7 @@
   box-shadow: 0 8px 24px rgb(16 185 129 / 10%);
 }
 
-/* ========== TESTIMONIAL CARDS ========== */
+/* === TESTIMONIAL CARDS === */
 
 .testimonial-card {
   display: flex;
@@ -226,7 +226,7 @@
   color: rgb(255 255 255 / 60%);
 }
 
-/* ========== PORTFOLIO CARDS ========== */
+/* === PORTFOLIO CARDS === */
 
 .portfolio-card {
   position: relative;
@@ -275,7 +275,7 @@
   font-size: 0.9375rem;
 }
 
-/* ========== MOBILE OPTIMIZATIONS ========== */
+/* === MOBILE OPTIMIZATIONS === */
 
 @media (max-width: 768px) {
   .swiper-button-next,
@@ -307,7 +307,7 @@
   }
 }
 
-/* ========== KEYBOARD NAVIGATION ========== */
+/* === KEYBOARD NAVIGATION === */
 
 .swiper-button-next:focus-visible,
 .swiper-button-prev:focus-visible {
@@ -320,14 +320,14 @@
   outline-offset: 2px;
 }
 
-/* ========== ACCESSIBILITY ========== */
+/* === ACCESSIBILITY === */
 
 .swiper-notification {
   position: absolute;
   left: -9999px;
 }
 
-/* ========== REDUCED MOTION ========== */
+/* === REDUCED MOTION === */
 
 @media (prefers-reduced-motion: reduce) {
   .swiper-slide,

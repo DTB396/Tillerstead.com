@@ -10,9 +10,9 @@
 import { sqInchesToSqFeet, validatePositiveNumber, validatePercentage } from './units.js';
 import { roundUp, formatNumber } from './rounding.js';
 
-// ============================================
+// ==
 // TILE FORMULA METADATA
-// ============================================
+// ==
 
 export const TILE_FORMULA_INFO = {
   name: 'Tile Quantity Calculator',
@@ -32,9 +32,9 @@ export const TILE_FORMULA_INFO = {
   ]
 };
 
-// ============================================
+// ==
 // WASTE FACTOR RECOMMENDATIONS
-// ============================================
+// ==
 
 /**
  * Industry-typical waste factor recommendations by layout pattern
@@ -91,9 +91,9 @@ export const WASTE_FACTORS = {
   }
 };
 
-// ============================================
+// ==
 // TILE SIZE CALCULATIONS
-// ============================================
+// ==
 
 /**
  * Calculate area of a single tile in square feet
@@ -132,9 +132,9 @@ export function isPlankFormat(widthInches, heightInches) {
   return ratio >= 3;
 }
 
-// ============================================
+// ==
 // MAIN CALCULATION FUNCTIONS
-// ============================================
+// ==
 
 /**
  * Calculate tile quantity needed for a project

@@ -4,9 +4,9 @@
  * Author: Tillerstead LLC
  */
 
-/* ==================================
+/* ======
    Main Container & Layout
-   ================================== */
+   ====== */
 
 .visualizer-container {
   display: grid;
@@ -17,9 +17,9 @@
   padding: 2rem 1rem;
 }
 
-/* ==================================
+/* ======
    Sidebar Sections
-   ================================== */
+   ====== */
 
 .visualizer-sidebar {
   background: #ffffff;
@@ -51,9 +51,9 @@
   gap: 0.5rem;
 }
 
-/* ==================================
+/* ======
    Room Dimensions
-   ================================== */
+   ====== */
 
 .dimension-inputs {
   display: grid;
@@ -98,9 +98,9 @@
   font-size: 1.25rem;
 }
 
-/* ==================================
+/* ======
    Tile Size Selection
-   ================================== */
+   ====== */
 
 .tile-size-grid {
   display: grid;
@@ -164,9 +164,9 @@
   background: #4b5563;
 }
 
-/* ==================================
+/* ======
    Pattern Selection
-   ================================== */
+   ====== */
 
 .pattern-grid {
   display: grid;
@@ -268,9 +268,9 @@
   color: #374151;
 }
 
-/* ==================================
+/* ======
    Grout Settings
-   ================================== */
+   ====== */
 
 .grout-width-control {
   margin-bottom: 1rem;
@@ -364,9 +364,9 @@
   cursor: pointer;
 }
 
-/* ==================================
+/* ======
    Canvas Area
-   ================================== */
+   ====== */
 
 .canvas-container {
   position: relative;
@@ -421,9 +421,9 @@
   transform: scale(1.1);
 }
 
-/* ==================================
+/* ======
    Results Sidebar
-   ================================== */
+   ====== */
 
 .calc-row {
   display: flex;
@@ -508,9 +508,9 @@
   margin-bottom: 0.25rem;
 }
 
-/* ==================================
+/* ======
    CTA Section
-   ================================== */
+   ====== */
 
 .cta-section {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
@@ -552,9 +552,9 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* ==================================
+/* ======
    Action Buttons
-   ================================== */
+   ====== */
 
 .action-buttons {
   display: grid;
@@ -607,9 +607,9 @@
   border-color: #ef4444;
 }
 
-/* ==================================
+/* ======
    Instructions Panel
-   ================================== */
+   ====== */
 
 .instructions-panel {
   background: #f9fafb;
@@ -663,9 +663,9 @@
   line-height: 1.5;
 }
 
-/* ==================================
+/* ======
    Notifications
-   ================================== */
+   ====== */
 
 .visualizer-notification {
   position: fixed;
@@ -703,9 +703,9 @@
   }
 }
 
-/* ==================================
+/* ======
    Responsive Design
-   ================================== */
+   ====== */
 
 @media (max-width: 1400px) {
   .visualizer-container {
@@ -800,9 +800,9 @@
   }
 }
 
-/* ==================================
+/* ======
    Print Styles
-   ================================== */
+   ====== */
 
 @media print {
   .visualizer-sidebar,

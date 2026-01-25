@@ -7,9 +7,9 @@
  * @module formulas
  */
 
-// ============================================
+// ==
 // EXPORTS
-// ============================================
+// ==
 
 // Unit conversion and validation
 export * from './units.js';
@@ -38,9 +38,9 @@ export * from './formulas.slope.js';
 // Advanced / adjacency calculations
 export * from './formulas.advanced.js';
 
-// ============================================
+// ==
 // LIBRARY METADATA
-// ============================================
+// ==
 
 export const FORMULA_LIBRARY_INFO = {
   name: 'Tillerstead Formula Library',
@@ -68,9 +68,9 @@ export const FORMULA_LIBRARY_INFO = {
   lastUpdated: '2026-01-19'
 };
 
-// ============================================
+// ==
 // CONVENIENCE FUNCTIONS
-// ============================================
+// ==
 
 /**
  * Get all formula info objects
