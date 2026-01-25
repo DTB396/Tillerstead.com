@@ -1924,5 +1924,5 @@ function generateSpecTemplate() {
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
-  // // // // // // // // // // console.log('Homeowner Resources loaded'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
+  // // // // // // // // // // // console.log('Homeowner Resources loaded'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
 });
