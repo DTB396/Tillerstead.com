@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   
-  // // console.log('[TILLERSTEAD] Initializing - No Bounce Edition'); // AUTO-DISABLED // AUTO-DISABLED
+  // // // console.log('[TILLERSTEAD] Initializing - No Bounce Edition'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
   
   // Header scroll - NO BOUNCE
   const header = document.getElementById('site-header');
@@ -128,5 +128,5 @@
   document.documentElement.style.overflowY = 'scroll';
   document.body.style.overflowY = 'auto';
   
-  // // console.log('[TILLERSTEAD] ✅ Ready - No Bounce!'); // AUTO-DISABLED // AUTO-DISABLED
+  // // // console.log('[TILLERSTEAD] ✅ Ready - No Bounce!'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
 })();

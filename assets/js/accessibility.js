@@ -415,7 +415,7 @@
     try {
       localStorage.setItem(A11Y_CONFIG.storageKey, JSON.stringify(prefs));
     } catch (e) {
-      // // console.warn('Could not save accessibility preferences'); // AUTO-DISABLED // AUTO-DISABLED
+      // // // console.warn('Could not save accessibility preferences'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
     }
   }
 
@@ -430,7 +430,7 @@
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       detected.reducedMotion = true;
       document.documentElement.classList.add('reduce-motion');
-      // // console.log('[A11Y] Detected: prefers-reduced-motion'); // AUTO-DISABLED // AUTO-DISABLED
+      // // // console.log('[A11Y] Detected: prefers-reduced-motion'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
     }
 
     // Detect high contrast / forced colors (Windows High Contrast Mode)
@@ -439,28 +439,28 @@
       detected.forcedColors = true;
       document.documentElement.setAttribute('data-high-contrast', 'true');
       document.documentElement.setAttribute('data-forced-colors', 'true');
-      // // console.log('[A11Y] Detected: forced-colors (Windows High Contrast) // AUTO-DISABLED // AUTO-DISABLED');
+      // // // console.log('[A11Y] Detected: forced-colors (Windows High Contrast) // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED');
     }
 
     // Detect prefers-contrast: more (macOS/iOS increase contrast)
     if (window.matchMedia('(prefers-contrast: more)').matches) {
       detected.highContrast = true;
       document.documentElement.setAttribute('data-high-contrast', 'true');
-      // // console.log('[A11Y] Detected: prefers-contrast: more'); // AUTO-DISABLED // AUTO-DISABLED
+      // // // console.log('[A11Y] Detected: prefers-contrast: more'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
     }
 
     // Detect prefers-contrast: less
     if (window.matchMedia('(prefers-contrast: less)').matches) {
       detected.lowContrast = true;
       document.documentElement.setAttribute('data-low-contrast', 'true');
-      // // console.log('[A11Y] Detected: prefers-contrast: less'); // AUTO-DISABLED // AUTO-DISABLED
+      // // // console.log('[A11Y] Detected: prefers-contrast: less'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
     }
 
     // Detect color scheme preference
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       detected.darkMode = true;
       document.documentElement.setAttribute('data-color-scheme', 'dark');
-      // // console.log('[A11Y] Detected: prefers-color-scheme: dark'); // AUTO-DISABLED // AUTO-DISABLED
+      // // // console.log('[A11Y] Detected: prefers-color-scheme: dark'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
     } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
       detected.lightMode = true;
       document.documentElement.setAttribute('data-color-scheme', 'light');
@@ -470,14 +470,14 @@
     if (window.matchMedia('(inverted-colors: inverted)').matches) {
       detected.invertedColors = true;
       document.documentElement.setAttribute('data-inverted-colors', 'true');
-      // // console.log('[A11Y] Detected: inverted-colors'); // AUTO-DISABLED // AUTO-DISABLED
+      // // // console.log('[A11Y] Detected: inverted-colors'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
     }
 
     // Detect transparency preference (reduce transparency - macOS)
     if (window.matchMedia('(prefers-reduced-transparency: reduce)').matches) {
       detected.reducedTransparency = true;
       document.documentElement.setAttribute('data-reduced-transparency', 'true');
-      // // console.log('[A11Y] Detected: prefers-reduced-transparency'); // AUTO-DISABLED // AUTO-DISABLED
+      // // // console.log('[A11Y] Detected: prefers-reduced-transparency'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
     }
 
     // Detect pointer type (touch vs mouse)
@@ -486,14 +486,14 @@
       document.documentElement.setAttribute('data-pointer', 'coarse');
       // Increase touch targets for touch devices
       document.documentElement.classList.add('touch-friendly');
-      // // console.log('[A11Y] Detected: coarse pointer (touch device) // AUTO-DISABLED // AUTO-DISABLED');
+      // // // console.log('[A11Y] Detected: coarse pointer (touch device) // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED');
     }
 
     // Detect hover capability
     if (window.matchMedia('(hover: none)').matches) {
       detected.noHover = true;
       document.documentElement.setAttribute('data-hover', 'none');
-      // // console.log('[A11Y] Detected: no hover capability'); // AUTO-DISABLED // AUTO-DISABLED
+      // // // console.log('[A11Y] Detected: no hover capability'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
     }
 
     // Detect screen reader hints (limited detection)
@@ -736,7 +736,7 @@
      */
     speak(text, options = {}) {
       if (!this.synth) {
-        // // console.warn('[A11Y] Speech synthesis not supported'); // AUTO-DISABLED // AUTO-DISABLED
+        // // // console.warn('[A11Y] Speech synthesis not supported'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
         return false;
       }
 
@@ -768,7 +768,7 @@
       };
 
       this.utterance.onerror = (e) => {
-        // // console.warn('[A11Y] TTS Error:', e.error); // AUTO-DISABLED // AUTO-DISABLED
+        // // // console.warn('[A11Y] TTS Error:', e.error); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
         this.isReading = false;
       };
 
@@ -891,7 +891,7 @@
         };
       }
 
-      // // console.log('[A11Y] Text-to-Speech initialized'); // AUTO-DISABLED // AUTO-DISABLED
+      // // // console.log('[A11Y] Text-to-Speech initialized'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
     }
   };
 
@@ -1017,7 +1017,7 @@
       if (!hasTrack) {
         // Add warning for developers
         if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-          // // console.warn('[A11Y] Video without captions:', video.src || video.querySelector('source') // AUTO-DISABLED // AUTO-DISABLED?.src);
+          // // // console.warn('[A11Y] Video without captions:', video.src || video.querySelector('source') // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED?.src);
         }
         
         // Add visual indicator that captions are not available
@@ -1252,9 +1252,9 @@
       const imagesWithoutAlt = document.querySelectorAll('img:not([alt])');
       
       if (imagesWithoutAlt.length > 0) {
-        // // console.warn(`[A11Y] Found ${imagesWithoutAlt.length} images without alt text:`); // AUTO-DISABLED // AUTO-DISABLED
+        // // // console.warn(`[A11Y] Found ${imagesWithoutAlt.length} images without alt text:`); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
         imagesWithoutAlt.forEach(img => {
-          // // console.warn(`  - ${img.src}`); // AUTO-DISABLED // AUTO-DISABLED
+          // // // console.warn(`  - ${img.src}`); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
         });
       }
     }
@@ -1322,8 +1322,8 @@
       });
 
       if (issues.length > 0) {
-        // // console.warn('[A11Y] Heading structure issues:'); // AUTO-DISABLED // AUTO-DISABLED
-        issues.forEach(issue => // // console.warn(`  - ${issue}`) // AUTO-DISABLED // AUTO-DISABLED);
+        // // // console.warn('[A11Y] Heading structure issues:'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
+        issues.forEach(issue => // // // console.warn(`  - ${issue}`) // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED);
       }
     }
   }
@@ -1396,7 +1396,7 @@
       announce(`${pageTitle} loaded`);
     }, 500);
 
-    // // console.log('[A11Y] Accessibility features initialized'); // AUTO-DISABLED // AUTO-DISABLED
+    // // // console.log('[A11Y] Accessibility features initialized'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
   }
 
   // Initialize when DOM is ready

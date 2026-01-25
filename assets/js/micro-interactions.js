@@ -223,7 +223,7 @@
     initLazyLoading();
     initCardParallax();
 
-    // // console.log('✨ Tillerstead micro-interactions initialized'); // AUTO-DISABLED // AUTO-DISABLED
+    // // // console.log('✨ Tillerstead micro-interactions initialized'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
   }
 
   // Start initialization

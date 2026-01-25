@@ -3,7 +3,6 @@
 @media(max-width:768px){.sticky-cta-bar{display: flex}}
 .sticky-cta-btn{flex:1;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:56px;padding:8px 12px;border-radius:8px;color:#fff;text-decoration:none;font-size:.875rem;font-weight:600;transition:all .2s;-webkit-tap-highlight-color: transparent}
 .sticky-cta-btn:active{transform:scale(.95)}
-.sticky-cta-btn--call{background:linear-gradient(135deg,var(--tiller-color-emerald,#00e184),var(--tiller-color-emerald-dark,#00b46a));color:#000}
-.sticky-cta-icon{width:20px;height:20px}
+.sticky-cta-btn--call{background:linear-gradient(135deg,var(--tiller-color-emerald,#00e184),var(--tiller-color-emerald-dark,#00b46a));height:20px}
 .sticky-cta-text{font-size:.75rem;font-weight:600}
 @keyframes slideUpIn{from{transform:translateY(100%);opacity: 0}to{transform:translateY(0);transition:none}}

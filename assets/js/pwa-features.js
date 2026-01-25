@@ -31,7 +31,7 @@ class PWAFeatures {
 
     // Track successful installation
     window.addEventListener('appinstalled', () => {
-      // // console.log('[PWA] App installed successfully'); // AUTO-DISABLED // AUTO-DISABLED
+      // // // console.log('[PWA] App installed successfully'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
       this.deferredPrompt = null;
       this.hideInstallPrompt();
       
@@ -87,7 +87,7 @@ class PWAFeatures {
       this.deferredPrompt.prompt();
       const { outcome } = await this.deferredPrompt.userChoice;
       
-      // // console.log(`[PWA] User ${outcome} the install prompt`); // AUTO-DISABLED // AUTO-DISABLED
+      // // // console.log(`[PWA] User ${outcome} the install prompt`); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
       this.deferredPrompt = null;
       this.hideInstallPrompt();
     });
@@ -130,7 +130,7 @@ class PWAFeatures {
     const permission = await Notification.requestPermission();
     
     if (permission === 'granted') {
-      // // console.log('[PWA] Notification permission granted'); // AUTO-DISABLED // AUTO-DISABLED
+      // // // console.log('[PWA] Notification permission granted'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
       await this.subscribeToPush();
       return true;
     }
@@ -145,7 +145,7 @@ class PWAFeatures {
       // Check if already subscribed
       const existingSubscription = await registration.pushManager.getSubscription();
       if (existingSubscription) {
-        // // console.log('[PWA] Already subscribed to push'); // AUTO-DISABLED // AUTO-DISABLED
+        // // // console.log('[PWA] Already subscribed to push'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
         return;
       }
 
@@ -158,7 +158,7 @@ class PWAFeatures {
         )
       });
 
-      // // console.log('[PWA] Push subscription created:', subscription); // AUTO-DISABLED // AUTO-DISABLED
+      // // // console.log('[PWA] Push subscription created:', subscription); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
       
       // Send subscription to server
       await this.sendSubscriptionToServer(subscription);
@@ -170,7 +170,7 @@ class PWAFeatures {
 
   async sendSubscriptionToServer(subscription) {
     // TODO: Implement server endpoint
-    // // console.log('[PWA] Would send subscription to server:', subscription); // AUTO-DISABLED // AUTO-DISABLED
+    // // // console.log('[PWA] Would send subscription to server:', subscription); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
   }
 
   urlBase64ToUint8Array(base64String) {
@@ -194,7 +194,7 @@ class PWAFeatures {
    */
   initBackgroundSync() {
     if (!('serviceWorker' in navigator) || !('SyncManager' in window)) {
-      // // console.log('[PWA] Background sync not supported'); // AUTO-DISABLED // AUTO-DISABLED
+      // // // console.log('[PWA] Background sync not supported'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
       return;
     }
 
@@ -301,7 +301,7 @@ class PWAFeatures {
    */
   initAppBadge() {
     if (!('setAppBadge' in navigator)) {
-      // // console.log('[PWA] App Badge API not supported'); // AUTO-DISABLED // AUTO-DISABLED
+      // // // console.log('[PWA] App Badge API not supported'); // AUTO-DISABLED // AUTO-DISABLED // AUTO-DISABLED
       return;
     }
 
