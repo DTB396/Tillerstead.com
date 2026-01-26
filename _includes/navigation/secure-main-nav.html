@@ -1,0 +1,195 @@
+<!-- TILLERSTEAD NAVIGATION - COMPLETE & SECURE -->
+<!-- Desktop & Mobile Navigation with proper accessibility and security -->
+
+<!-- Desktop Navigation -->
+<nav class="desktop-nav" aria-label="Primary Navigation">
+  <ul class="desktop-nav__list">
+    <li class="desktop-nav__item"><a href="/services/" class="desktop-nav__link">Services</a></li>
+    <li class="desktop-nav__item"><a href="/portfolio/" class="desktop-nav__link">Our Work</a></li>
+    <li class="desktop-nav__item desktop-nav__item--dropdown">
+      <button class="desktop-nav__link desktop-nav__trigger" aria-expanded="false" aria-haspopup="true">
+        Guides<svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <ul class="desktop-nav__dropdown">
+        <li><a href="/build/">Build Guide Overview</a></li>
+        <li><a href="/build/phase-01/">Codes & Permits</a></li>
+        <li><a href="/build/phase-02/">Shower Pans</a></li>
+        <li><a href="/build/phase-03/">Waterproofing</a></li>
+        <li><a href="/build/curbs-curbless/">Curbless Showers</a></li>
+        <li><a href="/build/phase-05/">Benches & Niches</a></li>
+        <li><a href="/build/phase-06/">TCNA Standards</a></li>
+        <li><a href="/build/flood-testing/">Flood Testing</a></li>
+      </ul>
+    </li>
+    <li class="desktop-nav__item"><a href="/blog/" class="desktop-nav__link">Blog</a></li>
+    <li class="desktop-nav__item"><a href="/reviews/" class="desktop-nav__link">Reviews</a></li>
+    <li class="desktop-nav__item"><a href="/tools/" class="desktop-nav__link">Tools</a></li>
+    <li class="desktop-nav__item desktop-nav__item--dropdown">
+      <button class="desktop-nav__link desktop-nav__trigger" aria-expanded="false" aria-haspopup="true">
+        About<svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <ul class="desktop-nav__dropdown">
+        <li><a href="/about/">Our Story</a></li>
+        <li><a href="/for-general-contractors/">For Contractors</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/products/">Products We Use</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<!-- Mobile Navigation Toggle -->
+<button class="mobile-nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+  <span class="hamburger"></span>
+  <span class="hamburger"></span>
+  <span class="hamburger"></span>
+</button>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <div class="mobile-nav__header">
+    <button class="mobile-nav__close" aria-label="Close menu">✕</button>
+  </div>
+  <nav class="mobile-nav__body">
+    <ul class="mobile-nav__list">
+      <li><a href="/services/">SERVICES</a></li>
+      <li><a href="/portfolio/">OUR WORK</a></li>
+      <li>
+        <button class="mobile-nav__accordion-trigger" aria-expanded="false">
+          GUIDES<span class="arrow">▸</span>
+        </button>
+        <ul class="mobile-nav__submenu" hidden>
+          <li><a href="/build/">Build Guide Overview</a></li>
+          <li><a href="/build/phase-01/">Codes & Permits</a></li>
+          <li><a href="/build/phase-02/">Shower Pans</a></li>
+          <li><a href="/build/phase-03/">Waterproofing</a></li>
+          <li><a href="/build/curbs-curbless/">Curbless Showers</a></li>
+          <li><a href="/build/phase-05/">Benches & Niches</a></li>
+          <li><a href="/build/phase-06/">TCNA Standards</a></li>
+          <li><a href="/build/flood-testing/">Flood Testing</a></li>
+        </ul>
+      </li>
+      <li><a href="/blog/">BLOG</a></li>
+      <li><a href="/reviews/">REVIEWS</a></li>
+      <li><a href="/tools/">TOOLS</a></li>
+      <li>
+        <button class="mobile-nav__accordion-trigger" aria-expanded="false">
+          ABOUT<span class="arrow">▸</span>
+        </button>
+        <ul class="mobile-nav__submenu" hidden>
+          <li><a href="/about/">Our Story</a></li>
+          <li><a href="/for-general-contractors/">For Contractors</a></li>
+          <li><a href="/faq/">FAQ</a></li>
+          <li><a href="/products/">Products We Use</a></li>
+        </ul>
+      </li>
+      <li><a href="/contact/" class="mobile-nav__cta">GET ESTIMATE</a></li>
+    </ul>
+  </nav>
+</div>
+
+<script>
+(function() {
+  'use strict';
+  
+  // Mobile nav toggle
+  const toggle = document.querySelector('.mobile-nav__toggle');
+  const drawer = document.querySelector('.mobile-nav');
+  const closeBtn = document.querySelector('.mobile-nav__close');
+  const body = document.body;
+  
+  if (toggle && drawer) {
+    toggle.addEventListener('click', () => {
+      const isOpen = drawer.getAttribute('aria-hidden') === 'false';
+      
+      if (isOpen) {
+        closeNav();
+      } else {
+        openNav();
+      }
+    });
+    
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeNav);
+    }
+    
+    // Close on outside click
+    drawer.addEventListener('click', (e) => {
+      if (e.target === drawer) {
+        closeNav();
+      }
+    });
+    
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.getAttribute('aria-hidden') === 'false') {
+        closeNav();
+      }
+    });
+  }
+  
+  function openNav() {
+    drawer.setAttribute('aria-hidden', 'false');
+    toggle.setAttribute('aria-expanded', 'true');
+    body.classList.add('nav-open');
+  }
+  
+  function closeNav() {
+    drawer.setAttribute('aria-hidden', 'true');
+    toggle.setAttribute('aria-expanded', 'false');
+    body.classList.remove('nav-open');
+  }
+  
+  // Mobile accordion
+  const accordions = document.querySelectorAll('.mobile-nav__accordion-trigger');
+  accordions.forEach(acc => {
+    acc.addEventListener('click', () => {
+      const isExpanded = acc.getAttribute('aria-expanded') === 'true';
+      const submenu = acc.nextElementSibling;
+      
+      // Close all other accordions
+      accordions.forEach(other => {
+        if (other !== acc) {
+          other.setAttribute('aria-expanded', 'false');
+          other.nextElementSibling.hidden = true;
+        }
+      });
+      
+      // Toggle current
+      acc.setAttribute('aria-expanded', !isExpanded);
+      submenu.hidden = isExpanded;
+    });
+  });
+  
+  // Desktop dropdown hover
+  const dropdowns = document.querySelectorAll('.desktop-nav__item--dropdown');
+  dropdowns.forEach(dropdown => {
+    const trigger = dropdown.querySelector('.desktop-nav__trigger');
+    const menu = dropdown.querySelector('.desktop-nav__dropdown');
+    
+    let timeoutId;
+    
+    dropdown.addEventListener('mouseenter', () => {
+      clearTimeout(timeoutId);
+      trigger.setAttribute('aria-expanded', 'true');
+      menu.style.display = 'block';
+    });
+    
+    dropdown.addEventListener('mouseleave', () => {
+      timeoutId = setTimeout(() => {
+        trigger.setAttribute('aria-expanded', 'false');
+        menu.style.display = 'none';
+      }, 200);
+    });
+    
+    // Keyboard support
+    trigger.addEventListener('click', () => {
+      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+      trigger.setAttribute('aria-expanded', !isExpanded);
+      menu.style.display = isExpanded ? 'none' : 'block';
+    });
+  });
+  
+  console.log('[NAV] Navigation system initialized');
+})();
+</script>
