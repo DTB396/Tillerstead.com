@@ -1,6 +1,6 @@
 /**
  * Scroll Fix - Prevents nav-open from blocking scroll on desktop
- * Only blocks scroll on mobile when nav drawer is open
+ * Now uses ScrollLockManager for centralized control
  */
 
 (function() {
@@ -8,7 +8,6 @@
 
   const MOBILE_BREAKPOINT = 1080;
   let navIsOpen = false;
-  let savedScrollPosition = 0;
 
   function isMobile() {
     return window.innerWidth < MOBILE_BREAKPOINT;
@@ -20,29 +19,16 @@
       return; // Never block scroll on desktop
     }
 
-    // Save current scroll position
-    savedScrollPosition = window.pageYOffset;
-
-    // Apply scroll lock
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${savedScrollPosition}px`;
-    document.body.style.width = '100%';
-    document.body.style.overflow = 'hidden';
+    // Use centralized scroll lock manager
+    if (window.ScrollLockManager) {
+      window.ScrollLockManager.lock('scroll-fix');
+    }
   }
 
   function enableBodyScroll() {
-    // Remove scroll lock
-    const wasFixed = document.body.style.position === 'fixed';
-    
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.width = '';
-    document.body.style.overflow = '';
-
-    // Restore scroll position if it was saved
-    if (wasFixed && savedScrollPosition) {
-      window.scrollTo(0, savedScrollPosition);
-      savedScrollPosition = 0;
+    // Use centralized scroll lock manager
+    if (window.ScrollLockManager) {
+      window.ScrollLockManager.unlock('scroll-fix');
     }
   }
 

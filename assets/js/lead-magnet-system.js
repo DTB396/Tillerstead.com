@@ -157,8 +157,12 @@
       this.state.shown = true;
       this.state.triggered = true;
 
-      // Prevent body scroll
-      document.body.style.overflow = 'hidden';
+      // Use central scroll lock manager
+      if (window.ScrollLockManager) {
+        window.ScrollLockManager.lock('lead-magnet');
+      } else {
+        document.body.style.overflow = 'hidden';
+      }
 
       // Focus first input
       const firstInput = this.elements.form?.querySelector('input[type="email"], input[type="text"]');
@@ -179,8 +183,12 @@
       this.elements.popup.classList.remove('active');
       this.state.shown = false;
 
-      // Restore body scroll
-      document.body.style.overflow = '';
+      // Use central scroll lock manager
+      if (window.ScrollLockManager) {
+        window.ScrollLockManager.unlock('lead-magnet');
+      } else {
+        document.body.style.overflow = '';
+      }
 
       this.elements.popup.setAttribute('aria-hidden', 'true');
 
