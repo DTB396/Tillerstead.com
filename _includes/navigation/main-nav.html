@@ -1,69 +1,249 @@
+<!-- Desktop Navigation -->
 <nav class="desktop-nav" aria-label="Primary Navigation">
-  <ul class="desktop-nav__list">
-    <li class="desktop-nav__item"><a href="/services/" class="desktop-nav__link">Services</a></li>
-    <li class="desktop-nav__item"><a href="/portfolio/" class="desktop-nav__link">Our Work</a></li>
-    <li class="desktop-nav__item desktop-nav__item--dropdown">
-      <button class="desktop-nav__link desktop-nav__trigger" aria-expanded="false" aria-haspopup="true">
-        Guides<svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+  <ul class="desktop-nav__list" role="menubar">
+    
+    <!-- Services -->
+    <li class="desktop-nav__item" role="none">
+      <a href="/services/" class="desktop-nav__link" role="menuitem">
+        <span class="nav-link-text">Services</span>
+      </a>
+    </li>
+    
+    <!-- Our Work -->
+    <li class="desktop-nav__item" role="none">
+      <a href="/portfolio/" class="desktop-nav__link" role="menuitem">
+        <span class="nav-link-text">Our Work</span>
+      </a>
+    </li>
+    
+    <!-- Guides (Dropdown) -->
+    <li class="desktop-nav__item has-dropdown" role="none">
+      <button type="button" class="desktop-nav__link desktop-nav__trigger" 
+              aria-expanded="false" 
+              aria-controls="dropdown-build" 
+              aria-haspopup="menu">
+        <span class="nav-link-text">Guides</span>
+        <svg class="dropdown-icon" aria-hidden="true" width="12" height="12" viewBox="0 0 12 12">
+          <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
       </button>
-      <ul class="desktop-nav__dropdown">
-        <li><a href="/build/">Build Guide Overview</a></li>
-        <li><a href="/build/phase-01/">Codes & Permits</a></li>
-        <li><a href="/build/phase-02/">Shower Pans</a></li>
-        <li><a href="/build/phase-03/">Waterproofing</a></li>
-        <li><a href="/build/curbs-curbless/">Curbless Showers</a></li>
-        <li><a href="/build/phase-05/">Benches & Niches</a></li>
-        <li><a href="/build/phase-06/">TCNA Standards</a></li>
-        <li><a href="/build/flood-testing/">Flood Testing</a></li>
+      <ul id="dropdown-build" class="desktop-nav__dropdown" role="menu">
+        <li class="desktop-nav__dropdown-item" role="none">
+          <a href="/build-guide/" role="menuitem">Build Guide Overview</a>
+        </li>
+        <li class="desktop-nav__dropdown-item" role="none">
+          <a href="/build-guide/codes-permits/" role="menuitem">Codes & Permits</a>
+        </li>
+        <li class="desktop-nav__dropdown-item" role="none">
+          <a href="/build-guide/shower-pans/" role="menuitem">Shower Pans & Slopes</a>
+        </li>
+        <li class="desktop-nav__dropdown-item" role="none">
+          <a href="/build-guide/waterproofing/" role="menuitem">Waterproofing Systems</a>
+        </li>
+        <li class="desktop-nav__dropdown-item" role="none">
+          <a href="/build-guide/curbless/" role="menuitem">Curbless Showers</a>
+        </li>
+        <li class="desktop-nav__dropdown-item" role="none">
+          <a href="/build-guide/benches-niches/" role="menuitem">Benches & Niches</a>
+        </li>
+        <li class="desktop-nav__dropdown-item" role="none">
+          <a href="/build-guide/tcna/" role="menuitem">TCNA Standards</a>
+        </li>
+        <li class="desktop-nav__dropdown-item" role="none">
+          <a href="/build-guide/flood-test/" role="menuitem">Flood Testing</a>
+        </li>
       </ul>
     </li>
-    <li class="desktop-nav__item"><a href="/blog/" class="desktop-nav__link">Blog</a></li>
-    <li class="desktop-nav__item"><a href="/reviews/" class="desktop-nav__link">Reviews</a></li>
-    <li class="desktop-nav__item"><a href="/tools/" class="desktop-nav__link">Tools</a></li>
-    <li class="desktop-nav__item desktop-nav__item--dropdown">
-      <button class="desktop-nav__link desktop-nav__trigger" aria-expanded="false" aria-haspopup="true">
-        About<svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    
+    <!-- Blog -->
+    <li class="desktop-nav__item" role="none">
+      <a href="/blog/" class="desktop-nav__link" role="menuitem">
+        <span class="nav-link-text">Blog</span>
+      </a>
+    </li>
+    
+    <!-- Reviews -->
+    <li class="desktop-nav__item" role="none">
+      <a href="/reviews/" class="desktop-nav__link" role="menuitem">
+        <span class="nav-link-text">Reviews</span>
+      </a>
+    </li>
+    
+    <!-- Tools -->
+    <li class="desktop-nav__item" role="none">
+      <a href="/tools/" class="desktop-nav__link" role="menuitem">
+        <span class="nav-link-text">Tools</span>
+      </a>
+    </li>
+    
+    <!-- About (Dropdown) -->
+    <li class="desktop-nav__item has-dropdown" role="none">
+      <button type="button" class="desktop-nav__link desktop-nav__trigger" 
+              aria-expanded="false" 
+              aria-controls="dropdown-about" 
+              aria-haspopup="menu">
+        <span class="nav-link-text">About</span>
+        <svg class="dropdown-icon" aria-hidden="true" width="12" height="12" viewBox="0 0 12 12">
+          <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
       </button>
-      <ul class="desktop-nav__dropdown">
-        <li><a href="/about/">Our Story</a></li>
-        <li><a href="/for-general-contractors/">For Contractors</a></li>
-        <li><a href="/faq/">FAQ</a></li>
-        <li><a href="/products/">Products We Use</a></li>
+      <ul id="dropdown-about" class="desktop-nav__dropdown" role="menu">
+        <li class="desktop-nav__dropdown-item" role="none">
+          <a href="/about/" role="menuitem">Our Story</a>
+        </li>
+        <li class="desktop-nav__dropdown-item" role="none">
+          <a href="/for-contractors/" role="menuitem">For Contractors</a>
+        </li>
+        <li class="desktop-nav__dropdown-item" role="none">
+          <a href="/faq/" role="menuitem">FAQ</a>
+        </li>
+        <li class="desktop-nav__dropdown-item" role="none">
+          <a href="/products/" role="menuitem">Products We Use</a>
+        </li>
       </ul>
     </li>
+    
+    <!-- Get Estimate (CTA) -->
+    <li class="desktop-nav__item is-cta" role="none">
+      <a href="/contact/" class="desktop-nav__link desktop-nav__cta" role="menuitem">
+        <span class="nav-link-text">Get Estimate</span>
+      </a>
+    </li>
+    
   </ul>
 </nav>
-<button class="mobile-nav__toggle" aria-label="Toggle menu" aria-expanded="false"><span class="hamburger"></span><span class="hamburger"></span><span class="hamburger"></span></button>
-<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
-  <div class="mobile-nav__header"><button class="mobile-nav__close" aria-label="Close">✕</button></div>
-  <nav class="mobile-nav__body">
+
+<!-- Mobile Toggle Button -->
+<button type="button" class="mobile-nav__toggle" 
+        aria-expanded="false" 
+        aria-controls="mobile-nav-drawer" 
+        aria-label="Open navigation menu">
+  <span class="hamburger-icon" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+</button>
+
+<!-- Mobile Navigation Drawer -->
+<div id="mobile-nav-drawer" class="mobile-nav" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true">
+  <nav class="mobile-nav__body" aria-label="Mobile Navigation">
+    <div class="mobile-nav__header">
+      <button type="button" class="mobile-nav__close" aria-label="Close navigation menu">
+        <span class="close-x" aria-hidden="true">✕</span> Close
+      </button>
+    </div>
     <ul class="mobile-nav__list">
-      <li><a href="/services/">SERVICES</a></li>
-      <li><a href="/portfolio/">OUR WORK</a></li>
-      <li><button class="mobile-nav__accordion-trigger" aria-expanded="false">GUIDES<span class="arrow">▸</span></button>
-        <ul class="mobile-nav__submenu" hidden>
-          <li><a href="/build/">Build Guide Overview</a></li>
-          <li><a href="/build/phase-01/">Codes & Permits</a></li>
-          <li><a href="/build/phase-02/">Shower Pans</a></li>
-          <li><a href="/build/phase-03/">Waterproofing</a></li>
-          <li><a href="/build/curbs-curbless/">Curbless Showers</a></li>
-          <li><a href="/build/phase-05/">Benches & Niches</a></li>
-          <li><a href="/build/phase-06/">TCNA Standards</a></li>
-          <li><a href="/build/flood-testing/">Flood Testing</a></li>
+      <li class="mobile-nav__item">
+        <a href="/services/" class="mobile-nav__link">SERVICES</a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="/portfolio/" class="mobile-nav__link">OUR WORK</a>
+      </li>
+      <li class="mobile-nav__item has-accordion">
+        <button type="button" class="mobile-nav__link mobile-nav__accordion-trigger" 
+                aria-expanded="false" 
+                aria-controls="mobile-accordion-build">
+          <span class="nav-link-text">GUIDES</span>
+          <span class="accordion-arrow" aria-hidden="true">▸</span>
+        </button>
+        <ul id="mobile-accordion-build" class="mobile-nav__accordion" role="region" hidden>
+          <li class="mobile-nav__accordion-item">
+            <a href="/build-guide/">Build Guide Overview</a>
+          </li>
+          <li class="mobile-nav__accordion-item">
+            <a href="/build-guide/codes-permits/">Codes & Permits</a>
+          </li>
+          <li class="mobile-nav__accordion-item">
+            <a href="/build-guide/shower-pans/">Shower Pans</a>
+          </li>
+          <li class="mobile-nav__accordion-item">
+            <a href="/build-guide/waterproofing/">Waterproofing</a>
+          </li>
         </ul>
       </li>
-      <li><a href="/blog/">BLOG</a></li>
-      <li><a href="/reviews/">REVIEWS</a></li>
-      <li><a href="/tools/">TOOLS</a></li>
-      <li><button class="mobile-nav__accordion-trigger" aria-expanded="false">ABOUT<span class="arrow">▸</span></button>
-        <ul class="mobile-nav__submenu" hidden>
-          <li><a href="/about/">Our Story</a></li>
-          <li><a href="/for-general-contractors/">For Contractors</a></li>
-          <li><a href="/faq/">FAQ</a></li>
-          <li><a href="/products/">Products We Use</a></li>
-        </ul>
+      <li class="mobile-nav__item">
+        <a href="/blog/" class="mobile-nav__link">BLOG</a>
       </li>
-      <li><a href="/contact/" class="mobile-nav__cta">GET ESTIMATE</a></li>
+      <li class="mobile-nav__item">
+        <a href="/reviews/" class="mobile-nav__link">REVIEWS</a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="/tools/" class="mobile-nav__link">TOOLS</a>
+      </li>
+      <li class="mobile-nav__item">
+        <a href="/contact/" class="mobile-nav__link mobile-nav__cta">GET ESTIMATE</a>
+      </li>
     </ul>
   </nav>
+  <div class="mobile-nav__overlay" aria-hidden="true"></div>
 </div>
+
+<!-- Desktop Nav JavaScript -->
+<script>
+(function() {
+  'use strict';
+  
+  // Desktop dropdown functionality
+  var triggers = document.querySelectorAll('.desktop-nav__trigger');
+  
+  triggers.forEach(function(trigger) {
+    trigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      var isExpanded = this.getAttribute('aria-expanded') === 'true';
+      
+      // Close all other dropdowns
+      triggers.forEach(function(t) {
+        if (t !== trigger) {
+          t.setAttribute('aria-expanded', 'false');
+        }
+      });
+      
+      // Toggle this dropdown
+      this.setAttribute('aria-expanded', !isExpanded);
+    });
+  });
+  
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.desktop-nav__item')) {
+      triggers.forEach(function(trigger) {
+        trigger.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+  
+  // Mobile nav toggle
+  var toggleBtn = document.querySelector('.mobile-nav__toggle');
+  var closeBtn = document.querySelector('.mobile-nav__close');
+  var drawer = document.getElementById('mobile-nav-drawer');
+  var overlay = document.querySelector('.mobile-nav__overlay');
+  
+  function openDrawer() {
+    drawer.setAttribute('aria-hidden', 'false');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeDrawer() {
+    drawer.setAttribute('aria-hidden', 'true');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  
+  if (toggleBtn) toggleBtn.addEventListener('click', openDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if (overlay) overlay.addEventListener('click', closeDrawer);
+  
+  // Mobile accordions
+  var accordionTriggers = document.querySelectorAll('.mobile-nav__accordion-trigger');
+  accordionTriggers.forEach(function(trigger) {
+    trigger.addEventListener('click', function() {
+      var isExpanded = this.getAttribute('aria-expanded') === 'true';
+      var panel = document.getElementById(this.getAttribute('aria-controls'));
+      this.setAttribute('aria-expanded', !isExpanded);
+      panel.hidden = isExpanded;
+    });
+  });
+})();
+</script>
