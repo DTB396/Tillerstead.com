@@ -242,14 +242,17 @@ class MobilePersonality {
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       scrollProgress = (window.scrollY / docHeight) * 100;
       
-      // Show trust badge after 50% scroll
-      if (scrollProgress > 50 && !document.querySelector('.trust-badge-float')) {
-        this.showFloatingTrustBadge();
-      }
+      // DISABLED: Floating trust badge removed per user request (duplicate badge issue)
+      // if (scrollProgress > 50 && !document.querySelector('.trust-badge-float')) {
+      //   this.showFloatingTrustBadge();
+      // }
     }, { passive: true });
   }
 
   showFloatingTrustBadge() {
+    // DISABLED: Function disabled to remove duplicate license badge
+    return;
+    
     const badge = document.createElement('div');
     badge.className = 'trust-badge-float';
     badge.innerHTML = `
