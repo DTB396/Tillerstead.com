@@ -1,0 +1,118 @@
+name: Lighthouse CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  schedule:
+    # Run weekly on Sundays at 00:00 UTC
+    - cron: '0 0 * * 0'
+  workflow_dispatch:  # Manual trigger
+
+permissions:
+  contents: read
+  pull-requests: write  # For PR comments
+
+jobs:
+  lighthouse:
+    name: Run Lighthouse CI
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+      
+      - name: Install Dependencies
+        run: npm ci
+      
+      - name: Build Jekyll Site
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+      
+      - name: Start Jekyll Server
+        run: |
+          bundle exec jekyll serve --port 4000 &
+          echo $! > jekyll.pid
+          sleep 10
+      
+      - name: Verify Server Running
+        run: |
+          curl -f http://localhost:4000 || exit 1
+          echo "✅ Jekyll server is running"
+      
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            http://localhost:4000
+            http://localhost:4000/services.html
+            http://localhost:4000/portfolio.html
+            http://localhost:4000/contact.html
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          runs: 3  # Average of 3 runs for stability
+          
+          # Performance budgets (current targets)
+          budgetPath: .lighthouserc.json
+      
+      - name: Stop Jekyll Server
+        if: always()
+        run: |
+          if [ -f jekyll.pid ]; then
+            kill $(cat jekyll.pid) || true
+          fi
+      
+      - name: Lighthouse Summary
+        if: always()
+        run: |
+          echo "=== Lighthouse CI Results ==="
+          echo "Reports uploaded to temporary public storage"
+          echo ""
+          echo "Current Performance Targets:"
+          echo "  Performance: 75+ (Good), 90+ (Excellent)"
+          echo "  Accessibility: 90+"
+          echo "  Best Practices: 85+"
+          echo "  SEO: 90+"
+          echo ""
+          echo "See performance-baseline-2026-01-26.md for details"
+
+  # Optional: Test against deployed site
+  lighthouse-production:
+    name: Lighthouse - Production Site
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Run Lighthouse on Production
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            https://tillerstead.com
+            https://tillerstead.com/services.html
+            https://tillerstead.com/portfolio.html
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          runs: 3
+      
+      - name: Production Lighthouse Summary
+        run: |
+          echo "=== Production Site Performance ==="
+          echo "Tested: https://tillerstead.com"
+          echo "Reports available in GitHub Actions artifacts"
