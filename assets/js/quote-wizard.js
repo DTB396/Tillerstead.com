@@ -8,27 +8,31 @@
   'use strict';
 
   const QuoteWizard = {
-    // Pricing configuration (UPDATE THESE based on your real costs)
+    // ═══════════════════════════════════════════════════════════════════
+    // PRICING CONFIGURATION - Configured: 2026-01-26
+    // Based on: $70/hr rate, 9 sqft/hr pace, $8.50 material costs
+    // Margins: 20% overhead + 25% profit + 15% buffer
+    // ═══════════════════════════════════════════════════════════════════
     pricing: {
       // Base rates per square foot (includes materials + labor)
       tileInstallation: {
-        basic: { min: 8.50, max: 12.00, materials: 3.50 }, // Ceramic, standard pattern
-        standard: { min: 12.00, max: 16.00, materials: 5.50 }, // Porcelain, basic pattern
-        premium: { min: 16.00, max: 22.00, materials: 8.00 }, // Large format, herringbone
-        luxury: { min: 22.00, max: 35.00, materials: 12.00 } // Mosaic, specialty
+        basic: { min: 20.00, max: 24.00, materials: 3.50 }, // Ceramic tile
+        standard: { min: 24.00, max: 28.00, materials: 8.50 }, // Porcelain (your typical work)
+        premium: { min: 28.00, max: 34.00, materials: 9.00 }, // Large format
+        luxury: { min: 32.00, max: 45.00, materials: 12.00 } // Natural stone & mosaic
       },
 
       // Additional services (per sq ft or flat fee)
       services: {
-        demolition: { min: 2.50, max: 4.00, unit: 'sqft' },
-        waterproofing: { min: 3.00, max: 5.00, unit: 'sqft' },
-        heating: { min: 12.00, max: 18.00, unit: 'sqft' },
-        schluter: { min: 4.00, max: 6.50, unit: 'sqft' },
-        customShower: { min: 3500, max: 8000, unit: 'flat' },
-        floorLeveling: { min: 1.50, max: 3.50, unit: 'sqft' }
+        demolition: { min: 800, max: 1200, unit: 'flat' },
+        waterproofing: { min: 600, max: 900, unit: 'flat' },
+        heating: { min: 15.00, max: 18.00, unit: 'sqft' },
+        schluter: { min: 600, max: 900, unit: 'flat' }, // Same as waterproofing
+        customShower: { min: 3500, max: 6000, unit: 'flat' },
+        floorLeveling: { min: 2.00, max: 4.00, unit: 'sqft' }
       },
 
-      // Complexity multipliers
+      // Complexity multipliers (your actual margins)
       complexity: {
         easy: 1.0,        // New construction, easy access, standard layout
         moderate: 1.15,   // Second floor, some obstacles, custom cuts
@@ -36,8 +40,8 @@
         extreme: 1.65     // Historic home, structural issues, custom everything
       },
 
-      // Minimum project fee
-      minimumProject: 1200
+      // Minimum project fee (covers overhead)
+      minimumProject: 1500
     },
 
     state: {
