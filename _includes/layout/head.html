@@ -97,6 +97,9 @@
 {% endif %}
 
 <!-- Core & Utility CSS: Load modern design system first, then legacy compatibility -->
+<!-- EMERGENCY MOBILE FIX - Load FIRST for critical rendering -->
+<link rel="stylesheet" href="{{ '/assets/css/mobile-emergency-fix.css' | relative_url }}" />
+
 <!-- MODERN DESIGN SYSTEM -->
 <link rel="stylesheet" href="{{ '/assets/css/modern/modern.css' | relative_url }}" />
 
