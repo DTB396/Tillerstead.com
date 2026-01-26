@@ -96,6 +96,9 @@
 <link rel="prefetch" href="{{ '/homeowner-resources/' | relative_url }}" as="document" />
 {% endif %}
 
+<!-- EMERGENCY SERVICE WORKER BYPASS - Load FIRST to clear caches -->
+<script src="{{ '/assets/js/sw-bypass-emergency.js' | relative_url }}"></script>
+
 <!-- Core & Utility CSS: Load modern design system first, then legacy compatibility -->
 <!-- EMERGENCY MOBILE FIX - Load FIRST for critical rendering -->
 <link rel="stylesheet" href="{{ '/assets/css/mobile-emergency-fix.css' | relative_url }}" />
