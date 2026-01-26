@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "governance": {
+    "authoritativeFiles": [
+      "AI_IMPORTANT.md",
+      "codebooks/TYLER_VOICE_CODEBOOK.md",
+      "reference/FAILURE_MODE_MAP.md"
+    ],
+    "generated": {
+      "copilotInstructions": ".github/copilot-instructions.md"
+    }
+  },
+  "adapters": {
+    "githubCopilot": {
+      "instructionsFile": ".github/copilot-instructions.md",
+      "notes": "Copilot consumes repo-wide instructions from .github/copilot-instructions.md."
+    },
+    "cursor": {
+      "rulesFile": ".cursorrules"
+    }
+  }
+}

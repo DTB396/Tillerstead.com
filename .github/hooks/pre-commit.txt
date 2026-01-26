@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Pre-commit hook: AI governance enforcement
+
+echo "Running AI governance pre-flight checks..."
+
+# Prefer pwsh (PowerShell 7+), fall back to powershell if needed
+if command -v pwsh >/dev/null 2>&1; then
+  PS_CMD="pwsh"
+elif command -v powershell >/dev/null 2>&1; then
+  PS_CMD="powershell"
+else
+  echo "ERROR: PowerShell not found. Cannot run AI lint."
+  exit 1
+fi
+
+# Run lint script
+$PS_CMD -NoProfile -ExecutionPolicy Bypass -File ".ai/scripts/ai-lint.ps1"
+STATUS=$?
+
+if [ $STATUS -ne 0 ]; then
+  echo "❌ Commit blocked: AI governance checks failed."
+  exit 1
+fi
+
+echo "✅ AI governance checks passed."
+exit 0

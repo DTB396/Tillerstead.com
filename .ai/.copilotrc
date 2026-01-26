@@ -1,0 +1,64 @@
+# /.ai/.copilotrc
+GOV_FILES=AI_IMPORTANT.md;codebooks/TYLER_VOICE_CODEBOOK.md;reference/FAILURE_MODE_MAP.md
+COPILOT_INSTRUCTIONS=.github/copilot-instructions.md
+MAX_INSTRUCTIONS_CHARS=12000
+/.ai/scripts/ai-sync.ps1 (generates .github/copilot-instructions.md)
+# /.ai/scripts/ai-sync.ps1
+Set-StrictMode -Version Latest
+
+function Get-Root {
+  $dir = (Get-Location).Path
+  while ($dir -and -not (Test-Path (Join-Path $dir "AI_IMPORTANT.md"))) {
+    $parent = Split-Path $dir -Parent
+    if ($parent -eq $dir) { break }
+    $dir = $parent
+  }
+  if (-not (Test-Path (Join-Path $dir "AI_IMPORTANT.md"))) {
+    throw "AI_IMPORTANT.md not found."
+  }
+  return $dir
+}
+
+$root = Get-Root
+$manifestPath = Join-Path $root ".ai\.ai.json"
+if (-not (Test-Path $manifestPath)) { throw "Missing .ai/.ai.json manifest." }
+
+$manifest = Get-Content -Raw $manifestPath | ConvertFrom-Json
+$govFiles = $manifest.governance.authoritativeFiles
+$outPath = Join-Path $root $manifest.governance.generated.copilotInstructions
+
+# Copilot instructions should be concise: include the executive directive + how to apply the codebooks,
+# and point to the canonical files.
+$header = @"
+# Copilot Instructions (Generated)
+These instructions govern all Copilot Chat behavior for this repository.
+
+## Non-negotiable operating rules
+- Do not roleplay. Execute under constraints and review gates.
+- Prefer accuracy and durability over novelty or speed.
+- When uncertain, label uncertainty and provide a verification path.
+- Keep outputs consistent with the canonical governance files.
+
+## Canonical governance files (source of truth)
+"@
+
+$links = $govFiles | ForEach-Object { "- `$_`" } | Out-String
+
+# Include a tight “core rules” excerpt by pulling the first ~150 lines of AI_IMPORTANT.md
+$aiImportantPath = Join-Path $root "AI_IMPORTANT.md"
+$core = (Get-Content $aiImportantPath -TotalCount 180) -join "`n"
+
+$body = @"
+$header
+$links
+
+## Core Executive Governance (excerpt)
+$core
+"@
+
+# Ensure output directory exists
+$dirOut = Split-Path $outPath -Parent
+if (-not (Test-Path $dirOut)) { New-Item -ItemType Directory -Path $dirOut | Out-Null }
+
+Set-Content -Path $outPath -Value $body -Encoding UTF8
+Write-Host "Generated: $outPath"
