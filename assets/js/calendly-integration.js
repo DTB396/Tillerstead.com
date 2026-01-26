@@ -10,7 +10,7 @@
   const CalendlyIntegration = {
     // Configuration
     config: {
-      url: 'https://calendly.com/dtb33-pm/30min',
+      url: 'https://calendly.com/tillerstead/30min',
       prefill: {
         name: '',
         email: '',
