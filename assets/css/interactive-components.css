@@ -10,6 +10,18 @@
  * - Image Lightbox
  */
 
+/* ==============================================
+   MOBILE: Disable heavy interactive features
+   ============================================== */
+
+@media (max-width: 768px) {
+  /* Simplify all interactions on mobile for performance */
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
 /* ==========================================================================
    FAQ ACCORDION
    ========================================================================== */

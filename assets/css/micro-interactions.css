@@ -4,6 +4,26 @@
  * Subtle, purposeful, delightful
  */
 
+/* ==============================================
+   MOBILE: Disable all micro-interactions
+   ============================================== */
+
+@media (max-width: 768px) {
+  /* Disable micro-interactions on mobile for performance */
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  /* Keep only essential transitions for usability */
+  a, button {
+    transition: opacity 0.1s ease !important;
+  }
+}
+
+/* ===== DESKTOP-ONLY MICRO-INTERACTIONS ===== */
+@media (min-width: 769px) {
+
 /* ===== SMOOTH STATE TRANSITIONS ===== */
 
 /* Universal smooth transitions for interactive elements */

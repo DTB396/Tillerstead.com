@@ -13,6 +13,19 @@
       }
       /* Disable animations that hide content */
       * { animation: none !important; transform: none !important; }
+      
+      /* Hide heavy desktop-only features on mobile */
+      .desktop-only-features,
+      .a11y-toolbar,
+      .lead-magnet-popup,
+      .sticky-cta-bar,
+      .ts-scroll-progress,
+      [data-scroll-progress] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
     }
   </style>
   
@@ -42,14 +55,19 @@
     {{ include.body | default: content }}
   </main>
   {% include layout/footer.html %}
-  {% include components/c-sticky-mobile-cta.html %}
   
-  {%- comment -%} Lead Magnet - Homepage only {%- endcomment -%}
+  {%- comment -%} Desktop-only features (too heavy for mobile) {%- endcomment -%}
+  <div class="desktop-only-features">
+    {% include components/c-sticky-mobile-cta.html %}
+    {% include components/a11y-toolbar.html %}
+  </div>
+  
+  {%- comment -%} Lead Magnet - Desktop Homepage only {%- endcomment -%}
   {% if page.is_home == true %}
-  {% include components/lead-magnet-popup.html %}
+  <div class="desktop-only-features">
+    {% include components/lead-magnet-popup.html %}
+  </div>
   {% endif %}
-  
-  {% include components/a11y-toolbar.html %}
   {% include layout/scripts.html %}
   <script>
     if('serviceWorker'in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js').catch(err=>console.warn('[SW] Registration failed:',err))})}

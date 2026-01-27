@@ -10,8 +10,9 @@ class MobileAppFeatures {
 
   init() {
     if (this.isMobile()) {
-      this.initBottomNav();
-      this.initFAB();
+      // DISABLED: Bottom nav causing content visibility issues
+      // this.initBottomNav();
+      // this.initFAB();
       this.initPullToRefresh();
       this.initAppShell();
     }

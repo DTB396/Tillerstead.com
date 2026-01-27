@@ -419,7 +419,9 @@
    ============================================== */
 
 @media (max-width: 768px) {
+  /* DISABLE ALL PREMIUM ANIMATIONS ON MOBILE */
   /* Force all animated elements to be visible immediately */
+  *,
   [data-animate],
   [data-animate="fade"],
   [data-animate="fade-up"],
@@ -427,11 +429,21 @@
   [data-animate="fade-left"],
   [data-animate="fade-right"],
   [data-animate="scale"],
-  [data-animate="rotate"] {
+  [data-animate="rotate"],
+  [data-parallax],
+  [data-magnetic],
+  [data-shine],
+  [data-ripple],
+  .float,
+  .pulse,
+  .gradient-animate,
+  .hover-lift,
+  .skeleton {
     opacity: 100% !important;
     transform: none !important;
     animation: none !important;
     transition: none !important;
+    will-change: auto !important;
   }
 
   /* Disable parallax on mobile */
