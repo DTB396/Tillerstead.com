@@ -20,6 +20,10 @@
 <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self';" />
 
+<!-- Font Optimization: Preload critical fonts (Apple/Google pattern) -->
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/inter-var-italic.woff2" as="font" type="font/woff2" crossorigin />
+
 <meta name="color-scheme" content="light dark" />
 <meta name="theme-color" content="#10b981" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#059669" media="(prefers-color-scheme: dark)" />
@@ -116,6 +120,8 @@
 <link rel="stylesheet" href="{{ '/assets/css/premium-animations.css' | relative_url }}" />
 <link rel="stylesheet" href="{{ '/assets/css/premium-components.css' | relative_url }}" />
 <link rel="stylesheet" href="{{ '/assets/css/interactive-components.css' | relative_url }}" />
+<link rel="stylesheet" href="{{ '/assets/css/micro-interactions.css' | relative_url }}" />
+
 
 <!-- MODERN DESIGN SYSTEM -->
 <link rel="stylesheet" href="{{ '/assets/css/modern/modern.css' | relative_url }}" />
@@ -201,6 +207,9 @@
   <script src="{{ script | relative_url }}" defer></script>
   {% endfor %}
 {% endif %}
+
+<!-- Progressive Image Loading (LQIP blur-up) -->
+<script src="{{ '/assets/js/progressive-image.js' | relative_url }}" defer></script>
 
 <!-- Prefetch secondary pages for instant navigation -->
 {% if page.url == '/' %}

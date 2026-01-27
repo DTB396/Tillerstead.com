@@ -223,7 +223,7 @@ class PerformanceOptimizer {
       const module = await import(modulePath);
       return module;
     } catch (error) {
-      console.error(`Failed to load module: ${modulePath}`, error);
+      // Module load failed - handle gracefully
       return null;
     }
   }

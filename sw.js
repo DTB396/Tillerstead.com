@@ -1,15 +1,23 @@
 /**
  * Service Worker for Tillerstead.com
- * Implements cache-first strategy for static assets, network-first for HTML
+ * Enterprise-grade caching strategies (Google Workbox pattern)
+ * Cache-first for assets, Network-first for HTML, Stale-while-revalidate for API
  * 2026 Web Standards: Offline-capable PWA with intelligent caching
- * Enhanced with background sync and advanced PWA features
  */
 
-const STATIC_CACHE = 'tillerstead-static-v3'; // BUMPED from v2 - force fresh cache
-const DYNAMIC_CACHE = 'tillerstead-dynamic-v3'; // BUMPED from v2 - force fresh cache
+const VERSION = 'v4.0.0'; // Semantic versioning
+const STATIC_CACHE = `tillerstead-static-${VERSION}`;
+const DYNAMIC_CACHE = `tillerstead-dynamic-${VERSION}`;
+const IMAGE_CACHE = `tillerstead-images-${VERSION}`;
+const FONT_CACHE = `tillerstead-fonts-${VERSION}`;
 const OFFLINE_CACHE = 'tillerstead-offline-v1';
 
-// Core assets to cache immediately on install
+// Max cache sizes (Google Workbox pattern)
+const MAX_DYNAMIC_ITEMS = 50;
+const MAX_IMAGE_ITEMS = 100;
+const MAX_CACHE_AGE = 30 * 24 * 60 * 60 * 1000; // 30 days
+
+// Core assets to cache immediately on install (Critical path)
 const CORE_ASSETS = [
   '/',
   '/portfolio/',

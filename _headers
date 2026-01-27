@@ -1,11 +1,52 @@
 /*
-  # Tillerstead.com Security Headers
-  # Netlify deployment headers for enhanced security
+  # Tillerstead.com - Enterprise-Grade Headers
+  # Performance + Security configuration (Vercel/Cloudflare/Google standards)
   
+  # Security Headers
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: geolocation=(), microphone=(), camera=()
-  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  
+  # Performance Headers
+  X-DNS-Prefetch-Control: on
+  Accept-CH: DPR, Viewport-Width, Width
+  
+  # Cache Control - Default
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# HTML Pages - Short cache with revalidation
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+  
+# CSS - Immutable with long cache
+/assets/css/*
+  Cache-Control: public, max-age=31536000, immutable
+  
+# JavaScript - Immutable with long cache
+/assets/js/*
+  Cache-Control: public, max-age=31536000, immutable
+  
+# Images - Long cache
+/assets/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/*
+  Cache-Control: public, max-age=31536000, immutable
+  
+# Fonts - Immutable forever
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+  
+# Service Worker - No cache
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+  
+# Manifest - Short cache
+/manifest.webmanifest
+/site.webmanifest
+  Cache-Control: public, max-age=3600

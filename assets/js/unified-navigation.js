@@ -312,7 +312,7 @@
   // ===== INITIALIZATION =====
   function init() {
     if (!el.header) {
-      console.warn('[Nav] Header not found');
+
       return;
     }
 

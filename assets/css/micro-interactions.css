@@ -1,0 +1,304 @@
+/**
+ * Micro-Interactions & Polish
+ * Stripe/Apple/Vercel level interaction design
+ * Subtle, purposeful, delightful
+ */
+
+/* ===== SMOOTH STATE TRANSITIONS ===== */
+
+/* Universal smooth transitions for interactive elements */
+a, button, input, select, textarea,
+[role="button"], [role="link"],
+.btn, .card, .interactive {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Faster transitions for hover states (feels more responsive) */
+a:hover, button:hover,
+.btn:hover, .card:hover {
+  transition-duration: 0.15s;
+}
+
+/* Slower transitions for focus (more deliberate) */
+a:focus, button:focus, input:focus,
+select:focus, textarea:focus {
+  transition-duration: 0.3s;
+}
+
+/* ===== ENHANCED HOVER STATES ===== */
+
+/* Subtle lift on cards (Apple pattern) */
+.card, .glass-card, .bento-item,
+.service-card, .portfolio-item {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover, .glass-card:hover, .bento-item:hover,
+.service-card:hover, .portfolio-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15),
+              0 0 0 1px rgba(0, 0, 0, 0.02);
+}
+
+/* Button hover states (Stripe pattern) */
+.btn, button:not([disabled]),
+[role="button"]:not([aria-disabled="true"]) {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover, button:not([disabled]):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active, button:not([disabled]):active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.15);
+}
+
+/* Link hover underline animation (Medium pattern) */
+a:not(.btn):not([class*="button"]) {
+  position: relative;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  transition: background-size 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:not(.btn):not([class*="button"]):hover {
+  background-size: 100% 1px;
+}
+
+/* ===== PREMIUM FOCUS INDICATORS ===== */
+
+/* Modern focus ring (GitHub/Vercel pattern) */
+a:focus-visible, button:focus-visible,
+input:focus-visible, select:focus-visible,
+textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--color-primary, #10b981);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Subtle inner glow on form inputs (Stripe pattern) */
+input:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1),
+              0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border-color: var(--color-primary, #10b981);
+}
+
+/* Button focus with ring (Apple pattern) */
+.btn:focus-visible, button:focus-visible {
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15),
+              0 4px 12px -2px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== LOADING STATES ===== */
+
+/* Skeleton screen shimmer (LinkedIn/Facebook pattern) */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 0%,
+    #f8f8f8 20%,
+    #f0f0f0 40%,
+    #f0f0f0 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Loading spinner (Material Design pattern) */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-top-color: var(--color-primary, #10b981);
+  border-radius: 50%;
+  animation: spinner-rotate 0.6s linear infinite;
+}
+
+@keyframes spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Button loading state (Vercel pattern) */
+.btn-loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spinner-rotate 0.6s linear infinite;
+}
+
+/* ===== RIPPLE EFFECT (Material Design) ===== */
+
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s, opacity 0.6s;
+  opacity: 0;
+}
+
+.ripple:active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 1;
+  transition: 0s;
+}
+
+/* ===== STATE INDICATORS ===== */
+
+/* Success pulse (Stripe pattern) */
+@keyframes success-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+}
+
+.success-indicator {
+  animation: success-pulse 1.5s ease-out;
+}
+
+/* Error shake (Apple pattern) */
+@keyframes error-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+.error-shake {
+  animation: error-shake 0.4s ease-in-out;
+}
+
+/* ===== SCROLL-TRIGGERED ANIMATIONS (refined) ===== */
+
+/* Fade up on scroll (Apple pattern) */
+[data-animate="fade-up"] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-animate="fade-up"].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scale in (Vercel pattern) */
+[data-animate="scale"] {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-animate="scale"].visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ===== ACCESSIBILITY: REDUCE MOTION ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  .skeleton {
+    animation: none;
+  }
+}
+
+/* ===== MOBILE OPTIMIZATIONS ===== */
+
+@media (max-width: 768px) {
+  /* Faster transitions on mobile for better perceived performance */
+  a, button, .btn {
+    transition-duration: 0.15s;
+  }
+  
+  /* Reduce hover effects on touch devices */
+  .card:hover, .glass-card:hover {
+    transform: none;
+  }
+  
+  /* Larger touch targets */
+  a, button, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* No ripple on mobile (uses native touch feedback) */
+  .ripple::after {
+    display: none;
+  }
+}
+
+/* ===== HIGH CONTRAST MODE ===== */
+
+@media (prefers-contrast: more) {
+  a:focus-visible, button:focus-visible,
+  input:focus-visible {
+    outline-width: 3px;
+    outline-offset: 3px;
+  }
+  
+  .skeleton {
+    background: #e0e0e0;
+    animation: none;
+  }
+}
