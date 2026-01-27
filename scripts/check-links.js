@@ -19,6 +19,12 @@ if (!fs.existsSync(siteDir)) {
 // Allowlist for intentionally missing assets (e.g., favicon)
 const allowMissing = new Set(['/favicon.ico']);
 
+// Files to skip (contain embedded data URIs, generated reports, etc.)
+const skipFiles = new Set([
+  'lighthouse-report.html',
+  'lighthouse-mobile-report.json'
+]);
+
 /**
  * Determines if a link is external or non-checkable.
  * @param {string} link
@@ -94,6 +100,12 @@ function collectHtmlFiles(dir) {
 
 const missing = [];
 for (const file of collectHtmlFiles(siteDir)) {
+  // Skip files with embedded data URIs or generated reports
+  const filename = path.basename(file);
+  if (skipFiles.has(filename)) {
+    continue;
+  }
+  
   const html = fs.readFileSync(file, 'utf8');
   const $ = cheerio.load(html);
   const links = $('a[href], link[href]');
