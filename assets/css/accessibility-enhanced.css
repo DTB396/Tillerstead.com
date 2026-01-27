@@ -164,15 +164,15 @@ h6 {
   display: inline-block;
   padding: 1rem 1.5rem;
   background: var(--tiller-color-gold, #c9a227);
-  color: #000;
+  color: #000000;
   font-weight: 700;
   text-decoration: none;
-  border-radius: 0 0 8px 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 0 0 8px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
 }
 
 .skip-link:focus {
-  outline: 3px solid #000;
+  outline: 3px solid #000000;
   outline-offset: 3px;
 }
 
@@ -222,7 +222,7 @@ input:focus,
 select:focus,
 textarea:focus {
   border-color: var(--tiller-color-gold, #c9a227);
-  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.1);
+  box-shadow: 0 0 0 3px rgb(201 162 39 / 10%);
   outline: none;
 }
 
@@ -291,14 +291,14 @@ button.primary,
 .btn.primary,
 button[type="submit"] {
   background: linear-gradient(135deg, var(--tiller-color-gold, #c9a227), var(--tiller-color-gold-dark, #9a7a1a));
-  color: #000;
+  color: #000000;
   border-color: var(--tiller-color-gold, #c9a227);
 }
 
 .btn--primary:hover,
 button[type="submit"]:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(201, 162, 39, 0.4);
+  box-shadow: 0 4px 12px rgb(201 162 39 / 40%);
 }
 
 .btn--primary:active,
@@ -309,14 +309,14 @@ button[type="submit"]:active {
 /* Secondary button */
 .btn--secondary,
 .btn.secondary {
-  background: #fff;
+  background: #ffffff;
   color: var(--tiller-color-primary, #1a2a3a);
   border-color: var(--tiller-color-primary, #1a2a3a);
 }
 
 .btn--secondary:hover {
   background: var(--tiller-color-primary, #1a2a3a);
-  color: #fff;
+  color: #ffffff;
 }
 
 /* Ghost button */
@@ -328,14 +328,14 @@ button[type="submit"]:active {
 }
 
 .btn--ghost:hover {
-  background: rgba(26, 42, 58, 0.05);
+  background: rgb(26 42 58 / 5%);
 }
 
 /* Disabled state - consistent */
 button:disabled,
 .btn:disabled,
 .btn--disabled {
-  opacity: 0.5;
+  opacity: 50%;
   cursor: not-allowed;
   pointer-events: none;
 }
@@ -439,8 +439,8 @@ li {
  * Triggered by user preference or a11y toolbar
  */
 [data-high-contrast="true"] {
-  --contrast-bg: #000;
-  --contrast-fg: #fff;
+  --contrast-bg: #000000;
+  --contrast-fg: #ffffff;
   --contrast-accent: #ffff00;
 }
 
@@ -539,17 +539,17 @@ li {
   
   a {
     text-decoration: underline;
-    color: #000;
+    color: #000000;
   }
   
   a[href]::after {
     content: " (" attr(href) ")";
     font-size: 0.8em;
-    color: #666;
+    color: #666666;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    page-break-after: avoid;
+    break-after: avoid;
   }
   
   p {

@@ -19,7 +19,7 @@
   position: absolute;
   inset: 0;
   background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c5914d' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  opacity: 1;
+  opacity: 100%;
   pointer-events: none;
 }
 
@@ -42,11 +42,11 @@
   font-weight: 600;
   border-radius: 9999px;
   margin-bottom: 2rem;
-  box-shadow: 0 4px 12px rgba(197, 145, 77, 0.3);
+  box-shadow: 0 4px 12px rgb(197 145 77 / 30%);
 }
 
 .hero__title {
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1.5rem;
   font-size: 3.5rem;
   font-weight: 900;
   color: #ffffff;
@@ -56,15 +56,14 @@
 
 .title-gradient {
   background: linear-gradient(135deg, #c5914d 0%, #f5d48d 100%);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .hero__description {
-  margin: 0 0 3rem 0;
+  margin: 0 0 3rem;
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgb(255 255 255 / 85%);
   line-height: 1.6;
 }
 
@@ -74,9 +73,9 @@
   gap: 2rem;
   margin-bottom: 3rem;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgb(255 255 255 / 5%);
   border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgb(255 255 255 / 10%);
 }
 
 .stat-item {
@@ -94,7 +93,7 @@
 .stat-label {
   display: block;
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(255 255 255 / 70%);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -128,12 +127,12 @@
 .btn--tillerpro {
   background: linear-gradient(135deg, #c5914d 0%, #b8802d 100%);
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(197, 145, 77, 0.3);
+  box-shadow: 0 4px 12px rgb(197 145 77 / 30%);
 }
 
 .btn--tillerpro:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(197, 145, 77, 0.4);
+  box-shadow: 0 6px 16px rgb(197 145 77 / 40%);
 }
 
 .btn--outline {
@@ -154,7 +153,7 @@
 }
 
 .btn--outline-white:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(255 255 255 / 10%);
   transform: translateY(-2px);
 }
 
@@ -203,7 +202,7 @@
 }
 
 .section-title {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   font-size: 2.5rem;
   font-weight: 800;
   color: #0f1110;
@@ -249,7 +248,7 @@
 
 .feature-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 24px rgb(0 0 0 / 10%);
   border-color: #c5914d;
 }
 
@@ -304,14 +303,14 @@
 }
 
 .feature-title {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   font-size: 1.25rem;
   font-weight: 700;
   color: #0f1110;
 }
 
 .feature-description {
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1.5rem;
   font-size: 1rem;
   color: #6b7280;
   line-height: 1.6;
@@ -496,7 +495,7 @@
 
 .screenshot-placeholder:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 16px rgb(0 0 0 / 10%);
   border-color: #c5914d;
 }
 
@@ -537,7 +536,7 @@
 }
 
 .pricing-section .section-description {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgb(255 255 255 / 85%);
 }
 
 .pricing-grid {
@@ -554,8 +553,8 @@
 }
 
 .pricing-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: rgb(255 255 255 / 5%);
+  border: 2px solid rgb(255 255 255 / 10%);
   border-radius: 1rem;
   padding: 2rem;
   display: flex;
@@ -568,12 +567,12 @@
 .pricing-card:hover {
   transform: translateY(-4px);
   border-color: #c5914d;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgb(255 255 255 / 8%);
 }
 
 .pricing-card--featured {
   border-color: #c5914d;
-  background: rgba(197, 145, 77, 0.1);
+  background: rgb(197 145 77 / 10%);
 }
 
 .pricing-badge {
@@ -596,7 +595,7 @@
 }
 
 .pricing-title {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   font-size: 1.5rem;
   font-weight: 700;
   color: #ffffff;
@@ -620,13 +619,13 @@
 
 .price-period {
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(255 255 255 / 70%);
 }
 
 .pricing-description {
   margin: 0;
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(255 255 255 / 70%);
 }
 
 .pricing-features {
@@ -645,21 +644,21 @@
 }
 
 .feature-included {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255 255 255 / 90%);
 }
 
 .feature-excluded {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgb(255 255 255 / 40%);
 }
 
 .pricing-note {
   max-width: 800px;
   margin: 0 auto;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgb(255 255 255 / 5%);
   border-radius: 0.75rem;
   text-align: center;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgb(255 255 255 / 85%);
   font-size: 0.9375rem;
   line-height: 1.6;
 }
@@ -751,7 +750,7 @@
   position: absolute;
   inset: 0;
   background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  opacity: 1;
+  opacity: 100%;
   pointer-events: none;
 }
 
@@ -764,7 +763,7 @@
 }
 
 .cta-title {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   font-size: 2.5rem;
   font-weight: 800;
   color: #ffffff;
@@ -772,9 +771,9 @@
 }
 
 .cta-description {
-  margin: 0 0 2rem 0;
+  margin: 0 0 2rem;
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgb(255 255 255 / 95%);
   line-height: 1.6;
 }
 

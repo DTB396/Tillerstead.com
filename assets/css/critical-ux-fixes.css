@@ -61,16 +61,19 @@
   /* Global container width increase */
   .container {
     --container-max: 85rem !important; /* Was 72rem */
+
     max-width: 1360px !important;
   }
   
   .container--wide {
     --container-max: 110rem !important; /* Was 100rem */
+
     max-width: 1760px !important;
   }
   
   .container--full {
     --container-max: 100% !important;
+
     max-width: 100% !important;
   }
   

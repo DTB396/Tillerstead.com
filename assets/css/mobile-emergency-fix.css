@@ -17,13 +17,14 @@
   
   /* Ensure body scrolls properly */
   html, body {
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
+    overflow-y: auto;
+    overflow-x: hidden;
     min-height: 100vh;
     position: relative;
   }
   
   /* Kill any problematic transforms */
+/* stylelint-disable-next-line no-duplicate-selectors */
   .ts-main-content > * {
     transform: none !important;
   }
@@ -33,6 +34,7 @@
     z-index: 100;
   }
   
+/* stylelint-disable-next-line no-duplicate-selectors */
   .ts-main-content {
     z-index: 1;
   }
@@ -50,6 +52,7 @@
 
 /* Extra small devices - be even more aggressive */
 @media (max-width: 480px) {
+/* stylelint-disable-next-line no-duplicate-selectors */
   .ts-main-content {
     padding-top: 1rem !important;
     padding-bottom: 2rem !important;
@@ -64,9 +67,7 @@
   }
 }
 
-/* Debug helper (remove after fix confirmed) */
-
-/*
+/* Debug helper - Commented out (remove after fix confirmed)
 .ts-main-content::before {
   content: '✅ MAIN CONTENT LOADED';
   display: block;

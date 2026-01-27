@@ -78,17 +78,17 @@
 .animate-on-scroll {
   opacity: 0%;
   transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .animate-on-scroll.is-visible {
   opacity: 100%;
   transform: translateY(0);
 }
-.stagger-1 { transition-delay: 0.1s; }
-.stagger-2 { transition-delay: 0.2s; }
-.stagger-3 { transition-delay: 0.3s; }
-.stagger-4 { transition-delay: 0.4s; }
+.stagger-1 { transition-delay: 0.05s; }
+.stagger-2 { transition-delay: 0.1s; }
+.stagger-3 { transition-delay: 0.15s; }
+.stagger-4 { transition-delay: 0.2s; }
 
 .bg-soft {
   background: var(--tiller-bg-dark, #1a1c1a);
@@ -332,7 +332,7 @@
   rgb(255 255 255 / 20%),
   transparent
   );
-  transition: left 0.5s ease;
+  transition: left 0.3s ease;
 }
 
 .btn:hover::before {

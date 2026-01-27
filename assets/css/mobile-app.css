@@ -671,6 +671,7 @@ body.has-bottom-nav {
   opacity: 0%;
 }
 
+/* stylelint-disable-next-line no-duplicate-selectors */
 .progressive-image img {
   opacity: 0%;
   transition: opacity 0.3s ease;

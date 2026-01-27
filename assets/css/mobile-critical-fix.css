@@ -40,7 +40,7 @@
   [role="main"] {
     display: block !important;
     visibility: visible !important;
-    opacity: 1 !important;
+    opacity: 100% !important;
     position: relative !important;
     min-height: 50vh !important;
     z-index: 1 !important;
@@ -50,7 +50,7 @@
   section {
     display: block !important;
     visibility: visible !important;
-    opacity: 1 !important;
+    opacity: 100% !important;
   }
   
   /* Make sure page content container is visible */
@@ -59,7 +59,7 @@
   .content-wrapper {
     display: block !important;
     visibility: visible !important;
-    opacity: 1 !important;
+    opacity: 100% !important;
   }
   
   /* Ensure proper z-index stacking */

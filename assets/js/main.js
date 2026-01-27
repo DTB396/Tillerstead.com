@@ -133,7 +133,7 @@
         nav.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
         // ONLY block scroll on mobile
         if (isMobile()) {
-          document.body.style.overflow = isOpen ? '' : 'hidden';
+          // Natural scrolling - no body lock
         }
       });
     }

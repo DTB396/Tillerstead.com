@@ -1,7 +1,7 @@
 /**
  * TillerPro™ Email Delivery System
  * Netlify Function for sending quotes via email
- * 
+ *
  * @version 1.0.0
  * @requires SendGrid API (npm install @sendgrid/mail)
  */
@@ -90,7 +90,7 @@ exports.handler = async (event, context) => {
 
   } catch (error) {
     console.error('Email send error:', error);
-    
+
     return {
       statusCode: 500,
       body: JSON.stringify({

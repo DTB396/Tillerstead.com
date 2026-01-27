@@ -8,8 +8,8 @@
    ============================================ */
 
 .signature-section {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
-  border: 2px solid rgba(139, 92, 246, 0.2);
+  background: linear-gradient(135deg, rgb(139 92 246 / 5%) 0%, rgb(99 102 241 / 5%) 100%);
+  border: 2px solid rgb(139 92 246 / 20%);
   border-radius: 12px;
   padding: 2rem;
   margin: 2rem 0;
@@ -61,12 +61,12 @@
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 4px 12px rgb(139 92 246 / 30%);
 }
 
 .btn-sign-electronically:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 8px 20px rgb(139 92 246 / 40%);
 }
 
 .btn-sign-electronically:active {
@@ -97,7 +97,7 @@
 }
 
 .btn-sign-later:hover {
-  background: rgba(139, 92, 246, 0.05);
+  background: rgb(139 92 246 / 5%);
 }
 
 /* ============================================
@@ -109,7 +109,7 @@
   border-radius: 8px;
   padding: 1.5rem;
   margin-top: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
 
 .status-header {
@@ -129,22 +129,22 @@
 }
 
 .status-badge.pending {
-  background: rgba(251, 191, 36, 0.15);
+  background: rgb(251 191 36 / 15%);
   color: #d97706;
 }
 
 .status-badge.partially-signed {
-  background: rgba(59, 130, 246, 0.15);
+  background: rgb(59 130 246 / 15%);
   color: #2563eb;
 }
 
 .status-badge.completed {
-  background: rgba(34, 197, 94, 0.15);
+  background: rgb(34 197 94 / 15%);
   color: #16a34a;
 }
 
 .status-badge.expired {
-  background: rgba(239, 68, 68, 0.15);
+  background: rgb(239 68 68 / 15%);
   color: #dc2626;
 }
 
@@ -159,7 +159,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgb(0 0 0 / 5%);
 }
 
 .signer-item:last-child {
@@ -222,18 +222,18 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgb(0 0 0 / 75%);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10000;
-  opacity: 0;
+  opacity: 0%;
   visibility: hidden;
   transition: all 0.3s ease;
 }
 
 .signature-modal.active {
-  opacity: 1;
+  opacity: 100%;
   visibility: visible;
 }
 
@@ -244,7 +244,7 @@
   width: 90%;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 60px rgb(0 0 0 / 30%);
   transform: scale(0.9);
   transition: transform 0.3s ease;
 }
@@ -255,7 +255,7 @@
 
 .modal-header {
   padding: 2rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgb(0 0 0 / 10%);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -283,7 +283,7 @@
 }
 
 .modal-close:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgb(0 0 0 / 5%);
   color: var(--color-text-primary, #1e293b);
 }
 
@@ -293,7 +293,7 @@
 
 .modal-footer {
   padding: 1.5rem 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgb(0 0 0 / 10%);
   display: flex;
   gap: 1rem;
   justify-content: flex-end;
@@ -308,7 +308,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background: rgba(0, 0, 0, 0.05);
+  background: rgb(0 0 0 / 5%);
   border-radius: 6px;
   font-size: 0.875rem;
   font-weight: 500;
@@ -321,17 +321,17 @@
 }
 
 .provider-badge.docusign {
-  background: rgba(255, 0, 0, 0.1);
+  background: rgb(255 0 0 / 10%);
   color: #dc2626;
 }
 
 .provider-badge.hellosign {
-  background: rgba(59, 130, 246, 0.1);
+  background: rgb(59 130 246 / 10%);
   color: #2563eb;
 }
 
 .provider-badge.adobesign {
-  background: rgba(239, 68, 68, 0.1);
+  background: rgb(239 68 68 / 10%);
   color: #dc2626;
 }
 
@@ -365,7 +365,7 @@
 .signature-embed {
   width: 100%;
   height: 600px;
-  border: 2px solid rgba(139, 92, 246, 0.2);
+  border: 2px solid rgb(139 92 246 / 20%);
   border-radius: 8px;
   background: white;
 }
@@ -408,10 +408,11 @@
 
 @keyframes pulse-signature {
   0%, 100% {
-    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+    box-shadow: 0 4px 12px rgb(139 92 246 / 30%);
   }
+
   50% {
-    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.5);
+    box-shadow: 0 8px 24px rgb(139 92 246 / 50%);
   }
 }
 

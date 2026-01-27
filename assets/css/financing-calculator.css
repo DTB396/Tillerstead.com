@@ -22,7 +22,7 @@
   font-size: 1.75rem;
   font-weight: 700;
   color: var(--color-text-primary, #111827);
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.5rem;
 }
 
 .financing-subtitle {
@@ -71,7 +71,7 @@
 .credit-tier-selector select:focus {
   outline: none;
   border-color: #0ea5e9;
-  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+  box-shadow: 0 0 0 3px rgb(14 165 233 / 10%);
 }
 
 .credit-note {
@@ -101,7 +101,7 @@
 }
 
 .financing-partner:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 8%);
 }
 
 .partner-header {
@@ -160,7 +160,7 @@
 .financing-option:hover {
   border-color: var(--color-primary, #059669);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.15);
+  box-shadow: 0 4px 12px rgb(5 150 105 / 15%);
 }
 
 .option-header {
@@ -181,7 +181,7 @@
   font-weight: 600;
   color: var(--color-text-secondary, #6b7280);
   padding: 0.25rem 0.5rem;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgb(255 255 255 / 80%);
   border-radius: 0.25rem;
 }
 
@@ -242,12 +242,12 @@
 
 .btn-select-financing:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+  box-shadow: 0 4px 12px rgb(5 150 105 / 30%);
 }
 
 .btn-select-financing.selected {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 0 3px rgb(16 185 129 / 20%);
 }
 
 /* =================================================================
@@ -256,7 +256,7 @@
 
 .partner-disclosure {
   padding: 0.75rem 1rem;
-  background: rgba(249, 250, 251, 0.5);
+  background: rgb(249 250 251 / 50%);
   border-radius: 0.5rem;
   border-left: 3px solid #9ca3af;
 }
@@ -283,7 +283,7 @@
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--color-text-primary, #111827);
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
 }
 
 .disclosure-grid {
@@ -296,7 +296,7 @@
   flex-direction: column;
   gap: 0.25rem;
   padding: 0.75rem;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgb(255 255 255 / 80%);
   border-radius: 0.5rem;
 }
 
@@ -324,7 +324,7 @@
 }
 
 .financing-cta p {
-  margin: 0 0 0.75rem 0;
+  margin: 0 0 0.75rem;
   font-size: 1rem;
   color: var(--color-text-primary, #111827);
 }
@@ -357,15 +357,15 @@
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
   border-radius: 0.75rem;
-  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
-  opacity: 0;
+  box-shadow: 0 8px 24px rgb(16 185 129 / 30%);
+  opacity: 0%;
   transform: translateY(20px);
   transition: all 0.3s ease;
   z-index: 9999;
 }
 
 .financing-selected-notification.show {
-  opacity: 1;
+  opacity: 100%;
   transform: translateY(0);
 }
 
@@ -393,7 +393,7 @@
 }
 
 .financing-unavailable p {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.5rem;
   font-size: 1rem;
   color: var(--color-text-primary, #111827);
 }

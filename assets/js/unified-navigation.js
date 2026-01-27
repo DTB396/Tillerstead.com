@@ -89,14 +89,13 @@
       }
     });
 
-    log('Mobile navigation initialized');
-  }
-
     // Close when navigating
     const links = el.mobileNav.querySelectorAll('a:not([href^="#"])');
     links.forEach(link => {
       link.addEventListener('click', () => setTimeout(closeMobileNav, 100));
     });
+
+    log('Mobile navigation initialized');
   }
 
   function toggleMobileNav() {
@@ -117,9 +116,7 @@
     });
 
     // Lock scroll using manager
-    if (window.ScrollLockManager) {
-      window.ScrollLockManager.lock('mobile-nav');
-    }
+    // Scroll lock disabled - using natural scrolling
 
     // Focus management
     setTimeout(() => {
@@ -142,9 +139,7 @@
     }, CONFIG.ANIMATION_DURATION);
 
     // Unlock scroll
-    if (window.ScrollLockManager) {
-      window.ScrollLockManager.unlock('mobile-nav');
-    }
+    // Scroll lock disabled - using natural scrolling
 
     // Return focus
     el.mobileToggle.focus();

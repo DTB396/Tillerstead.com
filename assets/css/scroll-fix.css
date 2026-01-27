@@ -1,38 +1,28 @@
+/* Scroll Fix - Natural Scrolling Enabled */
 
 html, body {
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  height: auto !important;
-  min-height: 100vh !important;
-  touch-action: pan-y !important;
-  -webkit-overflow-scrolling: touch !important;
-  scroll-behavior: smooth !important;
-}
-
-.ts-scroll-progress {
-  pointer-events: none !important;
-}
-
-.mobile-nav[aria-hidden="true"],
-.modal[aria-hidden="true"] {
-  pointer-events: none !important;
-}
-
-.ts-header {
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 1000 !important;
-}
-
-.sticky-cta-bar {
-  position: fixed !important;
-  bottom: 0 !important;
-  z-index: 999 !important;
-  pointer-events: auto !important;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: auto;
+  min-height: 100vh;
 }
 
 .ts-main-content {
-  position: relative !important;
-  overflow-y: visible !important;
-  min-height: 100vh !important;
+  position: relative;
+  overflow: visible;
+  min-height: 100vh;
+}
+
+/* Keep header sticky */
+.ts-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Keep CTA bar fixed */
+.sticky-cta-bar {
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
 }

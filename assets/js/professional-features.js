@@ -989,7 +989,7 @@
       caption.textContent = img.alt || '';
       
       this.overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      // Natural scrolling - no body lock
       this.currentImage = img;
     }
 

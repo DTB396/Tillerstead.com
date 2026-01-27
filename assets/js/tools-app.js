@@ -1152,7 +1152,7 @@
       modal.querySelector('.modal__close').focus();
       
       this._onClose = onClose;
-      document.body.style.overflow = 'hidden';
+      // Natural scrolling - no body lock
     },
 
     hide() {

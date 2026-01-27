@@ -1,16 +1,17 @@
 /* EMERGENCY HEADER FIX - Dark Overlay Blocking Navigation */
+
 /* MUST OVERRIDE ALL OTHER HEADER CSS - LOADS LAST */
 
 /* Remove ALL solid/gradient backgrounds - make fully transparent/blur */
 .ts-header {
-  background: rgba(0, 107, 61, 0.92) !important; /* Slightly more transparent */
+  background: rgb(0 107 61 / 92%) !important; /* Slightly more transparent */
   backdrop-filter: blur(12px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 2px 20px rgb(0 0 0 / 15%) !important;
 }
 
 /* Remove ANY overlays or pseudo-elements */
 .ts-header::before,
+/* stylelint-disable-next-line no-duplicate-selectors */
 .ts-header::after {
   content: none !important;
   display: none !important;
@@ -18,8 +19,9 @@
 }
 
 /* Override ALL components/header-nav.css styles */
+/* stylelint-disable-next-line no-duplicate-selectors */
 .ts-header {
-  background: rgba(0, 107, 61, 0.92) !important; /* Repeat to override cascade */
+  background: rgb(0 107 61 / 92%) !important; /* Repeat to override cascade */
 }
 
 /* Make sure nav links are visible and clickable */
@@ -33,7 +35,7 @@
 /* Desktop nav links - HIGH contrast for visibility */
 .desktop-nav__link {
   color: #ffffff !important;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important; /* Stronger shadow */
+  text-shadow: 0 2px 4px rgb(0 0 0 / 50%) !important; /* Stronger shadow */
   pointer-events: auto !important;
   cursor: pointer !important;
   background: transparent !important;
@@ -42,33 +44,34 @@
 .desktop-nav__link:hover,
 .desktop-nav__link:focus {
   color: #ffd700 !important;
-  background: rgba(255, 255, 255, 0.15) !important;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7) !important;
+  background: rgb(255 255 255 / 15%) !important;
+  text-shadow: 0 2px 6px rgb(0 0 0 / 70%) !important;
 }
 
 /* Fix any dark overlays on mobile */
 @media (max-width: 768px) {
+/* stylelint-disable-next-line no-duplicate-selectors */
   .ts-header {
-    background: rgba(0, 77, 43, 0.95) !important;
+    background: rgb(0 77 43 / 95%) !important;
     backdrop-filter: blur(10px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(10px) saturate(180%) !important;
   }
   
   /* Ensure mobile toggle is always visible */
   .mobile-nav__toggle {
-    background: rgba(255, 255, 255, 0.2) !important;
+    background: rgb(255 255 255 / 20%) !important;
     border: 2px solid #ffffff !important;
     z-index: 10002 !important;
   }
   
   .mobile-nav__toggle .hamburger {
     background: #ffffff !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 30%) !important;
   }
 }
 
 /* Prevent any dark solid overlays from other CSS */
 .ts-header .ts-header__container::before,
+/* stylelint-disable-next-line no-duplicate-selectors */
 .ts-header .ts-header__container::after {
   content: none !important;
   display: none !important;
@@ -76,6 +79,7 @@
 }
 
 /* Header container should be clean */
+/* stylelint-disable-next-line no-duplicate-selectors */
 .ts-header__container {
   background: transparent !important;
   position: relative !important;
@@ -83,40 +87,45 @@
 }
 
 /* Fix header actions buttons visibility */
+/* stylelint-disable-next-line no-duplicate-selectors */
 .ts-header__actions .btn {
   z-index: 1001 !important;
   position: relative !important;
-  background: rgba(255, 255, 255, 0.1) !important;
-  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  background: rgb(255 255 255 / 10%) !important;
+  border: 2px solid rgb(255 255 255 / 30%) !important;
   color: #ffffff !important;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 50%) !important;
 }
 
+/* stylelint-disable-next-line no-duplicate-selectors */
 .ts-header__actions .btn:hover {
-  background: rgba(255, 255, 255, 0.2) !important;
-  border-color: rgba(255, 255, 255, 0.5) !important;
+  background: rgb(255 255 255 / 20%) !important;
+  border-color: rgb(255 255 255 / 50%) !important;
   transform: translateY(-2px) !important;
 }
 
 /* Company name visibility */
+/* stylelint-disable-next-line no-duplicate-selectors */
 .ts-header__company {
   color: #ffffff !important;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+  text-shadow: 0 2px 4px rgb(0 0 0 / 60%) !important;
 }
 
+/* stylelint-disable-next-line no-duplicate-selectors */
 .ts-header__region {
   color: #ffd700 !important;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 50%) !important;
 }
 
 /* ABSOLUTE FINAL OVERRIDE - Nothing can beat this */
+/* stylelint-disable-next-line no-duplicate-selectors */
 html body .ts-header {
-  background: rgba(0, 107, 61, 0.92) !important;
+  background: rgb(0 107 61 / 92%) !important;
   backdrop-filter: blur(12px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
 }
 
 html body .ts-header::before,
+/* stylelint-disable-next-line no-duplicate-selectors */
 html body .ts-header::after {
   display: none !important;
 }

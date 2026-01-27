@@ -142,12 +142,12 @@
     min-height: 72px;
     
     /* Visual polish */
-    background: linear-gradient(180deg, rgba(24, 26, 27, 0.97), rgba(24, 26, 27, 0.99));
+    background: linear-gradient(180deg, rgb(24 26 27 / 97%), rgb(24 26 27 / 99%));
     backdrop-filter: blur(16px) saturate(180%);
     border-top: 2px solid var(--tiller-color-emerald, #00e184);
     box-shadow: 
-      0 -4px 20px rgba(0, 0, 0, 0.3),
-      0 -1px 3px rgba(0, 0, 0, 0.1);
+      0 -4px 20px rgb(0 0 0 / 30%),
+      0 -1px 3px rgb(0 0 0 / 10%);
   }
   
   .sticky-cta-btn {
@@ -162,7 +162,6 @@
     min-height: 60px;
     min-width: 0; /* Allow flex sizing */
     padding: 10px 8px;
-    
     border-radius: 12px;
     font-size: 0.875rem;
     font-weight: 600;
@@ -191,7 +190,7 @@
   /* Visual feedback on tap */
   .sticky-cta-btn:active {
     transform: scale(0.95);
-    opacity: 0.9;
+    opacity: 90%;
   }
   
   /* Button variants */
@@ -214,7 +213,7 @@
   @media (hover: hover) {
     .sticky-cta-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
     }
   }
 }
@@ -265,7 +264,6 @@
     height: 48px;
     min-width: 48px;
     min-height: 48px;
-    
     padding: 12px;
     background: transparent;
     border: none;
@@ -278,7 +276,7 @@
   }
   
   .mobile-nav__toggle:active {
-    background: rgba(201, 162, 39, 0.1);
+    background: rgb(201 162 39 / 10%);
     transform: scale(0.95);
   }
   
@@ -298,7 +296,7 @@
   }
   
   .mobile-nav__toggle[aria-expanded="true"] .hamburger:nth-child(2) {
-    opacity: 0;
+    opacity: 0%;
     transform: scaleX(0);
   }
   
@@ -323,10 +321,8 @@
     right: 0;
     bottom: 0;
     z-index: 9999;
-    
-    background: rgba(0, 0, 0, 0.95);
+    background: rgb(0 0 0 / 95%);
     backdrop-filter: blur(10px);
-    
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     
@@ -353,25 +349,22 @@
     height: 48px;
     min-width: 48px;
     min-height: 48px;
-    
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    background: rgba(255, 255, 255, 0.1);
+    background: rgb(255 255 255 / 10%);
     border: none;
     border-radius: 50%;
     color: #ffffff;
     font-size: 24px;
     font-weight: 300;
     cursor: pointer;
-    
     transition: all 0.2s;
     -webkit-tap-highlight-color: transparent;
   }
   
   .mobile-nav__close:active {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgb(255 255 255 / 20%);
     transform: scale(0.9);
   }
   
@@ -389,7 +382,7 @@
   }
   
   .mobile-nav__list > li {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgb(255 255 255 / 10%);
   }
   
   /* Nav links - LARGE tap targets */
@@ -397,19 +390,17 @@
     display: block;
     padding: 18px 16px;
     min-height: 56px;
-    
     color: #ffffff;
     font-size: 1.125rem;
     font-weight: 600;
     text-decoration: none;
     letter-spacing: 0.02em;
-    
     transition: all 0.2s;
     -webkit-tap-highlight-color: transparent;
   }
   
   .mobile-nav__list a:active {
-    background: rgba(201, 162, 39, 0.1);
+    background: rgb(201 162 39 / 10%);
     transform: translateX(4px);
   }
   
@@ -421,7 +412,6 @@
     width: 100%;
     padding: 18px 16px;
     min-height: 56px;
-    
     background: transparent;
     border: none;
     color: #ffffff;
@@ -430,13 +420,12 @@
     text-align: left;
     letter-spacing: 0.02em;
     cursor: pointer;
-    
     transition: all 0.2s;
     -webkit-tap-highlight-color: transparent;
   }
   
   .mobile-nav__accordion-trigger:active {
-    background: rgba(201, 162, 39, 0.1);
+    background: rgb(201 162 39 / 10%);
   }
   
   .mobile-nav__accordion-trigger .arrow {
@@ -453,11 +442,11 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgb(255 255 255 / 5%);
   }
   
   .mobile-nav__submenu li {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgb(255 255 255 / 5%);
   }
   
   .mobile-nav__submenu a {
@@ -465,7 +454,7 @@
     min-height: 52px;
     font-size: 1rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgb(255 255 255 / 90%);
   }
   
   /* CTA button in nav */
@@ -503,8 +492,8 @@
     
     /* Enhanced visual feedback */
     box-shadow: 
-      0 4px 16px rgba(0, 0, 0, 0.3),
-      0 0 20px rgba(16, 185, 129, 0.2);
+      0 4px 16px rgb(0 0 0 / 30%),
+      0 0 20px rgb(16 185 129 / 20%);
   }
   
   .a11y-toolbar__toggle:active {
@@ -622,22 +611,18 @@
     bottom: calc(72px + 80px + env(safe-area-inset-bottom)); /* Above CTA and a11y */
     right: 16px;
     z-index: 9997;
-    
     width: 52px;
     height: 52px;
     min-width: 52px;
     min-height: 52px;
-    
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    background: rgba(26, 42, 58, 0.9);
+    background: rgb(26 42 58 / 90%);
     color: #ffffff;
-    border: 2px solid rgba(201, 162, 39, 0.3);
+    border: 2px solid rgb(201 162 39 / 30%);
     border-radius: 50%;
-    
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
     transition: all 0.3s;
     -webkit-tap-highlight-color: transparent;
   }

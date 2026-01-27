@@ -19,7 +19,7 @@ section[aria-label*="Credentials"] {
 .trust-item {
   color: #ffffff !important; /* WHITE text for visibility */
   font-weight: 600 !important;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 50%) !important;
 }
 
 /* Trust bar icons - gold for contrast */
@@ -27,19 +27,19 @@ section[aria-label*="Credentials"] {
 .trust-item svg,
 .ts-trust-icon {
   fill: #ffd700 !important; /* Gold icons */
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) !important;
+  filter: drop-shadow(0 2px 4px rgb(0 0 0 / 30%)) !important;
 }
 
 /* Make trust items pop on dark background */
 .page-home #trust .trust-item {
-  background: rgba(255, 255, 255, 0.1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  background: rgb(255 255 255 / 10%) !important;
+  border: 1px solid rgb(255 255 255 / 20%) !important;
   color: #ffffff !important;
 }
 
 .page-home #trust .trust-item:hover {
-  background: rgba(255, 255, 255, 0.15) !important;
-  border-color: rgba(255, 215, 0, 0.4) !important;
+  background: rgb(255 255 255 / 15%) !important;
+  border-color: rgb(255 215 0 / 40%) !important;
 }
 
 /* ========================================
@@ -50,9 +50,9 @@ section[aria-label*="Credentials"] {
 .ts-hero__eyebrow,
 .eyebrow {
   color: #ffd700 !important; /* Gold text */
-  background: rgba(0, 80, 45, 0.95) !important; /* Darker green for contrast */
+  background: rgb(0 80 45 / 95%) !important; /* Darker green for contrast */
   border: 3px solid #ffd700 !important;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9) !important; /* Stronger shadow */
+  text-shadow: 0 2px 6px rgb(0 0 0 / 90%) !important; /* Stronger shadow */
 }
 
 /* Licensed Since 2019 Badge - High contrast */
@@ -68,7 +68,7 @@ section[aria-label*="Credentials"] {
   background: #dc2626 !important; /* Solid red */
   color: #ffffff !important; /* Pure white text */
   border: 3px solid #ffffff !important; /* White border for pop */
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+  text-shadow: 0 2px 4px rgb(0 0 0 / 80%) !important;
 }
 
 /* ========================================
@@ -80,8 +80,8 @@ section[aria-label*="Credentials"] {
 h1.ts-hero__title {
   color: #ffffff !important; /* White text on dark bg */
   text-shadow: 
-    0 3px 8px rgba(0, 0, 0, 0.9),
-    0 0 30px rgba(0, 0, 0, 0.5) !important;
+    0 3px 8px rgb(0 0 0 / 90%),
+    0 0 30px rgb(0 0 0 / 50%) !important;
   font-weight: 900 !important;
 }
 
@@ -89,7 +89,7 @@ h1.ts-hero__title {
 .ts-hero__lede,
 .ts-hero__lede.lead {
   color: #1a1a1a !important; /* Very dark text */
-  background: rgba(255, 255, 255, 0.98) !important; /* Nearly opaque white */
+  background: rgb(255 255 255 / 98%) !important; /* Nearly opaque white */
   border-left: 6px solid #00a35c !important;
   text-shadow: none !important; /* Remove shadow for readability */
 }
@@ -146,8 +146,8 @@ a.btn--primary {
   color: #ffffff !important;
   border: 3px solid #ffffff !important;
   font-weight: 900 !important;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
-  box-shadow: 0 4px 16px rgba(0, 163, 92, 0.4) !important;
+  text-shadow: 0 2px 4px rgb(0 0 0 / 50%) !important;
+  box-shadow: 0 4px 16px rgb(0 163 92 / 40%) !important;
 }
 
 .btn--primary:hover,
@@ -155,13 +155,13 @@ a.btn--primary:hover {
   background: #008a4d !important;
   border-color: #ffd700 !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 6px 20px rgba(0, 163, 92, 0.6) !important;
+  box-shadow: 0 6px 20px rgb(0 163 92 / 60%) !important;
 }
 
 /* Ghost button - High contrast */
 .btn--ghost,
 a.btn--ghost {
-  background: rgba(255, 255, 255, 0.95) !important;
+  background: rgb(255 255 255 / 95%) !important;
   color: #00a35c !important;
   border: 3px solid #00a35c !important;
   font-weight: 900 !important;
@@ -225,7 +225,7 @@ body,
 /* Links - High contrast */
 a {
   color: #006b3d !important; /* Dark green */
-  text-decoration-color: rgba(0, 107, 61, 0.4) !important;
+  text-decoration-color: rgb(0 107 61 / 40%) !important;
 }
 
 a:hover,

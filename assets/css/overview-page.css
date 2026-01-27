@@ -8,7 +8,7 @@
    ============================================ */
 
 .overview-banner {
-  margin: 0 0 2rem 0;
+  margin: 0 0 2rem;
   padding: 0;
   width: 100%;
 }
@@ -20,8 +20,8 @@
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  box-shadow: 0 4px 16px rgba(197, 145, 77, 0.25);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgb(197 145 77 / 25%);
+  border: 2px solid rgb(255 255 255 / 10%);
   position: relative;
   overflow: hidden;
 }
@@ -31,14 +31,14 @@
   position: absolute;
   inset: 0;
   background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  opacity: 0.4;
+  opacity: 40%;
   pointer-events: none;
 }
 
 .banner-icon {
   font-size: 2.5rem;
   flex-shrink: 0;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0 2px 4px rgb(0 0 0 / 20%));
 }
 
 .banner-text {
@@ -49,7 +49,7 @@
 }
 
 .banner-title {
-  margin: 0 0 0.375rem 0;
+  margin: 0 0 0.375rem;
   font-size: 1.25rem;
   font-weight: 700;
   color: #ffffff;
@@ -59,7 +59,7 @@
 .banner-desc {
   margin: 0;
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgb(255 255 255 / 95%);
   line-height: 1.4;
 }
 
@@ -75,7 +75,7 @@
   border-radius: 0.5rem;
   text-decoration: none;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
   white-space: nowrap;
   position: relative;
   z-index: 1;
@@ -83,7 +83,7 @@
 
 .banner-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
   background: #f9fafb;
 }
 
@@ -131,7 +131,7 @@
 }
 
 .overview-title {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.5rem;
   font-size: 2rem;
   font-weight: 700;
   color: var(--hub-fg, #0f1110);
@@ -167,12 +167,12 @@
   border: 1px solid var(--hub-border, #e5e7eb);
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
 }
 
 .overview-card--highlight {
   border-color: var(--hub-accent, #10b981);
-  box-shadow: 0 4px 6px rgba(16, 185, 129, 0.1);
+  box-shadow: 0 4px 6px rgb(16 185 129 / 10%);
 }
 
 .card-header {
@@ -271,7 +271,7 @@
 }
 
 .action-btn:hover {
-  background: rgba(16, 185, 129, 0.1);
+  background: rgb(16 185 129 / 10%);
   border-color: var(--hub-accent, #10b981);
   transform: translateY(-1px);
 }
@@ -298,20 +298,20 @@
 .overview-guide {
   margin-top: 2rem;
   padding: 1.5rem;
-  background: rgba(16, 185, 129, 0.05);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  background: rgb(16 185 129 / 5%);
+  border: 1px solid rgb(16 185 129 / 20%);
   border-radius: 1rem;
 }
 
 .guide-title {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--hub-fg, #0f1110);
 }
 
 .guide-steps {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   padding-left: 1.5rem;
 }
 

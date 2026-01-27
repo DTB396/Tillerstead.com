@@ -105,7 +105,7 @@ for (const file of collectHtmlFiles(siteDir)) {
   if (skipFiles.has(filename)) {
     continue;
   }
-  
+
   const html = fs.readFileSync(file, 'utf8');
   const $ = cheerio.load(html);
   const links = $('a[href], link[href]');

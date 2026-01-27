@@ -90,7 +90,7 @@
       window.ScrollLockManager.lock('mobile-nav');
     } else {
       // Fallback if manager not loaded
-      document.body.style.overflow = 'hidden';
+      // Natural scrolling - no body lock
     }
     // DO NOT touch documentElement - let page scroll work!
     // Prevent scroll on iOS

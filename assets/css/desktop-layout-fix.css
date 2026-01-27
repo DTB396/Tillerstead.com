@@ -9,6 +9,7 @@
 @media (min-width: 1024px) {
   .container--wide {
     --container-max: 100rem; /* Wider from 96rem */
+
     max-width: 1600px;
   }
   

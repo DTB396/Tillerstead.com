@@ -284,7 +284,7 @@
     button:hover,
     .btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 8px 24px rgb(0 0 0 / 15%);
     }
   }
 }
@@ -359,8 +359,8 @@
     .card:hover {
       transform: translateY(-4px);
       box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.2),
-        0 0 0 1px rgba(201, 162, 39, 0.1);
+        0 12px 40px rgb(0 0 0 / 20%),
+        0 0 0 1px rgb(201 162 39 / 10%);
     }
     
     .btn:hover {
@@ -453,7 +453,7 @@
   .content-columns {
     column-count: 2;
     column-gap: 4rem;
-    column-rule: 1px solid rgba(255, 255, 255, 0.1);
+    column-rule: 1px solid rgb(255 255 255 / 10%);
   }
 }
 
@@ -465,6 +465,7 @@
  * 2x displays: iPhone, MacBook Pro
  * 3x displays: iPhone Plus/Pro Max
  */
+/* stylelint-disable-next-line media-feature-name-no-vendor-prefix */
 @media (-webkit-min-device-pixel-ratio: 2),
        (min-resolution: 192dpi),
        (min-resolution: 2dppx) {
@@ -494,12 +495,13 @@
 }
 
 /* 3x displays (iPhone Pro Max) */
+/* stylelint-disable-next-line media-feature-name-no-vendor-prefix */
 @media (-webkit-min-device-pixel-ratio: 3),
        (min-resolution: 288dpi),
        (min-resolution: 3dppx) {
   img {
     image-rendering: -webkit-optimize-contrast;
-    image-rendering: optimizeQuality;
+    image-rendering: optimizequality;
   }
 }
 
@@ -542,7 +544,7 @@
 }
 
 /* Remove will-change after animation */
-.animated:not(:hover):not(:focus):not(:active) {
+.animated:not(:hover, :focus, :active) {
   will-change: auto;
 }
 
@@ -673,24 +675,21 @@ img[loading="lazy"] {
  */
 @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
   .glass {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgb(255 255 255 / 10%);
     backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgb(255 255 255 / 20%);
   }
   
   .glass-dark {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgb(0 0 0 / 60%);
     backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgb(255 255 255 / 10%);
   }
   
   .sticky-cta-bar,
   .ts-header,
   .mobile-nav {
     backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
   }
 }
 
@@ -747,11 +746,11 @@ img[loading="lazy"] {
   
   /* Optimize images for dark mode */
   img {
-    opacity: 0.95;
+    opacity: 95%;
   }
   
   img:hover {
-    opacity: 1;
+    opacity: 100%;
   }
 }
 
@@ -770,8 +769,8 @@ img[loading="lazy"] {
   body {
     font-size: 12pt;
     line-height: 1.6;
-    color: #000;
-    background: #fff;
+    color: #000000;
+    background: #ffffff;
   }
   
   .container {
@@ -791,17 +790,17 @@ img[loading="lazy"] {
   a[href]::after {
     content: " (" attr(href) ")";
     font-size: 0.8em;
-    color: #666;
+    color: #666666;
   }
   
   /* Page breaks */
   h1, h2, h3 {
-    page-break-after: avoid;
+    break-after: avoid;
   }
   
   img {
     max-width: 100%;
-    page-break-inside: avoid;
+    break-inside: avoid;
   }
 }
 
@@ -812,7 +811,7 @@ img[loading="lazy"] {
 /**
  * 21:9, 32:9 ultrawide monitors
  */
-@media (min-aspect-ratio: 21/9) {
+@media (min-aspect-ratio: 21 / 9) {
   .container {
     max-width: min(80%, 2000px);
   }

@@ -30,7 +30,7 @@
   font-size: 2rem;
   font-weight: 700;
   color: var(--color-text-primary, #111827);
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +44,7 @@
 .quote-form-header .subtitle {
   font-size: 1.125rem;
   color: var(--color-text-secondary, #6b7280);
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1.5rem;
 }
 
 .trust-badges {
@@ -99,7 +99,7 @@
   color: #dc2626;
   font-size: 1rem;
   font-weight: 600;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -126,14 +126,14 @@
   color: #f59e0b;
   font-size: 1rem;
   font-weight: 600;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .warning-box ul {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   padding-left: 1.5rem;
   color: #92400e;
 }
@@ -160,14 +160,14 @@
 }
 
 .form-section:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
 }
 
 .section-title {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-text-primary, #111827);
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -240,7 +240,7 @@
 .form-field textarea:focus {
   outline: none;
   border-color: var(--color-primary, #059669);
-  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+  box-shadow: 0 0 0 3px rgb(5 150 105 / 10%);
 }
 
 .form-field input::placeholder,
@@ -300,7 +300,7 @@
   color: var(--color-text-secondary, #6b7280);
   margin: 0;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgb(255 255 255 / 70%);
   border-radius: 0.5rem;
 }
 
@@ -354,7 +354,7 @@
 
 .estimate-note {
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgb(255 255 255 / 80%);
   border-radius: 0.5rem;
   font-size: 0.875rem;
   color: var(--color-text-secondary, #6b7280);
@@ -376,9 +376,9 @@
 .acknowledgments-intro {
   font-size: 0.875rem;
   color: var(--color-text-secondary, #6b7280);
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1.5rem;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgb(255 255 255 / 70%);
   border-radius: 0.5rem;
   border-left: 4px solid #3b82f6;
 }
@@ -403,7 +403,7 @@
 
 .acknowledgment-item:hover {
   border-color: #3b82f6;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 2px 8px rgb(59 130 246 / 10%);
 }
 
 .acknowledgment-item input[type="checkbox"] {
@@ -452,19 +452,19 @@
 }
 
 .btn:disabled {
-  opacity: 0.6;
+  opacity: 60%;
   cursor: not-allowed;
 }
 
 .btn-primary {
   background: linear-gradient(135deg, var(--color-primary, #059669) 0%, #047857 100%);
   color: white;
-  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+  box-shadow: 0 4px 12px rgb(5 150 105 / 30%);
 }
 
 .btn-primary:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(5, 150, 105, 0.4);
+  box-shadow: 0 6px 16px rgb(5 150 105 / 40%);
 }
 
 .btn-primary:active:not(:disabled) {
@@ -475,12 +475,12 @@
   background: white;
   color: var(--color-text-primary, #111827);
   border: 2px solid var(--color-border, #e5e7eb);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 5%);
 }
 
 .btn-secondary:hover:not(:disabled) {
   border-color: var(--color-border-dark, #d1d5db);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
 }
 
 .animate-spin {
@@ -491,6 +491,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
