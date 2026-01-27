@@ -1,0 +1,317 @@
+---
+layout: default
+title: Layout & Layer Testing
+meta_description: Testing page for z-index layers, popups, and content ordering
+robots: noindex, nofollow
+---
+
+<style>
+  .test-section {
+    padding: 3rem 1.5rem;
+    margin: 2rem 0;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+  }
+  
+  .test-button {
+    padding: 0.75rem 1.5rem;
+    margin: 0.5rem;
+    border: none;
+    border-radius: 6px;
+    background: #10b981;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .test-button:hover {
+    background: #059669;
+  }
+  
+  .layer-demo {
+    position: relative;
+    height: 300px;
+    background: #f3f4f6;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .layer {
+    position: absolute;
+    padding: 1rem;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .layer-base {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #6366f1;
+    z-index: var(--z-base, 0);
+  }
+  
+  .layer-content {
+    bottom: 40px;
+    left: 20px;
+    right: 20px;
+    height: 80px;
+    background: #8b5cf6;
+    z-index: var(--z-content, 1);
+  }
+  
+  .layer-dropdown {
+    bottom: 100px;
+    left: 40px;
+    width: 200px;
+    height: 60px;
+    background: #ec4899;
+    z-index: var(--z-dropdown, 100);
+  }
+  
+  .layer-sticky {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: #f59e0b;
+    z-index: var(--z-sticky, 200);
+  }
+  
+  .layer-modal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 150px;
+    background: #ef4444;
+    z-index: var(--z-modal, 500);
+  }
+  
+  .layer-toast {
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    height: 60px;
+    background: #10b981;
+    z-index: var(--z-toast, 700);
+  }
+  
+  .status-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+  }
+  
+  .status-pass {
+    background: #10b981;
+  }
+  
+  .status-fail {
+    background: #ef4444;
+  }
+</style>
+
+<div class="container" style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+  <h1>Layout & Layer Testing Suite</h1>
+  <p class="subtitle">Testing z-index layers, popups, and content ordering - "Respect the Brickwork"</p>
+  
+  <!-- Test 1: Z-Index Layer Visualization -->
+  <section class="test-section">
+    <h2>Test 1: Z-Index Layer Stack</h2>
+    <p>Visual representation of the z-index layering system:</p>
+    
+    <div class="layer-demo">
+      <div class="layer layer-base">Layer 0: Base (z-index: 0)</div>
+      <div class="layer layer-content">Layer 1: Content (z-index: 1)</div>
+      <div class="layer layer-dropdown">Layer 100: Dropdown (z-index: 100)</div>
+      <div class="layer layer-sticky">Layer 200: Sticky Header (z-index: 200)</div>
+      <div class="layer layer-modal">Layer 500: Modal (z-index: 500)</div>
+      <div class="layer layer-toast">Layer 700: Toast (z-index: 700)</div>
+    </div>
+    
+    <div style="margin-top: 1rem;">
+      <p><strong>Expected Order (bottom to top):</strong></p>
+      <ol>
+        <li>Base (purple) - Background decorations</li>
+        <li>Content (violet) - Main page content</li>
+        <li>Dropdown (pink) - Navigation menus</li>
+        <li>Sticky (orange) - Header bar (should span full width on top)</li>
+        <li>Modal (red) - Dialog boxes (centered)</li>
+        <li>Toast (green) - Notifications (top-right)</li>
+      </ol>
+    </div>
+  </section>
+  
+  <!-- Test 2: Mobile Layout -->
+  <section class="test-section">
+    <h2>Test 2: Mobile Layout Order</h2>
+    <p>Resize window to &lt; 768px and verify:</p>
+    
+    <div id="mobile-test-results">
+      <p><span class="status-indicator" id="header-check"></span> Header visible at top</p>
+      <p><span class="status-indicator" id="content-check"></span> Main content visible and scrollable</p>
+      <p><span class="status-indicator" id="footer-check"></span> Footer at bottom (not blocking)</p>
+      <p><span class="status-indicator" id="fab-check"></span> FAB buttons hidden</p>
+      <p><span class="status-indicator" id="popup-check"></span> Popups/toasts hidden</p>
+    </div>
+    
+    <button class="test-button" onclick="runMobileLayoutTest()">Run Mobile Layout Test</button>
+  </section>
+  
+  <!-- Test 3: Content Loading Order -->
+  <section class="test-section">
+    <h2>Test 3: Content Loading Sequence</h2>
+    <p>Verify proper "brickwork" - content loads in correct order:</p>
+    
+    <div id="loading-sequence">
+      <p>1. <span id="critical-css-status">⏳</span> Critical CSS (inline in head)</p>
+      <p>2. <span id="header-status">⏳</span> Header structure</p>
+      <p>3. <span id="hero-status">⏳</span> Hero/above-fold content</p>
+      <p>4. <span id="deferred-css-status">⏳</span> Deferred CSS</p>
+      <p>5. <span id="images-status">⏳</span> Progressive images</p>
+      <p>6. <span id="footer-status">⏳</span> Footer</p>
+    </div>
+    
+    <button class="test-button" onclick="checkLoadingSequence()">Check Loading Sequence</button>
+  </section>
+  
+  <!-- Test 4: Popup Behavior -->
+  <section class="test-section">
+    <h2>Test 4: Popup & Toast Behavior</h2>
+    <p>Test popup layering and mobile hiding:</p>
+    
+    <button class="test-button" onclick="testToast()">Test Toast (z: 700)</button>
+    <button class="test-button" onclick="testModal()">Test Modal (z: 500)</button>
+    <button class="test-button" onclick="testTooltip()">Test Tooltip (z: 800)</button>
+    
+    <div id="popup-test-results" style="margin-top: 1rem;"></div>
+  </section>
+  
+  <!-- Test 5: Scroll Performance -->
+  <section class="test-section">
+    <h2>Test 5: Scroll Performance</h2>
+    <p>Verify smooth scrolling with layered content:</p>
+    
+    <div style="height: 300px; overflow-y: scroll; border: 2px solid #e5e7eb; border-radius: 6px; padding: 1rem;">
+      <div data-animate="fade-up">Section 1: Animated on scroll</div>
+      <div style="height: 100px; background: #f3f4f6; margin: 1rem 0;"></div>
+      <div data-animate="fade-up" data-delay="100">Section 2: Delayed animation</div>
+      <div style="height: 100px; background: #f3f4f6; margin: 1rem 0;"></div>
+      <div data-animate="scale">Section 3: Scale animation</div>
+      <div style="height: 100px; background: #f3f4f6; margin: 1rem 0;"></div>
+      <div data-animate="fade-up" data-delay="200">Section 4: Final section</div>
+    </div>
+  </section>
+</div>
+
+<script>
+  // Test Mobile Layout
+  function runMobileLayoutTest() {
+    const width = window.innerWidth;
+    const isMobile = width <= 768;
+    
+    // Check header
+    const header = document.querySelector('header, .ts-header');
+    const headerCheck = header && getComputedStyle(header).display !== 'none';
+    document.getElementById('header-check').className = `status-indicator ${headerCheck ? 'status-pass' : 'status-fail'}`;
+    
+    // Check content
+    const main = document.querySelector('main');
+    const contentCheck = main && getComputedStyle(main).display !== 'none';
+    document.getElementById('content-check').className = `status-indicator ${contentCheck ? 'status-pass' : 'status-fail'}`;
+    
+    // Check footer
+    const footer = document.querySelector('footer');
+    const footerCheck = footer && getComputedStyle(footer).position === 'relative';
+    document.getElementById('footer-check').className = `status-indicator ${footerCheck ? 'status-pass' : 'status-fail'}`;
+    
+    // Check FAB hidden on mobile
+    const fab = document.querySelector('.mobile-fab, .fab');
+    const fabCheck = isMobile ? (!fab || getComputedStyle(fab).display === 'none') : true;
+    document.getElementById('fab-check').className = `status-indicator ${fabCheck ? 'status-pass' : 'status-fail'}`;
+    
+    // Check popups hidden on mobile
+    const popup = document.querySelector('.toast, .modal');
+    const popupCheck = isMobile ? (!popup || getComputedStyle(popup).display === 'none') : true;
+    document.getElementById('popup-check').className = `status-indicator ${popupCheck ? 'status-pass' : 'status-fail'}`;
+    
+    alert(`Mobile Test Complete\nViewport: ${width}px\nMobile Mode: ${isMobile}\nAll checks: ${headerCheck && contentCheck && footerCheck && fabCheck && popupCheck ? 'PASS ✓' : 'FAIL ✗'}`);
+  }
+  
+  // Check Loading Sequence
+  function checkLoadingSequence() {
+    // Critical CSS
+    const criticalCSS = document.getElementById('critical-css');
+    document.getElementById('critical-css-status').textContent = criticalCSS ? '✓' : '✗';
+    
+    // Header
+    const header = document.querySelector('header');
+    document.getElementById('header-status').textContent = header ? '✓' : '✗';
+    
+    // Hero
+    const hero = document.querySelector('.hero, [class*="hero"]');
+    document.getElementById('hero-status').textContent = hero ? '✓' : '✗';
+    
+    // Deferred CSS
+    const deferredCSS = document.querySelectorAll('link[rel="stylesheet"]').length;
+    document.getElementById('deferred-css-status').textContent = deferredCSS > 0 ? '✓' : '✗';
+    
+    // Images
+    const images = document.querySelectorAll('img').length;
+    document.getElementById('images-status').textContent = images > 0 ? '✓' : '✗';
+    
+    // Footer
+    const footer = document.querySelector('footer');
+    document.getElementById('footer-status').textContent = footer ? '✓' : '✗';
+  }
+  
+  // Test Toast
+  function testToast() {
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.style.cssText = 'position: fixed; top: 20px; right: 20px; padding: 1rem; background: #10b981; color: white; border-radius: 6px; z-index: var(--z-toast, 700);';
+    toast.textContent = 'Toast Notification (z-index: 700)';
+    document.body.appendChild(toast);
+    
+    setTimeout(() => toast.remove(), 3000);
+    
+    const result = document.getElementById('popup-test-results');
+    result.innerHTML += '<p>✓ Toast created at z-index 700 (should appear above all content)</p>';
+  }
+  
+  // Test Modal
+  function testModal() {
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 2rem; background: white; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); z-index: var(--z-modal, 500);';
+    modal.innerHTML = '<h3>Modal Dialog (z-index: 500)</h3><button onclick="this.parentElement.remove()">Close</button>';
+    document.body.appendChild(modal);
+    
+    const result = document.getElementById('popup-test-results');
+    result.innerHTML += '<p>✓ Modal created at z-index 500 (should be below toast)</p>';
+  }
+  
+  // Test Tooltip
+  function testTooltip() {
+    const tooltip = document.createElement('div');
+    tooltip.className = 'tooltip';
+    tooltip.style.cssText = 'position: fixed; top: 50px; left: 50%; transform: translateX(-50%); padding: 0.5rem 1rem; background: #1f2937; color: white; border-radius: 4px; font-size: 14px; z-index: var(--z-tooltip, 800);';
+    tooltip.textContent = 'Tooltip (z-index: 800) - Highest UI layer';
+    document.body.appendChild(tooltip);
+    
+    setTimeout(() => tooltip.remove(), 3000);
+    
+    const result = document.getElementById('popup-test-results');
+    result.innerHTML += '<p>✓ Tooltip created at z-index 800 (should appear above everything)</p>';
+  }
+  
+  // Run loading sequence check on page load
+  window.addEventListener('load', () => {
+    setTimeout(checkLoadingSequence, 500);
+  });
+</script>

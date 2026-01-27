@@ -1,0 +1,172 @@
+/**
+ * Z-Index Layer System - "Respect the Brickwork"
+ * Proper layering hierarchy for all site elements
+ * Based on Material Design and iOS Human Interface Guidelines
+ */
+
+:root {
+  /* Z-Index Scale (0-1000) */
+  --z-base: 0;           /* Default page content */
+  --z-content: 1;        /* Main content layer */
+  --z-dropdown: 100;     /* Dropdown menus */
+  --z-sticky: 200;       /* Sticky headers/footers */
+  --z-fixed: 300;        /* Fixed positioned elements */
+  --z-modal-backdrop: 400; /* Modal/overlay backdrops */
+  --z-modal: 500;        /* Modal dialogs */
+  --z-popover: 600;      /* Popovers, tooltips */
+  --z-toast: 700;        /* Toast notifications */
+  --z-tooltip: 800;      /* Tooltips (highest UI) */
+  --z-dev-tools: 9999;   /* Dev tools (never in production) */
+}
+
+/* ===== LAYER 0: BASE ===== */
+/* Background elements, decorative patterns */
+.gradient-mesh,
+.background-pattern,
+.decorative-element {
+  z-index: var(--z-base) !important;
+}
+
+/* ===== LAYER 1: CONTENT ===== */
+/* Main page content, sections, articles */
+main,
+section,
+article,
+.content,
+.bento-item,
+.glass-card,
+.card {
+  z-index: var(--z-content) !important;
+}
+
+/* ===== LAYER 100: DROPDOWNS ===== */
+/* Navigation dropdowns, select menus */
+.dropdown,
+.dropdown-menu,
+.nav-dropdown,
+select[multiple] {
+  z-index: var(--z-dropdown) !important;
+}
+
+/* ===== LAYER 200: STICKY ===== */
+/* Sticky headers, navigation bars */
+header,
+.ts-header,
+.site-header,
+nav.sticky,
+.sticky-nav {
+  z-index: var(--z-sticky) !important;
+}
+
+footer.sticky,
+.sticky-footer {
+  z-index: calc(var(--z-sticky) - 50) !important; /* Footer below header */
+}
+
+/* ===== LAYER 300: FIXED ===== */
+/* Fixed positioned elements (FAB, back-to-top) */
+.fixed-element,
+.back-to-top,
+.scroll-progress {
+  z-index: var(--z-fixed) !important;
+}
+
+/* ===== LAYER 400: MODAL BACKDROPS ===== */
+/* Overlay/backdrop for modals */
+.modal-backdrop,
+.overlay,
+.backdrop,
+[class*="-backdrop"] {
+  z-index: var(--z-modal-backdrop) !important;
+}
+
+/* ===== LAYER 500: MODALS ===== */
+/* Modal dialogs, lightboxes */
+.modal,
+.lightbox,
+.dialog,
+[role="dialog"] {
+  z-index: var(--z-modal) !important;
+}
+
+/* ===== LAYER 600: POPOVERS ===== */
+/* Popovers, context menus */
+.popover,
+.context-menu,
+.menu-popup {
+  z-index: var(--z-popover) !important;
+}
+
+/* ===== LAYER 700: TOASTS ===== */
+/* Toast notifications, alerts */
+.toast,
+.toast-container,
+.notification,
+.alert-banner {
+  z-index: var(--z-toast) !important;
+}
+
+/* ===== LAYER 800: TOOLTIPS ===== */
+/* Tooltips (highest UI layer) */
+.tooltip,
+[role="tooltip"],
+.tip {
+  z-index: var(--z-tooltip) !important;
+}
+
+/* ===== MOBILE OVERRIDES ===== */
+@media (max-width: 768px) {
+  /* Hide ALL non-essential layers on mobile */
+  .mobile-fab,
+  .fab,
+  .floating-action-button,
+  .a11y-toolbar,
+  .accessibility-toolbar,
+  #performance-toggle,
+  .performance-toggle {
+    display: none !important;
+    z-index: -1 !important;
+  }
+  
+  /* Simplify z-index on mobile */
+  header,
+  .ts-header,
+  .site-header {
+    z-index: 100 !important;
+  }
+  
+  main,
+  section,
+  article {
+    z-index: 1 !important;
+  }
+  
+  footer,
+  .site-footer {
+    z-index: 10 !important;
+  }
+  
+  /* Hide ALL popups/toasts on mobile */
+  .toast,
+  .toast-container,
+  .notification,
+  .modal,
+  .lightbox,
+  .popover {
+    display: none !important;
+    z-index: -1 !important;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+/* Focus states should be above current layer */
+*:focus-visible {
+  position: relative;
+  z-index: calc(var(--z-content) + 1) !important;
+}
+
+/* ===== DEBUGGING ===== */
+/* Dev tools layer (remove in production) */
+[data-dev-tool] {
+  z-index: var(--z-dev-tools) !important;
+}
