@@ -739,6 +739,112 @@ BY SIGNING BELOW, CUSTOMER ACCEPTS THESE TERMS AND CONDITIONS.
   },
   
   /**
+   * Financing Configuration
+   * Integrate with finance partners for customer payment options
+   */
+  financing: {
+    enabled: true,
+    
+    // Finance partners
+    partners: [
+      {
+        id: 'lightstream',
+        name: 'LightStream',
+        logo: '/assets/img/partners/lightstream.png',
+        aprRange: { min: 5.99, max: 24.99 },
+        termsMonths: [12, 24, 36, 48, 60, 72, 84],
+        minAmount: 5000,
+        maxAmount: 100000,
+        url: 'https://www.lightstream.com/',
+        disclosure: 'Rate is quoted with AutoPay discount. AutoPay discount is only available prior to loan funding. Rates without AutoPay are 0.50% points higher. Subject to credit approval. Conditions and limitations apply.'
+      },
+      {
+        id: 'greensky',
+        name: 'GreenSky',
+        logo: '/assets/img/partners/greensky.png',
+        aprRange: { min: 0.00, max: 17.99 },
+        termsMonths: [12, 24, 36, 48, 60, 72],
+        minAmount: 1000,
+        maxAmount: 55000,
+        promotions: ['12 months same as cash', '6 months deferred interest'],
+        url: 'https://www.greensky.com/',
+        disclosure: 'GreenSky® financing is subject to credit approval. Minimum monthly payments required. See store for details.'
+      }
+    ],
+    
+    // Default calculation settings
+    defaults: {
+      apr: 9.99,
+      termMonths: 60,
+      estimatedCreditScore: 'good' // excellent, good, fair
+    },
+    
+    // Credit score tiers (for APR estimation)
+    creditTiers: {
+      excellent: { min: 740, aprAdjustment: 0 },
+      good: { min: 670, aprAdjustment: 2.0 },
+      fair: { min: 580, aprAdjustment: 5.0 }
+    },
+    
+    // Truth in Lending Act disclosures
+    disclosures: {
+      apr: 'APR (Annual Percentage Rate) represents the cost of credit as a yearly rate.',
+      financeCharge: 'The dollar amount the credit will cost you.',
+      amountFinanced: 'The amount of credit provided to you or on your behalf.',
+      totalPayments: 'The amount you will have paid after you have made all payments as scheduled.',
+      paymentSchedule: 'Number and amounts of payments, and when payments are due.',
+      latePayment: 'Late payment fees may apply if payment is not received by the due date.',
+      prepayment: 'If you pay off early, you may or may not be entitled to a refund of part of the finance charge.',
+      security: 'This credit agreement is not secured by collateral.',
+      assumption: 'Someone buying your home cannot assume the remainder of the debt on the original terms.',
+      creditCheck: 'Applying for financing will result in a credit inquiry which may affect your credit score.'
+    }
+  },
+  
+  /**
+   * E-Signature Configuration
+   */
+  eSignature: {
+    // Provider selection
+    provider: 'docusign', // 'docusign' | 'hellosign' | 'adobesign' | 'custom'
+    
+    // Environment
+    testMode: true, // Set to false for production
+    
+    // Behavior settings
+    autoSend: false, // Auto-send signature request on quote generation
+    requireAllSignatures: true, // Both customer AND contractor must sign
+    reminderSchedule: [3, 7, 14], // Days to send reminders (3 days, 1 week, 2 weeks)
+    expirationDays: 30, // Quote expires after 30 days
+    
+    // Document retention
+    documentRetention: 'permanent', // 'permanent' | '1year' | '3years' | '7years'
+    
+    // Email settings
+    emailSubject: 'Please Sign Your Quote from {company}',
+    emailMessage: 'Your quote is ready for review and signature. Please click the button below to review and sign electronically.',
+    
+    // Success redirect
+    successRedirectUrl: '/tools-hub/#/quote-signed',
+    
+    // Signature positions (PDF coordinates)
+    signatureFields: {
+      customer: {
+        page: 4,
+        signature: { x: 50, y: 680 },
+        date: { x: 350, y: 680 },
+        printName: { x: 50, y: 710 }
+      },
+      contractor: {
+        page: 4,
+        signature: { x: 50, y: 750 },
+        date: { x: 350, y: 750 },
+        printName: { x: 50, y: 780 }
+      }
+    }
+  },
+
+  /**
    * Development & Debugging
    */
   debug: {

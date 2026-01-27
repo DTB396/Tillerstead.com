@@ -1,0 +1,459 @@
+/**
+ * TillerPro™ Financing Calculator Styling
+ * Professional financing options display with TILA compliance
+ * 
+ * @version 1.0.0
+ */
+
+/* =================================================================
+   FINANCING CALCULATOR CONTAINER
+   ================================================================= */
+
+.financing-calculator {
+  margin: 2rem 0;
+}
+
+.financing-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.financing-header h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text-primary, #111827);
+  margin: 0 0 0.5rem 0;
+}
+
+.financing-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary, #6b7280);
+  margin: 0;
+}
+
+.financing-subtitle strong {
+  color: var(--color-primary, #059669);
+  font-weight: 700;
+}
+
+/* =================================================================
+   CREDIT TIER SELECTOR
+   ================================================================= */
+
+.credit-tier-selector {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 2px solid #0ea5e9;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.credit-tier-selector label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary, #111827);
+  margin-bottom: 0.5rem;
+}
+
+.credit-tier-selector select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: var(--color-text-primary, #111827);
+  background: white;
+  border: 2px solid var(--color-border, #e5e7eb);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.credit-tier-selector select:focus {
+  outline: none;
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+.credit-note {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary, #6b7280);
+}
+
+/* =================================================================
+   FINANCING PARTNERS
+   ================================================================= */
+
+.financing-partners {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.financing-partner {
+  background: white;
+  border: 2px solid var(--color-border, #e5e7eb);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: box-shadow 0.2s ease;
+}
+
+.financing-partner:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.partner-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border-light, #f3f4f6);
+}
+
+.partner-header h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary, #111827);
+  margin: 0;
+}
+
+.partner-promotions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.promo-badge {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 0.375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* =================================================================
+   FINANCING OPTIONS GRID
+   ================================================================= */
+
+.financing-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.financing-option {
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  border: 2px solid var(--color-border, #e5e7eb);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.financing-option:hover {
+  border-color: var(--color-primary, #059669);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.15);
+}
+
+.option-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.option-header .term {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-primary, #111827);
+}
+
+.option-header .apr {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary, #6b7280);
+  padding: 0.25rem 0.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 0.25rem;
+}
+
+.payment-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary, #059669);
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.payment-amount .period {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-secondary, #6b7280);
+}
+
+.option-details {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  padding: 0.375rem 0;
+}
+
+.detail-row:not(:last-child) {
+  border-bottom: 1px solid var(--color-border-light, #f3f4f6);
+}
+
+.detail-row span:first-child {
+  color: var(--color-text-secondary, #6b7280);
+}
+
+.detail-row span:last-child {
+  font-weight: 600;
+  color: var(--color-text-primary, #111827);
+}
+
+.btn-select-financing {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, var(--color-primary, #059669) 0%, #047857 100%);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-select-financing:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.btn-select-financing.selected {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+/* =================================================================
+   PARTNER DISCLOSURE
+   ================================================================= */
+
+.partner-disclosure {
+  padding: 0.75rem 1rem;
+  background: rgba(249, 250, 251, 0.5);
+  border-radius: 0.5rem;
+  border-left: 3px solid #9ca3af;
+}
+
+.partner-disclosure small {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--color-text-secondary, #6b7280);
+}
+
+/* =================================================================
+   TILA DISCLOSURES
+   ================================================================= */
+
+.tila-disclosures {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 2px solid #fbbf24;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.tila-disclosures h4 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text-primary, #111827);
+  margin: 0 0 1rem 0;
+}
+
+.disclosure-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.disclosure-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 0.5rem;
+}
+
+.disclosure-item strong {
+  font-size: 0.875rem;
+  color: var(--color-text-primary, #111827);
+}
+
+.disclosure-item span {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary, #6b7280);
+}
+
+/* =================================================================
+   FINANCING CTA
+   ================================================================= */
+
+.financing-cta {
+  text-align: center;
+  padding: 1.5rem;
+  background: white;
+  border: 2px solid var(--color-border, #e5e7eb);
+  border-radius: 1rem;
+}
+
+.financing-cta p {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  color: var(--color-text-primary, #111827);
+}
+
+.financing-cta p:last-child {
+  margin-bottom: 0;
+}
+
+.financing-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.875rem !important;
+  color: var(--color-text-secondary, #6b7280) !important;
+}
+
+/* =================================================================
+   FINANCING SELECTED NOTIFICATION
+   ================================================================= */
+
+.financing-selected-notification {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.financing-selected-notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.financing-selected-notification svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.financing-selected-notification span {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* =================================================================
+   FINANCING UNAVAILABLE
+   ================================================================= */
+
+.financing-unavailable {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  border: 2px solid #fca5a5;
+  border-radius: 1rem;
+}
+
+.financing-unavailable p {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: var(--color-text-primary, #111827);
+}
+
+.financing-unavailable .hint {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary, #6b7280);
+}
+
+/* =================================================================
+   RESPONSIVE
+   ================================================================= */
+
+@media (max-width: 768px) {
+  .financing-header h3 {
+    font-size: 1.5rem;
+  }
+  
+  .financing-subtitle {
+    font-size: 1rem;
+  }
+  
+  .partner-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .financing-options-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .payment-amount {
+    font-size: 1.75rem;
+  }
+  
+  .tila-disclosures {
+    padding: 1rem;
+  }
+  
+  .financing-selected-notification {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    max-width: none;
+  }
+}
+
+/* =================================================================
+   PRINT STYLES
+   ================================================================= */
+
+@media print {
+  .btn-select-financing,
+  .financing-cta,
+  .credit-tier-selector {
+    display: none;
+  }
+  
+  .financing-partner {
+    break-inside: avoid;
+  }
+}

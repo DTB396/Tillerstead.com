@@ -60,6 +60,8 @@ sitemap:
   <link rel="stylesheet" href="/assets/css/modern-devices.css">
   <link rel="stylesheet" href="/assets/css/tools-hub.css">
   <link rel="stylesheet" href="/assets/css/quote-generator.css">
+  <link rel="stylesheet" href="/assets/css/financing-calculator.css">
+  <link rel="stylesheet" href="/assets/css/e-signature.css">
   
   <!-- Open Graph -->
   <meta property="og:title" content="{{ page.title }}">
@@ -190,10 +192,16 @@ sitemap:
   <!-- 5. State Manager (before router) -->
   <script src="/assets/js/project-state-manager.js"></script>
   
-  <!-- 6. Quote Generator (depends on state, config, validator, jsPDF) -->
+  <!-- 6. Financing Calculator (for quote form) -->
+  <script src="/assets/js/financing-calculator.js"></script>
+  
+  <!-- 7. E-Signature Manager (for quote signing) -->
+  <script src="/assets/js/e-signature.js"></script>
+  
+  <!-- 8. Quote Generator (depends on state, config, validator, jsPDF) -->
   <script src="/assets/js/quote-generator.js"></script>
   
-  <!-- 7. Router (depends on state manager) -->
+  <!-- 9. Router (depends on state manager) -->
   <script src="/assets/js/tools-hub-router.js"></script>
   
   <!-- 4. UI Initialization -->

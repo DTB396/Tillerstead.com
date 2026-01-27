@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TillerPro™ Dashboard - Multi-Location Management</title>
+  
+  <style>
+    :root {
+      --color-primary: #8b5cf6;
+      --color-secondary: #6366f1;
+      --color-success: #10b981;
+      --color-warning: #f59e0b;
+      --color-danger: #ef4444;
+      --color-bg: #f8fafc;
+      --color-surface: #ffffff;
+      --color-text: #1e293b;
+      --color-text-secondary: #64748b;
+      --color-border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    .dashboard {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Header */
+    .dashboard-header {
+      margin-bottom: 2rem;
+    }
+
+    .dashboard-header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .dashboard-header p {
+      color: var(--color-text-secondary);
+      font-size: 1rem;
+    }
+
+    /* Location Selector */
+    .location-selector {
+      background: var(--color-surface);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .location-selector-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .location-selector-header h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .btn {
+      padding: 0.625rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(139, 92, 246, 0.05);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .location-card {
+      background: white;
+      border: 2px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .location-card:hover {
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .location-card.active {
+      border-color: var(--color-primary);
+      background: rgba(139, 92, 246, 0.05);
+    }
+
+    .location-card.active::before {
+      content: "✓";
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      width: 24px;
+      height: 24px;
+      background: var(--color-success);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.875rem;
+    }
+
+    .location-name {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .location-stats {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+    }
+
+    /* Metrics Grid */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .metric-card {
+      background: var(--color-surface);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      transition: all 0.2s;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .metric-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .metric-label {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      font-weight: 500;
+    }
+
+    .metric-icon {
+      font-size: 1.5rem;
+    }
+
+    .metric-value {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .metric-change {
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .metric-change.positive {
+      color: var(--color-success);
+    }
+
+    .metric-change.negative {
+      color: var(--color-danger);
+    }
+
+    /* Charts Section */
+    .charts-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .chart-card {
+      background: var(--color-surface);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .chart-card h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .chart-placeholder {
+      height: 250px;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(99, 102, 241, 0.05));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-secondary);
+      font-size: 0.875rem;
+    }
+
+    /* Recent Quotes Table */
+    .recent-quotes {
+      background: var(--color-surface);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2rem;
+    }
+
+    .recent-quotes h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .quotes-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .quotes-table th {
+      text-align: left;
+      padding: 0.75rem;
+      border-bottom: 2px solid var(--color-border);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+    }
+
+    .quotes-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .quotes-table tr:hover {
+      background: rgba(139, 92, 246, 0.02);
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .status-badge.pending {
+      background: rgba(251, 191, 36, 0.15);
+      color: #d97706;
+    }
+
+    .status-badge.signed {
+      background: rgba(16, 185, 129, 0.15);
+      color: #059669;
+    }
+
+    .status-badge.sent {
+      background: rgba(59, 130, 246, 0.15);
+      color: #2563eb;
+    }
+
+    /* Regional Pricing Editor */
+    .pricing-editor {
+      background: var(--color-surface);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .pricing-editor h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .pricing-row {
+      display: grid;
+      grid-template-columns: 200px 1fr 150px 100px;
+      gap: 1rem;
+      align-items: center;
+      padding: 1rem;
+      background: rgba(139, 92, 246, 0.02);
+      border-radius: 6px;
+    }
+
+    .pricing-row label {
+      font-weight: 500;
+      color: var(--color-text);
+    }
+
+    .pricing-row input {
+      padding: 0.5rem;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      font-size: 0.875rem;
+    }
+
+    .pricing-row input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+    }
+
+    .pricing-row .input-group {
+      position: relative;
+    }
+
+    .pricing-row .input-prefix {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-text-secondary);
+    }
+
+    .pricing-row input[type="number"] {
+      padding-left: 1.75rem;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 90%;
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .modal-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-header h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .modal-body {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-field {
+      margin-bottom: 1rem;
+    }
+
+    .form-field label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      padding: 0.625rem;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      font-size: 0.875rem;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+    }
+
+    .modal-footer {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .dashboard {
+        padding: 1rem;
+      }
+
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .charts-section {
+        grid-template-columns: 1fr;
+      }
+
+      .quotes-table {
+        font-size: 0.875rem;
+      }
+
+      .pricing-row {
+        grid-template-columns: 1fr;
+      }
+
+      .location-selector-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Header -->
+    <div class="dashboard-header">
+      <h1>📊 TillerPro™ Dashboard</h1>
+      <p>Multi-location performance tracking and management</p>
+    </div>
+
+    <!-- Location Selector -->
+    <div class="location-selector">
+      <div class="location-selector-header">
+        <h2>Select Location</h2>
+        <button class="btn btn-primary" onclick="openAddLocationModal()">
+          ➕ Add Location
+        </button>
+      </div>
+
+      <div class="location-grid" id="location-grid">
+        <!-- Dynamically populated -->
+      </div>
+    </div>
+
+    <!-- Metrics Grid -->
+    <div class="metrics-grid" id="metrics-grid">
+      <!-- Dynamically populated -->
+    </div>
+
+    <!-- Charts Section -->
+    <div class="charts-section">
+      <div class="chart-card">
+        <h3>Quote Volume Trend</h3>
+        <div class="chart-placeholder" id="quote-volume-chart">
+          Chart will render here (integrate Chart.js or similar)
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <h3>Win Rate by Location</h3>
+        <div class="chart-placeholder" id="win-rate-chart">
+          Chart will render here
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Quotes Table -->
+    <div class="recent-quotes">
+      <h3>Recent Quotes</h3>
+      <div style="overflow-x: auto;">
+        <table class="quotes-table" id="quotes-table">
+          <thead>
+            <tr>
+              <th>Quote #</th>
+              <th>Customer</th>
+              <th>Location</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Regional Pricing Editor -->
+    <div class="pricing-editor">
+      <h3>⚙️ Regional Pricing Configuration</h3>
+      <p style="color: var(--color-text-secondary); margin-bottom: 1rem;">
+        Customize pricing by location to account for regional cost variations.
+      </p>
+      
+      <div class="pricing-grid" id="pricing-grid">
+        <!-- Dynamically populated -->
+      </div>
+
+      <div style="margin-top: 1.5rem; text-align: right;">
+        <button class="btn btn-primary" onclick="savePricing()">
+          💾 Save Pricing Changes
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Location Modal -->
+  <div class="modal" id="add-location-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Add New Location</h2>
+      </div>
+      <div class="modal-body">
+        <div class="form-field">
+          <label for="location-name">Location Name *</label>
+          <input type="text" id="location-name" placeholder="e.g., Newark Branch" required>
+        </div>
+        <div class="form-field">
+          <label for="location-address">Address</label>
+          <input type="text" id="location-address" placeholder="123 Main St, Newark, NJ">
+        </div>
+        <div class="form-field">
+          <label for="location-manager">Manager</label>
+          <input type="text" id="location-manager" placeholder="John Smith">
+        </div>
+        <div class="form-field">
+          <label for="location-phone">Phone</label>
+          <input type="tel" id="location-phone" placeholder="(973) 555-0100">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeAddLocationModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="addLocation()">Add Location</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard Script (included inline for now, will be extracted) -->
+  <script src="/assets/js/dashboard-manager.js"></script>
+</body>
+</html>

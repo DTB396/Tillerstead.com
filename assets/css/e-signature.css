@@ -1,0 +1,446 @@
+/**
+ * TillerPro™ E-Signature Styles
+ * Professional styling for signature request UI
+ */
+
+/* ============================================
+   E-SIGNATURE SECTION
+   ============================================ */
+
+.signature-section {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+  border: 2px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.signature-section h3 {
+  color: var(--color-primary, #8b5cf6);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.signature-section h3::before {
+  content: "✍️";
+  font-size: 1.75rem;
+}
+
+.signature-section p {
+  color: var(--color-text-secondary, #64748b);
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================
+   SIGNATURE ACTIONS
+   ============================================ */
+
+.signature-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.btn-sign-electronically {
+  flex: 1;
+  min-width: 200px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.btn-sign-electronically:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+}
+
+.btn-sign-electronically:active {
+  transform: translateY(0);
+}
+
+.btn-sign-electronically::before {
+  content: "✍️";
+  font-size: 1.5rem;
+}
+
+.btn-sign-later {
+  flex: 1;
+  min-width: 200px;
+  background: white;
+  color: var(--color-primary, #8b5cf6);
+  border: 2px solid var(--color-primary, #8b5cf6);
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.btn-sign-later:hover {
+  background: rgba(139, 92, 246, 0.05);
+}
+
+/* ============================================
+   SIGNATURE STATUS
+   ============================================ */
+
+.signature-status {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.status-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.status-badge {
+  padding: 0.375rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.pending {
+  background: rgba(251, 191, 36, 0.15);
+  color: #d97706;
+}
+
+.status-badge.partially-signed {
+  background: rgba(59, 130, 246, 0.15);
+  color: #2563eb;
+}
+
+.status-badge.completed {
+  background: rgba(34, 197, 94, 0.15);
+  color: #16a34a;
+}
+
+.status-badge.expired {
+  background: rgba(239, 68, 68, 0.15);
+  color: #dc2626;
+}
+
+.signers-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.signer-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.signer-item:last-child {
+  border-bottom: none;
+}
+
+.signer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.signer-name {
+  font-weight: 600;
+  color: var(--color-text-primary, #1e293b);
+}
+
+.signer-email {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary, #64748b);
+}
+
+.signer-status {
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.signer-status.signed {
+  color: #16a34a;
+}
+
+.signer-status.signed::before {
+  content: "✓";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: #16a34a;
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.signer-status.awaiting::before {
+  content: "⏳";
+  font-size: 1.125rem;
+}
+
+/* ============================================
+   SIGNATURE MODAL
+   ============================================ */
+
+.signature-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.signature-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.signature-modal-content {
+  background: white;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.signature-modal.active .signature-modal-content {
+  transform: scale(1);
+}
+
+.modal-header {
+  padding: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: var(--color-primary, #8b5cf6);
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--color-text-secondary, #64748b);
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--color-text-primary, #1e293b);
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.modal-footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+/* ============================================
+   PROVIDER BADGES
+   ============================================ */
+
+.provider-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary, #64748b);
+}
+
+.provider-badge::before {
+  content: "🔒";
+  font-size: 1rem;
+}
+
+.provider-badge.docusign {
+  background: rgba(255, 0, 0, 0.1);
+  color: #dc2626;
+}
+
+.provider-badge.hellosign {
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
+}
+
+.provider-badge.adobesign {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+}
+
+/* ============================================
+   TEST MODE BANNER
+   ============================================ */
+
+.test-mode-banner {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #78350f;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.test-mode-banner::before {
+  content: "⚠️";
+  font-size: 1.25rem;
+}
+
+/* ============================================
+   SIGNATURE IFRAME EMBED
+   ============================================ */
+
+.signature-embed {
+  width: 100%;
+  height: 600px;
+  border: 2px solid rgba(139, 92, 246, 0.2);
+  border-radius: 8px;
+  background: white;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .signature-section {
+    padding: 1.5rem;
+  }
+
+  .signature-actions {
+    flex-direction: column;
+  }
+
+  .btn-sign-electronically,
+  .btn-sign-later {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .modal-header {
+    padding: 1.5rem;
+  }
+
+  .modal-body {
+    padding: 1.5rem;
+  }
+
+  .modal-footer {
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes pulse-signature {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.5);
+  }
+}
+
+.btn-sign-electronically.pulse {
+  animation: pulse-signature 2s ease-in-out infinite;
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .signature-modal,
+  .signature-modal-content,
+  .btn-sign-electronically,
+  .btn-sign-later,
+  .modal-close {
+    transition: none;
+  }
+
+  .btn-sign-electronically.pulse {
+    animation: none;
+  }
+}
+
+/* Focus styles */
+.btn-sign-electronically:focus-visible,
+.btn-sign-later:focus-visible,
+.modal-close:focus-visible {
+  outline: 3px solid var(--color-primary, #8b5cf6);
+  outline-offset: 2px;
+}

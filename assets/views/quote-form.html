@@ -231,6 +231,25 @@
       </div>
     </section>
 
+    <!-- Section 4.5: Financing Options (Optional) -->
+    <section class="form-section financing-section" id="financing-section">
+      <h2 class="section-title">
+        <span class="section-number">💳</span>
+        Flexible Financing Options
+      </h2>
+      
+      <p class="section-intro">
+        Make your project more affordable with monthly payment plans. Select an option below to include financing in your quote.
+      </p>
+      
+      <div class="financing-calculator-container" id="financing-calculator-container">
+        <!-- Financing options will be loaded here via JavaScript -->
+        <div class="financing-loading">
+          <p>Calculating financing options...</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Section 5: Required Acknowledgments -->
     <section class="form-section acknowledgments-section">
       <h2 class="section-title">
@@ -283,7 +302,63 @@
         Generate Professional Quote (PDF)
       </button>
     </div>
+
+    <!-- E-Signature Section (appears after quote generation) -->
+    <div class="signature-section" id="signature-section" style="display: none;">
+      <h3>Ready to Move Forward?</h3>
+      <p>
+        Sign your quote electronically for faster processing. We use industry-standard e-signature 
+        technology (DocuSign) to protect your information and create a legally binding agreement.
+      </p>
+
+      <div class="provider-badge docusign">
+        Secured by DocuSign
+      </div>
+
+      <div class="signature-actions">
+        <button type="button" class="btn-sign-electronically" id="sign-now-btn">
+          Sign Electronically
+        </button>
+        <button type="button" class="btn-sign-later" id="sign-later-btn">
+          I'll Sign Later
+        </button>
+      </div>
+
+      <!-- Signature Status (appears after signature request created) -->
+      <div class="signature-status" id="signature-status" style="display: none;">
+        <div class="status-header">
+          <h4>Signature Status</h4>
+          <span class="status-badge pending" id="overall-status">Awaiting Signatures</span>
+        </div>
+
+        <ul class="signers-list" id="signers-list">
+          <!-- Dynamically populated -->
+        </ul>
+
+        <p style="font-size: 0.875rem; color: #64748b; margin-top: 1rem;">
+          A signature link has been sent to all parties. You'll receive email notifications when signatures are completed.
+        </p>
+      </div>
+    </div>
   </form>
+</div>
+
+<!-- E-Signature Modal (for embedded signing) -->
+<div class="signature-modal" id="signature-modal">
+  <div class="signature-modal-content">
+    <div class="modal-header">
+      <h2>Sign Your Quote</h2>
+      <button type="button" class="modal-close" id="modal-close-btn" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div id="signature-embed-container">
+        <!-- Embedded signature iframe loads here -->
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" id="modal-cancel-btn">Cancel</button>
+    </div>
+  </div>
 </div>
 
 <!-- Quote Form Script -->
@@ -391,6 +466,31 @@
       document.getElementById('estimate-tax').textContent = `$${tax.toFixed(2)}`;
       document.getElementById('estimate-total').textContent = `$${total.toFixed(2)}`;
       document.getElementById('estimate-deposit').textContent = `$${deposit.toFixed(2)}`;
+      
+      // Store total for financing calculator
+      const totalEl = document.getElementById('estimate-total');
+      if (totalEl) {
+        totalEl.setAttribute('data-total-value', total.toFixed(2));
+      }
+      
+      // Update financing options if total > 0
+      if (total > 0 && window.financingCalc) {
+        updateFinancingOptions(total);
+      }
+    }
+    
+    /**
+     * Update financing options
+     */
+    function updateFinancingOptions(total) {
+      const container = document.getElementById('financing-calculator-container');
+      if (!container || !window.financingCalc) return;
+      
+      // Get selected credit tier or default to 'good'
+      const creditTierSelect = document.getElementById('credit-tier-select');
+      const creditTier = creditTierSelect ? creditTierSelect.value : 'good';
+      
+      window.financingCalc.renderFinancingOptions(total, container, creditTier);
     }
     
     /**
@@ -563,6 +663,9 @@
      */
     function showSuccess(quoteNumber) {
       alert(`Success! Quote #${quoteNumber} has been generated and downloaded.\n\nCheck your email for a copy (if email system is configured).`);
+      
+      // Show e-signature section
+      showSignatureSection(quoteNumber);
     }
     
     /**
@@ -571,6 +674,135 @@
     function showError(message) {
       alert('Error: ' + message);
     }
+
+    /**
+     * Show e-signature section after successful quote generation
+     */
+    function showSignatureSection(quoteNumber) {
+      const section = document.getElementById('signature-section');
+      if (!section) return;
+      
+      section.style.display = 'block';
+      section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      
+      // Store current quote number for signature
+      section.setAttribute('data-quote-number', quoteNumber);
+      
+      // Pulse the sign button to draw attention
+      const signBtn = document.getElementById('sign-now-btn');
+      signBtn.classList.add('pulse');
+      setTimeout(() => signBtn.classList.remove('pulse'), 3000);
+    }
+
+    /**
+     * Handle "Sign Now" button
+     */
+    async function handleSignNow() {
+      const section = document.getElementById('signature-section');
+      const quoteNumber = section.getAttribute('data-quote-number');
+      
+      if (!quoteNumber) {
+        alert('Please generate a quote first.');
+        return;
+      }
+
+      // Get the saved quote
+      const quotes = JSON.parse(localStorage.getItem('tillerpro_quotes') || '[]');
+      const quote = quotes.find(q => q.quoteNumber === quoteNumber);
+      
+      if (!quote) {
+        alert('Quote not found. Please regenerate.');
+        return;
+      }
+
+      // Get PDF blob (in real scenario, retrieve from storage or regenerate)
+      const generator = window.QuoteGenerator;
+      const pdf = await generator.generatePDF(quote);
+      const pdfBlob = pdf.output('blob');
+
+      try {
+        // Create signature request
+        const signatureManager = window.ESignatureManager;
+        const result = await signatureManager.createSignatureRequest(quote, pdfBlob);
+
+        // Show status UI
+        showSignatureStatus(result);
+
+        // If in test mode, show helpful message
+        if (result.testMode) {
+          alert('✅ E-Signature request created in TEST MODE!\n\n' +
+                `Request ID: ${result.requestId}\n` +
+                `Status: ${result.status}\n\n` +
+                'In production, customers would receive an email with DocuSign link.\n' +
+                'Check browser console for details.');
+        }
+      } catch (error) {
+        alert('Failed to create signature request: ' + error.message);
+        console.error(error);
+      }
+    }
+
+    /**
+     * Show signature status UI
+     */
+    function showSignatureStatus(signatureRequest) {
+      const statusDiv = document.getElementById('signature-status');
+      const signersList = document.getElementById('signers-list');
+      const overallStatus = document.getElementById('overall-status');
+
+      // Populate signers
+      signersList.innerHTML = signatureRequest.signers.map(signer => `
+        <li class="signer-item">
+          <div class="signer-info">
+            <div class="signer-name">${signer.name}</div>
+            <div class="signer-email">${signer.email}</div>
+          </div>
+          <div class="signer-status ${signer.status === 'signed' ? 'signed' : 'awaiting'}">
+            ${signer.status === 'signed' ? 'Signed' : 'Awaiting Signature'}
+          </div>
+        </li>
+      `).join('');
+
+      // Update overall status
+      overallStatus.textContent = signatureRequest.status === 'completed' ? 'Completed' : 'Awaiting Signatures';
+      overallStatus.className = `status-badge ${signatureRequest.status.replace('_', '-')}`;
+
+      statusDiv.style.display = 'block';
+      
+      // Hide action buttons
+      document.querySelector('.signature-actions').style.display = 'none';
+    }
+
+    /**
+     * Handle "Sign Later" button
+     */
+    function handleSignLater() {
+      alert('No problem! You can sign your quote later.\n\nWe\'ll send you an email with a signature link that\'s valid for 30 days.');
+      
+      // Hide signature section
+      document.getElementById('signature-section').style.display = 'none';
+    }
+
+    /**
+     * Modal controls
+     */
+    function closeModal() {
+      const modal = document.getElementById('signature-modal');
+      modal.classList.remove('active');
+    }
+
+    // Event listeners for e-signature
+    document.getElementById('sign-now-btn')?.addEventListener('click', handleSignNow);
+    document.getElementById('sign-later-btn')?.addEventListener('click', handleSignLater);
+    document.getElementById('modal-close-btn')?.addEventListener('click', closeModal);
+    document.getElementById('modal-cancel-btn')?.addEventListener('click', closeModal);
+    
+    // Close modal on background click
+    document.getElementById('signature-modal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'signature-modal') {
+        closeModal();
+      }
+    });
   }
 })();
 </script>
