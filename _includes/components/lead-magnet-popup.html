@@ -1,0 +1,207 @@
+<!-- Lead Magnet Popup - Exit Intent & Scroll Trigger -->
+<div class="lead-magnet-popup" 
+     data-show-delay="30" 
+     data-scroll-percent="50"
+     style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999;">
+  
+  <!-- Overlay -->
+  <div class="lead-magnet-popup__overlay" 
+       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px);"></div>
+  
+  <!-- Popup Content -->
+  <div class="lead-magnet-popup__content" 
+       style="position: relative; max-width: 600px; margin: 5% auto; background: #fff; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.4); padding: 3rem; animation: slideIn 0.4s ease-out;">
+    
+    <!-- Close Button -->
+    <button class="lead-magnet-popup__close" 
+            aria-label="Close popup"
+            style="position: absolute; top: 1rem; right: 1rem; background: transparent; border: none; font-size: 2rem; line-height: 1; cursor: pointer; color: #666; transition: color 0.2s;">
+      ×
+    </button>
+    
+    <!-- Headline with Icon -->
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <div style="font-size: 4rem; margin-bottom: 1rem;">🎁</div>
+      <h2 style="font-size: 2rem; font-weight: 900; color: #1a1a1a; margin-bottom: 0.5rem; line-height: 1.2;">
+        Wait! Get Your FREE Guide
+      </h2>
+      <p style="font-size: 1.125rem; color: #666; font-weight: 600;">
+        + Save $250 on Your First Project
+      </p>
+    </div>
+    
+    <!-- Value Proposition -->
+    <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; border-left: 6px solid #00a35c;">
+      <h3 style="font-size: 1.25rem; font-weight: 800; color: #00a35c; margin-bottom: 1rem;">
+        📋 NJ Homeowner's Tile & Bathroom Checklist
+      </h3>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        <li style="padding: 0.5rem 0; display: flex; align-items: flex-start; gap: 0.75rem;">
+          <span style="color: #00a35c; font-weight: 900; font-size: 1.25rem; flex-shrink: 0;">✓</span>
+          <span style="color: #1a1a1a; font-weight: 600;">How to spot red flags before hiring a contractor</span>
+        </li>
+        <li style="padding: 0.5rem 0; display: flex; align-items: flex-start; gap: 0.75rem;">
+          <span style="color: #00a35c; font-weight: 900; font-size: 1.25rem; flex-shrink: 0;">✓</span>
+          <span style="color: #1a1a1a; font-weight: 600;">NJ building code requirements for bathrooms</span>
+        </li>
+        <li style="padding: 0.5rem 0; display: flex; align-items: flex-start; gap: 0.75rem;">
+          <span style="color: #00a35c; font-weight: 900; font-size: 1.25rem; flex-shrink: 0;">✓</span>
+          <span style="color: #1a1a1a; font-weight: 600;">TCNA waterproofing standards explained</span>
+        </li>
+        <li style="padding: 0.5rem 0; display: flex; align-items: flex-start; gap: 0.75rem;">
+          <span style="color: #00a35c; font-weight: 900; font-size: 1.25rem; flex-shrink: 0;">✓</span>
+          <span style="color: #1a1a1a; font-weight: 600;">Cost breakdown & budget planning worksheet</span>
+        </li>
+        <li style="padding: 0.5rem 0; display: flex; align-items: flex-start; gap: 0.75rem;">
+          <span style="color: #00a35c; font-weight: 900; font-size: 1.25rem; flex-shrink: 0;">✓</span>
+          <span style="color: #1a1a1a; font-weight: 600;"><strong>BONUS:</strong> $250 discount code for first project</span>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Lead Capture Form -->
+    <form class="lead-magnet-popup__form" 
+          name="lead-magnet" 
+          method="POST" 
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="/success/?form=lead-magnet"
+          style="display: flex; flex-direction: column; gap: 1rem;">
+      
+      <!-- Honeypot -->
+      <input type="hidden" name="bot-field" />
+      <input type="hidden" name="form-name" value="lead-magnet" />
+      <input type="hidden" name="lead-magnet-type" value="NJ Homeowner Checklist" />
+      
+      <!-- Name Field -->
+      <div>
+        <label for="lm-name" style="display: block; font-weight: 700; margin-bottom: 0.5rem; color: #1a1a1a;">
+          First Name <span style="color: #dc2626;">*</span>
+        </label>
+        <input type="text" 
+               id="lm-name" 
+               name="name" 
+               required 
+               placeholder="Enter your first name"
+               style="width: 100%; padding: 0.875rem 1rem; border: 2px solid #d1d5db; border-radius: 8px; font-size: 1rem; font-family: inherit; transition: border-color 0.2s;">
+      </div>
+      
+      <!-- Email Field -->
+      <div>
+        <label for="lm-email" style="display: block; font-weight: 700; margin-bottom: 0.5rem; color: #1a1a1a;">
+          Email Address <span style="color: #dc2626;">*</span>
+        </label>
+        <input type="email" 
+               id="lm-email" 
+               name="email" 
+               required 
+               placeholder="your@email.com"
+               style="width: 100%; padding: 0.875rem 1rem; border: 2px solid #d1d5db; border-radius: 8px; font-size: 1rem; font-family: inherit; transition: border-color 0.2s;">
+      </div>
+      
+      <!-- Optional: Project Timeline -->
+      <div>
+        <label for="lm-timeline" style="display: block; font-weight: 700; margin-bottom: 0.5rem; color: #1a1a1a;">
+          When are you planning to start? <span style="color: #666; font-weight: 400;">(Optional)</span>
+        </label>
+        <select id="lm-timeline" 
+                name="timeline"
+                style="width: 100%; padding: 0.875rem 1rem; border: 2px solid #d1d5db; border-radius: 8px; font-size: 1rem; font-family: inherit; background: #fff; cursor: pointer;">
+          <option value="">Select timeframe...</option>
+          <option value="ASAP">ASAP (Next 2 weeks)</option>
+          <option value="1-3 months">1-3 months</option>
+          <option value="3-6 months">3-6 months</option>
+          <option value="6-12 months">6-12 months</option>
+          <option value="just-researching">Just researching</option>
+        </select>
+      </div>
+      
+      <!-- Privacy Notice -->
+      <p style="font-size: 0.875rem; color: #666; margin: 0;">
+        We respect your privacy. Your information is 100% secure and will never be shared. 
+        <a href="/privacy/" style="color: #00a35c; text-decoration: underline;">Privacy Policy</a>
+      </p>
+      
+      <!-- Submit Button -->
+      <button type="submit" 
+              class="lead-magnet-submit"
+              style="width: 100%; padding: 1rem 2rem; background: linear-gradient(135deg, #00a35c 0%, #00875a 100%); color: #fff; border: none; border-radius: 8px; font-size: 1.125rem; font-weight: 900; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 12px rgba(0,163,92,0.3);">
+        🎁 Get My FREE Guide + $250 Discount
+      </button>
+    </form>
+    
+    <!-- Trust Badge -->
+    <div style="text-align: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid #e5e7eb;">
+      <p style="font-size: 0.875rem; color: #666; margin: 0; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
+        <span style="font-size: 1.25rem;">🔒</span>
+        <span style="font-weight: 700;">Instant delivery</span>
+        <span>•</span>
+        <span style="font-weight: 700;">No spam ever</span>
+        <span>•</span>
+        <span>Join 300+ homeowners</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Popup Animation Keyframes -->
+<style>
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.lead-magnet-popup__content input:focus,
+.lead-magnet-popup__content select:focus {
+  outline: none;
+  border-color: #00a35c;
+  box-shadow: 0 0 0 3px rgba(0,163,92,0.1);
+}
+
+.lead-magnet-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,163,92,0.4);
+}
+
+.lead-magnet-submit:active {
+  transform: translateY(0);
+}
+
+.lead-magnet-popup__close:hover {
+  color: #000;
+  transform: scale(1.1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+  .lead-magnet-popup__content {
+    margin: 2% auto;
+    padding: 2rem 1.5rem !important;
+    max-width: 95% !important;
+  }
+  
+  .lead-magnet-popup__content h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  .lead-magnet-popup__content h3 {
+    font-size: 1.125rem !important;
+  }
+}
+</style>
+
+<!-- Initialize Lead Magnet System -->
+<script src="{{ '/assets/js/lead-magnet-system.js' | relative_url }}" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof LeadMagnet !== 'undefined') {
+      LeadMagnet.init();
+    }
+  });
+</script>

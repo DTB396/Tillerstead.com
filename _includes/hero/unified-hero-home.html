@@ -23,7 +23,19 @@ waterproofing assemblies, and bathroom remodeling for South Jersey, New Jersey h
 <section class="ts-hero ts-hero--home{% unless image %} ts-hero--no-image{% endunless %}" aria-labelledby="hero-title">
   <div class="ts-hero__inner container container--wide">
     <div class="ts-hero__body">
-      <p class="ts-hero__eyebrow eyebrow" style="color: #ffd700; font-weight: 900; font-size: 1.125rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8); background: rgba(0,107,61,0.9); padding: 0.75rem 1.5rem; border-radius: 50px; display: inline-block; border: 3px solid #ffd700;">{{ hero_eyebrow }}</p>
+      <div class="ts-hero__badges" style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+        <p class="ts-hero__eyebrow eyebrow" style="color: #ffd700; font-weight: 900; font-size: 1.125rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8); background: rgba(0,107,61,0.9); padding: 0.75rem 1.5rem; border-radius: 50px; display: inline-block; border: 3px solid #ffd700; margin: 0;">{{ hero_eyebrow }}</p>
+        
+        <span class="hero-social-proof" style="background: rgba(255,215,0,0.95); color: #000; font-weight: 900; padding: 0.75rem 1.5rem; border-radius: 50px; border: 3px solid #ffd700; font-size: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 12px rgba(255,215,0,0.4);">
+          <span style="font-size: 1.25rem;">⭐⭐⭐⭐⭐</span>
+          <span>47+ Five-Star Reviews</span>
+        </span>
+        
+        <span class="hero-urgency" style="background: rgba(220,38,38,0.95); color: #fff; font-weight: 900; padding: 0.75rem 1.5rem; border-radius: 50px; border: 3px solid #fca5a5; font-size: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 12px rgba(220,38,38,0.4); animation: pulse-urgency 2s infinite;">
+          <span style="font-size: 1.25rem;">🔥</span>
+          <span>Booking Spring 2026 Now</span>
+        </span>
+      </div>
 
       <h1 id="hero-title" class="ts-hero__title" style="color: #000000; font-weight: 900; font-size: clamp(2.5rem, 7vw, 4.5rem); text-shadow: 0 3px 10px rgba(255,255,255,1); line-height: 1.1; margin: 1.5rem 0;">{{ hero_title }}</h1>
 
@@ -44,7 +56,10 @@ waterproofing assemblies, and bathroom remodeling for South Jersey, New Jersey h
 
       <div class="ts-hero__actions">
         {% if actions == "default" %}
-        <a class="btn btn--primary" href="{{ '/contact/' | relative_url }}">Request Free Estimate</a>
+        <a class="btn btn--primary" href="{{ '/contact/' | relative_url }}" style="position: relative; overflow: visible;">
+          Request Free Estimate
+          <span class="cta-urgency-badge" style="position: absolute; top: -12px; right: -12px; background: #dc2626; color: #fff; font-size: 0.75rem; font-weight: 900; padding: 0.25rem 0.75rem; border-radius: 50px; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.3); white-space: nowrap;">Get $250 Off</span>
+        </a>
         <a class="btn btn--ghost" href="{{ '/portfolio/' | relative_url }}">See Our Work</a>
         {% else %}
         {% for action in actions %}

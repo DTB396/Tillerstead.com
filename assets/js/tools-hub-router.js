@@ -193,6 +193,11 @@
         // Render content with fade transition
         await this.fadeTransition(content);
         
+        // Load adapter if configured
+        if (route.meta && route.meta.adapter) {
+          await this.loadAdapter(route.meta.adapter);
+        }
+        
       } catch (error) {
         console.error('[Router] Failed to load component:', error);
         this.container.innerHTML = `
@@ -291,6 +296,74 @@
       if (activeEl) {
         activeEl.classList.add('active');
         activeEl.setAttribute('aria-current', 'page');
+      }
+    }
+
+    /**
+     * Load adapter script for calculator
+     * @param {string} adapterPath - Path to adapter script
+     */
+    async loadAdapter(adapterPath) {
+      return new Promise((resolve, reject) => {
+        // Check if already loaded
+        const existingScript = document.querySelector(`script[src="${adapterPath}"]`);
+        if (existingScript) {
+          console.log(`[Router] Adapter already loaded: ${adapterPath}`);
+          // Re-initialize adapter
+          this.initializeAdapter(adapterPath);
+          resolve();
+          return;
+        }
+        
+        // Create script element
+        const script = document.createElement('script');
+        script.src = adapterPath;
+        script.async = false; // Ensure sequential loading
+        
+        script.onload = () => {
+          console.log(`[Router] Adapter loaded: ${adapterPath}`);
+          // Give adapter time to initialize
+          setTimeout(() => {
+            this.initializeAdapter(adapterPath);
+            resolve();
+          }, 50);
+        };
+        
+        script.onerror = () => {
+          console.error(`[Router] Failed to load adapter: ${adapterPath}`);
+          reject(new Error(`Failed to load adapter: ${adapterPath}`));
+        };
+        
+        document.head.appendChild(script);
+      });
+    }
+
+    /**
+     * Initialize adapter after loading
+     * @param {string} adapterPath - Path to adapter script
+     */
+    initializeAdapter(adapterPath) {
+      // Extract adapter name from path
+      const adapterName = adapterPath.split('/').pop().replace('.js', '');
+      
+      // Map adapter file names to class names
+      const adapterClasses = {
+        'tile-calculator-adapter': 'TileCalculatorAdapter',
+        'grout-calculator-adapter': 'GroutCalculatorAdapter',
+        'mortar-calculator-adapter': 'MortarCalculatorAdapter',
+        'waterproofing-calculator-adapter': 'WaterproofingCalculatorAdapter',
+        'slope-calculator-adapter': 'SlopeCalculatorAdapter',
+        'leveling-calculator-adapter': 'LevelingCalculatorAdapter',
+        'labor-estimator-adapter': 'LaborEstimatorAdapter'
+      };
+      
+      const className = adapterClasses[adapterName];
+      if (className && window[className]) {
+        console.log(`[Router] Initializing adapter: ${className}`);
+        const adapter = new window[className]();
+        adapter.init();
+      } else {
+        console.warn(`[Router] Adapter class not found: ${className}`);
       }
     }
 
@@ -407,7 +480,12 @@
         const html = await response.text();
         return `<div class="calculator-view" data-calc="tile">${html}</div>`;
       },
-      meta: { title: 'Tile Calculator', icon: '🧱', category: 'coverage' }
+      meta: { 
+        title: 'Tile Calculator', 
+        icon: '🧱', 
+        category: 'coverage',
+        adapter: '/assets/js/adapters/tile-calculator-adapter.js'
+      }
     });
 
     // Grout Calculator
@@ -418,7 +496,12 @@
         const html = await response.text();
         return `<div class="calculator-view" data-calc="grout">${html}</div>`;
       },
-      meta: { title: 'Grout Calculator', icon: '🪣', category: 'coverage' }
+      meta: { 
+        title: 'Grout Calculator', 
+        icon: '🪣', 
+        category: 'coverage',
+        adapter: '/assets/js/adapters/grout-calculator-adapter.js'
+      }
     });
 
     // Mortar Calculator
@@ -429,7 +512,12 @@
         const html = await response.text();
         return `<div class="calculator-view" data-calc="mortar">${html}</div>`;
       },
-      meta: { title: 'Mortar Calculator', icon: '🔧', category: 'coverage' }
+      meta: { 
+        title: 'Mortar Calculator', 
+        icon: '🔧', 
+        category: 'coverage',
+        adapter: '/assets/js/adapters/mortar-calculator-adapter.js'
+      }
     });
 
     // Waterproofing Calculator
@@ -440,7 +528,12 @@
         const html = await response.text();
         return `<div class="calculator-view" data-calc="waterproof">${html}</div>`;
       },
-      meta: { title: 'Waterproofing Calculator', icon: '💧', category: 'coverage' }
+      meta: { 
+        title: 'Waterproofing Calculator', 
+        icon: '💧', 
+        category: 'coverage',
+        adapter: '/assets/js/adapters/waterproofing-calculator-adapter.js'
+      }
     });
 
     // Shower Slope Calculator
@@ -451,7 +544,12 @@
         const html = await response.text();
         return `<div class="calculator-view" data-calc="slope">${html}</div>`;
       },
-      meta: { title: 'Shower Slope Calculator', icon: '📐', category: 'structural' }
+      meta: { 
+        title: 'Shower Slope Calculator', 
+        icon: '📐', 
+        category: 'structural',
+        adapter: '/assets/js/adapters/slope-calculator-adapter.js'
+      }
     });
 
     // Self-Leveling Calculator
@@ -462,7 +560,12 @@
         const html = await response.text();
         return `<div class="calculator-view" data-calc="leveling">${html}</div>`;
       },
-      meta: { title: 'Self-Leveling Calculator', icon: '📏', category: 'prepfinish' }
+      meta: { 
+        title: 'Self-Leveling Calculator', 
+        icon: '📏', 
+        category: 'prepfinish',
+        adapter: '/assets/js/adapters/leveling-calculator-adapter.js'
+      }
     });
 
     // Labor Calculator
@@ -473,7 +576,12 @@
         const html = await response.text();
         return `<div class="calculator-view" data-calc="labor">${html}</div>`;
       },
-      meta: { title: 'Labor Estimate', icon: '⏱️', category: 'other' }
+      meta: { 
+        title: 'Labor Estimate', 
+        icon: '⏱️', 
+        category: 'other',
+        adapter: '/assets/js/adapters/labor-estimator-adapter.js'
+      }
     });
 
     // Pattern Visualizer

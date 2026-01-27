@@ -28,6 +28,12 @@
   </main>
   {% include layout/footer.html %}
   {% include components/c-sticky-mobile-cta.html %}
+  
+  {%- comment -%} Lead Magnet - Homepage only {%- endcomment -%}
+  {% if page.is_home == true %}
+  {% include components/lead-magnet-popup.html %}
+  {% endif %}
+  
   {% include components/a11y-toolbar.html %}
   {% include layout/scripts.html %}
   <script>
