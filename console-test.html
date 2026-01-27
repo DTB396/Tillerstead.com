@@ -1,0 +1,411 @@
+---
+layout: default
+title: Browser Console Testing & DevTools
+meta_description: High-end web development testing tools for Chrome, Firefox, Safari, Edge
+robots: noindex, nofollow
+---
+
+<style>
+  .test-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .test-section {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .code-block {
+    background: #1f2937;
+    color: #10b981;
+    padding: 1.5rem;
+    border-radius: 8px;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 14px;
+    overflow-x: auto;
+    margin: 1rem 0;
+  }
+  
+  .command {
+    color: #60a5fa;
+  }
+  
+  .output {
+    color: #d1d5db;
+  }
+  
+  .test-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .test-card {
+    background: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s;
+  }
+  
+  .test-card:hover {
+    border-color: #10b981;
+    box-shadow: 0 8px 16px rgba(16, 185, 129, 0.1);
+  }
+  
+  .test-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0.25rem;
+  }
+  
+  .badge-chrome {
+    background: #4285f4;
+    color: white;
+  }
+  
+  .badge-firefox {
+    background: #ff7139;
+    color: white;
+  }
+  
+  .badge-safari {
+    background: #006cff;
+    color: white;
+  }
+  
+  .badge-edge {
+    background: #0078d7;
+    color: white;
+  }
+</style>
+
+<div class="test-container">
+  <h1>🔧 Browser Console Testing & High-End DevTools</h1>
+  <p class="subtitle">Professional web development testing suite for Chrome, Firefox, Safari, and Edge</p>
+  
+  <!-- Quick Start -->
+  <section class="test-section">
+    <h2>🚀 Quick Start</h2>
+    <p>Open your browser DevTools and type these commands in the console:</p>
+    
+    <div class="code-block">
+      <div class="command">debug.help()</div>
+      <div class="output">// Shows all available debug commands</div>
+      <br>
+      <div class="command">debug.perf()</div>
+      <div class="output">// Run performance analysis</div>
+      <br>
+      <div class="command">debug.layers()</div>
+      <div class="output">// Check z-index layer system</div>
+    </div>
+  </section>
+  
+  <!-- Available Tools -->
+  <section class="test-section">
+    <h2>🛠️ Available Debug Tools</h2>
+    
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-icon">🧱</div>
+        <h3>debug.layers()</h3>
+        <p>Analyze z-index layer hierarchy</p>
+        <ul>
+          <li>Shows all layered elements</li>
+          <li>Detects high z-index values</li>
+          <li>Identifies layer conflicts</li>
+        </ul>
+        <div>
+          <span class="badge badge-chrome">Chrome</span>
+          <span class="badge badge-firefox">Firefox</span>
+          <span class="badge badge-safari">Safari</span>
+          <span class="badge badge-edge">Edge</span>
+        </div>
+      </div>
+      
+      <div class="test-card">
+        <div class="test-icon">⚡</div>
+        <h3>debug.perf()</h3>
+        <p>Performance metrics analysis</p>
+        <ul>
+          <li>Core Web Vitals (LCP, FID, CLS)</li>
+          <li>Resource timing breakdown</li>
+          <li>Memory usage stats</li>
+        </ul>
+        <div>
+          <span class="badge badge-chrome">Chrome</span>
+          <span class="badge badge-firefox">Firefox</span>
+          <span class="badge badge-edge">Edge</span>
+        </div>
+      </div>
+      
+      <div class="test-card">
+        <div class="test-icon">🎨</div>
+        <h3>debug.css()</h3>
+        <p>CSS analysis and optimization</p>
+        <ul>
+          <li>Stylesheet count & size</li>
+          <li>Rule and selector stats</li>
+          <li>Inline vs external CSS</li>
+        </ul>
+        <div>
+          <span class="badge badge-chrome">Chrome</span>
+          <span class="badge badge-firefox">Firefox</span>
+          <span class="badge badge-safari">Safari</span>
+          <span class="badge badge-edge">Edge</span>
+        </div>
+      </div>
+      
+      <div class="test-card">
+        <div class="test-icon">🖼️</div>
+        <h3>debug.images()</h3>
+        <p>Image optimization checker</p>
+        <ul>
+          <li>Oversized image detection</li>
+          <li>Lazy loading verification</li>
+          <li>Missing alt text alerts</li>
+        </ul>
+        <div>
+          <span class="badge badge-chrome">Chrome</span>
+          <span class="badge badge-firefox">Firefox</span>
+          <span class="badge badge-safari">Safari</span>
+          <span class="badge badge-edge">Edge</span>
+        </div>
+      </div>
+      
+      <div class="test-card">
+        <div class="test-icon">♿</div>
+        <h3>debug.a11y()</h3>
+        <p>Accessibility quick check</p>
+        <ul>
+          <li>Missing alt text</li>
+          <li>Form label validation</li>
+          <li>Heading hierarchy</li>
+          <li>ARIA role checks</li>
+        </ul>
+        <div>
+          <span class="badge badge-chrome">Chrome</span>
+          <span class="badge badge-firefox">Firefox</span>
+          <span class="badge badge-safari">Safari</span>
+          <span class="badge badge-edge">Edge</span>
+        </div>
+      </div>
+      
+      <div class="test-card">
+        <div class="test-icon">📱</div>
+        <h3>debug.mobile()</h3>
+        <p>Mobile layout testing</p>
+        <ul>
+          <li>Viewport size check</li>
+          <li>Touch target validation</li>
+          <li>Mobile-specific element hiding</li>
+        </ul>
+        <div>
+          <span class="badge badge-chrome">Chrome</span>
+          <span class="badge badge-firefox">Firefox</span>
+          <span class="badge badge-safari">Safari</span>
+          <span class="badge badge-edge">Edge</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Performance Metrics -->
+  <section class="test-section">
+    <h2>📊 Automatic Performance Monitoring</h2>
+    <p>Real User Metrics (RUM) are automatically collected in development mode:</p>
+    
+    <div class="code-block">
+      <div class="command">// Automatically reported on page load</div>
+      <div class="output">📊 Web Vitals Performance Report</div>
+      <div class="output">LCP (Largest Contentful Paint): ✅ 1845 ms (Good)</div>
+      <div class="output">FID (First Input Delay): ✅ 12 ms (Good)</div>
+      <div class="output">CLS (Cumulative Layout Shift): ✅ 0.045 (Good)</div>
+      <div class="output">FCP (First Contentful Paint): ✅ 1234 ms (Good)</div>
+      <div class="output">TTFB (Time to First Byte): ✅ 287 ms (Good)</div>
+      <div class="output">Overall Performance Score: 95/100</div>
+    </div>
+    
+    <h3>Manual Trigger:</h3>
+    <div class="code-block">
+      <div class="command">window.reportWebVitals()</div>
+      <div class="output">// Re-measure and report all Web Vitals</div>
+      <br>
+      <div class="command">window.analyzeResourceTiming()</div>
+      <div class="output">// Detailed resource loading breakdown</div>
+    </div>
+  </section>
+  
+  <!-- Advanced Testing -->
+  <section class="test-section">
+    <h2>🧪 Advanced Testing Commands</h2>
+    
+    <h3>Export Debug Report</h3>
+    <div class="code-block">
+      <div class="command">debug.export()</div>
+      <div class="output">// Downloads comprehensive JSON report with:</div>
+      <div class="output">// - Performance metrics</div>
+      <div class="output">// - Resource counts</div>
+      <div class="output">// - User agent info</div>
+      <div class="output">// - Viewport dimensions</div>
+    </div>
+    
+    <h3>Clean Console & Caches</h3>
+    <div class="code-block">
+      <div class="command">debug.clean()</div>
+      <div class="output">// Clears console, localStorage, sessionStorage</div>
+    </div>
+  </section>
+  
+  <!-- Browser Compatibility -->
+  <section class="test-section">
+    <h2>🌐 Browser Compatibility</h2>
+    
+    <table style="width: 100%; border-collapse: collapse;">
+      <thead>
+        <tr style="background: #f3f4f6;">
+          <th style="padding: 1rem; text-align: left;">Feature</th>
+          <th style="padding: 1rem; text-align: center;">Chrome</th>
+          <th style="padding: 1rem; text-align: center;">Firefox</th>
+          <th style="padding: 1rem; text-align: center;">Safari</th>
+          <th style="padding: 1rem; text-align: center;">Edge</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding: 0.75rem;">Debug Tools</td>
+          <td style="padding: 0.75rem; text-align: center;">✅</td>
+          <td style="padding: 0.75rem; text-align: center;">✅</td>
+          <td style="padding: 0.75rem; text-align: center;">✅</td>
+          <td style="padding: 0.75rem; text-align: center;">✅</td>
+        </tr>
+        <tr style="background: #f9fafb;">
+          <td style="padding: 0.75rem;">Performance Metrics</td>
+          <td style="padding: 0.75rem; text-align: center;">✅</td>
+          <td style="padding: 0.75rem; text-align: center;">✅</td>
+          <td style="padding: 0.75rem; text-align: center;">⚠️ Partial</td>
+          <td style="padding: 0.75rem; text-align: center;">✅</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.75rem;">Memory Monitoring</td>
+          <td style="padding: 0.75rem; text-align: center;">✅</td>
+          <td style="padding: 0.75rem; text-align: center;">❌</td>
+          <td style="padding: 0.75rem; text-align: center;">❌</td>
+          <td style="padding: 0.75rem; text-align: center;">✅</td>
+        </tr>
+        <tr style="background: #f9fafb;">
+          <td style="padding: 0.75rem;">Resource Timing</td>
+          <td style="padding: 0.75rem; text-align: center;">✅</td>
+          <td style="padding: 0.75rem; text-align: center;">✅</td>
+          <td style="padding: 0.75rem; text-align: center;">✅</td>
+          <td style="padding: 0.75rem; text-align: center;">✅</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.75rem;">Layout Shift (CLS)</td>
+          <td style="padding: 0.75rem; text-align: center;">✅</td>
+          <td style="padding: 0.75rem; text-align: center;">✅</td>
+          <td style="padding: 0.75rem; text-align: center;">⚠️ Limited</td>
+          <td style="padding: 0.75rem; text-align: center;">✅</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  
+  <!-- Testing Workflow -->
+  <section class="test-section">
+    <h2>🔄 Recommended Testing Workflow</h2>
+    
+    <ol style="line-height: 2;">
+      <li><strong>Initial Load:</strong> Check automatic performance report in console</li>
+      <li><strong>Layer Check:</strong> Run <code>debug.layers()</code> to verify z-index system</li>
+      <li><strong>Performance:</strong> Run <code>debug.perf()</code> for detailed metrics</li>
+      <li><strong>Accessibility:</strong> Run <code>debug.a11y()</code> for quick a11y check</li>
+      <li><strong>Images:</strong> Run <code>debug.images()</code> to check optimization</li>
+      <li><strong>Mobile Test:</strong> Resize to mobile viewport, run <code>debug.mobile()</code></li>
+      <li><strong>Export Report:</strong> Run <code>debug.export()</code> for full diagnostic</li>
+    </ol>
+  </section>
+  
+  <!-- Live Demo -->
+  <section class="test-section">
+    <h2>💻 Try It Now</h2>
+    <p>Open your browser's DevTools console (F12 or Cmd+Opt+I) and start testing!</p>
+    
+    <button onclick="runDemo()" style="padding: 1rem 2rem; background: #10b981; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 16px;">
+      Run Quick Demo
+    </button>
+    
+    <div id="demo-output" style="margin-top: 1.5rem; padding: 1rem; background: #f3f4f6; border-radius: 6px; display: none;">
+      <h4>Demo Results:</h4>
+      <pre id="demo-results" style="overflow-x: auto;"></pre>
+    </div>
+  </section>
+</div>
+
+<script>
+  function runDemo() {
+    const output = document.getElementById('demo-output');
+    const results = document.getElementById('demo-results');
+    
+    output.style.display = 'block';
+    
+    // Run all debug commands
+    const report = [];
+    
+    report.push('=== Z-Index Layers ===');
+    if (window.debug && window.debug.layers) {
+      console.log('Running debug.layers()...');
+      // Capture layer count
+      const elements = document.querySelectorAll('*');
+      const layered = Array.from(elements).filter(el => {
+        const z = window.getComputedStyle(el).zIndex;
+        return z !== 'auto' && z !== '0';
+      });
+      report.push(`Layered elements: ${layered.length}`);
+    }
+    
+    report.push('\n=== Performance ===');
+    if (window.measureWebVitals) {
+      report.push('Performance metrics available in console');
+    }
+    
+    report.push('\n=== Accessibility ===');
+    const imgsNoAlt = document.querySelectorAll('img:not([alt])').length;
+    report.push(`Images without alt: ${imgsNoAlt}`);
+    
+    report.push('\n=== Images ===');
+    const totalImages = document.querySelectorAll('img').length;
+    report.push(`Total images: ${totalImages}`);
+    
+    report.push('\n=== CSS ===');
+    const sheets = document.styleSheets.length;
+    report.push(`Stylesheets: ${sheets}`);
+    
+    report.push('\n✅ Demo complete! Check console for detailed output.');
+    
+    results.textContent = report.join('\n');
+    
+    // Run actual debug commands in console
+    console.group('🧪 Quick Demo Results');
+    if (window.debug) {
+      window.debug.layers();
+      window.debug.perf();
+      window.debug.a11y();
+    }
+    console.groupEnd();
+  }
+</script>

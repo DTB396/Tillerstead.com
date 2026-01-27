@@ -1,0 +1,32 @@
+{
+  "name": "tillerstead-testing",
+  "version": "1.0.0",
+  "description": "High-end web dev testing tools",
+  "type": "module",
+  "scripts": {
+    "test:console": "node scripts/browser-console-test.js",
+    "test:lighthouse": "lighthouse http://localhost:4000 --output=html --output-path=./test-results/lighthouse.html --view",
+    "test:axe": "node scripts/axe-accessibility-test.js",
+    "test:performance": "node scripts/performance-test.js",
+    "test:all": "npm run test:console && npm run test:lighthouse",
+    "analyze:bundle": "webpack-bundle-analyzer stats.json",
+    "analyze:deps": "depcheck",
+    "validate:html": "html-validate '**/*.html' --ignore 'node_modules/**' '_site/**'",
+    "validate:css": "stylelint 'assets/css/**/*.css'",
+    "validate:js": "eslint 'assets/js/**/*.js'",
+    "audit:security": "npm audit --production",
+    "audit:lighthouse": "lhci autorun"
+  },
+  "devDependencies": {
+    "@axe-core/puppeteer": "^4.8.1",
+    "@lhci/cli": "^0.13.0",
+    "depcheck": "^1.4.7",
+    "eslint": "^8.56.0",
+    "html-validate": "^8.9.1",
+    "lighthouse": "^11.5.0",
+    "puppeteer": "^21.9.0",
+    "stylelint": "^16.1.0",
+    "stylelint-config-standard": "^36.0.0",
+    "webpack-bundle-analyzer": "^4.10.1"
+  }
+}

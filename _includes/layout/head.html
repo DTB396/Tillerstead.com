@@ -212,6 +212,12 @@
 <!-- Progressive Image Loading (LQIP blur-up) -->
 <script src="{{ '/assets/js/progressive-image.js' | relative_url }}" defer></script>
 
+<!-- Performance Metrics & Debug Tools (dev only) -->
+{% if jekyll.environment == 'development' %}
+<script src="{{ '/assets/js/performance-metrics.js' | relative_url }}" type="module"></script>
+<script src="{{ '/assets/js/console-debug-tools.js' | relative_url }}"></script>
+{% endif %}
+
 <!-- Prefetch secondary pages for instant navigation -->
 {% if page.url == '/' %}
 <link rel="prefetch" href="{{ '/portfolio/' | relative_url }}" as="document" />
