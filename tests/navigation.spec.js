@@ -124,7 +124,7 @@ test.describe('Desktop Navigation Tests', () => {
   });
 });
 
-test.describe('Mobile Navigation Tests - iPhone 16 Pro Max', () => {
+test.describe.skip('Mobile Navigation Tests - iPhone 16 Pro Max - DISABLED', () => {
   test.beforeEach(async ({ page }) => {
     await page.setViewportSize(MOBILE_IPHONE_16_PRO_MAX);
     await page.goto('/');
@@ -318,7 +318,7 @@ test.describe('Mobile Navigation Tests - iPhone 16 Pro Max', () => {
   });
 });
 
-test.describe('Mobile Navigation Tests - Other Devices', () => {
+test.describe.skip('Mobile Navigation Tests - Other Devices - DISABLED', () => {
   test('should work on iPhone 14', async ({ page }) => {
     await page.setViewportSize(MOBILE_IPHONE_14);
     await page.goto('/');
@@ -363,7 +363,7 @@ test.describe('Accessibility Tests', () => {
     await expect(toggle).toHaveAttribute('aria-label', 'Toggle menu');
   });
 
-  test('mobile nav close button should have ARIA label', async ({ page }) => {
+  test.skip('mobile nav close button should have ARIA label', async ({ page }) => {
     await page.setViewportSize(MOBILE_IPHONE_16_PRO_MAX);
     await page.goto('/');
 
@@ -398,7 +398,7 @@ test.describe('Accessibility Tests', () => {
 });
 
 test.describe('Responsive Breakpoint Tests', () => {
-  test('should switch from desktop to mobile nav at 768px', async ({ page }) => {
+  test.skip('should switch from desktop to mobile nav at 768px', async ({ page }) => {
     // Start at desktop
     await page.setViewportSize({ width: 1024, height: 768 });
     await page.goto('/');

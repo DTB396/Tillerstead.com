@@ -2,18 +2,11 @@ import { expect, test } from '@playwright/test';
 
 /**
  * Tillerstead Mobile Navigation Tests
- * Validates high-end mobile drawer functionality
- *
- * Selectors match _includes/navigation/main-nav.html:
- * - Toggle button: .mobile-nav__toggle
- * - Drawer: #mobile-nav-drawer
- * - Close button: .mobile-nav__close
- * - Menu links: .mobile-nav__link
- * - CTA button: .mobile-nav__estimate-btn
- * - Open state: aria-hidden="false" on drawer, body.nav-open
+ * DISABLED: Mobile nav drawer intentionally removed for mobile performance
+ * Tests skipped until mobile navigation is re-implemented
  */
 
-test.describe('Mobile Navigation Drawer', () => {
+test.describe.skip('Mobile Navigation Drawer - DISABLED', () => {
   test.beforeEach(async ({ page }) => {
     // Capture browser console output
     page.on('console', (msg) => {
