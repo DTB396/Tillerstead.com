@@ -57,10 +57,25 @@ primary:
     url: "/reviews/"
     match: "^/reviews(/|$)"
 
+  # --- Tools & TillerPro dropdown ---
   - id: tools
-    title: "Tools"
+    title: "Tools & Pro"
     url: "/tools/"
     match: "^/tools(/|$)"
+    has_dropdown: true
+    children:
+      - id: tillerpro-suite
+        title: "TillerPro™ Suite"
+        subtitle: "Professional Quote System"
+        url: "/tools-hub/"
+        icon: "⚡"
+        featured: true
+      - id: calculators
+        title: "Project Calculators"
+        url: "/tools/"
+      - id: visualizer
+        title: "Tile Visualizer"
+        url: "/tile-visualizer/"
 
   # --- About dropdown (merged Company + About) ---
   - id: about

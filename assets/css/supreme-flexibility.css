@@ -1,0 +1,470 @@
+/**
+ * SUPREME FLEXIBILITY - Universal Device Adaptation
+ * 
+ * Fluid, adaptive design for EVERY screen size and console type:
+ * - Gaming consoles (Nintendo Switch, Steam Deck, PlayStation Portal)
+ * - Smart TVs (720p, 1080p, 4K, 8K)
+ * - Ultrawide monitors (21:9, 32:9)
+ * - Vertical displays (portrait monitors)
+ * - Foldable devices (Galaxy Z Fold, Surface Duo)
+ * - Mini tablets (iPad mini, Kindle Fire)
+ * - E-readers
+ * - In-car displays
+ * - Kiosks and digital signage
+ * 
+ * Philosophy: NO fixed breakpoints - FLUID everywhere
+ */
+
+/* ====================================
+   FLUID TYPOGRAPHY - Scales Perfectly
+   ==================================== */
+
+:root {
+  /* Base fluid sizing that works on ANY screen */
+  --fluid-min: 320;
+  --fluid-max: 3840;
+  --fluid-screen: 100vw;
+  
+  /* Fluid font sizes - adapt to ANY viewport */
+  --font-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.875rem);
+  --font-sm: clamp(0.8rem, 0.75rem + 0.3vw, 1rem);
+  --font-base: clamp(0.95rem, 0.85rem + 0.5vw, 1.125rem);
+  --font-md: clamp(1.1rem, 1rem + 0.6vw, 1.35rem);
+  --font-lg: clamp(1.25rem, 1.1rem + 0.75vw, 1.75rem);
+  --font-xl: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+  --font-2xl: clamp(1.875rem, 1.5rem + 2vw, 3.5rem);
+  --font-3xl: clamp(2.25rem, 1.75rem + 2.5vw, 4.5rem);
+  --font-4xl: clamp(2.75rem, 2rem + 3.75vw, 6rem);
+  --font-5xl: clamp(3.5rem, 2.5rem + 5vw, 8rem);
+  
+  /* Fluid spacing - works everywhere */
+  --space-3xs: clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem);
+  --space-2xs: clamp(0.5rem, 0.4rem + 0.5vw, 1rem);
+  --space-xs: clamp(0.75rem, 0.6rem + 0.75vw, 1.5rem);
+  --space-sm: clamp(1rem, 0.8rem + 1vw, 2rem);
+  --space-md: clamp(1.5rem, 1rem + 2vw, 3rem);
+  --space-lg: clamp(2rem, 1.5rem + 2.5vw, 4rem);
+  --space-xl: clamp(3rem, 2rem + 5vw, 6rem);
+  --space-2xl: clamp(4rem, 3rem + 5vw, 8rem);
+  --space-3xl: clamp(6rem, 4rem + 10vw, 12rem);
+  
+  /* Fluid containers - percentage-based for ultimate flexibility */
+  --container-fluid: clamp(85%, 90vw, 98%);
+  --container-narrow: clamp(280px, 90%, 640px);
+  --container-reading: clamp(280px, 85%, 720px);
+  --container-normal: clamp(280px, 92%, 1600px);
+  --container-wide: clamp(280px, 94%, 2400px);
+  --container-ultra: clamp(280px, 96%, 3600px);
+  
+  /* Fluid grid gaps */
+  --gap-xs: clamp(0.5rem, 1vw, 1rem);
+  --gap-sm: clamp(0.75rem, 1.5vw, 1.5rem);
+  --gap-md: clamp(1rem, 2vw, 2rem);
+  --gap-lg: clamp(1.5rem, 3vw, 3rem);
+  --gap-xl: clamp(2rem, 4vw, 4rem);
+  
+  /* Fluid border radius */
+  --radius-sm: clamp(4px, 0.5vw, 8px);
+  --radius-md: clamp(8px, 1vw, 16px);
+  --radius-lg: clamp(12px, 1.5vw, 24px);
+  --radius-xl: clamp(16px, 2vw, 32px);
+}
+
+/* ====================================
+   ADAPTIVE BASE STYLES
+   ==================================== */
+
+html {
+  font-size: clamp(14px, 0.875rem + 0.5vw, 18px);
+  line-height: 1.6;
+}
+
+body {
+  font-size: var(--font-base);
+  padding-inline: var(--space-2xs);
+}
+
+/* Fluid typography system */
+h1, .h1 { font-size: var(--font-4xl); line-height: 1.1; }
+h2, .h2 { font-size: var(--font-3xl); line-height: 1.2; }
+h3, .h3 { font-size: var(--font-2xl); line-height: 1.3; }
+h4, .h4 { font-size: var(--font-xl); line-height: 1.4; }
+h5, .h5 { font-size: var(--font-lg); line-height: 1.5; }
+h6, .h6 { font-size: var(--font-md); line-height: 1.5; }
+
+p, .p { 
+  font-size: var(--font-base);
+  line-height: 1.7;
+  max-width: 75ch; /* Optimal reading width regardless of screen */
+}
+
+/* Fluid container system - works on ANY device */
+.container-supreme,
+.container-flex,
+.adaptive-container {
+  width: var(--container-normal);
+  margin-inline: auto;
+  padding-inline: var(--space-sm);
+}
+
+.container-supreme--narrow { width: var(--container-narrow); }
+.container-supreme--reading { width: var(--container-reading); }
+.container-supreme--wide { width: var(--container-wide); }
+.container-supreme--ultra { width: var(--container-ultra); }
+.container-supreme--fluid { width: var(--container-fluid); }
+
+/* ====================================
+   ASPECT RATIO CONTAINERS
+   Perfect for gaming consoles & TVs
+   ==================================== */
+
+.aspect-16x9 {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+.aspect-21x9 {
+  aspect-ratio: 21 / 9; /* Ultrawide */
+  width: 100%;
+}
+
+.aspect-32x9 {
+  aspect-ratio: 32 / 9; /* Super ultrawide */
+  width: 100%;
+}
+
+.aspect-4x3 {
+  aspect-ratio: 4 / 3; /* Classic displays */
+  width: 100%;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
+
+/* ====================================
+   FLUID GRID SYSTEM
+   Auto-fits to ANY screen size
+   ==================================== */
+
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: var(--gap-md);
+}
+
+.grid-auto-fill {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: var(--gap-md);
+}
+
+/* Responsive columns without breakpoints */
+.grid-fluid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(280px, 45%, 600px), 1fr));
+  gap: var(--gap-md);
+}
+
+.grid-fluid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(240px, 30%, 400px), 1fr));
+  gap: var(--gap-md);
+}
+
+.grid-fluid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 22%, 320px), 1fr));
+  gap: var(--gap-sm);
+}
+
+/* ====================================
+   ORIENTATION-AWARE LAYOUTS
+   ==================================== */
+
+@media (orientation: portrait) {
+  :root {
+    --orientation-columns: 1;
+    --orientation-gap: var(--gap-sm);
+    --hero-height: 60vh;
+  }
+  
+  .orientation-aware {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (orientation: landscape) {
+  :root {
+    --orientation-columns: 2;
+    --orientation-gap: var(--gap-lg);
+    --hero-height: 85vh;
+  }
+  
+  .orientation-aware {
+    grid-template-columns: repeat(auto-fit, minmax(clamp(300px, 40%, 600px), 1fr));
+  }
+}
+
+/* ====================================
+   VIEWPORT-AWARE SECTIONS
+   ==================================== */
+
+.hero-fluid {
+  min-height: clamp(400px, 60vh, 900px);
+  padding-block: var(--space-xl);
+}
+
+.section-fluid {
+  padding-block: var(--space-lg);
+  padding-inline: var(--space-sm);
+}
+
+/* ====================================
+   CONSOLE-SPECIFIC OPTIMIZATIONS
+   ==================================== */
+
+/* Nintendo Switch (1280x720 docked, 1280x720 handheld) */
+@media (min-width: 1200px) and (max-width: 1366px) and (max-height: 768px) {
+  :root {
+    --console-font-scale: 1.05;
+    --console-spacing: var(--space-md);
+  }
+  
+  body {
+    font-size: calc(var(--font-base) * var(--console-font-scale));
+  }
+  
+  .container-supreme {
+    width: 96%;
+  }
+}
+
+/* Steam Deck (1280x800) */
+@media (min-width: 1200px) and (max-width: 1366px) and (min-height: 750px) and (max-height: 850px) {
+  :root {
+    --console-font-scale: 1.1;
+  }
+  
+  .grid-auto-fit,
+  .grid-fluid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(clamp(280px, 40%, 500px), 1fr));
+  }
+}
+
+/* Smart TV 1080p (1920x1080) */
+@media (min-width: 1800px) and (max-width: 2048px) and (min-height: 1000px) {
+  :root {
+    --tv-font-scale: 1.25;
+    --tv-spacing: var(--space-xl);
+  }
+  
+  body {
+    font-size: calc(var(--font-base) * var(--tv-font-scale));
+  }
+  
+  .container-supreme {
+    width: var(--container-wide);
+    padding-inline: var(--space-lg);
+  }
+  
+  /* Larger touch targets for TV remotes */
+  button,
+  .btn,
+  a {
+    min-height: 56px;
+    padding-inline: var(--space-md);
+  }
+}
+
+/* Smart TV 4K (3840x2160) */
+@media (min-width: 3600px) {
+  :root {
+    --tv-4k-scale: 1.5;
+  }
+  
+  html {
+    font-size: 20px;
+  }
+  
+  .container-supreme {
+    width: var(--container-ultra);
+  }
+  
+  /* Extra large touch targets */
+  button,
+  .btn,
+  a {
+    min-height: 72px;
+    font-size: var(--font-lg);
+  }
+}
+
+/* ====================================
+   FOLDABLE & DUAL-SCREEN DEVICES
+   ==================================== */
+
+/* Galaxy Z Fold unfolded (1768x2208) */
+@media (min-width: 1700px) and (max-width: 1850px) and (orientation: portrait) {
+  :root {
+    --fold-columns: 2;
+  }
+  
+  .fold-aware {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap-lg);
+  }
+}
+
+/* Surface Duo dual-screen */
+@media (min-width: 1350px) and (max-width: 1450px) and (orientation: landscape) {
+  .dual-screen-aware {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2xl);
+  }
+}
+
+/* ====================================
+   VERTICAL/PORTRAIT MONITORS
+   ==================================== */
+
+@media (min-width: 1000px) and (orientation: portrait) {
+  .container-supreme {
+    width: 85%;
+    max-width: 900px;
+  }
+  
+  .vertical-optimize {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-lg);
+  }
+}
+
+/* ====================================
+   ULTRA-WIDE MONITORS (21:9, 32:9)
+   ==================================== */
+
+@media (min-aspect-ratio: 21/9) {
+  .container-supreme {
+    width: var(--container-ultra);
+  }
+  
+  .ultrawide-split {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--gap-xl);
+  }
+  
+  .grid-fluid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(clamp(320px, 25%, 480px), 1fr));
+  }
+}
+
+@media (min-aspect-ratio: 32/9) {
+  .grid-fluid-4 {
+    grid-template-columns: repeat(auto-fit, minmax(clamp(280px, 20%, 400px), 1fr));
+  }
+  
+  .super-ultrawide-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap-lg);
+  }
+}
+
+/* ====================================
+   ACCESSIBILITY - Respects User Preferences
+   ==================================== */
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast */
+@media (prefers-contrast: high) {
+  :root {
+    --border-width: 2px;
+  }
+  
+  button,
+  .btn,
+  .card {
+    border: var(--border-width) solid currentColor;
+  }
+}
+
+/* Increased font size preference */
+@media (prefers-reduced-data: reduce) {
+  /* Lighter weight images and effects */
+  img {
+    content-visibility: auto;
+  }
+}
+
+/* ====================================
+   PRINT OPTIMIZATION
+   ==================================== */
+
+@media print {
+  :root {
+    --print-font: 12pt;
+  }
+  
+  body {
+    font-size: var(--print-font);
+    color: #000;
+    background: #fff;
+  }
+  
+  .container-supreme {
+    width: 100%;
+    max-width: none;
+  }
+  
+  /* Hide non-essential elements */
+  nav,
+  .mobile-nav,
+  .sticky-cta-bar,
+  .a11y-toolbar,
+  footer {
+    display: none;
+  }
+}
+
+/* ====================================
+   UTILITY CLASSES - Fluid Spacing
+   ==================================== */
+
+.p-fluid { padding: var(--space-sm); }
+.p-fluid-lg { padding: var(--space-lg); }
+.px-fluid { padding-inline: var(--space-sm); }
+.py-fluid { padding-block: var(--space-sm); }
+
+.m-fluid { margin: var(--space-sm); }
+.m-fluid-lg { margin: var(--space-lg); }
+.mx-fluid { margin-inline: var(--space-sm); }
+.my-fluid { margin-block: var(--space-sm); }
+
+.gap-fluid { gap: var(--gap-md); }
+.gap-fluid-sm { gap: var(--gap-sm); }
+.gap-fluid-lg { gap: var(--gap-lg); }
+
+/* Fluid max-widths */
+.max-w-reading { max-width: var(--container-reading); }
+.max-w-normal { max-width: var(--container-normal); }
+.max-w-wide { max-width: var(--container-wide); }
+.max-w-ultra { max-width: var(--container-ultra); }
+
+/* Center alignment */
+.mx-auto { margin-inline: auto; }

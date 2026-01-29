@@ -1,0 +1,134 @@
+{% comment %}
+  Unified Tillerstead Navigation System
+  Data-driven from _data/navigation.yml
+  Desktop: Elegant horizontal menu with dropdowns
+  Mobile: Beautiful right-side drawer with accordions
+{% endcomment %}
+
+<!-- Desktop Navigation -->
+<nav class="ts-nav" aria-label="Primary Navigation">
+  <ul class="ts-nav__list" role="menubar">
+    {% for item in site.data.navigation.primary %}
+    <li class="ts-nav__item {% if item.has_dropdown %}ts-nav__item--dropdown{% endif %} {% if item.cta %}ts-nav__item--cta{% endif %}" role="none">
+      
+      {% if item.has_dropdown %}
+        <!-- Dropdown Trigger -->
+        <button type="button" 
+                class="ts-nav__link ts-nav__trigger" 
+                aria-expanded="false" 
+                aria-controls="dropdown-{{ item.id }}" 
+                aria-haspopup="menu"
+                role="menuitem">
+          <span class="ts-nav__text">{{ item.title }}</span>
+          <svg class="ts-nav__arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 12 12">
+            <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </button>
+        
+        <!-- Dropdown Menu -->
+        <ul id="dropdown-{{ item.id }}" class="ts-nav__dropdown" role="menu">
+          {% for child in item.children %}
+          <li class="ts-nav__dropdown-item {% if child.featured %}ts-nav__dropdown-item--featured{% endif %}" role="none">
+            <a href="{{ child.url }}" role="menuitem">
+              {% if child.icon %}<span class="ts-nav__icon">{{ child.icon }}</span>{% endif %}
+              <span class="ts-nav__dropdown-text">
+                {% if child.featured %}<strong>{{ child.title }}</strong>{% else %}{{ child.title }}{% endif %}
+                {% if child.subtitle %}<small>{{ child.subtitle }}</small>{% endif %}
+              </span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <!-- Regular Link -->
+        <a href="{{ item.url }}" class="ts-nav__link {% if item.cta %}ts-nav__link--cta{% endif %}" role="menuitem">
+          <span class="ts-nav__text">{{ item.title }}</span>
+        </a>
+      {% endif %}
+      
+    </li>
+    {% endfor %}
+  </ul>
+</nav>
+
+<!-- Mobile Menu Toggle -->
+<button type="button" 
+        class="ts-nav-toggle" 
+        aria-expanded="false" 
+        aria-controls="ts-mobile-nav" 
+        aria-label="Open navigation menu">
+  <span class="ts-hamburger" aria-hidden="true">
+    <span class="ts-hamburger__line"></span>
+    <span class="ts-hamburger__line"></span>
+    <span class="ts-hamburger__line"></span>
+  </span>
+</button>
+
+<!-- Mobile Navigation Drawer -->
+<div id="ts-mobile-nav" class="ts-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true">
+  
+  <!-- Drawer Header -->
+  <div class="ts-drawer__header">
+    <div class="ts-drawer__branding">
+      <img src="/assets/img/logo/logo-header@2x.webp" alt="Tillerstead" class="ts-drawer__logo" width="48" height="48"/>
+      <span class="ts-drawer__title">Menu</span>
+    </div>
+    <button type="button" class="ts-drawer__close" aria-label="Close navigation menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  
+  <!-- Drawer Navigation -->
+  <nav class="ts-drawer__body" aria-label="Mobile Navigation">
+    <ul class="ts-drawer__list">
+      {% for item in site.data.navigation.primary %}
+      <li class="ts-drawer__item {% if item.has_dropdown %}ts-drawer__item--accordion{% endif %}">
+        
+        {% if item.has_dropdown %}
+          <!-- Accordion Trigger -->
+          <button type="button" 
+                  class="ts-drawer__link ts-drawer__accordion-trigger" 
+                  aria-expanded="false" 
+                  aria-controls="mobile-accordion-{{ item.id }}">
+            <span class="ts-drawer__text">{{ item.title }}</span>
+            <svg class="ts-drawer__chevron" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
+              <path d="M7 8l3 3 3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </button>
+          
+          <!-- Accordion Panel -->
+          <ul id="mobile-accordion-{{ item.id }}" class="ts-drawer__accordion" role="region" hidden>
+            {% for child in item.children %}
+            <li class="ts-drawer__accordion-item {% if child.featured %}ts-drawer__accordion-item--featured{% endif %}">
+              <a href="{{ child.url }}">
+                {% if child.icon %}<span class="ts-nav__icon">{{ child.icon }}</span>{% endif %}
+                {% if child.featured %}<strong>{{ child.title }}</strong>{% else %}{{ child.title }}{% endif %}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <!-- Regular Link -->
+          <a href="{{ item.url }}" class="ts-drawer__link {% if item.cta %}ts-drawer__link--cta{% endif %}">
+            <span class="ts-drawer__text">{{ item.title }}</span>
+          </a>
+        {% endif %}
+        
+      </li>
+      {% endfor %}
+    </ul>
+    
+    <!-- Mobile Footer Actions -->
+    <div class="ts-drawer__footer">
+      <a href="/for-general-contractors/" class="ts-drawer__secondary-link">For Contractors</a>
+      <div class="ts-drawer__trust">
+        <span class="ts-drawer__license">NJ HIC #13VH10808800</span>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Backdrop Overlay -->
+  <div class="ts-drawer__overlay" aria-hidden="true"></div>
+</div>

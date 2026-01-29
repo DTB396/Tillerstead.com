@@ -1,0 +1,653 @@
+/* ============================================
+   Tillerstead Navigation System
+   Beautiful desktop menu + mobile drawer
+   ============================================ */
+
+/* ============================================
+   DESKTOP NAVIGATION (769px+)
+   ============================================ */
+
+.ts-nav {
+  display: none;
+  flex: 1;
+  justify-content: center;
+}
+
+@media (min-width: 769px) {
+  .ts-nav {
+    display: flex;
+  }
+  
+  .ts-nav-toggle {
+    display: none;
+  }
+}
+
+/* Navigation List */
+.ts-nav__list {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.25rem, 0.8vw, 0.75rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation Items */
+.ts-nav__item {
+  position: relative;
+}
+
+/* Navigation Links */
+.ts-nav__link {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.625rem clamp(0.75rem, 1.2vw, 1.25rem);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: clamp(0.875rem, 0.9vw, 0.9375rem);
+  border-radius: var(--radius-md, 8px);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Effect - Elegant Glow */
+.ts-nav__link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+
+.ts-nav__link:hover::before,
+.ts-nav__link:focus::before {
+  opacity: 1;
+}
+
+/* Underline Effect */
+.ts-nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: calc(100% - 1.5rem);
+  height: 2px;
+  background: var(--accent-500, #c5914d);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: 2px;
+}
+
+.ts-nav__link:hover::after,
+.ts-nav__link:focus::after,
+.ts-nav__trigger[aria-expanded="true"]::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.ts-nav__link:hover {
+  color: var(--accent-400, #f5d48d);
+}
+
+/* CTA Button Style */
+.ts-nav__item--cta .ts-nav__link {
+  background: linear-gradient(135deg, var(--accent-500, #c5914d), var(--accent-600, #b07c3a));
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(197, 145, 77, 0.3);
+  border: 2px solid transparent;
+}
+
+.ts-nav__item--cta .ts-nav__link::before,
+.ts-nav__item--cta .ts-nav__link::after {
+  display: none;
+}
+
+.ts-nav__item--cta .ts-nav__link:hover {
+  background: linear-gradient(135deg, var(--accent-600, #b07c3a), #976715);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(197, 145, 77, 0.4);
+  color: #ffffff;
+}
+
+/* Dropdown Arrow */
+.ts-nav__arrow {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex-shrink: 0;
+}
+
+.ts-nav__trigger[aria-expanded="true"] .ts-nav__arrow {
+  transform: rotate(180deg);
+}
+
+/* ============================================
+   DROPDOWN MENUS
+   ============================================ */
+
+.ts-nav__dropdown {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  min-width: 280px;
+  background: #ffffff;
+  border: 2px solid var(--accent-500, #c5914d);
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: var(--z-dropdown, 1000);
+}
+
+/* Dropdown Arrow/Triangle */
+.ts-nav__dropdown::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid var(--accent-500, #c5914d);
+}
+
+.ts-nav__dropdown::after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-bottom: 9px solid #ffffff;
+}
+
+/* Show Dropdown */
+.ts-nav__trigger[aria-expanded="true"] + .ts-nav__dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Dropdown Items */
+.ts-nav__dropdown-item {
+  margin: 0;
+}
+
+.ts-nav__dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1rem;
+  color: var(--neutral-900, #1a1a1a);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  border-radius: var(--radius-md, 8px);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dropdown Item Hover Effect */
+.ts-nav__dropdown a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--primary-500, #00a35c);
+  transform: scaleY(0);
+  transition: transform 0.2s ease;
+}
+
+.ts-nav__dropdown a:hover::before {
+  transform: scaleY(1);
+}
+
+.ts-nav__dropdown a:hover {
+  background: var(--primary-50, #f0fdf8);
+  color: var(--primary-700, #00703e);
+  padding-left: 1.25rem;
+}
+
+/* Featured Item (TillerPro) */
+.ts-nav__dropdown-item--featured a {
+  background: linear-gradient(135deg, var(--accent-500, #c5914d), var(--accent-600, #b07c3a));
+  color: #ffffff;
+  font-weight: 600;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 8px rgba(197, 145, 77, 0.3);
+}
+
+.ts-nav__dropdown-item--featured a::before {
+  display: none;
+}
+
+.ts-nav__dropdown-item--featured a:hover {
+  background: linear-gradient(135deg, var(--accent-600, #b07c3a), #976715);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(197, 145, 77, 0.4);
+  padding-left: 1rem;
+}
+
+.ts-nav__icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.ts-nav__dropdown-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.ts-nav__dropdown-text small {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+/* ============================================
+   MOBILE NAVIGATION TOGGLE (< 769px)
+   ============================================ */
+
+.ts-nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  z-index: 1001;
+}
+
+@media (min-width: 769px) {
+  .ts-nav-toggle {
+    display: none;
+  }
+}
+
+/* Hamburger Icon */
+.ts-hamburger {
+  width: 24px;
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.ts-hamburger__line {
+  width: 100%;
+  height: 2.5px;
+  background: #ffffff;
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center;
+}
+
+/* Hamburger Animation */
+.ts-nav-toggle[aria-expanded="true"] .ts-hamburger__line:nth-child(1) {
+  transform: translateY(7.75px) rotate(45deg);
+}
+
+.ts-nav-toggle[aria-expanded="true"] .ts-hamburger__line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.ts-nav-toggle[aria-expanded="true"] .ts-hamburger__line:nth-child(3) {
+  transform: translateY(-7.75px) rotate(-45deg);
+}
+
+/* ============================================
+   MOBILE DRAWER (< 769px)
+   ============================================ */
+
+.ts-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: min(400px, 85vw);
+  height: 100vh;
+  background: var(--surface-cream, #fefbf6);
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.2);
+  z-index: var(--z-modal, 2000);
+  transition: right 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 769px) {
+  .ts-drawer {
+    display: none;
+  }
+}
+
+/* Drawer Open State */
+.ts-drawer[aria-hidden="false"] {
+  right: 0;
+}
+
+/* Drawer Overlay */
+.ts-drawer__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1999;
+  pointer-events: none;
+}
+
+.ts-drawer[aria-hidden="false"] .ts-drawer__overlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Drawer Header */
+.ts-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, var(--primary-500, #00a35c), var(--primary-700, #00703e));
+  border-bottom: 3px solid var(--accent-500, #c5914d);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ts-drawer__branding {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ts-drawer__logo {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md, 8px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ts-drawer__title {
+  font-family: var(--font-display, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.ts-drawer__close {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: var(--radius-md, 8px);
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ts-drawer__close:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: rotate(90deg);
+}
+
+/* Drawer Body */
+.ts-drawer__body {
+  flex: 1;
+  padding: 1rem 0;
+  overflow-y: auto;
+}
+
+/* Drawer List */
+.ts-drawer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Drawer Items */
+.ts-drawer__item {
+  margin: 0;
+}
+
+/* Drawer Links */
+.ts-drawer__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  color: var(--neutral-900, #1a1a1a);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+  position: relative;
+}
+
+.ts-drawer__link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--primary-50, #f0fdf8), transparent);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.ts-drawer__link:hover::before,
+.ts-drawer__accordion-trigger[aria-expanded="true"]::before {
+  opacity: 1;
+}
+
+.ts-drawer__link:hover,
+.ts-drawer__accordion-trigger[aria-expanded="true"] {
+  border-left-color: var(--primary-500, #00a35c);
+  color: var(--primary-700, #00703e);
+}
+
+/* Chevron Icon */
+.ts-drawer__chevron {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex-shrink: 0;
+}
+
+.ts-drawer__accordion-trigger[aria-expanded="true"] .ts-drawer__chevron {
+  transform: rotate(180deg);
+}
+
+/* Accordion Panel */
+.ts-drawer__accordion {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--neutral-50, #f8f8f8);
+  border-left: 3px solid var(--primary-500, #00a35c);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ts-drawer__accordion:not([hidden]) {
+  max-height: 600px;
+}
+
+.ts-drawer__accordion-item a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem 0.875rem 2.5rem;
+  color: var(--neutral-700, #404040);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.ts-drawer__accordion-item a:hover {
+  color: var(--primary-700, #00703e);
+  background: var(--primary-50, #f0fdf8);
+  border-left-color: var(--accent-500, #c5914d);
+  padding-left: 2.75rem;
+}
+
+/* Featured Accordion Item */
+.ts-drawer__accordion-item--featured a {
+  background: linear-gradient(135deg, var(--accent-500, #c5914d), var(--accent-600, #b07c3a));
+  color: #ffffff;
+  font-weight: 600;
+  margin: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  border-radius: var(--radius-md, 8px);
+  border-left: none;
+  box-shadow: 0 2px 8px rgba(197, 145, 77, 0.3);
+}
+
+.ts-drawer__accordion-item--featured a:hover {
+  background: linear-gradient(135deg, var(--accent-600, #b07c3a), #976715);
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(197, 145, 77, 0.4);
+  padding-left: 1.5rem;
+}
+
+/* CTA Link in Drawer */
+.ts-drawer__link--cta {
+  background: linear-gradient(135deg, var(--accent-500, #c5914d), var(--accent-600, #b07c3a));
+  color: #ffffff;
+  margin: 0.75rem 1.5rem;
+  border-radius: var(--radius-lg, 12px);
+  text-align: center;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(197, 145, 77, 0.3);
+  border: none;
+}
+
+.ts-drawer__link--cta::before {
+  display: none;
+}
+
+.ts-drawer__link--cta:hover {
+  background: linear-gradient(135deg, var(--accent-600, #b07c3a), #976715);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(197, 145, 77, 0.4);
+  color: #ffffff;
+  border: none;
+}
+
+/* Drawer Footer */
+.ts-drawer__footer {
+  padding: 1.5rem;
+  border-top: 2px solid var(--neutral-100, #e8e8e8);
+  background: var(--neutral-50, #f8f8f8);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ts-drawer__secondary-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  color: var(--primary-700, #00703e);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border: 2px solid var(--primary-500, #00a35c);
+  border-radius: var(--radius-md, 8px);
+  transition: all 0.2s ease;
+}
+
+.ts-drawer__secondary-link:hover {
+  background: var(--primary-500, #00a35c);
+  color: #ffffff;
+}
+
+.ts-drawer__trust {
+  text-align: center;
+}
+
+.ts-drawer__license {
+  font-size: 0.8125rem;
+  color: var(--neutral-600, #666666);
+  font-weight: 500;
+}
+
+/* ============================================
+   BODY SCROLL LOCK
+   ============================================ */
+
+body.nav-open {
+  overflow: hidden;
+}
+
+/* ============================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================ */
+
+.ts-nav__link:focus,
+.ts-drawer__link:focus,
+.ts-nav-toggle:focus,
+.ts-drawer__close:focus {
+  outline: 2px solid var(--accent-500, #c5914d);
+  outline-offset: 2px;
+}
+
+/* Skip to content for keyboard users */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  z-index: 9999;
+  padding: 1rem;
+  background: var(--primary-500, #00a35c);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.skip-to-content:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1rem;
+}

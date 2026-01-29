@@ -11,7 +11,7 @@
   --color-dark: #1f2937;
   --color-light: #f9fafb;
   --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --max-width: 1400px;
+  --max-width: min(94%, 1800px);
 }
 
 /* Reset & Base (critical only) */

@@ -62,57 +62,55 @@ keywords: "tile contractor South Jersey, waterproofing contractor NJ, bathroom r
 
 {% assign data = site.data.home %}
 
-<!-- Hero Section - Above the Fold Priority with Gradient Mesh -->
-<div class="gradient-mesh">
-<section id="hero" aria-label="Welcome to Tillerstead" class="page-depth hero-3d" data-animate="fade">
+<!-- Hero Section - Above the Fold Priority -->
+<section id="hero" aria-label="Welcome to Tillerstead" class="page-depth hero-3d scroll-fade-in">
 {% include hero/unified-hero-home.html %}
 </section>
-</div>
 
 <!-- Trust Bar - Immediate Credibility (Critical for Conversion) -->
 {% if data.trust_bar %}
-<section id="trust" aria-label="{{ data.trust_bar.aria_label | default: 'Credentials and protections' }}" data-animate="fade-up" data-delay="100">
+<section id="trust" aria-label="{{ data.trust_bar.aria_label | default: 'Credentials and protections' }}" class="scroll-fade-in">
 {% include sections/section-trust-bar.html data=data.trust_bar %}
 </section>
 {% endif %}
 
 <!-- Services Section - Core Value Proposition -->
-<section id="services" aria-labelledby="services-heading" data-animate="fade-up" data-delay="200">
+<section id="services" aria-labelledby="services-heading" class="scroll-scale-in">
 {% include sections/section-services.html data=data.services %}
 </section>
 
 <!-- Testimonials Section - Social Proof (Moved Higher for Impact) -->
-<section id="testimonials" aria-labelledby="testimonials-heading" data-animate="fade-up">
+<section id="testimonials" aria-labelledby="testimonials-heading" class="scroll-fade-in">
 {% include sections/section-testimonials.html data=data.testimonials %}
 </section>
 
 <!-- Why Choose Us - Competitive Differentiation -->
 {% if data.why_us %}
-<section id="why-us" aria-labelledby="why-us-heading" data-animate="fade-up" data-delay="100">
+<section id="why-us" aria-labelledby="why-us-heading" class="scroll-scale-in">
 {% include sections/section-why-us.html data=data.why_us %}
 </section>
 {% endif %}
 
 <!-- Process Section - Reduce Anxiety, Build Confidence -->
-<section id="process" aria-labelledby="process-heading" data-animate="fade-up">
+<section id="process" aria-labelledby="process-heading" class="scroll-fade-in">
 {% include sections/section-process.html data=data.process %}
 </section>
 
 <!-- Portfolio/Gallery - Visual Social Proof -->
 {% if data.portfolio %}
-<section id="portfolio" aria-labelledby="portfolio-heading" loading="lazy" data-animate="scale" data-delay="200">
+<section id="portfolio" aria-labelledby="portfolio-heading" loading="lazy" class="scroll-scale-in">
 {% include sections/section-portfolio.html data=data.portfolio %}
 </section>
 {% endif %}
 
 <!-- Materials Section - Technical Authority & Trust -->
-<section id="materials" aria-labelledby="materials-heading" data-animate="fade-up">
+<section id="materials" aria-labelledby="materials-heading" class="scroll-fade-in">
 {% include sections/section-materials.html data=data.materials %}
 </section>
 
 <!-- FAQ Section - Objection Handling -->
 {% if data.faq %}
-<section id="faq" aria-labelledby="faq-heading" data-animate="fade-up">
+<section id="faq" aria-labelledby="faq-heading" class="scroll-scale-in">
 {% include sections/section-faq.html data=data.faq %}
 </section>
 {% endif %}

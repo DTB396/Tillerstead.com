@@ -146,7 +146,7 @@
  */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
   :root {
-    --container-max-width: 720px;
+    --container-max-width: 92%;
     --section-spacing: 5rem;
     --grid-gap: 2rem;
   }
@@ -227,7 +227,7 @@
  */
 @media (min-width: 1024px) and (max-width: 1366px) {
   :root {
-    --container-max-width: 1200px;
+    --container-max-width: min(92%, 1600px);
     --section-spacing: 6rem;
     --grid-gap: 2.5rem;
   }
@@ -299,7 +299,7 @@
  */
 @media (min-width: 1440px) and (max-width: 1920px) {
   :root {
-    --container-max-width: 1320px;
+    --container-max-width: min(92%, 1800px);
     --section-spacing: 8rem;
     --grid-gap: 3rem;
   }
@@ -387,7 +387,7 @@
  */
 @media (min-width: 2560px) {
   :root {
-    --container-max-width: min(90%, 2400px);
+    --container-max-width: min(94%, 3200px);
     --section-spacing: 10rem;
     --grid-gap: 4rem;
     --font-size-base: 1.125rem;
